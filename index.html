@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>21cmFAST 预计算参数图谱</title>
-  <link rel="stylesheet" href="styles.css?v=lf-v3">
+  <link rel="stylesheet" href="styles.css?v=ionization-v4">
 </head>
 <body>
   <header class="topbar">
@@ -115,6 +115,14 @@
             <div class="slice-frame"><canvas id="density-slice"></canvas></div>
             <div class="color-legend slice-legend density-legend"><span>δ = −0.9</span><i></i><span>δ = +10</span></div>
           </section>
+          <section class="field-panel">
+            <div class="field-heading">
+              <div><strong>x_HII</strong><span>电离氢分数 x<sub>HII</sub> = 1 − x<sub>HI</sub></span></div>
+              <output id="slice-ionization-range">—</output>
+            </div>
+            <div class="slice-frame"><canvas id="ionization-slice"></canvas></div>
+            <div class="color-legend slice-legend ionization-legend"><span>0 · 中性</span><i></i><span>1 · 完全电离</span></div>
+          </section>
         </div>
       </article>
 
@@ -155,6 +163,6 @@
     <span>HII_DIM = 64 · BOX_LEN = 250 cMpc · matched seed</span>
     <span>z = 35 → 6</span>
   </footer>
-  <script src="app.js?v=lf-v3"></script>
+  <script src="app.js?v=ionization-v4"></script>
 </body>
 </html>

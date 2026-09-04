@@ -1,6 +1,6 @@
 {
   "baseline_run_id": "run_1bc84fcee7f1",
-  "built_at_utc": "2026-09-04T08:49:24.455409+00:00",
+  "built_at_utc": "2026-09-04T10:50:51.836566+00:00",
   "cosmology": {
     "OMb": 0.0484,
     "OMm": 0.308,
@@ -15,6 +15,7 @@
     "density_definition": "delta = rho / mean(rho) - 1",
     "field": "exact_central_lightcone_slice",
     "field_quantization_mK": 0.1,
+    "ionized_fraction_definition": "x_HII = 1 - x_HI",
     "luminosity_function": "21cmFAST UV LF at field-slice redshifts",
     "luminosity_function_muv_range": [
       -24.0,
@@ -23,7 +24,8 @@
     "primordial": "complete_5_by_5_KP_MS_grid_at_baseline_astrophysics",
     "redshift_slice_fields": [
       "brightness_temp",
-      "density"
+      "density",
+      "x_HII"
     ],
     "redshift_slices": "32_exact_lightcone_xy_planes_per_run"
   },
@@ -41,22 +43,24 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "7b7e63c1550cb841347affbf81b3793fba00045a20e2e1fce1c22a824b8f1932",
+      "raw_sha256": "431b1890e0bc156ed8a2a6d7c261ea89a043594d052066877eed13d0dbc9f7a6",
       "role": {
         "kind": "baseline"
       },
       "run_id": "run_1bc84fcee7f1",
       "summary": {
-        "elapsed_seconds": 166.25351198692806,
+        "elapsed_seconds": 196.77039632899687,
         "lightcone_max_mk": 13.511042594909668,
         "lightcone_min_mk": -118.7591323852539,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00019288063049316406,
         "trough_brightness_mk": -106.95680236816406,
         "trough_redshift": 19.80209331677363
       },
-      "web_sha256": "c2e605757416b6fff9480758712d5f28ad3fb541d915b4944aa51dc91966ed3f"
+      "web_sha256": "37acade90b2822c7898b48175a3d9583cb2f26b49232eda91864c940ff1c0925"
     },
     {
       "parameters": {
@@ -71,7 +75,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "b685a83ac1e9e54a8da56938b3755e87e8a6e3ef834a62b5e9cad6b6e1137674",
+      "raw_sha256": "ccb57c7161438e306dcc68da790298807796fa2eb572e5ba82e7fdbf8b0bf95f",
       "role": {
         "kind": "astro_oat",
         "parameter": "F_STAR10",
@@ -79,16 +83,18 @@
       },
       "run_id": "run_25d5d5874b08",
       "summary": {
-        "elapsed_seconds": 163.23556765494868,
+        "elapsed_seconds": 211.87736698496155,
         "lightcone_max_mk": 31.329978942871094,
         "lightcone_min_mk": -100.890380859375,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 0.4946996569633484,
+        "slice_ionized_fraction_min": 0.00019115209579467773,
         "trough_brightness_mk": -66.67852020263672,
         "trough_redshift": 11.933114213371297
       },
-      "web_sha256": "c3866b7571267b47f27bd3801f53a4675e7668c82de3433b90b8ef25cdebb76a"
+      "web_sha256": "3160c5b5546f5bb7901ef8433f8b65e85b2309712007c5ad3c4876e6a0ce6b8b"
     },
     {
       "parameters": {
@@ -103,7 +109,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "3791fff6dc4c5e600fcdb48120e39fe3e7fcc29b181904a8b9e9f80d8197b8bb",
+      "raw_sha256": "017123fdcbe73c5d25ff1b74e811fcd1ed288b1c88b0ca15935f1deaeaacf5b6",
       "role": {
         "kind": "astro_oat",
         "parameter": "F_STAR10",
@@ -111,16 +117,18 @@
       },
       "run_id": "run_b4c2f53a6835",
       "summary": {
-        "elapsed_seconds": 165.97183565306477,
+        "elapsed_seconds": 214.5976539340336,
         "lightcone_max_mk": 16.21213150024414,
         "lightcone_min_mk": -118.82567596435547,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00019156932830810547,
         "trough_brightness_mk": -96.91999053955078,
         "trough_redshift": 16.4062640533799
       },
-      "web_sha256": "b3100bceb13098a31ec92635a1aaafcdd312cff6d1abced4d302b1bcc37b373e"
+      "web_sha256": "810a4c33b6dbe6eb74d361ba914a952115159e6a40102a8a4d894a70e7a10a8e"
     },
     {
       "parameters": {
@@ -135,7 +143,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "c4f01d7f9378ec41721058947d7dbd081594f5f8ae8348f84d0702c3d8ed8541",
+      "raw_sha256": "55adad2e1282b23d67ac364baf3aacc54f595d05b0004a8aff42b9bbce17cd67",
       "role": {
         "kind": "astro_oat",
         "parameter": "F_STAR10",
@@ -143,16 +151,18 @@
       },
       "run_id": "run_20f569350ad0",
       "summary": {
-        "elapsed_seconds": 167.42470454704016,
+        "elapsed_seconds": 216.81738861394115,
         "lightcone_max_mk": 13.657212257385254,
         "lightcone_min_mk": -120.75860595703125,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.0001964569091796875,
         "trough_brightness_mk": -110.97762298583984,
         "trough_redshift": 22.426533106986874
       },
-      "web_sha256": "c75cd02381d80a6a5b904f6cb930e657a901492d5b8c3c9f280bf9fe2c56b743"
+      "web_sha256": "d3353efb354db81c12955af9a9dab8aaaef643f126d0131f9233463714139632"
     },
     {
       "parameters": {
@@ -167,7 +177,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "8b18174566eb5269cb5d01f2d89e9baaed7a345477893e0ea7bb13caa3928cac",
+      "raw_sha256": "9639a66a6cf97dd58c03a7a8824754d6f35c7c472c48163fe6c1d8f815ba3517",
       "role": {
         "kind": "astro_oat",
         "parameter": "F_STAR10",
@@ -175,16 +185,18 @@
       },
       "run_id": "run_0713be9d20dc",
       "summary": {
-        "elapsed_seconds": 167.604748677928,
+        "elapsed_seconds": 217.3844625968486,
         "lightcone_max_mk": 12.850032806396484,
         "lightcone_min_mk": -120.21587371826172,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.0001995563507080078,
         "trough_brightness_mk": -111.19979858398438,
         "trough_redshift": 25.38207823874287
       },
-      "web_sha256": "6ed89935f7447e389a29a67d4ee6377becf50f5f6218de36c3e3f0c650eec978"
+      "web_sha256": "59d4f9bf44bb66e6c2647c1a2f1f65015985c712fea4ef41683f1dbc673265c3"
     },
     {
       "parameters": {
@@ -199,7 +211,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "9925cfc506119bfa5ef52a282b5bcda83ecbeca192788f6be6db7070eda0480b",
+      "raw_sha256": "2b0ff5da1beecff1ed896a29c127737857590aba8c57a0746dcbdc767293890b",
       "role": {
         "kind": "astro_oat",
         "parameter": "ALPHA_STAR",
@@ -207,16 +219,18 @@
       },
       "run_id": "run_19e965e33e5f",
       "summary": {
-        "elapsed_seconds": 162.91399886109866,
+        "elapsed_seconds": 212.00241830106825,
         "lightcone_max_mk": 12.189763069152832,
         "lightcone_min_mk": -119.59754943847656,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00020170211791992188,
         "trough_brightness_mk": -109.85221099853516,
         "trough_redshift": 25.38207823874287
       },
-      "web_sha256": "24e7776428b5fbae0ed04c4865792fc7507018a3fcb75de0f9a3127f9671e7eb"
+      "web_sha256": "38e4bb123cd51d1a5cae4465e1d34dc732c487ec4b74377ab1e0acd88e2ceb1e"
     },
     {
       "parameters": {
@@ -231,7 +245,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "991f6f8d956a0dba30c32b46b54dd2b81032fc524414a218a4bf4e7dbaa4220b",
+      "raw_sha256": "6a8c7f5be97716f08f695329f4fdb6d4b289e8a1d916fa34bc74744ab9ed207e",
       "role": {
         "kind": "astro_oat",
         "parameter": "ALPHA_STAR",
@@ -239,16 +253,18 @@
       },
       "run_id": "run_9ba9b12388ff",
       "summary": {
-        "elapsed_seconds": 166.21973119699396,
+        "elapsed_seconds": 213.97252316982485,
         "lightcone_max_mk": 12.332765579223633,
         "lightcone_min_mk": -119.18438720703125,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00019818544387817383,
         "trough_brightness_mk": -109.71456909179688,
         "trough_redshift": 21.96718975005025
       },
-      "web_sha256": "176a707a6a29ed2061e4414f2153a36fec352ce062e5972f9869fdd522180498"
+      "web_sha256": "b43488e93f163a11d57f7ad17a487cfe22cc5f7ad738b67300f8a3e703916a81"
     },
     {
       "parameters": {
@@ -263,7 +279,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "05648f0b730f15083ac3dd6f24a771af76ae108fa15868f919aef6df3168ab34",
+      "raw_sha256": "336e722ab12675b4767835e84b6175b7cd04cced9865b1f50829c7d807b77986",
       "role": {
         "kind": "astro_oat",
         "parameter": "ALPHA_STAR",
@@ -271,16 +287,18 @@
       },
       "run_id": "run_5c3d909dd305",
       "summary": {
-        "elapsed_seconds": 166.94126998796128,
+        "elapsed_seconds": 216.22436094703153,
         "lightcone_max_mk": 14.720003128051758,
         "lightcone_min_mk": -119.44697570800781,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.0001913309097290039,
         "trough_brightness_mk": -105.42524719238281,
         "trough_redshift": 18.60227823738577
       },
-      "web_sha256": "572b04afff4559c0a16ea2fcb745bd7311b033dbbb86065e7c54fe17d50e7158"
+      "web_sha256": "e2519669988a75cdb5e8a956936587c8df1456972f34fb8e9cd704a60746bf1d"
     },
     {
       "parameters": {
@@ -295,7 +313,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "6b01e0828120f1731ddb033ba9405cbc6ad2159b7001c8a32e60cd90edade3c1",
+      "raw_sha256": "0398f7121514db6e3cf1141d116b90f569770d2bb69741d1b37e2ac24e73ce85",
       "role": {
         "kind": "astro_oat",
         "parameter": "ALPHA_STAR",
@@ -303,16 +321,18 @@
       },
       "run_id": "run_dcdb93a3b56e",
       "summary": {
-        "elapsed_seconds": 166.11527411616407,
+        "elapsed_seconds": 214.29869748698547,
         "lightcone_max_mk": 15.88306713104248,
         "lightcone_min_mk": -119.08851623535156,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00018978118896484375,
         "trough_brightness_mk": -103.94581604003906,
         "trough_redshift": 17.84109858755407
       },
-      "web_sha256": "cbab0d736b55f7e10e012a9e5bdd7ed9848c9686b042a2fa0f8c3d7bac8476b7"
+      "web_sha256": "79be77f984a9b88c887aebbf9bced6831bcf3d4e80679890f1d0f885b743e9ef"
     },
     {
       "parameters": {
@@ -327,7 +347,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "23f5e60c865dc81e6a24f0b4c5e4ebf35a3cbd8883a4809023f8ad459697d8b4",
+      "raw_sha256": "578eb77a4377ebd9bea3e4d2352996d45517d432070295d21f7836cc94cf61ba",
       "role": {
         "kind": "astro_oat",
         "parameter": "F_ESC10",
@@ -335,16 +355,18 @@
       },
       "run_id": "run_837096701471",
       "summary": {
-        "elapsed_seconds": 161.76631229184568,
+        "elapsed_seconds": 208.49389984901063,
         "lightcone_max_mk": 54.645118713378906,
         "lightcone_min_mk": -132.8798828125,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 0.33179813623428345,
+        "slice_ionized_fraction_min": 0.00019282102584838867,
         "trough_brightness_mk": -111.98712921142578,
         "trough_redshift": 19.39420951545324
       },
-      "web_sha256": "65860313113c82d0164c9df18cd32d30ba9ed354cc29f4e9579a8f8fe077111c"
+      "web_sha256": "4cc0bd6bd475895f400c1d361c73275c0e45d0740fd317381b7960d5bae263a7"
     },
     {
       "parameters": {
@@ -359,7 +381,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "4fb18df7b90d83eeb09af10d7bee8f3bc93fb439a0b46ff6cd30655a2426ddf6",
+      "raw_sha256": "6a83662d7209d74ff408cdc07641c5171e050199c49961dbf1cea4a676a9cb1c",
       "role": {
         "kind": "astro_oat",
         "parameter": "F_ESC10",
@@ -367,16 +389,18 @@
       },
       "run_id": "run_100a9f52e548",
       "summary": {
-        "elapsed_seconds": 164.123622932937,
+        "elapsed_seconds": 212.33199023199268,
         "lightcone_max_mk": 35.01980972290039,
         "lightcone_min_mk": -131.17987060546875,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00019282102584838867,
         "trough_brightness_mk": -111.52771759033203,
         "trough_redshift": 19.39420951545324
       },
-      "web_sha256": "260e5e978e98e1b51b4e1af0ca9ca7587a8a821ff2d031c8ab4f31175e3fe9e3"
+      "web_sha256": "2d38f9ca7fad79c1c7d439c0744a0b9e3d959922c46eb73f205eccf4bb27a2f1"
     },
     {
       "parameters": {
@@ -391,7 +415,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "2bce5b18609b9240ffe3715facb4618458b0403a4a6634a6ab0526a972f2ed25",
+      "raw_sha256": "a0520be9d1574b9b0422ea6b144de242450451106dd49f5f6696a4d35fcf3d84",
       "role": {
         "kind": "astro_oat",
         "parameter": "F_ESC10",
@@ -399,16 +423,18 @@
       },
       "run_id": "run_51ff4d660f59",
       "summary": {
-        "elapsed_seconds": 167.18341912399046,
+        "elapsed_seconds": 215.8892385440413,
         "lightcone_max_mk": 8.805665969848633,
         "lightcone_min_mk": -109.94367980957031,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00019246339797973633,
         "trough_brightness_mk": -99.65754699707031,
         "trough_redshift": 19.80209331677363
       },
-      "web_sha256": "2314789776d59ff54974bcc23b6affef98d476fc229e1ac8ee2dece89eac0510"
+      "web_sha256": "36ec463f85702b610d0e8f9838b12930df342e311c8272781726ff505e1a019c"
     },
     {
       "parameters": {
@@ -423,7 +449,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "ccb620dfcc0767259ae0e5b3b97e33b354e7d0fb76c3b208be6a5694d1805347",
+      "raw_sha256": "a39c22bb0ec1608ac88b1c57a6cdd3337ed8131773c8babbc1373cd97aa6cd41",
       "role": {
         "kind": "astro_oat",
         "parameter": "F_ESC10",
@@ -431,16 +457,18 @@
       },
       "run_id": "run_73f9189aba43",
       "summary": {
-        "elapsed_seconds": 167.7724177360069,
+        "elapsed_seconds": 216.39284122292884,
         "lightcone_max_mk": 1.5597888231277466,
         "lightcone_min_mk": -108.46407318115234,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00019234418869018555,
         "trough_brightness_mk": -97.34757995605469,
         "trough_redshift": 19.80209331677363
       },
-      "web_sha256": "a11f64132607b16e52810d7e6d9dbdf551f08421e8cbe9e0f3289251017cc7d6"
+      "web_sha256": "d7e50db490cd8569aa87c5dccbfd8b3e1e5aba06b894328cad43a12e183439b0"
     },
     {
       "parameters": {
@@ -455,7 +483,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "652e5dbc77d0de0b9d173cdbf1b57e57af784870caff8130d2e8a96ec531d51d",
+      "raw_sha256": "a4ddf713e36370e5d64c21a5240073905e06e33387fd55a345b4a2ebceff5a11",
       "role": {
         "kind": "astro_oat",
         "parameter": "ALPHA_ESC",
@@ -463,16 +491,18 @@
       },
       "run_id": "run_b7358e9d7519",
       "summary": {
-        "elapsed_seconds": 166.61401699692942,
+        "elapsed_seconds": 215.6735274149105,
         "lightcone_max_mk": 10.551251411437988,
         "lightcone_min_mk": -111.29573822021484,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00019466876983642578,
         "trough_brightness_mk": -101.0623779296875,
         "trough_redshift": 19.80209331677363
       },
-      "web_sha256": "1ab97cc344a724e5495deff160a978190793e14bbecb9d57819f3c6de7f0bc8c"
+      "web_sha256": "bc68a0de619d763f9a54da53585c1725fe6afcc3294e2b438d58d55da7fd4544"
     },
     {
       "parameters": {
@@ -487,7 +517,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "10f529b6415985a822e7f0d0df44db8c0fa41112fc02e3de8d1afed879c041ec",
+      "raw_sha256": "4276a9d10320aaccb5b48dfb05ec6f87f23d061fba09b74a2b6dc96686226285",
       "role": {
         "kind": "astro_oat",
         "parameter": "ALPHA_ESC",
@@ -495,16 +525,18 @@
       },
       "run_id": "run_eb44ae645c6d",
       "summary": {
-        "elapsed_seconds": 166.74077734095044,
+        "elapsed_seconds": 215.60878166393377,
         "lightcone_max_mk": 11.357292175292969,
         "lightcone_min_mk": -113.93328857421875,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.000194549560546875,
         "trough_brightness_mk": -103.77033996582031,
         "trough_redshift": 19.80209331677363
       },
-      "web_sha256": "6a8b85848e859ca7e1d4bb782c307e67d58af24f4c0d10d8828ac9feae9aaf79"
+      "web_sha256": "376539d91369359495cc4555524bc729af3362c4f6d970b3fd7a60546df84bba"
     },
     {
       "parameters": {
@@ -519,7 +551,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "4a9ad151319fc59df3ef7d1656d6bbc7f18a2ec8f38c7d4e70e66d36814c3580",
+      "raw_sha256": "06a7a6ebf254bd9ea20032114f464133c291c619497a240be8eefdee10a574db",
       "role": {
         "kind": "astro_oat",
         "parameter": "ALPHA_ESC",
@@ -527,16 +559,18 @@
       },
       "run_id": "run_74d429b9264e",
       "summary": {
-        "elapsed_seconds": 165.19548817002214,
+        "elapsed_seconds": 213.4547104211524,
         "lightcone_max_mk": 17.774511337280273,
         "lightcone_min_mk": -127.44912719726562,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00019234418869018555,
         "trough_brightness_mk": -110.31857299804688,
         "trough_redshift": 19.39420951545324
       },
-      "web_sha256": "d7f8e00289a4c307bbf99fe0bdd2335d5055cb77e4469798698e9ce3652ccca0"
+      "web_sha256": "c2b470b973c736df7457f5b7dfcc20a795115097ad1e1c6b62b628d465ba4920"
     },
     {
       "parameters": {
@@ -551,7 +585,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "839ddb53f9addd1c9396d1ba3983b190031af15ebeb76b6fd1dbfc050cbcb055",
+      "raw_sha256": "4bbd5c4b93a89e616979af80113cfc274a7c05dcf416a1a37bf364115a8b4f78",
       "role": {
         "kind": "astro_oat",
         "parameter": "ALPHA_ESC",
@@ -559,16 +593,18 @@
       },
       "run_id": "run_dce6d42bfe2b",
       "summary": {
-        "elapsed_seconds": 163.17133176187053,
+        "elapsed_seconds": 211.23934863088652,
         "lightcone_max_mk": 19.715892791748047,
         "lightcone_min_mk": -130.47994995117188,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00019234418869018555,
         "trough_brightness_mk": -111.3672103881836,
         "trough_redshift": 19.39420951545324
       },
-      "web_sha256": "7fff171fd1b11b35b4a72f56959c322dce1851e8ebab4854dfc2d8fbaf939979"
+      "web_sha256": "b96bf1132c6cad88a203a6717fdb087cb4d03670943179af0b53a0b5d82ccad3"
     },
     {
       "parameters": {
@@ -583,7 +619,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "d4662412b9ebdf57eda1a893315cd851f64a65234665afe95167a9eb714571b4",
+      "raw_sha256": "011a829543b9ca83dc31c38b6ad838836ec7c2ea400b577d99f84133355a76a6",
       "role": {
         "kind": "astro_oat",
         "parameter": "M_TURN",
@@ -591,16 +627,18 @@
       },
       "run_id": "run_d6ae68000362",
       "summary": {
-        "elapsed_seconds": 168.71068921405822,
+        "elapsed_seconds": 215.9220302628819,
         "lightcone_max_mk": 9.760387420654297,
         "lightcone_min_mk": -112.92768096923828,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.0010960102081298828,
         "trough_brightness_mk": -106.34098815917969,
         "trough_redshift": 25.90971930031952
       },
-      "web_sha256": "599d61cbd5c641dbba346a016670ebc3a916e0e820f9240ec17046c0ffe2c49c"
+      "web_sha256": "4562d07af3b6b68a946bfccc90bf8ed4836c8c37487360bd8e5c89df1f609090"
     },
     {
       "parameters": {
@@ -615,7 +653,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "d318b07920ab7ad35e8de7a4e44ff045add0d1d4c219b35d452326234b6fabb5",
+      "raw_sha256": "fb27ac2dc03983a4a20155e2d1f203cb766161442c49cdd2830c2ea6b91b1248",
       "role": {
         "kind": "astro_oat",
         "parameter": "M_TURN",
@@ -623,16 +661,18 @@
       },
       "run_id": "run_5559ea21e887",
       "summary": {
-        "elapsed_seconds": 167.2224245639518,
+        "elapsed_seconds": 215.19350670510903,
         "lightcone_max_mk": 11.113661766052246,
         "lightcone_min_mk": -116.99024200439453,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.0002053380012512207,
         "trough_brightness_mk": -107.92185974121094,
         "trough_redshift": 22.426533106986874
       },
-      "web_sha256": "56fc921f945f226006fc5ae3a5e08db8336e386610fec835063d2c9426887646"
+      "web_sha256": "29dedcdc4d04fbe07ec16506f745ae68b780a0d4d0f0bc54b7eb36d6ab8d8571"
     },
     {
       "parameters": {
@@ -647,7 +687,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "cfda6526f6514d0ed967034041f0ee3faf6fdc9ecd15d8522ef2f04a332e0bcd",
+      "raw_sha256": "4f9e6b2ca9b6fd1177ae961eb5cb99b3edddde7951682a802516b0d56d655023",
       "role": {
         "kind": "astro_oat",
         "parameter": "M_TURN",
@@ -655,16 +695,18 @@
       },
       "run_id": "run_bf6d3ded10ba",
       "summary": {
-        "elapsed_seconds": 159.5920391890686,
+        "elapsed_seconds": 205.3549674639944,
         "lightcone_max_mk": 18.541767120361328,
         "lightcone_min_mk": -116.37667083740234,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00018030405044555664,
         "trough_brightness_mk": -94.6419448852539,
         "trough_redshift": 14.45626608432385
       },
-      "web_sha256": "5cf70b1631647e7b560e149ad274293270fc8da20d005819c2d49a89a3e999c5"
+      "web_sha256": "9c66110012529fc2dcbb9bff3c3dcaf6efd5664064da70b36950cbd5a59e6196"
     },
     {
       "parameters": {
@@ -679,7 +721,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "f81939322b3824a0e5ed731672e0a30d880f634e7d25b4277579c738f9853ddd",
+      "raw_sha256": "8d82a94984d96e5a272433f5c13fa724e389f191eb820c1b61c7e6f70b321b18",
       "role": {
         "kind": "astro_oat",
         "parameter": "M_TURN",
@@ -687,16 +729,18 @@
       },
       "run_id": "run_d048c85059df",
       "summary": {
-        "elapsed_seconds": 151.5862533499021,
+        "elapsed_seconds": 195.52974489121698,
         "lightcone_max_mk": 25.019105911254883,
         "lightcone_min_mk": -121.41319274902344,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00016802549362182617,
         "trough_brightness_mk": -70.15592956542969,
         "trough_redshift": 10.259055693397281
       },
-      "web_sha256": "1ee878d95d63fa098c41da510afdcd8adfc3027036112d343813b7b63761a295"
+      "web_sha256": "5d9f8092fb5b93d891b5b4eaba335558083b2e195e7d92baed62aa3cafc4013f"
     },
     {
       "parameters": {
@@ -711,7 +755,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.01
       },
-      "raw_sha256": "412e49b054f9f4e665d8d8d4e4733a21c9ebe6e5bdb4fe9fb8232d162901391b",
+      "raw_sha256": "dac0cdde0a71e156ee78870a2c6d274ed134fdc5f95aeb8a819a9033107228bc",
       "role": {
         "kind": "astro_oat",
         "parameter": "t_STAR",
@@ -719,16 +763,18 @@
       },
       "run_id": "run_1f52c3063275",
       "summary": {
-        "elapsed_seconds": 166.8275026238989,
+        "elapsed_seconds": 215.6762628830038,
         "lightcone_max_mk": 41.84567642211914,
         "lightcone_min_mk": -128.90591430664062,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00020182132720947266,
         "trough_brightness_mk": -118.62446594238281,
         "trough_redshift": 26.447913173063746
       },
-      "web_sha256": "2befe744b0e57f42c6ed37fc4b92920f188ceac0dd406e98d8adbbc611063c26"
+      "web_sha256": "b2405313267d1dfc673d39d622e1646e004502db66410cd4423b0d46902f1dc1"
     },
     {
       "parameters": {
@@ -743,7 +789,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.25
       },
-      "raw_sha256": "965d5acfc11e86d24e27140f24f5786ae5ce48c7b24334069b39257aa0cf3300",
+      "raw_sha256": "fff1ff83082b25fc59a230519c021fa6a3fca3254e74693d614a806a4b4fdeeb",
       "role": {
         "kind": "astro_oat",
         "parameter": "t_STAR",
@@ -751,16 +797,18 @@
       },
       "run_id": "run_1ff1d15964ab",
       "summary": {
-        "elapsed_seconds": 167.3155801789835,
+        "elapsed_seconds": 215.66557637508959,
         "lightcone_max_mk": 17.523847579956055,
         "lightcone_min_mk": -123.70744323730469,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.0001944899559020996,
         "trough_brightness_mk": -111.9410629272461,
         "trough_redshift": 20.642497077363668
       },
-      "web_sha256": "f7d46240100a29d33a2edb5e15997c57385a19c9e6d9fdb38e9e00630bb69586"
+      "web_sha256": "1c82e8bfeb2ff8b76bd5e9cf154ad8f11a6605ed7dcbfa6b5976e2be3eb13a8b"
     },
     {
       "parameters": {
@@ -775,7 +823,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.75
       },
-      "raw_sha256": "9cfb14bb58dcbebcc8c6b6667c0a49c7493d8dced6a98bc2882417bf73cfb424",
+      "raw_sha256": "ec57bad201d3cc239277c1271363218855efaf727e4d295f5f2bc01e436ab1b8",
       "role": {
         "kind": "astro_oat",
         "parameter": "t_STAR",
@@ -783,16 +831,18 @@
       },
       "run_id": "run_52030e4d07a9",
       "summary": {
-        "elapsed_seconds": 166.80189372086897,
+        "elapsed_seconds": 217.9709813510999,
         "lightcone_max_mk": 11.980012893676758,
         "lightcone_min_mk": -114.52058410644531,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00019228458404541016,
         "trough_brightness_mk": -103.1236572265625,
         "trough_redshift": 18.9943234282497
       },
-      "web_sha256": "4e77396a440cf9d5553ceda4b194d81fa3194b641cf2cd7e73c7c56f0825f9c7"
+      "web_sha256": "42ca3faa11e5651a880d962cc20a22a913b787fa9b9b510915b4fadfddc7db31"
     },
     {
       "parameters": {
@@ -807,7 +857,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 1.0
       },
-      "raw_sha256": "8dd70e780d5c957a9218fe4e089345219231078b7901cf6843126491f98d08b6",
+      "raw_sha256": "f5ee485a1913920262ffadab1c6f5c515a577562ed20577e42c7aeffe477ed48",
       "role": {
         "kind": "astro_oat",
         "parameter": "t_STAR",
@@ -815,16 +865,18 @@
       },
       "run_id": "run_4071642e6f24",
       "summary": {
-        "elapsed_seconds": 166.82728805299848,
+        "elapsed_seconds": 216.4127183048986,
         "lightcone_max_mk": 10.72669792175293,
         "lightcone_min_mk": -109.70003509521484,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.0001920461654663086,
         "trough_brightness_mk": -99.77346801757812,
         "trough_redshift": 18.217920199939716
       },
-      "web_sha256": "cb2a0d60ab41343b0dff554eaeb01a62883c884ea6f3068ed7397bc22b33f8af"
+      "web_sha256": "61bd0de4a66ffdafe8b66fcfe8bdda0cff0ee4b5f97b5b60720ccf0715d75405"
     },
     {
       "parameters": {
@@ -839,7 +891,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "805ec7b117e300736377c640f54f9abdc31b8a61931ce32336df9649de8dbddd",
+      "raw_sha256": "8b37bbfbdf607f5aaff7506f980c53164142e7bafe81708fd80ea67a4a99416f",
       "role": {
         "kind": "astro_oat",
         "parameter": "L_X",
@@ -847,16 +899,18 @@
       },
       "run_id": "run_3052b34eee5a",
       "summary": {
-        "elapsed_seconds": 166.91793127404526,
+        "elapsed_seconds": 214.416439371882,
         "lightcone_max_mk": 0.0,
         "lightcone_min_mk": -196.8237762451172,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00019115209579467773,
         "trough_brightness_mk": -176.48565673828125,
         "trough_redshift": 16.4062640533799
       },
-      "web_sha256": "9ce84691485632032ae1a2c106861fc800f7dfcce62e03d86cea95bde5c40595"
+      "web_sha256": "1cd9d769f9f97d2c4e462b6d41e26b2b6ac0ed79c2672bc2b2b81347083e1612"
     },
     {
       "parameters": {
@@ -871,7 +925,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "0de82b87886ee421af7a68ca1d726d6b7b0345b0338557be0cc47b6c34163103",
+      "raw_sha256": "39dd09ec9b0c58982dd3260e34228b388958fa5778dc030835f6eb8684476ddb",
       "role": {
         "kind": "astro_oat",
         "parameter": "L_X",
@@ -879,16 +933,18 @@
       },
       "run_id": "run_771a8a0fe05c",
       "summary": {
-        "elapsed_seconds": 167.19000133685768,
+        "elapsed_seconds": 214.37536186003126,
         "lightcone_max_mk": 0.0,
         "lightcone_min_mk": -187.5756072998047,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00019115209579467773,
         "trough_brightness_mk": -168.41888427734375,
         "trough_redshift": 16.754389002449358
       },
-      "web_sha256": "c1625b773d632f044679356ab6a1e972197d622333afa367266cbb172769f657"
+      "web_sha256": "792976b27375252a8423ac7f0703702394597b179ddae37ce141aa28c00cde2d"
     },
     {
       "parameters": {
@@ -903,7 +959,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "b10a95f546fa6703ef5835bdc1e169d91b285c23071ff87d933e394679ba44ff",
+      "raw_sha256": "d1a46be8fed8a3a822229a1b8731faa97631a076e37ba3226e854fe2ade36254",
       "role": {
         "kind": "astro_oat",
         "parameter": "L_X",
@@ -911,16 +967,18 @@
       },
       "run_id": "run_b9a20b43c637",
       "summary": {
-        "elapsed_seconds": 166.46798928105272,
+        "elapsed_seconds": 214.25794175593182,
         "lightcone_max_mk": 22.891992568969727,
         "lightcone_min_mk": -68.39994049072266,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.0001971721649169922,
         "trough_brightness_mk": -62.589263916015625,
         "trough_redshift": 21.51685311718151
       },
-      "web_sha256": "b469e9bf3529f02e655159a3893247c38145bb17e59f9dc649a150268da754d2"
+      "web_sha256": "c2416ab626eb060bec245ec4daa3f119422fc48cf76b60d4da46e9ebf557fa0a"
     },
     {
       "parameters": {
@@ -935,7 +993,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "33c21763e7a4e0986ed3633756890780ad4fe416cef3f91dd688c984af4d2faf",
+      "raw_sha256": "1dfb1aab89edff4ac6fb9040c71aabc22bc46257ebb38b6d626ab2ff9a1429a5",
       "role": {
         "kind": "astro_oat",
         "parameter": "L_X",
@@ -943,16 +1001,18 @@
       },
       "run_id": "run_2ea8f726e49c",
       "summary": {
-        "elapsed_seconds": 166.77024900191464,
+        "elapsed_seconds": 214.5801097950898,
         "lightcone_max_mk": 32.08555221557617,
         "lightcone_min_mk": -33.217926025390625,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00020039081573486328,
         "trough_brightness_mk": -29.800100326538086,
         "trough_redshift": 23.860422950767106
       },
-      "web_sha256": "67fdcfeef8544865929f02981a41d35a9182894f9050b1eeb44b82b74b1aafdb"
+      "web_sha256": "d9a38c6170bed7c58cd4ee19efb7aace99aa368a49e9cce9e7d7aca8a0e4f873"
     },
     {
       "parameters": {
@@ -967,7 +1027,7 @@
         "NU_X_THRESH": 100.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "7f927a5c1125cd07d89ba708ce29f3ed1b60eb3613538cf487e39a502532f90e",
+      "raw_sha256": "e7f9150e5bfc0e8992e2b1188c4c6e4ea327867af540159dd9c12113b1293d89",
       "role": {
         "kind": "astro_oat",
         "parameter": "NU_X_THRESH",
@@ -975,16 +1035,18 @@
       },
       "run_id": "run_982ab7790df2",
       "summary": {
-        "elapsed_seconds": 175.17136283405125,
+        "elapsed_seconds": 222.81843667593785,
         "lightcone_max_mk": 13.816946983337402,
         "lightcone_min_mk": -123.30944061279297,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00019216537475585938,
         "trough_brightness_mk": -111.92230224609375,
         "trough_redshift": 19.39420951545324
       },
-      "web_sha256": "e8f01db8019d93f576f855b16d2d6a670e95449dd80f00ce4b86e02fb2dd0609"
+      "web_sha256": "167fdd1cd925cb79185af185b887784bda429d680f8a762a768ba82666ae273a"
     },
     {
       "parameters": {
@@ -999,7 +1061,7 @@
         "NU_X_THRESH": 300.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "d579b300d8cb27f4bf56fab1daff54b09ce4ee813d784aa60c1d96397dd89e0c",
+      "raw_sha256": "707c956a95a19d86038dbc0569e7b0b2ae6b2c38f937d311ee61ef3f3e52004d",
       "role": {
         "kind": "astro_oat",
         "parameter": "NU_X_THRESH",
@@ -1007,16 +1069,18 @@
       },
       "run_id": "run_610b44f5b748",
       "summary": {
-        "elapsed_seconds": 167.7694189681206,
+        "elapsed_seconds": 216.78821755200624,
         "lightcone_max_mk": 14.351031303405762,
         "lightcone_min_mk": -114.85110473632812,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00019276142120361328,
         "trough_brightness_mk": -104.00525665283203,
         "trough_redshift": 19.80209331677363
       },
-      "web_sha256": "5acdb0d401329f1147076160f989cb945a1c01c55e49e38f6a315a028691ba68"
+      "web_sha256": "046f1427938768efb2237d97af91cbe2c7081ad05b6e9b4e11997bdddefe8937"
     },
     {
       "parameters": {
@@ -1031,7 +1095,7 @@
         "NU_X_THRESH": 900.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "ef017f5c6dbfef1be6f9a425c95c010831078db6cd0a929130a891245ec48dad",
+      "raw_sha256": "d14cf79e1d6f33e25785af46acc6d71b1bc1c6eba77aff8822f18aa8b96bed4c",
       "role": {
         "kind": "astro_oat",
         "parameter": "NU_X_THRESH",
@@ -1039,16 +1103,18 @@
       },
       "run_id": "run_7f195e4aaa1d",
       "summary": {
-        "elapsed_seconds": 165.02157171885483,
+        "elapsed_seconds": 213.63277245499194,
         "lightcone_max_mk": 10.855623245239258,
         "lightcone_min_mk": -138.8522491455078,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00019288063049316406,
         "trough_brightness_mk": -114.48700714111328,
         "trough_redshift": 19.39420951545324
       },
-      "web_sha256": "5f607033ed5dfb7eddcdcb427963fb2c382f57285365609872782c32295142bd"
+      "web_sha256": "b2b9152a9a363d0dcf62a99ccdbeab96a8cfbc8a1992df228dc8714e6038b54b"
     },
     {
       "parameters": {
@@ -1063,7 +1129,7 @@
         "NU_X_THRESH": 1500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "ab9a2a00bc590e1f3cfed18cd15164504ebc65c5d32fd2490854f06875e4f50c",
+      "raw_sha256": "3ee5308b28e5571a19cb997b13097d4735bb65ef204dd7464564be34743114ed",
       "role": {
         "kind": "astro_oat",
         "parameter": "NU_X_THRESH",
@@ -1071,16 +1137,18 @@
       },
       "run_id": "run_2767839e3f36",
       "summary": {
-        "elapsed_seconds": 164.1701046251692,
+        "elapsed_seconds": 212.41155618382618,
         "lightcone_max_mk": 6.976585388183594,
         "lightcone_min_mk": -148.0679931640625,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7705248594284058,
         "slice_density_min": -0.5321565270423889,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00019252300262451172,
         "trough_brightness_mk": -123.79730224609375,
         "trough_redshift": 18.9943234282497
       },
-      "web_sha256": "3f8dd290cfc25fc17381c94f84a05cf20bd9c80494e04532d9e2bdec91a4774d"
+      "web_sha256": "8307f0fbf2b359d1543a7d5870ab63e12cf5c4c75af28a9b2cb77706c5f2bd5a"
     },
     {
       "parameters": {
@@ -1095,7 +1163,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "9337dc6417aea6f67c906b355fe9898685f03766311f132727f8883c67f2dc10",
+      "raw_sha256": "7cbcae8c6aaebbb3422b73d473a59141e03b844397d1a291d7279d42e9c581d3",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 0,
@@ -1103,16 +1171,18 @@
       },
       "run_id": "run_da3492495b12",
       "summary": {
-        "elapsed_seconds": 168.01589946704917,
+        "elapsed_seconds": 216.91584188002162,
         "lightcone_max_mk": 13.208359718322754,
         "lightcone_min_mk": -133.196044921875,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7731897830963135,
         "slice_density_min": -0.531575620174408,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.04376661777496338,
         "trough_brightness_mk": -119.42887878417969,
         "trough_redshift": 34.506793841325106
       },
-      "web_sha256": "389c1c3f1d1f53133f2ab9b7c6fc879cefbf0fa1b52cb9ed991f659209401c78"
+      "web_sha256": "f585aa77a83f79405e64ba65a20e6a22f5c0ce4c264458765be5e6688c6e1efb"
     },
     {
       "parameters": {
@@ -1127,7 +1197,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "8a42e9beedbe590d99674ab9b2b35729ffbc7e354cc4ed35824ba33ab2b63c88",
+      "raw_sha256": "0f31273a850e7dcb4833aa97fbf92560dda195c15bff543119561359fa5cdb44",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 0,
@@ -1135,16 +1205,18 @@
       },
       "run_id": "run_12371f8404be",
       "summary": {
-        "elapsed_seconds": 169.31930138194002,
+        "elapsed_seconds": 218.31612348812632,
         "lightcone_max_mk": 0.0,
         "lightcone_min_mk": 0.0,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7763867378234863,
         "slice_density_min": -0.5290663838386536,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 1.0,
         "trough_brightness_mk": 0.0,
         "trough_redshift": 6.0
       },
-      "web_sha256": "13c62701cc0ebd9c8df3740a377130113ec86b5f337d1226714e24158e3432cb"
+      "web_sha256": "301d0f1ea94c8fd142984a0e1384f3f3b56107279497eee8147321cf43eed4d6"
     },
     {
       "parameters": {
@@ -1159,7 +1231,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "c20b3770c4ddeece3ebfdede32eea680b0277bd3e5c054053a12c7af0aaaf3a8",
+      "raw_sha256": "61cb870c302a1bc25dcd241cf55587c956095075a4f62d39e9cacd70d291a9f2",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 0,
@@ -1167,16 +1239,18 @@
       },
       "run_id": "run_8de37b09626c",
       "summary": {
-        "elapsed_seconds": 170.717157313833,
+        "elapsed_seconds": 219.19861343200319,
         "lightcone_max_mk": 0.0,
         "lightcone_min_mk": 0.0,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7813984155654907,
         "slice_density_min": -0.5461062788963318,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 1.0,
         "trough_brightness_mk": 0.0,
         "trough_redshift": 6.0
       },
-      "web_sha256": "98163385f0b077bcc70e1ba30b9a3219dc6e04f99fd95dfbb1f937f9a99b0ed3"
+      "web_sha256": "bcf6fcd273ca7fc6eb5ca394411269294f5a4f0fbaa7127b694afcc7d28ec78d"
     },
     {
       "parameters": {
@@ -1191,7 +1265,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "4ee565ba58e2449cb08efda497a8c20c71e7e72ee7e5f62e85ed9bf7eaad8a27",
+      "raw_sha256": "67a6f8609e4d61c1dc7ce9e6e56f0d5b6b09adc012cbdb9a5c48f57928b1c1b1",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 0,
@@ -1199,16 +1273,18 @@
       },
       "run_id": "run_477111cd117e",
       "summary": {
-        "elapsed_seconds": 171.26665477082133,
+        "elapsed_seconds": 220.54765588301234,
         "lightcone_max_mk": 0.0,
         "lightcone_min_mk": 0.0,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7798261642456055,
         "slice_density_min": -0.6166672706604004,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 1.0,
         "trough_brightness_mk": 0.0,
         "trough_redshift": 6.0
       },
-      "web_sha256": "04f3c40333460dde40a44b52e1ea95034a5ed9746b6e706d7103ffc497b80c55"
+      "web_sha256": "3016186848a8e0ba8940637ee4ce9e6f9ab3f86aaf1c1fbdecfdce3a04732e08"
     },
     {
       "parameters": {
@@ -1223,7 +1299,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "30d0201be99158ee77b44be0ea13affb6cf22e0eb35a1ff9fade1e76898b8b1d",
+      "raw_sha256": "c3d200c72f9b61bb57c7c759eb94be348d4f5cbb482a0e78c05337a3daca2701",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 1,
@@ -1231,16 +1307,18 @@
       },
       "run_id": "run_8f61cf7f738e",
       "summary": {
-        "elapsed_seconds": 161.87065016292036,
+        "elapsed_seconds": 161.7042272919789,
         "lightcone_max_mk": 13.993412971496582,
         "lightcone_min_mk": -109.14600372314453,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.768204927444458,
         "slice_density_min": -0.5317641496658325,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.0001824498176574707,
         "trough_brightness_mk": -92.2674560546875,
         "trough_redshift": 14.765391111205448
       },
-      "web_sha256": "59cc2dd48b4fcf69d3cad3baf2e89922f5326c1ec8eed342c61ee1e93c543ee8"
+      "web_sha256": "8f0649bbc8a785f70950cb99d15562548b12232d473123c50057d4d23dff7f30"
     },
     {
       "parameters": {
@@ -1255,7 +1333,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "96f9781b4f3f7a6d480eb3d644e3efbe52a43d225c3c7585ca66e326d0f1b141",
+      "raw_sha256": "c26229786e1fddb44726bd4073f5180495ebd4b3c2f98be6794ed6f1f25097b4",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 1,
@@ -1263,16 +1341,18 @@
       },
       "run_id": "run_2b0bad474ae1",
       "summary": {
-        "elapsed_seconds": 166.94366341712885,
+        "elapsed_seconds": 167.2000536848791,
         "lightcone_max_mk": 12.31558895111084,
         "lightcone_min_mk": -117.88118743896484,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.768203854560852,
         "slice_density_min": -0.5315779447555542,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.0001957416534423828,
         "trough_brightness_mk": -106.61820220947266,
         "trough_redshift": 20.21813478634066
       },
-      "web_sha256": "025cb4c61443cac7b9ed86ea215fc89db2819da318cc6e67c4369bcb9282b08a"
+      "web_sha256": "6f575630b04b09136658e38b414412c1e12d12c365bb34be2616576fa07aa8e2"
     },
     {
       "parameters": {
@@ -1287,7 +1367,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "831a89b8162c8c96b4fa6e3f6d3f570a0a1389c23ed22941937d8c439ac3b598",
+      "raw_sha256": "3fce1ff3833fe51b15494bf73dd61d9c863a44dec3867c73b531d1a8529ef022",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 1,
@@ -1295,16 +1375,18 @@
       },
       "run_id": "run_5eedb85a7cc9",
       "summary": {
-        "elapsed_seconds": 167.68985959189013,
+        "elapsed_seconds": 167.71774113713764,
         "lightcone_max_mk": 12.306941032409668,
         "lightcone_min_mk": -120.16769409179688,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7681798934936523,
         "slice_density_min": -0.531331479549408,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.012770593166351318,
         "trough_brightness_mk": -111.2805404663086,
         "trough_redshift": 29.910804834626553
       },
-      "web_sha256": "fe2813823ebe604a473e6689cd382b9cbec2048b5aacbf2106f695fb808c9800"
+      "web_sha256": "ff4eda3424b09c682ce315d7ed993675b4aaab83d2238ddc81ffda64f7b17629"
     },
     {
       "parameters": {
@@ -1319,7 +1401,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "c8471ebb4b5bd0428ca9d77e860df605fa751df65d1e2cb86daffe3460c77e05",
+      "raw_sha256": "b4dc62e17e63313d5853d68612046dbebcfa3f26c5be72ce9a197ce268adc8ec",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 1,
@@ -1327,16 +1409,18 @@
       },
       "run_id": "run_3872af735369",
       "summary": {
-        "elapsed_seconds": 168.52756328508258,
+        "elapsed_seconds": 168.95839986391366,
         "lightcone_max_mk": 8.48168659210205,
         "lightcone_min_mk": -20.977272033691406,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7680504322052002,
         "slice_density_min": -0.5308018922805786,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.6223880648612976,
         "trough_brightness_mk": -19.278820037841797,
         "trough_redshift": 34.506793841325106
       },
-      "web_sha256": "150e69ea2dfa5d24330187921d20301242ea7d57dd59413cf297b62c1b06e4ad"
+      "web_sha256": "67cbc59ee8a9d96cb20146db5bdb58426849af44ea7510cc4621c07d5542d57e"
     },
     {
       "parameters": {
@@ -1351,7 +1435,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "aa22e96efe33bc062cf09ef98a50a393f68df971f628f1e316297b90f3ed3c0d",
+      "raw_sha256": "15900205314830fb5bea84725928b2be47763aeec2abe13e1b5c504735b35e1c",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 1,
@@ -1359,16 +1443,18 @@
       },
       "run_id": "run_2d8250ab26ee",
       "summary": {
-        "elapsed_seconds": 169.2332220559474,
+        "elapsed_seconds": 169.24438491696492,
         "lightcone_max_mk": 0.0,
         "lightcone_min_mk": 0.0,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7676571607589722,
         "slice_density_min": -0.5299518704414368,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 1.0,
         "trough_brightness_mk": 0.0,
         "trough_redshift": 6.0
       },
-      "web_sha256": "3f80578c4ca2277c37d80060e7deaebc7f1d4db5bf25505af535f79d382b6d67"
+      "web_sha256": "3e71cfc24fd3260a53bb64ee94b6990d4a3187196d4c0efba1f0ced09b11477b"
     },
     {
       "parameters": {
@@ -1383,7 +1469,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "cf0498b0ea1f826bd9e64f1b2e76278cd7c16d050fa839b287166bbcc21fd7f1",
+      "raw_sha256": "1c537d18d3841b277963aede78c450b01f6519e055ebdf8b5283cf2e23691e44",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 2,
@@ -1391,16 +1477,18 @@
       },
       "run_id": "run_cf8e3ec50e08",
       "summary": {
-        "elapsed_seconds": 158.19655529991724,
+        "elapsed_seconds": 158.19771601702087,
         "lightcone_max_mk": 15.12641716003418,
         "lightcone_min_mk": -100.65660095214844,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7681937217712402,
         "slice_density_min": -0.5319139361381531,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00017529726028442383,
         "trough_brightness_mk": -79.51702117919922,
         "trough_redshift": 12.191776250959146
       },
-      "web_sha256": "c93b9af8033eea31d84bc6d0f9771933ec2991c0027c6240346d9d5eb48cfeb2"
+      "web_sha256": "1b74fae9d8e73aa3750ff3070155a12a124d3d5c824322e1246a7187389e36ee"
     },
     {
       "parameters": {
@@ -1415,7 +1503,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "c680ce643c9090539af526f14931cea74da5a7a39b91be5ffa37981928ce7ac0",
+      "raw_sha256": "406556ca73d29f8a9d008880740773b2401be060e235a3710728712bfcfbf626",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 2,
@@ -1423,16 +1511,18 @@
       },
       "run_id": "run_f9a81d8e67ef",
       "summary": {
-        "elapsed_seconds": 159.06614886713214,
+        "elapsed_seconds": 160.4548693781253,
         "lightcone_max_mk": 14.719305992126465,
         "lightcone_min_mk": -101.72949981689453,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7681936025619507,
         "slice_density_min": -0.5319138765335083,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00017786026000976562,
         "trough_brightness_mk": -82.01799011230469,
         "trough_redshift": 12.999217706392859
       },
-      "web_sha256": "68bc7f761770ace03a0f26e108264ed8147850db31ad3e0741fada22cd9b7d4c"
+      "web_sha256": "9127257255770c7833ac79b424ed432a7f9a7b29b764285df8cbef67b94c4fd0"
     },
     {
       "parameters": {
@@ -1447,7 +1537,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "cd40cffe3adeba2ba26c3b613e97a9485c9205d907510cc007c91b8d7164287b",
+      "raw_sha256": "63af44fe189e80f5e465647c96175be438af37469495e1944cc21b109595fbbf",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 2,
@@ -1455,16 +1545,18 @@
       },
       "run_id": "run_2a1c3c7abd82",
       "summary": {
-        "elapsed_seconds": 162.46056543383747,
+        "elapsed_seconds": 162.09388897684403,
         "lightcone_max_mk": 13.093337059020996,
         "lightcone_min_mk": -104.60148620605469,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.768193244934082,
         "slice_density_min": -0.5319139957427979,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00018149614334106445,
         "trough_brightness_mk": -85.948974609375,
         "trough_redshift": 13.856080990362024
       },
-      "web_sha256": "d1753328d8efa77b418c6472fa5720eb1539a10e36707caa7aef7465cbe004ab"
+      "web_sha256": "c0f0651288a45786e16819159d73a0c862f24f3bda5060530b897efff548814b"
     },
     {
       "parameters": {
@@ -1479,7 +1571,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "bd393eaa11cecdd4d531eec5b9a952362de14ef549dbb24b9e2863aec776ad34",
+      "raw_sha256": "f6feb9bb44f71459fc3380367051e2c47e0691c794e8e0e91fdfc001404c9afe",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 2,
@@ -1487,16 +1579,18 @@
       },
       "run_id": "run_fde51645c882",
       "summary": {
-        "elapsed_seconds": 166.32525121583603,
+        "elapsed_seconds": 166.683250753209,
         "lightcone_max_mk": 11.773608207702637,
         "lightcone_min_mk": -113.14501190185547,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7681926488876343,
         "slice_density_min": -0.5319139361381531,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00019174814224243164,
         "trough_brightness_mk": -96.20005798339844,
         "trough_redshift": 17.10947644386025
       },
-      "web_sha256": "39e5d6f8542c8437a113ed5800479f329b77ab38057c68a36bb4a54e0a7bc528"
+      "web_sha256": "12b16e8aac5826f26d0cd93aeb08a9ee90c99e689b5341b81df04c5fe07dd9cf"
     },
     {
       "parameters": {
@@ -1511,7 +1605,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "d2c5ff49135c73da78252e8ec085202c2bc7b738ee2520441d0df9b23c801715",
+      "raw_sha256": "60e2c0f589d5bf8fca6d47fb9a3feaf092acccff789788786f51f47ec99c943a",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 2,
@@ -1519,16 +1613,18 @@
       },
       "run_id": "run_501555eb2cad",
       "summary": {
-        "elapsed_seconds": 168.7334590300452,
+        "elapsed_seconds": 167.4431959579233,
         "lightcone_max_mk": 10.678962707519531,
         "lightcone_min_mk": -119.26506042480469,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7681915760040283,
         "slice_density_min": -0.5319137573242188,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.0007385611534118652,
         "trough_brightness_mk": -108.01655578613281,
         "trough_redshift": 25.38207823874287
       },
-      "web_sha256": "96986f995d8d94a42e2ac2233621447445726741452d690e27ec7cb8890d472d"
+      "web_sha256": "ad79a57004498294a72bd964bc2a22ce3a21c43a41fe95cf556e9fb793118e53"
     },
     {
       "parameters": {
@@ -1543,7 +1639,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "370cc5cfae768b2c2fba341f8d87684f8bb67e1f966575420138d994179449f2",
+      "raw_sha256": "cec1f756b1d39aa341d57c3e969b862f9e8f4cf54acd1d78a47e4a2093ef517b",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 3,
@@ -1551,16 +1647,18 @@
       },
       "run_id": "run_6c1b676eeb13",
       "summary": {
-        "elapsed_seconds": 157.40736343688332,
+        "elapsed_seconds": 157.88996724504977,
         "lightcone_max_mk": 15.425657272338867,
         "lightcone_min_mk": -100.09857177734375,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7681937217712402,
         "slice_density_min": -0.5319139957427979,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00017464160919189453,
         "trough_brightness_mk": -78.333740234375,
         "trough_redshift": 11.933114213371297
       },
-      "web_sha256": "101bca64643ec1ab8d19166825cdc5ccb7243855be1cf1dfeaf9e201ec2c1ff6"
+      "web_sha256": "08d8659677b2ea64823f45796b0aa167eba091f81428cfcad4d0336edce7293d"
     },
     {
       "parameters": {
@@ -1575,7 +1673,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "db33cc04ffca921d387bfaf19133c602ea2fe0399935eb77f9dc0889ba3f6dd8",
+      "raw_sha256": "f41dcc7daef3624b2a63f01713ebcb446a7d16857898e63e082130e361cb7284",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 3,
@@ -1583,16 +1681,18 @@
       },
       "run_id": "run_e8e1d7edd75b",
       "summary": {
-        "elapsed_seconds": 157.7610830650665,
+        "elapsed_seconds": 157.58115223189816,
         "lightcone_max_mk": 15.286852836608887,
         "lightcone_min_mk": -100.48483276367188,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7681939601898193,
         "slice_density_min": -0.5319139361381531,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00017464160919189453,
         "trough_brightness_mk": -78.34017944335938,
         "trough_redshift": 11.933114213371297
       },
-      "web_sha256": "20488aec874e0212b919ee16f64c203296a6f009fea55c520d6d7c74f44a6677"
+      "web_sha256": "fa3ec084a1ff1bdc8db2cabf3658d6b2dec681b4e05dd5c9cf759ab9267abbec"
     },
     {
       "parameters": {
@@ -1607,7 +1707,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "1ff4d9e03a0a9dbea69a18247b8fe995966c5bbce47cc3ba64707ad1ced970af",
+      "raw_sha256": "8bf8de3426ced9be835f31902dc596c73d2f369f517b2684e2647d07879828fb",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 3,
@@ -1615,16 +1715,18 @@
       },
       "run_id": "run_2218ac02769f",
       "summary": {
-        "elapsed_seconds": 157.9281448579859,
+        "elapsed_seconds": 158.08416969701648,
         "lightcone_max_mk": 15.106884002685547,
         "lightcone_min_mk": -100.82373809814453,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7681937217712402,
         "slice_density_min": -0.5319141149520874,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00017499923706054688,
         "trough_brightness_mk": -78.5361099243164,
         "trough_redshift": 12.191776250959146
       },
-      "web_sha256": "1a11526fee1de3a841f9eeb5da952dee0b84936d5cdcb84f74c7c0f810622fad"
+      "web_sha256": "d0098a33fc94379f181501aeafbfb3090159fdea5e563618ea14f1f6fb511185"
     },
     {
       "parameters": {
@@ -1639,7 +1741,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "de77488576c4ef898f7f5e24bf14fafb0abe585ba68bc177189b6ec95a61cd32",
+      "raw_sha256": "d6879f026305a98b6c57d5c43a676a2ced817c2667adfad94ee6aaab08fd4ed5",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 3,
@@ -1647,16 +1749,18 @@
       },
       "run_id": "run_5699a66eaa06",
       "summary": {
-        "elapsed_seconds": 159.27860255003907,
+        "elapsed_seconds": 159.7086856190581,
         "lightcone_max_mk": 14.935452461242676,
         "lightcone_min_mk": -100.5031967163086,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7681937217712402,
         "slice_density_min": -0.5319141149520874,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.0001761913299560547,
         "trough_brightness_mk": -79.02470397949219,
         "trough_redshift": 12.191776250959146
       },
-      "web_sha256": "44a17f40ddae61764b93517044d4b442fb6592408b9d7df611d22d2055d82c71"
+      "web_sha256": "e28efda500714f7b07b236a67cc576f4eefb05f45a5af02e38b7bdf76db9a586"
     },
     {
       "parameters": {
@@ -1671,7 +1775,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "ef34128a7d59c0d8ddfa92f3fe5b84f2ac5bb0fe2de60137db887ba6a6ddb5e0",
+      "raw_sha256": "908605ec7e5916fdbaf37de5840b7ab70f29caf10c30b34d2b4d5251a099a1d4",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 3,
@@ -1679,16 +1783,18 @@
       },
       "run_id": "run_6729b6452da5",
       "summary": {
-        "elapsed_seconds": 161.473079853924,
+        "elapsed_seconds": 162.0371611271985,
         "lightcone_max_mk": 14.414490699768066,
         "lightcone_min_mk": -100.22566223144531,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7681937217712402,
         "slice_density_min": -0.5319139957427979,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00017946958541870117,
         "trough_brightness_mk": -81.01097106933594,
         "trough_redshift": 12.999217706392859
       },
-      "web_sha256": "abff07a19754acbbe2b176199ad5dee58d958981a2a044659dad8bb77be497a8"
+      "web_sha256": "81339b77fb46f81123bd3b77b3b387302b7d952b3c2dea99fcba2a8ce00c1f23"
     },
     {
       "parameters": {
@@ -1703,7 +1809,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "373331c55d4e09805d32f0720fca67b00625c186d010a5facd1267bc6de4bdea",
+      "raw_sha256": "953776407712aa4ac1915f87c66aba39c987908c55c775a4c4b7aaa092c8b1d8",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 4,
@@ -1711,16 +1817,18 @@
       },
       "run_id": "run_ca581e1b8674",
       "summary": {
-        "elapsed_seconds": 156.72359390114434,
+        "elapsed_seconds": 156.84999017603695,
         "lightcone_max_mk": 15.515236854553223,
         "lightcone_min_mk": -99.78103637695312,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7681938409805298,
         "slice_density_min": -0.5319139361381531,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00017452239990234375,
         "trough_brightness_mk": -78.27064514160156,
         "trough_redshift": 11.933114213371297
       },
-      "web_sha256": "ee8ed751e6156d8d0a6ce333a85c8bd20ac0e00b834a6cb92015bd257db4354d"
+      "web_sha256": "4d5a44988a268d6148c4400cef07b9526573f2b250dbf5922ed4569beaa88b53"
     },
     {
       "parameters": {
@@ -1735,7 +1843,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "44213e47353f69df890c0981c86795843294377f719411326737bd5746206c08",
+      "raw_sha256": "451fb829987e3a3a9638c3e4ba0a7a7ed4e4271cd5b724c6156f281b89d17f11",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 4,
@@ -1743,16 +1851,18 @@
       },
       "run_id": "run_838506ef4f13",
       "summary": {
-        "elapsed_seconds": 157.03771234187298,
+        "elapsed_seconds": 157.06350085092708,
         "lightcone_max_mk": 15.492753982543945,
         "lightcone_min_mk": -99.87403106689453,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7681938409805298,
         "slice_density_min": -0.5319140553474426,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00017452239990234375,
         "trough_brightness_mk": -78.2920913696289,
         "trough_redshift": 11.933114213371297
       },
-      "web_sha256": "4acf5fa4bea0c82d1f4870e7ea7712e5e20adad81c0b6e0c23408a1f41ab685b"
+      "web_sha256": "acad9a621da2108e8d57a11ddc054b85f0a2c08485d11548378ca21d4fcc124a"
     },
     {
       "parameters": {
@@ -1767,7 +1877,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "c6bf8d50cb7070f2617ade420589353811341782ed1366ddbe1ea638f2db78d4",
+      "raw_sha256": "e9ee51c47e9eabaacca3efaac96d25080958a7ab015b68f0509deed7eecb23a4",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 4,
@@ -1775,16 +1885,18 @@
       },
       "run_id": "run_fe24948ed231",
       "summary": {
-        "elapsed_seconds": 157.48020374309272,
+        "elapsed_seconds": 157.40016902401112,
         "lightcone_max_mk": 15.460193634033203,
         "lightcone_min_mk": -100.00302124023438,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7681939601898193,
         "slice_density_min": -0.5319139361381531,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00017452239990234375,
         "trough_brightness_mk": -78.31929779052734,
         "trough_redshift": 11.933114213371297
       },
-      "web_sha256": "919225b3b5af3a8b11003a2230d04f8b6b23ff4281b03df3101ef64fc1da59dc"
+      "web_sha256": "03ad22ad0b5f24efd164ad7048a54e9cf0ba31e819b92bc79c59cd61ae5958b4"
     },
     {
       "parameters": {
@@ -1799,7 +1911,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "72327ae6a4304f1213787b12cc1cb191f296e67264586449faea99ac787980ae",
+      "raw_sha256": "bb1c186edfe9279be65e93222983642b44f7352c4ffb9d688b671bc38269e1d5",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 4,
@@ -1807,16 +1919,18 @@
       },
       "run_id": "run_2206ffd2ec9e",
       "summary": {
-        "elapsed_seconds": 157.59346960601397,
+        "elapsed_seconds": 158.88084831181914,
         "lightcone_max_mk": 15.37004280090332,
         "lightcone_min_mk": -100.3220443725586,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7681938409805298,
         "slice_density_min": -0.5319139957427979,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00017464160919189453,
         "trough_brightness_mk": -78.36243438720703,
         "trough_redshift": 11.933114213371297
       },
-      "web_sha256": "f827e921e79681a0018763a629eb9709b5f8e8ae1f0bb9550ecb2900e32cd217"
+      "web_sha256": "445a4ecdec4fad5a814df1e8c0aa4bb056646b7d0a79482721ab6eec5ec24c95"
     },
     {
       "parameters": {
@@ -1831,7 +1945,7 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "39ebfb393836a4425198034413f87c587192028b94fb4ec7091dae724a0da518",
+      "raw_sha256": "e27de9b62a353d732363361ed23dcc7f1caea3f783b50976eb6c89b5c0ab1a6b",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 4,
@@ -1839,16 +1953,18 @@
       },
       "run_id": "run_3844e0103d64",
       "summary": {
-        "elapsed_seconds": 157.95891750301234,
+        "elapsed_seconds": 158.49449806893244,
         "lightcone_max_mk": 15.12673282623291,
         "lightcone_min_mk": -100.9138412475586,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
         "slice_density_max": 1.7681937217712402,
         "slice_density_min": -0.5319139361381531,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00017499923706054688,
         "trough_brightness_mk": -78.56867980957031,
         "trough_redshift": 12.191776250959146
       },
-      "web_sha256": "cb24a5482263b13b2bda3f9e587639c398ac1f48ff1c7e88a22b4fd96cc8e97c"
+      "web_sha256": "f1a8f08e47f78787228e7c16c1e12e7fda11513976483575310f7c49c84ffa4e"
     }
   ],
   "mappings": {
@@ -2091,7 +2207,7 @@
       ]
     }
   ],
-  "result_schema_version": 3,
+  "result_schema_version": 4,
   "schema_version": 1,
   "simulation": {
     "BOX_LEN_Mpc": 250.0,

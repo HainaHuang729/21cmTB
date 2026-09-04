@@ -31,7 +31,7 @@ jobs:
       - name: Validate static site
         run: |
           node --check app.js
-          python -c "import json, pathlib; root = pathlib.Path('web_data/runs'); files = list(root.glob('*.json')); assert len(files) == 57; assert all(json.loads(path.read_text())['schema_version'] == 3 for path in files)"
+          python -c "import json, pathlib; root = pathlib.Path('web_data/runs'); files = list(root.glob('*.json')); payloads = [json.loads(path.read_text()) for path in files]; assert len(payloads) == 57; assert all(item['schema_version'] == 4 and 'ionized_fraction_i16_le_base64' in item['slices'] for item in payloads)"
 
       - name: Upload static site
         uses: actions/upload-pages-artifact@v4
