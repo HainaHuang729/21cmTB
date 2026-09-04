@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>21cmFAST 预计算参数图谱</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=slices-v2">
 </head>
 <body>
   <header class="topbar">
@@ -84,6 +84,40 @@
         <div class="color-legend"><span>−200 mK · 强吸收</span><i></i><span>+40 mK · 发射</span></div>
       </article>
 
+      <article class="chart-card slice-card">
+        <div class="chart-title slice-title">
+          <div><span class="chart-index">C</span><h3>随红移变化的二维切片</h3></div>
+          <p>EXACT LIGHTCONE PLANES · SAME REDSHIFT</p>
+        </div>
+        <div class="redshift-control">
+          <button id="slice-play" type="button" aria-label="播放红移演化">播放</button>
+          <label for="slice-redshift">
+            <span>REDSHIFT</span>
+            <strong id="slice-redshift-value">z = —</strong>
+          </label>
+          <input id="slice-redshift" type="range" min="0" max="31" step="1" value="0" aria-label="切片红移">
+          <div class="redshift-extents"><span>高红移 · 早期</span><span>低红移 · 晚期</span></div>
+        </div>
+        <div class="slice-grid">
+          <section class="field-panel">
+            <div class="field-heading">
+              <div><strong>brightness_temp</strong><span>21 cm 亮温</span></div>
+              <output id="slice-brightness-range">—</output>
+            </div>
+            <div class="slice-frame"><canvas id="brightness-slice"></canvas></div>
+            <div class="color-legend slice-legend temperature-legend"><span>−200 mK</span><i></i><span>+40 mK</span></div>
+          </section>
+          <section class="field-panel">
+            <div class="field-heading">
+              <div><strong>density</strong><span>密度对比度 δ = ρ/ρ̄ − 1</span></div>
+              <output id="slice-density-range">—</output>
+            </div>
+            <div class="slice-frame"><canvas id="density-slice"></canvas></div>
+            <div class="color-legend slice-legend density-legend"><span>δ = −0.9</span><i></i><span>δ = +10</span></div>
+          </section>
+        </div>
+      </article>
+
       <section id="metrics" class="metrics">
         <div><small>吸收谷红移</small><strong id="metric-z">—</strong></div>
         <div><small>最低亮温</small><strong id="metric-temp">—</strong></div>
@@ -104,6 +138,6 @@
     <span>HII_DIM = 64 · BOX_LEN = 250 cMpc · matched seed</span>
     <span>z = 35 → 6</span>
   </footer>
-  <script src="app.js"></script>
+  <script src="app.js?v=slices-v2"></script>
 </body>
 </html>

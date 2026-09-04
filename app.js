@@ -7,10 +7,17 @@ const state = {
   previous: null,
   activeAstro: null,
   requestSerial: 0,
+  sliceIndex: null,
+  sliceTimer: null,
 };
 
 const $ = (selector) => document.querySelector(selector);
 const astroNames = new Set(["F_STAR10", "ALPHA_STAR", "F_ESC10", "ALPHA_ESC", "M_TURN", "t_STAR", "L_X", "NU_X_THRESH"]);
+const DATA_VERSION = "slices-v2";
+
+function versioned(path) {
+  return `${path}${path.includes("?") ? "&" : "?"}v=${DATA_VERSION}`;
+}
 
 async function fetchJSON(path) {
   const response = await fetch(path);
@@ -72,13 +79,29 @@ function createParameter(specification) {
   $(`#group-${specification.group}`).appendChild(wrapper);
 }
 
-function decodePlane(lightcone) {
-  const binary = atob(lightcone.brightness_i16_le_base64);
+function decodeI16(encoded, scale) {
+  const binary = atob(encoded);
   const bytes = new Uint8Array(binary.length);
   for (let index = 0; index < binary.length; index += 1) bytes[index] = binary.charCodeAt(index);
   const view = new DataView(bytes.buffer), values = new Float32Array(binary.length / 2);
-  for (let index = 0; index < values.length; index += 1) values[index] = view.getInt16(index * 2, true) * lightcone.quantization_mk;
+  for (let index = 0; index < values.length; index += 1) values[index] = view.getInt16(index * 2, true) * scale;
+  return values;
+}
+
+function decodePlane(lightcone) {
+  const values = decodeI16(lightcone.brightness_i16_le_base64, lightcone.quantization_mk);
   return {values, rows: lightcone.shape[0], columns: lightcone.shape[1]};
+}
+
+function decodeSlices(slices) {
+  const [count, rows, columns] = slices.shape;
+  return {
+    count,
+    rows,
+    columns,
+    brightness: decodeI16(slices.brightness_i16_le_base64, slices.brightness_quantization_mk),
+    density: decodeI16(slices.density_i16_le_base64, slices.density_quantization),
+  };
 }
 
 async function loadRun(runId) {
@@ -89,9 +112,10 @@ async function loadRun(runId) {
   $("#run-badge").textContent = "LOADING";
   $("#run-badge").className = "run-badge running";
   try {
-    const result = await fetchJSON(`web_data/runs/${runId}.json`);
+    const result = await fetchJSON(versioned(`web_data/runs/${runId}.json`));
     if (serial !== state.requestSerial) return;
     result.decodedPlane = decodePlane(result.lightcone);
+    result.decodedSlices = decodeSlices(result.slices);
     state.previous = state.result;
     state.result = result;
     showResult();
@@ -131,6 +155,7 @@ function showResult() {
     item.innerHTML = `<small>${specification.label}</small><strong>${displayNumber(result.parameters[specification.name], specification.name)}</strong>`;
     summary.appendChild(item);
   });
+  configureSliceControl();
   drawAll();
 }
 
@@ -190,14 +215,17 @@ function drawGlobal() {
   ctx.save(); ctx.translate(14, (margin.top + height - margin.bottom) / 2); ctx.rotate(-Math.PI / 2); ctx.fillText("δTb  [mK]", 0, 0); ctx.restore();
 }
 
-const colorStops = [[-200,[34,211,238]],[-120,[37,94,234]],[-40,[17,24,39]],[0,[5,5,5]],[15,[251,191,36]],[40,[239,68,68]]];
-function temperatureColor(value) {
-  const clipped = Math.max(colorStops[0][0], Math.min(colorStops[colorStops.length - 1][0], value));
-  let upper = 1; while (upper < colorStops.length && clipped > colorStops[upper][0]) upper += 1;
-  upper = Math.min(upper, colorStops.length - 1);
-  const [x0,c0] = colorStops[upper - 1], [x1,c1] = colorStops[upper], fraction = x1 === x0 ? 0 : (clipped - x0) / (x1 - x0);
+const temperatureStops = [[-200,[34,211,238]],[-120,[37,94,234]],[-40,[17,24,39]],[0,[5,5,5]],[15,[251,191,36]],[40,[239,68,68]]];
+const densityStops = [[-0.9,[7,20,34]],[-0.4,[24,107,139]],[0,[217,231,235]],[1,[250,204,21]],[3,[249,115,22]],[10,[190,24,93]]];
+function colorFromStops(value, stops) {
+  const clipped = Math.max(stops[0][0], Math.min(stops[stops.length - 1][0], value));
+  let upper = 1; while (upper < stops.length && clipped > stops[upper][0]) upper += 1;
+  upper = Math.min(upper, stops.length - 1);
+  const [x0,c0] = stops[upper - 1], [x1,c1] = stops[upper], fraction = x1 === x0 ? 0 : (clipped - x0) / (x1 - x0);
   return c0.map((channel, index) => Math.round(channel + fraction * (c1[index] - channel)));
 }
+function temperatureColor(value) { return colorFromStops(value, temperatureStops); }
+function densityColor(value) { return colorFromStops(value, densityStops); }
 
 function drawLightcone() {
   if (!state.result) return;
@@ -228,7 +256,75 @@ function drawLightcone() {
   ctx.save(); ctx.translate(14, (margin.top + height - margin.bottom) / 2); ctx.rotate(-Math.PI / 2); ctx.fillText("TRANSVERSE DISTANCE  [cMpc]", 0, 0); ctx.restore();
 }
 
-function drawAll() { drawGlobal(); drawLightcone(); }
+function configureSliceControl() {
+  const slices = state.result.slices;
+  const slider = $("#slice-redshift");
+  slider.max = slices.redshift.length - 1;
+  if (state.sliceIndex === null) {
+    state.sliceIndex = slices.redshift.reduce(
+      (best, value, index) => Math.abs(value - 10) < Math.abs(slices.redshift[best] - 10) ? index : best,
+      0,
+    );
+  }
+  state.sliceIndex = Math.min(state.sliceIndex, slices.redshift.length - 1);
+  slider.value = state.sliceIndex;
+  updateSliceControl();
+}
+
+function updateSliceControl() {
+  if (!state.result) return;
+  const slider = $("#slice-redshift");
+  state.sliceIndex = Number(slider.value);
+  slider.style.setProperty("--fill", `${100 * state.sliceIndex / Number(slider.max)}%`);
+  $("#slice-redshift-value").textContent = `z = ${state.result.slices.redshift[state.sliceIndex].toFixed(2)}`;
+}
+
+function drawSliceField(canvas, values, decoded, colorFunction) {
+  const {context: ctx, width, height} = canvasContext(canvas);
+  const imageCanvas = document.createElement("canvas");
+  imageCanvas.width = decoded.columns; imageCanvas.height = decoded.rows;
+  const imageContext = imageCanvas.getContext("2d"), image = imageContext.createImageData(decoded.columns, decoded.rows);
+  const offset = state.sliceIndex * decoded.rows * decoded.columns;
+  let minimum = Infinity, maximum = -Infinity;
+  for (let pixel = 0; pixel < decoded.rows * decoded.columns; pixel += 1) {
+    const value = values[offset + pixel], color = colorFunction(value), target = pixel * 4;
+    minimum = Math.min(minimum, value); maximum = Math.max(maximum, value);
+    image.data[target] = color[0]; image.data[target + 1] = color[1]; image.data[target + 2] = color[2]; image.data[target + 3] = 255;
+  }
+  imageContext.putImageData(image, 0, 0);
+  ctx.clearRect(0, 0, width, height); ctx.imageSmoothingEnabled = false;
+  ctx.drawImage(imageCanvas, 0, 0, width, height);
+  ctx.strokeStyle = "rgba(217,231,235,0.25)"; ctx.strokeRect(0.5, 0.5, width - 1, height - 1);
+  return [minimum, maximum];
+}
+
+function drawSlices() {
+  if (!state.result || state.sliceIndex === null) return;
+  const decoded = state.result.decodedSlices;
+  const brightnessRange = drawSliceField($("#brightness-slice"), decoded.brightness, decoded, temperatureColor);
+  const densityRange = drawSliceField($("#density-slice"), decoded.density, decoded, densityColor);
+  $("#slice-brightness-range").textContent = `${brightnessRange[0].toFixed(1)} … ${brightnessRange[1].toFixed(1)} mK`;
+  $("#slice-density-range").textContent = `${densityRange[0].toFixed(2)} … ${densityRange[1].toFixed(2)}`;
+}
+
+function setSlicePlaying(playing) {
+  if (state.sliceTimer) window.clearInterval(state.sliceTimer);
+  state.sliceTimer = null;
+  $("#slice-play").textContent = playing ? "暂停" : "播放";
+  $("#slice-play").classList.toggle("playing", playing);
+  if (!playing) return;
+  const slider = $("#slice-redshift");
+  if (Number(slider.value) >= Number(slider.max)) slider.value = 0;
+  state.sliceTimer = window.setInterval(() => {
+    const next = Number(slider.value) + 1;
+    if (next > Number(slider.max)) { setSlicePlaying(false); return; }
+    slider.value = next;
+    updateSliceControl();
+    drawSlices();
+  }, 420);
+}
+
+function drawAll() { drawGlobal(); drawLightcone(); drawSlices(); }
 function resetControls() {
   state.activeAstro = null;
   for (const control of state.controls.values()) resetOne(control);
@@ -237,7 +333,7 @@ function resetControls() {
 
 async function initialize() {
   try {
-    state.design = await fetchJSON("web_data/index.json");
+    state.design = await fetchJSON(versioned("web_data/index.json"));
     state.design.parameter_specs.forEach(createParameter);
     $("#data-state").classList.add("online"); $("#data-state").lastChild.textContent = "结果就绪";
     $("#footer-count").textContent = `${state.design.n_exact_runs} EXACT 21cmFAST LIGHTCONES`;
@@ -251,5 +347,7 @@ async function initialize() {
 }
 
 $("#reset-button").addEventListener("click", resetControls);
+$("#slice-redshift").addEventListener("input", () => { updateSliceControl(); drawSlices(); });
+$("#slice-play").addEventListener("click", () => setSlicePlaying(!state.sliceTimer));
 window.addEventListener("resize", () => { clearTimeout(window.__drawTimer); window.__drawTimer = setTimeout(drawAll, 120); });
 initialize();
