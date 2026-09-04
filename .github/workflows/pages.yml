@@ -28,6 +28,11 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
+      - name: Validate static site
+        run: |
+          node --check app.js
+          python -c "import json, pathlib; root = pathlib.Path('web_data/runs'); files = list(root.glob('*.json')); assert len(files) == 57; assert all(json.loads(path.read_text())['schema_version'] == 3 for path in files)"
+
       - name: Upload static site
         uses: actions/upload-pages-artifact@v4
         with:

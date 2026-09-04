@@ -13,7 +13,7 @@ const state = {
 
 const $ = (selector) => document.querySelector(selector);
 const astroNames = new Set(["F_STAR10", "ALPHA_STAR", "F_ESC10", "ALPHA_ESC", "M_TURN", "t_STAR", "L_X", "NU_X_THRESH"]);
-const DATA_VERSION = "slices-v2";
+const DATA_VERSION = "lf-v3";
 
 function versioned(path) {
   return `${path}${path.includes("?") ? "&" : "?"}v=${DATA_VERSION}`;
@@ -277,6 +277,7 @@ function updateSliceControl() {
   state.sliceIndex = Number(slider.value);
   slider.style.setProperty("--fill", `${100 * state.sliceIndex / Number(slider.max)}%`);
   $("#slice-redshift-value").textContent = `z = ${state.result.slices.redshift[state.sliceIndex].toFixed(2)}`;
+  $("#lf-redshift-value").textContent = `z = ${state.result.luminosity_function.redshift[state.sliceIndex].toFixed(2)}`;
 }
 
 function drawSliceField(canvas, values, decoded, colorFunction) {
@@ -307,6 +308,70 @@ function drawSlices() {
   $("#slice-density-range").textContent = `${densityRange[0].toFixed(2)} … ${densityRange[1].toFixed(2)}`;
 }
 
+function drawLFCurve(ctx, curve, px, py, color, width) {
+  let drawing = false;
+  ctx.beginPath();
+  curve.muv.forEach((magnitude, index) => {
+    const logPhi = curve.log10_phi[index];
+    if (!Number.isFinite(magnitude) || !Number.isFinite(logPhi)) return;
+    ctx[drawing ? "lineTo" : "moveTo"](px(magnitude), py(logPhi));
+    drawing = true;
+  });
+  if (!drawing) return false;
+  ctx.strokeStyle = color; ctx.lineWidth = width; ctx.stroke();
+  return true;
+}
+
+function drawLuminosityFunction() {
+  if (!state.result || state.sliceIndex === null) return;
+  const {context: ctx, width, height} = canvasContext($("#lf-chart"));
+  const margin = {left: 70, right: 25, top: 24, bottom: 54};
+  const xMin = -24, xMax = -10, yMin = -20, yMax = 1;
+  const px = (value) => margin.left + (value - xMin) / (xMax - xMin) * (width - margin.left - margin.right);
+  const py = (value) => margin.top + (yMax - value) / (yMax - yMin) * (height - margin.top - margin.bottom);
+  ctx.clearRect(0, 0, width, height);
+  ctx.font = "10px SFMono-Regular, Consolas, monospace";
+  for (let value = -20; value <= 0; value += 5) {
+    const y = py(value);
+    ctx.strokeStyle = "rgba(217,231,235,0.09)"; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(margin.left, y); ctx.lineTo(width - margin.right, y); ctx.stroke();
+    ctx.fillStyle = "#6d787d"; ctx.textAlign = "right"; ctx.textBaseline = "middle";
+    ctx.fillText(value.toFixed(0), margin.left - 10, y);
+  }
+  for (let value = xMin; value <= xMax; value += 2) {
+    const x = px(value);
+    ctx.strokeStyle = "rgba(217,231,235,0.045)";
+    ctx.beginPath(); ctx.moveTo(x, margin.top); ctx.lineTo(x, height - margin.bottom); ctx.stroke();
+    ctx.fillStyle = "#6d787d"; ctx.textAlign = "center"; ctx.textBaseline = "top";
+    ctx.fillText(value.toFixed(0), x, height - margin.bottom + 12);
+  }
+  ctx.save();
+  ctx.beginPath(); ctx.rect(margin.left, margin.top, width - margin.left - margin.right, height - margin.top - margin.bottom); ctx.clip();
+  if (state.previous && state.previous.luminosity_function) {
+    drawLFCurve(
+      ctx,
+      state.previous.luminosity_function.curves[state.sliceIndex],
+      px,
+      py,
+      "rgba(101,229,242,0.38)",
+      1.4,
+    );
+  }
+  const current = state.result.luminosity_function.curves[state.sliceIndex];
+  const drawn = drawLFCurve(ctx, current, px, py, "#d6ff40", 2.2);
+  ctx.restore();
+  ctx.strokeStyle = "rgba(217,231,235,0.24)";
+  ctx.strokeRect(margin.left, margin.top, width - margin.left - margin.right, height - margin.top - margin.bottom);
+  if (!drawn) {
+    ctx.fillStyle = "#879196"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.fillText("该红移没有达到数值阈值的 LF 数据", (margin.left + width - margin.right) / 2, (margin.top + height - margin.bottom) / 2);
+  }
+  ctx.fillStyle = "#879196"; ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+  ctx.fillText("ABSOLUTE UV MAGNITUDE  MUV", (margin.left + width - margin.right) / 2, height - 5);
+  ctx.save(); ctx.translate(14, (margin.top + height - margin.bottom) / 2); ctx.rotate(-Math.PI / 2);
+  ctx.fillText("log10 φ  [cMpc⁻³ mag⁻¹]", 0, 0); ctx.restore();
+}
+
 function setSlicePlaying(playing) {
   if (state.sliceTimer) window.clearInterval(state.sliceTimer);
   state.sliceTimer = null;
@@ -321,10 +386,11 @@ function setSlicePlaying(playing) {
     slider.value = next;
     updateSliceControl();
     drawSlices();
+    drawLuminosityFunction();
   }, 420);
 }
 
-function drawAll() { drawGlobal(); drawLightcone(); drawSlices(); }
+function drawAll() { drawGlobal(); drawLightcone(); drawSlices(); drawLuminosityFunction(); }
 function resetControls() {
   state.activeAstro = null;
   for (const control of state.controls.values()) resetOne(control);
@@ -347,7 +413,7 @@ async function initialize() {
 }
 
 $("#reset-button").addEventListener("click", resetControls);
-$("#slice-redshift").addEventListener("input", () => { updateSliceControl(); drawSlices(); });
+$("#slice-redshift").addEventListener("input", () => { updateSliceControl(); drawSlices(); drawLuminosityFunction(); });
 $("#slice-play").addEventListener("click", () => setSlicePlaying(!state.sliceTimer));
 window.addEventListener("resize", () => { clearTimeout(window.__drawTimer); window.__drawTimer = setTimeout(drawAll, 120); });
 initialize();

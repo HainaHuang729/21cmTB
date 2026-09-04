@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>21cmFAST 预计算参数图谱</title>
-  <link rel="stylesheet" href="styles.css?v=slices-v2">
+  <link rel="stylesheet" href="styles.css?v=lf-v3">
 </head>
 <body>
   <header class="topbar">
@@ -118,6 +118,23 @@
         </div>
       </article>
 
+      <article class="chart-card lf-card">
+        <div class="chart-title">
+          <div><span class="chart-index">D</span><h3>UV 光度函数</h3></div>
+          <p>SYNCHRONIZED WITH REDSHIFT CONTROL ABOVE</p>
+        </div>
+        <div class="lf-toolbar">
+          <div><span>当前红移</span><strong id="lf-redshift-value">z = —</strong></div>
+          <div class="curve-key"><i class="current-curve"></i><span>当前模型</span><i class="previous-curve"></i><span>上一模型</span></div>
+        </div>
+        <div class="canvas-frame lf-frame"><canvas id="lf-chart"></canvas></div>
+        <div class="lf-caption">
+          <span>21cmFAST UV luminosity function</span>
+          <span>−24 ≤ M<sub>UV</sub> ≤ −10</span>
+          <span>log<sub>10</sub> φ [cMpc⁻³ mag⁻¹]</span>
+        </div>
+      </article>
+
       <section id="metrics" class="metrics">
         <div><small>吸收谷红移</small><strong id="metric-z">—</strong></div>
         <div><small>最低亮温</small><strong id="metric-temp">—</strong></div>
@@ -138,6 +155,6 @@
     <span>HII_DIM = 64 · BOX_LEN = 250 cMpc · matched seed</span>
     <span>z = 35 → 6</span>
   </footer>
-  <script src="app.js?v=slices-v2"></script>
+  <script src="app.js?v=lf-v3"></script>
 </body>
 </html>
