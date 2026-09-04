@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>21cmFAST 预计算参数图谱</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div>
+      <p class="eyebrow">COSMIC DAWN · PRECOMPUTED ATLAS</p>
+      <h1>21cmFAST 参数图谱</h1>
+    </div>
+    <div id="data-state" class="server-state"><i></i>载入结果</div>
+  </header>
+
+  <main class="workspace">
+    <aside class="controls-panel">
+      <div class="panel-intro">
+        <span class="step-tag">01 · EXACT RUN SELECTOR</span>
+        <h2>移动参数，即时切换宇宙黎明</h2>
+        <p>所有画面都来自已经完成的 21cmFAST 模拟。移动滑块只读取对应结果，不会现场计算。</p>
+      </div>
+
+      <div class="design-notice">
+        <strong>精确扫描规则</strong>
+        <p>天体物理参数采用单参数扫描：移动其中一个时，其余参数回到基准值。KP 与 MS 使用完整 5×5 联合网格。</p>
+      </div>
+
+      <section class="control-group">
+        <div class="group-heading"><span>恒星形成</span><small>STAR FORMATION</small></div>
+        <div id="group-star_formation" class="parameter-list"></div>
+      </section>
+      <section class="control-group">
+        <div class="group-heading"><span>电离过程</span><small>IONIZATION</small></div>
+        <div id="group-ionization" class="parameter-list"></div>
+      </section>
+      <section class="control-group">
+        <div class="group-heading"><span>X 射线加热</span><small>X-RAY HEATING</small></div>
+        <div id="group-xray" class="parameter-list"></div>
+      </section>
+      <section class="control-group primordial-group">
+        <div class="group-heading"><span>小尺度原初功率</span><small>5 × 5 EXACT GRID</small></div>
+        <div id="group-primordial" class="parameter-list"></div>
+      </section>
+
+      <button id="reset-button" class="secondary-button full-button" type="button">回到基准模型</button>
+      <div id="selection-detail" class="selection-detail">正在读取设计信息…</div>
+    </aside>
+
+    <section class="results-panel">
+      <div class="result-heading">
+        <div>
+          <span class="step-tag">02 · COMPLETED RESULTS</span>
+          <h2>21 cm 亮温的时空演化</h2>
+        </div>
+        <div id="run-badge" class="run-badge idle">载入中</div>
+      </div>
+
+      <div id="status-card" class="status-card active">
+        <div class="pulse-orbit" aria-hidden="true"><span></span></div>
+        <div>
+          <strong id="status-title">正在读取预计算结果</strong>
+          <p id="status-message">页面不会启动新的 21cmFAST 任务。</p>
+        </div>
+      </div>
+
+      <article class="chart-card global-card">
+        <div class="chart-title">
+          <div><span class="chart-index">A</span><h3>全局平均亮温</h3></div>
+          <p>Global signal · δTb [mK]</p>
+        </div>
+        <div class="canvas-frame"><canvas id="global-chart"></canvas></div>
+      </article>
+
+      <article class="chart-card lightcone-card">
+        <div class="chart-title">
+          <div><span class="chart-index">B</span><h3>亮温 Lightcone</h3></div>
+          <p>Exact central slice · high z → low z</p>
+        </div>
+        <div class="canvas-frame lightcone-frame"><canvas id="lightcone-chart"></canvas></div>
+        <div class="color-legend"><span>−200 mK · 强吸收</span><i></i><span>+40 mK · 发射</span></div>
+      </article>
+
+      <section id="metrics" class="metrics">
+        <div><small>吸收谷红移</small><strong id="metric-z">—</strong></div>
+        <div><small>最低亮温</small><strong id="metric-temp">—</strong></div>
+        <div><small>kp</small><strong id="metric-kp">—</strong></div>
+        <div><small>ms</small><strong id="metric-ms">—</strong></div>
+        <div><small>原始计算时间</small><strong id="metric-time">—</strong></div>
+      </section>
+
+      <section class="recent-section">
+        <div class="recent-heading"><h3>当前精确模拟参数</h3><span id="run-identity">—</span></div>
+        <div id="parameter-summary" class="parameter-summary"></div>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <span id="footer-count">读取模拟清单…</span>
+    <span>HII_DIM = 64 · BOX_LEN = 250 cMpc · matched seed</span>
+    <span>z = 35 → 6</span>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
