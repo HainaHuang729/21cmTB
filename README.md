@@ -14,9 +14,9 @@
 
 每个模型都包含全局平均 21 cm 亮温历史、对应 lightcone 的二维中心切片，
 以及 32 个从 `z ≈ 35` 到 `z = 6` 的 `64 × 64` 横截面。红移控制器同步
-显示 `brightness_temp`、密度对比度 `density = ρ/ρ̄ − 1` 和电离氢分数
-`x_HII = 1 − x_HI`，并支持自动播放。同一个红移控制器还会更新 UV
-luminosity function：网页展示
+显示 `brightness_temp`、密度对比度 `density = ρ/ρ̄ − 1`、电离氢分数
+`x_HII = 1 − x_HI`、自旋温度 `Ts_box` 和气体动温 `Tk_box`，并支持自动
+播放。同一个红移控制器还会更新 UV luminosity function：网页展示
 `−24 ≤ M_UV ≤ −10` 内的 `log10 φ [cMpc⁻³ mag⁻¹]`。页面不在不同
 模拟之间插值，也不会在线计算。
 

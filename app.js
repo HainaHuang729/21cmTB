@@ -13,7 +13,7 @@ const state = {
 
 const $ = (selector) => document.querySelector(selector);
 const astroNames = new Set(["F_STAR10", "ALPHA_STAR", "F_ESC10", "ALPHA_ESC", "M_TURN", "t_STAR", "L_X", "NU_X_THRESH"]);
-const DATA_VERSION = "ionization-v4";
+const DATA_VERSION = "thermal-v5";
 
 function versioned(path) {
   return `${path}${path.includes("?") ? "&" : "?"}v=${DATA_VERSION}`;
@@ -104,6 +104,14 @@ function decodeSlices(slices) {
     ionized: decodeI16(
       slices.ionized_fraction_i16_le_base64,
       slices.ionized_fraction_quantization,
+    ),
+    spinTemperatureLog10: decodeI16(
+      slices.spin_temperature_log10_i16_le_base64,
+      slices.temperature_log10_quantization,
+    ),
+    kineticTemperatureLog10: decodeI16(
+      slices.kinetic_temperature_log10_i16_le_base64,
+      slices.temperature_log10_quantization,
     ),
   };
 }
@@ -222,6 +230,7 @@ function drawGlobal() {
 const temperatureStops = [[-200,[34,211,238]],[-120,[37,94,234]],[-40,[17,24,39]],[0,[5,5,5]],[15,[251,191,36]],[40,[239,68,68]]];
 const densityStops = [[-0.9,[7,20,34]],[-0.4,[24,107,139]],[0,[217,231,235]],[1,[250,204,21]],[3,[249,115,22]],[10,[190,24,93]]];
 const ionizationStops = [[0,[5,10,18]],[0.1,[20,45,73]],[0.35,[19,113,139]],[0.65,[101,229,242]],[0.9,[214,255,64]],[1,[255,249,194]]];
+const thermalStops = [[-1,[7,15,33]],[0,[24,59,105]],[1,[58,134,180]],[2,[103,225,198]],[3,[250,204,21]],[4,[249,115,22]],[5,[255,238,210]]];
 function colorFromStops(value, stops) {
   const clipped = Math.max(stops[0][0], Math.min(stops[stops.length - 1][0], value));
   let upper = 1; while (upper < stops.length && clipped > stops[upper][0]) upper += 1;
@@ -232,6 +241,14 @@ function colorFromStops(value, stops) {
 function temperatureColor(value) { return colorFromStops(value, temperatureStops); }
 function densityColor(value) { return colorFromStops(value, densityStops); }
 function ionizationColor(value) { return colorFromStops(value, ionizationStops); }
+function thermalColor(log10Kelvin) { return colorFromStops(log10Kelvin, thermalStops); }
+
+function formatKelvin(value) {
+  if (value >= 1.0e4 || value < 0.1) return value.toExponential(1);
+  if (value >= 100) return value.toFixed(0);
+  if (value >= 10) return value.toFixed(1);
+  return value.toFixed(2);
+}
 
 function drawLightcone() {
   if (!state.result) return;
@@ -311,9 +328,13 @@ function drawSlices() {
   const brightnessRange = drawSliceField($("#brightness-slice"), decoded.brightness, decoded, temperatureColor);
   const densityRange = drawSliceField($("#density-slice"), decoded.density, decoded, densityColor);
   const ionizationRange = drawSliceField($("#ionization-slice"), decoded.ionized, decoded, ionizationColor);
+  const spinRange = drawSliceField($("#spin-temperature-slice"), decoded.spinTemperatureLog10, decoded, thermalColor);
+  const kineticRange = drawSliceField($("#kinetic-temperature-slice"), decoded.kineticTemperatureLog10, decoded, thermalColor);
   $("#slice-brightness-range").textContent = `${brightnessRange[0].toFixed(1)} … ${brightnessRange[1].toFixed(1)} mK`;
   $("#slice-density-range").textContent = `${densityRange[0].toFixed(2)} … ${densityRange[1].toFixed(2)}`;
   $("#slice-ionization-range").textContent = `${ionizationRange[0].toFixed(3)} … ${ionizationRange[1].toFixed(3)}`;
+  $("#slice-spin-temperature-range").textContent = `${formatKelvin(10 ** spinRange[0])} … ${formatKelvin(10 ** spinRange[1])} K`;
+  $("#slice-kinetic-temperature-range").textContent = `${formatKelvin(10 ** kineticRange[0])} … ${formatKelvin(10 ** kineticRange[1])} K`;
 }
 
 function drawLFCurve(ctx, curve, px, py, color, width) {
