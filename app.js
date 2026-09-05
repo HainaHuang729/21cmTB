@@ -9,11 +9,12 @@ const state = {
   requestSerial: 0,
   sliceIndex: null,
   sliceTimer: null,
+  lfIndex: null,
 };
 
 const $ = (selector) => document.querySelector(selector);
 const astroNames = new Set(["F_STAR10", "ALPHA_STAR", "F_ESC10", "ALPHA_ESC", "M_TURN", "t_STAR", "L_X", "NU_X_THRESH"]);
-const DATA_VERSION = "thermal-v5";
+const DATA_VERSION = "lf-exact-v6";
 
 function versioned(path) {
   return `${path}${path.includes("?") ? "&" : "?"}v=${DATA_VERSION}`;
@@ -168,6 +169,7 @@ function showResult() {
     summary.appendChild(item);
   });
   configureSliceControl();
+  configureLFControl();
   drawAll();
 }
 
@@ -300,7 +302,43 @@ function updateSliceControl() {
   state.sliceIndex = Number(slider.value);
   slider.style.setProperty("--fill", `${100 * state.sliceIndex / Number(slider.max)}%`);
   $("#slice-redshift-value").textContent = `z = ${state.result.slices.redshift[state.sliceIndex].toFixed(2)}`;
-  $("#lf-redshift-value").textContent = `z = ${state.result.luminosity_function.redshift[state.sliceIndex].toFixed(2)}`;
+}
+
+function configureLFControl() {
+  const redshifts = state.result.luminosity_function.redshift;
+  if (state.lfIndex === null) {
+    state.lfIndex = redshifts.reduce(
+      (best, value, index) => Math.abs(value - 8) < Math.abs(redshifts[best] - 8) ? index : best,
+      0,
+    );
+  }
+  state.lfIndex = Math.min(state.lfIndex, redshifts.length - 1);
+  const options = $("#lf-redshift-options");
+  options.innerHTML = "";
+  redshifts.forEach((redshift, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.dataset.index = index;
+    button.textContent = `z = ${redshift.toFixed(0)}`;
+    button.setAttribute("aria-label", `显示红移 ${redshift.toFixed(0)} 的 UV 光度函数`);
+    button.addEventListener("click", () => {
+      state.lfIndex = index;
+      updateLFControl();
+      drawLuminosityFunction();
+    });
+    options.appendChild(button);
+  });
+  updateLFControl();
+}
+
+function updateLFControl() {
+  if (!state.result || state.lfIndex === null) return;
+  $("#lf-redshift-value").textContent = `z = ${state.result.luminosity_function.redshift[state.lfIndex].toFixed(0)}`;
+  document.querySelectorAll("#lf-redshift-options button").forEach((button) => {
+    const active = Number(button.dataset.index) === state.lfIndex;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", active ? "true" : "false");
+  });
 }
 
 function drawSliceField(canvas, values, decoded, colorFunction) {
@@ -352,7 +390,7 @@ function drawLFCurve(ctx, curve, px, py, color, width) {
 }
 
 function drawLuminosityFunction() {
-  if (!state.result || state.sliceIndex === null) return;
+  if (!state.result || state.lfIndex === null) return;
   const {context: ctx, width, height} = canvasContext($("#lf-chart"));
   const margin = {left: 70, right: 25, top: 24, bottom: 54};
   const xMin = -24, xMax = -10, yMin = -20, yMax = 1;
@@ -379,14 +417,14 @@ function drawLuminosityFunction() {
   if (state.previous && state.previous.luminosity_function) {
     drawLFCurve(
       ctx,
-      state.previous.luminosity_function.curves[state.sliceIndex],
+      state.previous.luminosity_function.curves[state.lfIndex],
       px,
       py,
       "rgba(101,229,242,0.38)",
       1.4,
     );
   }
-  const current = state.result.luminosity_function.curves[state.sliceIndex];
+  const current = state.result.luminosity_function.curves[state.lfIndex];
   const drawn = drawLFCurve(ctx, current, px, py, "#d6ff40", 2.2);
   ctx.restore();
   ctx.strokeStyle = "rgba(217,231,235,0.24)";
@@ -415,7 +453,6 @@ function setSlicePlaying(playing) {
     slider.value = next;
     updateSliceControl();
     drawSlices();
-    drawLuminosityFunction();
   }, 420);
 }
 
@@ -442,7 +479,7 @@ async function initialize() {
 }
 
 $("#reset-button").addEventListener("click", resetControls);
-$("#slice-redshift").addEventListener("input", () => { updateSliceControl(); drawSlices(); drawLuminosityFunction(); });
+$("#slice-redshift").addEventListener("input", () => { updateSliceControl(); drawSlices(); });
 $("#slice-play").addEventListener("click", () => setSlicePlaying(!state.sliceTimer));
 window.addEventListener("resize", () => { clearTimeout(window.__drawTimer); window.__drawTimer = setTimeout(drawAll, 120); });
 initialize();
