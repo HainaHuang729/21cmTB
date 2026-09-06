@@ -31,7 +31,35 @@ jobs:
       - name: Validate static site
         run: |
           node --check app.js
-          python -c "import json, pathlib; root = pathlib.Path('web_data/runs'); files = list(root.glob('*.json')); payloads = [json.loads(path.read_text()) for path in files]; required = {'ionized_fraction_i16_le_base64', 'spin_temperature_log10_i16_le_base64', 'kinetic_temperature_log10_i16_le_base64'}; assert len(payloads) == 57; assert all(item['schema_version'] == 6 and required <= item['slices'].keys() and item['slices']['shape'] == [32, 64, 64] and item['luminosity_function']['redshift'] == [6.0, 7.0, 8.0, 10.0] and len(item['luminosity_function']['curves']) == 4 for item in payloads)"
+          python - <<'PY'
+          import json
+          import pathlib
+          import zlib
+
+          root = pathlib.Path("web_data/runs")
+          index = json.loads(pathlib.Path("web_data/index.json").read_text())
+          files = sorted(root.glob("*.json"))
+          binaries = sorted(root.glob("*.slices.bin"))
+          expected_unavailable = {"run_4600848a9a8c", "run_5f2309678207"}
+          assert index["result_schema_version"] == 7
+          assert index["n_exact_runs"] == 55 and index["n_design_points"] == 57
+          assert set(index["unavailable_run_ids"]) == expected_unavailable
+          assert len(files) == len(binaries) == 55
+          for path in files:
+              payload = json.loads(path.read_text())
+              slices = payload["slices"]
+              assert payload["schema_version"] == 7
+              assert slices["shape"] == [32, 256, 256]
+              assert len(slices["redshift"]) == 32
+              assert payload["luminosity_function"]["redshift"] == [6.0, 7.0, 8.0, 10.0]
+              assert len(payload["luminosity_function"]["curves"]) == 4
+              packed = (root / slices["binary_file"]).read_bytes()
+              for descriptor in slices["binary_fields"].values():
+                  start = descriptor["offset"]
+                  stop = start + descriptor["compressed_bytes"]
+                  assert len(zlib.decompress(packed[start:stop])) == descriptor["uncompressed_bytes"]
+          assert sum(path.stat().st_size for path in binaries) < 1_000_000_000
+          PY
 
       - name: Upload static site
         uses: actions/upload-pages-artifact@v4

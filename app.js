@@ -14,7 +14,7 @@ const state = {
 
 const $ = (selector) => document.querySelector(selector);
 const astroNames = new Set(["F_STAR10", "ALPHA_STAR", "F_ESC10", "ALPHA_ESC", "M_TURN", "t_STAR", "L_X", "NU_X_THRESH"]);
-const DATA_VERSION = "lf-exact-v6";
+const DATA_VERSION = "hii256-v7";
 
 function versioned(path) {
   return `${path}${path.includes("?") ? "&" : "?"}v=${DATA_VERSION}`;
@@ -24,6 +24,12 @@ async function fetchJSON(path) {
   const response = await fetch(path);
   if (!response.ok) throw new Error(`读取 ${path} 失败：HTTP ${response.status}`);
   return response.json();
+}
+
+async function fetchBuffer(path) {
+  const response = await fetch(path);
+  if (!response.ok) throw new Error(`读取 ${path} 失败：HTTP ${response.status}`);
+  return response.arrayBuffer();
 }
 
 function displayNumber(value, name) {
@@ -80,13 +86,18 @@ function createParameter(specification) {
   $(`#group-${specification.group}`).appendChild(wrapper);
 }
 
+function decodeI16Bytes(bytes, scale) {
+  const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
+  const values = new Float32Array(bytes.byteLength / 2);
+  for (let index = 0; index < values.length; index += 1) values[index] = view.getInt16(index * 2, true) * scale;
+  return values;
+}
+
 function decodeI16(encoded, scale) {
   const binary = atob(encoded);
   const bytes = new Uint8Array(binary.length);
   for (let index = 0; index < binary.length; index += 1) bytes[index] = binary.charCodeAt(index);
-  const view = new DataView(bytes.buffer), values = new Float32Array(binary.length / 2);
-  for (let index = 0; index < values.length; index += 1) values[index] = view.getInt16(index * 2, true) * scale;
-  return values;
+  return decodeI16Bytes(bytes, scale);
 }
 
 function decodePlane(lightcone) {
@@ -94,30 +105,73 @@ function decodePlane(lightcone) {
   return {values, rows: lightcone.shape[0], columns: lightcone.shape[1]};
 }
 
-function decodeSlices(slices) {
+async function inflateSliceField(buffer, descriptor) {
+  if (!("DecompressionStream" in window)) throw new Error("浏览器不支持高分辨率数据解压缩，请使用新版浏览器");
+  const compressed = new Uint8Array(
+    buffer,
+    descriptor.offset,
+    descriptor.compressed_bytes,
+  );
+  const stream = new Blob([compressed]).stream().pipeThrough(new DecompressionStream("deflate"));
+  const raw = new Uint8Array(await new Response(stream).arrayBuffer());
+  if (raw.byteLength !== descriptor.uncompressed_bytes) throw new Error("高分辨率切片数据长度校验失败");
+  return raw;
+}
+
+async function decodeSlices(slices) {
   const [count, rows, columns] = slices.shape;
+  const buffer = await fetchBuffer(versioned(`web_data/runs/${slices.binary_file}`));
+  const fields = slices.binary_fields;
+  const [brightness, density, ionized, spinTemperatureLog10, kineticTemperatureLog10] = await Promise.all([
+    inflateSliceField(buffer, fields.brightness_i16_le).then((bytes) => decodeI16Bytes(bytes, slices.brightness_quantization_mk)),
+    inflateSliceField(buffer, fields.density_i16_le).then((bytes) => decodeI16Bytes(bytes, slices.density_quantization)),
+    inflateSliceField(buffer, fields.ionized_fraction_i16_le).then((bytes) => decodeI16Bytes(bytes, slices.ionized_fraction_quantization)),
+    inflateSliceField(buffer, fields.spin_temperature_log10_i16_le).then((bytes) => decodeI16Bytes(bytes, slices.temperature_log10_quantization)),
+    inflateSliceField(buffer, fields.kinetic_temperature_log10_i16_le).then((bytes) => decodeI16Bytes(bytes, slices.temperature_log10_quantization)),
+  ]);
   return {
     count,
     rows,
     columns,
-    brightness: decodeI16(slices.brightness_i16_le_base64, slices.brightness_quantization_mk),
-    density: decodeI16(slices.density_i16_le_base64, slices.density_quantization),
-    ionized: decodeI16(
-      slices.ionized_fraction_i16_le_base64,
-      slices.ionized_fraction_quantization,
-    ),
-    spinTemperatureLog10: decodeI16(
-      slices.spin_temperature_log10_i16_le_base64,
-      slices.temperature_log10_quantization,
-    ),
-    kineticTemperatureLog10: decodeI16(
-      slices.kinetic_temperature_log10_i16_le_base64,
-      slices.temperature_log10_quantization,
-    ),
+    brightness,
+    density,
+    ionized,
+    spinTemperatureLog10,
+    kineticTemperatureLog10,
   };
 }
 
+function showUnavailableRun(runId) {
+  state.requestSerial += 1;
+  setSlicePlaying(false);
+  state.result = null;
+  state.previous = null;
+  $("#status-card").classList.remove("active");
+  $("#status-title").textContent = "该高分辨率参数点未发布";
+  $("#status-message").textContent = `${runId} · 21cmFAST 自旋温度计算出现数值异常；未使用插值或低分辨率结果替代`;
+  $("#run-badge").textContent = "UNAVAILABLE";
+  $("#run-badge").className = "run-badge failed";
+  $("#selection-detail").innerHTML = `<strong>已排除的数值异常点</strong><span>${runId}</span>`;
+  ["#metric-z", "#metric-temp", "#metric-kp", "#metric-ms", "#metric-time", "#run-identity"].forEach((selector) => {
+    $(selector).textContent = "—";
+  });
+  $("#parameter-summary").innerHTML = "";
+  ["#slice-brightness-range", "#slice-density-range", "#slice-ionization-range", "#slice-spin-temperature-range", "#slice-kinetic-temperature-range", "#slice-redshift-value", "#lf-redshift-value"].forEach((selector) => {
+    $(selector).textContent = "—";
+  });
+  $("#lf-redshift-options").innerHTML = "";
+  document.querySelectorAll("canvas").forEach((canvas) => {
+    const context = canvas.getContext("2d");
+    context.save(); context.setTransform(1, 0, 0, 1, 0, 0);
+    context.clearRect(0, 0, canvas.width, canvas.height); context.restore();
+  });
+}
+
 async function loadRun(runId) {
+  if ((state.design.unavailable_run_ids || []).includes(runId)) {
+    showUnavailableRun(runId);
+    return;
+  }
   const serial = ++state.requestSerial;
   $("#status-card").classList.add("active");
   $("#status-title").textContent = "切换精确模拟";
@@ -128,7 +182,8 @@ async function loadRun(runId) {
     const result = await fetchJSON(versioned(`web_data/runs/${runId}.json`));
     if (serial !== state.requestSerial) return;
     result.decodedPlane = decodePlane(result.lightcone);
-    result.decodedSlices = decodeSlices(result.slices);
+    result.decodedSlices = await decodeSlices(result.slices);
+    if (serial !== state.requestSerial) return;
     state.previous = state.result;
     state.result = result;
     showResult();

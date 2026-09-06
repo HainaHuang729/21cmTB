@@ -1,6 +1,6 @@
 {
-  "baseline_run_id": "run_1bc84fcee7f1",
-  "built_at_utc": "2026-09-05T03:21:06.315510+00:00",
+  "baseline_run_id": "run_380acb7f3e11",
+  "built_at_utc": "2026-09-06T03:56:24.492435+00:00",
   "cosmology": {
     "OMb": 0.0484,
     "OMm": 0.308,
@@ -8,8 +8,8 @@
     "SIGMA_8": 0.815,
     "hlittle": 0.678
   },
-  "design_sha256": "d3d1096cf0d59856c8eeb55fbb84f7c5eb85d10cd9a439afc226480d34cd19da",
-  "design_version": "precomputed_oat_kpms_v1",
+  "design_sha256": "d49ec7fac2c78f881449506ccb43796b186b610780473ffaa1d8201b2cbe9030",
+  "design_version": "precomputed_oat_kpms_hii256_v2",
   "display_semantics": {
     "astrophysics": "one_parameter_at_a_time_around_baseline",
     "density_definition": "delta = rho / mean(rho) - 1",
@@ -28,7 +28,7 @@
       8.0,
       10.0
     ],
-    "primordial": "complete_5_by_5_KP_MS_grid_at_baseline_astrophysics",
+    "primordial": "5_by_5_KP_MS_design_with_declared_unavailable_points",
     "redshift_slice_fields": [
       "brightness_temp",
       "density",
@@ -37,6 +37,7 @@
       "Tk_box"
     ],
     "redshift_slices": "32_exact_lightcone_xy_planes_per_run",
+    "slice_transport": "lossless_deflate_binary_sidecar",
     "temperature_encoding": "log10(K), int16 quantized"
   },
   "inventory": [
@@ -53,28 +54,30 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "269753e33b97fdb682f42f8e76816b7e12c610622c90fd6cdf0c09875e86cf3e",
+      "raw_sha256": "fe50cf007242c523435d6bf802d716f26a14f51297867f1b03317327406a7300",
       "role": {
         "kind": "baseline"
       },
-      "run_id": "run_1bc84fcee7f1",
+      "run_id": "run_380acb7f3e11",
+      "slice_binary_bytes": 12256535,
+      "slice_binary_sha256": "63a8b333fec39eda100a8207feaff7806134c2d86355da44e7b5349d25324bf1",
       "summary": {
-        "elapsed_seconds": 167.20002241595648,
-        "lightcone_max_mk": 13.511042594909668,
-        "lightcone_min_mk": -118.7591323852539,
+        "elapsed_seconds": 6956.091392745962,
+        "lightcone_max_mk": 21.359416961669922,
+        "lightcone_min_mk": -150.49822998046875,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00019288063049316406,
-        "slice_kinetic_temperature_max_k": 21930.98828125,
-        "slice_kinetic_temperature_min_k": 8.309599876403809,
-        "slice_spin_temperature_max_k": 9510.22265625,
-        "slice_spin_temperature_min_k": 11.275201797485352,
-        "trough_brightness_mk": -106.95680236816406,
-        "trough_redshift": 19.80209331677363
+        "slice_ionized_fraction_min": 0.0001558065414428711,
+        "slice_kinetic_temperature_max_k": 33145.859375,
+        "slice_kinetic_temperature_min_k": 7.128566741943359,
+        "slice_spin_temperature_max_k": 12678.4365234375,
+        "slice_spin_temperature_min_k": 9.567794799804688,
+        "trough_brightness_mk": -107.37706756591797,
+        "trough_redshift": 19.39420951545324
       },
-      "web_sha256": "31d7018e5bf8e88c276a13086544d5513a82272f566f9e15599f6c42bc5da975"
+      "web_sha256": "64667c9d5b927f51d03163f4633b3a9038745529f06e1633b2275c75f6caf066"
     },
     {
       "parameters": {
@@ -89,30 +92,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "1381e256ac29b1b38ffa7f57a9edc17c45f638edc9100f8fea8ba2cfff79246c",
+      "raw_sha256": "e9ebc144288f6dac102d5441e90e316b6dccb2bbf4151299cbd2119ce06260d4",
       "role": {
         "kind": "astro_oat",
         "parameter": "F_STAR10",
         "value_index": 0
       },
-      "run_id": "run_25d5d5874b08",
+      "run_id": "run_23224a598b52",
+      "slice_binary_bytes": 14154955,
+      "slice_binary_sha256": "5918a7d5eed5eee04a320fe53bc19a84a144b45a460200ab7542170b0fe4df57",
       "summary": {
-        "elapsed_seconds": 164.54780899290927,
-        "lightcone_max_mk": 31.329978942871094,
-        "lightcone_min_mk": -100.890380859375,
+        "elapsed_seconds": 6449.486925641075,
+        "lightcone_max_mk": 115.31143951416016,
+        "lightcone_min_mk": -134.00755310058594,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
-        "slice_ionized_fraction_max": 0.4946996569633484,
-        "slice_ionized_fraction_min": 0.00019115209579467773,
-        "slice_kinetic_temperature_max_k": 144.23426818847656,
-        "slice_kinetic_temperature_min_k": 3.623735189437866,
-        "slice_spin_temperature_max_k": 103.73089599609375,
-        "slice_spin_temperature_min_k": 8.420899391174316,
-        "trough_brightness_mk": -66.67852020263672,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
+        "slice_ionized_fraction_max": 1.0,
+        "slice_ionized_fraction_min": 0.00017762184143066406,
+        "slice_kinetic_temperature_max_k": 275.8182067871094,
+        "slice_kinetic_temperature_min_k": 2.7229299545288086,
+        "slice_spin_temperature_max_k": 157.4532012939453,
+        "slice_spin_temperature_min_k": 6.462780952453613,
+        "trough_brightness_mk": -67.23821258544922,
         "trough_redshift": 11.933114213371297
       },
-      "web_sha256": "a7418e3093e3ccd7cc4a678efdd2285bba3aac9649884c88dc4720ecea3fb539"
+      "web_sha256": "15150cf49f8f2c68cd6e4aeb8445000e3ae33bc9f6a2a6dbe0c368ee43473bb3"
     },
     {
       "parameters": {
@@ -127,30 +132,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "e30114cdb1c2ca6ef72f64ebcf3d41d7f6a7fa87b6efe336e70770d2523035b2",
+      "raw_sha256": "6126953a50265cc3590708ee8d9930968592db9ea72dbf4b3cc6967e1f65391f",
       "role": {
         "kind": "astro_oat",
         "parameter": "F_STAR10",
         "value_index": 1
       },
-      "run_id": "run_b4c2f53a6835",
+      "run_id": "run_5420cad49f3c",
+      "slice_binary_bytes": 14457534,
+      "slice_binary_sha256": "629cf0ee84d298d2b7dc0fd116504e313b3202e71cbc3cb4e3ad8a9918c64c32",
       "summary": {
-        "elapsed_seconds": 167.01925779413432,
-        "lightcone_max_mk": 16.21213150024414,
-        "lightcone_min_mk": -118.82567596435547,
+        "elapsed_seconds": 6823.195051678922,
+        "lightcone_max_mk": 21.66802215576172,
+        "lightcone_min_mk": -142.89144897460938,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00019156932830810547,
-        "slice_kinetic_temperature_max_k": 2724.44189453125,
-        "slice_kinetic_temperature_min_k": 6.225903034210205,
-        "slice_spin_temperature_max_k": 1460.9754638671875,
-        "slice_spin_temperature_min_k": 9.247082710266113,
-        "trough_brightness_mk": -96.91999053955078,
+        "slice_ionized_fraction_min": 0.00017309188842773438,
+        "slice_kinetic_temperature_max_k": 5129.8974609375,
+        "slice_kinetic_temperature_min_k": 4.976415634155273,
+        "slice_spin_temperature_max_k": 2401.23583984375,
+        "slice_spin_temperature_min_k": 7.796278476715088,
+        "trough_brightness_mk": -97.31307983398438,
         "trough_redshift": 16.4062640533799
       },
-      "web_sha256": "ccd1ad23ee10acb5572f7a53ac43f0f16d7ab116408df2f236c1637cac8890f1"
+      "web_sha256": "801e610b18fa7ccb4bbb429d75d9ddfa765c2c3662edfe890e6ce054c590623e"
     },
     {
       "parameters": {
@@ -165,30 +172,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "625b24cea74c14131dd35e720800fe7a54cc28ea0a8f8acdd663978cc0c4335c",
+      "raw_sha256": "d7fb48ed767feb8ebb44e7ffc5e696b289185846fb00bcd7eb652b3acfc64296",
       "role": {
         "kind": "astro_oat",
         "parameter": "F_STAR10",
         "value_index": 3
       },
-      "run_id": "run_20f569350ad0",
+      "run_id": "run_0e2cbee1e474",
+      "slice_binary_bytes": 11092518,
+      "slice_binary_sha256": "216856436ff78b4f7d7d5c3680396018a62c11a2a31812ca898c2726da715319",
       "summary": {
-        "elapsed_seconds": 168.28152454085648,
-        "lightcone_max_mk": 13.657212257385254,
-        "lightcone_min_mk": -120.75860595703125,
+        "elapsed_seconds": 7032.771286632866,
+        "lightcone_max_mk": 26.4596004486084,
+        "lightcone_min_mk": -156.3528594970703,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.0001964569091796875,
-        "slice_kinetic_temperature_max_k": 53202.7109375,
-        "slice_kinetic_temperature_min_k": 10.20700454711914,
-        "slice_spin_temperature_max_k": 25988.900390625,
-        "slice_spin_temperature_min_k": 12.998732566833496,
-        "trough_brightness_mk": -110.97762298583984,
+        "slice_ionized_fraction_min": 0.00010246038436889648,
+        "slice_kinetic_temperature_max_k": 53952.03515625,
+        "slice_kinetic_temperature_min_k": 9.089118957519531,
+        "slice_spin_temperature_max_k": 35588.796875,
+        "slice_spin_temperature_min_k": 11.336053848266602,
+        "trough_brightness_mk": -112.04732513427734,
         "trough_redshift": 22.426533106986874
       },
-      "web_sha256": "17e0078d2a01830cd5388ea613f8b8ce4bce046c7d8d5a219a4fd8b080bbbab2"
+      "web_sha256": "fb9a9c3794926dead8d5e8a757eba1d2342376900a34490f6f696dbe804b93e7"
     },
     {
       "parameters": {
@@ -203,30 +212,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "c4d68c8f403246150cf5c838736c8f7acd02367dba44f9e1e979cd5407176777",
+      "raw_sha256": "cd18573729ab1c77e97c7ec0935cd8e4c82c61f6f7cd3d58b4303ee3178423ef",
       "role": {
         "kind": "astro_oat",
         "parameter": "F_STAR10",
         "value_index": 4
       },
-      "run_id": "run_0713be9d20dc",
+      "run_id": "run_6223537aaca5",
+      "slice_binary_bytes": 10084363,
+      "slice_binary_sha256": "eda7f8c0a1d02865937fad9b60152d992ed5baf095d209b2bcb1739ede909a94",
       "summary": {
-        "elapsed_seconds": 168.59476975002326,
-        "lightcone_max_mk": 12.850032806396484,
-        "lightcone_min_mk": -120.21587371826172,
+        "elapsed_seconds": 7034.978518641787,
+        "lightcone_max_mk": 27.936384201049805,
+        "lightcone_min_mk": -151.66351318359375,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.0001995563507080078,
-        "slice_kinetic_temperature_max_k": 53738.06640625,
-        "slice_kinetic_temperature_min_k": 13.256448745727539,
-        "slice_spin_temperature_max_k": 34091.66015625,
-        "slice_spin_temperature_min_k": 15.471888542175293,
-        "trough_brightness_mk": -111.19979858398438,
+        "slice_ionized_fraction_min": 0.0,
+        "slice_kinetic_temperature_max_k": 58112.2578125,
+        "slice_kinetic_temperature_min_k": 11.518867492675781,
+        "slice_spin_temperature_max_k": 51667.51171875,
+        "slice_spin_temperature_min_k": 13.251813888549805,
+        "trough_brightness_mk": -113.4034194946289,
         "trough_redshift": 25.38207823874287
       },
-      "web_sha256": "12c064c956489860c679069dbbfed34355977a2621eee87d80cfea1849675fd8"
+      "web_sha256": "9bffff11258fbd231b2055b8a91742c2c2eb561fdc1adbcd49bfeb2cea0dbabf"
     },
     {
       "parameters": {
@@ -241,30 +252,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "bd3ead3482b7f1e6974d86cf40dd26c987fe01a5adaf1d8218f143ebb3cc7297",
+      "raw_sha256": "dc73cf1fcf43f6b2ab639820aa1adeab8061b470657d5d5262a00b6d62e75da7",
       "role": {
         "kind": "astro_oat",
         "parameter": "ALPHA_STAR",
         "value_index": 0
       },
-      "run_id": "run_19e965e33e5f",
+      "run_id": "run_424b10004f70",
+      "slice_binary_bytes": 10869710,
+      "slice_binary_sha256": "0f861709327dccaa0f17be18b1af372450ccc3976cfc38a2a29edc34528569f0",
       "summary": {
-        "elapsed_seconds": 164.41220201202668,
-        "lightcone_max_mk": 12.189763069152832,
-        "lightcone_min_mk": -119.59754943847656,
+        "elapsed_seconds": 7030.992116132984,
+        "lightcone_max_mk": 19.11258888244629,
+        "lightcone_min_mk": -145.65484619140625,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00020170211791992188,
-        "slice_kinetic_temperature_max_k": 26191.6640625,
-        "slice_kinetic_temperature_min_k": 13.259175300598145,
-        "slice_spin_temperature_max_k": 6518.16796875,
-        "slice_spin_temperature_min_k": 14.709097862243652,
-        "trough_brightness_mk": -109.85221099853516,
-        "trough_redshift": 25.38207823874287
+        "slice_ionized_fraction_min": 0.0001944899559020996,
+        "slice_kinetic_temperature_max_k": 33046.5390625,
+        "slice_kinetic_temperature_min_k": 11.246618270874023,
+        "slice_spin_temperature_max_k": 9197.1845703125,
+        "slice_spin_temperature_min_k": 13.192161560058594,
+        "trough_brightness_mk": -110.31915283203125,
+        "trough_redshift": 24.864783070661233
       },
-      "web_sha256": "75863c2f36d431b0850dbd6e6cfa180efb595f4544b8f806d5b1d6cd21ddc445"
+      "web_sha256": "fa4eed8a55b202347c2cb2185c68aafc53abd5876e5d532a2b04345033b3e1d5"
     },
     {
       "parameters": {
@@ -279,30 +292,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "31838b40219299dad092630e6faf98ce9c6ba9295f95dafb1859507cf42408ed",
+      "raw_sha256": "24df493d37680a6f43d9fb866ec70969d6d114db3f179f3b0852a9f4f6413550",
       "role": {
         "kind": "astro_oat",
         "parameter": "ALPHA_STAR",
         "value_index": 1
       },
-      "run_id": "run_9ba9b12388ff",
+      "run_id": "run_938690149407",
+      "slice_binary_bytes": 11602451,
+      "slice_binary_sha256": "54142916ae06877154a2bf820408053036360decd55b401a35515a5dd5dd48b6",
       "summary": {
-        "elapsed_seconds": 166.59589078696445,
-        "lightcone_max_mk": 12.332765579223633,
-        "lightcone_min_mk": -119.18438720703125,
+        "elapsed_seconds": 7028.013670368819,
+        "lightcone_max_mk": 19.94390296936035,
+        "lightcone_min_mk": -149.05186462402344,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00019818544387817383,
-        "slice_kinetic_temperature_max_k": 14782.1982421875,
-        "slice_kinetic_temperature_min_k": 10.064385414123535,
-        "slice_spin_temperature_max_k": 4374.72607421875,
-        "slice_spin_temperature_min_k": 12.690978050231934,
-        "trough_brightness_mk": -109.71456909179688,
+        "slice_ionized_fraction_min": 0.0001621246337890625,
+        "slice_kinetic_temperature_max_k": 21685.55078125,
+        "slice_kinetic_temperature_min_k": 8.894538879394531,
+        "slice_spin_temperature_max_k": 7358.3212890625,
+        "slice_spin_temperature_min_k": 11.019042015075684,
+        "trough_brightness_mk": -110.18350982666016,
         "trough_redshift": 21.96718975005025
       },
-      "web_sha256": "446752b9604753a9db37bc0ddb0c049051d32484e0bfc4d1c780643b33013814"
+      "web_sha256": "196cd4cca589454c80182d03b8a3cebea551834923726a7aaecf5cb5a846705f"
     },
     {
       "parameters": {
@@ -317,30 +332,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "7bf29a5ea435fb73efcf21dcdd1f2d1753cf82386877b6243ce17ed955bb5f54",
+      "raw_sha256": "0431ba3420322a096ab72ac7e1b025da6c206e1537959e655fc37d1f84b5d783",
       "role": {
         "kind": "astro_oat",
         "parameter": "ALPHA_STAR",
         "value_index": 3
       },
-      "run_id": "run_5c3d909dd305",
+      "run_id": "run_074da444b5e8",
+      "slice_binary_bytes": 12377881,
+      "slice_binary_sha256": "2485a1ed77aed29cbde92e0c79a9ea159813ca07af80269b713a4b6783cea005",
       "summary": {
-        "elapsed_seconds": 168.06517826393247,
-        "lightcone_max_mk": 14.720003128051758,
-        "lightcone_min_mk": -119.44697570800781,
+        "elapsed_seconds": 6972.780606603017,
+        "lightcone_max_mk": 23.145856857299805,
+        "lightcone_min_mk": -153.32199096679688,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.0001913309097290039,
-        "slice_kinetic_temperature_max_k": 36952.62890625,
-        "slice_kinetic_temperature_min_k": 7.778841495513916,
-        "slice_spin_temperature_max_k": 16821.767578125,
-        "slice_spin_temperature_min_k": 10.366146087646484,
-        "trough_brightness_mk": -105.42524719238281,
+        "slice_ionized_fraction_min": 0.00010848045349121094,
+        "slice_kinetic_temperature_max_k": 45793.91796875,
+        "slice_kinetic_temperature_min_k": 6.332977294921875,
+        "slice_spin_temperature_max_k": 17844.43359375,
+        "slice_spin_temperature_min_k": 8.850581169128418,
+        "trough_brightness_mk": -106.1105728149414,
         "trough_redshift": 18.60227823738577
       },
-      "web_sha256": "a8279f666141997862311ba1b580a6631f7103df4332eeb5b06a9c62e5f28f14"
+      "web_sha256": "3c0a1051bb7c42777df2325f49b641a40d2dfe6d58249db3b6b9d39a861ded61"
     },
     {
       "parameters": {
@@ -355,30 +372,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "f55ea8a1ed2e568c1436d2fc0b1aad1d01d1802a7d11d533cfded0ebbceccf68",
+      "raw_sha256": "eb3887d58e6aad7a0faf0871bdb625447bfc4307bd18a62c796ee86ea00996ca",
       "role": {
         "kind": "astro_oat",
         "parameter": "ALPHA_STAR",
         "value_index": 4
       },
-      "run_id": "run_dcdb93a3b56e",
+      "run_id": "run_86a0b34777c1",
+      "slice_binary_bytes": 12338475,
+      "slice_binary_sha256": "e39c012eeccc6f867d684913412eb4474e8045f21319242d6ce9a2f54dc64495",
       "summary": {
-        "elapsed_seconds": 167.47633514506742,
-        "lightcone_max_mk": 15.88306713104248,
-        "lightcone_min_mk": -119.08851623535156,
+        "elapsed_seconds": 6811.797171804123,
+        "lightcone_max_mk": 25.313583374023438,
+        "lightcone_min_mk": -150.5396270751953,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00018978118896484375,
-        "slice_kinetic_temperature_max_k": 50266.5390625,
-        "slice_kinetic_temperature_min_k": 7.068503379821777,
-        "slice_spin_temperature_max_k": 22170.32421875,
-        "slice_spin_temperature_min_k": 10.189537048339844,
-        "trough_brightness_mk": -103.94581604003906,
+        "slice_ionized_fraction_min": 0.0,
+        "slice_kinetic_temperature_max_k": 53130.87890625,
+        "slice_kinetic_temperature_min_k": 5.60422420501709,
+        "slice_spin_temperature_max_k": 22137.03125,
+        "slice_spin_temperature_min_k": 8.515907287597656,
+        "trough_brightness_mk": -104.58048248291016,
         "trough_redshift": 17.84109858755407
       },
-      "web_sha256": "48f0ea042edeb6f4788b99dc2a700fc3e1ed5e92d6cf461bb8789f175f023d4d"
+      "web_sha256": "778e4535e8b83c1d11a3a6647226c9612959e9566a638299294db44c9aafaf34"
     },
     {
       "parameters": {
@@ -393,30 +412,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "7f419e8c0d35a08218ae86141abe7a9b2ea777a5d29682d47a2922163241c794",
+      "raw_sha256": "1011e5e983aeafee47bafc69fbdbdfce36734c99d5fc53cefd67180730fd73a6",
       "role": {
         "kind": "astro_oat",
         "parameter": "F_ESC10",
         "value_index": 0
       },
-      "run_id": "run_837096701471",
+      "run_id": "run_83c0a141c682",
+      "slice_binary_bytes": 14533710,
+      "slice_binary_sha256": "ba74750815cb1a597ce4e6c99cd3e831111e95198cf8cca0f3261f2194aee3a0",
       "summary": {
-        "elapsed_seconds": 162.3097051391378,
-        "lightcone_max_mk": 54.645118713378906,
-        "lightcone_min_mk": -132.8798828125,
+        "elapsed_seconds": 6291.901435303036,
+        "lightcone_max_mk": 196.24249267578125,
+        "lightcone_min_mk": -176.6038360595703,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
-        "slice_ionized_fraction_max": 0.33179813623428345,
-        "slice_ionized_fraction_min": 0.00019282102584838867,
-        "slice_kinetic_temperature_max_k": 17295.142578125,
-        "slice_kinetic_temperature_min_k": 8.288991928100586,
-        "slice_spin_temperature_max_k": 8124.673828125,
-        "slice_spin_temperature_min_k": 11.181070327758789,
-        "trough_brightness_mk": -111.98712921142578,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
+        "slice_ionized_fraction_max": 0.36366569995880127,
+        "slice_ionized_fraction_min": 0.00013452768325805664,
+        "slice_kinetic_temperature_max_k": 28233.583984375,
+        "slice_kinetic_temperature_min_k": 7.120115280151367,
+        "slice_spin_temperature_max_k": 11412.48828125,
+        "slice_spin_temperature_min_k": 9.453737258911133,
+        "trough_brightness_mk": -112.28817749023438,
         "trough_redshift": 19.39420951545324
       },
-      "web_sha256": "19340c4c8eaa797a25c677698af1a0abc61602b82892dbcb598c37531dbc5195"
+      "web_sha256": "f71bb14c63e5a8a597048381c70149f65a2d99c0742864a316aa4128d5e52a07"
     },
     {
       "parameters": {
@@ -431,30 +452,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "70491246ebb3cb18cbb6079290f2c7b55cf4cefef690fb0a8171c384b32f68cb",
+      "raw_sha256": "6d87dbe1111d1431497e871e88e986eace5b6afa0de21d4a2a4cf45acd73404f",
       "role": {
         "kind": "astro_oat",
         "parameter": "F_ESC10",
         "value_index": 1
       },
-      "run_id": "run_100a9f52e548",
+      "run_id": "run_208fc3a9bf58",
+      "slice_binary_bytes": 14854582,
+      "slice_binary_sha256": "7b2750d12c8405cf0d19a0d6b8040a5fbbd57a5f8e0e628393b7589efe6abdf5",
       "summary": {
-        "elapsed_seconds": 164.8923725390341,
-        "lightcone_max_mk": 35.01980972290039,
-        "lightcone_min_mk": -131.17987060546875,
+        "elapsed_seconds": 6678.262235183967,
+        "lightcone_max_mk": 40.16408920288086,
+        "lightcone_min_mk": -165.98765563964844,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00019282102584838867,
-        "slice_kinetic_temperature_max_k": 17967.220703125,
-        "slice_kinetic_temperature_min_k": 8.290672302246094,
-        "slice_spin_temperature_max_k": 8391.30859375,
-        "slice_spin_temperature_min_k": 11.189179420471191,
-        "trough_brightness_mk": -111.52771759033203,
+        "slice_ionized_fraction_min": 0.0001556873321533203,
+        "slice_kinetic_temperature_max_k": 29232.98046875,
+        "slice_kinetic_temperature_min_k": 7.12088680267334,
+        "slice_spin_temperature_max_k": 11653.7783203125,
+        "slice_spin_temperature_min_k": 9.464391708374023,
+        "trough_brightness_mk": -111.83233642578125,
         "trough_redshift": 19.39420951545324
       },
-      "web_sha256": "c3aed94c9d646b92fe342a15631a598b9bc7fe2ed8beff6c63d701fa9a33b228"
+      "web_sha256": "acda946772b9a9c18fd863c6bca2ccf715a998e0cb9ba7ecfc750aeb6701d2a7"
     },
     {
       "parameters": {
@@ -469,30 +492,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "59eceb9994e74dc7cd61e1adf702fe8886c5a7e663d94f6392a8844545b55f5f",
+      "raw_sha256": "c3eccdc0d9742195590595f22c3c102bf78cb488f6dfeece7f1a762d582d8e20",
       "role": {
         "kind": "astro_oat",
         "parameter": "F_ESC10",
         "value_index": 3
       },
-      "run_id": "run_51ff4d660f59",
+      "run_id": "run_46555f868f85",
+      "slice_binary_bytes": 11214513,
+      "slice_binary_sha256": "0c2311a0963d37b4d093f9e223e0c1802cbfa2c1eed90eaf351c7230dc24deab",
       "summary": {
-        "elapsed_seconds": 168.54805934685282,
-        "lightcone_max_mk": 8.805665969848633,
-        "lightcone_min_mk": -109.94367980957031,
+        "elapsed_seconds": 7020.348360420903,
+        "lightcone_max_mk": 16.322124481201172,
+        "lightcone_min_mk": -144.54544067382812,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00019246339797973633,
-        "slice_kinetic_temperature_max_k": 22307.498046875,
-        "slice_kinetic_temperature_min_k": 8.347976684570312,
-        "slice_spin_temperature_max_k": 9586.3427734375,
-        "slice_spin_temperature_min_k": 11.464163780212402,
-        "trough_brightness_mk": -99.65754699707031,
+        "slice_ionized_fraction_min": 0.00015592575073242188,
+        "slice_kinetic_temperature_max_k": 33385.55078125,
+        "slice_kinetic_temperature_min_k": 7.14281702041626,
+        "slice_spin_temperature_max_k": 12752.306640625,
+        "slice_spin_temperature_min_k": 9.798584938049316,
+        "trough_brightness_mk": -101.45870208740234,
         "trough_redshift": 19.80209331677363
       },
-      "web_sha256": "47f05a619a16ce6550b74ecfef54e3be4afdb5f3598e308796a6346d15b91c8e"
+      "web_sha256": "91067d988cc25d1825c290072633668dc51aa2c2d8f1ee60c624ec7a1b24b002"
     },
     {
       "parameters": {
@@ -507,30 +532,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "69563230d97a81011c5d16aae90fe60ce8e57344261a3f8e0126ba21a4e3665a",
+      "raw_sha256": "56b84649c9746515e0dee74637e869324d1e63b41182d35884e44b21b0de4f6d",
       "role": {
         "kind": "astro_oat",
         "parameter": "F_ESC10",
         "value_index": 4
       },
-      "run_id": "run_73f9189aba43",
+      "run_id": "run_ca42261067f9",
+      "slice_binary_bytes": 10809145,
+      "slice_binary_sha256": "bf6c5917ccf8da79bd5157e5efdf6751d42a21b33f17d372b55336ce4f74d9ba",
       "summary": {
-        "elapsed_seconds": 168.37619150499813,
-        "lightcone_max_mk": 1.5597888231277466,
-        "lightcone_min_mk": -108.46407318115234,
+        "elapsed_seconds": 7037.953322218033,
+        "lightcone_max_mk": 9.835692405700684,
+        "lightcone_min_mk": -152.14295959472656,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00019234418869018555,
-        "slice_kinetic_temperature_max_k": 22353.59375,
-        "slice_kinetic_temperature_min_k": 8.360081672668457,
-        "slice_spin_temperature_max_k": 9595.6123046875,
-        "slice_spin_temperature_min_k": 11.540857315063477,
-        "trough_brightness_mk": -97.34757995605469,
+        "slice_ionized_fraction_min": 0.00015366077423095703,
+        "slice_kinetic_temperature_max_k": 33413.3828125,
+        "slice_kinetic_temperature_min_k": 7.145981311798096,
+        "slice_spin_temperature_max_k": 12761.306640625,
+        "slice_spin_temperature_min_k": 9.891103744506836,
+        "trough_brightness_mk": -100.8373794555664,
         "trough_redshift": 19.80209331677363
       },
-      "web_sha256": "55f97e24d0489d162de81206eef4aff3d3d6cf0fc713c5fc9400d7e26eed888c"
+      "web_sha256": "7ba6353201fb980e8b6fafbd59316da6113ebaa68c9c21c13e2067c98cb21439"
     },
     {
       "parameters": {
@@ -545,30 +572,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "3be2542d21d354060c92ee9b8dd3f4de155b99f2743da7d0699fe6922983bee3",
+      "raw_sha256": "630d77359fb0042a0187c90d680a02037067d6b3906df1fe90fbea4304b14252",
       "role": {
         "kind": "astro_oat",
         "parameter": "ALPHA_ESC",
         "value_index": 0
       },
-      "run_id": "run_b7358e9d7519",
+      "run_id": "run_d39a1552c4bf",
+      "slice_binary_bytes": 11618021,
+      "slice_binary_sha256": "0bc8af486c2d78d75882cab7d3b4eba90a915141f53a285d5591c467aad74c8d",
       "summary": {
-        "elapsed_seconds": 167.9343051109463,
-        "lightcone_max_mk": 10.551251411437988,
-        "lightcone_min_mk": -111.29573822021484,
+        "elapsed_seconds": 7011.37447939883,
+        "lightcone_max_mk": 18.517797470092773,
+        "lightcone_min_mk": -140.3272705078125,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00019466876983642578,
-        "slice_kinetic_temperature_max_k": 22247.16015625,
-        "slice_kinetic_temperature_min_k": 8.3407621383667,
-        "slice_spin_temperature_max_k": 9574.2001953125,
-        "slice_spin_temperature_min_k": 11.42245864868164,
-        "trough_brightness_mk": -101.0623779296875,
+        "slice_ionized_fraction_min": 0.00015592575073242188,
+        "slice_kinetic_temperature_max_k": 33348.48828125,
+        "slice_kinetic_temperature_min_k": 7.140626430511475,
+        "slice_spin_temperature_max_k": 12740.5576171875,
+        "slice_spin_temperature_min_k": 9.746663093566895,
+        "trough_brightness_mk": -102.11881256103516,
         "trough_redshift": 19.80209331677363
       },
-      "web_sha256": "2efefbba048eda386cdeef392417c5b8db9fff0eb33b15a031932a45a068d195"
+      "web_sha256": "cc06d0a738f12f0446bd70fcfc8a137af83a1044801d89090512e2eb3c6b18c6"
     },
     {
       "parameters": {
@@ -583,30 +612,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "30f209e212224dd08534d06cf26f8fbcc6622deaf026b2ecbe4d91164b86cd26",
+      "raw_sha256": "2325596cbc04152a52fe6c65adf43f579e27a22cf658486662975b4a6614cc52",
       "role": {
         "kind": "astro_oat",
         "parameter": "ALPHA_ESC",
         "value_index": 1
       },
-      "run_id": "run_eb44ae645c6d",
+      "run_id": "run_4a32d5576e9d",
+      "slice_binary_bytes": 11925681,
+      "slice_binary_sha256": "7f318b4928cfeb7a1304dc2d951d96c35b391fe947c8c082a720b3bdc2adf348",
       "summary": {
-        "elapsed_seconds": 167.6397144610528,
-        "lightcone_max_mk": 11.357292175292969,
-        "lightcone_min_mk": -113.93328857421875,
+        "elapsed_seconds": 6997.088052900042,
+        "lightcone_max_mk": 18.868812561035156,
+        "lightcone_min_mk": -145.89085388183594,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.000194549560546875,
-        "slice_kinetic_temperature_max_k": 22139.82421875,
-        "slice_kinetic_temperature_min_k": 8.326497077941895,
-        "slice_spin_temperature_max_k": 9552.6142578125,
-        "slice_spin_temperature_min_k": 11.35291576385498,
-        "trough_brightness_mk": -103.77033996582031,
+        "slice_ionized_fraction_min": 0.00015592575073242188,
+        "slice_kinetic_temperature_max_k": 33280.78125,
+        "slice_kinetic_temperature_min_k": 7.135646820068359,
+        "slice_spin_temperature_max_k": 12719.255859375,
+        "slice_spin_temperature_min_k": 9.659819602966309,
+        "trough_brightness_mk": -104.27851104736328,
         "trough_redshift": 19.80209331677363
       },
-      "web_sha256": "b62504590f452854938552f2f6be5708a6f7cb92997b35d6fe377b249b17e4f2"
+      "web_sha256": "27409dfcc80c66529afcfe95a982669e226b3bd93f42911058e1de3795a3dde4"
     },
     {
       "parameters": {
@@ -621,30 +652,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "3c2e1d188955e7dae0cd6ad431a489b13056f39f6465aa52bb02961da6d38aac",
+      "raw_sha256": "0c837141a747623f00ae7bd9e890a44de54ac2168ed99c99944e6531a55ec6a6",
       "role": {
         "kind": "astro_oat",
         "parameter": "ALPHA_ESC",
         "value_index": 3
       },
-      "run_id": "run_74d429b9264e",
+      "run_id": "run_69997559aa9a",
+      "slice_binary_bytes": 12408842,
+      "slice_binary_sha256": "55f782d1e9baf205d57778e0109389c336b2be61d2ed61c90300c473beb9ec78",
       "summary": {
-        "elapsed_seconds": 165.43061533989385,
-        "lightcone_max_mk": 17.774511337280273,
-        "lightcone_min_mk": -127.44912719726562,
+        "elapsed_seconds": 6861.206434640801,
+        "lightcone_max_mk": 28.397865295410156,
+        "lightcone_min_mk": -158.7288055419922,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00019234418869018555,
-        "slice_kinetic_temperature_max_k": 21541.4609375,
-        "slice_kinetic_temperature_min_k": 8.295498847961426,
-        "slice_spin_temperature_max_k": 9430.814453125,
-        "slice_spin_temperature_min_k": 11.212069511413574,
-        "trough_brightness_mk": -110.31857299804688,
+        "slice_ionized_fraction_min": 0.00015246868133544922,
+        "slice_kinetic_temperature_max_k": 32882.78125,
+        "slice_kinetic_temperature_min_k": 7.122312545776367,
+        "slice_spin_temperature_max_k": 12602.583984375,
+        "slice_spin_temperature_min_k": 9.485786437988281,
+        "trough_brightness_mk": -110.86652374267578,
         "trough_redshift": 19.39420951545324
       },
-      "web_sha256": "f23e504b302d60f613bd2a043281c7cc2f7045871fcec49b11df4bcb0917c525"
+      "web_sha256": "57c9ece1e13e8cd45d69bb0fcf7053218f578837d3053cdd4928286450275b68"
     },
     {
       "parameters": {
@@ -659,30 +692,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "ecca9d9d66369dc593d6753f9e5891a5f48eff1e4afc5e3a81f0b2986ff571ec",
+      "raw_sha256": "fe92b195ecaaa2125c960ba37a8a5a84829efbddb650e08854b68528d17d8532",
       "role": {
         "kind": "astro_oat",
         "parameter": "ALPHA_ESC",
         "value_index": 4
       },
-      "run_id": "run_dce6d42bfe2b",
+      "run_id": "run_3fc10d86fd7e",
+      "slice_binary_bytes": 12141079,
+      "slice_binary_sha256": "4f3d20d4b008364732df4bf35881c99777e64d2ef2445b0fb535b5956b6011e1",
       "summary": {
-        "elapsed_seconds": 164.58897430403158,
-        "lightcone_max_mk": 19.715892791748047,
-        "lightcone_min_mk": -130.47994995117188,
+        "elapsed_seconds": 6639.482073520077,
+        "lightcone_max_mk": 33.86310958862305,
+        "lightcone_min_mk": -167.55319213867188,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00019234418869018555,
-        "slice_kinetic_temperature_max_k": 21480.59375,
-        "slice_kinetic_temperature_min_k": 8.291064262390137,
-        "slice_spin_temperature_max_k": 9418.3388671875,
-        "slice_spin_temperature_min_k": 11.192527770996094,
-        "trough_brightness_mk": -111.3672103881836,
+        "slice_ionized_fraction_min": 0.0,
+        "slice_kinetic_temperature_max_k": 32841.875,
+        "slice_kinetic_temperature_min_k": 7.120917797088623,
+        "slice_spin_temperature_max_k": 12590.5185546875,
+        "slice_spin_temperature_min_k": 9.467103004455566,
+        "trough_brightness_mk": -111.89714813232422,
         "trough_redshift": 19.39420951545324
       },
-      "web_sha256": "130583b5f54a7102e8cae2b7d1d9034e3e9975d0cb34fdc41eddd02643470a2f"
+      "web_sha256": "41ffdacb49b40c56dc156641be465c2462de5f1d7b8d8f7a64207357758b3b20"
     },
     {
       "parameters": {
@@ -697,30 +732,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "f148c95c215b9f448de3a0a6db96839595324a6f4edd401d24a7e18bf82547c1",
+      "raw_sha256": "e7f48009db6479caa6aaf8620163798e695bc95c00f144ad28b9d63914aecfb1",
       "role": {
         "kind": "astro_oat",
         "parameter": "M_TURN",
         "value_index": 0
       },
-      "run_id": "run_d6ae68000362",
+      "run_id": "run_34063da71737",
+      "slice_binary_bytes": 11549428,
+      "slice_binary_sha256": "799c57d89c6006cbfddbc3cfb3ad414f0dd4a0bd588d908a9d2908f550ab5d51",
       "summary": {
-        "elapsed_seconds": 168.63429400417954,
-        "lightcone_max_mk": 9.760387420654297,
-        "lightcone_min_mk": -112.92768096923828,
+        "elapsed_seconds": 7014.841723252088,
+        "lightcone_max_mk": 13.593892097473145,
+        "lightcone_min_mk": -129.84072875976562,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.0010960102081298828,
-        "slice_kinetic_temperature_max_k": 25959.05859375,
-        "slice_kinetic_temperature_min_k": 13.648886680603027,
-        "slice_spin_temperature_max_k": 10412.771484375,
-        "slice_spin_temperature_min_k": 15.251031875610352,
-        "trough_brightness_mk": -106.34098815917969,
+        "slice_ionized_fraction_min": 0.0002033710479736328,
+        "slice_kinetic_temperature_max_k": 35600.640625,
+        "slice_kinetic_temperature_min_k": 11.732948303222656,
+        "slice_spin_temperature_max_k": 13565.88671875,
+        "slice_spin_temperature_min_k": 13.7493314743042,
+        "trough_brightness_mk": -106.11996459960938,
         "trough_redshift": 25.90971930031952
       },
-      "web_sha256": "77951c05a68c24d26e88374768c7d175c94386094be29bc2c7ed4fd50f82732d"
+      "web_sha256": "8cd44be3ef0153f7ae5d026788b238778b4922189d635a8f5e0f37b579e73651"
     },
     {
       "parameters": {
@@ -735,30 +772,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "8a97d903687e152463de32854594b6887b53698fab0b03befad9e3edbd1f6d9a",
+      "raw_sha256": "ce1b3e38d2f4e2c75c7af4160c77d53a9b4d34863d85402cd160ab55b227cbc9",
       "role": {
         "kind": "astro_oat",
         "parameter": "M_TURN",
         "value_index": 1
       },
-      "run_id": "run_5559ea21e887",
+      "run_id": "run_f186d2e02330",
+      "slice_binary_bytes": 11956931,
+      "slice_binary_sha256": "f5a475016baf1740221d00c861d81f74b398c5e0590a7595c2a10cdbfd72241d",
       "summary": {
-        "elapsed_seconds": 168.74035436613485,
-        "lightcone_max_mk": 11.113661766052246,
-        "lightcone_min_mk": -116.99024200439453,
+        "elapsed_seconds": 6990.708664110163,
+        "lightcone_max_mk": 17.437402725219727,
+        "lightcone_min_mk": -142.41490173339844,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.0002053380012512207,
-        "slice_kinetic_temperature_max_k": 24125.11328125,
-        "slice_kinetic_temperature_min_k": 10.39443588256836,
-        "slice_spin_temperature_max_k": 10036.26171875,
-        "slice_spin_temperature_min_k": 13.088536262512207,
-        "trough_brightness_mk": -107.92185974121094,
+        "slice_ionized_fraction_min": 0.00019741058349609375,
+        "slice_kinetic_temperature_max_k": 34491.0859375,
+        "slice_kinetic_temperature_min_k": 9.245725631713867,
+        "slice_spin_temperature_max_k": 13200.0673828125,
+        "slice_spin_temperature_min_k": 11.418402671813965,
+        "trough_brightness_mk": -107.91487121582031,
         "trough_redshift": 22.426533106986874
       },
-      "web_sha256": "e2446269d9279680d7654c39237ff89965d64223a8962a85bd592aa67e079783"
+      "web_sha256": "4ed15d7f2b033482c5f9f2ed27a5f9aeea49e3410fdef9326888a51fc2f8ca41"
     },
     {
       "parameters": {
@@ -773,30 +812,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "1c0ffee5936954aadb3f696b01758debdc23219e062c1a438d21ab9b4f72e885",
+      "raw_sha256": "e94adb90f8d10c9f7d8793b795b9dbdff5f3ab108beca755e549bfc3245422cf",
       "role": {
         "kind": "astro_oat",
         "parameter": "M_TURN",
         "value_index": 3
       },
-      "run_id": "run_bf6d3ded10ba",
+      "run_id": "run_396a88b69361",
+      "slice_binary_bytes": 12289109,
+      "slice_binary_sha256": "c5ce742d4cb12873217e2816a06d1c2391fb73b9e6d29da6b7fda6fdbd53c561",
       "summary": {
-        "elapsed_seconds": 161.3232209600974,
-        "lightcone_max_mk": 18.541767120361328,
-        "lightcone_min_mk": -116.37667083740234,
+        "elapsed_seconds": 6052.532556870021,
+        "lightcone_max_mk": 41.907352447509766,
+        "lightcone_min_mk": -165.8580780029297,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00018030405044555664,
-        "slice_kinetic_temperature_max_k": 18568.4375,
-        "slice_kinetic_temperature_min_k": 4.537925720214844,
-        "slice_spin_temperature_max_k": 8563.21875,
-        "slice_spin_temperature_min_k": 8.377279281616211,
-        "trough_brightness_mk": -94.6419448852539,
+        "slice_ionized_fraction_min": 0.0,
+        "slice_kinetic_temperature_max_k": 29230.572265625,
+        "slice_kinetic_temperature_min_k": 3.4050180912017822,
+        "slice_spin_temperature_max_k": 11348.7900390625,
+        "slice_spin_temperature_min_k": 6.95849084854126,
+        "trough_brightness_mk": -96.2585220336914,
         "trough_redshift": 14.45626608432385
       },
-      "web_sha256": "194c11c49f3cf584ee0b452144107f2b2c968c1c76ca7d5272bc03fd54a3e330"
+      "web_sha256": "daa95ea53912af5b83d8d5c279a11ef552e744e055de3e80cd87d415a111b687"
     },
     {
       "parameters": {
@@ -811,30 +852,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "5619d6dde870101cc40ca3d50bef8ae0e8ae5b2ad98d385d5c27fe1e5cb18705",
+      "raw_sha256": "017c210df4bb8730729a4ef6e3843ec34a5490e2c782cf1d820182920561f826",
       "role": {
         "kind": "astro_oat",
         "parameter": "M_TURN",
         "value_index": 4
       },
-      "run_id": "run_d048c85059df",
+      "run_id": "run_a97bc282043e",
+      "slice_binary_bytes": 11582446,
+      "slice_binary_sha256": "99c7046b318cd23b08e172f0ae53a43b7b7211c580cd126b98b09f14ea22f250",
       "summary": {
-        "elapsed_seconds": 153.13137272000313,
-        "lightcone_max_mk": 25.019105911254883,
-        "lightcone_min_mk": -121.41319274902344,
+        "elapsed_seconds": 5071.427427890943,
+        "lightcone_max_mk": 60.9814567565918,
+        "lightcone_min_mk": -217.7080078125,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00016802549362182617,
-        "slice_kinetic_temperature_max_k": 19768.267578125,
-        "slice_kinetic_temperature_min_k": 2.455566167831421,
-        "slice_spin_temperature_max_k": 9734.0888671875,
-        "slice_spin_temperature_min_k": 6.606844902038574,
-        "trough_brightness_mk": -70.15592956542969,
+        "slice_ionized_fraction_min": 0.0,
+        "slice_kinetic_temperature_max_k": 18990.529296875,
+        "slice_kinetic_temperature_min_k": 1.5559111833572388,
+        "slice_spin_temperature_max_k": 8965.0166015625,
+        "slice_spin_temperature_min_k": 5.656376361846924,
+        "trough_brightness_mk": -70.87998962402344,
         "trough_redshift": 10.259055693397281
       },
-      "web_sha256": "acf179a1a85448066e6b10d97204274c32cbc3710d7e504d132147f16bb631ff"
+      "web_sha256": "af7e246b9d996d36af9d8a0aef38f24d624a7c43aced0a90ab682e96252221fd"
     },
     {
       "parameters": {
@@ -849,30 +892,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.01
       },
-      "raw_sha256": "d73985ddb7f415c61c6bd72188bb5de31f4b2b5c0f0b440fbb7b187489768901",
+      "raw_sha256": "1550aba6ae9924e481ee3e8dd44fa4beb010a066d54c5ff142e088c5444febfc",
       "role": {
         "kind": "astro_oat",
         "parameter": "t_STAR",
         "value_index": 0
       },
-      "run_id": "run_1f52c3063275",
+      "run_id": "run_c81297331d4e",
+      "slice_binary_bytes": 12176097,
+      "slice_binary_sha256": "c5d42fbd4b6bdea9b716827d64b4c37eb2c70703ac968df7e3b51cd49b1b5aea",
       "summary": {
-        "elapsed_seconds": 167.71430165087804,
-        "lightcone_max_mk": 41.84567642211914,
-        "lightcone_min_mk": -128.90591430664062,
+        "elapsed_seconds": 7022.0430907020345,
+        "lightcone_max_mk": 50.573936462402344,
+        "lightcone_min_mk": -155.30160522460938,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00020182132720947266,
-        "slice_kinetic_temperature_max_k": 58351.26171875,
-        "slice_kinetic_temperature_min_k": 14.42041301727295,
-        "slice_spin_temperature_max_k": 52695.25390625,
-        "slice_spin_temperature_min_k": 16.5414981842041,
-        "trough_brightness_mk": -118.62446594238281,
+        "slice_ionized_fraction_min": 0.0,
+        "slice_kinetic_temperature_max_k": 62138.625,
+        "slice_kinetic_temperature_min_k": 12.780732154846191,
+        "slice_spin_temperature_max_k": 55724.6953125,
+        "slice_spin_temperature_min_k": 14.570615768432617,
+        "trough_brightness_mk": -118.71157836914062,
         "trough_redshift": 26.447913173063746
       },
-      "web_sha256": "27106857889c30393cff76a45fab67bac591079b402290cb63658109d8c627ad"
+      "web_sha256": "c9d99acfad0429731df4b903aaa920a4f763fa129f7c9efa21f2567bf0008005"
     },
     {
       "parameters": {
@@ -887,30 +932,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.25
       },
-      "raw_sha256": "69dafc7fb9176689dc697b0de60a0393984bd0915db36dfe83a9b6fb2a2659a2",
+      "raw_sha256": "c318ecf75470b4d458f01070dd6cec85bc750762962417b4f435a3b14f0f6162",
       "role": {
         "kind": "astro_oat",
         "parameter": "t_STAR",
         "value_index": 1
       },
-      "run_id": "run_1ff1d15964ab",
+      "run_id": "run_82d247b0a112",
+      "slice_binary_bytes": 12326863,
+      "slice_binary_sha256": "953b87ea4808f186b3695e5e59c5888d0c4ec29d17941c21ab2bdde250dc1ae4",
       "summary": {
-        "elapsed_seconds": 168.00860137306154,
-        "lightcone_max_mk": 17.523847579956055,
-        "lightcone_min_mk": -123.70744323730469,
+        "elapsed_seconds": 7012.006328952033,
+        "lightcone_max_mk": 26.589784622192383,
+        "lightcone_min_mk": -158.8584442138672,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.0001944899559020996,
-        "slice_kinetic_temperature_max_k": 44960.5703125,
-        "slice_kinetic_temperature_min_k": 9.29920482635498,
-        "slice_spin_temperature_max_k": 19349.744140625,
-        "slice_spin_temperature_min_k": 11.709797859191895,
-        "trough_brightness_mk": -111.9410629272461,
+        "slice_ionized_fraction_min": 0.00013458728790283203,
+        "slice_kinetic_temperature_max_k": 53604.26953125,
+        "slice_kinetic_temperature_min_k": 7.834442138671875,
+        "slice_spin_temperature_max_k": 25305.986328125,
+        "slice_spin_temperature_min_k": 10.735893249511719,
+        "trough_brightness_mk": -112.42290496826172,
         "trough_redshift": 20.642497077363668
       },
-      "web_sha256": "f7a8465e1288212604f6cbb4978120f66bf358c7f27bc7e12c7954ec46da436b"
+      "web_sha256": "55691b929fd93ba404fe37a0046b15c479c08e95e49aa7624c509bdc7d79f3d2"
     },
     {
       "parameters": {
@@ -925,30 +972,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.75
       },
-      "raw_sha256": "3189b2ef4dbbbcc53e1251a080040e13867f922b0a9bb668ef65331a04200fb5",
+      "raw_sha256": "882385685b9ef290e25cc0d8060f4a2393edce7b0306d01f6dbc41baa942c398",
       "role": {
         "kind": "astro_oat",
         "parameter": "t_STAR",
         "value_index": 3
       },
-      "run_id": "run_52030e4d07a9",
+      "run_id": "run_59251e45d36a",
+      "slice_binary_bytes": 12209335,
+      "slice_binary_sha256": "4b4ca19ef60f4ae191030a2292f79cd1ab0100534a9a9f8e8f697af0f91f037e",
       "summary": {
-        "elapsed_seconds": 167.91453367494978,
-        "lightcone_max_mk": 11.980012893676758,
-        "lightcone_min_mk": -114.52058410644531,
+        "elapsed_seconds": 7008.138914244948,
+        "lightcone_max_mk": 19.464754104614258,
+        "lightcone_min_mk": -144.38243103027344,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00019228458404541016,
-        "slice_kinetic_temperature_max_k": 13839.171875,
-        "slice_kinetic_temperature_min_k": 7.905510425567627,
-        "slice_spin_temperature_max_k": 6171.24267578125,
-        "slice_spin_temperature_min_k": 10.625650405883789,
-        "trough_brightness_mk": -103.1236572265625,
+        "slice_ionized_fraction_min": 0.00016438961029052734,
+        "slice_kinetic_temperature_max_k": 21609.65234375,
+        "slice_kinetic_temperature_min_k": 6.591945171356201,
+        "slice_spin_temperature_max_k": 8238.5712890625,
+        "slice_spin_temperature_min_k": 9.126153945922852,
+        "trough_brightness_mk": -103.68919372558594,
         "trough_redshift": 18.9943234282497
       },
-      "web_sha256": "b46c3152ec94debae7aff507ab1eaf6c755b9964b0fd179f5312717c0603b662"
+      "web_sha256": "9af48baa12ff016d61950bafd7d29a1d371e6dd8f1d2ed4345472433b8a477b6"
     },
     {
       "parameters": {
@@ -963,30 +1012,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 1.0
       },
-      "raw_sha256": "c6da98c337ca6021b79afdfb3131f267a4cbe616704bf96903fe47b56dce28aa",
+      "raw_sha256": "ff9b2f892ff37a51383f73bf9aac412ca74630e95e66912ad3da0ed8bddaf3ea",
       "role": {
         "kind": "astro_oat",
         "parameter": "t_STAR",
         "value_index": 4
       },
-      "run_id": "run_4071642e6f24",
+      "run_id": "run_6c50de6c11da",
+      "slice_binary_bytes": 12178566,
+      "slice_binary_sha256": "2fa9f80ede69695f1af88b05c50f94a16e2923925cfcabdc54c765afcfa35809",
       "summary": {
-        "elapsed_seconds": 167.79272093297914,
-        "lightcone_max_mk": 10.72669792175293,
-        "lightcone_min_mk": -109.70003509521484,
+        "elapsed_seconds": 6984.578394427896,
+        "lightcone_max_mk": 17.57982635498047,
+        "lightcone_min_mk": -140.07205200195312,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.0001920461654663086,
-        "slice_kinetic_temperature_max_k": 9898.421875,
-        "slice_kinetic_temperature_min_k": 7.590487003326416,
-        "slice_spin_temperature_max_k": 4516.76904296875,
-        "slice_spin_temperature_min_k": 10.375631332397461,
-        "trough_brightness_mk": -99.77346801757812,
+        "slice_ionized_fraction_min": 0.0001690983772277832,
+        "slice_kinetic_temperature_max_k": 15723.400390625,
+        "slice_kinetic_temperature_min_k": 6.04884672164917,
+        "slice_spin_temperature_max_k": 6045.4755859375,
+        "slice_spin_temperature_min_k": 8.77762508392334,
+        "trough_brightness_mk": -100.36821746826172,
         "trough_redshift": 18.217920199939716
       },
-      "web_sha256": "9068a207cd76374f223e037686279acdba7aa0d3b83c69de36574b4b7366ec49"
+      "web_sha256": "c76cc053c3328dac1d5070dd98ac6a2070406925256a6d61af520e31029b9261"
     },
     {
       "parameters": {
@@ -1001,30 +1052,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "4563d1066f15ce8319875d3078fe0e0c0c51b2977499867d7f1297169aa82574",
+      "raw_sha256": "3f23e352bd12cfa00cca2ef87c2937975576732ccf3374c982f9e8781532d611",
       "role": {
         "kind": "astro_oat",
         "parameter": "L_X",
         "value_index": 0
       },
-      "run_id": "run_3052b34eee5a",
+      "run_id": "run_b00aa96e4701",
+      "slice_binary_bytes": 12126110,
+      "slice_binary_sha256": "ff1852a2ea3db2b644e62d46b4d417f9b9094db3125b122b846b0c26721946e3",
       "summary": {
-        "elapsed_seconds": 167.40406955988146,
+        "elapsed_seconds": 7001.660949248122,
         "lightcone_max_mk": 0.0,
-        "lightcone_min_mk": -196.8237762451172,
+        "lightcone_min_mk": -259.2327575683594,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00019115209579467773,
-        "slice_kinetic_temperature_max_k": 28.853883743286133,
-        "slice_kinetic_temperature_min_k": 4.0208563804626465,
-        "slice_spin_temperature_max_k": 86.0506820678711,
-        "slice_spin_temperature_min_k": 4.253624439239502,
-        "trough_brightness_mk": -176.48565673828125,
-        "trough_redshift": 16.4062640533799
+        "slice_ionized_fraction_min": 0.0001735091209411621,
+        "slice_kinetic_temperature_max_k": 42.00283432006836,
+        "slice_kinetic_temperature_min_k": 3.054185152053833,
+        "slice_spin_temperature_max_k": 88.69989013671875,
+        "slice_spin_temperature_min_k": 3.390852928161621,
+        "trough_brightness_mk": -179.24961853027344,
+        "trough_redshift": 16.06496507732184
       },
-      "web_sha256": "78845478fceae6e11d565e74b0c5dfaa97369b0ea740a4f761f4891a7ff7e48d"
+      "web_sha256": "035dddf240b1d5537f4b1f1098259dfd4daf1e5ddd65c8bbfef52fee736188a5"
     },
     {
       "parameters": {
@@ -1039,30 +1092,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "3b3da4df4c63a87e34db38995071f4f9c6a9e0ecf5b01c9d8b117db4132008a7",
+      "raw_sha256": "8e5a405cd712499cc70cd35750e77aabd2a20604cf2049a51d86af24f023e35c",
       "role": {
         "kind": "astro_oat",
         "parameter": "L_X",
         "value_index": 1
       },
-      "run_id": "run_771a8a0fe05c",
+      "run_id": "run_41edd5354310",
+      "slice_binary_bytes": 12388651,
+      "slice_binary_sha256": "e736c63ed38242d851b2eb7b3fcfceeb761efe12ec9193051407f371eadc11a0",
       "summary": {
-        "elapsed_seconds": 168.40885904990137,
+        "elapsed_seconds": 6989.948350525927,
         "lightcone_max_mk": 0.0,
-        "lightcone_min_mk": -187.5756072998047,
+        "lightcone_min_mk": -243.0493927001953,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00019115209579467773,
-        "slice_kinetic_temperature_max_k": 293.6915283203125,
-        "slice_kinetic_temperature_min_k": 4.571922779083252,
-        "slice_spin_temperature_max_k": 288.376953125,
-        "slice_spin_temperature_min_k": 4.938876628875732,
-        "trough_brightness_mk": -168.41888427734375,
+        "slice_ionized_fraction_min": 0.0001773238182067871,
+        "slice_kinetic_temperature_max_k": 511.30364990234375,
+        "slice_kinetic_temperature_min_k": 3.4874372482299805,
+        "slice_spin_temperature_max_k": 491.602783203125,
+        "slice_spin_temperature_min_k": 3.84781551361084,
+        "trough_brightness_mk": -170.44871520996094,
         "trough_redshift": 16.754389002449358
       },
-      "web_sha256": "fbb2ce0febcedcf2f402b1078a29564b6b946d77a5fad512745c203eeee585be"
+      "web_sha256": "d5af0b23d53bbfae108e80f6211a445f6e09d40b1902650343f7aea327d124e3"
     },
     {
       "parameters": {
@@ -1077,30 +1132,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "fc5efb541b71aee94167442431749c28c62477eac4782a093d4890af7d8bb0e9",
+      "raw_sha256": "7e0300ff34101bbef37f35bda4b47f92ebef3aa4386b592039e33b7157074c6a",
       "role": {
         "kind": "astro_oat",
         "parameter": "L_X",
         "value_index": 3
       },
-      "run_id": "run_b9a20b43c637",
+      "run_id": "run_6ef5cb6b5964",
+      "slice_binary_bytes": 12122195,
+      "slice_binary_sha256": "4c5fa0798a3c056c66ba45bbf9d8ee7d197161fac31b39a57971a8087a9acfce",
       "summary": {
-        "elapsed_seconds": 167.99119227100164,
-        "lightcone_max_mk": 22.891992568969727,
-        "lightcone_min_mk": -68.39994049072266,
+        "elapsed_seconds": 6986.533023922006,
+        "lightcone_max_mk": 32.72968292236328,
+        "lightcone_min_mk": -92.53594970703125,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.0001971721649169922,
-        "slice_kinetic_temperature_max_k": 53935.37890625,
-        "slice_kinetic_temperature_min_k": 10.418384552001953,
-        "slice_spin_temperature_max_k": 13857.490234375,
-        "slice_spin_temperature_min_k": 18.60708236694336,
-        "trough_brightness_mk": -62.589263916015625,
+        "slice_ionized_fraction_min": 9.191036224365234e-05,
+        "slice_kinetic_temperature_max_k": 56284.0625,
+        "slice_kinetic_temperature_min_k": 9.35395336151123,
+        "slice_spin_temperature_max_k": 20223.671875,
+        "slice_spin_temperature_min_k": 17.019174575805664,
+        "trough_brightness_mk": -62.9039421081543,
         "trough_redshift": 21.51685311718151
       },
-      "web_sha256": "b163b49e445be3cd5142e4d4ffb4b0cc8e6c5bb7d1f88a00c9cb139b98182b32"
+      "web_sha256": "2ae886e8f677712e6c9f5bdede481ca65a6ef081e2c2bb12143f497030c547f3"
     },
     {
       "parameters": {
@@ -1115,68 +1172,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "008f9ff2d904edd4e51de545408cb9df4174f311a0245f93b1ba458e77884d2a",
+      "raw_sha256": "5626c549a5cb5afc61ef144c142f4550b40015035498692f5cde05d55e71dd41",
       "role": {
         "kind": "astro_oat",
         "parameter": "L_X",
         "value_index": 4
       },
-      "run_id": "run_2ea8f726e49c",
+      "run_id": "run_89f3ece8f320",
+      "slice_binary_bytes": 11898576,
+      "slice_binary_sha256": "18b66a3494df4626bdbb79c7425dc9e8085c466157d5366461f11e6bc17818c0",
       "summary": {
-        "elapsed_seconds": 167.77272089896724,
-        "lightcone_max_mk": 32.08555221557617,
-        "lightcone_min_mk": -33.217926025390625,
+        "elapsed_seconds": 6970.702513793018,
+        "lightcone_max_mk": 42.407569885253906,
+        "lightcone_min_mk": -57.18794631958008,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00020039081573486328,
-        "slice_kinetic_temperature_max_k": 56957.86328125,
-        "slice_kinetic_temperature_min_k": 13.666889190673828,
-        "slice_spin_temperature_max_k": 14077.595703125,
-        "slice_spin_temperature_min_k": 31.42409324645996,
-        "trough_brightness_mk": -29.800100326538086,
+        "slice_ionized_fraction_min": 0.0,
+        "slice_kinetic_temperature_max_k": 63637.22265625,
+        "slice_kinetic_temperature_min_k": 11.959303855895996,
+        "slice_spin_temperature_max_k": 21750.3515625,
+        "slice_spin_temperature_min_k": 30.652530670166016,
+        "trough_brightness_mk": -29.88360023498535,
         "trough_redshift": 23.860422950767106
       },
-      "web_sha256": "fca7df6accb284b20bc2571a793de2316b7fe9165b132d057704b5223529232b"
-    },
-    {
-      "parameters": {
-        "ALPHA_ESC": -0.5,
-        "ALPHA_STAR": 0.5,
-        "F_ESC10": -1.0,
-        "F_STAR10": -1.3,
-        "KP_h_Mpc": 1.0,
-        "L_X": 40.5,
-        "MS": 1.5,
-        "M_TURN": 9.0,
-        "NU_X_THRESH": 100.0,
-        "t_STAR": 0.5
-      },
-      "raw_sha256": "ce0670b2ac0b5d0b099489a15ac722611cf92db2246218a6d9a605386040d5cc",
-      "role": {
-        "kind": "astro_oat",
-        "parameter": "NU_X_THRESH",
-        "value_index": 0
-      },
-      "run_id": "run_982ab7790df2",
-      "summary": {
-        "elapsed_seconds": 175.33576359809376,
-        "lightcone_max_mk": 13.816946983337402,
-        "lightcone_min_mk": -123.30944061279297,
-        "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
-        "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00019216537475585938,
-        "slice_kinetic_temperature_max_k": 67645.515625,
-        "slice_kinetic_temperature_min_k": 7.76513671875,
-        "slice_spin_temperature_max_k": 14555.6533203125,
-        "slice_spin_temperature_min_k": 9.405393600463867,
-        "trough_brightness_mk": -111.92230224609375,
-        "trough_redshift": 19.39420951545324
-      },
-      "web_sha256": "7a86843dd24759e733ce5887fce795b9c0a3cbb931a4c656ec533d85e7160092"
+      "web_sha256": "7bb5e6703420b0f3bfbc57c618a360389e35c808882370c6216fb26e9e1b6312"
     },
     {
       "parameters": {
@@ -1191,30 +1212,32 @@
         "NU_X_THRESH": 300.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "e0d3a961345c67ffd6294801df7e7b417454defd2b0f58d1806ef385ae80121c",
+      "raw_sha256": "5d1466f44343aabba4d2af289158957021110bb223df5da279c4b3510c44902b",
       "role": {
         "kind": "astro_oat",
         "parameter": "NU_X_THRESH",
         "value_index": 1
       },
-      "run_id": "run_610b44f5b748",
+      "run_id": "run_dc49cf795124",
+      "slice_binary_bytes": 12376392,
+      "slice_binary_sha256": "5633f33a3ccc42f2cb504fd77ae227db19b0743b77e4929f99dd0f9af981168d",
       "summary": {
-        "elapsed_seconds": 168.19999885582365,
-        "lightcone_max_mk": 14.351031303405762,
-        "lightcone_min_mk": -114.85110473632812,
+        "elapsed_seconds": 7000.9596019510645,
+        "lightcone_max_mk": 23.94556427001953,
+        "lightcone_min_mk": -148.89523315429688,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00019276142120361328,
-        "slice_kinetic_temperature_max_k": 55873.484375,
-        "slice_kinetic_temperature_min_k": 8.103562355041504,
-        "slice_spin_temperature_max_k": 14060.9208984375,
-        "slice_spin_temperature_min_k": 10.782845497131348,
-        "trough_brightness_mk": -104.00525665283203,
+        "slice_ionized_fraction_min": 0.0,
+        "slice_kinetic_temperature_max_k": 55950.3984375,
+        "slice_kinetic_temperature_min_k": 6.947546005249023,
+        "slice_spin_temperature_max_k": 18235.966796875,
+        "slice_spin_temperature_min_k": 8.861388206481934,
+        "trough_brightness_mk": -105.38080596923828,
         "trough_redshift": 19.80209331677363
       },
-      "web_sha256": "90441afe2029912bda920b938d8196a9e692b2e18f639a1bdfcf01ddfa602be9"
+      "web_sha256": "f3ea18d6c4655ebf9c881a175cd08b766746eabff3a1ac262c0e29f35f8c6de3"
     },
     {
       "parameters": {
@@ -1229,30 +1252,32 @@
         "NU_X_THRESH": 900.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "f2676e3a68538e52a279dc6d184e9ea6fdf2821352b6b122e2089d3c41fcddaa",
+      "raw_sha256": "35feba2481cae0cab5ded9803be7b78f97de93c39f59710c12c9d73cdacad5eb",
       "role": {
         "kind": "astro_oat",
         "parameter": "NU_X_THRESH",
         "value_index": 3
       },
-      "run_id": "run_7f195e4aaa1d",
+      "run_id": "run_122fce25864a",
+      "slice_binary_bytes": 12176278,
+      "slice_binary_sha256": "042e9e8c78db8fdf165f60d1fd73df7e003b67317776b6ae557b30b57acf0691",
       "summary": {
-        "elapsed_seconds": 166.91060550604016,
-        "lightcone_max_mk": 10.855623245239258,
-        "lightcone_min_mk": -138.8522491455078,
+        "elapsed_seconds": 7023.513389544096,
+        "lightcone_max_mk": 17.493616104125977,
+        "lightcone_min_mk": -163.16543579101562,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00019288063049316406,
-        "slice_kinetic_temperature_max_k": 4142.47509765625,
-        "slice_kinetic_temperature_min_k": 8.39969539642334,
-        "slice_spin_temperature_max_k": 3260.119384765625,
-        "slice_spin_temperature_min_k": 11.340106964111328,
-        "trough_brightness_mk": -114.48700714111328,
+        "slice_ionized_fraction_min": 0.0001843571662902832,
+        "slice_kinetic_temperature_max_k": 6837.39208984375,
+        "slice_kinetic_temperature_min_k": 7.14046573638916,
+        "slice_spin_temperature_max_k": 4636.23486328125,
+        "slice_spin_temperature_min_k": 9.237776756286621,
+        "trough_brightness_mk": -114.80392456054688,
         "trough_redshift": 19.39420951545324
       },
-      "web_sha256": "6772312d6861a297d2455e3d004fed98e14a4e1a240073ae074d26c09bd5aecc"
+      "web_sha256": "7badd912d0c7dcde44576cde5a29c8f4b3b154537f80bf01b15f852fdd958cd6"
     },
     {
       "parameters": {
@@ -1267,30 +1292,32 @@
         "NU_X_THRESH": 1500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "dc7b672ee303fcd428a06386fee199439de6f064ca63eb0e132809818781249a",
+      "raw_sha256": "6d7616cbe89343c245b0a0247cace63d1cb8346ac46b065d0e4c715b43850d47",
       "role": {
         "kind": "astro_oat",
         "parameter": "NU_X_THRESH",
         "value_index": 4
       },
-      "run_id": "run_2767839e3f36",
+      "run_id": "run_8eccc9e4e783",
+      "slice_binary_bytes": 12200095,
+      "slice_binary_sha256": "14b240c667798bb8593b77c34eae3f5ea066463868aaf7f635a8fc79c6ae8809",
       "summary": {
-        "elapsed_seconds": 165.81498750206083,
-        "lightcone_max_mk": 6.976585388183594,
-        "lightcone_min_mk": -148.0679931640625,
+        "elapsed_seconds": 6997.564503818052,
+        "lightcone_max_mk": 13.039135932922363,
+        "lightcone_min_mk": -174.763427734375,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7705248594284058,
-        "slice_density_min": -0.5321565270423889,
+        "slice_density_max": 9.06015396118164,
+        "slice_density_min": -0.8263985514640808,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00019252300262451172,
-        "slice_kinetic_temperature_max_k": 1691.469970703125,
-        "slice_kinetic_temperature_min_k": 8.087021827697754,
-        "slice_spin_temperature_max_k": 1523.47119140625,
-        "slice_spin_temperature_min_k": 10.15658950805664,
-        "trough_brightness_mk": -123.79730224609375,
+        "slice_ionized_fraction_min": 0.00018668174743652344,
+        "slice_kinetic_temperature_max_k": 2835.896240234375,
+        "slice_kinetic_temperature_min_k": 6.486546516418457,
+        "slice_spin_temperature_max_k": 2322.559814453125,
+        "slice_spin_temperature_min_k": 8.245712280273438,
+        "trough_brightness_mk": -124.29148864746094,
         "trough_redshift": 18.9943234282497
       },
-      "web_sha256": "00cfe0eb589daf4c3d60d7ca3a8808cb89db1f04147fc7fece9ae0f3695d438e"
+      "web_sha256": "476e824e89b3a35be66e0e9b2dd82ecf86e9a94c6e159a8be17143e81450bb02"
     },
     {
       "parameters": {
@@ -1305,30 +1332,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "49bc4cecb588fa0beb1e83151155fbbe1a3b13d0723e9bf358fb78ac5f990007",
+      "raw_sha256": "046e4cf519388b433529d1ce2a9a6397927a261183c8e54079ff9f5af3e730ea",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 0,
         "ms_index": 1
       },
-      "run_id": "run_da3492495b12",
+      "run_id": "run_0d8f29384172",
+      "slice_binary_bytes": 11107769,
+      "slice_binary_sha256": "a8e10da037d8ba4957dac4b5d61075a33694dd2bc1aab2f43121694ca766e19f",
       "summary": {
-        "elapsed_seconds": 168.90059880097397,
-        "lightcone_max_mk": 13.208359718322754,
-        "lightcone_min_mk": -133.196044921875,
+        "elapsed_seconds": 7031.078532680869,
+        "lightcone_max_mk": 18.01979637145996,
+        "lightcone_min_mk": -150.08053588867188,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7731897830963135,
-        "slice_density_min": -0.531575620174408,
+        "slice_density_max": 9.68955135345459,
+        "slice_density_min": -0.858367919921875,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.04376661777496338,
-        "slice_kinetic_temperature_max_k": 48960.96484375,
-        "slice_kinetic_temperature_min_k": 22.345417022705078,
-        "slice_spin_temperature_max_k": 16369.1474609375,
-        "slice_spin_temperature_min_k": 23.889677047729492,
-        "trough_brightness_mk": -119.42887878417969,
+        "slice_ionized_fraction_min": 0.00020802021026611328,
+        "slice_kinetic_temperature_max_k": 52172.48046875,
+        "slice_kinetic_temperature_min_k": 20.713104248046875,
+        "slice_spin_temperature_max_k": 18813.50390625,
+        "slice_spin_temperature_min_k": 22.098459243774414,
+        "trough_brightness_mk": -122.71400451660156,
         "trough_redshift": 34.506793841325106
       },
-      "web_sha256": "2684543acd8d3194c0385337c0cc8cb1a6a4c50387cc237c6ae191c0ef26c7f6"
+      "web_sha256": "fc10c33601d2d5a43b641695d6350ce2c9849ee2d851d0dc763df853653f92fc"
     },
     {
       "parameters": {
@@ -1343,30 +1372,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "00fc36f8fe96786c7f4e916ca4d5bfb11e9d75579b3e895dccd04350cea58fa1",
+      "raw_sha256": "709528a59cbdc9a0dfa72dbd0dc788736c1bdba557dedb92a32ed53d5547cb20",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 0,
         "ms_index": 2
       },
-      "run_id": "run_12371f8404be",
+      "run_id": "run_c2de5f225e99",
+      "slice_binary_bytes": 8833773,
+      "slice_binary_sha256": "357778c4f3e5b175d1f3523a59eaf661d349dd99c58a098caef248804ca934bb",
       "summary": {
-        "elapsed_seconds": 170.1726455600001,
+        "elapsed_seconds": 7086.021295647835,
         "lightcone_max_mk": 0.0,
         "lightcone_min_mk": 0.0,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7763867378234863,
-        "slice_density_min": -0.5290663838386536,
+        "slice_density_max": 10.440576553344727,
+        "slice_density_min": -0.9283739328384399,
         "slice_ionized_fraction_max": 1.0,
         "slice_ionized_fraction_min": 1.0,
-        "slice_kinetic_temperature_max_k": 51050.97265625,
-        "slice_kinetic_temperature_min_k": 67.76653289794922,
-        "slice_spin_temperature_max_k": 25056.3359375,
-        "slice_spin_temperature_min_k": 114.76689910888672,
+        "slice_kinetic_temperature_max_k": 51456.703125,
+        "slice_kinetic_temperature_min_k": 70.89522552490234,
+        "slice_spin_temperature_max_k": 30785.3984375,
+        "slice_spin_temperature_min_k": 117.53174591064453,
         "trough_brightness_mk": 0.0,
         "trough_redshift": 6.0
       },
-      "web_sha256": "9c089fcb16dd5e761b5a72c5bab9f679b200982b15fc5588adfc43f8b3437ec2"
+      "web_sha256": "c1b47996424469c390c21bbb600b43cd7c24f25290d6c66724e2b19863fa9b1c"
     },
     {
       "parameters": {
@@ -1381,68 +1412,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "77c5654eaab4ce18306ed3b75673cb1045c02674c2e6d99547c4dacf2160bac7",
+      "raw_sha256": "cb0a4ecf2fbb88c3dc04201c88241a6ca28b2c66f49181ebcdf784e5ed6ed6fe",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 0,
         "ms_index": 3
       },
-      "run_id": "run_8de37b09626c",
+      "run_id": "run_eae67a319350",
+      "slice_binary_bytes": 7942771,
+      "slice_binary_sha256": "bc8e8e9873d68530b1cbf43d3bc91437391d5f2f22ff3ca563f3299c620027df",
       "summary": {
-        "elapsed_seconds": 170.8870782519225,
+        "elapsed_seconds": 7075.467616283102,
         "lightcone_max_mk": 0.0,
         "lightcone_min_mk": 0.0,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7813984155654907,
-        "slice_density_min": -0.5461062788963318,
+        "slice_density_max": 8.043963432312012,
+        "slice_density_min": -1.0,
         "slice_ionized_fraction_max": 1.0,
         "slice_ionized_fraction_min": 1.0,
-        "slice_kinetic_temperature_max_k": 51281.81640625,
-        "slice_kinetic_temperature_min_k": 1139.4794921875,
-        "slice_spin_temperature_max_k": 44486.40234375,
-        "slice_spin_temperature_min_k": 1178.5584716796875,
+        "slice_kinetic_temperature_max_k": 51765.5234375,
+        "slice_kinetic_temperature_min_k": 1275.654541015625,
+        "slice_spin_temperature_max_k": 46155.34765625,
+        "slice_spin_temperature_min_k": 1316.22412109375,
         "trough_brightness_mk": 0.0,
         "trough_redshift": 6.0
       },
-      "web_sha256": "902662790a1eaee584c235ff67b28e036f88376b5bd72805be763677a7ddf475"
-    },
-    {
-      "parameters": {
-        "ALPHA_ESC": -0.5,
-        "ALPHA_STAR": 0.5,
-        "F_ESC10": -1.0,
-        "F_STAR10": -1.3,
-        "KP_h_Mpc": 1.0,
-        "L_X": 40.5,
-        "MS": 4.0,
-        "M_TURN": 9.0,
-        "NU_X_THRESH": 500.0,
-        "t_STAR": 0.5
-      },
-      "raw_sha256": "efb4ab5fd85c96daad268f839793f095f5683041f5d9b434ea73d12d5b0743e5",
-      "role": {
-        "kind": "kp_ms_grid",
-        "kp_index": 0,
-        "ms_index": 4
-      },
-      "run_id": "run_477111cd117e",
-      "summary": {
-        "elapsed_seconds": 172.8086646660231,
-        "lightcone_max_mk": 0.0,
-        "lightcone_min_mk": 0.0,
-        "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7798261642456055,
-        "slice_density_min": -0.6166672706604004,
-        "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 1.0,
-        "slice_kinetic_temperature_max_k": 63432.140625,
-        "slice_kinetic_temperature_min_k": 4269.1630859375,
-        "slice_spin_temperature_max_k": 61446.6328125,
-        "slice_spin_temperature_min_k": 4283.5810546875,
-        "trough_brightness_mk": 0.0,
-        "trough_redshift": 6.0
-      },
-      "web_sha256": "1ddee7330ff4ae1c6432f07be49b0c0d2b4be146b3e4f9143c315a3143e96c92"
+      "web_sha256": "945a53de1c57dd80a248c61309c2bcb6884e020865861a4c214dfd7c686ba292"
     },
     {
       "parameters": {
@@ -1457,30 +1452,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "c0543d406d86752cb6334dba2ebb958dd787624436a9d3698137f09c551d7773",
+      "raw_sha256": "49bf35245ceab1a950a048ce9e21842b855d7248111f7e9886206d92a9c609db",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 1,
         "ms_index": 0
       },
-      "run_id": "run_8f61cf7f738e",
+      "run_id": "run_733d5e5b4105",
+      "slice_binary_bytes": 12332425,
+      "slice_binary_sha256": "bedf4fa803b5dd68a927b3afec5db61c1429bf3b1ec92171404ed603c8701a73",
       "summary": {
-        "elapsed_seconds": 163.04299685405567,
-        "lightcone_max_mk": 13.993412971496582,
-        "lightcone_min_mk": -109.14600372314453,
+        "elapsed_seconds": 6327.2519578109495,
+        "lightcone_max_mk": 22.596050262451172,
+        "lightcone_min_mk": -139.96865844726562,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.768204927444458,
-        "slice_density_min": -0.5317641496658325,
+        "slice_density_max": 8.886009216308594,
+        "slice_density_min": -0.8021233081817627,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.0001824498176574707,
-        "slice_kinetic_temperature_max_k": 13959.9951171875,
-        "slice_kinetic_temperature_min_k": 4.934944152832031,
-        "slice_spin_temperature_max_k": 6836.89404296875,
-        "slice_spin_temperature_min_k": 8.335576057434082,
-        "trough_brightness_mk": -92.2674560546875,
+        "slice_ionized_fraction_min": 3.5703182220458984e-05,
+        "slice_kinetic_temperature_max_k": 24198.63671875,
+        "slice_kinetic_temperature_min_k": 3.9975383281707764,
+        "slice_spin_temperature_max_k": 9352.3388671875,
+        "slice_spin_temperature_min_k": 7.6170854568481445,
+        "trough_brightness_mk": -93.7203369140625,
         "trough_redshift": 14.765391111205448
       },
-      "web_sha256": "38a48219aee0ac4c37fe4f34009b7cc8edfe0a9bd5cad971149e0dd14ee9c71d"
+      "web_sha256": "09f74624dfca6ca071b71cd167b5c52e990d61620a56fd5831277310a212371f"
     },
     {
       "parameters": {
@@ -1495,30 +1492,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "2fd38a84afced7acdff5a2e787067b55a22785848628861eed98e206540b9f0b",
+      "raw_sha256": "9dc5ffa7e2b25bd62cdba6cb73140ad17c891e43a6d803a773e30967af809194",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 1,
         "ms_index": 1
       },
-      "run_id": "run_2b0bad474ae1",
+      "run_id": "run_3c8b696679a6",
+      "slice_binary_bytes": 12310803,
+      "slice_binary_sha256": "53082f61ae96459ab4146f214eb051c5abb22af0fa9efdbe3410ced9a61b4bf3",
       "summary": {
-        "elapsed_seconds": 167.4639334641397,
-        "lightcone_max_mk": 12.31558895111084,
-        "lightcone_min_mk": -117.88118743896484,
+        "elapsed_seconds": 6986.94848021795,
+        "lightcone_max_mk": 18.51194953918457,
+        "lightcone_min_mk": -142.21900939941406,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.768203854560852,
-        "slice_density_min": -0.5315779447555542,
+        "slice_density_max": 8.802497863769531,
+        "slice_density_min": -0.8034121990203857,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.0001957416534423828,
-        "slice_kinetic_temperature_max_k": 16554.2734375,
-        "slice_kinetic_temperature_min_k": 8.824570655822754,
-        "slice_spin_temperature_max_k": 7466.51318359375,
-        "slice_spin_temperature_min_k": 11.837971687316895,
-        "trough_brightness_mk": -106.61820220947266,
+        "slice_ionized_fraction_min": 0.00019305944442749023,
+        "slice_kinetic_temperature_max_k": 27263.34375,
+        "slice_kinetic_temperature_min_k": 7.752716541290283,
+        "slice_spin_temperature_max_k": 10393.896484375,
+        "slice_spin_temperature_min_k": 10.568097114562988,
+        "trough_brightness_mk": -106.76602172851562,
         "trough_redshift": 20.21813478634066
       },
-      "web_sha256": "5588df458ce08b8309a1754bc58d1daf274e55879d2a5de11a19b31134fb27ba"
+      "web_sha256": "a81576c639c6b1dca210952eb2c1141293bb53a3a0ad8fa858d831cdd18a2bd1"
     },
     {
       "parameters": {
@@ -1533,30 +1532,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "1e0d36d795cf46553e89cb05beb3be0428705ebd9a30eb051291a11ec75bce72",
+      "raw_sha256": "2c6fc2d58117f891629cae3dc282b966dc5f1f5c2105fda618e44d920f4bfb1d",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 1,
         "ms_index": 2
       },
-      "run_id": "run_5eedb85a7cc9",
+      "run_id": "run_3d2bd0dc1352",
+      "slice_binary_bytes": 11534427,
+      "slice_binary_sha256": "12c8b0a787e568f1fed975dcee0331cca681167b6fe2ecf43a3a6fc861582906",
       "summary": {
-        "elapsed_seconds": 168.2245833419729,
-        "lightcone_max_mk": 12.306941032409668,
-        "lightcone_min_mk": -120.16769409179688,
+        "elapsed_seconds": 7017.161218327936,
+        "lightcone_max_mk": 16.0488338470459,
+        "lightcone_min_mk": -142.48780822753906,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7681798934936523,
-        "slice_density_min": -0.531331479549408,
+        "slice_density_max": 8.695775985717773,
+        "slice_density_min": -0.8042908310890198,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.012770593166351318,
-        "slice_kinetic_temperature_max_k": 26077.09375,
-        "slice_kinetic_temperature_min_k": 18.226919174194336,
-        "slice_spin_temperature_max_k": 9662.14453125,
-        "slice_spin_temperature_min_k": 19.65009880065918,
-        "trough_brightness_mk": -111.2805404663086,
+        "slice_ionized_fraction_min": 0.00020581483840942383,
+        "slice_kinetic_temperature_max_k": 35050.11328125,
+        "slice_kinetic_temperature_min_k": 16.22185516357422,
+        "slice_spin_temperature_max_k": 12372.0732421875,
+        "slice_spin_temperature_min_k": 18.00734519958496,
+        "trough_brightness_mk": -111.29519653320312,
         "trough_redshift": 29.910804834626553
       },
-      "web_sha256": "d96c389715292d6481b70be30410d96e4384b8df16f34115bb1acc74d25098d8"
+      "web_sha256": "a0ca4e8b8167a16888a7592474330f7dd39e6395b88c2db3d2794f137ed9a636"
     },
     {
       "parameters": {
@@ -1571,30 +1572,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "2ca9158f759a4de5eb67103095133f81bdeff7c07139cff07297cfd944c53df2",
+      "raw_sha256": "9549d280f16eeda06524dc70cbedc39e1d229b5c6d223bc288cde011255494e9",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 1,
         "ms_index": 3
       },
-      "run_id": "run_3872af735369",
+      "run_id": "run_ab6ee95abca6",
+      "slice_binary_bytes": 9212723,
+      "slice_binary_sha256": "6f80ac3d07e57777b8d7465687a99b4e9f1b24dbd16c5979b978cd8ab1f84638",
       "summary": {
-        "elapsed_seconds": 169.77051785495132,
-        "lightcone_max_mk": 8.48168659210205,
-        "lightcone_min_mk": -20.977272033691406,
+        "elapsed_seconds": 7063.331616764888,
+        "lightcone_max_mk": 11.070341110229492,
+        "lightcone_min_mk": -22.548852920532227,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7680504322052002,
-        "slice_density_min": -0.5308018922805786,
+        "slice_density_max": 8.337331771850586,
+        "slice_density_min": -0.8075131177902222,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.6223880648612976,
-        "slice_kinetic_temperature_max_k": 48030.02734375,
-        "slice_kinetic_temperature_min_k": 28.57665252685547,
-        "slice_spin_temperature_max_k": 14416.146484375,
-        "slice_spin_temperature_min_k": 75.62317657470703,
-        "trough_brightness_mk": -19.278820037841797,
+        "slice_ionized_fraction_min": 0.6223985552787781,
+        "slice_kinetic_temperature_max_k": 51315.67578125,
+        "slice_kinetic_temperature_min_k": 27.274200439453125,
+        "slice_spin_temperature_max_k": 17099.15234375,
+        "slice_spin_temperature_min_k": 73.22444152832031,
+        "trough_brightness_mk": -18.129302978515625,
         "trough_redshift": 34.506793841325106
       },
-      "web_sha256": "003b3f7eef4b826fd5185d06377bea3acd7b7ecc0b45f8988432e5139299d5c8"
+      "web_sha256": "29fc2a4f3ac82dd19015e6e9d08abd476751df8a307f6fbc452c71ffaf4fb285"
     },
     {
       "parameters": {
@@ -1609,30 +1612,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "588aa57c16729c77c72a357294fe7fd1bb133a9da4c1239559ebd726bed5ceb2",
+      "raw_sha256": "1916b3f04378e3ef196e5e0b90447180ff9157cf95ae9c1d46703b38b4ffa4b9",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 1,
         "ms_index": 4
       },
-      "run_id": "run_2d8250ab26ee",
+      "run_id": "run_774281b335a3",
+      "slice_binary_bytes": 8640864,
+      "slice_binary_sha256": "17873d5adf10fe144899cfc9555b6e9e18e328d1027f6aaf76ae9279c13d2644",
       "summary": {
-        "elapsed_seconds": 170.39240208198316,
+        "elapsed_seconds": 7089.31938245683,
         "lightcone_max_mk": 0.0,
         "lightcone_min_mk": 0.0,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7676571607589722,
-        "slice_density_min": -0.5299518704414368,
+        "slice_density_max": 8.333165168762207,
+        "slice_density_min": -0.925189197063446,
         "slice_ionized_fraction_max": 1.0,
         "slice_ionized_fraction_min": 1.0,
-        "slice_kinetic_temperature_max_k": 50765.70703125,
-        "slice_kinetic_temperature_min_k": 376.5218811035156,
-        "slice_spin_temperature_max_k": 28266.978515625,
-        "slice_spin_temperature_min_k": 421.3370361328125,
+        "slice_kinetic_temperature_max_k": 50979.41796875,
+        "slice_kinetic_temperature_min_k": 419.3733215332031,
+        "slice_spin_temperature_max_k": 31867.05078125,
+        "slice_spin_temperature_min_k": 463.7853088378906,
         "trough_brightness_mk": 0.0,
         "trough_redshift": 6.0
       },
-      "web_sha256": "8656bd81433bf02284e2c0b229298cb3a561fe606e0dad613e85283282170372"
+      "web_sha256": "6cc415b03af67c8ea1c7c15891439f5eaf7f9217bc6a7534808ce0d8cb4eb5e0"
     },
     {
       "parameters": {
@@ -1647,30 +1652,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "8887c28e59f71e1d4d6e5c852281113402c8a88b67e91daf5bb4136f8f91c01b",
+      "raw_sha256": "71dc24a7d80de92d902e333f3cd1345798b4d89ae48d8d1036f74ff427b98cbf",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 2,
         "ms_index": 0
       },
-      "run_id": "run_cf8e3ec50e08",
+      "run_id": "run_4f2c920dd48a",
+      "slice_binary_bytes": 12065015,
+      "slice_binary_sha256": "df09149bd9f7e5c286bb39de1eb20a3dca528ce1415eb6c720ff67c85b5d24ea",
       "summary": {
-        "elapsed_seconds": 158.66800767416134,
-        "lightcone_max_mk": 15.12641716003418,
-        "lightcone_min_mk": -100.65660095214844,
+        "elapsed_seconds": 5795.634342940059,
+        "lightcone_max_mk": 25.767793655395508,
+        "lightcone_min_mk": -138.54891967773438,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7681937217712402,
-        "slice_density_min": -0.5319139361381531,
+        "slice_density_max": 8.95071792602539,
+        "slice_density_min": -0.8005476593971252,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00017529726028442383,
-        "slice_kinetic_temperature_max_k": 14830.6171875,
-        "slice_kinetic_temperature_min_k": 3.4582693576812744,
-        "slice_spin_temperature_max_k": 7466.95166015625,
-        "slice_spin_temperature_min_k": 7.331465244293213,
-        "trough_brightness_mk": -79.51702117919922,
+        "slice_ionized_fraction_min": 0.0,
+        "slice_kinetic_temperature_max_k": 21795.87109375,
+        "slice_kinetic_temperature_min_k": 2.7863950729370117,
+        "slice_spin_temperature_max_k": 8742.4697265625,
+        "slice_spin_temperature_min_k": 6.532175540924072,
+        "trough_brightness_mk": -81.38529205322266,
         "trough_redshift": 12.191776250959146
       },
-      "web_sha256": "73df12b4699ba4e11297b207341c254a74f836d64ce81b1a40e0052bd3f16026"
+      "web_sha256": "20f84146295e83ac73217eaa4379ef44938fe3ce55c8b81911ee49233a3ac2bf"
     },
     {
       "parameters": {
@@ -1685,30 +1692,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "3cbbcffc918ea959e4678176778ceb80121d3cdd40406ce0cb74b4f3f5c5fbe7",
+      "raw_sha256": "7ebf3060a08b94dc7b7efac59f85da0f8e5ae22eec944e1956f25615dbeaa8d3",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 2,
         "ms_index": 1
       },
-      "run_id": "run_f9a81d8e67ef",
+      "run_id": "run_ab2d07bb8157",
+      "slice_binary_bytes": 12291773,
+      "slice_binary_sha256": "f9bf9aba7e9e633ba89433ad440af43ab22d8c135b448643066d2b31bd8614cc",
       "summary": {
-        "elapsed_seconds": 160.4822969038505,
-        "lightcone_max_mk": 14.719305992126465,
-        "lightcone_min_mk": -101.72949981689453,
+        "elapsed_seconds": 6003.192778720055,
+        "lightcone_max_mk": 24.2498836517334,
+        "lightcone_min_mk": -132.60641479492188,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7681936025619507,
-        "slice_density_min": -0.5319138765335083,
+        "slice_density_max": 8.948155403137207,
+        "slice_density_min": -0.8005003929138184,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00017786026000976562,
-        "slice_kinetic_temperature_max_k": 14104.30859375,
-        "slice_kinetic_temperature_min_k": 3.7711145877838135,
-        "slice_spin_temperature_max_k": 7152.103515625,
-        "slice_spin_temperature_min_k": 7.790500640869141,
-        "trough_brightness_mk": -82.01799011230469,
+        "slice_ionized_fraction_min": 0.0,
+        "slice_kinetic_temperature_max_k": 21919.5078125,
+        "slice_kinetic_temperature_min_k": 3.073173761367798,
+        "slice_spin_temperature_max_k": 8742.1494140625,
+        "slice_spin_temperature_min_k": 6.599257946014404,
+        "trough_brightness_mk": -83.46821594238281,
         "trough_redshift": 12.999217706392859
       },
-      "web_sha256": "dc12fc506e478eba158c80b8d79e731c3df6020b693a4f4c783ff221ceee4260"
+      "web_sha256": "f6cdf3a13c77bc7d57927ff454790c56d1ab6594e94ec760aeaeffb655bc4dfe"
     },
     {
       "parameters": {
@@ -1723,30 +1732,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "c730ec8334215d121c470a3bd3e1599da0459d4d03da913e181965a3f92dba14",
+      "raw_sha256": "f2d0bb3a7ff3277c66f6493025e384072989d852bc83e5214eb2e9c8882c2a62",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 2,
         "ms_index": 2
       },
-      "run_id": "run_2a1c3c7abd82",
+      "run_id": "run_736b0bfde6c2",
+      "slice_binary_bytes": 12549944,
+      "slice_binary_sha256": "cff142c28726734617bbf8af0994057343b3cf8c9aec83aa306c5ff5698b63b6",
       "summary": {
-        "elapsed_seconds": 162.99966355389915,
-        "lightcone_max_mk": 13.093337059020996,
-        "lightcone_min_mk": -104.60148620605469,
+        "elapsed_seconds": 6319.575119663961,
+        "lightcone_max_mk": 21.330150604248047,
+        "lightcone_min_mk": -131.23704528808594,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.768193244934082,
-        "slice_density_min": -0.5319139957427979,
+        "slice_density_max": 8.944524765014648,
+        "slice_density_min": -0.8004310131072998,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00018149614334106445,
-        "slice_kinetic_temperature_max_k": 13295.0087890625,
-        "slice_kinetic_temperature_min_k": 4.230821132659912,
-        "slice_spin_temperature_max_k": 6783.69189453125,
-        "slice_spin_temperature_min_k": 8.017346382141113,
-        "trough_brightness_mk": -85.948974609375,
+        "slice_ionized_fraction_min": 0.0,
+        "slice_kinetic_temperature_max_k": 21942.5703125,
+        "slice_kinetic_temperature_min_k": 3.454226493835449,
+        "slice_spin_temperature_max_k": 8739.7509765625,
+        "slice_spin_temperature_min_k": 7.3430328369140625,
+        "trough_brightness_mk": -87.04039764404297,
         "trough_redshift": 13.856080990362024
       },
-      "web_sha256": "bedc69845cc24ec51389a5db798dcf81d80c9a173bab0fd57c95d8e6dba27cd7"
+      "web_sha256": "f7c6287075b50066ee1d29297b6d0e0b6b81f863682b18dc11b1f57c0b51f828"
     },
     {
       "parameters": {
@@ -1761,30 +1772,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "bda422d4c5473f105746383ba64c280cf84640686251472076bf7237bd6e9dd3",
+      "raw_sha256": "bc2af5c390d1e72589d22e0522efba4b214b0d1f39e468adeb249b540534712d",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 2,
         "ms_index": 3
       },
-      "run_id": "run_fde51645c882",
+      "run_id": "run_ce474e5c5075",
+      "slice_binary_bytes": 12849669,
+      "slice_binary_sha256": "5b32f88ff4ac71cb50be8531d9c30884c0d7d03d816432fcf26a815bc2da391d",
       "summary": {
-        "elapsed_seconds": 167.675857037073,
-        "lightcone_max_mk": 11.773608207702637,
-        "lightcone_min_mk": -113.14501190185547,
+        "elapsed_seconds": 7027.369179129135,
+        "lightcone_max_mk": 17.117460250854492,
+        "lightcone_min_mk": -132.4966583251953,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7681926488876343,
-        "slice_density_min": -0.5319139361381531,
+        "slice_density_max": 8.936047554016113,
+        "slice_density_min": -0.8002617955207825,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00019174814224243164,
-        "slice_kinetic_temperature_max_k": 12367.4208984375,
-        "slice_kinetic_temperature_min_k": 6.606076717376709,
-        "slice_spin_temperature_max_k": 6260.49267578125,
-        "slice_spin_temperature_min_k": 10.233870506286621,
-        "trough_brightness_mk": -96.20005798339844,
+        "slice_ionized_fraction_min": 0.00018727779388427734,
+        "slice_kinetic_temperature_max_k": 21751.185546875,
+        "slice_kinetic_temperature_min_k": 5.501432418823242,
+        "slice_spin_temperature_max_k": 8780.720703125,
+        "slice_spin_temperature_min_k": 8.621535301208496,
+        "trough_brightness_mk": -96.55415344238281,
         "trough_redshift": 17.10947644386025
       },
-      "web_sha256": "3f0afb34c2cc8de912cecf31c1a68e3fe0a599c95203d505e1d8f7a3ee5f2308"
+      "web_sha256": "386a788e6d132d6cfc409695624faa8e1e3c2633e6ef16adccf0f81df9e7d8ff"
     },
     {
       "parameters": {
@@ -1799,30 +1812,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "91f3c14c112fac24536fa334bef97d4faf9d437ecda94b5abd06e14ab4c57b5f",
+      "raw_sha256": "d7936021dd32421f2cdcef9a3d403976cf4986b4e58efecd8804246c2eb5dcba",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 2,
         "ms_index": 4
       },
-      "run_id": "run_501555eb2cad",
+      "run_id": "run_95b6837f6d31",
+      "slice_binary_bytes": 12458391,
+      "slice_binary_sha256": "1fceea6a856aa0edf363dda158494da3949655515f7ad626218cb79eceef246a",
       "summary": {
-        "elapsed_seconds": 167.54536946094595,
-        "lightcone_max_mk": 10.678962707519531,
-        "lightcone_min_mk": -119.26506042480469,
+        "elapsed_seconds": 6994.963225604035,
+        "lightcone_max_mk": 14.844922065734863,
+        "lightcone_min_mk": -137.19386291503906,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7681915760040283,
-        "slice_density_min": -0.5319137573242188,
+        "slice_density_max": 8.921662330627441,
+        "slice_density_min": -0.7999652028083801,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.0007385611534118652,
-        "slice_kinetic_temperature_max_k": 13734.49609375,
-        "slice_kinetic_temperature_min_k": 12.830836296081543,
-        "slice_spin_temperature_max_k": 6522.45068359375,
-        "slice_spin_temperature_min_k": 14.978045463562012,
-        "trough_brightness_mk": -108.01655578613281,
+        "slice_ionized_fraction_min": 0.00020545721054077148,
+        "slice_kinetic_temperature_max_k": 22851.322265625,
+        "slice_kinetic_temperature_min_k": 11.870532989501953,
+        "slice_spin_temperature_max_k": 9266.7255859375,
+        "slice_spin_temperature_min_k": 14.022661209106445,
+        "trough_brightness_mk": -108.17028045654297,
         "trough_redshift": 25.38207823874287
       },
-      "web_sha256": "87bf78e9caa30450c49b911b771b34f007bba3e61d3e0f62ef26c30d8435ba15"
+      "web_sha256": "e929bfd59cf0e5f5f0845708e92b1090d23d7019eea74fbeb282d1e043f8242b"
     },
     {
       "parameters": {
@@ -1837,30 +1852,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "b0a16cebe8699cc7cfdf54b62470ccd0c9af113f467282d6e3251adc311f43ec",
+      "raw_sha256": "9677be361c69c1fd8dda6794d6b251355a40d290f50709da8ed861828f77f633",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 3,
         "ms_index": 0
       },
-      "run_id": "run_6c1b676eeb13",
+      "run_id": "run_c8dad6d8ced0",
+      "slice_binary_bytes": 11942670,
+      "slice_binary_sha256": "0e08f3989606c9ce7ef8f61cdd5716beaa4e7d6f8a185cbea7eb92770086b617",
       "summary": {
-        "elapsed_seconds": 158.33228704379871,
-        "lightcone_max_mk": 15.425657272338867,
-        "lightcone_min_mk": -100.09857177734375,
+        "elapsed_seconds": 5693.566352918977,
+        "lightcone_max_mk": 27.26101303100586,
+        "lightcone_min_mk": -136.06614685058594,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7681937217712402,
-        "slice_density_min": -0.5319139957427979,
+        "slice_density_max": 8.9525728225708,
+        "slice_density_min": -0.8005795478820801,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00017464160919189453,
-        "slice_kinetic_temperature_max_k": 15383.248046875,
-        "slice_kinetic_temperature_min_k": 3.269118547439575,
-        "slice_spin_temperature_max_k": 7703.36767578125,
-        "slice_spin_temperature_min_k": 7.250090599060059,
-        "trough_brightness_mk": -78.333740234375,
+        "slice_ionized_fraction_min": 0.0,
+        "slice_kinetic_temperature_max_k": 21643.44140625,
+        "slice_kinetic_temperature_min_k": 2.634974718093872,
+        "slice_spin_temperature_max_k": 8739.1572265625,
+        "slice_spin_temperature_min_k": 6.363560199737549,
+        "trough_brightness_mk": -80.29717254638672,
         "trough_redshift": 11.933114213371297
       },
-      "web_sha256": "7ff533d6d1cd0b206de1390d4235f8ec99a2eb9673a422b64f0d6b04f4dae6ff"
+      "web_sha256": "bdcb78a1687b3e9ae2433d2c7db160ca27f8ba7731eee17db270b17441c9a21d"
     },
     {
       "parameters": {
@@ -1875,30 +1892,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "62092182be6c13a9a90d87965482fa7b5381f290e0140003b96525bccae72bfa",
+      "raw_sha256": "1533c639666d7d3d63331c40aed1ddbbe5ff0c95dd3575af34a92da09911d028",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 3,
         "ms_index": 1
       },
-      "run_id": "run_e8e1d7edd75b",
+      "run_id": "run_8686a3387e84",
+      "slice_binary_bytes": 11973580,
+      "slice_binary_sha256": "1e704a751927471a32e680510880547d774d4cafbdb401298aff18ebf35f16b0",
       "summary": {
-        "elapsed_seconds": 159.5130754308775,
-        "lightcone_max_mk": 15.286852836608887,
-        "lightcone_min_mk": -100.48483276367188,
+        "elapsed_seconds": 5689.60261607985,
+        "lightcone_max_mk": 26.886852264404297,
+        "lightcone_min_mk": -136.3326416015625,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7681939601898193,
-        "slice_density_min": -0.5319139361381531,
+        "slice_density_max": 8.952499389648438,
+        "slice_density_min": -0.8005787134170532,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00017464160919189453,
-        "slice_kinetic_temperature_max_k": 15294.53515625,
-        "slice_kinetic_temperature_min_k": 3.296379327774048,
-        "slice_spin_temperature_max_k": 7667.71484375,
-        "slice_spin_temperature_min_k": 7.247447967529297,
-        "trough_brightness_mk": -78.34017944335938,
+        "slice_ionized_fraction_min": 0.0,
+        "slice_kinetic_temperature_max_k": 21654.62890625,
+        "slice_kinetic_temperature_min_k": 2.671570301055908,
+        "slice_spin_temperature_max_k": 8737.8642578125,
+        "slice_spin_temperature_min_k": 6.3906049728393555,
+        "trough_brightness_mk": -80.39087677001953,
         "trough_redshift": 11.933114213371297
       },
-      "web_sha256": "16910f237a9ad731be44aa4b3c47384c97a2cf3778064bfa3c70e7764993c3fc"
+      "web_sha256": "189253a7c9303f11fe9e38f9d6ce1146a4339052dd5bc7c2701ed0f82a57ce67"
     },
     {
       "parameters": {
@@ -1913,30 +1932,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "d2d3aaa38a81a4ba81e52206bc03cac311e6149a028455453a60ce995e95e238",
+      "raw_sha256": "33d553eb286874910b177689f71595ab63dca3e4f58657c40d21d4afad827837",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 3,
         "ms_index": 2
       },
-      "run_id": "run_2218ac02769f",
+      "run_id": "run_acfe4d35a79b",
+      "slice_binary_bytes": 12022314,
+      "slice_binary_sha256": "9985feb40a685df21de9ccb84a528fd1bac4ade5ac41d84629be1dd310b19414",
       "summary": {
-        "elapsed_seconds": 158.7906099818647,
-        "lightcone_max_mk": 15.106884002685547,
-        "lightcone_min_mk": -100.82373809814453,
+        "elapsed_seconds": 5777.365573175019,
+        "lightcone_max_mk": 26.429107666015625,
+        "lightcone_min_mk": -136.37966918945312,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7681937217712402,
-        "slice_density_min": -0.5319141149520874,
+        "slice_density_max": 8.952421188354492,
+        "slice_density_min": -0.800577700138092,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00017499923706054688,
-        "slice_kinetic_temperature_max_k": 15174.8125,
-        "slice_kinetic_temperature_min_k": 3.3382019996643066,
-        "slice_spin_temperature_max_k": 7619.1416015625,
-        "slice_spin_temperature_min_k": 7.2580718994140625,
-        "trough_brightness_mk": -78.5361099243164,
-        "trough_redshift": 12.191776250959146
+        "slice_ionized_fraction_min": 0.0,
+        "slice_kinetic_temperature_max_k": 21669.021484375,
+        "slice_kinetic_temperature_min_k": 2.704932928085327,
+        "slice_spin_temperature_max_k": 8736.31640625,
+        "slice_spin_temperature_min_k": 6.4418768882751465,
+        "trough_brightness_mk": -80.33164978027344,
+        "trough_redshift": 11.933114213371297
       },
-      "web_sha256": "ad953cbc349ea57ccd1883384df4611cc43642f6907611f5c84d62aa2a46ddba"
+      "web_sha256": "473734546b4cbf55e69407776bf7ccc72cade532cf5eca0243bcc9711e07e991"
     },
     {
       "parameters": {
@@ -1951,30 +1972,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "96285ef549a011abe9218ab1e383d6ef4e92ad71ad109c22f429b4bb8ff75fa8",
+      "raw_sha256": "80a5c381c9550340ef9671e51324af8fe177caf25f6a1570c4a17faa3eb4dd44",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 3,
         "ms_index": 3
       },
-      "run_id": "run_5699a66eaa06",
+      "run_id": "run_3ce08adb874c",
+      "slice_binary_bytes": 12150159,
+      "slice_binary_sha256": "ac6dcc6a29c0795b728e87d8a4bc8e411c05b84c8c1f8d806646ed7bd177b365",
       "summary": {
-        "elapsed_seconds": 160.0981134858448,
-        "lightcone_max_mk": 14.935452461242676,
-        "lightcone_min_mk": -100.5031967163086,
+        "elapsed_seconds": 5892.751419075066,
+        "lightcone_max_mk": 25.456106185913086,
+        "lightcone_min_mk": -137.46200561523438,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7681937217712402,
-        "slice_density_min": -0.5319141149520874,
+        "slice_density_max": 8.952299118041992,
+        "slice_density_min": -0.8005759716033936,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.0001761913299560547,
-        "slice_kinetic_temperature_max_k": 14872.4794921875,
-        "slice_kinetic_temperature_min_k": 3.4698848724365234,
-        "slice_spin_temperature_max_k": 7495.79052734375,
-        "slice_spin_temperature_min_k": 7.365320682525635,
-        "trough_brightness_mk": -79.02470397949219,
+        "slice_ionized_fraction_min": 0.0,
+        "slice_kinetic_temperature_max_k": 21697.037109375,
+        "slice_kinetic_temperature_min_k": 2.79750919342041,
+        "slice_spin_temperature_max_k": 8732.2421875,
+        "slice_spin_temperature_min_k": 6.575437068939209,
+        "trough_brightness_mk": -80.86399841308594,
         "trough_redshift": 12.191776250959146
       },
-      "web_sha256": "52d3939b6c5641a5a67c024d39a566e92df91d5eb261491aa379753c167ceeed"
+      "web_sha256": "59829f2a164b2772f3920175e1a9c9f9e3ef72db42da4ff2b81ae0875c1ee365"
     },
     {
       "parameters": {
@@ -1989,30 +2012,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "2297119b9cc21aa6ab696976da7cc133d093b7da13766471b7c26ae6cd5ac08e",
+      "raw_sha256": "8db02b0cb19da3a1b64861e72f9dfaaa7a9933644c19be63901ed7423a248bf1",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 3,
         "ms_index": 4
       },
-      "run_id": "run_6729b6452da5",
+      "run_id": "run_9c51b5d1a004",
+      "slice_binary_bytes": 12512876,
+      "slice_binary_sha256": "6343fc9f13a9fdc110eb15323bb238943cb62c7a2bfd3d6d56ad99254d47064f",
       "summary": {
-        "elapsed_seconds": 163.2316894850228,
-        "lightcone_max_mk": 14.414490699768066,
-        "lightcone_min_mk": -100.22566223144531,
+        "elapsed_seconds": 6250.914481067099,
+        "lightcone_max_mk": 23.626501083374023,
+        "lightcone_min_mk": -129.7427520751953,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7681937217712402,
-        "slice_density_min": -0.5319139957427979,
+        "slice_density_max": 8.952170372009277,
+        "slice_density_min": -0.8005740642547607,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00017946958541870117,
-        "slice_kinetic_temperature_max_k": 14146.6552734375,
-        "slice_kinetic_temperature_min_k": 3.828794002532959,
-        "slice_spin_temperature_max_k": 7193.52783203125,
-        "slice_spin_temperature_min_k": 7.914117336273193,
-        "trough_brightness_mk": -81.01097106933594,
+        "slice_ionized_fraction_min": 0.0,
+        "slice_kinetic_temperature_max_k": 21708.42578125,
+        "slice_kinetic_temperature_min_k": 3.1193320751190186,
+        "slice_spin_temperature_max_k": 8719.9521484375,
+        "slice_spin_temperature_min_k": 6.719831466674805,
+        "trough_brightness_mk": -82.3553695678711,
         "trough_redshift": 12.999217706392859
       },
-      "web_sha256": "27d2f18ea223be6c6188d752dd8e045c28c4718f62ccf93d024d044a006e97fc"
+      "web_sha256": "12d9c69afef6049f835466f9e1fd932f684c1824f6cf3068d14ab6ef7c0661f9"
     },
     {
       "parameters": {
@@ -2027,30 +2052,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "373eb45bfcc0ead1f3140f8d8c9de8573db34d243ac606319e5037efed58bd5f",
+      "raw_sha256": "176648144c1c690b3a4d6995c4e0bfd9b5b76fb009b51ed58917f835daaf912a",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 4,
         "ms_index": 0
       },
-      "run_id": "run_ca581e1b8674",
+      "run_id": "run_e223569fee87",
+      "slice_binary_bytes": 11923049,
+      "slice_binary_sha256": "cba30d557c4ade85721a7b555ed33492aa37da9afa54d72648fc2e7979a60eff",
       "summary": {
-        "elapsed_seconds": 157.9313489990309,
-        "lightcone_max_mk": 15.515236854553223,
-        "lightcone_min_mk": -99.78103637695312,
+        "elapsed_seconds": 5648.995383339934,
+        "lightcone_max_mk": 27.507761001586914,
+        "lightcone_min_mk": -136.249755859375,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7681938409805298,
-        "slice_density_min": -0.5319139361381531,
+        "slice_density_max": 8.952648162841797,
+        "slice_density_min": -0.800580620765686,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00017452239990234375,
-        "slice_kinetic_temperature_max_k": 15441.736328125,
-        "slice_kinetic_temperature_min_k": 3.2522497177124023,
-        "slice_spin_temperature_max_k": 7726.9658203125,
-        "slice_spin_temperature_min_k": 7.256457328796387,
-        "trough_brightness_mk": -78.27064514160156,
+        "slice_ionized_fraction_min": 0.0,
+        "slice_kinetic_temperature_max_k": 21635.3046875,
+        "slice_kinetic_temperature_min_k": 2.612116575241089,
+        "slice_spin_temperature_max_k": 8739.9609375,
+        "slice_spin_temperature_min_k": 6.349951267242432,
+        "trough_brightness_mk": -80.17464447021484,
         "trough_redshift": 11.933114213371297
       },
-      "web_sha256": "7ebbf9c0ab5a6531eb17afce4c99c9624d2537040c67a9565e469ad31af2211b"
+      "web_sha256": "39efcac47a3fa311818857fff560f4c517c9e7bbce876ccfeb817801ebca829f"
     },
     {
       "parameters": {
@@ -2065,30 +2092,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "aeb31f01416a65e15d1f2eb527e6a665de1991b22d7a1936005eec6723a2c1b6",
+      "raw_sha256": "3675d319b5424284e2bdee1af2a149f39a5c0b1c34c23d15b711fca665a4d2ea",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 4,
         "ms_index": 1
       },
-      "run_id": "run_838506ef4f13",
+      "run_id": "run_7688999a29ee",
+      "slice_binary_bytes": 11928177,
+      "slice_binary_sha256": "8aa200b3c15eed2456a598671f2eebc2496b9780883feffa7d5c24067d377105",
       "summary": {
-        "elapsed_seconds": 157.7670002039522,
-        "lightcone_max_mk": 15.492753982543945,
-        "lightcone_min_mk": -99.87403106689453,
+        "elapsed_seconds": 5640.248345423024,
+        "lightcone_max_mk": 27.446578979492188,
+        "lightcone_min_mk": -136.19882202148438,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7681938409805298,
-        "slice_density_min": -0.5319140553474426,
+        "slice_density_max": 8.952648162841797,
+        "slice_density_min": -0.8005805611610413,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00017452239990234375,
-        "slice_kinetic_temperature_max_k": 15426.51171875,
-        "slice_kinetic_temperature_min_k": 3.2565436363220215,
-        "slice_spin_temperature_max_k": 7720.77197265625,
-        "slice_spin_temperature_min_k": 7.254419326782227,
-        "trough_brightness_mk": -78.2920913696289,
+        "slice_ionized_fraction_min": 0.0,
+        "slice_kinetic_temperature_max_k": 21638.1640625,
+        "slice_kinetic_temperature_min_k": 2.6179399490356445,
+        "slice_spin_temperature_max_k": 8739.9013671875,
+        "slice_spin_temperature_min_k": 6.353118419647217,
+        "trough_brightness_mk": -80.21212005615234,
         "trough_redshift": 11.933114213371297
       },
-      "web_sha256": "60383bdfb15bdb12603948ffc11b804cc10b459830b956190f6a4f6ac6c0d9a1"
+      "web_sha256": "8afb43ca202573727e5e1c3785b41c71c98d07da25a2d80f48c922b4ecf707c1"
     },
     {
       "parameters": {
@@ -2103,30 +2132,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "4373806109915fd29238389d9263572615d9a230a22008e0ebec483a8ffe3074",
+      "raw_sha256": "1309c1fa57e78af327ff7a218e166e199e83836bb104886786ac7a2c217a056a",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 4,
         "ms_index": 2
       },
-      "run_id": "run_fe24948ed231",
+      "run_id": "run_567d6a618cab",
+      "slice_binary_bytes": 11935938,
+      "slice_binary_sha256": "1cf07708af0697d1138ade770670cccb3092a535849ae98bde1beda2bca339cb",
       "summary": {
-        "elapsed_seconds": 157.86625613714568,
-        "lightcone_max_mk": 15.460193634033203,
-        "lightcone_min_mk": -100.00302124023438,
+        "elapsed_seconds": 5682.086581119103,
+        "lightcone_max_mk": 27.358386993408203,
+        "lightcone_min_mk": -136.11514282226562,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7681939601898193,
-        "slice_density_min": -0.5319139361381531,
+        "slice_density_max": 8.952648162841797,
+        "slice_density_min": -0.8005803823471069,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00017452239990234375,
-        "slice_kinetic_temperature_max_k": 15404.8779296875,
-        "slice_kinetic_temperature_min_k": 3.26281476020813,
-        "slice_spin_temperature_max_k": 7711.91357421875,
-        "slice_spin_temperature_min_k": 7.251762866973877,
-        "trough_brightness_mk": -78.31929779052734,
+        "slice_ionized_fraction_min": 0.0,
+        "slice_kinetic_temperature_max_k": 21642.275390625,
+        "slice_kinetic_temperature_min_k": 2.62644100189209,
+        "slice_spin_temperature_max_k": 8739.8115234375,
+        "slice_spin_temperature_min_k": 6.358022689819336,
+        "trough_brightness_mk": -80.26124572753906,
         "trough_redshift": 11.933114213371297
       },
-      "web_sha256": "11e77dba731ec3196bc953a8c20de77c28b0700748c705b26ccf9b725ac90d58"
+      "web_sha256": "98bec476a3c80b14d1f1c7a85c2c49bdd3666299206cfe12b50548c0fd308b1b"
     },
     {
       "parameters": {
@@ -2141,30 +2172,32 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "525dddc5089d9f71dca5e9dea9abf22f6a1e87f74ebdc74218233a1c4aea8d5e",
+      "raw_sha256": "d4de0a851111d07ea7b019d3a897f1bdbb0377758b6fa54c1027c6fdd1ef2a4d",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 4,
         "ms_index": 3
       },
-      "run_id": "run_2206ffd2ec9e",
+      "run_id": "run_f17b08da74c8",
+      "slice_binary_bytes": 11955849,
+      "slice_binary_sha256": "03393f78277219f427c32bef13e2315da84c06fe487adeb824151fcdd0759b0d",
       "summary": {
-        "elapsed_seconds": 159.29451876599342,
-        "lightcone_max_mk": 15.37004280090332,
-        "lightcone_min_mk": -100.3220443725586,
+        "elapsed_seconds": 5686.822714398149,
+        "lightcone_max_mk": 27.111867904663086,
+        "lightcone_min_mk": -136.22499084472656,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7681938409805298,
-        "slice_density_min": -0.5319139957427979,
+        "slice_density_max": 8.952648162841797,
+        "slice_density_min": -0.800580620765686,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00017464160919189453,
-        "slice_kinetic_temperature_max_k": 15344.7109375,
-        "slice_kinetic_temperature_min_k": 3.2806355953216553,
-        "slice_spin_temperature_max_k": 7687.37841796875,
-        "slice_spin_temperature_min_k": 7.246953964233398,
-        "trough_brightness_mk": -78.36243438720703,
+        "slice_ionized_fraction_min": 0.0,
+        "slice_kinetic_temperature_max_k": 21653.029296875,
+        "slice_kinetic_temperature_min_k": 2.650508165359497,
+        "slice_spin_temperature_max_k": 8739.45703125,
+        "slice_spin_temperature_min_k": 6.373803615570068,
+        "trough_brightness_mk": -80.36451721191406,
         "trough_redshift": 11.933114213371297
       },
-      "web_sha256": "b081e02ef9963638ea4f3cab0c82fcfcb2d1be2386f5926d5bde0132447dd7b1"
+      "web_sha256": "c4b918f768e146f227bd8f3ddc4e1591a9d3adbe3eeb00dc90f6d837be9e5d85"
     },
     {
       "parameters": {
@@ -2179,130 +2212,133 @@
         "NU_X_THRESH": 500.0,
         "t_STAR": 0.5
       },
-      "raw_sha256": "76b0fbe10451d71d8d6340457d80c3b167a4fb7a2896ba51fc1bccc9a3685f69",
+      "raw_sha256": "e75f6f24cbbaaa62e613d8f08c03230e6654b980fe98696fc51d8f3d16aedb7c",
       "role": {
         "kind": "kp_ms_grid",
         "kp_index": 4,
         "ms_index": 4
       },
-      "run_id": "run_3844e0103d64",
+      "run_id": "run_fa985c27127b",
+      "slice_binary_bytes": 12018419,
+      "slice_binary_sha256": "d9c1e955af21b45a064a0040b297fe30723212b8f96fad292e53a688df4ed051",
       "summary": {
-        "elapsed_seconds": 159.20404000603594,
-        "lightcone_max_mk": 15.12673282623291,
-        "lightcone_min_mk": -100.9138412475586,
+        "elapsed_seconds": 5756.34298380604,
+        "lightcone_max_mk": 26.481603622436523,
+        "lightcone_min_mk": -136.43812561035156,
         "py21cmfast_version": "0.1.dev1835+gaefc273.d20250321",
-        "slice_density_max": 1.7681937217712402,
-        "slice_density_min": -0.5319139361381531,
+        "slice_density_max": 8.952648162841797,
+        "slice_density_min": -0.8005805611610413,
         "slice_ionized_fraction_max": 1.0,
-        "slice_ionized_fraction_min": 0.00017499923706054688,
-        "slice_kinetic_temperature_max_k": 15176.578125,
-        "slice_kinetic_temperature_min_k": 3.336839199066162,
-        "slice_spin_temperature_max_k": 7618.53271484375,
-        "slice_spin_temperature_min_k": 7.254884719848633,
-        "trough_brightness_mk": -78.56867980957031,
-        "trough_redshift": 12.191776250959146
+        "slice_ionized_fraction_min": 0.0,
+        "slice_kinetic_temperature_max_k": 21680.18359375,
+        "slice_kinetic_temperature_min_k": 2.7038369178771973,
+        "slice_spin_temperature_max_k": 8738.2783203125,
+        "slice_spin_temperature_min_k": 6.439199924468994,
+        "trough_brightness_mk": -80.37077331542969,
+        "trough_redshift": 11.933114213371297
       },
-      "web_sha256": "27972fffad1ab01533fe003a095037919b3a4943b9776e01acb95747ed96029c"
+      "web_sha256": "41ab2ed95d9484ef8602d55538e8bf482c150723c8c7e787008912ec9ed4853e"
     }
   ],
   "mappings": {
     "astro_oat": {
       "ALPHA_ESC": [
-        "run_b7358e9d7519",
-        "run_eb44ae645c6d",
-        "run_1bc84fcee7f1",
-        "run_74d429b9264e",
-        "run_dce6d42bfe2b"
+        "run_d39a1552c4bf",
+        "run_4a32d5576e9d",
+        "run_380acb7f3e11",
+        "run_69997559aa9a",
+        "run_3fc10d86fd7e"
       ],
       "ALPHA_STAR": [
-        "run_19e965e33e5f",
-        "run_9ba9b12388ff",
-        "run_1bc84fcee7f1",
-        "run_5c3d909dd305",
-        "run_dcdb93a3b56e"
+        "run_424b10004f70",
+        "run_938690149407",
+        "run_380acb7f3e11",
+        "run_074da444b5e8",
+        "run_86a0b34777c1"
       ],
       "F_ESC10": [
-        "run_837096701471",
-        "run_100a9f52e548",
-        "run_1bc84fcee7f1",
-        "run_51ff4d660f59",
-        "run_73f9189aba43"
+        "run_83c0a141c682",
+        "run_208fc3a9bf58",
+        "run_380acb7f3e11",
+        "run_46555f868f85",
+        "run_ca42261067f9"
       ],
       "F_STAR10": [
-        "run_25d5d5874b08",
-        "run_b4c2f53a6835",
-        "run_1bc84fcee7f1",
-        "run_20f569350ad0",
-        "run_0713be9d20dc"
+        "run_23224a598b52",
+        "run_5420cad49f3c",
+        "run_380acb7f3e11",
+        "run_0e2cbee1e474",
+        "run_6223537aaca5"
       ],
       "L_X": [
-        "run_3052b34eee5a",
-        "run_771a8a0fe05c",
-        "run_1bc84fcee7f1",
-        "run_b9a20b43c637",
-        "run_2ea8f726e49c"
+        "run_b00aa96e4701",
+        "run_41edd5354310",
+        "run_380acb7f3e11",
+        "run_6ef5cb6b5964",
+        "run_89f3ece8f320"
       ],
       "M_TURN": [
-        "run_d6ae68000362",
-        "run_5559ea21e887",
-        "run_1bc84fcee7f1",
-        "run_bf6d3ded10ba",
-        "run_d048c85059df"
+        "run_34063da71737",
+        "run_f186d2e02330",
+        "run_380acb7f3e11",
+        "run_396a88b69361",
+        "run_a97bc282043e"
       ],
       "NU_X_THRESH": [
-        "run_982ab7790df2",
-        "run_610b44f5b748",
-        "run_1bc84fcee7f1",
-        "run_7f195e4aaa1d",
-        "run_2767839e3f36"
+        "run_4600848a9a8c",
+        "run_dc49cf795124",
+        "run_380acb7f3e11",
+        "run_122fce25864a",
+        "run_8eccc9e4e783"
       ],
       "t_STAR": [
-        "run_1f52c3063275",
-        "run_1ff1d15964ab",
-        "run_1bc84fcee7f1",
-        "run_52030e4d07a9",
-        "run_4071642e6f24"
+        "run_c81297331d4e",
+        "run_82d247b0a112",
+        "run_380acb7f3e11",
+        "run_59251e45d36a",
+        "run_6c50de6c11da"
       ]
     },
     "kp_ms_grid": [
       [
-        "run_1bc84fcee7f1",
-        "run_da3492495b12",
-        "run_12371f8404be",
-        "run_8de37b09626c",
-        "run_477111cd117e"
+        "run_380acb7f3e11",
+        "run_0d8f29384172",
+        "run_c2de5f225e99",
+        "run_eae67a319350",
+        "run_5f2309678207"
       ],
       [
-        "run_8f61cf7f738e",
-        "run_2b0bad474ae1",
-        "run_5eedb85a7cc9",
-        "run_3872af735369",
-        "run_2d8250ab26ee"
+        "run_733d5e5b4105",
+        "run_3c8b696679a6",
+        "run_3d2bd0dc1352",
+        "run_ab6ee95abca6",
+        "run_774281b335a3"
       ],
       [
-        "run_cf8e3ec50e08",
-        "run_f9a81d8e67ef",
-        "run_2a1c3c7abd82",
-        "run_fde51645c882",
-        "run_501555eb2cad"
+        "run_4f2c920dd48a",
+        "run_ab2d07bb8157",
+        "run_736b0bfde6c2",
+        "run_ce474e5c5075",
+        "run_95b6837f6d31"
       ],
       [
-        "run_6c1b676eeb13",
-        "run_e8e1d7edd75b",
-        "run_2218ac02769f",
-        "run_5699a66eaa06",
-        "run_6729b6452da5"
+        "run_c8dad6d8ced0",
+        "run_8686a3387e84",
+        "run_acfe4d35a79b",
+        "run_3ce08adb874c",
+        "run_9c51b5d1a004"
       ],
       [
-        "run_ca581e1b8674",
-        "run_838506ef4f13",
-        "run_fe24948ed231",
-        "run_2206ffd2ec9e",
-        "run_3844e0103d64"
+        "run_e223569fee87",
+        "run_7688999a29ee",
+        "run_567d6a618cab",
+        "run_f17b08da74c8",
+        "run_fa985c27127b"
       ]
     ]
   },
-  "n_exact_runs": 57,
+  "n_design_points": 57,
+  "n_exact_runs": 55,
   "parameter_specs": [
     {
       "default_index": 2,
@@ -2445,13 +2481,13 @@
       ]
     }
   ],
-  "result_schema_version": 6,
+  "result_schema_version": 7,
   "schema_version": 1,
   "simulation": {
     "BOX_LEN_Mpc": 250.0,
-    "DIM": 256,
-    "HII_DIM": 64,
-    "N_THREADS": 8,
+    "DIM": 768,
+    "HII_DIM": 256,
+    "N_THREADS": 16,
     "POWER_SPECTRUM": 6,
     "USE_INTERPOLATION_TABLES": true,
     "Z_HEAT_MAX": 35.0,
@@ -2463,5 +2499,53 @@
     "random_seed": 725213656658,
     "redshift_max": 35.0,
     "redshift_min": 6.0
-  }
+  },
+  "unavailable_run_ids": [
+    "run_4600848a9a8c",
+    "run_5f2309678207"
+  ],
+  "unavailable_runs": [
+    {
+      "parameters": {
+        "ALPHA_ESC": -0.5,
+        "ALPHA_STAR": 0.5,
+        "F_ESC10": -1.0,
+        "F_STAR10": -1.3,
+        "KP_h_Mpc": 1.0,
+        "L_X": 40.5,
+        "MS": 1.5,
+        "M_TURN": 9.0,
+        "NU_X_THRESH": 100.0,
+        "t_STAR": 0.5
+      },
+      "reason": "21cmFAST spin-temperature InfinityorNaNError",
+      "role": {
+        "kind": "astro_oat",
+        "parameter": "NU_X_THRESH",
+        "value_index": 0
+      },
+      "run_id": "run_4600848a9a8c"
+    },
+    {
+      "parameters": {
+        "ALPHA_ESC": -0.5,
+        "ALPHA_STAR": 0.5,
+        "F_ESC10": -1.0,
+        "F_STAR10": -1.3,
+        "KP_h_Mpc": 1.0,
+        "L_X": 40.5,
+        "MS": 4.0,
+        "M_TURN": 9.0,
+        "NU_X_THRESH": 500.0,
+        "t_STAR": 0.5
+      },
+      "reason": "21cmFAST spin-temperature InfinityorNaNError",
+      "role": {
+        "kind": "kp_ms_grid",
+        "kp_index": 0,
+        "ms_index": 4
+      },
+      "run_id": "run_5f2309678207"
+    }
+  ]
 }
