@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>21cmFAST 预计算参数图谱</title>
-  <link rel="stylesheet" href="styles.css?v=hii256-v8">
+  <link rel="stylesheet" href="styles.css?v=hii256-v9">
 </head>
 <body>
   <header class="topbar">
@@ -26,7 +26,7 @@
 
       <div class="design-notice">
         <strong>精确扫描规则</strong>
-        <p>天体物理参数采用单参数扫描：移动其中一个时，其余参数回到基准值。KP 与 MS 使用完整 5×5 联合网格。</p>
+        <p>天体物理参数采用单参数扫描：移动其中一个时，其余参数回到基准值。KP 与 MS 使用完整 5×5 联合网格；亮温与 LF 都同时读取同天体物理参数的标准 PL 参考。</p>
       </div>
 
       <section class="control-group">
@@ -72,6 +72,7 @@
           <div><span class="chart-index">A</span><h3>全局平均亮温</h3></div>
           <p>Global signal · δTb [mK]</p>
         </div>
+        <div class="comparison-key"><i class="current-curve"></i><span>当前 BPL（所选 kp / ms）</span><i class="pl-curve"></i><span>同参数标准 PL（n<sub>s</sub> = 0.968）</span></div>
         <div class="canvas-frame"><canvas id="global-chart"></canvas></div>
       </article>
 
@@ -99,7 +100,7 @@
           <div class="redshift-extents"><span>高红移 · 早期</span><span>低红移 · 晚期</span></div>
         </div>
         <div class="slice-grid">
-          <section class="field-panel">
+          <section class="field-panel field-primary">
             <div class="field-heading">
               <div><strong>brightness_temp</strong><span>21 cm 亮温</span></div>
               <output id="slice-brightness-range">—</output>
@@ -107,7 +108,7 @@
             <div class="slice-frame"><canvas id="brightness-slice"></canvas></div>
             <div class="color-legend slice-legend eor-legend"><span>−150 mK</span><i></i><span>+30 mK</span></div>
           </section>
-          <section class="field-panel">
+          <section class="field-panel field-secondary">
             <div class="field-heading">
               <div><strong>density</strong><span>密度对比度 δ = ρ/ρ̄ − 1</span></div>
               <output id="slice-density-range">—</output>
@@ -115,7 +116,7 @@
             <div class="slice-frame"><canvas id="density-slice"></canvas></div>
             <div class="color-legend slice-legend viridis-legend"><span id="slice-density-scale-min">min</span><i></i><span id="slice-density-scale-max">max</span></div>
           </section>
-          <section class="field-panel">
+          <section class="field-panel field-secondary">
             <div class="field-heading">
               <div><strong>x_HII</strong><span>电离氢分数 x<sub>HII</sub> = 1 − x<sub>HI</sub></span></div>
               <output id="slice-ionization-range">—</output>
@@ -123,7 +124,7 @@
             <div class="slice-frame"><canvas id="ionization-slice"></canvas></div>
             <div class="color-legend slice-legend viridis-legend"><span id="slice-ionization-scale-min">min</span><i></i><span id="slice-ionization-scale-max">max</span></div>
           </section>
-          <section class="field-panel">
+          <section class="field-panel field-secondary">
             <div class="field-heading">
               <div><strong>Ts_box</strong><span>21 cm 自旋温度 · log 色标</span></div>
               <output id="slice-spin-temperature-range">—</output>
@@ -131,7 +132,7 @@
             <div class="slice-frame"><canvas id="spin-temperature-slice"></canvas></div>
             <div class="color-legend slice-legend viridis-legend"><span id="slice-spin-scale-min">min</span><i></i><span id="slice-spin-scale-max">max</span></div>
           </section>
-          <section class="field-panel">
+          <section class="field-panel field-secondary">
             <div class="field-heading">
               <div><strong>Tk_box</strong><span>IGM 气体动温 · log 色标</span></div>
               <output id="slice-kinetic-temperature-range">—</output>
@@ -153,13 +154,21 @@
             <div id="lf-redshift-options" class="lf-redshift-options" role="group" aria-label="UV 光度函数红移"></div>
             <strong id="lf-redshift-value">z = —</strong>
           </div>
-          <div class="curve-key"><i class="current-curve"></i><span>当前模型</span><i class="previous-curve"></i><span>上一模型</span></div>
+          <div class="curve-key"><i class="current-curve"></i><span>当前 BPL</span><i class="pl-curve"></i><span>同参数 PL</span><i class="hst-point"></i><span>HST</span><i class="jwst-point"></i><span>JWST</span></div>
         </div>
         <div class="canvas-frame lf-frame"><canvas id="lf-chart"></canvas></div>
         <div class="lf-caption">
           <span>21cmFAST UV luminosity function · exact z = 6, 7, 8, 10</span>
           <span>−24 ≤ M<sub>UV</sub> ≤ −10</span>
           <span>log<sub>10</sub> φ [cMpc⁻³ mag⁻¹]</span>
+        </div>
+        <div class="lf-sources">
+          <strong>观测表格：</strong>
+          <a href="https://arxiv.org/abs/2102.07775" target="_blank" rel="noreferrer">HST · Bouwens+21</a>
+          <a href="https://arxiv.org/abs/1710.11131" target="_blank" rel="noreferrer">HST · Oesch+18</a>
+          <a href="https://arxiv.org/abs/2211.02607" target="_blank" rel="noreferrer">JWST · Bouwens+23</a>
+          <a href="https://arxiv.org/abs/2403.03171" target="_blank" rel="noreferrer">JWST · Donnan+24</a>
+          <span>Bouwens+23 保留原 z≈8–9 / 10–11 宽箱；误差棒沿用论文表值；▽ 为上限</span>
         </div>
       </article>
 
@@ -183,6 +192,6 @@
     <span>HII_DIM = 256 · DIM = 768 · BOX_LEN = 250 cMpc</span>
     <span>z = 35 → 6</span>
   </footer>
-  <script src="app.js?v=hii256-v8"></script>
+  <script src="app.js?v=hii256-v9"></script>
 </body>
 </html>

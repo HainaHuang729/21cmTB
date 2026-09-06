@@ -4,7 +4,7 @@ const state = {
   design: null,
   controls: new Map(),
   result: null,
-  previous: null,
+  plReference: null,
   activeAstro: null,
   requestSerial: 0,
   sliceIndex: null,
@@ -14,7 +14,7 @@ const state = {
 
 const $ = (selector) => document.querySelector(selector);
 const astroNames = new Set(["F_STAR10", "ALPHA_STAR", "F_ESC10", "ALPHA_ESC", "M_TURN", "t_STAR", "L_X", "NU_X_THRESH"]);
-const DATA_VERSION = "hii256-v8";
+const DATA_VERSION = "hii256-v9";
 
 function versioned(path) {
   return `${path}${path.includes("?") ? "&" : "?"}v=${DATA_VERSION}`;
@@ -145,7 +145,7 @@ function showUnavailableRun(runId) {
   state.requestSerial += 1;
   setSlicePlaying(false);
   state.result = null;
-  state.previous = null;
+  state.plReference = null;
   $("#status-card").classList.remove("active");
   $("#status-title").textContent = "该高分辨率参数点未发布";
   $("#status-message").textContent = `${runId} · 21cmFAST 自旋温度计算出现数值异常；未使用插值或低分辨率结果替代`;
@@ -190,9 +190,13 @@ async function loadRun(runId) {
     const result = await fetchJSON(versioned(`web_data/runs/${runId}.json`));
     if (serial !== state.requestSerial) return;
     result.decodedPlane = decodePlane(result.lightcone);
-    result.decodedSlices = await decodeSlices(result.slices);
+    const [decodedSlices, plReference] = await Promise.all([
+      decodeSlices(result.slices),
+      fetchJSON(versioned(result.pl_reference.file)),
+    ]);
+    result.decodedSlices = decodedSlices;
     if (serial !== state.requestSerial) return;
-    state.previous = state.result;
+    state.plReference = plReference;
     state.result = result;
     showResult();
   } catch (error) {
@@ -250,12 +254,12 @@ function niceBounds(values, includeZero = false) {
   return [minimum - span * 0.12, maximum + span * 0.12];
 }
 
-function drawCurve(ctx, z, values, px, py, color, width, shadow = false) {
+function drawCurve(ctx, z, values, px, py, color, width, shadow = false, dash = []) {
   ctx.beginPath();
   z.forEach((value, index) => ctx[index ? "lineTo" : "moveTo"](px(value), py(values[index])));
-  ctx.strokeStyle = color; ctx.lineWidth = width;
+  ctx.strokeStyle = color; ctx.lineWidth = width; ctx.setLineDash(dash);
   if (shadow) { ctx.shadowColor = "rgba(214,255,64,0.35)"; ctx.shadowBlur = 9; }
-  ctx.stroke(); ctx.shadowBlur = 0;
+  ctx.stroke(); ctx.shadowBlur = 0; ctx.setLineDash([]);
 }
 
 function drawGlobal() {
@@ -263,7 +267,8 @@ function drawGlobal() {
   const {context: ctx, width, height} = canvasContext($("#global-chart"));
   const margin = {left: 64, right: 24, top: 26, bottom: 48};
   const z = state.result.global.redshift, values = state.result.global.brightness_mk;
-  const combined = state.previous ? values.concat(state.previous.global.brightness_mk) : values;
+  const pl = state.plReference ? state.plReference.global : null;
+  const combined = pl ? values.concat(pl.brightness_mk) : values;
   const zMin = Math.min(...z), zMax = Math.max(...z), [yMin, yMax] = niceBounds(combined, true);
   const px = (value) => margin.left + (zMax - value) / (zMax - zMin) * (width - margin.left - margin.right);
   const py = (value) => margin.top + (yMax - value) / (yMax - yMin) * (height - margin.top - margin.bottom);
@@ -282,7 +287,7 @@ function drawGlobal() {
     ctx.strokeStyle = "rgba(244,241,232,0.28)"; ctx.setLineDash([4, 4]);
     ctx.beginPath(); ctx.moveTo(margin.left, py(0)); ctx.lineTo(width - margin.right, py(0)); ctx.stroke(); ctx.setLineDash([]);
   }
-  if (state.previous) drawCurve(ctx, state.previous.global.redshift, state.previous.global.brightness_mk, px, py, "rgba(101,229,242,0.28)", 1.2);
+  if (pl) drawCurve(ctx, pl.redshift, pl.brightness_mk, px, py, "rgba(101,229,242,0.82)", 1.5, false, [7, 5]);
   drawCurve(ctx, z, values, px, py, "#d6ff40", 2.2, true);
   const trough = values.indexOf(Math.min(...values));
   ctx.fillStyle = "#080c0e"; ctx.strokeStyle = "#d6ff40"; ctx.lineWidth = 2;
@@ -449,9 +454,10 @@ function drawSliceField(canvas, values, decoded, colorFunction) {
     image.data[target] = color[0]; image.data[target + 1] = color[1]; image.data[target + 2] = color[2]; image.data[target + 3] = 255;
   }
   imageContext.putImageData(image, 0, 0);
+  const size = Math.min(width, height), left = (width - size) / 2, top = (height - size) / 2;
   ctx.clearRect(0, 0, width, height); ctx.imageSmoothingEnabled = false;
-  ctx.drawImage(imageCanvas, 0, 0, width, height);
-  ctx.strokeStyle = "rgba(217,231,235,0.25)"; ctx.strokeRect(0.5, 0.5, width - 1, height - 1);
+  ctx.drawImage(imageCanvas, left, top, size, size);
+  ctx.strokeStyle = "rgba(217,231,235,0.25)"; ctx.strokeRect(left + 0.5, top + 0.5, size - 1, size - 1);
   return [minimum, maximum];
 }
 
@@ -478,7 +484,7 @@ function drawSlices() {
   $("#slice-kinetic-scale-max").textContent = `${formatKelvin(10 ** kineticRange[1])} K`;
 }
 
-function drawLFCurve(ctx, curve, px, py, color, width) {
+function drawLFCurve(ctx, curve, px, py, color, width, dash = []) {
   let drawing = false;
   ctx.beginPath();
   curve.muv.forEach((magnitude, index) => {
@@ -488,20 +494,66 @@ function drawLFCurve(ctx, curve, px, py, color, width) {
     drawing = true;
   });
   if (!drawing) return false;
-  ctx.strokeStyle = color; ctx.lineWidth = width; ctx.stroke();
+  ctx.strokeStyle = color; ctx.lineWidth = width; ctx.setLineDash(dash); ctx.stroke(); ctx.setLineDash([]);
   return true;
+}
+
+function observationSource(sourceId) {
+  return state.design.lf_observations.sources.find((source) => source.id === sourceId);
+}
+
+function observationColor(point) {
+  const source = observationSource(point.source_id);
+  return source && source.instrument.startsWith("HST") ? "#ff9b6a" : "#c3a7ff";
+}
+
+function drawObservationPoint(ctx, point, px, py, yMin, yMax) {
+  const x = px(point.muv), y = py(Math.log10(point.phi)), color = observationColor(point);
+  ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = 1.15; ctx.setLineDash([]);
+  if (point.upper_limit) {
+    ctx.beginPath(); ctx.moveTo(x - 4, y - 3); ctx.lineTo(x + 4, y - 3); ctx.lineTo(x, y + 4); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(x, y + 4); ctx.lineTo(x, Math.min(py(yMin), y + 13)); ctx.stroke();
+    return;
+  }
+  const lowerPhi = Math.max(point.phi - point.sigma_minus, 10 ** yMin);
+  const upperPhi = Math.min(point.phi + point.sigma_plus, 10 ** yMax);
+  const yLow = py(Math.log10(lowerPhi)), yHigh = py(Math.log10(upperPhi));
+  ctx.beginPath(); ctx.moveTo(x, yHigh); ctx.lineTo(x, yLow);
+  ctx.moveTo(x - 3, yHigh); ctx.lineTo(x + 3, yHigh);
+  ctx.moveTo(x - 3, yLow); ctx.lineTo(x + 3, yLow); ctx.stroke();
+  const source = observationSource(point.source_id);
+  if (source && source.instrument.startsWith("HST")) {
+    ctx.beginPath(); ctx.arc(x, y, 3.2, 0, Math.PI * 2); ctx.fill();
+  } else {
+    ctx.fillRect(x - 3.2, y - 3.2, 6.4, 6.4);
+  }
 }
 
 function drawLuminosityFunction() {
   if (!state.result || state.lfIndex === null) return;
   const {context: ctx, width, height} = canvasContext($("#lf-chart"));
   const margin = {left: 70, right: 25, top: 24, bottom: 54};
-  const xMin = -24, xMax = -10, yMin = -20, yMax = 1;
+  const xMin = -24, xMax = -10;
+  const current = state.result.luminosity_function.curves[state.lfIndex];
+  const plCurve = state.plReference && state.plReference.luminosity_function
+    ? state.plReference.luminosity_function.curves[state.lfIndex]
+    : null;
+  const displayRedshift = state.result.luminosity_function.redshift[state.lfIndex].toFixed(0);
+  const observations = state.design.lf_observations.by_display_redshift[displayRedshift] || [];
+  const bounds = current.log10_phi.concat(plCurve ? plCurve.log10_phi : []);
+  observations.forEach((point) => {
+    bounds.push(Math.log10(point.phi));
+    if (point.phi + point.sigma_plus > 0) bounds.push(Math.log10(point.phi + point.sigma_plus));
+    if (point.phi - point.sigma_minus > 0) bounds.push(Math.log10(point.phi - point.sigma_minus));
+  });
+  const finiteBounds = bounds.filter((value) => Number.isFinite(value) && value >= -12);
+  const yMin = Math.max(-12, Math.min(-7, Math.floor(Math.min(...finiteBounds) - 0.35)));
+  const yMax = Math.min(1, Math.max(-1, Math.ceil(Math.max(...finiteBounds) + 0.35)));
   const px = (value) => margin.left + (value - xMin) / (xMax - xMin) * (width - margin.left - margin.right);
   const py = (value) => margin.top + (yMax - value) / (yMax - yMin) * (height - margin.top - margin.bottom);
   ctx.clearRect(0, 0, width, height);
   ctx.font = "10px SFMono-Regular, Consolas, monospace";
-  for (let value = -20; value <= 0; value += 5) {
+  for (let value = Math.ceil(yMin / 2) * 2; value <= yMax; value += 2) {
     const y = py(value);
     ctx.strokeStyle = "rgba(217,231,235,0.09)"; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(margin.left, y); ctx.lineTo(width - margin.right, y); ctx.stroke();
@@ -517,18 +569,9 @@ function drawLuminosityFunction() {
   }
   ctx.save();
   ctx.beginPath(); ctx.rect(margin.left, margin.top, width - margin.left - margin.right, height - margin.top - margin.bottom); ctx.clip();
-  if (state.previous && state.previous.luminosity_function) {
-    drawLFCurve(
-      ctx,
-      state.previous.luminosity_function.curves[state.lfIndex],
-      px,
-      py,
-      "rgba(101,229,242,0.38)",
-      1.4,
-    );
-  }
-  const current = state.result.luminosity_function.curves[state.lfIndex];
+  if (plCurve) drawLFCurve(ctx, plCurve, px, py, "rgba(101,229,242,0.84)", 1.6, [7, 5]);
   const drawn = drawLFCurve(ctx, current, px, py, "#d6ff40", 2.2);
+  observations.forEach((point) => drawObservationPoint(ctx, point, px, py, yMin, yMax));
   ctx.restore();
   ctx.strokeStyle = "rgba(217,231,235,0.24)";
   ctx.strokeRect(margin.left, margin.top, width - margin.left - margin.right, height - margin.top - margin.bottom);
