@@ -132,7 +132,8 @@ button { font-family: inherit; }
 canvas { display: block; width: 100%; height: 100%; }
 .empty-state { position: absolute; inset: 0; display: grid; place-items: center; color: #667176; padding: 30px; text-align: center; font-size: 11px; letter-spacing: 0.03em; background: radial-gradient(circle at 50% 45%, rgba(101,229,242,0.035), transparent 45%); }
 .color-legend { height: 28px; border-top: 1px solid var(--line); display: grid; grid-template-columns: max-content minmax(80px, 230px) max-content; gap: 9px; align-items: center; justify-content: end; padding: 0 15px; color: var(--dim); font-size: 8px; }
-.color-legend i { height: 5px; background: linear-gradient(90deg, #22d3ee, #245eea, #111827 52%, #050505 68%, #fbbf24, #ef4444); }
+.color-legend i { height: 5px; }
+.eor-legend i { background: linear-gradient(90deg, #fff 0%, #ff0 21%, #ffa500 42%, #f00 63%, #000 86%, #00f 90%, #0ff 100%); }
 
 .slice-card { overflow: visible; }
 .redshift-control { padding: 16px 18px 14px; display: grid; grid-template-columns: 68px 150px 1fr; gap: 14px 18px; align-items: center; border-bottom: 1px solid var(--line); background: rgba(101,229,242,0.025); }
@@ -153,9 +154,7 @@ canvas { display: block; width: 100%; height: 100%; }
 .field-heading output { color: var(--muted); font: 9px "SFMono-Regular", Consolas, monospace; text-align: right; }
 .slice-frame { width: 100%; height: auto; aspect-ratio: 1 / 1; background: #050708; }
 .slice-legend { justify-content: stretch; grid-template-columns: max-content 1fr max-content; }
-.density-legend i { background: linear-gradient(90deg, #071422, #186b8b, #d9e7eb, #facc15, #f97316, #be185d); }
-.ionization-legend i { background: linear-gradient(90deg, #050a12, #142d49, #13718b, #65e5f2, #d6ff40, #fff9c2); }
-.thermal-legend i { background: linear-gradient(90deg, #070f21, #183b69, #3a86b4, #67e1c6, #facc15, #f97316, #ffeed2); }
+.viridis-legend i { background: linear-gradient(90deg, #440154 0%, #48186a 6.25%, #472d7b 12.5%, #424086 18.75%, #3b528b 25%, #33638d 31.25%, #2c728e 37.5%, #26828e 43.75%, #21918c 50%, #1fa088 56.25%, #28ae80 62.5%, #3fbc73 68.75%, #5ec962 75%, #84d44b 81.25%, #addc30 87.5%, #d8e219 93.75%, #fde725 100%); }
 
 .lf-toolbar { min-height: 46px; padding: 9px 18px; display: flex; align-items: center; justify-content: space-between; gap: 20px; border-bottom: 1px solid var(--line); background: rgba(214,255,64,0.025); }
 .lf-redshift-control { display: flex; align-items: center; gap: 10px; }

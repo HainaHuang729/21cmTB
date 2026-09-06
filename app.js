@@ -14,7 +14,7 @@ const state = {
 
 const $ = (selector) => document.querySelector(selector);
 const astroNames = new Set(["F_STAR10", "ALPHA_STAR", "F_ESC10", "ALPHA_ESC", "M_TURN", "t_STAR", "L_X", "NU_X_THRESH"]);
-const DATA_VERSION = "hii256-v7";
+const DATA_VERSION = "hii256-v8";
 
 function versioned(path) {
   return `${path}${path.includes("?") ? "&" : "?"}v=${DATA_VERSION}`;
@@ -156,7 +156,15 @@ function showUnavailableRun(runId) {
     $(selector).textContent = "—";
   });
   $("#parameter-summary").innerHTML = "";
-  ["#slice-brightness-range", "#slice-density-range", "#slice-ionization-range", "#slice-spin-temperature-range", "#slice-kinetic-temperature-range", "#slice-redshift-value", "#lf-redshift-value"].forEach((selector) => {
+  [
+    "#slice-brightness-range", "#slice-density-range", "#slice-ionization-range",
+    "#slice-spin-temperature-range", "#slice-kinetic-temperature-range",
+    "#slice-density-scale-min", "#slice-density-scale-max",
+    "#slice-ionization-scale-min", "#slice-ionization-scale-max",
+    "#slice-spin-scale-min", "#slice-spin-scale-max",
+    "#slice-kinetic-scale-min", "#slice-kinetic-scale-max",
+    "#slice-redshift-value", "#lf-redshift-value",
+  ].forEach((selector) => {
     $(selector).textContent = "—";
   });
   $("#lf-redshift-options").innerHTML = "";
@@ -284,10 +292,38 @@ function drawGlobal() {
   ctx.save(); ctx.translate(14, (margin.top + height - margin.bottom) / 2); ctx.rotate(-Math.PI / 2); ctx.fillText("δTb  [mK]", 0, 0); ctx.restore();
 }
 
-const temperatureStops = [[-200,[34,211,238]],[-120,[37,94,234]],[-40,[17,24,39]],[0,[5,5,5]],[15,[251,191,36]],[40,[239,68,68]]];
-const densityStops = [[-0.9,[7,20,34]],[-0.4,[24,107,139]],[0,[217,231,235]],[1,[250,204,21]],[3,[249,115,22]],[10,[190,24,93]]];
-const ionizationStops = [[0,[5,10,18]],[0.1,[20,45,73]],[0.35,[19,113,139]],[0.65,[101,229,242]],[0.9,[214,255,64]],[1,[255,249,194]]];
-const thermalStops = [[-1,[7,15,33]],[0,[24,59,105]],[1,[58,134,180]],[2,[103,225,198]],[3,[250,204,21]],[4,[249,115,22]],[5,[255,238,210]]];
+// Match py21cmfast.plotting: brightness_temp uses the fixed EoR map over
+// [-150, 30] mK; other fields use viridis. Temperature arrays are already
+// encoded as log10(K), so linear normalization here is equivalent to LogNorm
+// on the physical Kelvin values.
+const eorStops = [
+  [0.00,[255,255,255]],
+  [0.21,[255,255,0]],
+  [0.42,[255,165,0]],
+  [0.63,[255,0,0]],
+  [0.86,[0,0,0]],
+  [0.90,[0,0,255]],
+  [1.00,[0,255,255]],
+];
+const viridisStops = [
+  [0.0000,[68,1,84]],
+  [0.0625,[72,24,106]],
+  [0.1250,[71,45,123]],
+  [0.1875,[66,64,134]],
+  [0.2500,[59,82,139]],
+  [0.3125,[51,99,141]],
+  [0.3750,[44,114,142]],
+  [0.4375,[38,130,142]],
+  [0.5000,[33,145,140]],
+  [0.5625,[31,160,136]],
+  [0.6250,[40,174,128]],
+  [0.6875,[63,188,115]],
+  [0.7500,[94,201,98]],
+  [0.8125,[132,212,75]],
+  [0.8750,[173,220,48]],
+  [0.9375,[216,226,25]],
+  [1.0000,[253,231,37]],
+];
 function colorFromStops(value, stops) {
   const clipped = Math.max(stops[0][0], Math.min(stops[stops.length - 1][0], value));
   let upper = 1; while (upper < stops.length && clipped > stops[upper][0]) upper += 1;
@@ -295,10 +331,11 @@ function colorFromStops(value, stops) {
   const [x0,c0] = stops[upper - 1], [x1,c1] = stops[upper], fraction = x1 === x0 ? 0 : (clipped - x0) / (x1 - x0);
   return c0.map((channel, index) => Math.round(channel + fraction * (c1[index] - channel)));
 }
-function temperatureColor(value) { return colorFromStops(value, temperatureStops); }
-function densityColor(value) { return colorFromStops(value, densityStops); }
-function ionizationColor(value) { return colorFromStops(value, ionizationStops); }
-function thermalColor(log10Kelvin) { return colorFromStops(log10Kelvin, thermalStops); }
+function eorColor(value) { return colorFromStops((value + 150) / 180, eorStops); }
+function viridisColor(value, minimum, maximum) {
+  const normalized = maximum === minimum ? 0 : (value - minimum) / (maximum - minimum);
+  return colorFromStops(normalized, viridisStops);
+}
 
 function formatKelvin(value) {
   if (value >= 1.0e4 || value < 0.1) return value.toExponential(1);
@@ -315,7 +352,7 @@ function drawLightcone() {
   const imageCanvas = document.createElement("canvas"); imageCanvas.width = columns; imageCanvas.height = rows;
   const imageContext = imageCanvas.getContext("2d"), image = imageContext.createImageData(columns, rows);
   for (let index = 0; index < values.length; index += 1) {
-    const color = temperatureColor(values[index]), offset = 4 * index;
+    const color = eorColor(values[index]), offset = 4 * index;
     image.data[offset] = color[0]; image.data[offset + 1] = color[1]; image.data[offset + 2] = color[2]; image.data[offset + 3] = 255;
   }
   imageContext.putImageData(image, 0, 0); ctx.clearRect(0, 0, width, height); ctx.imageSmoothingEnabled = false;
@@ -404,8 +441,11 @@ function drawSliceField(canvas, values, decoded, colorFunction) {
   const offset = state.sliceIndex * decoded.rows * decoded.columns;
   let minimum = Infinity, maximum = -Infinity;
   for (let pixel = 0; pixel < decoded.rows * decoded.columns; pixel += 1) {
-    const value = values[offset + pixel], color = colorFunction(value), target = pixel * 4;
+    const value = values[offset + pixel];
     minimum = Math.min(minimum, value); maximum = Math.max(maximum, value);
+  }
+  for (let pixel = 0; pixel < decoded.rows * decoded.columns; pixel += 1) {
+    const value = values[offset + pixel], color = colorFunction(value, minimum, maximum), target = pixel * 4;
     image.data[target] = color[0]; image.data[target + 1] = color[1]; image.data[target + 2] = color[2]; image.data[target + 3] = 255;
   }
   imageContext.putImageData(image, 0, 0);
@@ -418,16 +458,24 @@ function drawSliceField(canvas, values, decoded, colorFunction) {
 function drawSlices() {
   if (!state.result || state.sliceIndex === null) return;
   const decoded = state.result.decodedSlices;
-  const brightnessRange = drawSliceField($("#brightness-slice"), decoded.brightness, decoded, temperatureColor);
-  const densityRange = drawSliceField($("#density-slice"), decoded.density, decoded, densityColor);
-  const ionizationRange = drawSliceField($("#ionization-slice"), decoded.ionized, decoded, ionizationColor);
-  const spinRange = drawSliceField($("#spin-temperature-slice"), decoded.spinTemperatureLog10, decoded, thermalColor);
-  const kineticRange = drawSliceField($("#kinetic-temperature-slice"), decoded.kineticTemperatureLog10, decoded, thermalColor);
+  const brightnessRange = drawSliceField($("#brightness-slice"), decoded.brightness, decoded, eorColor);
+  const densityRange = drawSliceField($("#density-slice"), decoded.density, decoded, viridisColor);
+  const ionizationRange = drawSliceField($("#ionization-slice"), decoded.ionized, decoded, viridisColor);
+  const spinRange = drawSliceField($("#spin-temperature-slice"), decoded.spinTemperatureLog10, decoded, viridisColor);
+  const kineticRange = drawSliceField($("#kinetic-temperature-slice"), decoded.kineticTemperatureLog10, decoded, viridisColor);
   $("#slice-brightness-range").textContent = `${brightnessRange[0].toFixed(1)} … ${brightnessRange[1].toFixed(1)} mK`;
   $("#slice-density-range").textContent = `${densityRange[0].toFixed(2)} … ${densityRange[1].toFixed(2)}`;
   $("#slice-ionization-range").textContent = `${ionizationRange[0].toFixed(3)} … ${ionizationRange[1].toFixed(3)}`;
   $("#slice-spin-temperature-range").textContent = `${formatKelvin(10 ** spinRange[0])} … ${formatKelvin(10 ** spinRange[1])} K`;
   $("#slice-kinetic-temperature-range").textContent = `${formatKelvin(10 ** kineticRange[0])} … ${formatKelvin(10 ** kineticRange[1])} K`;
+  $("#slice-density-scale-min").textContent = `δ ${densityRange[0].toFixed(2)}`;
+  $("#slice-density-scale-max").textContent = `δ ${densityRange[1].toFixed(2)}`;
+  $("#slice-ionization-scale-min").textContent = ionizationRange[0].toFixed(3);
+  $("#slice-ionization-scale-max").textContent = ionizationRange[1].toFixed(3);
+  $("#slice-spin-scale-min").textContent = `${formatKelvin(10 ** spinRange[0])} K`;
+  $("#slice-spin-scale-max").textContent = `${formatKelvin(10 ** spinRange[1])} K`;
+  $("#slice-kinetic-scale-min").textContent = `${formatKelvin(10 ** kineticRange[0])} K`;
+  $("#slice-kinetic-scale-max").textContent = `${formatKelvin(10 ** kineticRange[1])} K`;
 }
 
 function drawLFCurve(ctx, curve, px, py, color, width) {

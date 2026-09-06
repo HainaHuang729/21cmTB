@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>21cmFAST 预计算参数图谱</title>
-  <link rel="stylesheet" href="styles.css?v=hii256-v7">
+  <link rel="stylesheet" href="styles.css?v=hii256-v8">
 </head>
 <body>
   <header class="topbar">
@@ -81,13 +81,13 @@
           <p>Exact central slice · high z → low z</p>
         </div>
         <div class="canvas-frame lightcone-frame"><canvas id="lightcone-chart"></canvas></div>
-        <div class="color-legend"><span>−200 mK · 强吸收</span><i></i><span>+40 mK · 发射</span></div>
+        <div class="color-legend eor-legend"><span>−150 mK · 强吸收</span><i></i><span>+30 mK · 发射</span></div>
       </article>
 
       <article class="chart-card slice-card">
         <div class="chart-title slice-title">
           <div><span class="chart-index">C</span><h3>随红移变化的二维切片</h3></div>
-          <p>EXACT LIGHTCONE PLANES · SAME REDSHIFT</p>
+          <p>21cmFAST OFFICIAL EOR / VIRIDIS</p>
         </div>
         <div class="redshift-control">
           <button id="slice-play" type="button" aria-label="播放红移演化">播放</button>
@@ -105,7 +105,7 @@
               <output id="slice-brightness-range">—</output>
             </div>
             <div class="slice-frame"><canvas id="brightness-slice"></canvas></div>
-            <div class="color-legend slice-legend temperature-legend"><span>−200 mK</span><i></i><span>+40 mK</span></div>
+            <div class="color-legend slice-legend eor-legend"><span>−150 mK</span><i></i><span>+30 mK</span></div>
           </section>
           <section class="field-panel">
             <div class="field-heading">
@@ -113,7 +113,7 @@
               <output id="slice-density-range">—</output>
             </div>
             <div class="slice-frame"><canvas id="density-slice"></canvas></div>
-            <div class="color-legend slice-legend density-legend"><span>δ = −0.9</span><i></i><span>δ = +10</span></div>
+            <div class="color-legend slice-legend viridis-legend"><span id="slice-density-scale-min">min</span><i></i><span id="slice-density-scale-max">max</span></div>
           </section>
           <section class="field-panel">
             <div class="field-heading">
@@ -121,23 +121,23 @@
               <output id="slice-ionization-range">—</output>
             </div>
             <div class="slice-frame"><canvas id="ionization-slice"></canvas></div>
-            <div class="color-legend slice-legend ionization-legend"><span>0 · 中性</span><i></i><span>1 · 完全电离</span></div>
+            <div class="color-legend slice-legend viridis-legend"><span id="slice-ionization-scale-min">min</span><i></i><span id="slice-ionization-scale-max">max</span></div>
           </section>
           <section class="field-panel">
             <div class="field-heading">
-              <div><strong>Ts_box</strong><span>21 cm 自旋温度</span></div>
+              <div><strong>Ts_box</strong><span>21 cm 自旋温度 · log 色标</span></div>
               <output id="slice-spin-temperature-range">—</output>
             </div>
             <div class="slice-frame"><canvas id="spin-temperature-slice"></canvas></div>
-            <div class="color-legend slice-legend thermal-legend"><span>0.1 K</span><i></i><span>10⁵ K</span></div>
+            <div class="color-legend slice-legend viridis-legend"><span id="slice-spin-scale-min">min</span><i></i><span id="slice-spin-scale-max">max</span></div>
           </section>
           <section class="field-panel">
             <div class="field-heading">
-              <div><strong>Tk_box</strong><span>IGM 气体动温</span></div>
+              <div><strong>Tk_box</strong><span>IGM 气体动温 · log 色标</span></div>
               <output id="slice-kinetic-temperature-range">—</output>
             </div>
             <div class="slice-frame"><canvas id="kinetic-temperature-slice"></canvas></div>
-            <div class="color-legend slice-legend thermal-legend"><span>0.1 K</span><i></i><span>10⁵ K</span></div>
+            <div class="color-legend slice-legend viridis-legend"><span id="slice-kinetic-scale-min">min</span><i></i><span id="slice-kinetic-scale-max">max</span></div>
           </section>
         </div>
       </article>
@@ -183,6 +183,6 @@
     <span>HII_DIM = 256 · DIM = 768 · BOX_LEN = 250 cMpc</span>
     <span>z = 35 → 6</span>
   </footer>
-  <script src="app.js?v=hii256-v7"></script>
+  <script src="app.js?v=hii256-v8"></script>
 </body>
 </html>

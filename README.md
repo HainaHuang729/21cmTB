@@ -24,6 +24,11 @@
 网页展示 `−24 ≤ M_UV ≤ −10` 内的
 `log10 φ [cMpc⁻³ mag⁻¹]`。页面不在不同模拟之间插值，也不会在线计算。
 
+绘图颜色遵循 `py21cmfast.plotting` 的官方设置：`brightness_temp` 使用
+`EoR` 色表并固定在 `−150 ... +30 mK`，其余四个场使用 `viridis`。
+`Ts_box` 与 `Tk_box` 使用 Kelvin 对数归一化，动态色标会显示当前切片的
+实际上下限。
+
 固定计算配置：
 
 - `HII_DIM = 256`，`DIM = 768`，`BOX_LEN = 250 cMpc`；
