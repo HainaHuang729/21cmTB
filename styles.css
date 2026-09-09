@@ -254,6 +254,23 @@ canvas { display: block; width: 100%; height: 100%; }
 .tau-panel p { margin: 18px 0 0; color: var(--muted); font-size: 9px; line-height: 1.6; }
 .tau-panel code { color: var(--ink); font: 9px "SFMono-Regular", Consolas, monospace; }
 
+.overview-grid .ionization-layout { grid-template-columns: 1fr; }
+.overview-grid .ionization-history-frame { height: clamp(230px, 18vw, 285px); }
+.overview-grid .tau-panel {
+  padding: 12px 15px;
+  display: grid;
+  grid-template-columns: 115px minmax(0, 1fr);
+  align-items: center;
+  gap: 2px 12px;
+  border-top: 1px solid var(--line-strong);
+  border-left: 0;
+}
+.overview-grid .tau-panel h4 { margin: 3px 0 0; font-size: 28px; }
+.overview-grid .tau-values { grid-column: 2; grid-row: 1 / span 2; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.overview-grid .tau-values div { min-width: 0; padding: 7px 9px; border-left: 1px solid var(--line); }
+.overview-grid .tau-values small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.overview-grid .tau-panel p { grid-column: 1 / -1; margin-top: 7px; }
+
 .slice-card { overflow-x: auto; }
 .redshift-control { min-width: 820px; padding: 13px 15px 12px; display: grid; grid-template-columns: 64px 145px 1fr; gap: 12px 16px; align-items: center; border-bottom: 1px solid var(--line); background: var(--blue-soft); }
 .redshift-control button { height: 32px; border: 1px solid var(--blue); background: var(--surface); color: var(--blue); cursor: pointer; font-size: 9px; }

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>21cmFAST 预计算参数图谱</title>
-  <link rel="stylesheet" href="styles.css?v=hii256-v11">
+  <link rel="stylesheet" href="styles.css?v=hii256-v12">
 </head>
 <body>
   <header class="paper-header">
@@ -86,7 +86,7 @@
         <div><small>原始计算时间</small><strong id="metric-time">—</strong></div>
       </section>
 
-      <section class="overview-grid" aria-label="全局信号与亮温 lightcone">
+      <section class="overview-grid" aria-label="全局信号与再电离历史">
         <article class="chart-card global-card">
           <div class="chart-title">
             <div><span class="chart-index">1a</span><h3>全局平均亮温</h3></div>
@@ -97,37 +97,37 @@
           <p class="figure-note"><strong>Figure 1a.</strong> 体平均差分亮温随红移的演化；圆点标记当前 BPL 模型的吸收谷。</p>
         </article>
 
-        <article class="chart-card lightcone-card">
+        <article class="chart-card ionization-history-card">
           <div class="chart-title">
-            <div><span class="chart-index">1b</span><h3>亮温 Lightcone</h3></div>
-            <p>CENTRAL SLICE · HIGH z → LOW z</p>
+            <div><span class="chart-index">1b</span><h3>再电离历史与 Thomson 光学深度</h3></div>
+            <p>IONIZED FRACTION x<sub>i</sub>(z) · τ<sub>e</sub></p>
           </div>
-          <div class="canvas-frame lightcone-frame"><canvas id="lightcone-chart"></canvas></div>
-          <div class="color-legend eor-legend"><span>−150 mK · 强吸收</span><i></i><span>+30 mK · 发射</span></div>
-          <p class="figure-note"><strong>Figure 1b.</strong> 中心视线方向的亮温 lightcone，横轴由高红移向低红移演化。</p>
+          <div class="comparison-key"><i class="current-curve"></i><span>当前 BPL</span><i class="pl-curve"></i><span>同参数标准 PL</span></div>
+          <div class="ionization-layout">
+            <div class="canvas-frame ionization-history-frame"><canvas id="ionization-history-chart"></canvas></div>
+            <aside class="tau-panel" aria-label="Thomson 光学深度摘要">
+              <span class="section-label">INTEGRATED OPTICAL DEPTH</span>
+              <h4>τ<sub>e</sub></h4>
+              <div class="tau-values">
+                <div><small>当前 BPL</small><strong id="tau-current">—</strong></div>
+                <div><small>同参数 PL</small><strong id="tau-pl">—</strong></div>
+                <div><small>差值 BPL − PL</small><strong id="tau-difference">—</strong></div>
+              </div>
+              <p>采用 21cmFAST <code>ComputeTau</code> 等价积分，并包含 z &lt; 3 的 He II 再电离修正。</p>
+            </aside>
+          </div>
+          <p class="figure-note"><strong>Figure 1b.</strong> 电离分数定义为 x<sub>i</sub> = 1 − ⟨x<sub>HI</sub>⟩，由每个 256² 切片进行空间平均；τ<sub>e</sub> 对相同的 32 点再电离历史积分得到。</p>
         </article>
       </section>
 
-      <article class="chart-card ionization-history-card">
+      <article class="chart-card lightcone-card">
         <div class="chart-title">
-          <div><span class="chart-index">2</span><h3>再电离历史与 Thomson 光学深度</h3></div>
-          <p>IONIZED FRACTION x<sub>i</sub>(z) · τ<sub>e</sub></p>
+          <div><span class="chart-index">2</span><h3>亮温 Lightcone</h3></div>
+          <p>CENTRAL SLICE · HIGH z → LOW z</p>
         </div>
-        <div class="comparison-key"><i class="current-curve"></i><span>当前 BPL</span><i class="pl-curve"></i><span>同参数标准 PL</span></div>
-        <div class="ionization-layout">
-          <div class="canvas-frame ionization-history-frame"><canvas id="ionization-history-chart"></canvas></div>
-          <aside class="tau-panel" aria-label="Thomson 光学深度摘要">
-            <span class="section-label">INTEGRATED OPTICAL DEPTH</span>
-            <h4>τ<sub>e</sub></h4>
-            <div class="tau-values">
-              <div><small>当前 BPL</small><strong id="tau-current">—</strong></div>
-              <div><small>同参数 PL</small><strong id="tau-pl">—</strong></div>
-              <div><small>差值 BPL − PL</small><strong id="tau-difference">—</strong></div>
-            </div>
-            <p>采用 21cmFAST <code>ComputeTau</code> 等价积分，并包含 z &lt; 3 的 He II 再电离修正。</p>
-          </aside>
-        </div>
-        <p class="figure-note"><strong>Figure 2.</strong> 电离分数定义为 x<sub>i</sub> = 1 − ⟨x<sub>HI</sub>⟩，由每个 256² 切片进行空间平均；τ<sub>e</sub> 对相同的 32 点再电离历史积分得到。</p>
+        <div class="canvas-frame lightcone-frame"><canvas id="lightcone-chart"></canvas></div>
+        <div class="color-legend eor-legend"><span>−150 mK · 强吸收</span><i></i><span>+30 mK · 发射</span></div>
+        <p class="figure-note"><strong>Figure 2.</strong> 中心视线方向的亮温 lightcone，横轴由高红移向低红移演化。</p>
       </article>
 
       <article class="chart-card slice-card">
@@ -260,6 +260,6 @@
     <span id="footer-count">读取模拟清单…</span>
     <span>21cmFAST precomputed atlas · HII_DIM = 256 · DIM = 768 · BOX_LEN = 250 cMpc · z = 35 → 6</span>
   </footer>
-  <script src="app.js?v=hii256-v11"></script>
+  <script src="app.js?v=hii256-v12"></script>
 </body>
 </html>

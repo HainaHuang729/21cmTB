@@ -14,7 +14,7 @@ const state = {
 
 const $ = (selector) => document.querySelector(selector);
 const astroNames = new Set(["F_STAR10", "ALPHA_STAR", "F_ESC10", "ALPHA_ESC", "M_TURN", "t_STAR", "L_X", "NU_X_THRESH"]);
-const DATA_VERSION = "hii256-v11";
+const DATA_VERSION = "hii256-v12";
 const plotPalette = {
   ink: "#1d2730",
   text: "#56616a",
