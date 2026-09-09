@@ -40,17 +40,21 @@ jobs:
           index = json.loads(pathlib.Path("web_data/index.json").read_text())
           app = pathlib.Path("app.js").read_text()
           html = pathlib.Path("index.html").read_text()
+          css = pathlib.Path("styles.css").read_text()
           files = sorted(root.glob("*.json"))
           binaries = sorted(root.glob("*.slices.bin"))
           pl_root = pathlib.Path("web_data/pl")
           pl_files = sorted(pl_root.glob("pl_*.json"))
           pl_binaries = sorted(pl_root.glob("pl_*.slices.bin"))
           expected_unavailable = {"run_4600848a9a8c", "run_5f2309678207"}
-          assert 'DATA_VERSION = "hii256-v16"' in app
+          assert 'DATA_VERSION = "hii256-v17"' in app
           assert "(value + 150) / 180" in app
           assert "eorStops" in app and "viridisStops" in app
-          assert html.count("hii256-v16") == 2
+          assert html.count("hii256-v17") == 2
           assert not any("\u4e00" <= char <= "\u9fff" for char in html + app)
+          assert "mission-hero" in html and "system-header" in html
+          assert "--orange: #df5a2e" in css
+          assert "prefers-reduced-motion" in css
           assert "上一模型" not in html
           assert "Matched PL" in html
           assert "lf-main-card" in html and 'id="lf-chart"' in html

@@ -15,21 +15,22 @@ const state = {
 
 const $ = (selector) => document.querySelector(selector);
 const astroNames = new Set(["F_STAR10", "ALPHA_STAR", "F_ESC10", "ALPHA_ESC", "M_TURN", "t_STAR", "L_X", "NU_X_THRESH"]);
-const DATA_VERSION = "hii256-v16";
-const PLOT_FONT = '"STIXGeneral", "Times New Roman", "DejaVu Serif", Georgia, serif';
+const DATA_VERSION = "hii256-v17";
+const PLOT_FONT = '"Avenir Next", "Century Gothic", Futura, "Helvetica Neue", Arial, sans-serif';
+const PLOT_MONO = '"IBM Plex Mono", "JetBrains Mono", "SFMono-Regular", Consolas, monospace';
 const plotPalette = {
-  ink: "#000000",
-  text: "#1f2930",
-  axis: "#000000",
-  grid: "rgba(100,100,100,0.20)",
-  gridLight: "rgba(100,100,100,0.12)",
-  border: "#000000",
-  current: "#0072b2",
-  pl: "#000000",
-  hst: "#009e73",
-  jwst: "#d55e00",
-  plot: "#ffffff",
-  paper: "#ffffff",
+  ink: "#181a19",
+  text: "#686b67",
+  axis: "#181a19",
+  grid: "rgba(24,26,25,0.16)",
+  gridLight: "rgba(24,26,25,0.08)",
+  border: "#181a19",
+  current: "#df5a2e",
+  pl: "#578f8c",
+  hst: "#181a19",
+  jwst: "#c8a64a",
+  plot: "#f0efe8",
+  paper: "#f0efe8",
 };
 
 function versioned(path) {
@@ -305,7 +306,7 @@ function drawXTick(ctx, x, plotBottom, label, gridTop, showGrid = true) {
   ctx.beginPath();
   ctx.moveTo(x, plotBottom); ctx.lineTo(x, plotBottom - 6);
   ctx.moveTo(x, gridTop); ctx.lineTo(x, gridTop + 6); ctx.stroke();
-  ctx.fillStyle = plotPalette.text; ctx.font = `13px ${PLOT_FONT}`;
+  ctx.fillStyle = plotPalette.text; ctx.font = `13px ${PLOT_MONO}`;
   ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText(label, x, plotBottom + 9);
 }
 
@@ -319,7 +320,7 @@ function drawYTick(ctx, y, plotLeft, plotRight, label, emphasized = false) {
   ctx.beginPath();
   ctx.moveTo(plotLeft, y); ctx.lineTo(plotLeft + 6, y);
   ctx.moveTo(plotRight, y); ctx.lineTo(plotRight - 6, y); ctx.stroke();
-  ctx.fillStyle = plotPalette.text; ctx.font = `13px ${PLOT_FONT}`;
+  ctx.fillStyle = plotPalette.text; ctx.font = `13px ${PLOT_MONO}`;
   ctx.textAlign = "right"; ctx.textBaseline = "middle"; ctx.fillText(label, plotLeft - 10, y);
 }
 
@@ -404,7 +405,7 @@ function drawIonizationHistory() {
   const histories = [current, pl].filter(Boolean);
   preparePlot(ctx, width, height, margin);
   if (!histories.length) {
-    ctx.fillStyle = plotPalette.text; ctx.font = `13px ${PLOT_FONT}`;
+    ctx.fillStyle = plotPalette.text; ctx.font = `13px ${PLOT_MONO}`;
     ctx.textAlign = "center"; ctx.textBaseline = "middle";
     ctx.fillText("Ionization history is being prepared", width / 2, height / 2);
     return;
@@ -505,7 +506,7 @@ function drawLightcone() {
   imageContext.putImageData(image, 0, 0); ctx.clearRect(0, 0, width, height); ctx.imageSmoothingEnabled = false;
   ctx.drawImage(imageCanvas, margin.left, margin.top, width - margin.left - margin.right, height - margin.top - margin.bottom);
   ctx.strokeStyle = plotPalette.border; ctx.strokeRect(margin.left, margin.top, width - margin.left - margin.right, height - margin.top - margin.bottom);
-  ctx.font = `13px ${PLOT_FONT}`; ctx.fillStyle = plotPalette.text;
+  ctx.font = `13px ${PLOT_MONO}`; ctx.fillStyle = plotPalette.text;
   const redshift = state.result.lightcone.redshift;
   for (let index = 0; index <= 5; index += 1) {
     const column = Math.round(index * (columns - 1) / 5), x = margin.left + index * (width - margin.left - margin.right) / 5;
@@ -620,11 +621,11 @@ function drawPendingPLSlice(canvas) {
   ctx.strokeStyle = plotPalette.grid;
   ctx.strokeRect(0.5, 0.5, width - 1, height - 1);
   ctx.fillStyle = plotPalette.text;
-  ctx.font = `700 14px ${PLOT_FONT}`;
+  ctx.font = `700 12px ${PLOT_MONO}`;
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
   ctx.fillText("PL slices computing", width / 2, height / 2 - 7);
-  ctx.font = `12px ${PLOT_FONT}`;
+  ctx.font = `10px ${PLOT_MONO}`;
   ctx.fillText("Updates automatically when ready", width / 2, height / 2 + 10);
 }
 
@@ -763,7 +764,7 @@ function drawLuminosityFunction() {
     ctx.fillStyle = plotPalette.text; ctx.textAlign = "center"; ctx.textBaseline = "middle";
     ctx.fillText("No LF bins pass the numerical threshold at this redshift", (margin.left + width - margin.right) / 2, (margin.top + height - margin.bottom) / 2);
   }
-  ctx.fillStyle = plotPalette.ink; ctx.font = `700 17px ${PLOT_FONT}`;
+  ctx.fillStyle = plotPalette.ink; ctx.font = `700 14px ${PLOT_MONO}`;
   ctx.textAlign = "right"; ctx.textBaseline = "top";
   ctx.fillText(`z = ${displayRedshift}`, width - margin.right - 10, margin.top + 9);
   finishPlot(ctx, width, height, margin, "Absolute UV magnitude, M_UV", "log₁₀ φ [cMpc⁻³ mag⁻¹]");
@@ -804,7 +805,9 @@ async function initialize() {
     state.design = await fetchJSON(versioned("web_data/index.json"));
     state.design.parameter_specs.forEach(createParameter);
     $("#data-state").classList.add("online"); $("#data-state").lastChild.textContent = "Results ready";
+    $("#hero-run-count").textContent = state.design.n_exact_runs;
     $("#footer-count").textContent = `${state.design.n_exact_runs} EXACT 21cmFAST LIGHTCONES`;
+    $("#hero-run-count").textContent = state.design.n_exact_runs;
     await loadRun(state.design.baseline_run_id);
   } catch (error) {
     $("#status-card").classList.remove("active");
@@ -812,6 +815,24 @@ async function initialize() {
     $("#status-message").textContent = error.message;
     $("#run-badge").textContent = "NO DATA"; $("#run-badge").className = "run-badge failed";
   }
+}
+
+function initializeMotion() {
+  const sections = [...document.querySelectorAll(".reveal")];
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reducedMotion || !("IntersectionObserver" in window)) {
+    sections.forEach((section) => section.classList.add("is-visible"));
+    return;
+  }
+  document.body.classList.add("motion-ready");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    });
+  }, {rootMargin: "0px 0px -8%", threshold: 0.08});
+  sections.forEach((section) => observer.observe(section));
 }
 
 $("#reset-button").addEventListener("click", resetControls);
@@ -823,4 +844,5 @@ $("#main-fullscreen").addEventListener("click", () => {
 });
 document.addEventListener("fullscreenchange", () => window.requestAnimationFrame(drawLuminosityFunction));
 window.addEventListener("resize", () => { clearTimeout(window.__drawTimer); window.__drawTimer = setTimeout(drawAll, 120); });
+initializeMotion();
 initialize();

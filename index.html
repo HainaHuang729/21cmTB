@@ -5,23 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <title>21cmFAST Precomputed Parameter Atlas</title>
-  <link rel="stylesheet" href="styles.css?v=hii256-v16">
+  <link rel="stylesheet" href="styles.css?v=hii256-v17">
 </head>
-<body>
-  <header class="dashboard-header">
-    <div>
-      <p class="eyebrow">PRECOMPUTED 21cmFAST PARAMETER ATLAS</p>
-      <h1>21 cm Signal and Reionization Parameter Space</h1>
-      <p class="dek">Matched broken power law / standard power law · HII_DIM 256 · 250 cMpc</p>
-    </div>
-    <div class="header-status">
+<body id="top">
+  <header class="system-header load-in">
+    <a class="system-identity" href="#top" aria-label="21 cm Signal Atlas home">
+      <span class="identity-mark">21</span>
+      <span><b>SIGNAL ATLAS</b><small>PRECOMPUTED / 21cmFAST</small></span>
+    </a>
+    <nav class="system-navigation" aria-label="Atlas sections">
+      <a href="#parameters-section"><span>01</span>Controls</a>
+      <a href="#lightcone-section"><span>02</span>Evolution</a>
+      <a href="#analysis-section"><span>03</span>Analysis</a>
+      <a href="#fields-section"><span>05</span>Fields</a>
+    </nav>
+    <div class="system-register">
       <div id="data-state" class="server-state"><i></i><span>Loading results</span></div>
       <div id="run-badge" class="run-badge idle">LOADING</div>
+      <div class="revision-tag"><small>REV</small><strong>17</strong></div>
     </div>
   </header>
 
+  <section class="mission-hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="technical-label hero-kicker">SYSTEM / 21CM–A · VIEW / PRIMARY</p>
+      <h1 id="hero-title"><span>COSMIC</span><span>SIGNAL</span><span>ATLAS.</span></h1>
+      <p class="hero-intro">An exact, precomputed view of the 21 cm signal from cosmic dawn through reionization—built for parameter inspection, model comparison, and spatial-field analysis.</p>
+      <a class="system-action" href="#parameters-section">Enter the atlas <span>↓</span></a>
+    </div>
+    <aside class="hero-instrument" aria-label="Simulation volume and redshift coverage">
+      <div class="instrument-heading"><span>MISSION PROFILE / 001</span><span>STATE / PRECOMPUTED</span></div>
+      <svg class="orbital-diagram" viewBox="0 0 620 430" role="img" aria-labelledby="orbit-title orbit-description">
+        <title id="orbit-title">Simulation redshift trajectory</title>
+        <desc id="orbit-description">A technical diagram representing the stored lightcone from redshift 35 to redshift 6.</desc>
+        <circle class="orbit-ring orbit-ring-outer" cx="334" cy="214" r="164"></circle>
+        <circle class="orbit-ring" cx="334" cy="214" r="112"></circle>
+        <circle class="orbit-core" cx="334" cy="214" r="35"></circle>
+        <path class="orbit-trajectory" d="M 181 272 C 207 117, 414 74, 493 202 C 548 291, 449 368, 325 348"></path>
+        <line class="diagram-axis" x1="94" y1="214" x2="570" y2="214"></line>
+        <line class="diagram-axis" x1="334" y1="28" x2="334" y2="400"></line>
+        <g class="orbit-node node-start"><circle cx="181" cy="272" r="6"></circle><text x="103" y="300">START / z 35</text></g>
+        <g class="orbit-node node-end"><circle cx="325" cy="348" r="7"></circle><text x="344" y="376">END / z 6</text></g>
+        <g class="orbit-crosshair"><line x1="488" y1="192" x2="512" y2="192"></line><line x1="500" y1="180" x2="500" y2="204"></line></g>
+        <text class="diagram-code" x="352" y="207">HII</text>
+        <text class="diagram-value" x="352" y="231">256³</text>
+      </svg>
+      <dl class="mission-metadata">
+        <div><dt>VOLUME</dt><dd>250 cMpc</dd></div>
+        <div><dt>LIGHTCONE</dt><dd>z 35 → 6</dd></div>
+        <div><dt>FIELD FRAMES</dt><dd>32</dd></div>
+        <div><dt>EXACT MODELS</dt><dd id="hero-run-count">55</dd></div>
+      </dl>
+    </aside>
+    <div class="hero-coordinate"><span>ORIGIN / COSMIC DAWN</span><span>DESTINATION / REIONIZATION</span></div>
+  </section>
+
   <main class="dashboard-shell">
-    <section class="parameter-zone" aria-labelledby="parameter-title">
+    <section id="parameters-section" class="parameter-zone system-module reveal" aria-labelledby="parameter-title">
       <div class="section-heading compact-heading">
         <div><span class="section-index">01</span><div><h2 id="parameter-title">Model Parameters</h2><p>10 PARAMETERS · EXACT PRECOMPUTED RUNS</p></div></div>
         <button id="reset-button" class="text-button" type="button">Reset to baseline</button>
@@ -43,7 +83,7 @@
       </div>
     </section>
 
-    <section class="chart-card lightcone-card" aria-labelledby="lightcone-title">
+    <section id="lightcone-section" class="chart-card lightcone-card system-module reveal" aria-labelledby="lightcone-title">
       <div class="chart-heading">
         <div><span class="section-index">02</span><div><h2 id="lightcone-title">Brightness-temperature lightcone</h2><p>FULL REDSHIFT EVOLUTION · HIGH z → LOW z</p></div></div>
         <div class="colorbar-inline"><span>−150 mK</span><i class="palette eor-palette" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b><b></b></i><span>+30 mK</span></div>
@@ -51,7 +91,7 @@
       <div class="lightcone-frame"><canvas id="lightcone-chart"></canvas></div>
     </section>
 
-    <section class="analysis-grid" aria-label="UV luminosity function and auxiliary statistics">
+    <section id="analysis-section" class="analysis-grid reveal" aria-label="UV luminosity function and auxiliary statistics">
       <article id="main-map-card" class="chart-card lf-main-card">
         <div class="chart-heading">
           <div><span class="section-index">03</span><div><h2>UV Luminosity Function</h2><p>MODEL–OBSERVATION COMPARISON · BPL / MATCHED PL</p></div></div>
@@ -90,7 +130,7 @@
       </div>
     </section>
 
-    <section class="slice-section" aria-labelledby="slice-title">
+    <section id="fields-section" class="slice-section system-module reveal" aria-labelledby="slice-title">
       <div class="section-heading">
         <div><span class="section-index">05</span><div><h2 id="slice-title">Five Spatial-field Slices</h2><p>BPL ROW · MATCHED PL ROW</p></div></div>
         <div class="slice-actions">
@@ -166,10 +206,18 @@
     </section>
   </main>
 
-  <footer class="dashboard-footer">
-    <span id="footer-count">Loading simulation manifest…</span>
-    <span>Exact 21cmFAST outputs · no browser-side simulation · LF: HST Bouwens+21/Oesch+18; JWST Bouwens+23/Donnan+24</span>
+  <footer class="cosmic-footer">
+    <div class="footer-register"><span>ARCHIVE / STATIC DATASET</span><span>TRANSFER / READ ONLY</span></div>
+    <p class="footer-statement"><span>FROM FIRST LIGHT</span><span>TO REIONIZATION.</span></p>
+    <div class="footer-metadata">
+      <span id="footer-count">Loading simulation manifest…</span>
+      <span>HII_DIM / 256</span>
+      <span>BOX / 250 cMpc</span>
+      <span>LF / HST + JWST</span>
+      <a href="#top">Return to index ↑</a>
+    </div>
+    <p class="footer-note">Exact 21cmFAST outputs · no browser-side simulation · LF references: Bouwens et al. 2021/2023, Oesch et al. 2018, Donnan et al. 2024</p>
   </footer>
-  <script src="app.js?v=hii256-v16"></script>
+  <script src="app.js?v=hii256-v17"></script>
 </body>
 </html>
