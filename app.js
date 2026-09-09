@@ -14,7 +14,19 @@ const state = {
 
 const $ = (selector) => document.querySelector(selector);
 const astroNames = new Set(["F_STAR10", "ALPHA_STAR", "F_ESC10", "ALPHA_ESC", "M_TURN", "t_STAR", "L_X", "NU_X_THRESH"]);
-const DATA_VERSION = "hii256-v9";
+const DATA_VERSION = "hii256-v10";
+const plotPalette = {
+  ink: "#1d2730",
+  text: "#56616a",
+  grid: "rgba(31,45,58,0.12)",
+  gridLight: "rgba(31,45,58,0.065)",
+  border: "rgba(31,45,58,0.38)",
+  current: "#a33e32",
+  pl: "rgba(36,87,138,0.9)",
+  hst: "#2f6f71",
+  jwst: "#865c86",
+  paper: "#ffffff",
+};
 
 function versioned(path) {
   return `${path}${path.includes("?") ? "&" : "?"}v=${DATA_VERSION}`;
@@ -118,9 +130,9 @@ async function inflateSliceField(buffer, descriptor) {
   return raw;
 }
 
-async function decodeSlices(slices) {
+async function decodeSlices(slices, basePath) {
   const [count, rows, columns] = slices.shape;
-  const buffer = await fetchBuffer(versioned(`web_data/runs/${slices.binary_file}`));
+  const buffer = await fetchBuffer(versioned(`${basePath}/${slices.binary_file}`));
   const fields = slices.binary_fields;
   const [brightness, density, ionized, spinTemperatureLog10, kineticTemperatureLog10] = await Promise.all([
     inflateSliceField(buffer, fields.brightness_i16_le).then((bytes) => decodeI16Bytes(bytes, slices.brightness_quantization_mk)),
@@ -159,6 +171,8 @@ function showUnavailableRun(runId) {
   [
     "#slice-brightness-range", "#slice-density-range", "#slice-ionization-range",
     "#slice-spin-temperature-range", "#slice-kinetic-temperature-range",
+    "#pl-slice-brightness-range", "#pl-slice-density-range", "#pl-slice-ionization-range",
+    "#pl-slice-spin-temperature-range", "#pl-slice-kinetic-temperature-range",
     "#slice-density-scale-min", "#slice-density-scale-max",
     "#slice-ionization-scale-min", "#slice-ionization-scale-max",
     "#slice-spin-scale-min", "#slice-spin-scale-max",
@@ -190,11 +204,18 @@ async function loadRun(runId) {
     const result = await fetchJSON(versioned(`web_data/runs/${runId}.json`));
     if (serial !== state.requestSerial) return;
     result.decodedPlane = decodePlane(result.lightcone);
-    const [decodedSlices, plReference] = await Promise.all([
-      decodeSlices(result.slices),
-      fetchJSON(versioned(result.pl_reference.file)),
-    ]);
+    const plReference = await fetchJSON(versioned(result.pl_reference.file));
+    if (plReference.slices && (
+      result.slices.redshift.length !== plReference.slices.redshift.length
+      || result.slices.redshift.some(
+        (redshift, index) => Math.abs(redshift - plReference.slices.redshift[index]) > 1.0e-4,
+      )
+    )) throw new Error("BPL 与同参数 PL 的切片红移网格不一致");
+    const sliceTasks = [decodeSlices(result.slices, "web_data/runs")];
+    if (plReference.slices) sliceTasks.push(decodeSlices(plReference.slices, "web_data/pl"));
+    const [decodedSlices, decodedPLSlices = null] = await Promise.all(sliceTasks);
     result.decodedSlices = decodedSlices;
+    plReference.decodedSlices = decodedPLSlices;
     if (serial !== state.requestSerial) return;
     state.plReference = plReference;
     state.result = result;
@@ -258,7 +279,7 @@ function drawCurve(ctx, z, values, px, py, color, width, shadow = false, dash = 
   ctx.beginPath();
   z.forEach((value, index) => ctx[index ? "lineTo" : "moveTo"](px(value), py(values[index])));
   ctx.strokeStyle = color; ctx.lineWidth = width; ctx.setLineDash(dash);
-  if (shadow) { ctx.shadowColor = "rgba(214,255,64,0.35)"; ctx.shadowBlur = 9; }
+  if (shadow) { ctx.shadowColor = "rgba(163,62,50,0.18)"; ctx.shadowBlur = 4; }
   ctx.stroke(); ctx.shadowBlur = 0; ctx.setLineDash([]);
 }
 
@@ -272,29 +293,29 @@ function drawGlobal() {
   const zMin = Math.min(...z), zMax = Math.max(...z), [yMin, yMax] = niceBounds(combined, true);
   const px = (value) => margin.left + (zMax - value) / (zMax - zMin) * (width - margin.left - margin.right);
   const py = (value) => margin.top + (yMax - value) / (yMax - yMin) * (height - margin.top - margin.bottom);
-  ctx.clearRect(0, 0, width, height); ctx.font = "10px SFMono-Regular, Consolas, monospace";
+  ctx.clearRect(0, 0, width, height); ctx.font = "10px Arial, sans-serif";
   for (let index = 0; index <= 5; index += 1) {
     const value = yMin + index * (yMax - yMin) / 5, y = py(value);
-    ctx.strokeStyle = "rgba(217,231,235,0.09)"; ctx.lineWidth = 1;
+    ctx.strokeStyle = plotPalette.grid; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(margin.left, y); ctx.lineTo(width - margin.right, y); ctx.stroke();
-    ctx.fillStyle = "#6d787d"; ctx.textAlign = "right"; ctx.textBaseline = "middle"; ctx.fillText(value.toFixed(0), margin.left - 10, y);
+    ctx.fillStyle = plotPalette.text; ctx.textAlign = "right"; ctx.textBaseline = "middle"; ctx.fillText(value.toFixed(0), margin.left - 10, y);
   }
   for (let index = 0; index <= 5; index += 1) {
     const value = zMax - index * (zMax - zMin) / 5, x = px(value);
-    ctx.fillStyle = "#6d787d"; ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText(value.toFixed(0), x, height - margin.bottom + 12);
+    ctx.fillStyle = plotPalette.text; ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText(value.toFixed(0), x, height - margin.bottom + 12);
   }
   if (yMin < 0 && yMax > 0) {
-    ctx.strokeStyle = "rgba(244,241,232,0.28)"; ctx.setLineDash([4, 4]);
+    ctx.strokeStyle = plotPalette.border; ctx.setLineDash([4, 4]);
     ctx.beginPath(); ctx.moveTo(margin.left, py(0)); ctx.lineTo(width - margin.right, py(0)); ctx.stroke(); ctx.setLineDash([]);
   }
-  if (pl) drawCurve(ctx, pl.redshift, pl.brightness_mk, px, py, "rgba(101,229,242,0.82)", 1.5, false, [7, 5]);
-  drawCurve(ctx, z, values, px, py, "#d6ff40", 2.2, true);
+  if (pl) drawCurve(ctx, pl.redshift, pl.brightness_mk, px, py, plotPalette.pl, 1.6, false, [7, 5]);
+  drawCurve(ctx, z, values, px, py, plotPalette.current, 2.1, true);
   const trough = values.indexOf(Math.min(...values));
-  ctx.fillStyle = "#080c0e"; ctx.strokeStyle = "#d6ff40"; ctx.lineWidth = 2;
+  ctx.fillStyle = plotPalette.paper; ctx.strokeStyle = plotPalette.current; ctx.lineWidth = 2;
   ctx.beginPath(); ctx.arc(px(z[trough]), py(values[trough]), 4.5, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
-  ctx.fillStyle = "#879196"; ctx.textAlign = "center"; ctx.textBaseline = "bottom";
-  ctx.fillText("REDSHIFT z  ·  COSMIC TIME →", (margin.left + width - margin.right) / 2, height - 5);
-  ctx.save(); ctx.translate(14, (margin.top + height - margin.bottom) / 2); ctx.rotate(-Math.PI / 2); ctx.fillText("δTb  [mK]", 0, 0); ctx.restore();
+  ctx.fillStyle = plotPalette.text; ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+  ctx.fillText("Redshift, z   ·   cosmic time →", (margin.left + width - margin.right) / 2, height - 5);
+  ctx.save(); ctx.translate(14, (margin.top + height - margin.bottom) / 2); ctx.rotate(-Math.PI / 2); ctx.fillText("δTb [mK]", 0, 0); ctx.restore();
 }
 
 // Match py21cmfast.plotting: brightness_temp uses the fixed EoR map over
@@ -362,8 +383,8 @@ function drawLightcone() {
   }
   imageContext.putImageData(image, 0, 0); ctx.clearRect(0, 0, width, height); ctx.imageSmoothingEnabled = false;
   ctx.drawImage(imageCanvas, margin.left, margin.top, width - margin.left - margin.right, height - margin.top - margin.bottom);
-  ctx.strokeStyle = "rgba(217,231,235,0.24)"; ctx.strokeRect(margin.left, margin.top, width - margin.left - margin.right, height - margin.top - margin.bottom);
-  ctx.font = "10px SFMono-Regular, Consolas, monospace"; ctx.fillStyle = "#879196";
+  ctx.strokeStyle = plotPalette.border; ctx.strokeRect(margin.left, margin.top, width - margin.left - margin.right, height - margin.top - margin.bottom);
+  ctx.font = "10px Arial, sans-serif"; ctx.fillStyle = plotPalette.text;
   const redshift = state.result.lightcone.redshift;
   for (let index = 0; index <= 5; index += 1) {
     const column = Math.round(index * (columns - 1) / 5), x = margin.left + index * (width - margin.left - margin.right) / 5;
@@ -374,8 +395,8 @@ function drawLightcone() {
     const value = index * distance[distance.length - 1] / 3, y = margin.top + index * (height - margin.top - margin.bottom) / 3;
     ctx.textAlign = "right"; ctx.textBaseline = "middle"; ctx.fillText(value.toFixed(0), margin.left - 10, y);
   }
-  ctx.textAlign = "center"; ctx.textBaseline = "bottom"; ctx.fillText("REDSHIFT z  ·  COSMIC TIME →", (margin.left + width - margin.right) / 2, height - 4);
-  ctx.save(); ctx.translate(14, (margin.top + height - margin.bottom) / 2); ctx.rotate(-Math.PI / 2); ctx.fillText("TRANSVERSE DISTANCE  [cMpc]", 0, 0); ctx.restore();
+  ctx.textAlign = "center"; ctx.textBaseline = "bottom"; ctx.fillText("Redshift, z   ·   cosmic time →", (margin.left + width - margin.right) / 2, height - 4);
+  ctx.save(); ctx.translate(14, (margin.top + height - margin.bottom) / 2); ctx.rotate(-Math.PI / 2); ctx.fillText("Transverse distance [cMpc]", 0, 0); ctx.restore();
 }
 
 function configureSliceControl() {
@@ -438,17 +459,24 @@ function updateLFControl() {
   });
 }
 
-function drawSliceField(canvas, values, decoded, colorFunction) {
-  const {context: ctx, width, height} = canvasContext(canvas);
-  const imageCanvas = document.createElement("canvas");
-  imageCanvas.width = decoded.columns; imageCanvas.height = decoded.rows;
-  const imageContext = imageCanvas.getContext("2d"), image = imageContext.createImageData(decoded.columns, decoded.rows);
+function sliceFieldRange(values, decoded) {
   const offset = state.sliceIndex * decoded.rows * decoded.columns;
   let minimum = Infinity, maximum = -Infinity;
   for (let pixel = 0; pixel < decoded.rows * decoded.columns; pixel += 1) {
     const value = values[offset + pixel];
     minimum = Math.min(minimum, value); maximum = Math.max(maximum, value);
   }
+  return [minimum, maximum];
+}
+
+function drawSliceField(canvas, values, decoded, colorFunction, scaleRange = null) {
+  const {context: ctx, width, height} = canvasContext(canvas);
+  const imageCanvas = document.createElement("canvas");
+  imageCanvas.width = decoded.columns; imageCanvas.height = decoded.rows;
+  const imageContext = imageCanvas.getContext("2d"), image = imageContext.createImageData(decoded.columns, decoded.rows);
+  const offset = state.sliceIndex * decoded.rows * decoded.columns;
+  const nativeRange = sliceFieldRange(values, decoded);
+  const [minimum, maximum] = scaleRange || nativeRange;
   for (let pixel = 0; pixel < decoded.rows * decoded.columns; pixel += 1) {
     const value = values[offset + pixel], color = colorFunction(value, minimum, maximum), target = pixel * 4;
     image.data[target] = color[0]; image.data[target + 1] = color[1]; image.data[target + 2] = color[2]; image.data[target + 3] = 255;
@@ -457,31 +485,103 @@ function drawSliceField(canvas, values, decoded, colorFunction) {
   const size = Math.min(width, height), left = (width - size) / 2, top = (height - size) / 2;
   ctx.clearRect(0, 0, width, height); ctx.imageSmoothingEnabled = false;
   ctx.drawImage(imageCanvas, left, top, size, size);
-  ctx.strokeStyle = "rgba(217,231,235,0.25)"; ctx.strokeRect(left + 0.5, top + 0.5, size - 1, size - 1);
-  return [minimum, maximum];
+  ctx.strokeStyle = plotPalette.border; ctx.strokeRect(left + 0.5, top + 0.5, size - 1, size - 1);
+  return nativeRange;
+}
+
+function drawPendingPLSlice(canvas) {
+  const {context: ctx, width, height} = canvasContext(canvas);
+  ctx.fillStyle = "#f4f6f7";
+  ctx.fillRect(0, 0, width, height);
+  ctx.strokeStyle = plotPalette.grid;
+  ctx.strokeRect(0.5, 0.5, width - 1, height - 1);
+  ctx.fillStyle = plotPalette.text;
+  ctx.font = "10px Arial, sans-serif";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText("PL slices computing", width / 2, height / 2 - 7);
+  ctx.font = "9px Arial, sans-serif";
+  ctx.fillText("完成后自动更新", width / 2, height / 2 + 10);
 }
 
 function drawSlices() {
-  if (!state.result || state.sliceIndex === null) return;
+  if (!state.result || !state.plReference || state.sliceIndex === null) return;
   const decoded = state.result.decodedSlices;
-  const brightnessRange = drawSliceField($("#brightness-slice"), decoded.brightness, decoded, eorColor);
-  const densityRange = drawSliceField($("#density-slice"), decoded.density, decoded, viridisColor);
-  const ionizationRange = drawSliceField($("#ionization-slice"), decoded.ionized, decoded, viridisColor);
-  const spinRange = drawSliceField($("#spin-temperature-slice"), decoded.spinTemperatureLog10, decoded, viridisColor);
-  const kineticRange = drawSliceField($("#kinetic-temperature-slice"), decoded.kineticTemperatureLog10, decoded, viridisColor);
-  $("#slice-brightness-range").textContent = `${brightnessRange[0].toFixed(1)} … ${brightnessRange[1].toFixed(1)} mK`;
-  $("#slice-density-range").textContent = `${densityRange[0].toFixed(2)} … ${densityRange[1].toFixed(2)}`;
-  $("#slice-ionization-range").textContent = `${ionizationRange[0].toFixed(3)} … ${ionizationRange[1].toFixed(3)}`;
-  $("#slice-spin-temperature-range").textContent = `${formatKelvin(10 ** spinRange[0])} … ${formatKelvin(10 ** spinRange[1])} K`;
-  $("#slice-kinetic-temperature-range").textContent = `${formatKelvin(10 ** kineticRange[0])} … ${formatKelvin(10 ** kineticRange[1])} K`;
-  $("#slice-density-scale-min").textContent = `δ ${densityRange[0].toFixed(2)}`;
-  $("#slice-density-scale-max").textContent = `δ ${densityRange[1].toFixed(2)}`;
-  $("#slice-ionization-scale-min").textContent = ionizationRange[0].toFixed(3);
-  $("#slice-ionization-scale-max").textContent = ionizationRange[1].toFixed(3);
-  $("#slice-spin-scale-min").textContent = `${formatKelvin(10 ** spinRange[0])} K`;
-  $("#slice-spin-scale-max").textContent = `${formatKelvin(10 ** spinRange[1])} K`;
-  $("#slice-kinetic-scale-min").textContent = `${formatKelvin(10 ** kineticRange[0])} K`;
-  $("#slice-kinetic-scale-max").textContent = `${formatKelvin(10 ** kineticRange[1])} K`;
+  const plDecoded = state.plReference.decodedSlices;
+  if (!plDecoded) {
+    const brightness = drawSliceField($("#brightness-slice"), decoded.brightness, decoded, eorColor, [-150, 30]);
+    const density = drawSliceField($("#density-slice"), decoded.density, decoded, viridisColor);
+    const ionized = drawSliceField($("#ionization-slice"), decoded.ionized, decoded, viridisColor);
+    const spin = drawSliceField($("#spin-temperature-slice"), decoded.spinTemperatureLog10, decoded, viridisColor);
+    const kinetic = drawSliceField($("#kinetic-temperature-slice"), decoded.kineticTemperatureLog10, decoded, viridisColor);
+    [
+      "#pl-brightness-slice", "#pl-density-slice", "#pl-ionization-slice",
+      "#pl-spin-temperature-slice", "#pl-kinetic-temperature-slice",
+    ].forEach((selector) => drawPendingPLSlice($(selector)));
+    $("#slice-brightness-range").textContent = `${brightness[0].toFixed(1)} … ${brightness[1].toFixed(1)} mK`;
+    $("#slice-density-range").textContent = `${density[0].toFixed(2)} … ${density[1].toFixed(2)}`;
+    $("#slice-ionization-range").textContent = `${ionized[0].toFixed(3)} … ${ionized[1].toFixed(3)}`;
+    $("#slice-spin-temperature-range").textContent = `${formatKelvin(10 ** spin[0])} … ${formatKelvin(10 ** spin[1])} K`;
+    $("#slice-kinetic-temperature-range").textContent = `${formatKelvin(10 ** kinetic[0])} … ${formatKelvin(10 ** kinetic[1])} K`;
+    [
+      "#pl-slice-brightness-range", "#pl-slice-density-range", "#pl-slice-ionization-range",
+      "#pl-slice-spin-temperature-range", "#pl-slice-kinetic-temperature-range",
+    ].forEach((selector) => { $(selector).textContent = "计算中"; });
+    $("#slice-density-scale-min").textContent = `δ ${density[0].toFixed(2)}`;
+    $("#slice-density-scale-max").textContent = `δ ${density[1].toFixed(2)}`;
+    $("#slice-ionization-scale-min").textContent = ionized[0].toFixed(3);
+    $("#slice-ionization-scale-max").textContent = ionized[1].toFixed(3);
+    $("#slice-spin-scale-min").textContent = `${formatKelvin(10 ** spin[0])} K`;
+    $("#slice-spin-scale-max").textContent = `${formatKelvin(10 ** spin[1])} K`;
+    $("#slice-kinetic-scale-min").textContent = `${formatKelvin(10 ** kinetic[0])} K`;
+    $("#slice-kinetic-scale-max").textContent = `${formatKelvin(10 ** kinetic[1])} K`;
+    return;
+  }
+  const fields = [
+    ["brightness", decoded.brightness, plDecoded.brightness],
+    ["density", decoded.density, plDecoded.density],
+    ["ionized", decoded.ionized, plDecoded.ionized],
+    ["spin", decoded.spinTemperatureLog10, plDecoded.spinTemperatureLog10],
+    ["kinetic", decoded.kineticTemperatureLog10, plDecoded.kineticTemperatureLog10],
+  ];
+  const ranges = {};
+  fields.forEach(([name, currentValues, plValues]) => {
+    const current = sliceFieldRange(currentValues, decoded);
+    const pl = sliceFieldRange(plValues, plDecoded);
+    ranges[name] = {
+      current,
+      pl,
+      shared: [Math.min(current[0], pl[0]), Math.max(current[1], pl[1])],
+    };
+  });
+  drawSliceField($("#brightness-slice"), decoded.brightness, decoded, eorColor, [-150, 30]);
+  drawSliceField($("#pl-brightness-slice"), plDecoded.brightness, plDecoded, eorColor, [-150, 30]);
+  drawSliceField($("#density-slice"), decoded.density, decoded, viridisColor, ranges.density.shared);
+  drawSliceField($("#pl-density-slice"), plDecoded.density, plDecoded, viridisColor, ranges.density.shared);
+  drawSliceField($("#ionization-slice"), decoded.ionized, decoded, viridisColor, ranges.ionized.shared);
+  drawSliceField($("#pl-ionization-slice"), plDecoded.ionized, plDecoded, viridisColor, ranges.ionized.shared);
+  drawSliceField($("#spin-temperature-slice"), decoded.spinTemperatureLog10, decoded, viridisColor, ranges.spin.shared);
+  drawSliceField($("#pl-spin-temperature-slice"), plDecoded.spinTemperatureLog10, plDecoded, viridisColor, ranges.spin.shared);
+  drawSliceField($("#kinetic-temperature-slice"), decoded.kineticTemperatureLog10, decoded, viridisColor, ranges.kinetic.shared);
+  drawSliceField($("#pl-kinetic-temperature-slice"), plDecoded.kineticTemperatureLog10, plDecoded, viridisColor, ranges.kinetic.shared);
+  $("#slice-brightness-range").textContent = `${ranges.brightness.current[0].toFixed(1)} … ${ranges.brightness.current[1].toFixed(1)} mK`;
+  $("#pl-slice-brightness-range").textContent = `${ranges.brightness.pl[0].toFixed(1)} … ${ranges.brightness.pl[1].toFixed(1)} mK`;
+  $("#slice-density-range").textContent = `${ranges.density.current[0].toFixed(2)} … ${ranges.density.current[1].toFixed(2)}`;
+  $("#pl-slice-density-range").textContent = `${ranges.density.pl[0].toFixed(2)} … ${ranges.density.pl[1].toFixed(2)}`;
+  $("#slice-ionization-range").textContent = `${ranges.ionized.current[0].toFixed(3)} … ${ranges.ionized.current[1].toFixed(3)}`;
+  $("#pl-slice-ionization-range").textContent = `${ranges.ionized.pl[0].toFixed(3)} … ${ranges.ionized.pl[1].toFixed(3)}`;
+  $("#slice-spin-temperature-range").textContent = `${formatKelvin(10 ** ranges.spin.current[0])} … ${formatKelvin(10 ** ranges.spin.current[1])} K`;
+  $("#pl-slice-spin-temperature-range").textContent = `${formatKelvin(10 ** ranges.spin.pl[0])} … ${formatKelvin(10 ** ranges.spin.pl[1])} K`;
+  $("#slice-kinetic-temperature-range").textContent = `${formatKelvin(10 ** ranges.kinetic.current[0])} … ${formatKelvin(10 ** ranges.kinetic.current[1])} K`;
+  $("#pl-slice-kinetic-temperature-range").textContent = `${formatKelvin(10 ** ranges.kinetic.pl[0])} … ${formatKelvin(10 ** ranges.kinetic.pl[1])} K`;
+  $("#slice-density-scale-min").textContent = `δ ${ranges.density.shared[0].toFixed(2)}`;
+  $("#slice-density-scale-max").textContent = `δ ${ranges.density.shared[1].toFixed(2)}`;
+  $("#slice-ionization-scale-min").textContent = ranges.ionized.shared[0].toFixed(3);
+  $("#slice-ionization-scale-max").textContent = ranges.ionized.shared[1].toFixed(3);
+  $("#slice-spin-scale-min").textContent = `${formatKelvin(10 ** ranges.spin.shared[0])} K`;
+  $("#slice-spin-scale-max").textContent = `${formatKelvin(10 ** ranges.spin.shared[1])} K`;
+  $("#slice-kinetic-scale-min").textContent = `${formatKelvin(10 ** ranges.kinetic.shared[0])} K`;
+  $("#slice-kinetic-scale-max").textContent = `${formatKelvin(10 ** ranges.kinetic.shared[1])} K`;
 }
 
 function drawLFCurve(ctx, curve, px, py, color, width, dash = []) {
@@ -504,7 +604,7 @@ function observationSource(sourceId) {
 
 function observationColor(point) {
   const source = observationSource(point.source_id);
-  return source && source.instrument.startsWith("HST") ? "#ff9b6a" : "#c3a7ff";
+  return source && source.instrument.startsWith("HST") ? plotPalette.hst : plotPalette.jwst;
 }
 
 function drawObservationPoint(ctx, point, px, py, yMin, yMax) {
@@ -552,37 +652,37 @@ function drawLuminosityFunction() {
   const px = (value) => margin.left + (value - xMin) / (xMax - xMin) * (width - margin.left - margin.right);
   const py = (value) => margin.top + (yMax - value) / (yMax - yMin) * (height - margin.top - margin.bottom);
   ctx.clearRect(0, 0, width, height);
-  ctx.font = "10px SFMono-Regular, Consolas, monospace";
+  ctx.font = "10px Arial, sans-serif";
   for (let value = Math.ceil(yMin / 2) * 2; value <= yMax; value += 2) {
     const y = py(value);
-    ctx.strokeStyle = "rgba(217,231,235,0.09)"; ctx.lineWidth = 1;
+    ctx.strokeStyle = plotPalette.grid; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(margin.left, y); ctx.lineTo(width - margin.right, y); ctx.stroke();
-    ctx.fillStyle = "#6d787d"; ctx.textAlign = "right"; ctx.textBaseline = "middle";
+    ctx.fillStyle = plotPalette.text; ctx.textAlign = "right"; ctx.textBaseline = "middle";
     ctx.fillText(value.toFixed(0), margin.left - 10, y);
   }
   for (let value = xMin; value <= xMax; value += 2) {
     const x = px(value);
-    ctx.strokeStyle = "rgba(217,231,235,0.045)";
+    ctx.strokeStyle = plotPalette.gridLight;
     ctx.beginPath(); ctx.moveTo(x, margin.top); ctx.lineTo(x, height - margin.bottom); ctx.stroke();
-    ctx.fillStyle = "#6d787d"; ctx.textAlign = "center"; ctx.textBaseline = "top";
+    ctx.fillStyle = plotPalette.text; ctx.textAlign = "center"; ctx.textBaseline = "top";
     ctx.fillText(value.toFixed(0), x, height - margin.bottom + 12);
   }
   ctx.save();
   ctx.beginPath(); ctx.rect(margin.left, margin.top, width - margin.left - margin.right, height - margin.top - margin.bottom); ctx.clip();
-  if (plCurve) drawLFCurve(ctx, plCurve, px, py, "rgba(101,229,242,0.84)", 1.6, [7, 5]);
-  const drawn = drawLFCurve(ctx, current, px, py, "#d6ff40", 2.2);
+  if (plCurve) drawLFCurve(ctx, plCurve, px, py, plotPalette.pl, 1.6, [7, 5]);
+  const drawn = drawLFCurve(ctx, current, px, py, plotPalette.current, 2.1);
   observations.forEach((point) => drawObservationPoint(ctx, point, px, py, yMin, yMax));
   ctx.restore();
-  ctx.strokeStyle = "rgba(217,231,235,0.24)";
+  ctx.strokeStyle = plotPalette.border;
   ctx.strokeRect(margin.left, margin.top, width - margin.left - margin.right, height - margin.top - margin.bottom);
   if (!drawn) {
-    ctx.fillStyle = "#879196"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.fillStyle = plotPalette.text; ctx.textAlign = "center"; ctx.textBaseline = "middle";
     ctx.fillText("该红移没有达到数值阈值的 LF 数据", (margin.left + width - margin.right) / 2, (margin.top + height - margin.bottom) / 2);
   }
-  ctx.fillStyle = "#879196"; ctx.textAlign = "center"; ctx.textBaseline = "bottom";
-  ctx.fillText("ABSOLUTE UV MAGNITUDE  MUV", (margin.left + width - margin.right) / 2, height - 5);
+  ctx.fillStyle = plotPalette.text; ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+  ctx.fillText("Absolute UV magnitude, MUV", (margin.left + width - margin.right) / 2, height - 5);
   ctx.save(); ctx.translate(14, (margin.top + height - margin.bottom) / 2); ctx.rotate(-Math.PI / 2);
-  ctx.fillText("log10 φ  [cMpc⁻³ mag⁻¹]", 0, 0); ctx.restore();
+  ctx.fillText("log10 φ [cMpc⁻³ mag⁻¹]", 0, 0); ctx.restore();
 }
 
 function setSlicePlaying(playing) {
