@@ -14,7 +14,7 @@ const state = {
 
 const $ = (selector) => document.querySelector(selector);
 const astroNames = new Set(["F_STAR10", "ALPHA_STAR", "F_ESC10", "ALPHA_ESC", "M_TURN", "t_STAR", "L_X", "NU_X_THRESH"]);
-const DATA_VERSION = "hii256-v10";
+const DATA_VERSION = "hii256-v11";
 const plotPalette = {
   ink: "#1d2730",
   text: "#56616a",
@@ -164,7 +164,10 @@ function showUnavailableRun(runId) {
   $("#run-badge").textContent = "UNAVAILABLE";
   $("#run-badge").className = "run-badge failed";
   $("#selection-detail").innerHTML = `<strong>已排除的数值异常点</strong><span>${runId}</span>`;
-  ["#metric-z", "#metric-temp", "#metric-kp", "#metric-ms", "#metric-time", "#run-identity"].forEach((selector) => {
+  [
+    "#metric-z", "#metric-temp", "#metric-kp", "#metric-ms", "#metric-time",
+    "#run-identity", "#tau-current", "#tau-pl", "#tau-difference",
+  ].forEach((selector) => {
     $(selector).textContent = "—";
   });
   $("#parameter-summary").innerHTML = "";
@@ -316,6 +319,73 @@ function drawGlobal() {
   ctx.fillStyle = plotPalette.text; ctx.textAlign = "center"; ctx.textBaseline = "bottom";
   ctx.fillText("Redshift, z   ·   cosmic time →", (margin.left + width - margin.right) / 2, height - 5);
   ctx.save(); ctx.translate(14, (margin.top + height - margin.bottom) / 2); ctx.rotate(-Math.PI / 2); ctx.fillText("δTb [mK]", 0, 0); ctx.restore();
+}
+
+function availableIonizationHistory(result) {
+  if (result && result.ionization_history) return result.ionization_history;
+  if (result && result.global && result.global.xhi) {
+    return {
+      redshift: result.global.redshift,
+      ionized_fraction: result.global.xhi.map((neutral) => 1 - neutral),
+      tau_e: null,
+    };
+  }
+  return null;
+}
+
+function drawIonizationHistory() {
+  if (!state.result) return;
+  const {context: ctx, width, height} = canvasContext($("#ionization-history-chart"));
+  const margin = {left: 64, right: 24, top: 24, bottom: 48};
+  const current = availableIonizationHistory(state.result);
+  const pl = availableIonizationHistory(state.plReference);
+  const histories = [current, pl].filter(Boolean);
+  ctx.clearRect(0, 0, width, height);
+  if (!histories.length) {
+    ctx.fillStyle = plotPalette.text; ctx.font = "10px Arial, sans-serif";
+    ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.fillText("Ionization history is being prepared", width / 2, height / 2);
+    return;
+  }
+  const allRedshifts = histories.flatMap((history) => history.redshift);
+  const zMin = Math.min(...allRedshifts), zMax = Math.max(...allRedshifts);
+  const px = (value) => margin.left + (zMax - value) / (zMax - zMin) * (width - margin.left - margin.right);
+  const py = (value) => margin.top + (1.02 - value) / 1.04 * (height - margin.top - margin.bottom);
+  ctx.font = "10px Arial, sans-serif";
+  for (let index = 0; index <= 5; index += 1) {
+    const value = index / 5, y = py(value);
+    ctx.strokeStyle = plotPalette.grid; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(margin.left, y); ctx.lineTo(width - margin.right, y); ctx.stroke();
+    ctx.fillStyle = plotPalette.text; ctx.textAlign = "right"; ctx.textBaseline = "middle";
+    ctx.fillText(value.toFixed(1), margin.left - 10, y);
+  }
+  for (let index = 0; index <= 5; index += 1) {
+    const value = zMax - index * (zMax - zMin) / 5, x = px(value);
+    ctx.fillStyle = plotPalette.text; ctx.textAlign = "center"; ctx.textBaseline = "top";
+    ctx.fillText(value.toFixed(0), x, height - margin.bottom + 12);
+  }
+  ctx.save();
+  ctx.beginPath(); ctx.rect(margin.left, margin.top, width - margin.left - margin.right, height - margin.top - margin.bottom); ctx.clip();
+  if (pl) drawCurve(ctx, pl.redshift, pl.ionized_fraction, px, py, plotPalette.pl, 1.6, false, [7, 5]);
+  if (current) drawCurve(ctx, current.redshift, current.ionized_fraction, px, py, plotPalette.current, 2.1);
+  ctx.restore();
+  ctx.strokeStyle = plotPalette.border;
+  ctx.strokeRect(margin.left, margin.top, width - margin.left - margin.right, height - margin.top - margin.bottom);
+  if (!pl) {
+    ctx.fillStyle = plotPalette.text; ctx.textAlign = "right"; ctx.textBaseline = "top";
+    ctx.fillText("PL history computing", width - margin.right - 8, margin.top + 8);
+  }
+  ctx.fillStyle = plotPalette.text; ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+  ctx.fillText("Redshift, z   ·   cosmic time →", (margin.left + width - margin.right) / 2, height - 5);
+  ctx.save(); ctx.translate(14, (margin.top + height - margin.bottom) / 2); ctx.rotate(-Math.PI / 2);
+  ctx.fillText("Ionized fraction, xi", 0, 0); ctx.restore();
+  const tauCurrent = current && Number.isFinite(current.tau_e) ? current.tau_e : null;
+  const tauPL = pl && Number.isFinite(pl.tau_e) ? pl.tau_e : null;
+  $("#tau-current").textContent = tauCurrent === null ? "构建中" : tauCurrent.toFixed(4);
+  $("#tau-pl").textContent = tauPL === null ? "构建中" : tauPL.toFixed(4);
+  $("#tau-difference").textContent = tauCurrent === null || tauPL === null
+    ? "—"
+    : `${tauCurrent - tauPL >= 0 ? "+" : ""}${(tauCurrent - tauPL).toFixed(4)}`;
 }
 
 // Match py21cmfast.plotting: brightness_temp uses the fixed EoR map over
@@ -702,7 +772,7 @@ function setSlicePlaying(playing) {
   }, 420);
 }
 
-function drawAll() { drawGlobal(); drawLightcone(); drawSlices(); drawLuminosityFunction(); }
+function drawAll() { drawGlobal(); drawLightcone(); drawIonizationHistory(); drawSlices(); drawLuminosityFunction(); }
 function resetControls() {
   state.activeAstro = null;
   for (const control of state.controls.values()) resetOne(control);

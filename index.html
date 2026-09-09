@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>21cmFAST 预计算参数图谱</title>
-  <link rel="stylesheet" href="styles.css?v=hii256-v10">
+  <link rel="stylesheet" href="styles.css?v=hii256-v11">
 </head>
 <body>
   <header class="paper-header">
@@ -108,9 +108,31 @@
         </article>
       </section>
 
+      <article class="chart-card ionization-history-card">
+        <div class="chart-title">
+          <div><span class="chart-index">2</span><h3>再电离历史与 Thomson 光学深度</h3></div>
+          <p>IONIZED FRACTION x<sub>i</sub>(z) · τ<sub>e</sub></p>
+        </div>
+        <div class="comparison-key"><i class="current-curve"></i><span>当前 BPL</span><i class="pl-curve"></i><span>同参数标准 PL</span></div>
+        <div class="ionization-layout">
+          <div class="canvas-frame ionization-history-frame"><canvas id="ionization-history-chart"></canvas></div>
+          <aside class="tau-panel" aria-label="Thomson 光学深度摘要">
+            <span class="section-label">INTEGRATED OPTICAL DEPTH</span>
+            <h4>τ<sub>e</sub></h4>
+            <div class="tau-values">
+              <div><small>当前 BPL</small><strong id="tau-current">—</strong></div>
+              <div><small>同参数 PL</small><strong id="tau-pl">—</strong></div>
+              <div><small>差值 BPL − PL</small><strong id="tau-difference">—</strong></div>
+            </div>
+            <p>采用 21cmFAST <code>ComputeTau</code> 等价积分，并包含 z &lt; 3 的 He II 再电离修正。</p>
+          </aside>
+        </div>
+        <p class="figure-note"><strong>Figure 2.</strong> 电离分数定义为 x<sub>i</sub> = 1 − ⟨x<sub>HI</sub>⟩，由每个 256² 切片进行空间平均；τ<sub>e</sub> 对相同的 32 点再电离历史积分得到。</p>
+      </article>
+
       <article class="chart-card slice-card">
         <div class="chart-title slice-title">
-          <div><span class="chart-index">2</span><h3>同一红移下的二维场比较</h3></div>
+          <div><span class="chart-index">3</span><h3>同一红移下的二维场比较</h3></div>
           <p>21cmFAST EOR / VIRIDIS COLOUR MAPS</p>
         </div>
         <div class="redshift-control">
@@ -194,12 +216,12 @@
             <div class="color-legend slice-legend viridis-legend"><span id="slice-kinetic-scale-min">min</span><i></i><span id="slice-kinetic-scale-max">max</span></div>
           </section>
         </div>
-        <p class="figure-note"><strong>Figure 2.</strong> 从左至右依次为 21 cm 亮温、密度对比度、电离氢分数、自旋温度和气体动温。每列上方为当前 BPL、下方为同天体物理参数的标准 PL；十个面板使用同一精确红移切片。</p>
+        <p class="figure-note"><strong>Figure 3.</strong> 从左至右依次为 21 cm 亮温、密度对比度、电离氢分数、自旋温度和气体动温。每列上方为当前 BPL、下方为同天体物理参数的标准 PL；十个面板使用同一精确红移切片。</p>
       </article>
 
       <article class="chart-card lf-card">
         <div class="chart-title">
-          <div><span class="chart-index">3</span><h3>UV 光度函数</h3></div>
+          <div><span class="chart-index">4</span><h3>UV 光度函数</h3></div>
           <p>EXACT z · MODEL–OBSERVATION COMPARISON</p>
         </div>
         <div class="lf-toolbar">
@@ -212,7 +234,7 @@
         </div>
         <div class="canvas-frame lf-frame"><canvas id="lf-chart"></canvas></div>
         <div class="lf-caption figure-note">
-          <strong>Figure 3.</strong>
+          <strong>Figure 4.</strong>
           <span>21cmFAST UV luminosity function · exact z = 6, 7, 8, 10</span>
           <span>−24 ≤ M<sub>UV</sub> ≤ −10</span>
           <span>log<sub>10</sub> φ [cMpc⁻³ mag⁻¹]</span>
@@ -238,6 +260,6 @@
     <span id="footer-count">读取模拟清单…</span>
     <span>21cmFAST precomputed atlas · HII_DIM = 256 · DIM = 768 · BOX_LEN = 250 cMpc · z = 35 → 6</span>
   </footer>
-  <script src="app.js?v=hii256-v10"></script>
+  <script src="app.js?v=hii256-v11"></script>
 </body>
 </html>

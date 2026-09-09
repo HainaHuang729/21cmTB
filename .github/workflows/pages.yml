@@ -46,10 +46,10 @@ jobs:
           pl_files = sorted(pl_root.glob("pl_*.json"))
           pl_binaries = sorted(pl_root.glob("pl_*.slices.bin"))
           expected_unavailable = {"run_4600848a9a8c", "run_5f2309678207"}
-          assert 'DATA_VERSION = "hii256-v10"' in app
+          assert 'DATA_VERSION = "hii256-v11"' in app
           assert "(value + 150) / 180" in app
           assert "eorStops" in app and "viridisStops" in app
-          assert html.count("hii256-v10") == 2
+          assert html.count("hii256-v11") == 2
           assert "上一模型" not in html
           assert "同参数标准 PL" in html
           assert "−150 mK" in html and "+30 mK" in html
@@ -74,6 +74,8 @@ jobs:
               assert payload["model"]["POWER_INDEX"] == 0.968
               assert payload["luminosity_function"]["redshift"] == [6.0, 7.0, 8.0, 10.0]
               if pl_schema == 2:
+                  assert 0 < payload["ionization_history"]["tau_e"] < 1
+                  assert len(payload["ionization_history"]["redshift"]) == 32
                   slices = payload["slices"]
                   assert slices["shape"] == [32, 256, 256]
                   assert len(slices["redshift"]) == 32
@@ -91,6 +93,8 @@ jobs:
               assert len(slices["redshift"]) == 32
               assert payload["luminosity_function"]["redshift"] == [6.0, 7.0, 8.0, 10.0]
               assert len(payload["luminosity_function"]["curves"]) == 4
+              assert 0 < payload["ionization_history"]["tau_e"] < 1
+              assert len(payload["ionization_history"]["redshift"]) == 32
               assert payload["pl_reference"]["pl_id"] in pl_ids
               assert pathlib.Path(payload["pl_reference"]["file"]).is_file()
               packed = (root / slices["binary_file"]).read_bytes()

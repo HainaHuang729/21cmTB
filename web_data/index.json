@@ -3415,6 +3415,12 @@
     "name": "standard_power_law"
   },
   "pl_result_schema_version": 1,
+  "preview_reionization_histories": {
+    "bpl_available": 55,
+    "pl_available": 16,
+    "pl_total": 32,
+    "status": "partial_until_matched_PL_slice_array_completes"
+  },
   "result_schema_version": 7,
   "schema_version": 1,
   "simulation": {
