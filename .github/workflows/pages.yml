@@ -46,10 +46,10 @@ jobs:
           pl_files = sorted(pl_root.glob("pl_*.json"))
           pl_binaries = sorted(pl_root.glob("pl_*.slices.bin"))
           expected_unavailable = {"run_4600848a9a8c", "run_5f2309678207"}
-          assert 'DATA_VERSION = "hii256-v14"' in app
+          assert 'DATA_VERSION = "hii256-v15"' in app
           assert "(value + 150) / 180" in app
           assert "eorStops" in app and "viridisStops" in app
-          assert html.count("hii256-v14") == 2
+          assert html.count("hii256-v15") == 2
           assert "上一模型" not in html
           assert "Matched PL" in html
           assert "lf-main-card" in html and 'id="lf-chart"' in html

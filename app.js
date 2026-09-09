@@ -15,17 +15,19 @@ const state = {
 
 const $ = (selector) => document.querySelector(selector);
 const astroNames = new Set(["F_STAR10", "ALPHA_STAR", "F_ESC10", "ALPHA_ESC", "M_TURN", "t_STAR", "L_X", "NU_X_THRESH"]);
-const DATA_VERSION = "hii256-v14";
+const DATA_VERSION = "hii256-v15";
 const plotPalette = {
   ink: "#1d2730",
-  text: "#56616a",
-  grid: "rgba(31,45,58,0.12)",
-  gridLight: "rgba(31,45,58,0.065)",
-  border: "rgba(31,45,58,0.38)",
-  current: "#a33e32",
-  pl: "rgba(36,87,138,0.9)",
-  hst: "#2f6f71",
-  jwst: "#865c86",
+  text: "#5c6872",
+  axis: "#77838c",
+  grid: "rgba(38,55,68,0.10)",
+  gridLight: "rgba(38,55,68,0.055)",
+  border: "#84919a",
+  current: "#ad3c30",
+  pl: "#28628f",
+  hst: "#327466",
+  jwst: "#795783",
+  plot: "#fbfcfd",
   paper: "#ffffff",
 };
 
@@ -268,47 +270,98 @@ function niceBounds(values, includeZero = false) {
   return [minimum - span * 0.12, maximum + span * 0.12];
 }
 
+function niceTicks(minimum, maximum, targetCount = 5) {
+  const rawStep = Math.max(maximum - minimum, Number.EPSILON) / targetCount;
+  const magnitude = 10 ** Math.floor(Math.log10(rawStep));
+  const normalized = rawStep / magnitude;
+  const multiplier = [1, 2, 2.5, 5, 10].find((candidate) => candidate >= normalized) || 10;
+  const step = multiplier * magnitude;
+  const first = Math.ceil(minimum / step) * step;
+  const values = [];
+  for (let value = first; value <= maximum + step * 0.05; value += step) values.push(Number(value.toPrecision(12)));
+  return values;
+}
+
+function preparePlot(ctx, width, height, margin) {
+  const plotWidth = width - margin.left - margin.right;
+  const plotHeight = height - margin.top - margin.bottom;
+  ctx.clearRect(0, 0, width, height);
+  ctx.fillStyle = plotPalette.paper;
+  ctx.fillRect(0, 0, width, height);
+  ctx.fillStyle = plotPalette.plot;
+  ctx.fillRect(margin.left, margin.top, plotWidth, plotHeight);
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+  return {plotWidth, plotHeight};
+}
+
+function drawXTick(ctx, x, plotBottom, label, gridTop, showGrid = true) {
+  if (showGrid) {
+    ctx.strokeStyle = plotPalette.gridLight; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(x, gridTop); ctx.lineTo(x, plotBottom); ctx.stroke();
+  }
+  ctx.strokeStyle = plotPalette.axis;
+  ctx.beginPath(); ctx.moveTo(x, plotBottom); ctx.lineTo(x, plotBottom + 4); ctx.stroke();
+  ctx.fillStyle = plotPalette.text; ctx.font = "10px Arial, sans-serif";
+  ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText(label, x, plotBottom + 8);
+}
+
+function drawYTick(ctx, y, plotLeft, plotRight, label, emphasized = false) {
+  ctx.strokeStyle = emphasized ? "rgba(38,55,68,0.24)" : plotPalette.grid;
+  ctx.lineWidth = emphasized ? 1.15 : 1;
+  ctx.setLineDash(emphasized ? [5, 4] : []);
+  ctx.beginPath(); ctx.moveTo(plotLeft, y); ctx.lineTo(plotRight, y); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.strokeStyle = plotPalette.axis;
+  ctx.beginPath(); ctx.moveTo(plotLeft - 4, y); ctx.lineTo(plotLeft, y); ctx.stroke();
+  ctx.fillStyle = plotPalette.text; ctx.font = "10px Arial, sans-serif";
+  ctx.textAlign = "right"; ctx.textBaseline = "middle"; ctx.fillText(label, plotLeft - 9, y);
+}
+
+function finishPlot(ctx, width, height, margin, xLabel, yLabel) {
+  const plotRight = width - margin.right, plotBottom = height - margin.bottom;
+  ctx.strokeStyle = plotPalette.border; ctx.lineWidth = 1;
+  ctx.strokeRect(margin.left + 0.5, margin.top + 0.5, plotRight - margin.left - 1, plotBottom - margin.top - 1);
+  ctx.fillStyle = plotPalette.ink; ctx.font = "11px Arial, sans-serif";
+  ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+  ctx.fillText(xLabel, (margin.left + plotRight) / 2, height - 5);
+  ctx.save();
+  ctx.translate(15, (margin.top + plotBottom) / 2); ctx.rotate(-Math.PI / 2);
+  ctx.fillText(yLabel, 0, 0); ctx.restore();
+}
+
 function drawCurve(ctx, z, values, px, py, color, width, shadow = false, dash = []) {
   ctx.beginPath();
   z.forEach((value, index) => ctx[index ? "lineTo" : "moveTo"](px(value), py(values[index])));
   ctx.strokeStyle = color; ctx.lineWidth = width; ctx.setLineDash(dash);
-  if (shadow) { ctx.shadowColor = "rgba(163,62,50,0.18)"; ctx.shadowBlur = 4; }
+  if (shadow) { ctx.shadowColor = "rgba(163,62,50,0.13)"; ctx.shadowBlur = 3; }
   ctx.stroke(); ctx.shadowBlur = 0; ctx.setLineDash([]);
 }
 
 function drawGlobal() {
   if (!state.result) return;
   const {context: ctx, width, height} = canvasContext($("#global-chart"));
-  const margin = {left: 52, right: 15, top: 14, bottom: 35};
+  const margin = {left: 58, right: 18, top: 16, bottom: 42};
   const z = state.result.global.redshift, values = state.result.global.brightness_mk;
   const pl = state.plReference ? state.plReference.global : null;
   const combined = pl ? values.concat(pl.brightness_mk) : values;
   const zMin = Math.min(...z), zMax = Math.max(...z), [yMin, yMax] = niceBounds(combined, true);
-  const px = (value) => margin.left + (zMax - value) / (zMax - zMin) * (width - margin.left - margin.right);
-  const py = (value) => margin.top + (yMax - value) / (yMax - yMin) * (height - margin.top - margin.bottom);
-  ctx.clearRect(0, 0, width, height); ctx.font = "10px Arial, sans-serif";
-  for (let index = 0; index <= 5; index += 1) {
-    const value = yMin + index * (yMax - yMin) / 5, y = py(value);
-    ctx.strokeStyle = plotPalette.grid; ctx.lineWidth = 1;
-    ctx.beginPath(); ctx.moveTo(margin.left, y); ctx.lineTo(width - margin.right, y); ctx.stroke();
-    ctx.fillStyle = plotPalette.text; ctx.textAlign = "right"; ctx.textBaseline = "middle"; ctx.fillText(value.toFixed(0), margin.left - 10, y);
+  const {plotWidth, plotHeight} = preparePlot(ctx, width, height, margin);
+  const px = (value) => margin.left + (zMax - value) / (zMax - zMin) * plotWidth;
+  const py = (value) => margin.top + (yMax - value) / (yMax - yMin) * plotHeight;
+  niceTicks(yMin, yMax, 4).forEach((value) => drawYTick(ctx, py(value), margin.left, width - margin.right, value.toFixed(0), Math.abs(value) < 1e-8));
+  for (let index = 0; index <= 4; index += 1) {
+    const value = zMax - index * (zMax - zMin) / 4;
+    drawXTick(ctx, px(value), height - margin.bottom, value.toFixed(0), margin.top);
   }
-  for (let index = 0; index <= 5; index += 1) {
-    const value = zMax - index * (zMax - zMin) / 5, x = px(value);
-    ctx.fillStyle = plotPalette.text; ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText(value.toFixed(0), x, height - margin.bottom + 12);
-  }
-  if (yMin < 0 && yMax > 0) {
-    ctx.strokeStyle = plotPalette.border; ctx.setLineDash([4, 4]);
-    ctx.beginPath(); ctx.moveTo(margin.left, py(0)); ctx.lineTo(width - margin.right, py(0)); ctx.stroke(); ctx.setLineDash([]);
-  }
-  if (pl) drawCurve(ctx, pl.redshift, pl.brightness_mk, px, py, plotPalette.pl, 1.6, false, [7, 5]);
-  drawCurve(ctx, z, values, px, py, plotPalette.current, 2.1, true);
+  ctx.save(); ctx.beginPath(); ctx.rect(margin.left, margin.top, plotWidth, plotHeight); ctx.clip();
+  if (pl) drawCurve(ctx, pl.redshift, pl.brightness_mk, px, py, plotPalette.pl, 2.0, false, [7, 5]);
+  drawCurve(ctx, z, values, px, py, plotPalette.current, 2.7, true);
+  ctx.restore();
   const trough = values.indexOf(Math.min(...values));
-  ctx.fillStyle = plotPalette.paper; ctx.strokeStyle = plotPalette.current; ctx.lineWidth = 2;
-  ctx.beginPath(); ctx.arc(px(z[trough]), py(values[trough]), 4.5, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
-  ctx.fillStyle = plotPalette.text; ctx.textAlign = "center"; ctx.textBaseline = "bottom";
-  ctx.fillText("Redshift, z   ·   cosmic time →", (margin.left + width - margin.right) / 2, height - 5);
-  ctx.save(); ctx.translate(14, (margin.top + height - margin.bottom) / 2); ctx.rotate(-Math.PI / 2); ctx.fillText("δTb [mK]", 0, 0); ctx.restore();
+  ctx.fillStyle = plotPalette.paper; ctx.strokeStyle = plotPalette.current; ctx.lineWidth = 2.2;
+  ctx.beginPath(); ctx.arc(px(z[trough]), py(values[trough]), 4.2, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+  finishPlot(ctx, width, height, margin, "Redshift, z  (cosmic time →)", "δT_b [mK]");
 }
 
 function availableIonizationHistory(result) {
@@ -326,11 +379,11 @@ function availableIonizationHistory(result) {
 function drawIonizationHistory() {
   if (!state.result) return;
   const {context: ctx, width, height} = canvasContext($("#ionization-history-chart"));
-  const margin = {left: 52, right: 15, top: 14, bottom: 35};
+  const margin = {left: 58, right: 18, top: 16, bottom: 42};
   const current = availableIonizationHistory(state.result);
   const pl = availableIonizationHistory(state.plReference);
   const histories = [current, pl].filter(Boolean);
-  ctx.clearRect(0, 0, width, height);
+  preparePlot(ctx, width, height, margin);
   if (!histories.length) {
     ctx.fillStyle = plotPalette.text; ctx.font = "10px Arial, sans-serif";
     ctx.textAlign = "center"; ctx.textBaseline = "middle";
@@ -339,36 +392,24 @@ function drawIonizationHistory() {
   }
   const allRedshifts = histories.flatMap((history) => history.redshift);
   const zMin = Math.min(...allRedshifts), zMax = Math.max(...allRedshifts);
-  const px = (value) => margin.left + (zMax - value) / (zMax - zMin) * (width - margin.left - margin.right);
-  const py = (value) => margin.top + (1.02 - value) / 1.04 * (height - margin.top - margin.bottom);
-  ctx.font = "10px Arial, sans-serif";
-  for (let index = 0; index <= 5; index += 1) {
-    const value = index / 5, y = py(value);
-    ctx.strokeStyle = plotPalette.grid; ctx.lineWidth = 1;
-    ctx.beginPath(); ctx.moveTo(margin.left, y); ctx.lineTo(width - margin.right, y); ctx.stroke();
-    ctx.fillStyle = plotPalette.text; ctx.textAlign = "right"; ctx.textBaseline = "middle";
-    ctx.fillText(value.toFixed(1), margin.left - 10, y);
-  }
-  for (let index = 0; index <= 5; index += 1) {
-    const value = zMax - index * (zMax - zMin) / 5, x = px(value);
-    ctx.fillStyle = plotPalette.text; ctx.textAlign = "center"; ctx.textBaseline = "top";
-    ctx.fillText(value.toFixed(0), x, height - margin.bottom + 12);
+  const plotWidth = width - margin.left - margin.right, plotHeight = height - margin.top - margin.bottom;
+  const px = (value) => margin.left + (zMax - value) / (zMax - zMin) * plotWidth;
+  const py = (value) => margin.top + (1.03 - value) / 1.06 * plotHeight;
+  [0, 0.25, 0.5, 0.75, 1].forEach((value) => drawYTick(ctx, py(value), margin.left, width - margin.right, value.toFixed(value % 0.5 ? 2 : 1), value === 0.5));
+  for (let index = 0; index <= 4; index += 1) {
+    const value = zMax - index * (zMax - zMin) / 4;
+    drawXTick(ctx, px(value), height - margin.bottom, value.toFixed(0), margin.top);
   }
   ctx.save();
-  ctx.beginPath(); ctx.rect(margin.left, margin.top, width - margin.left - margin.right, height - margin.top - margin.bottom); ctx.clip();
-  if (pl) drawCurve(ctx, pl.redshift, pl.ionized_fraction, px, py, plotPalette.pl, 1.6, false, [7, 5]);
-  if (current) drawCurve(ctx, current.redshift, current.ionized_fraction, px, py, plotPalette.current, 2.1);
+  ctx.beginPath(); ctx.rect(margin.left, margin.top, plotWidth, plotHeight); ctx.clip();
+  if (pl) drawCurve(ctx, pl.redshift, pl.ionized_fraction, px, py, plotPalette.pl, 2.0, false, [7, 5]);
+  if (current) drawCurve(ctx, current.redshift, current.ionized_fraction, px, py, plotPalette.current, 2.7, true);
   ctx.restore();
-  ctx.strokeStyle = plotPalette.border;
-  ctx.strokeRect(margin.left, margin.top, width - margin.left - margin.right, height - margin.top - margin.bottom);
   if (!pl) {
     ctx.fillStyle = plotPalette.text; ctx.textAlign = "right"; ctx.textBaseline = "top";
     ctx.fillText("PL history computing", width - margin.right - 8, margin.top + 8);
   }
-  ctx.fillStyle = plotPalette.text; ctx.textAlign = "center"; ctx.textBaseline = "bottom";
-  ctx.fillText("Redshift, z   ·   cosmic time →", (margin.left + width - margin.right) / 2, height - 5);
-  ctx.save(); ctx.translate(14, (margin.top + height - margin.bottom) / 2); ctx.rotate(-Math.PI / 2);
-  ctx.fillText("Ionized fraction, xi", 0, 0); ctx.restore();
+  finishPlot(ctx, width, height, margin, "Redshift, z  (cosmic time →)", "Ionized fraction, ξ");
   const tauCurrent = current && Number.isFinite(current.tau_e) ? current.tau_e : null;
   const tauPL = pl && Number.isFinite(pl.tau_e) ? pl.tau_e : null;
   $("#tau-current").textContent = tauCurrent === null ? "构建中" : tauCurrent.toFixed(4);
@@ -639,30 +680,31 @@ function observationColor(point) {
 
 function drawObservationPoint(ctx, point, px, py, yMin, yMax) {
   const x = px(point.muv), y = py(Math.log10(point.phi)), color = observationColor(point);
-  ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = 1.15; ctx.setLineDash([]);
+  ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = 1.4; ctx.setLineDash([]);
   if (point.upper_limit) {
-    ctx.beginPath(); ctx.moveTo(x - 4, y - 3); ctx.lineTo(x + 4, y - 3); ctx.lineTo(x, y + 4); ctx.closePath(); ctx.fill();
-    ctx.beginPath(); ctx.moveTo(x, y + 4); ctx.lineTo(x, Math.min(py(yMin), y + 13)); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(x - 4.5, y - 3.5); ctx.lineTo(x + 4.5, y - 3.5); ctx.lineTo(x, y + 4.5); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(x, y + 4.5); ctx.lineTo(x, Math.min(py(yMin), y + 15)); ctx.stroke();
     return;
   }
   const lowerPhi = Math.max(point.phi - point.sigma_minus, 10 ** yMin);
   const upperPhi = Math.min(point.phi + point.sigma_plus, 10 ** yMax);
   const yLow = py(Math.log10(lowerPhi)), yHigh = py(Math.log10(upperPhi));
   ctx.beginPath(); ctx.moveTo(x, yHigh); ctx.lineTo(x, yLow);
-  ctx.moveTo(x - 3, yHigh); ctx.lineTo(x + 3, yHigh);
-  ctx.moveTo(x - 3, yLow); ctx.lineTo(x + 3, yLow); ctx.stroke();
+  ctx.moveTo(x - 3.5, yHigh); ctx.lineTo(x + 3.5, yHigh);
+  ctx.moveTo(x - 3.5, yLow); ctx.lineTo(x + 3.5, yLow); ctx.stroke();
   const source = observationSource(point.source_id);
+  ctx.fillStyle = plotPalette.paper;
   if (source && source.instrument.startsWith("HST")) {
-    ctx.beginPath(); ctx.arc(x, y, 3.2, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(x, y, 4, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
   } else {
-    ctx.fillRect(x - 3.2, y - 3.2, 6.4, 6.4);
+    ctx.fillRect(x - 3.7, y - 3.7, 7.4, 7.4); ctx.strokeRect(x - 3.7, y - 3.7, 7.4, 7.4);
   }
 }
 
 function drawLuminosityFunction() {
   if (!state.result || state.lfIndex === null) return;
   const {context: ctx, width, height} = canvasContext($("#lf-chart"));
-  const margin = {left: 70, right: 24, top: 22, bottom: 52};
+  const margin = {left: 76, right: 28, top: 26, bottom: 58};
   const xMin = -24, xMax = -10;
   const current = state.result.luminosity_function.curves[state.lfIndex];
   const plCurve = state.plReference && state.plReference.luminosity_function
@@ -679,40 +721,29 @@ function drawLuminosityFunction() {
   const finiteBounds = bounds.filter((value) => Number.isFinite(value) && value >= -12);
   const yMin = Math.max(-12, Math.min(-7, Math.floor(Math.min(...finiteBounds) - 0.35)));
   const yMax = Math.min(1, Math.max(-1, Math.ceil(Math.max(...finiteBounds) + 0.35)));
-  const px = (value) => margin.left + (value - xMin) / (xMax - xMin) * (width - margin.left - margin.right);
-  const py = (value) => margin.top + (yMax - value) / (yMax - yMin) * (height - margin.top - margin.bottom);
-  ctx.clearRect(0, 0, width, height);
-  ctx.font = "10px Arial, sans-serif";
+  const {plotWidth, plotHeight} = preparePlot(ctx, width, height, margin);
+  const px = (value) => margin.left + (value - xMin) / (xMax - xMin) * plotWidth;
+  const py = (value) => margin.top + (yMax - value) / (yMax - yMin) * plotHeight;
   for (let value = Math.ceil(yMin / 2) * 2; value <= yMax; value += 2) {
-    const y = py(value);
-    ctx.strokeStyle = plotPalette.grid; ctx.lineWidth = 1;
-    ctx.beginPath(); ctx.moveTo(margin.left, y); ctx.lineTo(width - margin.right, y); ctx.stroke();
-    ctx.fillStyle = plotPalette.text; ctx.textAlign = "right"; ctx.textBaseline = "middle";
-    ctx.fillText(value.toFixed(0), margin.left - 10, y);
+    drawYTick(ctx, py(value), margin.left, width - margin.right, value.toFixed(0));
   }
   for (let value = xMin; value <= xMax; value += 2) {
-    const x = px(value);
-    ctx.strokeStyle = plotPalette.gridLight;
-    ctx.beginPath(); ctx.moveTo(x, margin.top); ctx.lineTo(x, height - margin.bottom); ctx.stroke();
-    ctx.fillStyle = plotPalette.text; ctx.textAlign = "center"; ctx.textBaseline = "top";
-    ctx.fillText(value.toFixed(0), x, height - margin.bottom + 12);
+    drawXTick(ctx, px(value), height - margin.bottom, value.toFixed(0), margin.top);
   }
   ctx.save();
-  ctx.beginPath(); ctx.rect(margin.left, margin.top, width - margin.left - margin.right, height - margin.top - margin.bottom); ctx.clip();
-  if (plCurve) drawLFCurve(ctx, plCurve, px, py, plotPalette.pl, 1.6, [7, 5]);
-  const drawn = drawLFCurve(ctx, current, px, py, plotPalette.current, 2.1);
+  ctx.beginPath(); ctx.rect(margin.left, margin.top, plotWidth, plotHeight); ctx.clip();
+  if (plCurve) drawLFCurve(ctx, plCurve, px, py, plotPalette.pl, 2.1, [8, 5]);
+  const drawn = drawLFCurve(ctx, current, px, py, plotPalette.current, 2.8);
   observations.forEach((point) => drawObservationPoint(ctx, point, px, py, yMin, yMax));
   ctx.restore();
-  ctx.strokeStyle = plotPalette.border;
-  ctx.strokeRect(margin.left, margin.top, width - margin.left - margin.right, height - margin.top - margin.bottom);
   if (!drawn) {
     ctx.fillStyle = plotPalette.text; ctx.textAlign = "center"; ctx.textBaseline = "middle";
     ctx.fillText("该红移没有达到数值阈值的 LF 数据", (margin.left + width - margin.right) / 2, (margin.top + height - margin.bottom) / 2);
   }
-  ctx.fillStyle = plotPalette.text; ctx.textAlign = "center"; ctx.textBaseline = "bottom";
-  ctx.fillText("Absolute UV magnitude, MUV", (margin.left + width - margin.right) / 2, height - 5);
-  ctx.save(); ctx.translate(14, (margin.top + height - margin.bottom) / 2); ctx.rotate(-Math.PI / 2);
-  ctx.fillText("log10 φ [cMpc⁻³ mag⁻¹]", 0, 0); ctx.restore();
+  ctx.fillStyle = plotPalette.ink; ctx.font = "600 12px Georgia, serif";
+  ctx.textAlign = "right"; ctx.textBaseline = "top";
+  ctx.fillText(`z = ${displayRedshift}`, width - margin.right - 10, margin.top + 9);
+  finishPlot(ctx, width, height, margin, "Absolute UV magnitude, M_UV", "log₁₀ φ [cMpc⁻³ mag⁻¹]");
 }
 
 function setSlicePlaying(playing) {

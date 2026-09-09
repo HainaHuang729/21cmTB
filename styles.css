@@ -117,7 +117,7 @@ canvas { display: block; width: 100%; height: 100%; }
 .viridis-palette b:nth-child(6) { background: #73d055; }
 .viridis-palette b:nth-child(7) { background: #fde725; }
 
-.analysis-grid { min-height: 545px; display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(420px, 1fr); gap: 18px; }
+.analysis-grid { min-height: 620px; display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(420px, 1fr); gap: 18px; }
 .lf-main-card { min-width: 0; display: flex; flex-direction: column; }
 .redshift-toolbar { min-height: 49px; padding: 8px 13px; display: grid; grid-template-columns: 58px 118px minmax(150px, 1fr) max-content; align-items: center; gap: 12px; border-bottom: 1px solid var(--line); background: var(--blue-soft); }
 .redshift-toolbar label { display: flex; align-items: baseline; justify-content: space-between; gap: 6px; }
@@ -126,14 +126,14 @@ canvas { display: block; width: 100%; height: 100%; }
 .lf-main-toolbar { min-height: 45px; padding: 7px 13px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--line); background: var(--blue-soft); }
 .lf-main-toolbar > strong { margin-right: auto; color: var(--blue); font: 700 9px "SFMono-Regular", Consolas, monospace; }
 .main-curve-key { min-height: auto; padding: 0; border: 0; background: transparent; }
-.main-lf-canvas { min-height: 410px; flex: 1; }
+.main-lf-canvas { min-height: 460px; flex: 1; }
 .lf-source-note { min-height: 30px; padding: 8px 13px; color: var(--dim); border-top: 1px solid var(--line); background: var(--surface-alt); font: 7px/1.35 "SFMono-Regular", Consolas, monospace; }
 .lf-main-card:fullscreen { width: 100vw; height: 100vh; background: var(--surface); }
 .lf-main-card:fullscreen .main-lf-canvas { min-height: 0; flex: 1; }
 
 .aux-stack { min-height: 0; display: grid; grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 18px; }
 .aux-card { min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
-.curve-key { min-height: 25px; padding: 4px 12px; display: flex; align-items: center; justify-content: flex-end; gap: 6px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 8px; }
+.curve-key { min-height: 24px; padding: 4px 12px; display: flex; align-items: center; justify-content: flex-end; gap: 6px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 8px; }
 .curve-key i { width: 20px; height: 2px; }
 .current-curve { background: var(--red); }
 .pl-curve { border-top: 2px dashed var(--blue); }
