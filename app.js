@@ -15,19 +15,20 @@ const state = {
 
 const $ = (selector) => document.querySelector(selector);
 const astroNames = new Set(["F_STAR10", "ALPHA_STAR", "F_ESC10", "ALPHA_ESC", "M_TURN", "t_STAR", "L_X", "NU_X_THRESH"]);
-const DATA_VERSION = "hii256-v15";
+const DATA_VERSION = "hii256-v16";
+const PLOT_FONT = '"STIXGeneral", "Times New Roman", "DejaVu Serif", Georgia, serif';
 const plotPalette = {
-  ink: "#1d2730",
-  text: "#5c6872",
-  axis: "#77838c",
-  grid: "rgba(38,55,68,0.10)",
-  gridLight: "rgba(38,55,68,0.055)",
-  border: "#84919a",
-  current: "#ad3c30",
-  pl: "#28628f",
-  hst: "#327466",
-  jwst: "#795783",
-  plot: "#fbfcfd",
+  ink: "#000000",
+  text: "#1f2930",
+  axis: "#000000",
+  grid: "rgba(100,100,100,0.20)",
+  gridLight: "rgba(100,100,100,0.12)",
+  border: "#000000",
+  current: "#0072b2",
+  pl: "#000000",
+  hst: "#009e73",
+  jwst: "#d55e00",
+  plot: "#ffffff",
   paper: "#ffffff",
 };
 
@@ -37,13 +38,13 @@ function versioned(path) {
 
 async function fetchJSON(path) {
   const response = await fetch(path);
-  if (!response.ok) throw new Error(`读取 ${path} 失败：HTTP ${response.status}`);
+  if (!response.ok) throw new Error(`Failed to read ${path}: HTTP ${response.status}`);
   return response.json();
 }
 
 async function fetchBuffer(path) {
   const response = await fetch(path);
-  if (!response.ok) throw new Error(`读取 ${path} 失败：HTTP ${response.status}`);
+  if (!response.ok) throw new Error(`Failed to read ${path}: HTTP ${response.status}`);
   return response.arrayBuffer();
 }
 
@@ -122,7 +123,7 @@ function decodePlane(lightcone) {
 }
 
 async function inflateSliceField(buffer, descriptor) {
-  if (!("DecompressionStream" in window)) throw new Error("浏览器不支持高分辨率数据解压缩，请使用新版浏览器");
+  if (!("DecompressionStream" in window)) throw new Error("This browser cannot decompress the high-resolution data. Please use a current browser.");
   const compressed = new Uint8Array(
     buffer,
     descriptor.offset,
@@ -130,7 +131,7 @@ async function inflateSliceField(buffer, descriptor) {
   );
   const stream = new Blob([compressed]).stream().pipeThrough(new DecompressionStream("deflate"));
   const raw = new Uint8Array(await new Response(stream).arrayBuffer());
-  if (raw.byteLength !== descriptor.uncompressed_bytes) throw new Error("高分辨率切片数据长度校验失败");
+  if (raw.byteLength !== descriptor.uncompressed_bytes) throw new Error("High-resolution slice data failed its length check.");
   return raw;
 }
 
@@ -163,11 +164,11 @@ function showUnavailableRun(runId) {
   state.result = null;
   state.plReference = null;
   $("#status-card").classList.remove("active");
-  $("#status-title").textContent = "该高分辨率参数点未发布";
-  $("#status-message").textContent = `${runId} · 21cmFAST 自旋温度计算出现数值异常；未使用插值或低分辨率结果替代`;
+  $("#status-title").textContent = "High-resolution parameter point unavailable";
+  $("#status-message").textContent = `${runId} · 21cmFAST encountered a spin-temperature numerical failure; no interpolation or low-resolution substitute is used`;
   $("#run-badge").textContent = "UNAVAILABLE";
   $("#run-badge").className = "run-badge failed";
-  $("#selection-detail").innerHTML = `<strong>已排除的数值异常点</strong><span>${runId}</span>`;
+  $("#selection-detail").innerHTML = `<strong>Excluded numerical outlier</strong><span>${runId}</span>`;
   [
     "#metric-z", "#metric-temp", "#metric-kp", "#metric-ms", "#metric-time",
     "#tau-current", "#tau-pl", "#tau-difference",
@@ -198,8 +199,8 @@ async function loadRun(runId) {
   }
   const serial = ++state.requestSerial;
   $("#status-card").classList.add("active");
-  $("#status-title").textContent = "切换精确模拟";
-  $("#status-message").textContent = `${runId} · 正在读取预计算文件`;
+  $("#status-title").textContent = "Switching exact simulation";
+  $("#status-message").textContent = `${runId} · Loading precomputed files`;
   $("#run-badge").textContent = "LOADING";
   $("#run-badge").className = "run-badge running";
   try {
@@ -212,7 +213,7 @@ async function loadRun(runId) {
       || result.slices.redshift.some(
         (redshift, index) => Math.abs(redshift - plReference.slices.redshift[index]) > 1.0e-4,
       )
-    )) throw new Error("BPL 与同参数 PL 的切片红移网格不一致");
+    )) throw new Error("The BPL and matched-PL slice redshift grids do not agree.");
     const sliceTasks = [decodeSlices(result.slices, "web_data/runs")];
     if (plReference.slices) sliceTasks.push(decodeSlices(plReference.slices, "web_data/pl"));
     const [decodedSlices, decodedPLSlices = null] = await Promise.all(sliceTasks);
@@ -225,7 +226,7 @@ async function loadRun(runId) {
   } catch (error) {
     if (serial !== state.requestSerial) return;
     $("#status-card").classList.remove("active");
-    $("#status-title").textContent = "结果读取失败";
+    $("#status-title").textContent = "Result loading failed";
     $("#status-message").textContent = error.message;
     $("#run-badge").textContent = "ERROR";
     $("#run-badge").className = "run-badge failed";
@@ -240,9 +241,9 @@ function formatDuration(seconds) {
 function showResult() {
   const result = state.result;
   $("#status-card").classList.remove("active");
-  $("#status-title").textContent = "预计算结果已载入";
-  const mode = result.role.kind === "astro_oat" ? `${result.role.parameter} 单参数扫描` : (result.role.kind === "kp_ms_grid" ? "KP × MS 联合网格" : "基准模型");
-  $("#status-message").textContent = `${mode} · 页面没有启动新计算`;
+  $("#status-title").textContent = "Precomputed result loaded";
+  const mode = result.role.kind === "astro_oat" ? `${result.role.parameter} one-at-a-time scan` : (result.role.kind === "kp_ms_grid" ? "KP × MS joint grid" : "Baseline model");
+  $("#status-message").textContent = `${mode} · No new calculation was launched`;
   $("#run-badge").textContent = `EXACT · ${result.run_id.slice(4, 12)}`;
   $("#run-badge").className = "run-badge completed";
   $("#selection-detail").innerHTML = `<strong>${mode}</strong><span>${result.run_id}</span>`;
@@ -297,32 +298,50 @@ function preparePlot(ctx, width, height, margin) {
 
 function drawXTick(ctx, x, plotBottom, label, gridTop, showGrid = true) {
   if (showGrid) {
-    ctx.strokeStyle = plotPalette.gridLight; ctx.lineWidth = 1;
+    ctx.strokeStyle = plotPalette.gridLight; ctx.lineWidth = 0.65;
     ctx.beginPath(); ctx.moveTo(x, gridTop); ctx.lineTo(x, plotBottom); ctx.stroke();
   }
-  ctx.strokeStyle = plotPalette.axis;
-  ctx.beginPath(); ctx.moveTo(x, plotBottom); ctx.lineTo(x, plotBottom + 4); ctx.stroke();
-  ctx.fillStyle = plotPalette.text; ctx.font = "10px Arial, sans-serif";
-  ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText(label, x, plotBottom + 8);
+  ctx.strokeStyle = plotPalette.axis; ctx.lineWidth = 1.1;
+  ctx.beginPath();
+  ctx.moveTo(x, plotBottom); ctx.lineTo(x, plotBottom - 6);
+  ctx.moveTo(x, gridTop); ctx.lineTo(x, gridTop + 6); ctx.stroke();
+  ctx.fillStyle = plotPalette.text; ctx.font = `13px ${PLOT_FONT}`;
+  ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText(label, x, plotBottom + 9);
 }
 
 function drawYTick(ctx, y, plotLeft, plotRight, label, emphasized = false) {
-  ctx.strokeStyle = emphasized ? "rgba(38,55,68,0.24)" : plotPalette.grid;
-  ctx.lineWidth = emphasized ? 1.15 : 1;
+  ctx.strokeStyle = emphasized ? "rgba(0,0,0,0.30)" : plotPalette.grid;
+  ctx.lineWidth = emphasized ? 0.85 : 0.65;
   ctx.setLineDash(emphasized ? [5, 4] : []);
   ctx.beginPath(); ctx.moveTo(plotLeft, y); ctx.lineTo(plotRight, y); ctx.stroke();
   ctx.setLineDash([]);
-  ctx.strokeStyle = plotPalette.axis;
-  ctx.beginPath(); ctx.moveTo(plotLeft - 4, y); ctx.lineTo(plotLeft, y); ctx.stroke();
-  ctx.fillStyle = plotPalette.text; ctx.font = "10px Arial, sans-serif";
-  ctx.textAlign = "right"; ctx.textBaseline = "middle"; ctx.fillText(label, plotLeft - 9, y);
+  ctx.strokeStyle = plotPalette.axis; ctx.lineWidth = 1.1;
+  ctx.beginPath();
+  ctx.moveTo(plotLeft, y); ctx.lineTo(plotLeft + 6, y);
+  ctx.moveTo(plotRight, y); ctx.lineTo(plotRight - 6, y); ctx.stroke();
+  ctx.fillStyle = plotPalette.text; ctx.font = `13px ${PLOT_FONT}`;
+  ctx.textAlign = "right"; ctx.textBaseline = "middle"; ctx.fillText(label, plotLeft - 10, y);
+}
+
+function drawXMinorTick(ctx, x, plotTop, plotBottom) {
+  ctx.strokeStyle = plotPalette.axis; ctx.lineWidth = 0.9;
+  ctx.beginPath();
+  ctx.moveTo(x, plotTop); ctx.lineTo(x, plotTop + 3.5);
+  ctx.moveTo(x, plotBottom); ctx.lineTo(x, plotBottom - 3.5); ctx.stroke();
+}
+
+function drawYMinorTick(ctx, y, plotLeft, plotRight) {
+  ctx.strokeStyle = plotPalette.axis; ctx.lineWidth = 0.9;
+  ctx.beginPath();
+  ctx.moveTo(plotLeft, y); ctx.lineTo(plotLeft + 3.5, y);
+  ctx.moveTo(plotRight, y); ctx.lineTo(plotRight - 3.5, y); ctx.stroke();
 }
 
 function finishPlot(ctx, width, height, margin, xLabel, yLabel) {
   const plotRight = width - margin.right, plotBottom = height - margin.bottom;
-  ctx.strokeStyle = plotPalette.border; ctx.lineWidth = 1;
+  ctx.strokeStyle = plotPalette.border; ctx.lineWidth = 1.1;
   ctx.strokeRect(margin.left + 0.5, margin.top + 0.5, plotRight - margin.left - 1, plotBottom - margin.top - 1);
-  ctx.fillStyle = plotPalette.ink; ctx.font = "11px Arial, sans-serif";
+  ctx.fillStyle = plotPalette.ink; ctx.font = `700 15px ${PLOT_FONT}`;
   ctx.textAlign = "center"; ctx.textBaseline = "bottom";
   ctx.fillText(xLabel, (margin.left + plotRight) / 2, height - 5);
   ctx.save();
@@ -330,18 +349,17 @@ function finishPlot(ctx, width, height, margin, xLabel, yLabel) {
   ctx.fillText(yLabel, 0, 0); ctx.restore();
 }
 
-function drawCurve(ctx, z, values, px, py, color, width, shadow = false, dash = []) {
+function drawCurve(ctx, z, values, px, py, color, width, dash = []) {
   ctx.beginPath();
   z.forEach((value, index) => ctx[index ? "lineTo" : "moveTo"](px(value), py(values[index])));
   ctx.strokeStyle = color; ctx.lineWidth = width; ctx.setLineDash(dash);
-  if (shadow) { ctx.shadowColor = "rgba(163,62,50,0.13)"; ctx.shadowBlur = 3; }
-  ctx.stroke(); ctx.shadowBlur = 0; ctx.setLineDash([]);
+  ctx.stroke(); ctx.setLineDash([]);
 }
 
 function drawGlobal() {
   if (!state.result) return;
   const {context: ctx, width, height} = canvasContext($("#global-chart"));
-  const margin = {left: 58, right: 18, top: 16, bottom: 42};
+  const margin = {left: 70, right: 20, top: 18, bottom: 54};
   const z = state.result.global.redshift, values = state.result.global.brightness_mk;
   const pl = state.plReference ? state.plReference.global : null;
   const combined = pl ? values.concat(pl.brightness_mk) : values;
@@ -353,10 +371,11 @@ function drawGlobal() {
   for (let index = 0; index <= 4; index += 1) {
     const value = zMax - index * (zMax - zMin) / 4;
     drawXTick(ctx, px(value), height - margin.bottom, value.toFixed(0), margin.top);
+    if (index < 4) drawXMinorTick(ctx, px(value - (zMax - zMin) / 8), margin.top, height - margin.bottom);
   }
   ctx.save(); ctx.beginPath(); ctx.rect(margin.left, margin.top, plotWidth, plotHeight); ctx.clip();
-  if (pl) drawCurve(ctx, pl.redshift, pl.brightness_mk, px, py, plotPalette.pl, 2.0, false, [7, 5]);
-  drawCurve(ctx, z, values, px, py, plotPalette.current, 2.7, true);
+  if (pl) drawCurve(ctx, pl.redshift, pl.brightness_mk, px, py, plotPalette.pl, 1.6, [7, 5]);
+  drawCurve(ctx, z, values, px, py, plotPalette.current, 2.2);
   ctx.restore();
   const trough = values.indexOf(Math.min(...values));
   ctx.fillStyle = plotPalette.paper; ctx.strokeStyle = plotPalette.current; ctx.lineWidth = 2.2;
@@ -379,13 +398,13 @@ function availableIonizationHistory(result) {
 function drawIonizationHistory() {
   if (!state.result) return;
   const {context: ctx, width, height} = canvasContext($("#ionization-history-chart"));
-  const margin = {left: 58, right: 18, top: 16, bottom: 42};
+  const margin = {left: 70, right: 20, top: 18, bottom: 54};
   const current = availableIonizationHistory(state.result);
   const pl = availableIonizationHistory(state.plReference);
   const histories = [current, pl].filter(Boolean);
   preparePlot(ctx, width, height, margin);
   if (!histories.length) {
-    ctx.fillStyle = plotPalette.text; ctx.font = "10px Arial, sans-serif";
+    ctx.fillStyle = plotPalette.text; ctx.font = `13px ${PLOT_FONT}`;
     ctx.textAlign = "center"; ctx.textBaseline = "middle";
     ctx.fillText("Ionization history is being prepared", width / 2, height / 2);
     return;
@@ -399,11 +418,12 @@ function drawIonizationHistory() {
   for (let index = 0; index <= 4; index += 1) {
     const value = zMax - index * (zMax - zMin) / 4;
     drawXTick(ctx, px(value), height - margin.bottom, value.toFixed(0), margin.top);
+    if (index < 4) drawXMinorTick(ctx, px(value - (zMax - zMin) / 8), margin.top, height - margin.bottom);
   }
   ctx.save();
   ctx.beginPath(); ctx.rect(margin.left, margin.top, plotWidth, plotHeight); ctx.clip();
-  if (pl) drawCurve(ctx, pl.redshift, pl.ionized_fraction, px, py, plotPalette.pl, 2.0, false, [7, 5]);
-  if (current) drawCurve(ctx, current.redshift, current.ionized_fraction, px, py, plotPalette.current, 2.7, true);
+  if (pl) drawCurve(ctx, pl.redshift, pl.ionized_fraction, px, py, plotPalette.pl, 1.6, [7, 5]);
+  if (current) drawCurve(ctx, current.redshift, current.ionized_fraction, px, py, plotPalette.current, 2.2);
   ctx.restore();
   if (!pl) {
     ctx.fillStyle = plotPalette.text; ctx.textAlign = "right"; ctx.textBaseline = "top";
@@ -412,8 +432,8 @@ function drawIonizationHistory() {
   finishPlot(ctx, width, height, margin, "Redshift, z  (cosmic time →)", "Ionized fraction, ξ");
   const tauCurrent = current && Number.isFinite(current.tau_e) ? current.tau_e : null;
   const tauPL = pl && Number.isFinite(pl.tau_e) ? pl.tau_e : null;
-  $("#tau-current").textContent = tauCurrent === null ? "构建中" : tauCurrent.toFixed(4);
-  $("#tau-pl").textContent = tauPL === null ? "构建中" : tauPL.toFixed(4);
+  $("#tau-current").textContent = tauCurrent === null ? "Computing…" : tauCurrent.toFixed(4);
+  $("#tau-pl").textContent = tauPL === null ? "Computing…" : tauPL.toFixed(4);
   $("#tau-difference").textContent = tauCurrent === null || tauPL === null
     ? "—"
     : `${tauCurrent - tauPL >= 0 ? "+" : ""}${(tauCurrent - tauPL).toFixed(4)}`;
@@ -474,7 +494,7 @@ function formatKelvin(value) {
 function drawLightcone() {
   if (!state.result) return;
   const {context: ctx, width, height} = canvasContext($("#lightcone-chart"));
-  const margin = {left: 55, right: 18, top: 12, bottom: 36};
+  const margin = {left: 68, right: 20, top: 14, bottom: 48};
   const {values, rows, columns} = state.result.decodedPlane;
   const imageCanvas = document.createElement("canvas"); imageCanvas.width = columns; imageCanvas.height = rows;
   const imageContext = imageCanvas.getContext("2d"), image = imageContext.createImageData(columns, rows);
@@ -485,7 +505,7 @@ function drawLightcone() {
   imageContext.putImageData(image, 0, 0); ctx.clearRect(0, 0, width, height); ctx.imageSmoothingEnabled = false;
   ctx.drawImage(imageCanvas, margin.left, margin.top, width - margin.left - margin.right, height - margin.top - margin.bottom);
   ctx.strokeStyle = plotPalette.border; ctx.strokeRect(margin.left, margin.top, width - margin.left - margin.right, height - margin.top - margin.bottom);
-  ctx.font = "10px Arial, sans-serif"; ctx.fillStyle = plotPalette.text;
+  ctx.font = `13px ${PLOT_FONT}`; ctx.fillStyle = plotPalette.text;
   const redshift = state.result.lightcone.redshift;
   for (let index = 0; index <= 5; index += 1) {
     const column = Math.round(index * (columns - 1) / 5), x = margin.left + index * (width - margin.left - margin.right) / 5;
@@ -496,8 +516,9 @@ function drawLightcone() {
     const value = index * distance[distance.length - 1] / 3, y = margin.top + index * (height - margin.top - margin.bottom) / 3;
     ctx.textAlign = "right"; ctx.textBaseline = "middle"; ctx.fillText(value.toFixed(0), margin.left - 10, y);
   }
-  ctx.textAlign = "center"; ctx.textBaseline = "bottom"; ctx.fillText("Redshift, z   ·   cosmic time →", (margin.left + width - margin.right) / 2, height - 4);
-  ctx.save(); ctx.translate(14, (margin.top + height - margin.bottom) / 2); ctx.rotate(-Math.PI / 2); ctx.fillText("Transverse distance [cMpc]", 0, 0); ctx.restore();
+  ctx.fillStyle = plotPalette.ink; ctx.font = `700 15px ${PLOT_FONT}`;
+  ctx.textAlign = "center"; ctx.textBaseline = "bottom"; ctx.fillText("Redshift, z  (cosmic time →)", (margin.left + width - margin.right) / 2, height - 4);
+  ctx.save(); ctx.translate(16, (margin.top + height - margin.bottom) / 2); ctx.rotate(-Math.PI / 2); ctx.fillText("Transverse distance [cMpc]", 0, 0); ctx.restore();
 }
 
 function configureSliceControl() {
@@ -541,7 +562,7 @@ function configureLFControl() {
     button.type = "button";
     button.dataset.index = index;
     button.textContent = `z = ${redshift.toFixed(0)}`;
-    button.setAttribute("aria-label", `显示红移 ${redshift.toFixed(0)} 的 UV 光度函数`);
+    button.setAttribute("aria-label", `Show the UV luminosity function at redshift ${redshift.toFixed(0)}`);
     button.addEventListener("click", () => {
       state.lfIndex = index;
       updateLFControl();
@@ -599,12 +620,12 @@ function drawPendingPLSlice(canvas) {
   ctx.strokeStyle = plotPalette.grid;
   ctx.strokeRect(0.5, 0.5, width - 1, height - 1);
   ctx.fillStyle = plotPalette.text;
-  ctx.font = "10px Arial, sans-serif";
+  ctx.font = `700 14px ${PLOT_FONT}`;
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
   ctx.fillText("PL slices computing", width / 2, height / 2 - 7);
-  ctx.font = "9px Arial, sans-serif";
-  ctx.fillText("完成后自动更新", width / 2, height / 2 + 10);
+  ctx.font = `12px ${PLOT_FONT}`;
+  ctx.fillText("Updates automatically when ready", width / 2, height / 2 + 10);
 }
 
 const sliceFieldSpecs = [
@@ -650,7 +671,7 @@ function drawSlices() {
       $(field.plOutput).textContent = formatFieldRange(field, plRange);
     } else {
       drawPendingPLSlice($(field.plCanvas));
-      $(field.plOutput).textContent = "计算中";
+      $(field.plOutput).textContent = "Computing…";
     }
   });
 }
@@ -704,7 +725,7 @@ function drawObservationPoint(ctx, point, px, py, yMin, yMax) {
 function drawLuminosityFunction() {
   if (!state.result || state.lfIndex === null) return;
   const {context: ctx, width, height} = canvasContext($("#lf-chart"));
-  const margin = {left: 76, right: 28, top: 26, bottom: 58};
+  const margin = {left: 86, right: 30, top: 30, bottom: 68};
   const xMin = -24, xMax = -10;
   const current = state.result.luminosity_function.curves[state.lfIndex];
   const plCurve = state.plReference && state.plReference.luminosity_function
@@ -726,21 +747,23 @@ function drawLuminosityFunction() {
   const py = (value) => margin.top + (yMax - value) / (yMax - yMin) * plotHeight;
   for (let value = Math.ceil(yMin / 2) * 2; value <= yMax; value += 2) {
     drawYTick(ctx, py(value), margin.left, width - margin.right, value.toFixed(0));
+    if (value + 1 <= yMax) drawYMinorTick(ctx, py(value + 1), margin.left, width - margin.right);
   }
   for (let value = xMin; value <= xMax; value += 2) {
     drawXTick(ctx, px(value), height - margin.bottom, value.toFixed(0), margin.top);
+    if (value + 1 <= xMax) drawXMinorTick(ctx, px(value + 1), margin.top, height - margin.bottom);
   }
   ctx.save();
   ctx.beginPath(); ctx.rect(margin.left, margin.top, plotWidth, plotHeight); ctx.clip();
-  if (plCurve) drawLFCurve(ctx, plCurve, px, py, plotPalette.pl, 2.1, [8, 5]);
-  const drawn = drawLFCurve(ctx, current, px, py, plotPalette.current, 2.8);
+  if (plCurve) drawLFCurve(ctx, plCurve, px, py, plotPalette.pl, 1.6, [7, 5]);
+  const drawn = drawLFCurve(ctx, current, px, py, plotPalette.current, 2.2);
   observations.forEach((point) => drawObservationPoint(ctx, point, px, py, yMin, yMax));
   ctx.restore();
   if (!drawn) {
     ctx.fillStyle = plotPalette.text; ctx.textAlign = "center"; ctx.textBaseline = "middle";
-    ctx.fillText("该红移没有达到数值阈值的 LF 数据", (margin.left + width - margin.right) / 2, (margin.top + height - margin.bottom) / 2);
+    ctx.fillText("No LF bins pass the numerical threshold at this redshift", (margin.left + width - margin.right) / 2, (margin.top + height - margin.bottom) / 2);
   }
-  ctx.fillStyle = plotPalette.ink; ctx.font = "600 12px Georgia, serif";
+  ctx.fillStyle = plotPalette.ink; ctx.font = `700 17px ${PLOT_FONT}`;
   ctx.textAlign = "right"; ctx.textBaseline = "top";
   ctx.fillText(`z = ${displayRedshift}`, width - margin.right - 10, margin.top + 9);
   finishPlot(ctx, width, height, margin, "Absolute UV magnitude, M_UV", "log₁₀ φ [cMpc⁻³ mag⁻¹]");
@@ -749,7 +772,7 @@ function drawLuminosityFunction() {
 function setSlicePlaying(playing) {
   if (state.sliceTimer) window.clearInterval(state.sliceTimer);
   state.sliceTimer = null;
-  $("#slice-play").textContent = playing ? "暂停" : "播放";
+  $("#slice-play").textContent = playing ? "Pause" : "Play";
   $("#slice-play").classList.toggle("playing", playing);
   if (!playing) return;
   const slider = $("#slice-redshift");
@@ -780,12 +803,12 @@ async function initialize() {
   try {
     state.design = await fetchJSON(versioned("web_data/index.json"));
     state.design.parameter_specs.forEach(createParameter);
-    $("#data-state").classList.add("online"); $("#data-state").lastChild.textContent = "结果就绪";
+    $("#data-state").classList.add("online"); $("#data-state").lastChild.textContent = "Results ready";
     $("#footer-count").textContent = `${state.design.n_exact_runs} EXACT 21cmFAST LIGHTCONES`;
     await loadRun(state.design.baseline_run_id);
   } catch (error) {
     $("#status-card").classList.remove("active");
-    $("#status-title").textContent = "结果库尚未生成";
+    $("#status-title").textContent = "Result library not available";
     $("#status-message").textContent = error.message;
     $("#run-badge").textContent = "NO DATA"; $("#run-badge").className = "run-badge failed";
   }
