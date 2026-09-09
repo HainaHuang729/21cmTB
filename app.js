@@ -3,6 +3,7 @@
 const state = {
   design: null,
   controls: new Map(),
+  parameters: {},
   result: null,
   plReference: null,
   activeAstro: null,
@@ -10,11 +11,14 @@ const state = {
   sliceIndex: null,
   sliceTimer: null,
   lfIndex: null,
+  selectedField: "brightness",
+  thumbnailDataset: "bpl",
+  auxPanel: "ionization",
 };
 
 const $ = (selector) => document.querySelector(selector);
 const astroNames = new Set(["F_STAR10", "ALPHA_STAR", "F_ESC10", "ALPHA_ESC", "M_TURN", "t_STAR", "L_X", "NU_X_THRESH"]);
-const DATA_VERSION = "hii256-v12";
+const DATA_VERSION = "hii256-v13";
 const plotPalette = {
   ink: "#1d2730",
   text: "#56616a",
@@ -57,6 +61,7 @@ function updateSliderVisual(control) {
   const index = Number(slider.value);
   slider.style.setProperty("--fill", `${100 * index / (specification.values.length - 1)}%`);
   valueNode.textContent = displayNumber(specification.values[index], specification.name);
+  state.parameters[specification.name] = specification.values[index];
 }
 
 function resetOne(control) {
@@ -95,7 +100,7 @@ function createParameter(specification) {
   });
   state.controls.set(specification.name, control);
   updateSliderVisual(control);
-  $(`#group-${specification.group}`).appendChild(wrapper);
+  $("#parameter-list").appendChild(wrapper);
 }
 
 function decodeI16Bytes(bytes, scale) {
@@ -166,21 +171,15 @@ function showUnavailableRun(runId) {
   $("#selection-detail").innerHTML = `<strong>已排除的数值异常点</strong><span>${runId}</span>`;
   [
     "#metric-z", "#metric-temp", "#metric-kp", "#metric-ms", "#metric-time",
-    "#run-identity", "#tau-current", "#tau-pl", "#tau-difference",
+    "#tau-current", "#tau-pl", "#tau-difference", "#main-bpl-range",
+    "#main-pl-range", "#main-scale-min", "#main-scale-max",
   ].forEach((selector) => {
     $(selector).textContent = "—";
   });
-  $("#parameter-summary").innerHTML = "";
   [
     "#slice-brightness-range", "#slice-density-range", "#slice-ionization-range",
     "#slice-spin-temperature-range", "#slice-kinetic-temperature-range",
-    "#pl-slice-brightness-range", "#pl-slice-density-range", "#pl-slice-ionization-range",
-    "#pl-slice-spin-temperature-range", "#pl-slice-kinetic-temperature-range",
-    "#slice-density-scale-min", "#slice-density-scale-max",
-    "#slice-ionization-scale-min", "#slice-ionization-scale-max",
-    "#slice-spin-scale-min", "#slice-spin-scale-max",
-    "#slice-kinetic-scale-min", "#slice-kinetic-scale-max",
-    "#slice-redshift-value", "#lf-redshift-value",
+    "#slice-redshift-value", "#thumbnail-redshift", "#lf-redshift-value",
   ].forEach((selector) => {
     $(selector).textContent = "—";
   });
@@ -252,15 +251,9 @@ function showResult() {
   $("#metric-kp").textContent = `${result.parameters.KP_h_Mpc.toFixed(1)} h/Mpc`;
   $("#metric-ms").textContent = result.parameters.MS.toFixed(2);
   $("#metric-time").textContent = formatDuration(result.summary.elapsed_seconds);
-  $("#run-identity").textContent = result.run_id;
-  const summary = $("#parameter-summary"); summary.innerHTML = "";
-  state.design.parameter_specs.forEach((specification) => {
-    const item = document.createElement("div");
-    item.innerHTML = `<small>${specification.label}</small><strong>${displayNumber(result.parameters[specification.name], specification.name)}</strong>`;
-    summary.appendChild(item);
-  });
   configureSliceControl();
   configureLFControl();
+  setThumbnailDataset(state.thumbnailDataset);
   drawAll();
 }
 
@@ -289,7 +282,7 @@ function drawCurve(ctx, z, values, px, py, color, width, shadow = false, dash = 
 function drawGlobal() {
   if (!state.result) return;
   const {context: ctx, width, height} = canvasContext($("#global-chart"));
-  const margin = {left: 64, right: 24, top: 26, bottom: 48};
+  const margin = {left: 52, right: 15, top: 14, bottom: 35};
   const z = state.result.global.redshift, values = state.result.global.brightness_mk;
   const pl = state.plReference ? state.plReference.global : null;
   const combined = pl ? values.concat(pl.brightness_mk) : values;
@@ -336,7 +329,7 @@ function availableIonizationHistory(result) {
 function drawIonizationHistory() {
   if (!state.result) return;
   const {context: ctx, width, height} = canvasContext($("#ionization-history-chart"));
-  const margin = {left: 64, right: 24, top: 24, bottom: 48};
+  const margin = {left: 52, right: 15, top: 14, bottom: 35};
   const current = availableIonizationHistory(state.result);
   const pl = availableIonizationHistory(state.plReference);
   const histories = [current, pl].filter(Boolean);
@@ -443,7 +436,7 @@ function formatKelvin(value) {
 function drawLightcone() {
   if (!state.result) return;
   const {context: ctx, width, height} = canvasContext($("#lightcone-chart"));
-  const margin = {left: 62, right: 24, top: 18, bottom: 45};
+  const margin = {left: 55, right: 18, top: 12, bottom: 36};
   const {values, rows, columns} = state.result.decodedPlane;
   const imageCanvas = document.createElement("canvas"); imageCanvas.width = columns; imageCanvas.height = rows;
   const imageContext = imageCanvas.getContext("2d"), image = imageContext.createImageData(columns, rows);
@@ -489,7 +482,9 @@ function updateSliceControl() {
   const slider = $("#slice-redshift");
   state.sliceIndex = Number(slider.value);
   slider.style.setProperty("--fill", `${100 * state.sliceIndex / Number(slider.max)}%`);
-  $("#slice-redshift-value").textContent = `z = ${state.result.slices.redshift[state.sliceIndex].toFixed(2)}`;
+  const label = `z = ${state.result.slices.redshift[state.sliceIndex].toFixed(2)}`;
+  $("#slice-redshift-value").textContent = label;
+  $("#thumbnail-redshift").textContent = label;
 }
 
 function configureLFControl() {
@@ -574,84 +569,92 @@ function drawPendingPLSlice(canvas) {
   ctx.fillText("完成后自动更新", width / 2, height / 2 + 10);
 }
 
+const sliceFieldSpecs = [
+  {name: "brightness", key: "brightness", canvas: "#brightness-slice", label: "brightness_temp", subtitle: "21 cm 亮温 [mK]", fixed: [-150, 30], palette: "eor"},
+  {name: "density", key: "density", canvas: "#density-slice", label: "density", subtitle: "密度对比度 δ", palette: "viridis"},
+  {name: "ionized", key: "ionized", canvas: "#ionization-slice", label: "x_HII", subtitle: "电离氢分数", palette: "viridis"},
+  {name: "spin", key: "spinTemperatureLog10", canvas: "#spin-temperature-slice", label: "Ts_box", subtitle: "21 cm 自旋温度 [K] · log", palette: "viridis", temperature: true},
+  {name: "kinetic", key: "kineticTemperatureLog10", canvas: "#kinetic-temperature-slice", label: "Tk_box", subtitle: "IGM 气体动温 [K] · log", palette: "viridis", temperature: true},
+];
+
+function selectedFieldSpec() {
+  return sliceFieldSpecs.find((field) => field.name === state.selectedField) || sliceFieldSpecs[0];
+}
+
+function formatFieldRange(field, range) {
+  if (!range) return "—";
+  if (field.temperature) return `${formatKelvin(10 ** range[0])} … ${formatKelvin(10 ** range[1])} K`;
+  if (field.name === "brightness") return `${range[0].toFixed(1)} … ${range[1].toFixed(1)} mK`;
+  if (field.name === "density") return `${range[0].toFixed(2)} … ${range[1].toFixed(2)}`;
+  return `${range[0].toFixed(3)} … ${range[1].toFixed(3)}`;
+}
+
+function formatScaleEdge(field, value) {
+  if (field.temperature) return `${formatKelvin(10 ** value)} K`;
+  if (field.name === "brightness") return `${value.toFixed(0)} mK`;
+  if (field.name === "density") return `δ ${value.toFixed(2)}`;
+  return value.toFixed(3);
+}
+
+function sharedFieldScale(field, bplDecoded, plDecoded) {
+  if (field.fixed) return field.fixed;
+  const bplRange = sliceFieldRange(bplDecoded[field.key], bplDecoded);
+  if (!plDecoded) return bplRange;
+  const plRange = sliceFieldRange(plDecoded[field.key], plDecoded);
+  return [Math.min(bplRange[0], plRange[0]), Math.max(bplRange[1], plRange[1])];
+}
+
+function drawOneField(canvas, field, decoded, scale) {
+  const color = field.palette === "eor" ? eorColor : viridisColor;
+  return drawSliceField(canvas, decoded[field.key], decoded, color, scale);
+}
+
+function drawMainSlice() {
+  if (!state.result || state.sliceIndex === null) return;
+  const field = selectedFieldSpec();
+  const bplDecoded = state.result.decodedSlices;
+  const plDecoded = state.plReference ? state.plReference.decodedSlices : null;
+  const scale = sharedFieldScale(field, bplDecoded, plDecoded);
+  const bplRange = drawOneField($("#main-bpl-slice"), field, bplDecoded, scale);
+  let plRange = null;
+  if (plDecoded) plRange = drawOneField($("#main-pl-slice"), field, plDecoded, scale);
+  else drawPendingPLSlice($("#main-pl-slice"));
+
+  $("#main-field-title").textContent = field.label;
+  $("#main-field-subtitle").textContent = `${field.subtitle} · SELECTED 256² SLICE`;
+  $("#main-bpl-range").textContent = formatFieldRange(field, bplRange);
+  $("#main-pl-range").textContent = plRange ? formatFieldRange(field, plRange) : "计算中";
+  $("#main-scale-min").textContent = formatScaleEdge(field, scale[0]);
+  $("#main-scale-max").textContent = formatScaleEdge(field, scale[1]);
+  $("#main-scale-gradient").className = `palette ${field.palette === "eor" ? "eor-palette" : "viridis-palette"}`;
+}
+
 function drawSlices() {
-  if (!state.result || !state.plReference || state.sliceIndex === null) return;
-  const decoded = state.result.decodedSlices;
-  const plDecoded = state.plReference.decodedSlices;
-  if (!plDecoded) {
-    const brightness = drawSliceField($("#brightness-slice"), decoded.brightness, decoded, eorColor, [-150, 30]);
-    const density = drawSliceField($("#density-slice"), decoded.density, decoded, viridisColor);
-    const ionized = drawSliceField($("#ionization-slice"), decoded.ionized, decoded, viridisColor);
-    const spin = drawSliceField($("#spin-temperature-slice"), decoded.spinTemperatureLog10, decoded, viridisColor);
-    const kinetic = drawSliceField($("#kinetic-temperature-slice"), decoded.kineticTemperatureLog10, decoded, viridisColor);
-    [
-      "#pl-brightness-slice", "#pl-density-slice", "#pl-ionization-slice",
-      "#pl-spin-temperature-slice", "#pl-kinetic-temperature-slice",
-    ].forEach((selector) => drawPendingPLSlice($(selector)));
-    $("#slice-brightness-range").textContent = `${brightness[0].toFixed(1)} … ${brightness[1].toFixed(1)} mK`;
-    $("#slice-density-range").textContent = `${density[0].toFixed(2)} … ${density[1].toFixed(2)}`;
-    $("#slice-ionization-range").textContent = `${ionized[0].toFixed(3)} … ${ionized[1].toFixed(3)}`;
-    $("#slice-spin-temperature-range").textContent = `${formatKelvin(10 ** spin[0])} … ${formatKelvin(10 ** spin[1])} K`;
-    $("#slice-kinetic-temperature-range").textContent = `${formatKelvin(10 ** kinetic[0])} … ${formatKelvin(10 ** kinetic[1])} K`;
-    [
-      "#pl-slice-brightness-range", "#pl-slice-density-range", "#pl-slice-ionization-range",
-      "#pl-slice-spin-temperature-range", "#pl-slice-kinetic-temperature-range",
-    ].forEach((selector) => { $(selector).textContent = "计算中"; });
-    $("#slice-density-scale-min").textContent = `δ ${density[0].toFixed(2)}`;
-    $("#slice-density-scale-max").textContent = `δ ${density[1].toFixed(2)}`;
-    $("#slice-ionization-scale-min").textContent = ionized[0].toFixed(3);
-    $("#slice-ionization-scale-max").textContent = ionized[1].toFixed(3);
-    $("#slice-spin-scale-min").textContent = `${formatKelvin(10 ** spin[0])} K`;
-    $("#slice-spin-scale-max").textContent = `${formatKelvin(10 ** spin[1])} K`;
-    $("#slice-kinetic-scale-min").textContent = `${formatKelvin(10 ** kinetic[0])} K`;
-    $("#slice-kinetic-scale-max").textContent = `${formatKelvin(10 ** kinetic[1])} K`;
-    return;
-  }
-  const fields = [
-    ["brightness", decoded.brightness, plDecoded.brightness],
-    ["density", decoded.density, plDecoded.density],
-    ["ionized", decoded.ionized, plDecoded.ionized],
-    ["spin", decoded.spinTemperatureLog10, plDecoded.spinTemperatureLog10],
-    ["kinetic", decoded.kineticTemperatureLog10, plDecoded.kineticTemperatureLog10],
-  ];
-  const ranges = {};
-  fields.forEach(([name, currentValues, plValues]) => {
-    const current = sliceFieldRange(currentValues, decoded);
-    const pl = sliceFieldRange(plValues, plDecoded);
-    ranges[name] = {
-      current,
-      pl,
-      shared: [Math.min(current[0], pl[0]), Math.max(current[1], pl[1])],
-    };
+  if (!state.result || state.sliceIndex === null) return;
+  const bplDecoded = state.result.decodedSlices;
+  const plDecoded = state.plReference ? state.plReference.decodedSlices : null;
+  if (!plDecoded && state.thumbnailDataset === "pl") state.thumbnailDataset = "bpl";
+  const thumbnailDecoded = state.thumbnailDataset === "pl" ? plDecoded : bplDecoded;
+
+  document.querySelectorAll("[data-dataset]").forEach((button) => {
+    const isPL = button.dataset.dataset === "pl";
+    button.disabled = isPL && !plDecoded;
+    const active = button.dataset.dataset === state.thumbnailDataset;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", active ? "true" : "false");
   });
-  drawSliceField($("#brightness-slice"), decoded.brightness, decoded, eorColor, [-150, 30]);
-  drawSliceField($("#pl-brightness-slice"), plDecoded.brightness, plDecoded, eorColor, [-150, 30]);
-  drawSliceField($("#density-slice"), decoded.density, decoded, viridisColor, ranges.density.shared);
-  drawSliceField($("#pl-density-slice"), plDecoded.density, plDecoded, viridisColor, ranges.density.shared);
-  drawSliceField($("#ionization-slice"), decoded.ionized, decoded, viridisColor, ranges.ionized.shared);
-  drawSliceField($("#pl-ionization-slice"), plDecoded.ionized, plDecoded, viridisColor, ranges.ionized.shared);
-  drawSliceField($("#spin-temperature-slice"), decoded.spinTemperatureLog10, decoded, viridisColor, ranges.spin.shared);
-  drawSliceField($("#pl-spin-temperature-slice"), plDecoded.spinTemperatureLog10, plDecoded, viridisColor, ranges.spin.shared);
-  drawSliceField($("#kinetic-temperature-slice"), decoded.kineticTemperatureLog10, decoded, viridisColor, ranges.kinetic.shared);
-  drawSliceField($("#pl-kinetic-temperature-slice"), plDecoded.kineticTemperatureLog10, plDecoded, viridisColor, ranges.kinetic.shared);
-  $("#slice-brightness-range").textContent = `${ranges.brightness.current[0].toFixed(1)} … ${ranges.brightness.current[1].toFixed(1)} mK`;
-  $("#pl-slice-brightness-range").textContent = `${ranges.brightness.pl[0].toFixed(1)} … ${ranges.brightness.pl[1].toFixed(1)} mK`;
-  $("#slice-density-range").textContent = `${ranges.density.current[0].toFixed(2)} … ${ranges.density.current[1].toFixed(2)}`;
-  $("#pl-slice-density-range").textContent = `${ranges.density.pl[0].toFixed(2)} … ${ranges.density.pl[1].toFixed(2)}`;
-  $("#slice-ionization-range").textContent = `${ranges.ionized.current[0].toFixed(3)} … ${ranges.ionized.current[1].toFixed(3)}`;
-  $("#pl-slice-ionization-range").textContent = `${ranges.ionized.pl[0].toFixed(3)} … ${ranges.ionized.pl[1].toFixed(3)}`;
-  $("#slice-spin-temperature-range").textContent = `${formatKelvin(10 ** ranges.spin.current[0])} … ${formatKelvin(10 ** ranges.spin.current[1])} K`;
-  $("#pl-slice-spin-temperature-range").textContent = `${formatKelvin(10 ** ranges.spin.pl[0])} … ${formatKelvin(10 ** ranges.spin.pl[1])} K`;
-  $("#slice-kinetic-temperature-range").textContent = `${formatKelvin(10 ** ranges.kinetic.current[0])} … ${formatKelvin(10 ** ranges.kinetic.current[1])} K`;
-  $("#pl-slice-kinetic-temperature-range").textContent = `${formatKelvin(10 ** ranges.kinetic.pl[0])} … ${formatKelvin(10 ** ranges.kinetic.pl[1])} K`;
-  $("#slice-density-scale-min").textContent = `δ ${ranges.density.shared[0].toFixed(2)}`;
-  $("#slice-density-scale-max").textContent = `δ ${ranges.density.shared[1].toFixed(2)}`;
-  $("#slice-ionization-scale-min").textContent = ranges.ionized.shared[0].toFixed(3);
-  $("#slice-ionization-scale-max").textContent = ranges.ionized.shared[1].toFixed(3);
-  $("#slice-spin-scale-min").textContent = `${formatKelvin(10 ** ranges.spin.shared[0])} K`;
-  $("#slice-spin-scale-max").textContent = `${formatKelvin(10 ** ranges.spin.shared[1])} K`;
-  $("#slice-kinetic-scale-min").textContent = `${formatKelvin(10 ** ranges.kinetic.shared[0])} K`;
-  $("#slice-kinetic-scale-max").textContent = `${formatKelvin(10 ** ranges.kinetic.shared[1])} K`;
+  document.querySelectorAll(".slice-thumb").forEach((button) => {
+    const active = button.dataset.field === state.selectedField;
+    button.classList.toggle("selected", active);
+    button.setAttribute("aria-pressed", active ? "true" : "false");
+  });
+
+  sliceFieldSpecs.forEach((field) => {
+    const scale = sharedFieldScale(field, bplDecoded, plDecoded);
+    const range = drawOneField($(field.canvas), field, thumbnailDecoded, scale);
+    $(`#slice-${field.name === "ionized" ? "ionization" : field.name === "spin" ? "spin-temperature" : field.name === "kinetic" ? "kinetic-temperature" : field.name}-range`).textContent = formatFieldRange(field, range);
+  });
+  drawMainSlice();
 }
 
 function drawLFCurve(ctx, curve, px, py, color, width, dash = []) {
@@ -702,7 +705,7 @@ function drawObservationPoint(ctx, point, px, py, yMin, yMax) {
 function drawLuminosityFunction() {
   if (!state.result || state.lfIndex === null) return;
   const {context: ctx, width, height} = canvasContext($("#lf-chart"));
-  const margin = {left: 70, right: 25, top: 24, bottom: 54};
+  const margin = {left: 54, right: 14, top: 14, bottom: 39};
   const xMin = -24, xMax = -10;
   const current = state.result.luminosity_function.curves[state.lfIndex];
   const plCurve = state.plReference && state.plReference.luminosity_function
@@ -772,7 +775,55 @@ function setSlicePlaying(playing) {
   }, 420);
 }
 
-function drawAll() { drawGlobal(); drawLightcone(); drawIonizationHistory(); drawSlices(); drawLuminosityFunction(); }
+function setAuxPanel(name) {
+  state.auxPanel = name;
+  document.querySelectorAll("[data-aux-panel]").forEach((button) => {
+    const active = button.dataset.auxPanel === name;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-selected", active ? "true" : "false");
+  });
+  ["ionization", "lf"].forEach((panelName) => {
+    const panel = $(`#aux-${panelName}`);
+    const active = panelName === name;
+    panel.hidden = !active;
+    panel.classList.toggle("active", active);
+  });
+  window.requestAnimationFrame(() => {
+    if (name === "ionization") drawIonizationHistory();
+    else drawLuminosityFunction();
+  });
+}
+
+function setThumbnailDataset(name) {
+  const plReady = Boolean(state.plReference && state.plReference.decodedSlices);
+  state.thumbnailDataset = name === "pl" && plReady ? "pl" : "bpl";
+  document.querySelectorAll("[data-dataset]").forEach((button) => {
+    const active = button.dataset.dataset === state.thumbnailDataset;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", active ? "true" : "false");
+    button.disabled = button.dataset.dataset === "pl" && !plReady;
+    button.title = button.disabled ? "该 PL 切片仍在计算" : "";
+  });
+  drawSlices();
+}
+
+function selectField(name) {
+  state.selectedField = name;
+  document.querySelectorAll(".slice-thumb").forEach((button) => {
+    const active = button.dataset.field === name;
+    button.classList.toggle("selected", active);
+    button.setAttribute("aria-pressed", active ? "true" : "false");
+  });
+  drawMainSlice();
+}
+
+function drawAll() {
+  drawGlobal();
+  drawLightcone();
+  drawSlices();
+  if (state.auxPanel === "ionization") drawIonizationHistory();
+  else drawLuminosityFunction();
+}
 function resetControls() {
   state.activeAstro = null;
   for (const control of state.controls.values()) resetOne(control);
@@ -797,5 +848,13 @@ async function initialize() {
 $("#reset-button").addEventListener("click", resetControls);
 $("#slice-redshift").addEventListener("input", () => { updateSliceControl(); drawSlices(); });
 $("#slice-play").addEventListener("click", () => setSlicePlaying(!state.sliceTimer));
+document.querySelectorAll("[data-aux-panel]").forEach((button) => button.addEventListener("click", () => setAuxPanel(button.dataset.auxPanel)));
+document.querySelectorAll("[data-dataset]").forEach((button) => button.addEventListener("click", () => setThumbnailDataset(button.dataset.dataset)));
+document.querySelectorAll(".slice-thumb").forEach((button) => button.addEventListener("click", () => selectField(button.dataset.field)));
+$("#main-fullscreen").addEventListener("click", () => {
+  if (document.fullscreenElement) document.exitFullscreen();
+  else $("#main-map-card").requestFullscreen();
+});
+document.addEventListener("fullscreenchange", () => window.requestAnimationFrame(drawMainSlice));
 window.addEventListener("resize", () => { clearTimeout(window.__drawTimer); window.__drawTimer = setTimeout(drawAll, 120); });
 initialize();
