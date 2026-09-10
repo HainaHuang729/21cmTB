@@ -47,10 +47,10 @@ jobs:
           pl_files = sorted(pl_root.glob("pl_*.json"))
           pl_binaries = sorted(pl_root.glob("pl_*.slices.bin"))
           expected_unavailable = {"run_4600848a9a8c", "run_5f2309678207"}
-          assert 'DATA_VERSION = "hii256-v17"' in app
+          assert 'DATA_VERSION = "hii256-v18"' in app
           assert "(value + 150) / 180" in app
           assert "eorStops" in app and "viridisStops" in app
-          assert html.count("hii256-v17") == 2
+          assert html.count("hii256-v18") == 2
           assert not any("\u4e00" <= char <= "\u9fff" for char in html + app)
           assert "mission-hero" in html and "system-header" in html
           assert "--orange: #df5a2e" in css
@@ -63,7 +63,7 @@ jobs:
           assert "−150 mK" in html and "+30 mK" in html
           assert index["result_schema_version"] == 7
           pl_schema = index["pl_result_schema_version"]
-          assert pl_schema in {1, 2}
+          assert pl_schema == 2
           assert index["n_exact_runs"] == 55 and index["n_design_points"] == 57
           assert index["n_unique_pl_references"] == 32
           assert sum(
@@ -73,7 +73,7 @@ jobs:
           assert set(index["unavailable_run_ids"]) == expected_unavailable
           assert len(files) == len(binaries) == 55
           assert len(pl_files) == 32
-          assert len(pl_binaries) == (32 if pl_schema == 2 else 0)
+          assert len(pl_binaries) == 32
           pl_ids = set()
           for path in pl_files:
               payload = json.loads(path.read_text())
@@ -105,6 +105,15 @@ jobs:
               assert len(payload["ionization_history"]["redshift"]) == 32
               assert payload["pl_reference"]["pl_id"] in pl_ids
               assert pathlib.Path(payload["pl_reference"]["file"]).is_file()
+              pl = json.loads(pathlib.Path(payload["pl_reference"]["file"]).read_text())
+              assert all(
+                  abs(a - b) <= 1.0e-4
+                  for a, b in zip(slices["redshift"], pl["slices"]["redshift"])
+              )
+              assert all(
+                  payload["parameters"][name] == value
+                  for name, value in pl["astro_parameters"].items()
+              )
               packed = (root / slices["binary_file"]).read_bytes()
               for descriptor in slices["binary_fields"].values():
                   start = descriptor["offset"]

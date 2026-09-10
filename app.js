@@ -15,7 +15,7 @@ const state = {
 
 const $ = (selector) => document.querySelector(selector);
 const astroNames = new Set(["F_STAR10", "ALPHA_STAR", "F_ESC10", "ALPHA_ESC", "M_TURN", "t_STAR", "L_X", "NU_X_THRESH"]);
-const DATA_VERSION = "hii256-v17";
+const DATA_VERSION = "hii256-v18";
 const PLOT_FONT = '"Avenir Next", "Century Gothic", Futura, "Helvetica Neue", Arial, sans-serif';
 const PLOT_MONO = '"IBM Plex Mono", "JetBrains Mono", "SFMono-Regular", Consolas, monospace';
 const plotPalette = {
