@@ -5,111 +5,115 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <title>21cmFAST Precomputed Parameter Atlas</title>
-  <link rel="stylesheet" href="styles.css?v=hii256-v18">
+  <link rel="stylesheet" href="styles.css?v=hii256-v19">
 </head>
 <body id="top">
   <header class="system-header load-in">
-    <a class="system-identity" href="#top" aria-label="21 cm Signal Atlas home">
+    <a class="system-identity" href="#top" aria-label="21 cm Signal Atlas home" data-i18n-aria-label="home">
       <span class="identity-mark">21</span>
-      <span><b>SIGNAL ATLAS</b><small>PRECOMPUTED / 21cmFAST</small></span>
+      <span><b data-i18n="identity">SIGNAL ATLAS</b><small data-i18n="precomputed">PRECOMPUTED / 21cmFAST</small></span>
     </a>
-    <nav class="system-navigation" aria-label="Atlas sections">
-      <a href="#parameters-section"><span>01</span>Controls</a>
-      <a href="#lightcone-section"><span>02</span>Evolution</a>
-      <a href="#analysis-section"><span>03</span>Analysis</a>
-      <a href="#fields-section"><span>05</span>Fields</a>
+    <nav class="system-navigation" aria-label="Atlas sections" data-i18n-aria-label="navigation">
+      <a href="#parameters-section"><span>01</span><b data-i18n="controls">Controls</b></a>
+      <a href="#lightcone-section"><span>02</span><b data-i18n="evolution">Evolution</b></a>
+      <a href="#analysis-section"><span>03</span><b data-i18n="analysis">Analysis</b></a>
+      <a href="#fields-section"><span>05</span><b data-i18n="fields">Fields</b></a>
     </nav>
     <div class="system-register">
+      <div class="language-switch" role="group" aria-label="Interface language" data-i18n-aria-label="language">
+        <button type="button" data-language="en" lang="en" aria-label="English" aria-pressed="true">EN</button>
+        <button type="button" data-language="zh" lang="zh-CN" aria-label="中文" aria-pressed="false">中文</button>
+      </div>
       <div id="data-state" class="server-state"><i></i><span>Loading results</span></div>
       <div id="run-badge" class="run-badge idle">LOADING</div>
-      <div class="revision-tag"><small>REV</small><strong>18</strong></div>
+      <div class="revision-tag"><small data-i18n="revision">REV</small><strong>19</strong></div>
     </div>
   </header>
 
   <section class="mission-hero" aria-labelledby="hero-title">
     <div class="hero-copy">
-      <p class="technical-label hero-kicker">SYSTEM / 21CM–A · VIEW / PRIMARY</p>
-      <h1 id="hero-title"><span>COSMIC</span><span>SIGNAL</span><span>ATLAS.</span></h1>
-      <p class="hero-intro">An exact, precomputed view of the 21 cm signal from cosmic dawn through reionization—built for parameter inspection, model comparison, and spatial-field analysis.</p>
-      <a class="system-action" href="#parameters-section">Enter the atlas <span>↓</span></a>
+      <p class="technical-label hero-kicker" data-i18n="heroKicker">SYSTEM / 21CM–A · VIEW / PRIMARY</p>
+      <h1 id="hero-title"><span data-i18n="heroCosmic">COSMIC</span><span data-i18n="heroSignal">SIGNAL</span><span data-i18n="heroAtlas">ATLAS.</span></h1>
+      <p class="hero-intro" data-i18n="heroIntro">An exact, precomputed view of the 21 cm signal from cosmic dawn through reionization—built for parameter inspection, model comparison, and spatial-field analysis.</p>
+      <a class="system-action" href="#parameters-section"><b data-i18n="enter">Enter the atlas</b> <span>↓</span></a>
     </div>
-    <aside class="hero-instrument" aria-label="Simulation volume and redshift coverage">
-      <div class="instrument-heading"><span>MISSION PROFILE / 001</span><span>STATE / PRECOMPUTED</span></div>
+    <aside class="hero-instrument" aria-label="Simulation volume and redshift coverage" data-i18n-aria-label="instrument">
+      <div class="instrument-heading"><span data-i18n="missionProfile">MISSION PROFILE / 001</span><span data-i18n="precomputedState">STATE / PRECOMPUTED</span></div>
       <svg class="orbital-diagram" viewBox="0 0 620 430" role="img" aria-labelledby="orbit-title orbit-description">
-        <title id="orbit-title">Simulation redshift trajectory</title>
-        <desc id="orbit-description">A technical diagram representing the stored lightcone from redshift 35 to redshift 6.</desc>
+        <title id="orbit-title" data-i18n="orbitTitle">Simulation redshift trajectory</title>
+        <desc id="orbit-description" data-i18n="orbitDescription">A technical diagram representing the stored lightcone from redshift 35 to redshift 6.</desc>
         <circle class="orbit-ring orbit-ring-outer" cx="334" cy="214" r="164"></circle>
         <circle class="orbit-ring" cx="334" cy="214" r="112"></circle>
         <circle class="orbit-core" cx="334" cy="214" r="35"></circle>
         <path class="orbit-trajectory" d="M 181 272 C 207 117, 414 74, 493 202 C 548 291, 449 368, 325 348"></path>
         <line class="diagram-axis" x1="94" y1="214" x2="570" y2="214"></line>
         <line class="diagram-axis" x1="334" y1="28" x2="334" y2="400"></line>
-        <g class="orbit-node node-start"><circle cx="181" cy="272" r="6"></circle><text x="103" y="300">START / z 35</text></g>
-        <g class="orbit-node node-end"><circle cx="325" cy="348" r="7"></circle><text x="344" y="376">END / z 6</text></g>
+        <g class="orbit-node node-start"><circle cx="181" cy="272" r="6"></circle><text x="103" y="300" data-i18n="start">START / z 35</text></g>
+        <g class="orbit-node node-end"><circle cx="325" cy="348" r="7"></circle><text x="344" y="376" data-i18n="end">END / z 6</text></g>
         <g class="orbit-crosshair"><line x1="488" y1="192" x2="512" y2="192"></line><line x1="500" y1="180" x2="500" y2="204"></line></g>
         <text class="diagram-code" x="352" y="207">HII</text>
         <text class="diagram-value" x="352" y="231">256³</text>
       </svg>
       <dl class="mission-metadata">
-        <div><dt>VOLUME</dt><dd>250 cMpc</dd></div>
-        <div><dt>LIGHTCONE</dt><dd>z 35 → 6</dd></div>
-        <div><dt>FIELD FRAMES</dt><dd>32</dd></div>
-        <div><dt>EXACT MODELS</dt><dd id="hero-run-count">55</dd></div>
+        <div><dt data-i18n="volume">VOLUME</dt><dd>250 cMpc</dd></div>
+        <div><dt data-i18n="lightcone">LIGHTCONE</dt><dd>z 35 → 6</dd></div>
+        <div><dt data-i18n="frames">FIELD FRAMES</dt><dd>32</dd></div>
+        <div><dt data-i18n="models">EXACT MODELS</dt><dd id="hero-run-count">55</dd></div>
       </dl>
     </aside>
-    <div class="hero-coordinate"><span>ORIGIN / COSMIC DAWN</span><span>DESTINATION / REIONIZATION</span></div>
+    <div class="hero-coordinate"><span data-i18n="origin">ORIGIN / COSMIC DAWN</span><span data-i18n="destination">DESTINATION / REIONIZATION</span></div>
   </section>
 
   <main class="dashboard-shell">
     <section id="parameters-section" class="parameter-zone system-module reveal" aria-labelledby="parameter-title">
       <div class="section-heading compact-heading">
-        <div><span class="section-index">01</span><div><h2 id="parameter-title">Model Parameters</h2><p>10 PARAMETERS · EXACT PRECOMPUTED RUNS</p></div></div>
-        <button id="reset-button" class="text-button" type="button">Reset to baseline</button>
+        <div><span class="section-index">01</span><div><h2 id="parameter-title" data-i18n="parameters">Model Parameters</h2><p data-i18n="parameterSubtitle">10 PARAMETERS · EXACT PRECOMPUTED RUNS</p></div></div>
+        <button id="reset-button" class="text-button" type="button" data-i18n="reset">Reset to baseline</button>
       </div>
-      <div id="parameter-list" class="parameter-list" aria-label="Model parameter controls"></div>
+      <div id="parameter-list" class="parameter-list" aria-label="Model parameter controls" data-i18n-aria-label="parameterControls"></div>
       <div class="run-strip">
         <div id="status-card" class="status-card active">
           <i aria-hidden="true"></i>
           <span><strong id="status-title">Loading precomputed result</strong><small id="status-message">This page never starts a new 21cmFAST calculation.</small></span>
         </div>
         <div id="selection-detail" class="selection-detail">Loading design metadata…</div>
-        <div class="metrics" aria-label="Current model summary">
-          <span><small>Absorption-trough z</small><strong id="metric-z">—</strong></span>
-          <span><small>Minimum δT<sub>b</sub></small><strong id="metric-temp">—</strong></span>
+        <div class="metrics" aria-label="Current model summary" data-i18n-aria-label="summary">
+          <span><small data-i18n="trough">Absorption-trough z</small><strong id="metric-z">—</strong></span>
+          <span><small><span data-i18n="minimum">Minimum</span> δT<sub>b</sub></small><strong id="metric-temp">—</strong></span>
           <span><small>k<sub>p</sub></small><strong id="metric-kp">—</strong></span>
           <span><small>m<sub>s</sub></small><strong id="metric-ms">—</strong></span>
-          <span><small>Runtime</small><strong id="metric-time">—</strong></span>
+          <span><small data-i18n="runtime">Runtime</small><strong id="metric-time">—</strong></span>
         </div>
       </div>
     </section>
 
     <section id="lightcone-section" class="chart-card lightcone-card system-module reveal" aria-labelledby="lightcone-title">
       <div class="chart-heading">
-        <div><span class="section-index">02</span><div><h2 id="lightcone-title">Brightness-temperature lightcone</h2><p>FULL REDSHIFT EVOLUTION · HIGH z → LOW z</p></div></div>
+        <div><span class="section-index">02</span><div><h2 id="lightcone-title" data-i18n="lightconeTitle">Brightness-temperature lightcone</h2><p data-i18n="lightconeSubtitle">FULL REDSHIFT EVOLUTION · HIGH z → LOW z</p></div></div>
         <div class="colorbar-inline"><span>−150 mK</span><i class="palette eor-palette" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b><b></b></i><span>+30 mK</span></div>
       </div>
       <div class="lightcone-frame"><canvas id="lightcone-chart"></canvas></div>
     </section>
 
-    <section id="analysis-section" class="analysis-grid reveal" aria-label="UV luminosity function and auxiliary statistics">
+    <section id="analysis-section" class="analysis-grid reveal" aria-label="UV luminosity function and auxiliary statistics" data-i18n-aria-label="analysisDescription">
       <article id="main-map-card" class="chart-card lf-main-card">
         <div class="chart-heading">
-          <div><span class="section-index">03</span><div><h2>UV Luminosity Function</h2><p>MODEL–OBSERVATION COMPARISON · BPL / MATCHED PL</p></div></div>
+          <div><span class="section-index">03</span><div><h2 data-i18n="lfTitle">UV Luminosity Function</h2><p data-i18n="lfSubtitle">MODEL–OBSERVATION COMPARISON · BPL / MATCHED PL</p></div></div>
           <button id="main-fullscreen" class="icon-button" type="button" title="View UV LF in fullscreen">Fullscreen</button>
         </div>
         <div class="lf-main-toolbar">
-          <div id="lf-redshift-options" class="lf-redshift-options" role="group" aria-label="UV luminosity-function redshift"></div>
+          <div id="lf-redshift-options" class="lf-redshift-options" role="group" aria-label="UV luminosity-function redshift" data-i18n-aria-label="lfRedshift"></div>
           <strong id="lf-redshift-value">z = —</strong>
           <div class="curve-key main-curve-key"><i class="current-curve"></i><span>BPL</span><i class="pl-curve"></i><span>PL</span><i class="hst-point"></i><span>HST</span><i class="jwst-point"></i><span>JWST</span></div>
         </div>
         <div class="main-lf-canvas"><canvas id="lf-chart"></canvas></div>
-        <div class="lf-source-note">HST: Bouwens+21, Oesch+18 · JWST: Bouwens+23, Donnan+24 · ▽ denotes upper limits</div>
+        <div class="lf-source-note" data-i18n="lfSource">HST: Bouwens+21, Oesch+18 · JWST: Bouwens+23, Donnan+24 · ▽ denotes upper limits</div>
       </article>
 
       <div class="aux-stack">
         <article class="chart-card aux-card global-card">
           <div class="chart-heading small-heading">
-            <div><span class="section-index">04A</span><div><h2>Global Mean Brightness Temperature</h2><p>δT<sub>b</sub>(z) · BPL / MATCHED PL</p></div></div>
+            <div><span class="section-index">04A</span><div><h2 data-i18n="globalTitle">Global Mean Brightness Temperature</h2><p>δT<sub>b</sub>(z) · BPL / <span data-i18n="matchedPL">MATCHED PL</span></p></div></div>
           </div>
           <div class="curve-key"><i class="current-curve"></i><span>BPL</span><i class="pl-curve"></i><span>PL</span></div>
           <div class="aux-canvas"><canvas id="global-chart"></canvas></div>
@@ -117,7 +121,7 @@
 
         <article class="chart-card aux-card ionization-card">
           <div class="chart-heading small-heading">
-            <div><span class="section-index">04B</span><div><h2>Reionization History</h2><p>ξ(z) = 1 − ⟨x<sub>HI</sub>⟩ · THOMSON τ<sub>e</sub></p></div></div>
+            <div><span class="section-index">04B</span><div><h2 data-i18n="historyTitle">Reionization History</h2><p>ξ(z) = 1 − ⟨x<sub>HI</sub>⟩ · <span data-i18n="thomson">THOMSON</span> τ<sub>e</sub></p></div></div>
           </div>
           <div class="curve-key"><i class="current-curve"></i><span>BPL</span><i class="pl-curve"></i><span>PL</span></div>
           <div class="aux-canvas ionization-canvas"><canvas id="ionization-history-chart"></canvas></div>
@@ -132,74 +136,74 @@
 
     <section id="fields-section" class="slice-section system-module reveal" aria-labelledby="slice-title">
       <div class="section-heading">
-        <div><span class="section-index">05</span><div><h2 id="slice-title">Five Spatial-field Slices</h2><p>BPL ROW · MATCHED PL ROW</p></div></div>
+        <div><span class="section-index">05</span><div><h2 id="slice-title" data-i18n="sliceTitle">Five Spatial-field Slices</h2><p data-i18n="sliceSubtitle">BPL ROW · MATCHED PL ROW</p></div></div>
         <div class="slice-actions">
           <span id="thumbnail-redshift">z = —</span>
         </div>
       </div>
       <div class="redshift-toolbar slice-redshift-toolbar">
         <button id="slice-play" class="play-button" type="button">Play</button>
-        <label for="slice-redshift"><span>REDSHIFT</span><strong id="slice-redshift-value">z = —</strong></label>
-        <input id="slice-redshift" type="range" min="0" max="31" step="1" value="0" aria-label="Slice redshift">
-        <span class="time-direction">earlier → later</span>
+        <label for="slice-redshift"><span data-i18n="redshift">REDSHIFT</span><strong id="slice-redshift-value">z = —</strong></label>
+        <input id="slice-redshift" type="range" min="0" max="31" step="1" value="0" aria-label="Slice redshift" data-i18n-aria-label="sliceRedshift">
+        <span class="time-direction" data-i18n="timeDirection">earlier → later</span>
       </div>
       <div class="slice-model-row bpl-slice-row">
-        <div class="slice-model-label"><strong>BPL</strong><span>Current broken-power-law model</span></div>
+        <div class="slice-model-label"><strong>BPL</strong><span data-i18n="bplDescription">Current broken-power-law model</span></div>
         <div class="slice-grid">
         <article class="slice-thumb" data-field="brightness">
-          <span><strong>brightness_temp</strong><small>21 cm brightness temperature</small></span>
+          <span><strong>brightness_temp</strong><small data-i18n="brightnessDescription">21 cm brightness temperature</small></span>
           <div class="slice-frame"><canvas id="brightness-slice"></canvas></div>
           <output id="slice-brightness-range">—</output>
         </article>
         <article class="slice-thumb" data-field="density">
-          <span><strong>density</strong><small>Density contrast δ</small></span>
+          <span><strong>density</strong><small data-i18n="densityDescription">Density contrast δ</small></span>
           <div class="slice-frame"><canvas id="density-slice"></canvas></div>
           <output id="slice-density-range">—</output>
         </article>
         <article class="slice-thumb" data-field="ionized">
-          <span><strong>x_HII</strong><small>Ionized hydrogen fraction</small></span>
+          <span><strong>x_HII</strong><small data-i18n="ionizationDescription">Ionized hydrogen fraction</small></span>
           <div class="slice-frame"><canvas id="ionization-slice"></canvas></div>
           <output id="slice-ionization-range">—</output>
         </article>
         <article class="slice-thumb" data-field="spin">
-          <span><strong>Ts_box</strong><small>Spin temperature · log</small></span>
+          <span><strong>Ts_box</strong><small data-i18n="spinDescription">Spin temperature · log</small></span>
           <div class="slice-frame"><canvas id="spin-temperature-slice"></canvas></div>
           <output id="slice-spin-temperature-range">—</output>
         </article>
         <article class="slice-thumb" data-field="kinetic">
-          <span><strong>Tk_box</strong><small>Gas kinetic temperature · log</small></span>
+          <span><strong>Tk_box</strong><small data-i18n="kineticDescription">Gas kinetic temperature · log</small></span>
           <div class="slice-frame"><canvas id="kinetic-temperature-slice"></canvas></div>
           <output id="slice-kinetic-temperature-range">—</output>
         </article>
         </div>
       </div>
       <div class="slice-model-row pl-slice-row">
-        <div class="slice-model-label"><strong>Matched PL</strong><span>Standard power law with identical astrophysical parameters · 32 redshifts · 256 × 256 slices</span></div>
+        <div class="slice-model-label"><strong data-i18n="plLabel">Matched PL</strong><span data-i18n="plDescription">Standard power law with identical astrophysical parameters · 32 redshifts · 256 × 256 slices</span></div>
         <div class="slice-grid">
         <article class="slice-thumb" data-pl-field="brightness">
-          <span><strong>brightness_temp</strong><small>21 cm brightness temperature</small></span>
+          <span><strong>brightness_temp</strong><small data-i18n="brightnessDescription">21 cm brightness temperature</small></span>
           <div class="slice-frame"><canvas id="pl-brightness-slice"></canvas></div>
-          <output id="pl-slice-brightness-range">Computing…</output>
+          <output id="pl-slice-brightness-range">Loading…</output>
         </article>
         <article class="slice-thumb" data-pl-field="density">
-          <span><strong>density</strong><small>Density contrast δ</small></span>
+          <span><strong>density</strong><small data-i18n="densityDescription">Density contrast δ</small></span>
           <div class="slice-frame"><canvas id="pl-density-slice"></canvas></div>
-          <output id="pl-slice-density-range">Computing…</output>
+          <output id="pl-slice-density-range">Loading…</output>
         </article>
         <article class="slice-thumb" data-pl-field="ionized">
-          <span><strong>x_HII</strong><small>Ionized hydrogen fraction</small></span>
+          <span><strong>x_HII</strong><small data-i18n="ionizationDescription">Ionized hydrogen fraction</small></span>
           <div class="slice-frame"><canvas id="pl-ionization-slice"></canvas></div>
-          <output id="pl-slice-ionization-range">Computing…</output>
+          <output id="pl-slice-ionization-range">Loading…</output>
         </article>
         <article class="slice-thumb" data-pl-field="spin">
-          <span><strong>Ts_box</strong><small>Spin temperature · log</small></span>
+          <span><strong>Ts_box</strong><small data-i18n="spinDescription">Spin temperature · log</small></span>
           <div class="slice-frame"><canvas id="pl-spin-temperature-slice"></canvas></div>
-          <output id="pl-slice-spin-temperature-range">Computing…</output>
+          <output id="pl-slice-spin-temperature-range">Loading…</output>
         </article>
         <article class="slice-thumb" data-pl-field="kinetic">
-          <span><strong>Tk_box</strong><small>Gas kinetic temperature · log</small></span>
+          <span><strong>Tk_box</strong><small data-i18n="kineticDescription">Gas kinetic temperature · log</small></span>
           <div class="slice-frame"><canvas id="pl-kinetic-temperature-slice"></canvas></div>
-          <output id="pl-slice-kinetic-temperature-range">Computing…</output>
+          <output id="pl-slice-kinetic-temperature-range">Loading…</output>
         </article>
         </div>
       </div>
@@ -207,17 +211,19 @@
   </main>
 
   <footer class="cosmic-footer">
-    <div class="footer-register"><span>ARCHIVE / STATIC DATASET</span><span>TRANSFER / READ ONLY</span></div>
-    <p class="footer-statement"><span>FROM FIRST LIGHT</span><span>TO REIONIZATION.</span></p>
+    <span class="footer-archive" data-i18n="footerArchive">ARCHIVE / 21CM–A</span>
+    <div class="footer-register"><span data-i18n="archive">ARCHIVE / STATIC DATASET</span><span data-i18n="readOnly">TRANSFER / READ ONLY</span></div>
+    <p class="footer-statement"><span data-i18n="firstLight">FROM FIRST LIGHT</span><span data-i18n="reionization">TO REIONIZATION.</span></p>
     <div class="footer-metadata">
       <span id="footer-count">Loading simulation manifest…</span>
       <span>HII_DIM / 256</span>
-      <span>BOX / 250 cMpc</span>
+      <span data-i18n="box">BOX / 250 cMpc</span>
       <span>LF / HST + JWST</span>
-      <a href="#top">Return to index ↑</a>
+      <a href="#top" data-i18n="returnTop">Return to index ↑</a>
     </div>
-    <p class="footer-note">Exact 21cmFAST outputs · no browser-side simulation · LF references: Bouwens et al. 2021/2023, Oesch et al. 2018, Donnan et al. 2024</p>
+    <p class="footer-note" data-i18n="footerNote">Exact 21cmFAST outputs · no browser-side simulation · LF references: Bouwens et al. 2021/2023, Oesch et al. 2018, Donnan et al. 2024</p>
   </footer>
-  <script src="app.js?v=hii256-v18"></script>
+  <script src="i18n.js?v=hii256-v19"></script>
+  <script src="app.js?v=hii256-v19"></script>
 </body>
 </html>

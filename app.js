@@ -1,6 +1,8 @@
 "use strict";
 
 const state = {
+  language: window.AtlasI18n.language,
+  status: {kind: "initial"},
   design: null,
   controls: new Map(),
   parameters: {},
@@ -16,8 +18,10 @@ const state = {
 const $ = (selector) => document.querySelector(selector);
 const astroNames = new Set(["F_STAR10", "ALPHA_STAR", "F_ESC10", "ALPHA_ESC", "M_TURN", "t_STAR", "L_X", "NU_X_THRESH"]);
 const DATA_VERSION = "hii256-v18";
-const PLOT_FONT = '"Avenir Next", "Century Gothic", Futura, "Helvetica Neue", Arial, sans-serif';
-const PLOT_MONO = '"IBM Plex Mono", "JetBrains Mono", "SFMono-Regular", Consolas, monospace';
+const UI_VERSION = "hii256-v19";
+const t = (key, values) => window.AtlasI18n.t(key, values);
+const PLOT_FONT = '"Avenir Next", "Century Gothic", Futura, "Helvetica Neue", Arial, "Noto Sans CJK SC", "Microsoft YaHei", "PingFang SC", sans-serif';
+const PLOT_MONO = '"IBM Plex Mono", "JetBrains Mono", "SFMono-Regular", Consolas, "Noto Sans CJK SC", "Microsoft YaHei", "PingFang SC", monospace';
 const plotPalette = {
   ink: "#181a19",
   text: "#686b67",
@@ -33,19 +37,99 @@ const plotPalette = {
   paper: "#f0efe8",
 };
 
+class AtlasError extends Error {
+  constructor(key, values = {}) {
+    super(t(key, values));
+    this.key = key;
+    this.values = values;
+  }
+}
+
+function errorMessage(error) {
+  return error instanceof AtlasError ? t(error.key, error.values) : t("unexpectedError", {message: error.message});
+}
+
+function modelMode(result) {
+  if (result.role.kind === "astro_oat") return t("oatMode", {parameter: result.role.parameter});
+  return t(result.role.kind === "kp_ms_grid" ? "gridMode" : "baselineMode");
+}
+
+function setSelectionDetail(label, runId) {
+  const title = document.createElement("strong"), id = document.createElement("span");
+  title.textContent = label;
+  id.textContent = runId;
+  $("#selection-detail").replaceChildren(title, id);
+}
+
+function renderStatus() {
+  const {kind, runId, error} = state.status;
+  const titleKeys = {initial: "initialTitle", loading: "switching", ready: "loaded", unavailable: "unavailableTitle", error: "failedTitle", libraryError: "libraryFailed"};
+  const badgeKeys = {initial: "loadingBadge", loading: "loadingBadge", ready: "exactBadge", unavailable: "unavailableBadge", error: "errorBadge", libraryError: "noDataBadge"};
+  $("#status-title").textContent = t(titleKeys[kind]);
+  $("#status-card").classList.toggle("active", kind === "initial" || kind === "loading");
+  $("#run-badge").textContent = t(badgeKeys[kind], {id: runId ? runId.slice(4, 12) : ""});
+  $("#run-badge").className = `run-badge ${kind === "ready" ? "completed" : kind === "initial" || kind === "loading" ? "running" : "failed"}`;
+  let message = t("noSimulation");
+  if (kind === "loading") message = t("loadingFiles", {id: runId});
+  if (kind === "unavailable") message = t("unavailableMessage", {id: runId});
+  if (kind === "ready") message = t("loadedMessage", {mode: modelMode(state.result)});
+  if (error) message = errorMessage(error);
+  $("#status-message").textContent = message;
+  if (kind === "unavailable") setSelectionDetail(t("excluded"), runId);
+  else if (state.result) setSelectionDetail(modelMode(state.result), state.result.run_id);
+  else $("#selection-detail").textContent = t(kind === "libraryError" ? "libraryFailed" : "loadingMetadata");
+}
+
+function renderLocalizedUI() {
+  $("#data-state span").textContent = t(state.design ? "resultsReady" : state.status.kind === "libraryError" ? "resultsUnavailable" : "resultsLoading");
+  $("#footer-count").textContent = state.design ? t("manifestCount", {count: state.design.n_exact_runs}) : t("loadingManifest");
+  for (const control of state.controls.values()) {
+    const description = t(control.specification.name);
+    control.wrapper.title = description;
+    control.slider.setAttribute("aria-label", `${control.specification.label} · ${description}`);
+  }
+  document.querySelectorAll("#lf-redshift-options button").forEach((button) => {
+    const redshift = state.result.luminosity_function.redshift[Number(button.dataset.index)].toFixed(0);
+    button.setAttribute("aria-label", t("lfOption", {redshift}));
+  });
+  $("#slice-play").textContent = t(state.sliceTimer ? "pause" : "play");
+  $("#slice-play").setAttribute("aria-pressed", String(Boolean(state.sliceTimer)));
+  if (!state.result) {
+    document.querySelectorAll(".pl-slice-row output").forEach((output) => {
+      output.textContent = state.status.kind === "initial" || state.status.kind === "loading" ? t("loadingBadge") : "—";
+    });
+  }
+  updateFullscreenLabel();
+  renderStatus();
+}
+
+function updateFullscreenLabel() {
+  const fullscreen = Boolean(document.fullscreenElement);
+  $("#main-fullscreen").textContent = t(fullscreen ? "exitFullscreen" : "fullscreen");
+  $("#main-fullscreen").title = t(fullscreen ? "exitFullscreen" : "fullscreenTitle");
+}
+
+function setLanguage(language) {
+  window.AtlasI18n.setLanguage(language);
+  state.language = window.AtlasI18n.language;
+  renderLocalizedUI();
+  // Redraw existing data only: no fetch, control reset or timer restart.
+  drawAll();
+}
+
 function versioned(path) {
   return `${path}${path.includes("?") ? "&" : "?"}v=${DATA_VERSION}`;
 }
 
 async function fetchJSON(path) {
   const response = await fetch(path);
-  if (!response.ok) throw new Error(`Failed to read ${path}: HTTP ${response.status}`);
+  if (!response.ok) throw new AtlasError("fetchError", {path, status: response.status});
   return response.json();
 }
 
 async function fetchBuffer(path) {
   const response = await fetch(path);
-  if (!response.ok) throw new Error(`Failed to read ${path}: HTTP ${response.status}`);
+  if (!response.ok) throw new AtlasError("fetchError", {path, status: response.status});
   return response.arrayBuffer();
 }
 
@@ -88,13 +172,14 @@ function resolveRunId(changedName = null) {
 function createParameter(specification) {
   const wrapper = document.createElement("div");
   wrapper.className = "parameter";
-  wrapper.title = specification.description;
+  wrapper.title = t(specification.name);
   const values = specification.values;
   wrapper.innerHTML = `
     <div class="parameter-head"><span class="parameter-label">${specification.label}</span><span class="parameter-value"></span></div>
     <input type="range" min="0" max="${values.length - 1}" step="1" value="${specification.default_index}" aria-label="${specification.label}">
     <div class="range-extents"><span>${displayNumber(values[0], specification.name)}</span><span>${displayNumber(values[values.length - 1], specification.name)}</span></div>`;
-  const control = {slider: wrapper.querySelector("input"), valueNode: wrapper.querySelector(".parameter-value"), specification};
+  const control = {wrapper, slider: wrapper.querySelector("input"), valueNode: wrapper.querySelector(".parameter-value"), specification};
+  control.slider.setAttribute("aria-label", `${specification.label} · ${t(specification.name)}`);
   control.slider.addEventListener("input", () => {
     updateSliderVisual(control);
     loadRun(resolveRunId(specification.name));
@@ -124,7 +209,7 @@ function decodePlane(lightcone) {
 }
 
 async function inflateSliceField(buffer, descriptor) {
-  if (!("DecompressionStream" in window)) throw new Error("This browser cannot decompress the high-resolution data. Please use a current browser.");
+  if (!("DecompressionStream" in window)) throw new AtlasError("decompressError");
   const compressed = new Uint8Array(
     buffer,
     descriptor.offset,
@@ -132,7 +217,7 @@ async function inflateSliceField(buffer, descriptor) {
   );
   const stream = new Blob([compressed]).stream().pipeThrough(new DecompressionStream("deflate"));
   const raw = new Uint8Array(await new Response(stream).arrayBuffer());
-  if (raw.byteLength !== descriptor.uncompressed_bytes) throw new Error("High-resolution slice data failed its length check.");
+  if (raw.byteLength !== descriptor.uncompressed_bytes) throw new AtlasError("lengthError");
   return raw;
 }
 
@@ -164,12 +249,8 @@ function showUnavailableRun(runId) {
   setSlicePlaying(false);
   state.result = null;
   state.plReference = null;
-  $("#status-card").classList.remove("active");
-  $("#status-title").textContent = "High-resolution parameter point unavailable";
-  $("#status-message").textContent = `${runId} · 21cmFAST encountered a spin-temperature numerical failure; no interpolation or low-resolution substitute is used`;
-  $("#run-badge").textContent = "UNAVAILABLE";
-  $("#run-badge").className = "run-badge failed";
-  $("#selection-detail").innerHTML = `<strong>Excluded numerical outlier</strong><span>${runId}</span>`;
+  state.status = {kind: "unavailable", runId};
+  renderStatus();
   [
     "#metric-z", "#metric-temp", "#metric-kp", "#metric-ms", "#metric-time",
     "#tau-current", "#tau-pl", "#tau-difference",
@@ -199,11 +280,8 @@ async function loadRun(runId) {
     return;
   }
   const serial = ++state.requestSerial;
-  $("#status-card").classList.add("active");
-  $("#status-title").textContent = "Switching exact simulation";
-  $("#status-message").textContent = `${runId} · Loading precomputed files`;
-  $("#run-badge").textContent = "LOADING";
-  $("#run-badge").className = "run-badge running";
+  state.status = {kind: "loading", runId};
+  renderStatus();
   try {
     const result = await fetchJSON(versioned(`web_data/runs/${runId}.json`));
     if (serial !== state.requestSerial) return;
@@ -214,7 +292,7 @@ async function loadRun(runId) {
       || result.slices.redshift.some(
         (redshift, index) => Math.abs(redshift - plReference.slices.redshift[index]) > 1.0e-4,
       )
-    )) throw new Error("The BPL and matched-PL slice redshift grids do not agree.");
+    )) throw new AtlasError("redshiftError");
     const sliceTasks = [decodeSlices(result.slices, "web_data/runs")];
     if (plReference.slices) sliceTasks.push(decodeSlices(plReference.slices, "web_data/pl"));
     const [decodedSlices, decodedPLSlices = null] = await Promise.all(sliceTasks);
@@ -226,11 +304,8 @@ async function loadRun(runId) {
     showResult();
   } catch (error) {
     if (serial !== state.requestSerial) return;
-    $("#status-card").classList.remove("active");
-    $("#status-title").textContent = "Result loading failed";
-    $("#status-message").textContent = error.message;
-    $("#run-badge").textContent = "ERROR";
-    $("#run-badge").className = "run-badge failed";
+    state.status = {kind: "error", runId, error};
+    renderStatus();
   }
 }
 
@@ -241,13 +316,8 @@ function formatDuration(seconds) {
 
 function showResult() {
   const result = state.result;
-  $("#status-card").classList.remove("active");
-  $("#status-title").textContent = "Precomputed result loaded";
-  const mode = result.role.kind === "astro_oat" ? `${result.role.parameter} one-at-a-time scan` : (result.role.kind === "kp_ms_grid" ? "KP × MS joint grid" : "Baseline model");
-  $("#status-message").textContent = `${mode} · No new calculation was launched`;
-  $("#run-badge").textContent = `EXACT · ${result.run_id.slice(4, 12)}`;
-  $("#run-badge").className = "run-badge completed";
-  $("#selection-detail").innerHTML = `<strong>${mode}</strong><span>${result.run_id}</span>`;
+  state.status = {kind: "ready", runId: result.run_id};
+  renderStatus();
   $("#metric-z").textContent = result.summary.trough_redshift.toFixed(2);
   $("#metric-temp").textContent = `${result.summary.trough_brightness_mk.toFixed(1)} mK`;
   $("#metric-kp").textContent = `${result.parameters.KP_h_Mpc.toFixed(1)} h/Mpc`;
@@ -381,7 +451,7 @@ function drawGlobal() {
   const trough = values.indexOf(Math.min(...values));
   ctx.fillStyle = plotPalette.paper; ctx.strokeStyle = plotPalette.current; ctx.lineWidth = 2.2;
   ctx.beginPath(); ctx.arc(px(z[trough]), py(values[trough]), 4.2, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
-  finishPlot(ctx, width, height, margin, "Redshift, z  (cosmic time →)", "δT_b [mK]");
+  finishPlot(ctx, width, height, margin, t("redshiftAxis"), "δT_b [mK]");
 }
 
 function availableIonizationHistory(result) {
@@ -407,7 +477,7 @@ function drawIonizationHistory() {
   if (!histories.length) {
     ctx.fillStyle = plotPalette.text; ctx.font = `13px ${PLOT_MONO}`;
     ctx.textAlign = "center"; ctx.textBaseline = "middle";
-    ctx.fillText("Ionization history is being prepared", width / 2, height / 2);
+    ctx.fillText(t("historyUnavailable"), width / 2, height / 2);
     return;
   }
   const allRedshifts = histories.flatMap((history) => history.redshift);
@@ -428,13 +498,13 @@ function drawIonizationHistory() {
   ctx.restore();
   if (!pl) {
     ctx.fillStyle = plotPalette.text; ctx.textAlign = "right"; ctx.textBaseline = "top";
-    ctx.fillText("PL history computing", width - margin.right - 8, margin.top + 8);
+    ctx.fillText(t("plHistoryUnavailable"), width - margin.right - 8, margin.top + 8);
   }
-  finishPlot(ctx, width, height, margin, "Redshift, z  (cosmic time →)", "Ionized fraction, ξ");
+  finishPlot(ctx, width, height, margin, t("redshiftAxis"), t("ionizationAxis"));
   const tauCurrent = current && Number.isFinite(current.tau_e) ? current.tau_e : null;
   const tauPL = pl && Number.isFinite(pl.tau_e) ? pl.tau_e : null;
-  $("#tau-current").textContent = tauCurrent === null ? "Computing…" : tauCurrent.toFixed(4);
-  $("#tau-pl").textContent = tauPL === null ? "Computing…" : tauPL.toFixed(4);
+  $("#tau-current").textContent = tauCurrent === null ? t("pending") : tauCurrent.toFixed(4);
+  $("#tau-pl").textContent = tauPL === null ? t("pending") : tauPL.toFixed(4);
   $("#tau-difference").textContent = tauCurrent === null || tauPL === null
     ? "—"
     : `${tauCurrent - tauPL >= 0 ? "+" : ""}${(tauCurrent - tauPL).toFixed(4)}`;
@@ -518,8 +588,8 @@ function drawLightcone() {
     ctx.textAlign = "right"; ctx.textBaseline = "middle"; ctx.fillText(value.toFixed(0), margin.left - 10, y);
   }
   ctx.fillStyle = plotPalette.ink; ctx.font = `700 15px ${PLOT_FONT}`;
-  ctx.textAlign = "center"; ctx.textBaseline = "bottom"; ctx.fillText("Redshift, z  (cosmic time →)", (margin.left + width - margin.right) / 2, height - 4);
-  ctx.save(); ctx.translate(16, (margin.top + height - margin.bottom) / 2); ctx.rotate(-Math.PI / 2); ctx.fillText("Transverse distance [cMpc]", 0, 0); ctx.restore();
+  ctx.textAlign = "center"; ctx.textBaseline = "bottom"; ctx.fillText(t("redshiftAxis"), (margin.left + width - margin.right) / 2, height - 4);
+  ctx.save(); ctx.translate(16, (margin.top + height - margin.bottom) / 2); ctx.rotate(-Math.PI / 2); ctx.fillText(t("distanceAxis"), 0, 0); ctx.restore();
 }
 
 function configureSliceControl() {
@@ -563,7 +633,7 @@ function configureLFControl() {
     button.type = "button";
     button.dataset.index = index;
     button.textContent = `z = ${redshift.toFixed(0)}`;
-    button.setAttribute("aria-label", `Show the UV luminosity function at redshift ${redshift.toFixed(0)}`);
+    button.setAttribute("aria-label", t("lfOption", {redshift: redshift.toFixed(0)}));
     button.addEventListener("click", () => {
       state.lfIndex = index;
       updateLFControl();
@@ -624,9 +694,9 @@ function drawPendingPLSlice(canvas) {
   ctx.font = `700 12px ${PLOT_MONO}`;
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
-  ctx.fillText("PL slices computing", width / 2, height / 2 - 7);
+  ctx.fillText(t("plSlicesUnavailable"), width / 2, height / 2 - 7);
   ctx.font = `10px ${PLOT_MONO}`;
-  ctx.fillText("Updates automatically when ready", width / 2, height / 2 + 10);
+  ctx.fillText(t("storedOnly"), width / 2, height / 2 + 10);
 }
 
 const sliceFieldSpecs = [
@@ -672,7 +742,7 @@ function drawSlices() {
       $(field.plOutput).textContent = formatFieldRange(field, plRange);
     } else {
       drawPendingPLSlice($(field.plCanvas));
-      $(field.plOutput).textContent = "Computing…";
+      $(field.plOutput).textContent = t("pending");
     }
   });
 }
@@ -762,18 +832,19 @@ function drawLuminosityFunction() {
   ctx.restore();
   if (!drawn) {
     ctx.fillStyle = plotPalette.text; ctx.textAlign = "center"; ctx.textBaseline = "middle";
-    ctx.fillText("No LF bins pass the numerical threshold at this redshift", (margin.left + width - margin.right) / 2, (margin.top + height - margin.bottom) / 2);
+    ctx.fillText(t("emptyLF"), (margin.left + width - margin.right) / 2, (margin.top + height - margin.bottom) / 2);
   }
   ctx.fillStyle = plotPalette.ink; ctx.font = `700 14px ${PLOT_MONO}`;
   ctx.textAlign = "right"; ctx.textBaseline = "top";
   ctx.fillText(`z = ${displayRedshift}`, width - margin.right - 10, margin.top + 9);
-  finishPlot(ctx, width, height, margin, "Absolute UV magnitude, M_UV", "log₁₀ φ [cMpc⁻³ mag⁻¹]");
+  finishPlot(ctx, width, height, margin, t("magnitudeAxis"), "log₁₀ φ [cMpc⁻³ mag⁻¹]");
 }
 
 function setSlicePlaying(playing) {
   if (state.sliceTimer) window.clearInterval(state.sliceTimer);
   state.sliceTimer = null;
-  $("#slice-play").textContent = playing ? "Pause" : "Play";
+  $("#slice-play").textContent = t(playing ? "pause" : "play");
+  $("#slice-play").setAttribute("aria-pressed", String(playing));
   $("#slice-play").classList.toggle("playing", playing);
   if (!playing) return;
   const slider = $("#slice-redshift");
@@ -804,16 +875,13 @@ async function initialize() {
   try {
     state.design = await fetchJSON(versioned("web_data/index.json"));
     state.design.parameter_specs.forEach(createParameter);
-    $("#data-state").classList.add("online"); $("#data-state").lastChild.textContent = "Results ready";
+    $("#data-state").classList.add("online");
     $("#hero-run-count").textContent = state.design.n_exact_runs;
-    $("#footer-count").textContent = `${state.design.n_exact_runs} EXACT 21cmFAST LIGHTCONES`;
-    $("#hero-run-count").textContent = state.design.n_exact_runs;
+    renderLocalizedUI();
     await loadRun(state.design.baseline_run_id);
   } catch (error) {
-    $("#status-card").classList.remove("active");
-    $("#status-title").textContent = "Result library not available";
-    $("#status-message").textContent = error.message;
-    $("#run-badge").textContent = "NO DATA"; $("#run-badge").className = "run-badge failed";
+    state.status = {kind: "libraryError", error};
+    renderLocalizedUI();
   }
 }
 
@@ -836,13 +904,21 @@ function initializeMotion() {
 }
 
 $("#reset-button").addEventListener("click", resetControls);
+document.querySelectorAll("[data-language]").forEach((button) => {
+  button.addEventListener("click", () => setLanguage(button.dataset.language));
+});
 $("#slice-redshift").addEventListener("input", () => { updateSliceControl(); drawSlices(); });
 $("#slice-play").addEventListener("click", () => setSlicePlaying(!state.sliceTimer));
 $("#main-fullscreen").addEventListener("click", () => {
   if (document.fullscreenElement) document.exitFullscreen();
   else $("#main-map-card").requestFullscreen();
 });
-document.addEventListener("fullscreenchange", () => window.requestAnimationFrame(drawLuminosityFunction));
+document.addEventListener("fullscreenchange", () => {
+  updateFullscreenLabel();
+  window.requestAnimationFrame(drawLuminosityFunction);
+});
 window.addEventListener("resize", () => { clearTimeout(window.__drawTimer); window.__drawTimer = setTimeout(drawAll, 120); });
+window.AtlasI18n.apply();
+renderLocalizedUI();
 initializeMotion();
 initialize();
