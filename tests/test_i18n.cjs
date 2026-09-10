@@ -52,7 +52,7 @@ function harness({stored, blockedStorage = false} = {}) {
     }
   }
   const document = {
-    documentElement: {}, body: element(), fullscreenElement: null,
+    documentElement: {style: {setProperty() {}}}, body: element(), fullscreenElement: null,
     querySelector(selector) { if (!elements.has(selector)) elements.set(selector, element()); return elements.get(selector); },
     querySelectorAll(selector) {
       if (selector === "#lf-redshift-options button") return this.querySelector("#lf-redshift-options").children;
@@ -128,7 +128,7 @@ test("all static and literal runtime translation keys exist in both languages", 
   for (const match of html.matchAll(/data-i18n(?:-aria-label|-title)?="([^"]+)"/g)) assert.ok(messages[match[1]], match[1]);
   for (const match of source.matchAll(/\bt\("([^"]+)"/g)) assert.ok(messages[match[1]], match[1]);
   assert.ok(html.indexOf('src="i18n.js') < html.indexOf('src="app.js'));
-  assert.equal((html.match(/hii256-v19/g) || []).length, 3);
+  assert.equal((html.match(/hii256-v20/g) || []).length, 3);
 });
 
 test("default English, saved Chinese, invalid preference and unavailable storage", () => {
@@ -198,4 +198,115 @@ test("manifest fetch failure and fullscreen state remain bilingual", async () =>
   h.run('setLanguage("zh")');
   assert.equal(h.get("#main-fullscreen").textContent, "退出全屏");
   assert.equal(h.fetches, 1);
+});
+
+function seedDesign(h) {
+  h.context.manifest = JSON.parse(fs.readFileSync(path.join(staticRoot, "web_data/index.json"), "utf8"));
+  h.run(`state.design = manifest; state.design.parameter_specs.forEach(createParameter);
+    for (const control of state.controls.values()) resetOne(control);`);
+}
+
+function select(h, name, index) {
+  h.run(`state.controls.get(${JSON.stringify(name)}).slider.value = ${index};
+    updateSliderVisual(state.controls.get(${JSON.stringify(name)}));`);
+  return h.run(`resolveRunId(${JSON.stringify(name)})`);
+}
+
+function useStoredFiles(h) {
+  const requests = [];
+  h.context.fetch = async (url) => {
+    requests.push(url);
+    return new Response(fs.readFileSync(path.join(staticRoot, url.split("?")[0])));
+  };
+  // Data tests exercise the actual loader and decoder; drawing is covered above.
+  h.run("drawAll = () => {};");
+  return requests;
+}
+
+test("adding KP=0 preserves every existing grid and astrophysical scan mapping", () => {
+  const h = harness(); seedDesign(h);
+  const design = h.context.manifest;
+  assert.equal(h.run('state.parameters.KP_h_Mpc'), 1);
+  assert.equal(h.run('state.controls.get("KP_h_Mpc").specification.values.length'), 6);
+  for (let kp = 0; kp < 5; kp += 1) {
+    select(h, "KP_h_Mpc", kp + 1);
+    for (let ms = 0; ms < 5; ms += 1) assert.equal(select(h, "MS", ms), design.mappings.kp_ms_grid[kp][ms]);
+  }
+  select(h, "KP_h_Mpc", 0);
+  for (let ms = 0; ms < 5; ms += 1) assert.equal(select(h, "MS", ms), design.baseline_run_id);
+  for (const [name, runIds] of Object.entries(design.mappings.astro_oat)) {
+    runIds.forEach((id, index) => {
+      assert.equal(select(h, name, index), id);
+      assert.equal(h.run("state.parameters.KP_h_Mpc"), 1);
+    });
+  }
+});
+
+test("KP=0 uses actual PL data for all fields and MS never reloads or changes it", async () => {
+  const h = harness(); seedDesign(h); const requests = useStoredFiles(h);
+  select(h, "KP_h_Mpc", 0);
+  await h.run('loadRun(resolveRunId("KP_h_Mpc"))');
+  assert.equal(h.run('state.status.kind'), "ready");
+  assert.equal(h.run('state.result.role.kind'), "pl");
+  assert.equal(requests.length, 2);
+  assert.ok(requests.every((url) => url.startsWith("web_data/pl/")));
+  for (const field of ["global", "luminosity_function", "ionization_history", "decodedSlices", "summary"]) {
+    assert.equal(h.run(`state.result.${field}`), h.run(`state.plReference.${field}`), field);
+  }
+  assert.equal(h.run('state.result.decodedPlane.columns'), 32);
+  assert.equal(h.run(`state.result.decodedPlane.values[19 * 32 + 7]`), h.run(`state.plReference.decodedSlices.brightness[7 * 256 * 256 + 19 * 256 + 128]`));
+  assert.equal(h.run('state.result.summary.trough_brightness_mk'), -80.14349365234375);
+  const before = h.run('state.result');
+  h.run('state.sliceIndex = 13; state.lfIndex = 1; state.sliceTimer = 99;');
+  for (let ms = 0; ms < 5; ms += 1) {
+    select(h, "MS", ms);
+    await h.run('loadRun(resolveRunId("MS"))');
+    assert.equal(h.run('state.result'), before);
+    assert.equal(h.run('state.result.parameters.MS'), h.context.manifest.parameter_specs.find((s) => s.name === "MS").values[ms]);
+    assert.equal(requests.length, 2);
+    assert.equal(h.run('state.sliceIndex'), 13);
+    assert.equal(h.run('state.lfIndex'), 1);
+    assert.equal(h.run('state.sliceTimer'), 99);
+  }
+  h.run('setLanguage("zh")');
+  assert.match(h.get('#metric-ms').textContent, /不影响结果/);
+  assert.match(h.get('#parameter-mode-note').textContent, /任意拖动 ms/);
+  // The excluded BPL KP=1, MS=4 point remains excluded; zero bypasses it.
+  const excluded = select(h, "KP_h_Mpc", 1);
+  await h.run(`loadRun(${JSON.stringify(excluded)})`);
+  assert.equal(h.run('state.status.kind'), 'unavailable');
+  select(h, "KP_h_Mpc", 0);
+  await h.run('loadRun(resolveRunId("KP_h_Mpc"))');
+  assert.equal(h.run('state.result.role.kind'), 'pl');
+  assert.equal(requests.length, 2);
+  // Reset returns to the original BPL baseline and its original default indices.
+  await h.run('resetControls()');
+  assert.equal(h.run('state.result.run_id'), h.context.manifest.baseline_run_id);
+  assert.equal(h.run('state.parameters.KP_h_Mpc'), 1);
+  assert.equal(h.run('state.parameters.MS'), 1.5);
+  assert.notEqual(h.run('state.result.global'), h.run('state.plReference.global'));
+});
+
+test("rapid PL/MS/BPL switches keep the final selection and share a pending PL request", async () => {
+  const h = harness(); seedDesign(h); const requests = useStoredFiles(h);
+  const storedFetch = h.context.fetch;
+  let release;
+  const gate = new Promise((resolve) => { release = resolve; });
+  h.context.fetch = async (url) => {
+    if (url.includes('/pl/') && url.includes('.json')) await gate;
+    return storedFetch(url);
+  };
+  select(h, 'KP_h_Mpc', 0);
+  const first = h.run('loadRun(resolveRunId("KP_h_Mpc"))');
+  select(h, 'MS', 4);
+  const second = h.run('loadRun(resolveRunId("MS"))');
+  const finalId = select(h, 'KP_h_Mpc', 2);
+  const last = h.run(`loadRun(${JSON.stringify(finalId)})`);
+  release();
+  await Promise.all([first, second, last]);
+  assert.equal(h.run('state.status.kind'), 'ready');
+  assert.equal(h.run('state.result.run_id'), finalId);
+  assert.equal(h.run('state.result.parameters.KP_h_Mpc'), 3);
+  assert.equal(h.run('state.result.parameters.MS'), 4);
+  assert.equal(requests.filter((url) => url.includes('/pl/') && url.includes('.json')).length, 1);
 });

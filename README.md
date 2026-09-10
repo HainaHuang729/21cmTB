@@ -13,7 +13,11 @@ UV luminosity function（LF）使用独立的四档红移选择：`z = 6, 7, 8, 
 参考模型使用
 `POWER_SPECTRUM=0, POWER_INDEX=0.968`，不再使用“上一选择”曲线。
 
-网页采用紧凑的学术数据 Dashboard：顶部横排 10 个参数；其下是全宽
+网页采用紧凑的学术数据 Dashboard：10 个参数固定在视口底部，滚动页面时
+仍可调节，也可收起。`KP` 与 `MS` 排在最前，窄屏可横向滚动查看其余参数；
+页面内容底部自动预留参数栏高度。界面使用暖白、炭黑、安全橙，以及低饱和
+红 `#B84B3E`、黄 `#D6A62E`、蓝 `#4D8F9C` 三色点缀；科学场色标保持原定义。
+图表区首先是全宽
 brightness-temperature lightcone；中部以大型 UV LF 为主图，右侧依次为
 全局亮温和再电离历史两个统计辅助图；底部为两行一一对应的五个等宽正方形
 BPL / matched-PL 切片。
@@ -37,6 +41,13 @@ BPL / matched-PL 切片。
 页面严格按照这个设计工作。移动一个天体物理参数时，其他九个参数回到
 基准值；`KP` 与 `MS` 可以联合移动。每一帧都对应一个真实 21cmFAST
 lightcone，不进行跨模型场插值。
+
+`KP` 额外提供 `0` 档，表示选择已完成的标准 PL 参考（`POWER_SPECTRUM=0`），
+不新增或插值 BPL 模拟。此时 `MS` 仍可拖动，但全部档位显示同一份 PL 结果，
+不会重复加载数据；全局亮温、LF、再电离历史和五种空间场均来自该 PL 参考。
+由于当前 PL 导出不含完整光锥中心平面，上方演化图改为 32 个真实预存切片
+的中心列采样视图，并明确标注；不将 BPL 光锥充作 PL。调节天体物理参数或
+点击重置时仍按原设计恢复基准 `KP=1, MS=1.5`。
 
 每个 BPL 模型及其去重后的匹配 PL 参考另外保存 32 个从 `z ≈ 35` 到
 `z = 6` 的真实 lightcone 横截面，
@@ -158,6 +169,14 @@ ssh -N -L 8765:COMPUTE_NODE:8765 USER@LOGIN_HOST
 不包含运行模拟的 API。
 
 ## 快速验证
+
+本静态仓库的界面、参数映射及 PL 数据回归检查：
+
+```bash
+node --test tests/*.cjs
+```
+
+上游模拟生成工作流的检查：
 
 ```bash
 PYTHON=/project/tkcastrosim/HNHuang/envs/Miniconda3/envs/21cmfast/bin/python

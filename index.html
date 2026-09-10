@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <title>21cmFAST Precomputed Parameter Atlas</title>
-  <link rel="stylesheet" href="styles.css?v=hii256-v19">
+  <link rel="stylesheet" href="styles.css?v=hii256-v20">
 </head>
 <body id="top">
   <header class="system-header load-in">
@@ -26,7 +26,7 @@
       </div>
       <div id="data-state" class="server-state"><i></i><span>Loading results</span></div>
       <div id="run-badge" class="run-badge idle">LOADING</div>
-      <div class="revision-tag"><small data-i18n="revision">REV</small><strong>19</strong></div>
+      <div class="revision-tag"><small data-i18n="revision">REV</small><strong>20</strong></div>
     </div>
   </header>
 
@@ -65,28 +65,6 @@
   </section>
 
   <main class="dashboard-shell">
-    <section id="parameters-section" class="parameter-zone system-module reveal" aria-labelledby="parameter-title">
-      <div class="section-heading compact-heading">
-        <div><span class="section-index">01</span><div><h2 id="parameter-title" data-i18n="parameters">Model Parameters</h2><p data-i18n="parameterSubtitle">10 PARAMETERS · EXACT PRECOMPUTED RUNS</p></div></div>
-        <button id="reset-button" class="text-button" type="button" data-i18n="reset">Reset to baseline</button>
-      </div>
-      <div id="parameter-list" class="parameter-list" aria-label="Model parameter controls" data-i18n-aria-label="parameterControls"></div>
-      <div class="run-strip">
-        <div id="status-card" class="status-card active">
-          <i aria-hidden="true"></i>
-          <span><strong id="status-title">Loading precomputed result</strong><small id="status-message">This page never starts a new 21cmFAST calculation.</small></span>
-        </div>
-        <div id="selection-detail" class="selection-detail">Loading design metadata…</div>
-        <div class="metrics" aria-label="Current model summary" data-i18n-aria-label="summary">
-          <span><small data-i18n="trough">Absorption-trough z</small><strong id="metric-z">—</strong></span>
-          <span><small><span data-i18n="minimum">Minimum</span> δT<sub>b</sub></small><strong id="metric-temp">—</strong></span>
-          <span><small>k<sub>p</sub></small><strong id="metric-kp">—</strong></span>
-          <span><small>m<sub>s</sub></small><strong id="metric-ms">—</strong></span>
-          <span><small data-i18n="runtime">Runtime</small><strong id="metric-time">—</strong></span>
-        </div>
-      </div>
-    </section>
-
     <section id="lightcone-section" class="chart-card lightcone-card system-module reveal" aria-labelledby="lightcone-title">
       <div class="chart-heading">
         <div><span class="section-index">02</span><div><h2 id="lightcone-title" data-i18n="lightconeTitle">Brightness-temperature lightcone</h2><p data-i18n="lightconeSubtitle">FULL REDSHIFT EVOLUTION · HIGH z → LOW z</p></div></div>
@@ -104,7 +82,7 @@
         <div class="lf-main-toolbar">
           <div id="lf-redshift-options" class="lf-redshift-options" role="group" aria-label="UV luminosity-function redshift" data-i18n-aria-label="lfRedshift"></div>
           <strong id="lf-redshift-value">z = —</strong>
-          <div class="curve-key main-curve-key"><i class="current-curve"></i><span>BPL</span><i class="pl-curve"></i><span>PL</span><i class="hst-point"></i><span>HST</span><i class="jwst-point"></i><span>JWST</span></div>
+          <div class="curve-key main-curve-key"><i class="current-curve"></i><span data-current-model>BPL</span><i class="pl-curve"></i><span>PL</span><i class="hst-point"></i><span>HST</span><i class="jwst-point"></i><span>JWST</span></div>
         </div>
         <div class="main-lf-canvas"><canvas id="lf-chart"></canvas></div>
         <div class="lf-source-note" data-i18n="lfSource">HST: Bouwens+21, Oesch+18 · JWST: Bouwens+23, Donnan+24 · ▽ denotes upper limits</div>
@@ -113,9 +91,9 @@
       <div class="aux-stack">
         <article class="chart-card aux-card global-card">
           <div class="chart-heading small-heading">
-            <div><span class="section-index">04A</span><div><h2 data-i18n="globalTitle">Global Mean Brightness Temperature</h2><p>δT<sub>b</sub>(z) · BPL / <span data-i18n="matchedPL">MATCHED PL</span></p></div></div>
+            <div><span class="section-index">04A</span><div><h2 data-i18n="globalTitle">Global Mean Brightness Temperature</h2><p>δT<sub>b</sub>(z) · <span data-current-model>BPL</span> / <span data-i18n="matchedPL">MATCHED PL</span></p></div></div>
           </div>
-          <div class="curve-key"><i class="current-curve"></i><span>BPL</span><i class="pl-curve"></i><span>PL</span></div>
+          <div class="curve-key"><i class="current-curve"></i><span data-current-model>BPL</span><i class="pl-curve"></i><span>PL</span></div>
           <div class="aux-canvas"><canvas id="global-chart"></canvas></div>
         </article>
 
@@ -123,10 +101,10 @@
           <div class="chart-heading small-heading">
             <div><span class="section-index">04B</span><div><h2 data-i18n="historyTitle">Reionization History</h2><p>ξ(z) = 1 − ⟨x<sub>HI</sub>⟩ · <span data-i18n="thomson">THOMSON</span> τ<sub>e</sub></p></div></div>
           </div>
-          <div class="curve-key"><i class="current-curve"></i><span>BPL</span><i class="pl-curve"></i><span>PL</span></div>
+          <div class="curve-key"><i class="current-curve"></i><span data-current-model>BPL</span><i class="pl-curve"></i><span>PL</span></div>
           <div class="aux-canvas ionization-canvas"><canvas id="ionization-history-chart"></canvas></div>
           <div class="tau-inline">
-            <span><small>τ<sub>e</sub> BPL</small><strong id="tau-current">—</strong></span>
+            <span><small>τ<sub>e</sub> <span data-current-model>BPL</span></small><strong id="tau-current">—</strong></span>
             <span><small>τ<sub>e</sub> PL</small><strong id="tau-pl">—</strong></span>
             <span><small>Δτ</small><strong id="tau-difference">—</strong></span>
           </div>
@@ -148,7 +126,7 @@
         <span class="time-direction" data-i18n="timeDirection">earlier → later</span>
       </div>
       <div class="slice-model-row bpl-slice-row">
-        <div class="slice-model-label"><strong>BPL</strong><span data-i18n="bplDescription">Current broken-power-law model</span></div>
+        <div class="slice-model-label"><strong data-current-model>BPL</strong><span data-i18n="bplDescription">Current broken-power-law model</span></div>
         <div class="slice-grid">
         <article class="slice-thumb" data-field="brightness">
           <span><strong>brightness_temp</strong><small data-i18n="brightnessDescription">21 cm brightness temperature</small></span>
@@ -223,7 +201,31 @@
     </div>
     <p class="footer-note" data-i18n="footerNote">Exact 21cmFAST outputs · no browser-side simulation · LF references: Bouwens et al. 2021/2023, Oesch et al. 2018, Donnan et al. 2024</p>
   </footer>
-  <script src="i18n.js?v=hii256-v19"></script>
-  <script src="app.js?v=hii256-v19"></script>
+  <section id="parameters-section" class="parameter-zone system-module" aria-labelledby="parameter-title">
+    <div class="section-heading compact-heading">
+      <div><span class="section-index">01</span><div><h2 id="parameter-title" data-i18n="parameters">Model Parameters</h2><p data-i18n="parameterSubtitle">10 PARAMETERS · EXACT PRECOMPUTED RUNS</p></div></div>
+      <div class="parameter-actions"><button id="reset-button" class="text-button" type="button" data-i18n="resetShort" data-i18n-title="reset" data-i18n-aria-label="reset">Reset</button><button id="parameter-toggle" class="text-button" type="button" aria-controls="parameter-content" aria-expanded="true">Collapse</button></div>
+    </div>
+    <div id="parameter-content">
+      <p id="parameter-mode-note" class="parameter-mode-note"></p>
+      <div id="parameter-list" class="parameter-list" aria-label="Model parameter controls" data-i18n-aria-label="parameterControls"></div>
+      <div class="run-strip">
+        <div id="status-card" class="status-card active" role="status" aria-live="polite">
+          <i aria-hidden="true"></i>
+          <span><strong id="status-title">Loading precomputed result</strong><small id="status-message">This page never starts a new 21cmFAST calculation.</small></span>
+        </div>
+        <div id="selection-detail" class="selection-detail">Loading design metadata…</div>
+        <div class="metrics" aria-label="Current model summary" data-i18n-aria-label="summary">
+          <span><small data-i18n="trough">Absorption-trough z</small><strong id="metric-z">—</strong></span>
+          <span><small><span data-i18n="minimum">Minimum</span> δT<sub>b</sub></small><strong id="metric-temp">—</strong></span>
+          <span><small>k<sub>p</sub></small><strong id="metric-kp">—</strong></span>
+          <span><small>m<sub>s</sub></small><strong id="metric-ms">—</strong></span>
+          <span><small data-i18n="runtime">Runtime</small><strong id="metric-time">—</strong></span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="i18n.js?v=hii256-v20"></script>
+  <script src="app.js?v=hii256-v20"></script>
 </body>
 </html>

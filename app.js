@@ -13,12 +13,14 @@ const state = {
   sliceIndex: null,
   sliceTimer: null,
   lfIndex: null,
+  plCache: null,
+  parametersCollapsed: false,
 };
 
 const $ = (selector) => document.querySelector(selector);
 const astroNames = new Set(["F_STAR10", "ALPHA_STAR", "F_ESC10", "ALPHA_ESC", "M_TURN", "t_STAR", "L_X", "NU_X_THRESH"]);
 const DATA_VERSION = "hii256-v18";
-const UI_VERSION = "hii256-v19";
+const UI_VERSION = "hii256-v20";
 const t = (key, values) => window.AtlasI18n.t(key, values);
 const PLOT_FONT = '"Avenir Next", "Century Gothic", Futura, "Helvetica Neue", Arial, "Noto Sans CJK SC", "Microsoft YaHei", "PingFang SC", sans-serif';
 const PLOT_MONO = '"IBM Plex Mono", "JetBrains Mono", "SFMono-Regular", Consolas, "Noto Sans CJK SC", "Microsoft YaHei", "PingFang SC", monospace';
@@ -29,10 +31,10 @@ const plotPalette = {
   grid: "rgba(24,26,25,0.16)",
   gridLight: "rgba(24,26,25,0.08)",
   border: "#181a19",
-  current: "#df5a2e",
-  pl: "#578f8c",
+  current: "#B84B3E",
+  pl: "#4D8F9C",
   hst: "#181a19",
-  jwst: "#c8a64a",
+  jwst: "#D6A62E",
   plot: "#f0efe8",
   paper: "#f0efe8",
 };
@@ -50,6 +52,7 @@ function errorMessage(error) {
 }
 
 function modelMode(result) {
+  if (result.role.kind === "pl") return t("plMode");
   if (result.role.kind === "astro_oat") return t("oatMode", {parameter: result.role.parameter});
   return t(result.role.kind === "kp_ms_grid" ? "gridMode" : "baselineMode");
 }
@@ -67,7 +70,7 @@ function renderStatus() {
   const badgeKeys = {initial: "loadingBadge", loading: "loadingBadge", ready: "exactBadge", unavailable: "unavailableBadge", error: "errorBadge", libraryError: "noDataBadge"};
   $("#status-title").textContent = t(titleKeys[kind]);
   $("#status-card").classList.toggle("active", kind === "initial" || kind === "loading");
-  $("#run-badge").textContent = t(badgeKeys[kind], {id: runId ? runId.slice(4, 12) : ""});
+  $("#run-badge").textContent = t(badgeKeys[kind], {id: runId ? runId.replace(/^(run|pl)_/, "").slice(0, 8) : ""});
   $("#run-badge").className = `run-badge ${kind === "ready" ? "completed" : kind === "initial" || kind === "loading" ? "running" : "failed"}`;
   let message = t("noSimulation");
   if (kind === "loading") message = t("loadingFiles", {id: runId});
@@ -100,7 +103,55 @@ function renderLocalizedUI() {
     });
   }
   updateFullscreenLabel();
+  renderModelLabels();
+  if (state.result?.parameters) updateMSMetric();
+  renderParameterDock();
   renderStatus();
+}
+
+function renderModelLabels() {
+  const isPL = state.result?.role.kind === "pl";
+  document.querySelectorAll("[data-current-model]").forEach((node) => { node.textContent = isPL ? "PL" : "BPL"; });
+  for (const [selector, key] of [
+    ['[data-i18n="bplDescription"]', isPL ? "plCurrentDescription" : "bplDescription"],
+    ['[data-i18n="sliceSubtitle"]', isPL ? "plSliceSubtitle" : "sliceSubtitle"],
+    ['[data-i18n="lfSubtitle"]', isPL ? "plLFSubtitle" : "lfSubtitle"],
+    ['[data-i18n="lightconeTitle"]', isPL ? "plEvolutionTitle" : "lightconeTitle"],
+    ['[data-i18n="lightconeSubtitle"]', isPL ? "plEvolutionSubtitle" : "lightconeSubtitle"],
+  ]) $(selector).textContent = t(key);
+  const ms = state.controls.get("MS");
+  if (ms) {
+    const inactive = state.parameters.KP_h_Mpc === 0;
+    ms.wrapper.classList.toggle("parameter-inactive", inactive);
+    ms.slider.setAttribute("aria-describedby", "parameter-mode-note");
+    ms.slider.setAttribute("aria-valuetext", `${displayNumber(state.parameters.MS, "MS")}${inactive ? ` · ${t("msIgnored")}` : ""}`);
+  }
+  $("#parameter-mode-note").textContent = t(state.parameters.KP_h_Mpc === 0 ? "plModeNote" : "parameterModeNote");
+}
+
+function renderParameterDock() {
+  $("#parameter-content").hidden = state.parametersCollapsed;
+  $("#parameter-toggle").textContent = t(state.parametersCollapsed ? "expandParameters" : "collapseParameters");
+  $("#parameter-toggle").setAttribute("aria-expanded", String(!state.parametersCollapsed));
+}
+
+function initializeParameterDock() {
+  const updateHeight = () => document.documentElement.style.setProperty("--parameter-dock-height", `${$("#parameters-section").getBoundingClientRect().height}px`);
+  if ("ResizeObserver" in window) new ResizeObserver(updateHeight).observe($("#parameters-section"));
+  updateHeight();
+  $("#parameter-toggle").addEventListener("click", () => {
+    state.parametersCollapsed = !state.parametersCollapsed;
+    renderParameterDock();
+    updateHeight();
+  });
+  document.querySelectorAll('a[href="#parameters-section"]').forEach((link) => link.addEventListener("click", (event) => {
+    event.preventDefault();
+    state.parametersCollapsed = false;
+    renderParameterDock();
+    updateHeight();
+    if (link.classList.contains("system-action")) $("#lightcone-section").scrollIntoView();
+    state.controls.get("KP_h_Mpc")?.slider.focus({preventScroll: true});
+  }));
 }
 
 function updateFullscreenLabel() {
@@ -147,6 +198,7 @@ function updateSliderVisual(control) {
   slider.style.setProperty("--fill", `${100 * index / (specification.values.length - 1)}%`);
   valueNode.textContent = displayNumber(specification.values[index], specification.name);
   state.parameters[specification.name] = specification.values[index];
+  slider.setAttribute("aria-valuetext", valueNode.textContent);
 }
 
 function resetOne(control) {
@@ -163,15 +215,27 @@ function resolveRunId(changedName = null) {
   if (changedName === "KP_h_Mpc" || changedName === "MS") {
     state.activeAstro = null;
     for (const [name, control] of state.controls) if (astroNames.has(name)) resetOne(control);
-    return state.design.mappings.kp_ms_grid[currentIndex("KP_h_Mpc")][currentIndex("MS")];
+    return selectedGridRunId();
   }
   if (state.activeAstro) return state.design.mappings.astro_oat[state.activeAstro][currentIndex(state.activeAstro)];
-  return state.design.mappings.kp_ms_grid[currentIndex("KP_h_Mpc")][currentIndex("MS")];
+  return selectedGridRunId();
+}
+
+function selectedGridRunId() {
+  // Zero is a UI selector for the stored standard PL, not an extra BPL run.
+  if (state.parameters.KP_h_Mpc === 0) return state.design.baseline_run_id;
+  const kpSpec = state.design.parameter_specs.find((spec) => spec.name === "KP_h_Mpc");
+  return state.design.mappings.kp_ms_grid[kpSpec.values.indexOf(state.parameters.KP_h_Mpc)][currentIndex("MS")];
 }
 
 function createParameter(specification) {
+  if (specification.name === "KP_h_Mpc") specification = {
+    ...specification, values: [0, ...specification.values], default_index: specification.default_index + 1,
+  };
   const wrapper = document.createElement("div");
   wrapper.className = "parameter";
+  wrapper.dataset.name = specification.name;
+  wrapper.dataset.group = specification.group;
   wrapper.title = t(specification.name);
   const values = specification.values;
   wrapper.innerHTML = `
@@ -182,7 +246,9 @@ function createParameter(specification) {
   control.slider.setAttribute("aria-label", `${specification.label} · ${t(specification.name)}`);
   control.slider.addEventListener("input", () => {
     updateSliderVisual(control);
-    loadRun(resolveRunId(specification.name));
+    const runId = resolveRunId(specification.name);
+    renderModelLabels();
+    loadRun(runId);
   });
   state.controls.set(specification.name, control);
   updateSliderVisual(control);
@@ -250,6 +316,7 @@ function showUnavailableRun(runId) {
   state.result = null;
   state.plReference = null;
   state.status = {kind: "unavailable", runId};
+  renderModelLabels();
   renderStatus();
   [
     "#metric-z", "#metric-temp", "#metric-kp", "#metric-ms", "#metric-time",
@@ -275,6 +342,12 @@ function showUnavailableRun(runId) {
 }
 
 async function loadRun(runId) {
+  const usePL = state.parameters.KP_h_Mpc === 0;
+  if (usePL && state.result?.role.kind === "pl" && state.status.kind === "ready") {
+    state.result.parameters.MS = state.parameters.MS;
+    updateMSMetric();
+    return;
+  }
   if ((state.design.unavailable_run_ids || []).includes(runId)) {
     showUnavailableRun(runId);
     return;
@@ -283,21 +356,32 @@ async function loadRun(runId) {
   state.status = {kind: "loading", runId};
   renderStatus();
   try {
+    if (usePL) {
+      const reference = state.design.pl_inventory.find((entry) => entry.source_run_ids.includes(runId));
+      if (!reference) throw new AtlasError("plReferenceMissing");
+      const plReference = await loadPLReference({file: `web_data/pl/${reference.pl_id}.json`});
+      if (serial !== state.requestSerial) return;
+      state.plReference = plReference;
+      state.result = {
+        ...plReference,
+        run_id: plReference.pl_id,
+        role: {kind: "pl"},
+        parameters: {...state.parameters},
+      };
+      showResult();
+      return;
+    }
     const result = await fetchJSON(versioned(`web_data/runs/${runId}.json`));
     if (serial !== state.requestSerial) return;
     result.decodedPlane = decodePlane(result.lightcone);
-    const plReference = await fetchJSON(versioned(result.pl_reference.file));
+    const plReference = await loadPLReference(result.pl_reference);
     if (plReference.slices && (
       result.slices.redshift.length !== plReference.slices.redshift.length
       || result.slices.redshift.some(
         (redshift, index) => Math.abs(redshift - plReference.slices.redshift[index]) > 1.0e-4,
       )
     )) throw new AtlasError("redshiftError");
-    const sliceTasks = [decodeSlices(result.slices, "web_data/runs")];
-    if (plReference.slices) sliceTasks.push(decodeSlices(plReference.slices, "web_data/pl"));
-    const [decodedSlices, decodedPLSlices = null] = await Promise.all(sliceTasks);
-    result.decodedSlices = decodedSlices;
-    plReference.decodedSlices = decodedPLSlices;
+    result.decodedSlices = await decodeSlices(result.slices, "web_data/runs");
     if (serial !== state.requestSerial) return;
     state.plReference = plReference;
     state.result = result;
@@ -309,6 +393,39 @@ async function loadRun(runId) {
   }
 }
 
+async function loadPLReference(reference) {
+  // Keep only the latest reference; MS changes at KP=0 reuse the same data,
+  // including an in-flight request, without retaining the whole result library.
+  if (state.plCache?.file === reference.file) return state.plCache.promise;
+  const cache = {file: reference.file};
+  cache.promise = (async () => {
+    const result = await fetchJSON(versioned(reference.file));
+    if (result.slices) {
+      result.decodedSlices = await decodeSlices(result.slices, "web_data/pl");
+      const {count, rows, columns, brightness} = result.decodedSlices;
+      const values = new Float32Array(rows * count);
+      for (let frame = 0; frame < count; frame += 1) {
+        for (let row = 0; row < rows; row += 1) {
+          values[row * count + frame] = brightness[frame * rows * columns + row * columns + Math.floor(columns / 2)];
+        }
+      }
+      // PL exports contain 32 transverse slices, not the full lightcone plane.
+      // Show their central columns as an explicitly labelled sampled view.
+      result.decodedPlane = {values, rows, columns: count};
+      result.lightcone = {
+        redshift: result.slices.redshift,
+        distance_mpc: Array.from({length: rows}, (_, row) => row * result.slices.box_len_mpc / rows),
+      };
+    }
+    return result;
+  })().catch((error) => {
+    if (state.plCache === cache) state.plCache = null;
+    throw error;
+  });
+  state.plCache = cache;
+  return cache.promise;
+}
+
 function formatDuration(seconds) {
   if (seconds < 60) return `${seconds.toFixed(0)} s`;
   return `${Math.floor(seconds / 60)}m ${Math.round(seconds % 60)}s`;
@@ -318,14 +435,20 @@ function showResult() {
   const result = state.result;
   state.status = {kind: "ready", runId: result.run_id};
   renderStatus();
+  renderModelLabels();
   $("#metric-z").textContent = result.summary.trough_redshift.toFixed(2);
   $("#metric-temp").textContent = `${result.summary.trough_brightness_mk.toFixed(1)} mK`;
   $("#metric-kp").textContent = `${result.parameters.KP_h_Mpc.toFixed(1)} h/Mpc`;
-  $("#metric-ms").textContent = result.parameters.MS.toFixed(2);
+  updateMSMetric();
   $("#metric-time").textContent = formatDuration(result.summary.elapsed_seconds);
   configureSliceControl();
   configureLFControl();
   drawAll();
+}
+
+function updateMSMetric() {
+  const result = state.result;
+  $("#metric-ms").textContent = `${result.parameters.MS.toFixed(2)}${result.role.kind === "pl" ? ` · ${t("msIgnored")}` : ""}`;
 }
 
 function canvasContext(canvas) {
@@ -868,7 +991,8 @@ function drawAll() {
 function resetControls() {
   state.activeAstro = null;
   for (const control of state.controls.values()) resetOne(control);
-  loadRun(state.design.baseline_run_id);
+  renderModelLabels();
+  return loadRun(state.design.baseline_run_id);
 }
 
 async function initialize() {
@@ -921,4 +1045,5 @@ window.addEventListener("resize", () => { clearTimeout(window.__drawTimer); wind
 window.AtlasI18n.apply();
 renderLocalizedUI();
 initializeMotion();
+initializeParameterDock();
 initialize();
