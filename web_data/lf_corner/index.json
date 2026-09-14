@@ -1,0 +1,51 @@
+{
+  "analysis": "LF-only",
+  "chain_source": "job_2128818",
+  "models": [
+    {
+      "model_index": 0,
+      "KP_h_Mpc": 1.0,
+      "MS": 1.5,
+      "steps_per_ensemble": 3092,
+      "walkers": 32,
+      "sample_count": 197888,
+      "file": "lf_corner_kp1_ms1.5.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ]
+    },
+    {
+      "model_index": 1,
+      "KP_h_Mpc": 10.0,
+      "MS": 2.5,
+      "steps_per_ensemble": 3050,
+      "walkers": 32,
+      "sample_count": 195200,
+      "file": "lf_corner_kp10_ms2.5.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ]
+    },
+    {
+      "model_index": 2,
+      "KP_h_Mpc": 30.0,
+      "MS": 4.0,
+      "steps_per_ensemble": 2950,
+      "walkers": 32,
+      "sample_count": 188800,
+      "file": "lf_corner_kp30_ms4.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "snapshot_date": "2026-09-14",
+  "independent_of_atlas_parameter_grid": true,
+  "files_sha256": {
+    "web_data/lf_corner/index.json": "416fb31faa059d9ed770ab013fc3f735c59c87d2a5021693d3c24c75c5234fc8",
+    "web_data/lf_corner/lf_corner_kp1_ms1.5.png": "1001eb740a31ae09b764fe1d1c6155844aeb9e4ac07c538b3ebd879916cb3702",
+    "web_data/lf_corner/lf_corner_kp10_ms2.5.png": "bc1a2a6c0347d290a1533407bc1a88c0275fb0882876ec642449cc267457cbeb",
+    "web_data/lf_corner/lf_corner_kp30_ms4.png": "090b67c9ff8d5e89acd04c108fc96dc24593ae403d79cda0632abb0afee14dbe"
+  },
+  "categories": {
+    "lf_only": {
+      "label": "LF only",
+      "directory": "web_data/lf_corner",
+      "status": "EXPLORATORY_CONVERGENCE_NOT_ESTABLISHED",
+      "dimensions": 4,
+      "ensembles": 2,
+      "fixed": ["KP_h_Mpc", "MS"],
+      "likelihood": ["LF"],
+      "lf_points": 49,
+      "lf_redshifts": [6, 7, 8, 9, 10],
+      "provenance": "Archived web figures from job_2128818; common saved production length per model; initial burn-in 500 steps excluded in production chains.",
+      "source_directory": "workflows/MCMC/fixed_btps_posterior/runs/lf_corner_snapshot_20260914",
+      "coordinate_transform": "F_STAR10 = ETA_STAR + log10(t_STAR); no resampling",
+      "sample_count_semantics": "Correlated stored rows, not effective independent samples"
+    },
+    "joint": {
+      "label": "LF + tau + xi",
+      "directory": "web_data/ms_corner_chunk1",
+      "status": "PRELIMINARY_NOT_CONVERGED",
+      "dimensions": 7,
+      "ensembles": 2,
+      "fixed": ["KP_h_Mpc"],
+      "likelihood": ["LF", "Planck tau", "McGreer xHI(z=5.9)"],
+      "xi_definition": "xi = 1 - xHI; not a likelihood on the entire xi(z) history",
+      "sample_count_semantics": "Correlated stored rows, not effective independent samples",
+      "continuing_runs_included": false
+    }
+  }
+}

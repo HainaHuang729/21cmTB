@@ -7,6 +7,7 @@ const vm = require("node:vm");
 const test = require("node:test");
 const root = path.resolve(__dirname, "..");
 const staticRoot = fs.existsSync(path.join(root, "static")) ? path.join(root, "static") : root;
+const simulationRoot = process.env.ATLAS_DATA_ROOT || (staticRoot === root ? root : path.join(root, "site_v11"));
 const html = fs.readFileSync(path.join(staticRoot, "index.html"), "utf8");
 const source = fs.readFileSync(path.join(staticRoot, "app.js"), "utf8");
 const dictionary = fs.readFileSync(path.join(staticRoot, "i18n.js"), "utf8");
@@ -32,6 +33,7 @@ function harness({stored, blockedStorage = false} = {}) {
       appendChild(child) { this.children.push(child); },
       replaceChildren(...children) { this.children = children; },
       querySelector(selector) { if (!queries.has(selector)) queries.set(selector, element()); return queries.get(selector); },
+      querySelectorAll(selector) { return selector === "button" ? this.children : []; },
       getBoundingClientRect: () => ({width: 800, height: 500}),
       getContext: () => new Proxy({}, {get(_, key) {
         if (key === "fillText") return (text) => texts.push(text);
@@ -53,9 +55,9 @@ function harness({stored, blockedStorage = false} = {}) {
   }
   const document = {
     documentElement: {style: {setProperty() {}}}, body: element(), fullscreenElement: null,
+    getElementById(id) { return this.querySelector(`#${id}`); },
     querySelector(selector) { if (!elements.has(selector)) elements.set(selector, element()); return elements.get(selector); },
     querySelectorAll(selector) {
-      if (selector === "#lf-redshift-options button") return this.querySelector("#lf-redshift-options").children;
       const attribute = selector.match(/^\[([^\]]+)\]$/);
       if (attribute) return all.filter((node) => node.getAttribute(attribute[1]) !== undefined);
       return [];
@@ -110,11 +112,9 @@ function seed(h) {
     for (const field of sliceFieldSpecs) state.result.decodedSlices[field.key] = new Float32Array([1, 2, 3, 4, 1, 2, 3, 4]);
     state.plReference = {...state.result, pl_id: "pl_example"};
     state.sliceIndex = 1;
-    state.lfIndex = 2;
     state.sliceTimer = 99;
     state.requestSerial = 12;
     state.status = {kind: "ready", runId: state.result.run_id};
-    configureLFControl();
   `);
 }
 
@@ -125,10 +125,10 @@ test("all static and literal runtime translation keys exist in both languages", 
     assert.ok(values.every((v) => typeof v === "string" && v.length > 0), key);
     assert.deepEqual([...values[0].matchAll(/\{\w+\}/g)].map((m) => m[0]).sort(), [...values[1].matchAll(/\{\w+\}/g)].map((m) => m[0]).sort(), key);
   }
-  for (const match of html.matchAll(/data-i18n(?:-aria-label|-title)?="([^"]+)"/g)) assert.ok(messages[match[1]], match[1]);
+  for (const match of html.matchAll(/data-i18n(?:-aria-label|-title|-alt)?="([^"]+)"/g)) assert.ok(messages[match[1]], match[1]);
   for (const match of source.matchAll(/\bt\("([^"]+)"/g)) assert.ok(messages[match[1]], match[1]);
   assert.ok(html.indexOf('src="i18n.js') < html.indexOf('src="app.js'));
-  assert.equal((html.match(/hii256-v20/g) || []).length, 3);
+  assert.equal((html.match(/hii256-v21/g) || []).length, 4);
 });
 
 test("default English, saved Chinese, invalid preference and unavailable storage", () => {
@@ -153,7 +153,6 @@ test("language buttons preserve parameter, redshift, model, playback and data", 
   assert.equal(h.run("state.parameters.F_STAR10"), -1.3);
   assert.equal(h.run("state.activeAstro"), "F_STAR10");
   assert.equal(h.run("state.sliceIndex"), 1);
-  assert.equal(h.run("state.lfIndex"), 2);
   assert.equal(h.run("state.sliceTimer"), 99);
   assert.equal(h.run("state.requestSerial"), 12);
   assert.equal(h.fetches, 0);
@@ -161,7 +160,10 @@ test("language buttons preserve parameter, redshift, model, playback and data", 
   assert.equal(h.get("#slice-play").textContent, "暂停");
   assert.match(before.control.wrapper.title, /恒星形成效率/);
   assert.match(h.get("#status-message").textContent, /单参数扫描/);
-  assert.equal(h.get("#lf-redshift-options").children[2].getAttribute("aria-label"), "显示红移 8 的紫外光度函数");
+  for (const z of [6, 7, 8, 10]) {
+    assert.equal(h.get(`#lf-chart-${z}`).getAttribute("aria-label"), `显示红移 ${z} 的紫外光度函数`);
+    assert.ok(h.texts.includes(`z = ${z}`));
+  }
   for (const key of ["redshiftAxis", "distanceAxis", "ionizationAxis", "magnitudeAxis"]) assert.ok(h.texts.includes(h.context.AtlasI18n.t(key)), key);
   h.run('setLanguage("en")');
   assert.equal(h.get("#slice-play").textContent, "Pause");
@@ -201,7 +203,7 @@ test("manifest fetch failure and fullscreen state remain bilingual", async () =>
 });
 
 function seedDesign(h) {
-  h.context.manifest = JSON.parse(fs.readFileSync(path.join(staticRoot, "web_data/index.json"), "utf8"));
+  h.context.manifest = JSON.parse(fs.readFileSync(path.join(simulationRoot, "web_data/index.json"), "utf8"));
   h.run(`state.design = manifest; state.design.parameter_specs.forEach(createParameter);
     for (const control of state.controls.values()) resetOne(control);`);
 }
@@ -216,7 +218,9 @@ function useStoredFiles(h) {
   const requests = [];
   h.context.fetch = async (url) => {
     requests.push(url);
-    return new Response(fs.readFileSync(path.join(staticRoot, url.split("?")[0])));
+    const file = url.split("?")[0];
+    const base = /^web_data\/(index\.json|runs\/|pl\/)/.test(file) ? simulationRoot : staticRoot;
+    return new Response(fs.readFileSync(path.join(base, file)));
   };
   // Data tests exercise the actual loader and decoder; drawing is covered above.
   h.run("drawAll = () => {};");
@@ -234,6 +238,7 @@ test("adding KP=0 preserves every existing grid and astrophysical scan mapping",
   }
   select(h, "KP_h_Mpc", 0);
   for (let ms = 0; ms < 5; ms += 1) assert.equal(select(h, "MS", ms), design.baseline_run_id);
+  select(h, "KP_h_Mpc", 1);
   for (const [name, runIds] of Object.entries(design.mappings.astro_oat)) {
     runIds.forEach((id, index) => {
       assert.equal(select(h, name, index), id);
@@ -257,7 +262,7 @@ test("KP=0 uses actual PL data for all fields and MS never reloads or changes it
   assert.equal(h.run(`state.result.decodedPlane.values[19 * 32 + 7]`), h.run(`state.plReference.decodedSlices.brightness[7 * 256 * 256 + 19 * 256 + 128]`));
   assert.equal(h.run('state.result.summary.trough_brightness_mk'), -80.14349365234375);
   const before = h.run('state.result');
-  h.run('state.sliceIndex = 13; state.lfIndex = 1; state.sliceTimer = 99;');
+  h.run('state.sliceIndex = 13; state.sliceTimer = 99;');
   for (let ms = 0; ms < 5; ms += 1) {
     select(h, "MS", ms);
     await h.run('loadRun(resolveRunId("MS"))');
@@ -265,7 +270,6 @@ test("KP=0 uses actual PL data for all fields and MS never reloads or changes it
     assert.equal(h.run('state.result.parameters.MS'), h.context.manifest.parameter_specs.find((s) => s.name === "MS").values[ms]);
     assert.equal(requests.length, 2);
     assert.equal(h.run('state.sliceIndex'), 13);
-    assert.equal(h.run('state.lfIndex'), 1);
     assert.equal(h.run('state.sliceTimer'), 99);
   }
   h.run('setLanguage("zh")');
@@ -309,4 +313,149 @@ test("rapid PL/MS/BPL switches keep the final selection and share a pending PL r
   assert.equal(h.run('state.result.parameters.KP_h_Mpc'), 3);
   assert.equal(h.run('state.result.parameters.MS'), 4);
   assert.equal(requests.filter((url) => url.includes('/pl/') && url.includes('.json')).length, 1);
+});
+
+test("KP=0 stays selected across all astrophysical scans and resolves the matching PL", async () => {
+  const h = harness(); seedDesign(h); useStoredFiles(h);
+  // Use real stored metadata for every scan point, but avoid inflating all 32
+  // references in a mapping test. Real full-size decoding is exercised above.
+  h.run(`decodeSlices = async () => ({count: 1, rows: 1, columns: 1, brightness: new Float32Array([0])});`);
+  select(h, "KP_h_Mpc", 0);
+  const design = h.context.manifest;
+  for (const [name, runIds] of Object.entries(design.mappings.astro_oat)) {
+    for (let index = 0; index < runIds.length; index += 1) {
+      const id = select(h, name, index);
+      assert.equal(h.run("state.parameters.KP_h_Mpc"), 0, `${name}/${index}`);
+      assert.equal(id, runIds[index]);
+      await h.run(`loadRun(${JSON.stringify(id)})`);
+      if (design.unavailable_run_ids.includes(id)) {
+        assert.equal(h.run("state.status.kind"), "unavailable");
+        assert.equal(h.run("state.result"), null);
+        continue;
+      }
+      const reference = design.pl_inventory.find((entry) => entry.source_run_ids.includes(id));
+      assert.equal(h.run("state.status.kind"), "ready", `${name}/${index}`);
+      assert.equal(h.run("state.result.pl_id"), reference.pl_id);
+      assert.equal(h.run("state.result.role.kind"), "pl");
+      assert.ok(h.run("[...astroNames].every(name => state.result.astro_parameters[name] === state.parameters[name])"));
+      const before = h.run("state.result");
+      select(h, "MS", 4);
+      await h.run('loadRun(resolveRunId("MS"))');
+      assert.equal(h.run("state.result"), before);
+      assert.equal(h.run("state.parameters.KP_h_Mpc"), 0);
+      assert.equal(h.run("state.activeAstro"), name);
+    }
+  }
+  // Entering PL from an OAT BPL result also retains the stellar selection.
+  select(h, "KP_h_Mpc", 1);
+  const id = select(h, "F_STAR10", 0);
+  assert.equal(select(h, "KP_h_Mpc", 0), id);
+  await h.run(`loadRun(${JSON.stringify(id)})`);
+  assert.equal(h.run("state.parameters.F_STAR10"), design.parameter_specs.find(s => s.name === "F_STAR10").values[0]);
+  assert.equal(h.run("state.result.astro_parameters.F_STAR10"), h.run("state.parameters.F_STAR10"));
+});
+
+test("late PL astrophysical requests cannot overwrite a newer PL selection", async () => {
+  const h = harness(); seedDesign(h); const requests = useStoredFiles(h);
+  h.run(`decodeSlices = async () => ({count: 1, rows: 1, columns: 1, brightness: new Float32Array([0])});`);
+  const storedFetch = h.context.fetch;
+  let release;
+  const gate = new Promise(resolve => { release = resolve; });
+  select(h, "KP_h_Mpc", 0);
+  const firstId = select(h, "F_STAR10", 0);
+  const firstPL = h.context.manifest.pl_inventory.find(entry => entry.source_run_ids.includes(firstId)).pl_id;
+  h.context.fetch = async url => {
+    if (url.includes(firstPL)) await gate;
+    return storedFetch(url);
+  };
+  const first = h.run(`loadRun(${JSON.stringify(firstId)})`);
+  const lastId = select(h, "F_STAR10", 4);
+  await h.run(`loadRun(${JSON.stringify(lastId)})`);
+  const finalResult = h.run("state.result");
+  release(); await first;
+  assert.equal(h.run("state.result"), finalResult);
+  assert.equal(h.run("state.parameters.KP_h_Mpc"), 0);
+  assert.equal(h.run("state.status.kind"), "ready");
+  assert.equal(requests.length, 2);
+});
+
+test("all four LF panels pair model, PL and observations by redshift with shared limits", () => {
+  const h = harness(); seed(h);
+  h.run(`
+    state.plReference = {...state.plReference, luminosity_function: {
+      redshift: [10, 8, 7, 6], curves: [10, 8, 7, 6].map(z => ({muv: [-20], log10_phi: [-z]}))
+    }};
+    state.design.lf_observations.by_display_redshift = Object.fromEntries(
+      [6, 7, 8, 10].map(z => [String(z), [{redshift: z, phi: 1e-5, sigma_plus: 2e-6, sigma_minus: 1e-6}]])
+    );
+    var panelsDrawn = [];
+    drawLFPanel = (panel, bounds) => panelsDrawn.push({panel, bounds});
+    drawLuminosityFunction();
+  `);
+  const results = h.run("panelsDrawn");
+  assert.deepEqual(Array.from(results, entry => entry.panel.redshift), [6, 7, 8, 10]);
+  for (const {panel, bounds} of results) {
+    assert.equal(panel.plCurve.log10_phi[0], -panel.redshift);
+    assert.equal(panel.observations[0].redshift, panel.redshift);
+    assert.equal(bounds, results[0].bounds);
+    assert.ok(bounds[0] <= -10 && bounds[1] >= -1);
+  }
+  assert.equal((html.match(/id="lf-chart-(6|7|8|10)"/g) || []).length, 4);
+  assert.ok(!html.includes("lf-redshift-options"));
+});
+
+test("MCMC categories keep provenance, correlated sample counts, selection and bilingual copy", async () => {
+  const h = harness(); seedDesign(h); const requests = useStoredFiles(h);
+  const mcmcSource = fs.readFileSync(path.join(staticRoot, "mcmc.js"), "utf8");
+  vm.runInContext(mcmcSource, h.context);
+  for (const match of mcmcSource.matchAll(/\bt\("([^"]+)"/g)) assert.ok(h.context.AtlasI18n.messages[match[1]], match[1]);
+  await h.run("AtlasMCMC.initialize(state.mcmc)");
+  assert.equal(h.run("state.mcmc.status"), "ready");
+  assert.equal(requests.length, 3);
+  const archive = h.run("state.mcmc.catalog");
+  for (const [file, digest] of Object.entries(archive.files_sha256)) {
+    assert.equal(require("node:crypto").createHash("sha256").update(fs.readFileSync(path.join(staticRoot, file))).digest("hex"), digest, file);
+  }
+  assert.deepEqual(Array.from(archive.categories.lf_only.likelihood), ["LF"]);
+  assert.equal(archive.categories.lf_only.dimensions, 4);
+  assert.equal(archive.categories.joint.dimensions, 7);
+  assert.equal(archive.joint.status, "PRELIMINARY_NOT_CONVERGED");
+  assert.equal(archive.joint.lf_points, archive.categories.lf_only.lf_points);
+  assert.equal(h.get("#mcmc-joint-rows").textContent, "20,480");
+  const buttons = h.get("#mcmc-lf-models").children;
+  assert.equal(buttons.length, 3);
+  for (let index = 0; index < 3; index += 1) {
+    buttons[index].trigger("click");
+    const model = archive.lf.models[index];
+    assert.equal(h.run("state.mcmc.selectedLF"), index);
+    assert.equal(buttons[index].getAttribute("aria-pressed"), "true");
+    assert.equal(buttons.filter(b => b.getAttribute("aria-pressed") === "true").length, 1);
+    assert.equal(model.sample_count, model.steps_per_ensemble * model.walkers * 2);
+    const imagePath = h.get("#mcmc-lf-image").getAttribute("src");
+    assert.ok(fs.existsSync(path.join(staticRoot, imagePath)));
+    assert.equal(h.get("#mcmc-lf-open").getAttribute("href"), imagePath);
+  }
+  const selectedImage = h.get("#mcmc-lf-image").getAttribute("src");
+  h.run('setLanguage("zh")');
+  assert.equal(h.get("#mcmc-lf-image").getAttribute("src"), selectedImage);
+  assert.match(h.get("#mcmc-lf-image").getAttribute("alt"), /四参数/);
+  assert.match(h.get("#mcmc-lf-caption").textContent, /探索性快照/);
+  select(h, "KP_h_Mpc", 0); select(h, "F_STAR10", 0);
+  assert.equal(h.run("state.mcmc.selectedLF"), 2);
+  assert.equal(requests.length, 3);
+  assert.ok(html.indexOf('id="mcmc-section"') > html.indexOf('class="slice-model-row pl-slice-row"'));
+});
+
+test("MCMC fetch failure is isolated and retryable", async () => {
+  const h = harness(); seed(h);
+  vm.runInContext(fs.readFileSync(path.join(staticRoot, "mcmc.js"), "utf8"), h.context);
+  const before = h.run("state.result");
+  await h.run("AtlasMCMC.initialize(state.mcmc)");
+  assert.equal(h.run("state.mcmc.status"), "error");
+  assert.equal(h.run("state.result"), before);
+  h.run('setLanguage("zh")');
+  assert.match(h.get("#mcmc-load-status").textContent, /加载失败/);
+  useStoredFiles(h);
+  await h.run("AtlasMCMC.initialize(state.mcmc)");
+  assert.equal(h.run("state.mcmc.status"), "ready");
 });

@@ -12,7 +12,7 @@ const state = {
   requestSerial: 0,
   sliceIndex: null,
   sliceTimer: null,
-  lfIndex: null,
+  mcmc: {catalog: null, selectedLF: 0, status: "loading"},
   plCache: null,
   parametersCollapsed: false,
 };
@@ -20,7 +20,8 @@ const state = {
 const $ = (selector) => document.querySelector(selector);
 const astroNames = new Set(["F_STAR10", "ALPHA_STAR", "F_ESC10", "ALPHA_ESC", "M_TURN", "t_STAR", "L_X", "NU_X_THRESH"]);
 const DATA_VERSION = "hii256-v18";
-const UI_VERSION = "hii256-v20";
+const UI_VERSION = "hii256-v21";
+const LF_REDSHIFTS = [6, 7, 8, 10];
 const t = (key, values) => window.AtlasI18n.t(key, values);
 const PLOT_FONT = '"Avenir Next", "Century Gothic", Futura, "Helvetica Neue", Arial, "Noto Sans CJK SC", "Microsoft YaHei", "PingFang SC", sans-serif';
 const PLOT_MONO = '"IBM Plex Mono", "JetBrains Mono", "SFMono-Regular", Consolas, "Noto Sans CJK SC", "Microsoft YaHei", "PingFang SC", monospace';
@@ -91,9 +92,8 @@ function renderLocalizedUI() {
     control.wrapper.title = description;
     control.slider.setAttribute("aria-label", `${control.specification.label} · ${description}`);
   }
-  document.querySelectorAll("#lf-redshift-options button").forEach((button) => {
-    const redshift = state.result.luminosity_function.redshift[Number(button.dataset.index)].toFixed(0);
-    button.setAttribute("aria-label", t("lfOption", {redshift}));
+  LF_REDSHIFTS.forEach((redshift) => {
+    $(`#lf-chart-${redshift}`).setAttribute("aria-label", t("lfOption", {redshift}));
   });
   $("#slice-play").textContent = t(state.sliceTimer ? "pause" : "play");
   $("#slice-play").setAttribute("aria-pressed", String(Boolean(state.sliceTimer)));
@@ -107,6 +107,7 @@ function renderLocalizedUI() {
   if (state.result?.parameters) updateMSMetric();
   renderParameterDock();
   renderStatus();
+  window.AtlasMCMC?.render(state.mcmc);
 }
 
 function renderModelLabels() {
@@ -207,12 +208,21 @@ function resetOne(control) {
 }
 
 function resolveRunId(changedName = null) {
+  const usePL = state.parameters.KP_h_Mpc === 0;
   if (changedName && astroNames.has(changedName)) {
     state.activeAstro = changedName;
-    for (const [name, control] of state.controls) if (name !== changedName) resetOne(control);
+    for (const [name, control] of state.controls) {
+      if (name === changedName || (usePL && (name === "KP_h_Mpc" || name === "MS"))) continue;
+      resetOne(control);
+    }
     return state.design.mappings.astro_oat[changedName][currentIndex(changedName)];
   }
   if (changedName === "KP_h_Mpc" || changedName === "MS") {
+    if (usePL) {
+      return state.activeAstro
+        ? state.design.mappings.astro_oat[state.activeAstro][currentIndex(state.activeAstro)]
+        : state.design.baseline_run_id;
+    }
     state.activeAstro = null;
     for (const [name, control] of state.controls) if (astroNames.has(name)) resetOne(control);
     return selectedGridRunId();
@@ -329,11 +339,10 @@ function showUnavailableRun(runId) {
     "#slice-spin-temperature-range", "#slice-kinetic-temperature-range",
     "#pl-slice-brightness-range", "#pl-slice-density-range", "#pl-slice-ionization-range",
     "#pl-slice-spin-temperature-range", "#pl-slice-kinetic-temperature-range",
-    "#slice-redshift-value", "#thumbnail-redshift", "#lf-redshift-value",
+    "#slice-redshift-value", "#thumbnail-redshift",
   ].forEach((selector) => {
     $(selector).textContent = "—";
   });
-  $("#lf-redshift-options").innerHTML = "";
   document.querySelectorAll("canvas").forEach((canvas) => {
     const context = canvas.getContext("2d");
     context.save(); context.setTransform(1, 0, 0, 1, 0, 0);
@@ -343,7 +352,12 @@ function showUnavailableRun(runId) {
 
 async function loadRun(runId) {
   const usePL = state.parameters.KP_h_Mpc === 0;
-  if (usePL && state.result?.role.kind === "pl" && state.status.kind === "ready") {
+  const reference = usePL
+    ? state.design.pl_inventory.find((entry) => entry.source_run_ids.includes(runId))
+    : null;
+  if (reference && state.result?.role.kind === "pl" && state.status.kind === "ready"
+      && state.result.pl_id === reference.pl_id
+      && [...astroNames].every((name) => state.result.astro_parameters[name] === state.parameters[name])) {
     state.result.parameters.MS = state.parameters.MS;
     updateMSMetric();
     return;
@@ -357,10 +371,12 @@ async function loadRun(runId) {
   renderStatus();
   try {
     if (usePL) {
-      const reference = state.design.pl_inventory.find((entry) => entry.source_run_ids.includes(runId));
       if (!reference) throw new AtlasError("plReferenceMissing");
       const plReference = await loadPLReference({file: `web_data/pl/${reference.pl_id}.json`});
       if (serial !== state.requestSerial) return;
+      if (![...astroNames].every((name) => plReference.astro_parameters[name] === state.parameters[name])) {
+        throw new AtlasError("plParameterMismatch");
+      }
       state.plReference = plReference;
       state.result = {
         ...plReference,
@@ -442,7 +458,6 @@ function showResult() {
   updateMSMetric();
   $("#metric-time").textContent = formatDuration(result.summary.elapsed_seconds);
   configureSliceControl();
-  configureLFControl();
   drawAll();
 }
 
@@ -740,43 +755,6 @@ function updateSliceControl() {
   $("#thumbnail-redshift").textContent = label;
 }
 
-function configureLFControl() {
-  const redshifts = state.result.luminosity_function.redshift;
-  if (state.lfIndex === null) {
-    state.lfIndex = redshifts.reduce(
-      (best, value, index) => Math.abs(value - 8) < Math.abs(redshifts[best] - 8) ? index : best,
-      0,
-    );
-  }
-  state.lfIndex = Math.min(state.lfIndex, redshifts.length - 1);
-  const options = $("#lf-redshift-options");
-  options.innerHTML = "";
-  redshifts.forEach((redshift, index) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.dataset.index = index;
-    button.textContent = `z = ${redshift.toFixed(0)}`;
-    button.setAttribute("aria-label", t("lfOption", {redshift: redshift.toFixed(0)}));
-    button.addEventListener("click", () => {
-      state.lfIndex = index;
-      updateLFControl();
-      drawLuminosityFunction();
-    });
-    options.appendChild(button);
-  });
-  updateLFControl();
-}
-
-function updateLFControl() {
-  if (!state.result || state.lfIndex === null) return;
-  $("#lf-redshift-value").textContent = `z = ${state.result.luminosity_function.redshift[state.lfIndex].toFixed(0)}`;
-  document.querySelectorAll("#lf-redshift-options button").forEach((button) => {
-    const active = Number(button.dataset.index) === state.lfIndex;
-    button.classList.toggle("active", active);
-    button.setAttribute("aria-pressed", active ? "true" : "false");
-  });
-}
-
 function sliceFieldRange(values, decoded) {
   const offset = state.sliceIndex * decoded.rows * decoded.columns;
   let minimum = Infinity, maximum = -Infinity;
@@ -916,26 +894,46 @@ function drawObservationPoint(ctx, point, px, py, yMin, yMax) {
   }
 }
 
+function lfPanelData(redshift) {
+  const lf = state.result.luminosity_function;
+  const reference = state.plReference?.luminosity_function;
+  return {
+    redshift,
+    current: lf.curves[lf.redshift.indexOf(redshift)],
+    plCurve: reference?.curves[reference.redshift.indexOf(redshift)] || null,
+    observations: state.design.lf_observations.by_display_redshift[String(redshift)] || [],
+  };
+}
+
+function sharedLFBounds(panels) {
+  const values = [];
+  for (const {current, plCurve, observations} of panels) {
+    values.push(...(current?.log10_phi || []), ...(plCurve?.log10_phi || []));
+    for (const point of observations) {
+      values.push(Math.log10(point.phi));
+      if (point.phi + point.sigma_plus > 0) values.push(Math.log10(point.phi + point.sigma_plus));
+      if (point.phi - point.sigma_minus > 0) values.push(Math.log10(point.phi - point.sigma_minus));
+    }
+  }
+  const finite = values.filter((value) => Number.isFinite(value) && value >= -12);
+  return [
+    Math.max(-12, Math.min(-7, Math.floor(Math.min(...finite, -6) - 0.35))),
+    Math.min(1, Math.max(-1, Math.ceil(Math.max(...finite, -2) + 0.35))),
+  ];
+}
+
 function drawLuminosityFunction() {
-  if (!state.result || state.lfIndex === null) return;
-  const {context: ctx, width, height} = canvasContext($("#lf-chart"));
-  const margin = {left: 86, right: 30, top: 30, bottom: 68};
+  if (!state.result) return;
+  const panels = LF_REDSHIFTS.map(lfPanelData);
+  const bounds = sharedLFBounds(panels);
+  panels.forEach((panel) => drawLFPanel(panel, bounds));
+}
+
+function drawLFPanel({redshift, current, plCurve, observations}, [yMin, yMax]) {
+  const {context: ctx, width, height} = canvasContext($(`#lf-chart-${redshift}`));
+  const margin = {left: 66, right: 15, top: 20, bottom: 52};
   const xMin = -24, xMax = -10;
-  const current = state.result.luminosity_function.curves[state.lfIndex];
-  const plCurve = state.plReference && state.plReference.luminosity_function
-    ? state.plReference.luminosity_function.curves[state.lfIndex]
-    : null;
-  const displayRedshift = state.result.luminosity_function.redshift[state.lfIndex].toFixed(0);
-  const observations = state.design.lf_observations.by_display_redshift[displayRedshift] || [];
-  const bounds = current.log10_phi.concat(plCurve ? plCurve.log10_phi : []);
-  observations.forEach((point) => {
-    bounds.push(Math.log10(point.phi));
-    if (point.phi + point.sigma_plus > 0) bounds.push(Math.log10(point.phi + point.sigma_plus));
-    if (point.phi - point.sigma_minus > 0) bounds.push(Math.log10(point.phi - point.sigma_minus));
-  });
-  const finiteBounds = bounds.filter((value) => Number.isFinite(value) && value >= -12);
-  const yMin = Math.max(-12, Math.min(-7, Math.floor(Math.min(...finiteBounds) - 0.35)));
-  const yMax = Math.min(1, Math.max(-1, Math.ceil(Math.max(...finiteBounds) + 0.35)));
+  const displayRedshift = String(redshift);
   const {plotWidth, plotHeight} = preparePlot(ctx, width, height, margin);
   const px = (value) => margin.left + (value - xMin) / (xMax - xMin) * plotWidth;
   const py = (value) => margin.top + (yMax - value) / (yMax - yMin) * plotHeight;
@@ -943,24 +941,25 @@ function drawLuminosityFunction() {
     drawYTick(ctx, py(value), margin.left, width - margin.right, value.toFixed(0));
     if (value + 1 <= yMax) drawYMinorTick(ctx, py(value + 1), margin.left, width - margin.right);
   }
-  for (let value = xMin; value <= xMax; value += 2) {
+  const xStep = width < 500 ? 4 : 2;
+  for (let value = xMin; value <= xMax; value += xStep) {
     drawXTick(ctx, px(value), height - margin.bottom, value.toFixed(0), margin.top);
     if (value + 1 <= xMax) drawXMinorTick(ctx, px(value + 1), margin.top, height - margin.bottom);
   }
   ctx.save();
   ctx.beginPath(); ctx.rect(margin.left, margin.top, plotWidth, plotHeight); ctx.clip();
   if (plCurve) drawLFCurve(ctx, plCurve, px, py, plotPalette.pl, 1.6, [7, 5]);
-  const drawn = drawLFCurve(ctx, current, px, py, plotPalette.current, 2.2);
+  const drawn = current && drawLFCurve(ctx, current, px, py, plotPalette.current, 2.2);
   observations.forEach((point) => drawObservationPoint(ctx, point, px, py, yMin, yMax));
   ctx.restore();
   if (!drawn) {
     ctx.fillStyle = plotPalette.text; ctx.textAlign = "center"; ctx.textBaseline = "middle";
-    ctx.fillText(t("emptyLF"), (margin.left + width - margin.right) / 2, (margin.top + height - margin.bottom) / 2);
+    ctx.fillText(t("emptyLF"), (margin.left + width - margin.right) / 2, (margin.top + height - margin.bottom) / 2, Math.max(plotWidth - 12, 1));
   }
   ctx.fillStyle = plotPalette.ink; ctx.font = `700 14px ${PLOT_MONO}`;
   ctx.textAlign = "right"; ctx.textBaseline = "top";
   ctx.fillText(`z = ${displayRedshift}`, width - margin.right - 10, margin.top + 9);
-  finishPlot(ctx, width, height, margin, t("magnitudeAxis"), "log₁₀ φ [cMpc⁻³ mag⁻¹]");
+  finishPlot(ctx, width, height, margin, width < 500 ? t("magnitudeAxisShort") : t("magnitudeAxis"), "log₁₀ φ [cMpc⁻³ mag⁻¹]");
 }
 
 function setSlicePlaying(playing) {
@@ -1046,4 +1045,5 @@ window.AtlasI18n.apply();
 renderLocalizedUI();
 initializeMotion();
 initializeParameterDock();
+window.AtlasMCMC?.initialize(state.mcmc);
 initialize();

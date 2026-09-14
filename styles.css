@@ -260,14 +260,40 @@ canvas { display: block; width: 100%; height: 100%; }
 .lf-main-toolbar { min-height: 52px; padding: 10px 0; display: flex; align-items: center; gap: 11px; border-left: 2px solid var(--orange); border-bottom: 1px solid var(--line); background: var(--surface-raised); }
 .lf-main-toolbar > *:first-child { margin-left: 13px; }
 .lf-main-toolbar > strong { margin-right: auto; color: var(--orange); font: 700 12px var(--font-mono); }
-.lf-redshift-options { display: flex; gap: 4px; }
-.lf-redshift-options button { min-width: 48px; height: 30px; padding: 0 7px; border: 0; border-bottom: 1px solid var(--line-strong); border-radius: 0; background: transparent; color: var(--ink-secondary); cursor: pointer; font: 700 10px var(--font-mono); }
-.lf-redshift-options button.active { color: var(--ink); border-bottom: 2px solid var(--orange); }
 .main-curve-key { min-height: auto; padding: 0 13px 0 0; border: 0; background: transparent; }
-.main-lf-canvas { min-height: 575px; flex: 1; }
+.lf-panel-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(300px, 1fr)); gap: 16px; flex: 1; padding: 16px 0; }
+.lf-panel { position: relative; min-width: 0; min-height: 300px; }
+.lf-panel canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 .lf-source-note { min-height: 40px; padding: 11px 0; color: var(--ink-muted); border-top: 1px solid var(--line); font: 9px/1.35 var(--font-mono); }
-.lf-main-card:fullscreen { width: 100vw; height: 100vh; padding: 20px 30px; background: var(--surface); }
-.lf-main-card:fullscreen .main-lf-canvas { min-height: 0; flex: 1; }
+.lf-main-card:fullscreen { width: 100vw; height: 100vh; padding: 20px 30px; background: var(--surface); overflow: auto; }
+.lf-main-card:fullscreen .lf-panel-grid { min-height: 0; grid-template-rows: repeat(2, minmax(220px, 1fr)); }
+.lf-main-card:fullscreen .lf-panel { min-height: 220px; }
+
+/* Inference is an archive, not another lightcone control. Use open editorial
+   columns with explicit branch identity and large, inspectable source figures. */
+.mcmc-section { min-width: 0; }
+.mcmc-intro { max-width: 900px; margin: 24px 0 12px; font-size: 17px; line-height: 1.7; }
+.mcmc-load-status { margin: 0 0 28px; font: 12px/1.6 var(--font-mono); color: var(--ink-secondary); }
+.inference-branch { display: grid; grid-template-columns: minmax(270px, .75fr) minmax(0, 1.6fr); align-items: start; gap: clamp(28px, 4vw, 64px); padding: 40px 0; border-top: 1px solid var(--line-strong); }
+.inference-copy h3 { margin: 12px 0 20px; font: 600 clamp(32px, 3.2vw, 54px)/1.05 var(--font-display); letter-spacing: -.04em; }
+.inference-copy > p { font-size: 16px; line-height: 1.7; }
+.inference-copy > .technical-label { font: 12px var(--font-mono); letter-spacing: .1em; }
+.inference-copy > .inference-status { border-left: 2px solid var(--orange); padding-left: 12px; color: var(--ink); font: 600 12px/1.6 var(--font-mono); }
+.inference-detail, .inference-copy > .inference-detail { color: var(--ink-secondary); font-size: 14px; line-height: 1.7; }
+.inference-models { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0; }
+.inference-models button { min-height: 44px; padding: 10px 12px; border: 1px solid var(--line-strong); border-bottom-width: 2px; border-radius: 0; color: var(--ink); background: transparent; cursor: pointer; font: 12px var(--font-mono); }
+.inference-models button[aria-pressed="true"] { border-bottom-color: var(--orange); background: var(--surface-raised); }
+.inference-models button:hover { background: var(--ink); color: var(--surface); }
+.inference-metadata { margin: 26px 0; }
+.inference-metadata div { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.inference-metadata dt { color: var(--ink-secondary); font: 11px/1.5 var(--font-mono); letter-spacing: .06em; }
+.inference-metadata dd { margin: 7px 0 0; font: 16px/1.5 var(--font-mono); }
+.inference-figure { margin: 0; min-width: 0; }
+.inference-figure > a { display: block; background: white; cursor: zoom-in; }
+.inference-figure img { display: block; width: 100%; height: auto; }
+.inference-figure figcaption { display: grid; grid-template-columns: auto 1fr; gap: 16px; margin-top: 16px; color: var(--ink-secondary); font: 12px/1.7 var(--font-mono); }
+.inference-figure figcaption > span:first-child { color: var(--ink); white-space: nowrap; }
+.inference-separation { padding: 24px 0 0; border-top: 1px solid var(--line-strong); max-width: 1000px; color: var(--ink-secondary); font-size: 15px; line-height: 1.8; }
 
 .aux-stack { min-height: 0; display: grid; grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .aux-card { min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
@@ -381,7 +407,10 @@ body.motion-ready .reveal.is-visible { opacity: 1; transform: translateY(0); tra
   .lf-main-card { min-height: 650px; }
   .lf-main-toolbar { align-items: flex-start; flex-wrap: wrap; }
   .main-curve-key { width: 100%; padding: 5px 13px 0; justify-content: flex-start; }
-  .main-lf-canvas { min-height: 480px; }
+  .lf-panel-grid { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-rows: 330px; }
+  .lf-main-card:fullscreen .lf-panel-grid { grid-template-rows: none; grid-auto-rows: 330px; flex: none; }
+  .inference-branch { grid-template-columns: 1fr; padding: 30px 0; gap: 28px; }
+  .mcmc-section > .section-heading { flex-direction: column; gap: 16px; }
   .aux-stack { grid-template-columns: 1fr; grid-template-rows: repeat(2, 380px); gap: 48px; }
   .redshift-toolbar { grid-template-columns: 72px 135px 1fr; }
   .time-direction { display: none; }

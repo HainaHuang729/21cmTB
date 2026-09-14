@@ -4,6 +4,38 @@
 // deliberately shared between languages and never translated or transformed.
 window.AtlasI18n = (() => {
   const messages = {
+    plParameterMismatch: ["The stored PL result does not match the selected astrophysical parameters.","预存 PL 结果与当前天体物理参数不匹配。"],
+    lfSharedAxes: ["FOUR REDSHIFTS / SHARED AXES","四个红移 / 统一坐标"],
+    magnitudeAxisShort: ["UV magnitude, M_UV","紫外星等 M_UV"],
+    mcmcTitle: ["MCMC Inference Archive","MCMC 参数推断归档"],
+    mcmcSubtitle: ["TWO LIKELIHOOD BRANCHES · STORED CHAIN SNAPSHOTS","两类似然约束 · 已存储链快照"],
+    mcmcManifest: ["Archive manifest ↗","归档数据清单 ↗"],
+    mcmcIndependent: ["These archived inference runs are independent of the parameter dock above. Choose an LF-only model below; the simulation sliders do not recompute or reweight these chains.","以下推断归档独立于上方模拟参数面板。可在此选择 LF-only 模型；模拟滑块不会重新计算或重加权这些链。"],
+    mcmcLFStatus: ["EXPLORATORY SNAPSHOT · CONVERGENCE NOT ESTABLISHED","探索性快照 · 尚未确认收敛"],
+    mcmcLFDescription: ["Three fixed kₚ / mₛ models. Four stellar parameters are sampled using LF alone, without τₑ or neutral-fraction constraints.","三组固定 kₚ / mₛ 的模型，仅用 LF 采样四个恒星形成参数，不加入 τₑ 或中性氢分数约束。"],
+    mcmcLFData: ["49 LF points: HST z = 6, 7, 8 and Donnan (2024) z = 9, 10. Native 21cmFAST LF; no 21-cm likelihood.","49 个 LF 观测点：HST z = 6、7、8 和 Donnan（2024）z = 9、10。使用原生 21cmFAST LF，不使用 21 厘米似然。"],
+    mcmcModelChoice: ["Fixed cosmology for LF-only inference","LF-only 推断的固定宇宙学模型"],
+    mcmcFixed: ["FIXED COSMOLOGY","固定宇宙学参数"],
+    mcmcSampling: ["STORED STEPS × WALKERS × ENSEMBLES","保存步数 × WALKERS × 独立采样组数"],
+    mcmcRows: ["CORRELATED ROWS · NOT ESS","相关采样记录 · 非有效样本数"],
+    mcmcLFCaution: ["The two ensembles are truncated to their common saved length in each archived figure. These are sampling distributions, not final parameter constraints.","每张归档图将两组独立采样截取到共同的已保存长度。这些是采样分布，不是最终参数约束。"],
+    mcmcLFCoordinates: ["Native coordinates: log₁₀ f★,10, t★, α★, log₁₀(Mturn/M☉). Conversion: log₁₀ f★,10 = η★ + log₁₀ t★.","原始坐标：log₁₀ f★,10、t★、α★、log₁₀(Mturn/M☉)。变换关系：log₁₀ f★,10 = η★ + log₁₀ t★。"],
+    mcmcJointStatus: ["PRELIMINARY · NOT CONVERGED","初步快照 · 尚未收敛"],
+    mcmcJointDescription: ["Fixed kₚ = 1 h Mpc⁻¹; free mₛ ∈ [0.5, 2]. Seven sampled parameters: four stellar parameters, two escape-fraction parameters and mₛ.","固定 kₚ = 1 h Mpc⁻¹；自由 mₛ ∈ [0.5, 2]。共七个采样参数：四个恒星形成参数、两个逃逸率参数以及 mₛ。"],
+    mcmcJointData: ["The same 49 LF points, plus Planck τₑ and McGreer xHI(z = 5.9). Here ξ = 1 − xHI: the neutral-fraction likelihood is not a measured full ξ(z) history. No 21-cm likelihood.","使用相同的 49 个 LF 点，加上 Planck τₑ 与 McGreer xHI(z = 5.9)。其中 ξ = 1 − xHI：中性氢分数似然不代表观测到完整的 ξ(z) 历史。不使用 21 厘米似然。"],
+    mcmcCompute: ["COEVAL GRID / BOX","共时模拟网格 / 盒长"],
+    mcmcJointCaution: ["Both ensembles still drift. The saved snapshot contains 160 steps after 40 initial burn-in steps; continuing runs are not included. The two colors represent ensembles of one model, not PL versus BPL.","两组独立采样仍存在漂移。快照保存初始 burn-in 40 步后的 160 步，不包括正在续跑的结果。两种颜色表示同一模型的独立采样组，并非 PL 与 BPL 对比。"],
+    mcmcDiagnostics: ["Coordinates & convergence diagnostics ↗","坐标变换与收敛诊断 ↗"],
+    mcmcJointAlt: ["Preliminary seven-parameter joint sampling distribution; not converged","初步七参数联合采样分布；尚未收敛"],
+    mcmcJointCaption: ["Blue / ensemble 0 · Orange / ensemble 1 · η★ = log₁₀(f★,10/t★). Contours are empirical sample regions, not validated credible regions.","蓝色 / ensemble 0 · 橙色 / ensemble 1 · η★ = log₁₀(f★,10/t★)。轮廓为经验采样区域，而非已验证的可信区域。"],
+    mcmcSeparation: ["Different parameter spaces, separate chains. LF-only fixes both kₚ and mₛ; joint inference also samples mₛ and escape fractions. Differences cannot be attributed solely to adding τ and ξ. Original scientific plot annotations remain in English.","参数空间不同，链分别归档。LF-only 固定 kₚ 和 mₛ；联合推断还采样 mₛ 和逃逸率。不能把差异仅归因于加入 τ 和 ξ。原始科学图内标注保留英文。"],
+    mcmcOpen: ["Open full-resolution figure","打开原始分辨率图片"],
+    mcmcLoading: ["Loading inference manifests…","正在加载推断数据清单…"],
+    mcmcLoaded: ["ARCHIVE / 2026-09-14 · Click a figure to inspect the original resolution.","归档 / 2026-09-14 · 点击图像查看原始分辨率。"],
+    mcmcFailed: ["Inference metadata could not be loaded. Reload the page to retry; the simulation atlas remains available.","推断元数据加载失败，请刷新页面重试；模拟图谱仍可使用。"],
+    mcmcLFAlt: ["LF-only four-parameter sampling distribution: fixed kp = {kp}, ms = {ms}","LF-only 四参数采样分布：固定 kp = {kp}，ms = {ms}"],
+    mcmcLFCaption: ["Fixed kₚ = {kp} h Mpc⁻¹ / mₛ = {ms} · Source / {job} · Exploratory snapshot","固定 kₚ = {kp} h Mpc⁻¹ / mₛ = {ms} · 来源 / {job} · 探索性快照"],
+    mcmcModelOption: ["LF-only model: fixed kp = {kp}, ms = {ms}","LF-only 模型：固定 kp = {kp}，ms = {ms}"],
     pageTitle: ["21cmFAST Precomputed Parameter Atlas", "21cmFAST 预计算参数图谱"],
     home: ["21 cm Signal Atlas home", "21 cm 信号图谱首页"],
     identity: ["SIGNAL ATLAS", "信号图谱"],
@@ -49,7 +81,7 @@ window.AtlasI18n = (() => {
     collapseParameters: ["Collapse", "收起"],
     expandParameters: ["Expand", "展开"],
     parameterModeNote: ["kp = 0 selects PL · kp and ms vary together; astrophysical controls use single-parameter scans.", "kp = 0 选择 PL · kp 与 ms 可联合调节；天体物理参数使用单参数扫描。"],
-    plModeNote: ["PL · kp = 0 · Moving ms does not change the result.", "PL · kp = 0 · 任意拖动 ms，结果均保持 PL。"],
+    plModeNote: ["PL · kp stays at 0 during astrophysical single-parameter scans; other astrophysical controls reset to baseline. Moving ms does not change the result.", "PL · 天体物理单参数扫描保持 kp = 0，其余天体物理参数恢复基准值。任意拖动 ms，结果均保持 PL。"],
     plMode: ["Standard PL · kp = 0", "标准 PL · kp = 0"],
     msIgnored: ["no effect", "不影响结果"],
     plCurrentDescription: ["Standard power law · kp = 0 · independent of ms", "标准幂律模型 · kp = 0 · 与 ms 无关"],
@@ -160,7 +192,7 @@ window.AtlasI18n = (() => {
     document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
     document.title = t("pageTitle");
     document.querySelectorAll("[data-i18n]").forEach((node) => { node.textContent = t(node.dataset.i18n); });
-    for (const attribute of ["aria-label", "title"]) {
+    for (const attribute of ["aria-label", "title", "alt"]) {
       document.querySelectorAll(`[data-i18n-${attribute}]`).forEach((node) => {
         node.setAttribute(attribute, t(node.getAttribute(`data-i18n-${attribute}`)));
       });

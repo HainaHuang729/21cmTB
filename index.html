@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <title>21cmFAST Precomputed Parameter Atlas</title>
-  <link rel="stylesheet" href="styles.css?v=hii256-v20">
+  <link rel="stylesheet" href="styles.css?v=hii256-v21">
 </head>
 <body id="top">
   <header class="system-header load-in">
@@ -17,8 +17,8 @@
       <a href="#parameters-section"><span>01</span><b data-i18n="controls">Controls</b></a>
       <a href="#lightcone-section"><span>02</span><b data-i18n="evolution">Evolution</b></a>
       <a href="#analysis-section"><span>03</span><b data-i18n="analysis">Analysis</b></a>
-      <a href="ms-corner.html" data-i18n-title="jointNavTitle" title="LF + tau + xHI; free ms; NOT LF-only"><span>04</span><b data-i18n="jointNav">Joint · free mₛ</b></a>
       <a href="#fields-section"><span>05</span><b data-i18n="fields">Fields</b></a>
+      <a href="#mcmc-section"><span>06</span><b>MCMC</b></a>
     </nav>
     <div class="system-register">
       <div class="language-switch" role="group" aria-label="Interface language" data-i18n-aria-label="language">
@@ -27,7 +27,7 @@
       </div>
       <div id="data-state" class="server-state"><i></i><span>Loading results</span></div>
       <div id="run-badge" class="run-badge idle">LOADING</div>
-      <div class="revision-tag"><small data-i18n="revision">REV</small><strong>20</strong></div>
+      <div class="revision-tag"><small data-i18n="revision">REV</small><strong>21</strong></div>
     </div>
   </header>
 
@@ -81,11 +81,15 @@
           <button id="main-fullscreen" class="icon-button" type="button" title="View UV LF in fullscreen">Fullscreen</button>
         </div>
         <div class="lf-main-toolbar">
-          <div id="lf-redshift-options" class="lf-redshift-options" role="group" aria-label="UV luminosity-function redshift" data-i18n-aria-label="lfRedshift"></div>
-          <strong id="lf-redshift-value">z = —</strong>
+          <strong data-i18n="lfSharedAxes">FOUR REDSHIFTS / SHARED AXES</strong>
           <div class="curve-key main-curve-key"><i class="current-curve"></i><span data-current-model>BPL</span><i class="pl-curve"></i><span>PL</span><i class="hst-point"></i><span>HST</span><i class="jwst-point"></i><span>JWST</span></div>
         </div>
-        <div class="main-lf-canvas"><canvas id="lf-chart"></canvas></div>
+        <div id="lf-chart" class="lf-panel-grid">
+          <div class="lf-panel"><canvas id="lf-chart-6" aria-label="UV luminosity function at z = 6"></canvas></div>
+          <div class="lf-panel"><canvas id="lf-chart-7" aria-label="UV luminosity function at z = 7"></canvas></div>
+          <div class="lf-panel"><canvas id="lf-chart-8" aria-label="UV luminosity function at z = 8"></canvas></div>
+          <div class="lf-panel"><canvas id="lf-chart-10" aria-label="UV luminosity function at z = 10"></canvas></div>
+        </div>
         <div class="lf-source-note" data-i18n="lfSource">HST: Bouwens+21, Oesch+18 · JWST: Bouwens+23, Donnan+24 · ▽ denotes upper limits</div>
       </article>
 
@@ -187,6 +191,62 @@
         </div>
       </div>
     </section>
+    <section id="mcmc-section" class="mcmc-section system-module reveal" aria-labelledby="mcmc-title">
+      <div class="section-heading">
+        <div><span class="section-index">06</span><div><h2 id="mcmc-title" data-i18n="mcmcTitle">MCMC Inference Archive</h2><p data-i18n="mcmcSubtitle">TWO LIKELIHOOD BRANCHES · STORED CHAIN SNAPSHOTS</p></div></div>
+        <a class="text-button" href="web_data/mcmc/index.json" data-i18n="mcmcManifest">Archive manifest ↗</a>
+      </div>
+      <p class="mcmc-intro" data-i18n="mcmcIndependent">These archived inference runs are independent of the parameter dock above. Choose an LF-only model below; the simulation sliders do not recompute or reweight these chains.</p>
+      <p id="mcmc-load-status" class="mcmc-load-status" role="status" aria-live="polite"></p>
+
+      <article id="mcmc-lf-only" class="inference-branch" aria-labelledby="mcmc-lf-title">
+        <div class="inference-copy">
+          <p class="technical-label">06A / 4D</p>
+          <h3 id="mcmc-lf-title">LF only</h3>
+          <p class="inference-status" data-i18n="mcmcLFStatus">EXPLORATORY SNAPSHOT · CONVERGENCE NOT ESTABLISHED</p>
+          <p data-i18n="mcmcLFDescription">Three fixed kₚ / mₛ models. Four stellar parameters are sampled using LF alone, without τₑ or neutral-fraction constraints.</p>
+          <p class="inference-detail" data-i18n="mcmcLFData">49 LF points: HST z = 6, 7, 8 and Donnan (2024) z = 9, 10. Native 21cmFAST LF; no 21-cm likelihood.</p>
+          <div id="mcmc-lf-models" class="inference-models" role="group" data-i18n-aria-label="mcmcModelChoice" aria-label="Fixed cosmology for LF-only inference"></div>
+          <dl class="inference-metadata">
+            <div><dt data-i18n="mcmcFixed">FIXED COSMOLOGY</dt><dd id="mcmc-lf-fixed">—</dd></div>
+            <div><dt data-i18n="mcmcSampling">STORED STEPS × WALKERS × ENSEMBLES</dt><dd id="mcmc-lf-sampling">—</dd></div>
+            <div><dt data-i18n="mcmcRows">CORRELATED ROWS · NOT ESS</dt><dd id="mcmc-lf-rows">—</dd></div>
+          </dl>
+          <p class="inference-detail" data-i18n="mcmcLFCaution">The two ensembles are truncated to their common saved length in each archived figure. These are sampling distributions, not final parameter constraints.</p>
+        </div>
+        <figure class="inference-figure">
+          <a id="mcmc-lf-open" target="_blank" rel="noopener" data-i18n-title="mcmcOpen" title="Open full-resolution figure">
+            <img id="mcmc-lf-image" width="1700" height="1700" loading="lazy" decoding="async" alt="LF-only four-parameter sampling distribution">
+          </a>
+          <figcaption><span>FIG / 06A</span><span id="mcmc-lf-caption"></span></figcaption>
+          <p class="inference-detail" data-i18n="mcmcLFCoordinates">Native coordinates: log₁₀ f★,10, t★, α★, log₁₀(Mturn/M☉). Conversion: log₁₀ f★,10 = η★ + log₁₀ t★.</p>
+        </figure>
+      </article>
+
+      <article id="mcmc-joint" class="inference-branch" aria-labelledby="mcmc-joint-title">
+        <div class="inference-copy">
+          <p class="technical-label">06B / 7D</p>
+          <h3 id="mcmc-joint-title">LF + τ + ξ</h3>
+          <p class="inference-status" data-i18n="mcmcJointStatus">PRELIMINARY · NOT CONVERGED</p>
+          <p data-i18n="mcmcJointDescription">Fixed kₚ = 1 h Mpc⁻¹; free mₛ ∈ [0.5, 2]. Seven sampled parameters: four stellar parameters, two escape-fraction parameters and mₛ.</p>
+          <p class="inference-detail" data-i18n="mcmcJointData">The same 49 LF points, plus Planck τₑ and McGreer xHI(z = 5.9). Here ξ = 1 − xHI: the neutral-fraction likelihood is not a measured full ξ(z) history. No 21-cm likelihood.</p>
+          <dl class="inference-metadata">
+            <div><dt data-i18n="mcmcSampling">STORED STEPS × WALKERS × ENSEMBLES</dt><dd id="mcmc-joint-sampling">—</dd></div>
+            <div><dt data-i18n="mcmcRows">CORRELATED ROWS · NOT ESS</dt><dd id="mcmc-joint-rows">—</dd></div>
+            <div><dt data-i18n="mcmcCompute">COEVAL GRID / BOX</dt><dd>128³ / 250 cMpc</dd></div>
+          </dl>
+          <p class="inference-detail" data-i18n="mcmcJointCaution">Both ensembles still drift. The saved snapshot contains 160 steps after 40 initial burn-in steps; continuing runs are not included. The two colors represent ensembles of one model, not PL versus BPL.</p>
+          <a class="system-action" href="ms-corner.html" data-i18n="mcmcDiagnostics">Coordinates & convergence diagnostics ↗</a>
+        </div>
+        <figure class="inference-figure">
+          <a id="mcmc-joint-open" href="web_data/ms_corner_chunk1/corner_eta.png" target="_blank" rel="noopener" data-i18n-title="mcmcOpen" title="Open full-resolution figure">
+            <img id="mcmc-joint-image" src="web_data/ms_corner_chunk1/corner_eta.png" width="2400" height="2400" loading="lazy" decoding="async" data-i18n-alt="mcmcJointAlt" alt="Preliminary seven-parameter joint sampling distribution; not converged">
+          </a>
+          <figcaption><span>FIG / 06B</span><span data-i18n="mcmcJointCaption">Blue / ensemble 0 · Orange / ensemble 1 · η★ = log₁₀(f★,10/t★). Contours are empirical sample regions, not validated credible regions.</span></figcaption>
+        </figure>
+      </article>
+      <p class="inference-separation" data-i18n="mcmcSeparation">Different parameter spaces, separate chains. LF-only fixes both kₚ and mₛ; joint inference also samples mₛ and escape fractions. Differences cannot be attributed solely to adding τ and ξ. Original scientific plot annotations remain in English.</p>
+    </section>
   </main>
 
   <footer class="cosmic-footer">
@@ -226,7 +286,8 @@
       </div>
     </div>
   </section>
-  <script src="i18n.js?v=hii256-v20&amp;copy=joint-bilingual-1"></script>
-  <script src="app.js?v=hii256-v20"></script>
+  <script src="i18n.js?v=hii256-v21"></script>
+  <script src="mcmc.js?v=hii256-v21"></script>
+  <script src="app.js?v=hii256-v21"></script>
 </body>
 </html>
