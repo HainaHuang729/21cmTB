@@ -1,0 +1,41 @@
+{
+  "status": "PRELIMINARY_NOT_CONVERGED",
+  "sources": [
+    {
+      "file": "workflows/MCMC/fixed_btps_posterior/runs/chains_ms_exact/production_chunk1_ensemble0_job_2123619_0/chain.h5",
+      "sha256": "316a978757ec83db97cf98d84918a29905044e856944efe73a3b54c7cdda26ff",
+      "shape": [
+        160,
+        64,
+        7
+      ]
+    },
+    {
+      "file": "workflows/MCMC/fixed_btps_posterior/runs/chains_ms_exact/production_chunk1_ensemble1_job_2123619_1/chain.h5",
+      "sha256": "e88176830d7072d2a7a6e47fef14b8c2ffe7c9f7b989dc3dd6c8f64c2ff825ed",
+      "shape": [
+        160,
+        64,
+        7
+      ]
+    }
+  ],
+  "likelihood": "HST z6,7,8 + Donnan2024 z9,10 LF; Planck tau; McGreer xHI",
+  "lf_points": 49,
+  "kp_h_Mpc": 1.0,
+  "ms_prior": [
+    0.5,
+    2.0
+  ],
+  "simulation": "direct 21cmFAST coeval; no emulator; no lightcone; no 21cm likelihood",
+  "HII_DIM": 128,
+  "DIM": 512,
+  "BOX_LEN_cMpc": 250,
+  "samples": "20480 correlated stored rows; NOT effective independent samples",
+  "discard": "40 initial burn-in steps; all 160 saved steps displayed",
+  "figures": [
+    "corner_eta.png",
+    "corner_native.png",
+    "ensemble_traces.png"
+  ]
+}
