@@ -1,56 +1,68 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Cache-Control" content="no-cache">
-  <title>BTPS · LF + τ + xHI · Preliminary corner</title>
-  <style>
-    body{margin:0;background:#f5f5f1;color:#202c33;font:16px/1.7 system-ui,sans-serif}
-    main{max-width:1200px;margin:auto;padding:32px 20px} a{color:#00649a}
-    h1{line-height:1.3} .warning{padding:18px 22px;background:#fff0d9;border-left:5px solid #b75b00}
-    .card{background:white;border:1px solid #d9dfe0;padding:20px;margin-top:24px}
-    img{width:100%;height:auto} summary{cursor:pointer;font-weight:600}
-    .tag{font:13px monospace;letter-spacing:.1em;color:#536a76}
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<title>Signal Atlas · Joint non-21-cm inference</title>
+<link rel="stylesheet" href="styles.css?v=hii256-v20">
+<link rel="stylesheet" href="ms-corner.css?v=joint-bilingual-1">
 </head>
-<body><main>
-  <a href="index.html">← Signal Atlas</a>
-  <p class="tag">MCMC SNAPSHOT / 2026-09-14 / SOURCE JOB 2123619</p>
-  <h1>固定 k<sub>p</sub>、自由 m<sub>s</sub>：LF + τ<sub>e</sub> + x<sub>HI</sub></h1>
-  <section class="card" aria-label="Analysis identity">
-    <h2>这是联合约束分支，不是另一个 LF-only 分支</h2>
-    <p><strong>本页 / JOINT · FREE m<sub>s</sub>：</strong>固定 k<sub>p</sub> = 1 h Mpc⁻¹，采样 m<sub>s</sub>；
-      7 个参数（4 个恒星形成参数 + 2 个逃逸率参数 + m<sub>s</sub>）；使用 LF + τ<sub>e</sub> + x<sub>HI</sub>。</p>
-    <p><strong>另一分支 / LF-ONLY · FIXED COSMOLOGY：</strong>每个模型固定 k<sub>p</sub> 和 m<sub>s</sub>，
-      只采样 4 个恒星形成参数，只使用 LF，不加入 τ<sub>e</sub> 或 x<sub>HI</sub> 约束。</p>
-    <p>两者的链、进度、收敛状态和图分别记录。本页不是 LF-only 图的替换，也不是将 LF-only 链重加权得到的结果。
-      由于是否采样 m<sub>s</sub> 也不同，不能把两者的差别全部归因于加入 τ<sub>e</sub> 和 x<sub>HI</sub>。</p>
+<body id="top" class="ms-page">
+<header class="system-header">
+  <a class="system-identity" href="index.html" data-i18n-aria-label="home" aria-label="21 cm Signal Atlas home"><span class="identity-mark">21</span><span><b data-i18n="identity">SIGNAL ATLAS</b><small data-i18n="precomputed">PRECOMPUTED / 21cmFAST</small></span></a>
+  <nav class="system-navigation" data-i18n-aria-label="navigation" aria-label="Atlas sections">
+    <a href="index.html"><span>01</span><b data-i18n="msAtlas">Atlas</b></a>
+    <a href="#corner"><span>02</span><b data-i18n="msCorner">Corner</b></a>
+    <a href="#diagnostics"><span>03</span><b data-i18n="msDiagnostics">Diagnostics</b></a>
+  </nav>
+  <div class="system-register"><div class="language-switch" role="group" data-i18n-aria-label="language" aria-label="Interface language">
+    <button type="button" data-language="en" lang="en" aria-label="English" aria-pressed="true">EN</button>
+    <button type="button" data-language="zh" lang="zh-CN" aria-label="中文" aria-pressed="false">中文</button>
+  </div></div>
+</header>
+<main class="ms-content">
+  <section class="ms-intro">
+    <p class="technical-label" data-i18n="msKicker">INFERENCE / JOINT NON-21 · SNAPSHOT / 2026-09-14</p>
+    <h1 data-i18n="msTitle">Fixed kₚ. Free mₛ.</h1>
+    <p class="ms-equation">LF + τₑ + x<sub>HI</sub></p>
+    <p data-i18n="msSubtitle">Two independent ensembles of one cosmological model — not a ΛCDM–BTPS comparison.</p>
   </section>
-  <div class="warning"><strong>初步诊断，尚未收敛 / PRELIMINARY — NOT CONVERGED</strong><br>
-    两条独立 ensemble 仍存在漂移。下图只展示当前采样分布，不是最终可信区间或可发表的参数约束。
-    两种颜色代表同一模型的独立 ensemble，<strong>不是 ΛCDM 与 BTPS</strong>。</div>
-  <p>k<sub>p</sub> = 1 h Mpc⁻¹ = 0.678 Mpc⁻¹；m<sub>s</sub> ∈ [0.5, 2.0]。
-    每组 64 walkers，初始 burn-in 40 步后保存 160 步，本页未额外丢弃样本。
-    共 20,480 条相关采样记录，不等于独立有效样本数。m<sub>s</sub> 的先验也包含非蓝倾斜部分。</p>
-  <p><strong>约束数据：</strong>49 个 LF 点（HST z = 6, 7, 8；Donnan 2024 z = 9, 10，仅 z &lt; 11），
-    Planck τ<sub>e</sub> 与 McGreer x<sub>HI</sub>(5.9)。<strong>不使用任何 21-cm likelihood。</strong></p>
-  <p><strong>计算设置：</strong>直接 21cmFAST coeval + τ 积分；无模拟器、无光锥。
-    HII_DIM = 128，DIM = 512，BOX_LEN = 250 cMpc。与 Atlas 的光锥展示网格不是同一组运行。</p>
-  <section class="card"><h2>采样坐标 / Sampling coordinates</h2>
-    <p>η<sub>★</sub> = log₁₀(f<sub>★,10</sub>/t<sub>★</sub>)；质量单位为 M☉。
-      蓝色：ensemble 0；橙色：ensemble 1。轮廓包围各组经验分布的 68% / 95% 样本质量；未通过收敛验证。</p>
-    <a href="web_data/ms_corner_chunk1/corner_eta.png?v=2123619-160"><img src="web_data/ms_corner_chunk1/corner_eta.png?v=2123619-160" alt="Seven-parameter preliminary corner, two independent ensembles"></a>
+  <aside class="ms-warning" role="note"><strong data-i18n="msWarning">PRELIMINARY — NOT CONVERGED</strong><p data-i18n="msWarningBody">Both ensembles still drift. These figures show current sampling distributions, not final credible intervals or publishable constraints.</p></aside>
+  <section class="ms-card" aria-labelledby="branch-title">
+    <div class="section-heading"><div><span class="section-index">01</span><h2 id="branch-title" data-i18n="msIdentity">Separate inference branches</h2></div></div>
+    <div class="ms-branches">
+      <article><p class="technical-label" data-i18n="msThis">THIS PAGE / JOINT · FREE mₛ</p><p data-i18n="msJoint">Fixed kₚ = 1 h Mpc⁻¹; sampled mₛ. Seven parameters: four star-formation parameters, two escape-fraction parameters and mₛ. Likelihood: LF + τₑ + xHI.</p></article>
+      <article><p class="technical-label" data-i18n="msOther">OTHER BRANCH / LF-ONLY · FIXED COSMOLOGY</p><p data-i18n="msLFOnly">Fixed kₚ and mₛ for each model. Four star-formation parameters, constrained by LF only. No τₑ or xHI likelihood.</p></article>
+    </div>
+    <p class="ms-note" data-i18n="msSeparation">Chains, progress, convergence and figures are recorded separately. This is neither a replacement for the LF-only figures nor a reweighted LF-only chain. Because the parameter spaces also differ, their differences cannot be attributed solely to adding reionization constraints.</p>
   </section>
-  <section class="card"><details><summary>原始恒星效率坐标 / Native stellar-efficiency coordinates</summary>
-    <p>仅作坐标变换：log₁₀ f<sub>★,10</sub> = η<sub>★</sub> + log₁₀ t<sub>★</sub>，没有重新采样或改变权重。</p>
-    <a href="web_data/ms_corner_chunk1/corner_native.png?v=2123619-160"><img loading="lazy" src="web_data/ms_corner_chunk1/corner_native.png?v=2123619-160" alt="Native-coordinate preliminary corner"></a>
+  <section class="ms-card" aria-labelledby="setup-title">
+    <div class="section-heading"><div><span class="section-index">02</span><h2 id="setup-title" data-i18n="msSetup">Snapshot &amp; configuration</h2></div></div>
+    <p data-i18n="msSample">kₚ = 1 h Mpc⁻¹ = 0.678 Mpc⁻¹; mₛ ∈ [0.5, 2.0]. Each ensemble has 64 walkers and 160 saved steps after 40 initial burn-in steps. No additional samples are discarded here.</p>
+    <p data-i18n="msCaution">20,480 correlated stored rows are not 20,480 independent effective samples. The mₛ prior also includes non-blue slopes.</p>
+    <p data-i18n="msData">Data: 49 LF points — HST z = 6, 7, 8 and Donnan (2024) z = 9, 10, restricted to z &lt; 11 — plus Planck τₑ and McGreer xHI(5.9). No 21-cm likelihood is used.</p>
+    <p data-i18n="msCompute">Direct 21cmFAST coeval simulations plus τ integration; no emulator or lightcone. HII_DIM = 128, DIM = 512, BOX_LEN = 250 cMpc. These are not the Atlas lightcone-grid runs.</p>
+    <p class="technical-label">SOURCE JOB / 2123619 · SNAPSHOT / 160 × 64 × 7 / ENSEMBLE</p>
+  </section>
+  <section id="corner" class="ms-card" aria-labelledby="corner-title">
+    <div class="section-heading"><div><span class="section-index">03</span><h2 id="corner-title" data-i18n="msSampling">Sampling coordinates</h2></div></div>
+    <p data-i18n="msCaption">η★ = log₁₀(f★,10/t★); masses are in M☉. Blue: ensemble 0. Orange: ensemble 1. Contours enclose 68% / 95% of each empirical distribution, not validated credible regions.</p>
+    <a href="web_data/ms_corner_chunk1/corner_eta.png?v=2123619-160"><img src="web_data/ms_corner_chunk1/corner_eta.png?v=2123619-160" data-ms-alt="msEtaAlt" alt="Preliminary seven-parameter corner for two independent ensembles"></a>
+    <p class="ms-note" data-i18n="msFigureLanguage">Scientific symbols and the original English plot annotations are shared between languages; captions and interpretation switch with the interface.</p>
+  </section>
+  <section class="ms-card"><details><summary data-i18n="msNative">Native stellar-efficiency coordinates</summary>
+    <p data-i18n="msTransform">Coordinate transformation only: log₁₀ f★,10 = η★ + log₁₀ t★. No resampling or change of weights.</p>
+    <a href="web_data/ms_corner_chunk1/corner_native.png?v=2123619-160"><img loading="lazy" src="web_data/ms_corner_chunk1/corner_native.png?v=2123619-160" data-ms-alt="msNativeAlt" alt="Preliminary corner in native stellar-efficiency coordinates"></a>
   </details></section>
-  <section class="card"><h2>为什么还不能冻结 posterior？</h2>
-    <p>m<sub>s</sub>、α<sub>esc</sub> 和后验值仍有前后半段漂移，链长尚不足以可靠估计自相关时间。
-      不把同一 ensemble 的 walkers 当作独立链计算 R̂。下面的带状区域是每步 walkers 的 16–84 百分位，不是误差条。</p>
-    <a href="web_data/ms_corner_chunk1/ensemble_traces.png?v=2123619-160"><img loading="lazy" src="web_data/ms_corner_chunk1/ensemble_traces.png?v=2123619-160" alt="Independent-ensemble trace diagnostics showing remaining drift"></a>
-    <p><a href="web_data/ms_corner_chunk1/index.json">采样来源与设置 / provenance</a> ·
-      <a href="web_data/ms_corner_chunk1/diagnostics.json">完整诊断 / diagnostics</a></p>
+  <section id="diagnostics" class="ms-card" aria-labelledby="diagnostics-title">
+    <div class="section-heading"><div><span class="section-index">04</span><h2 id="diagnostics-title" data-i18n="msWhy">Why the posterior is not frozen</h2></div></div>
+    <p data-i18n="msDrift">mₛ, αesc and the log posterior still drift between the first and second halves. The chains are too short for reliable final autocorrelation estimates. Walkers within an ensemble are not treated as independent chains for R̂. Trace bands show the 16th–84th percentiles across walkers at each step, not error bars.</p>
+    <a href="web_data/ms_corner_chunk1/ensemble_traces.png?v=2123619-160"><img loading="lazy" src="web_data/ms_corner_chunk1/ensemble_traces.png?v=2123619-160" data-ms-alt="msTraceAlt" alt="Independent-ensemble traces showing remaining drift"></a>
+    <div class="ms-links"><a href="web_data/ms_corner_chunk1/index.json" data-i18n="msProvenance">Provenance &amp; settings ↗</a><a href="web_data/ms_corner_chunk1/diagnostics.json" data-i18n="msReport">Full diagnostics ↗</a></div>
   </section>
-</main></body></html>
+  <footer class="ms-footer"><span class="technical-label" data-i18n="msFooter">ARCHIVE / JOINT NON-21 · READ ONLY · NOT LF-ONLY</span><a href="index.html" data-i18n="msBack">Return to Signal Atlas ↗</a></footer>
+</main>
+<script src="i18n.js?v=joint-bilingual-1"></script>
+<script src="ms-corner.js?v=joint-bilingual-1"></script>
+</body>
+</html>

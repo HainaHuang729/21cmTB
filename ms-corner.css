@@ -1,0 +1,30 @@
+/* Shared Atlas tokens/header; only the diagnostic-page layout is specialized. */
+html:has(.ms-page) { scroll-padding-bottom: 24px; }
+.ms-page { padding-bottom: 0; }
+.ms-page .system-header { grid-template-columns: minmax(200px,1fr) auto minmax(130px,1fr); }
+.ms-content { max-width: 1400px; margin: auto; padding: 0 var(--page-pad); }
+.ms-intro { padding: clamp(32px,6vw,80px) 0 28px; }
+.ms-intro h1 { margin: 18px 0 8px; font: 800 clamp(40px,6vw,84px)/1.05 var(--font-display); letter-spacing: -.04em; }
+.ms-equation { color: var(--orange); font: 600 clamp(24px,3vw,38px) var(--font-display); margin: 16px 0; }
+.ms-content p { line-height: 1.75; }
+.ms-warning { border: 1px solid var(--line-strong); border-left: 5px solid var(--orange); padding: 22px 26px; background: var(--surface); }
+.ms-warning strong { color: var(--orange); font: 700 15px var(--font-mono); }
+.ms-warning p { margin-bottom: 0; }
+.ms-card { margin-top: 28px; padding: clamp(18px,3vw,36px); background: var(--surface-raised); border: 1px solid var(--line); }
+.ms-page .section-heading h2 { white-space: normal; line-height: 1.2; }
+.ms-page .section-heading { padding-bottom: 18px; }
+.ms-branches { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.ms-branches article + article { border-left: 1px solid var(--line); padding-left: 30px; }
+.ms-note { color: var(--ink-secondary); font-size: 14px; }
+.ms-card img { display: block; width: 100%; height: auto; background: white; }
+.ms-card summary { cursor: pointer; font: 700 20px var(--font-display); padding: 8px 0; }
+.ms-links, .ms-footer { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; padding-top: 24px; }
+.ms-links a, .ms-footer a { border-bottom: 1px solid var(--orange); padding-bottom: 4px; }
+.ms-footer { padding: 32px 0 48px; }
+@media(max-width:760px) {
+  .ms-page .system-header { grid-template-columns: 1fr auto; min-height: 74px; }
+  .ms-page .system-navigation { grid-column: 1/-1; grid-row: 2; min-height: 48px; }
+  .ms-page .system-register { grid-column: 2; grid-row: 1; }
+  .ms-branches { grid-template-columns: 1fr; gap: 12px; }
+  .ms-branches article + article { border-left: 0; border-top: 1px solid var(--line); padding: 16px 0 0; }
+}

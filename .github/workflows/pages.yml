@@ -33,6 +33,8 @@ jobs:
           node --check app.js
           node --check i18n.js
           node tests/test_i18n.cjs
+          node --check ms-corner.js
+          node tests/test_ms_corner.cjs
           python - <<'PY'
           import json
           import pathlib

@@ -12,6 +12,8 @@ window.AtlasI18n = (() => {
     controls: ["Controls", "参数"],
     evolution: ["Evolution", "演化"],
     analysis: ["Analysis", "分析"],
+    jointNav: ["Joint · free mₛ", "联合约束 · 自由mₛ"],
+    jointNavTitle: ["LF + tau + xHI; free ms; NOT LF-only", "LF + τ + xHI；自由 mₛ；不是 LF-only"],
     fields: ["Fields", "空间场"],
     language: ["Interface language", "界面语言"],
     revision: ["REV", "版本"],
