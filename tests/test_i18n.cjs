@@ -128,7 +128,7 @@ test("all static and literal runtime translation keys exist in both languages", 
   for (const match of html.matchAll(/data-i18n(?:-aria-label|-title|-alt)?="([^"]+)"/g)) assert.ok(messages[match[1]], match[1]);
   for (const match of source.matchAll(/\bt\("([^"]+)"/g)) assert.ok(messages[match[1]], match[1]);
   assert.ok(html.indexOf('src="i18n.js') < html.indexOf('src="app.js'));
-  assert.equal((html.match(/hii256-v21/g) || []).length, 4);
+  assert.equal((html.match(/hii256-v22/g) || []).length, 4);
 });
 
 test("default English, saved Chinese, invalid preference and unavailable storage", () => {
@@ -422,18 +422,36 @@ test("MCMC categories keep provenance, correlated sample counts, selection and b
   assert.equal(archive.joint.status, "PRELIMINARY_NOT_CONVERGED");
   assert.equal(archive.joint.lf_points, archive.categories.lf_only.lf_points);
   assert.equal(h.get("#mcmc-joint-rows").textContent, "20,480");
-  const buttons = h.get("#mcmc-lf-models").children;
-  assert.equal(buttons.length, 3);
-  for (let index = 0; index < 3; index += 1) {
-    buttons[index].trigger("click");
+  assert.equal(h.get("#mcmc-joint-date").textContent, "2026-09-14");
+  const selector = h.get("#mcmc-lf-select");
+  assert.equal(selector.disabled, false);
+  assert.equal(selector.children.length, 5);
+  assert.equal(selector.children.flatMap(group => group.children).length, 25);
+  assert.equal(archive.lf.models.length, 25);
+  assert.equal(new Set(archive.lf.models.map(m => `${m.KP_h_Mpc}/${m.MS}`)).size, 25);
+  assert.equal(archive.lf.models.filter(m => m.diagnostic_gate_passed).length, 6);
+  assert.equal(archive.lf.models.filter(m => m.steps_per_ensemble === 4000).length, 1);
+  assert.match(h.get("#mcmc-load-status").textContent, /2026-09-15/);
+  assert.match(h.get("#mcmc-lf-grid-count").textContent, /5 × 5.*25/);
+  for (let index = 0; index < 25; index += 1) {
+    selector.value = String(index);
+    selector.onchange();
     const model = archive.lf.models[index];
     assert.equal(h.run("state.mcmc.selectedLF"), index);
-    assert.equal(buttons[index].getAttribute("aria-pressed"), "true");
-    assert.equal(buttons.filter(b => b.getAttribute("aria-pressed") === "true").length, 1);
+    assert.equal(selector.value, String(index));
     assert.equal(model.sample_count, model.steps_per_ensemble * model.walkers * 2);
     const imagePath = h.get("#mcmc-lf-image").getAttribute("src");
-    assert.ok(fs.existsSync(path.join(staticRoot, imagePath)));
+    assert.ok(fs.existsSync(path.join(staticRoot, imagePath.split("?")[0])));
+    assert.ok(imagePath.endsWith(`?v=${model.figure_sha256.slice(0, 12)}`));
     assert.equal(h.get("#mcmc-lf-open").getAttribute("href"), imagePath);
+    assert.equal(h.get("#mcmc-lf-status").textContent, h.context.AtlasI18n.t(model.diagnostic_gate_passed ? "mcmcLFGatePassed" : "mcmcLFGateNotPassed"));
+    assert.ok(h.get("#mcmc-lf-caption").textContent.includes(`${model.chain_source}_${model.source_model_index}`));
+    const original = JSON.parse(fs.readFileSync(path.join(staticRoot, "web_data/lf_corner", model.source_manifest)));
+    const sourceModel = original.models.find(m => m.model_index === model.source_model_index);
+    assert.equal(original.chain_source, model.chain_source);
+    assert.equal(sourceModel.KP_h_Mpc, model.KP_h_Mpc);
+    assert.equal(sourceModel.MS, model.MS);
+    assert.equal(sourceModel.sample_count, model.sample_count);
   }
   const selectedImage = h.get("#mcmc-lf-image").getAttribute("src");
   h.run('setLanguage("zh")');
@@ -441,7 +459,9 @@ test("MCMC categories keep provenance, correlated sample counts, selection and b
   assert.match(h.get("#mcmc-lf-image").getAttribute("alt"), /四参数/);
   assert.match(h.get("#mcmc-lf-caption").textContent, /探索性快照/);
   select(h, "KP_h_Mpc", 0); select(h, "F_STAR10", 0);
-  assert.equal(h.run("state.mcmc.selectedLF"), 2);
+  assert.equal(h.run("state.mcmc.selectedLF"), 24);
+  assert.equal(selector.value, "24");
+  assert.match(h.get("#mcmc-lf-select").getAttribute("aria-label"), /固定宇宙学/);
   assert.equal(requests.length, 3);
   assert.ok(html.indexOf('id="mcmc-section"') > html.indexOf('class="slice-model-row pl-slice-row"'));
 });
@@ -452,10 +472,30 @@ test("MCMC fetch failure is isolated and retryable", async () => {
   const before = h.run("state.result");
   await h.run("AtlasMCMC.initialize(state.mcmc)");
   assert.equal(h.run("state.mcmc.status"), "error");
+  assert.equal(h.get("#mcmc-lf-select").disabled, true);
   assert.equal(h.run("state.result"), before);
   h.run('setLanguage("zh")');
   assert.match(h.get("#mcmc-load-status").textContent, /加载失败/);
   useStoredFiles(h);
   await h.run("AtlasMCMC.initialize(state.mcmc)");
   assert.equal(h.run("state.mcmc.status"), "ready");
+  assert.equal(h.get("#mcmc-lf-select").disabled, false);
+});
+
+test("an incomplete LF grid is rejected without changing simulation results", async () => {
+  const h = harness(); seed(h); useStoredFiles(h);
+  const before = h.run("state.result");
+  const read = h.context.fetch;
+  h.context.fetch = async url => {
+    const response = await read(url);
+    if (!url.startsWith("web_data/lf_corner/index.json")) return response;
+    const index = await response.json();
+    index.models.pop();
+    return new Response(JSON.stringify(index));
+  };
+  vm.runInContext(fs.readFileSync(path.join(staticRoot, "mcmc.js"), "utf8"), h.context);
+  await h.run("AtlasMCMC.initialize(state.mcmc)");
+  assert.equal(h.run("state.mcmc.status"), "error");
+  assert.equal(h.get("#mcmc-lf-select").disabled, true);
+  assert.equal(h.run("state.result"), before);
 });

@@ -1,0 +1,336 @@
+{
+  "analysis": "LF-only",
+  "chain_source": "job_2132128",
+  "models": [
+    {
+      "model_index": 0,
+      "KP_h_Mpc": 1,
+      "MS": 2,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp1_ms2.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ]
+    },
+    {
+      "model_index": 1,
+      "KP_h_Mpc": 1,
+      "MS": 2.5,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp1_ms2.5.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ]
+    },
+    {
+      "model_index": 2,
+      "KP_h_Mpc": 1,
+      "MS": 3.25,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp1_ms3.25.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ]
+    },
+    {
+      "model_index": 3,
+      "KP_h_Mpc": 1,
+      "MS": 4,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp1_ms4.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ]
+    },
+    {
+      "model_index": 4,
+      "KP_h_Mpc": 3,
+      "MS": 1.5,
+      "steps_per_ensemble": 4000,
+      "walkers": 32,
+      "sample_count": 256000,
+      "file": "lf_corner_kp3_ms1.5.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ]
+    },
+    {
+      "model_index": 5,
+      "KP_h_Mpc": 3,
+      "MS": 2,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp3_ms2.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ]
+    },
+    {
+      "model_index": 6,
+      "KP_h_Mpc": 3,
+      "MS": 2.5,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp3_ms2.5.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ]
+    },
+    {
+      "model_index": 7,
+      "KP_h_Mpc": 3,
+      "MS": 3.25,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp3_ms3.25.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ]
+    },
+    {
+      "model_index": 8,
+      "KP_h_Mpc": 3,
+      "MS": 4,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp3_ms4.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ]
+    },
+    {
+      "model_index": 9,
+      "KP_h_Mpc": 10,
+      "MS": 1.5,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp10_ms1.5.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ]
+    },
+    {
+      "model_index": 10,
+      "KP_h_Mpc": 10,
+      "MS": 2,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp10_ms2.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ]
+    },
+    {
+      "model_index": 11,
+      "KP_h_Mpc": 10,
+      "MS": 3.25,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp10_ms3.25.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ]
+    },
+    {
+      "model_index": 12,
+      "KP_h_Mpc": 10,
+      "MS": 4,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp10_ms4.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ]
+    },
+    {
+      "model_index": 13,
+      "KP_h_Mpc": 20,
+      "MS": 1.5,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp20_ms1.5.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ]
+    },
+    {
+      "model_index": 14,
+      "KP_h_Mpc": 20,
+      "MS": 2,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp20_ms2.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ]
+    },
+    {
+      "model_index": 15,
+      "KP_h_Mpc": 20,
+      "MS": 2.5,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp20_ms2.5.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ]
+    },
+    {
+      "model_index": 16,
+      "KP_h_Mpc": 20,
+      "MS": 3.25,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp20_ms3.25.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ]
+    },
+    {
+      "model_index": 17,
+      "KP_h_Mpc": 20,
+      "MS": 4,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp20_ms4.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ]
+    },
+    {
+      "model_index": 18,
+      "KP_h_Mpc": 30,
+      "MS": 1.5,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp30_ms1.5.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ]
+    },
+    {
+      "model_index": 19,
+      "KP_h_Mpc": 30,
+      "MS": 2,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp30_ms2.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ]
+    },
+    {
+      "model_index": 20,
+      "KP_h_Mpc": 30,
+      "MS": 2.5,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp30_ms2.5.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ]
+    },
+    {
+      "model_index": 21,
+      "KP_h_Mpc": 30,
+      "MS": 3.25,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp30_ms3.25.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ]
+    }
+  ]
+}

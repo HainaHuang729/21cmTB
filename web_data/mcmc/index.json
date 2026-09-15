@@ -1,28 +1,69 @@
 {
   "schema_version": 1,
-  "snapshot_date": "2026-09-14",
+  "snapshot_date": "2026-09-15",
   "independent_of_atlas_parameter_grid": true,
   "files_sha256": {
-    "web_data/lf_corner/index.json": "416fb31faa059d9ed770ab013fc3f735c59c87d2a5021693d3c24c75c5234fc8",
-    "web_data/lf_corner/lf_corner_kp1_ms1.5.png": "1001eb740a31ae09b764fe1d1c6155844aeb9e4ac07c538b3ebd879916cb3702",
-    "web_data/lf_corner/lf_corner_kp10_ms2.5.png": "bc1a2a6c0347d290a1533407bc1a88c0275fb0882876ec642449cc267457cbeb",
-    "web_data/lf_corner/lf_corner_kp30_ms4.png": "090b67c9ff8d5e89acd04c108fc96dc24593ae403d79cda0632abb0afee14dbe"
+    "web_data/lf_corner/index_seed.json": "1462df68090c9be461e370b7ec925abc7ce69c32d163fad6480b157ce847460b",
+    "web_data/lf_corner/index_remaining.json": "795c71e6134309f6f48883547ffeb65badc45c457ac4349ecfac5c6b14911696",
+    "web_data/lf_corner/index.json": "ad70192f183c4ff322c2b8f8e1041f06d8bd160ca30c3fa1324b929353dba7fd",
+    "web_data/lf_corner/lf_corner_kp1_ms1.5.png": "92990dc1ffb1a08c22ab085f6b46988df18db82edff0cd1b157fc16c37d31a41",
+    "web_data/lf_corner/lf_corner_kp1_ms2.png": "68bec4033018930b9504737e35ac5298393124fc01197464e366a18179447e44",
+    "web_data/lf_corner/lf_corner_kp1_ms2.5.png": "c7ab0bee57dfea312d06b2da69b1a4adadc656d5f46204940d4dea1d1ebe407e",
+    "web_data/lf_corner/lf_corner_kp1_ms3.25.png": "9d55ffa64fcf8efb6f33bdd097c8545654a8872f339473c1e355d758f66d832a",
+    "web_data/lf_corner/lf_corner_kp1_ms4.png": "2c646033fdc05f3593bcf8a46a5267780d7d1508cfbe18b763eb2a70b9bdc851",
+    "web_data/lf_corner/lf_corner_kp3_ms1.5.png": "4fa448059d0325fd3107d72b2905b4052510b7d6caa7dcaf1f6c8b9181d0346f",
+    "web_data/lf_corner/lf_corner_kp3_ms2.png": "8e34654c9a967221becbd1a2a814939006bb1d5e71347737f56f6fbd0f2f053f",
+    "web_data/lf_corner/lf_corner_kp3_ms2.5.png": "0fa8d067ca250763bfbeef6674f8eae30716fb6e6025da0eb612b3555d5c3fd3",
+    "web_data/lf_corner/lf_corner_kp3_ms3.25.png": "c8b1aa2d91d78c8f29a060c0142e294ff21fd236c66e241b233793c2debd447b",
+    "web_data/lf_corner/lf_corner_kp3_ms4.png": "f706575fa430ecc0a5821b508714c4c94ffb3bdd2e62e83105243de386e5d724",
+    "web_data/lf_corner/lf_corner_kp10_ms1.5.png": "47bd4de7f803e3f3ccfe36a52f1694182e0b9e543fe0ce08b9434ffc9b714c1e",
+    "web_data/lf_corner/lf_corner_kp10_ms2.png": "6a18a7bba778f6cee3b6cb46026e19110bef708a5816f01b48909de9f3580349",
+    "web_data/lf_corner/lf_corner_kp10_ms2.5.png": "050cf9e7d27965e5b554dec98c39ab5f0d32beb4ae2c443d2fab4d352f0c9727",
+    "web_data/lf_corner/lf_corner_kp10_ms3.25.png": "3c477c067d5588edbc8a98f8b4ac90221708571b0ef68a7034e316a390898e95",
+    "web_data/lf_corner/lf_corner_kp10_ms4.png": "0ac535acd767b246178a1ffbb8bf4488b11afb46928d84fa9605f8b03d3aa143",
+    "web_data/lf_corner/lf_corner_kp20_ms1.5.png": "abcc0e8974045f6e3699ce641b2e53e0c89bba7e130c6c4d3a526de02a0adc68",
+    "web_data/lf_corner/lf_corner_kp20_ms2.png": "047a845603c216d8f07346efbe97e48e321c13f4a30915a5c2434d0e75bd4378",
+    "web_data/lf_corner/lf_corner_kp20_ms2.5.png": "a779ee29178fd3d497985e95725d083084d55910c389791bb1448b71fa8416a7",
+    "web_data/lf_corner/lf_corner_kp20_ms3.25.png": "775781531d378fad84fcb742bcd903214b8879d090e4c4e19902477cbd6b03dc",
+    "web_data/lf_corner/lf_corner_kp20_ms4.png": "7442e34f938912cfa3cb331a0852534f5513e271a73792fd5c2551849ddd88be",
+    "web_data/lf_corner/lf_corner_kp30_ms1.5.png": "4943b27c7809c9ca04ea80def4f85a19db3b7be593267ab8b66acb2e365f70f6",
+    "web_data/lf_corner/lf_corner_kp30_ms2.png": "5f2801a6eefd515852687c14ab6827d37153be4589c79a51d5e8ef6d8ac61429",
+    "web_data/lf_corner/lf_corner_kp30_ms2.5.png": "d3448c2dd7b19584cc515526c5821209f4d31b972a7676d0ecd573747e355ab6",
+    "web_data/lf_corner/lf_corner_kp30_ms3.25.png": "e5ee18726383cac77ed5a41e96d5a4a1e98ddff85c7590a2f56009b32261ec9b",
+    "web_data/lf_corner/lf_corner_kp30_ms4.png": "c96d509c286238cdc3d5cb971b337e93900c99bb2d7fb4bdd2c159a8d0a9c4b7"
   },
   "categories": {
     "lf_only": {
       "label": "LF only",
       "directory": "web_data/lf_corner",
-      "status": "EXPLORATORY_CONVERGENCE_NOT_ESTABLISHED",
+      "status": "EXPLORATORY_PER_MODEL_DIAGNOSTICS",
       "dimensions": 4,
       "ensembles": 2,
-      "fixed": ["KP_h_Mpc", "MS"],
-      "likelihood": ["LF"],
+      "fixed": [
+        "KP_h_Mpc",
+        "MS"
+      ],
+      "likelihood": [
+        "LF"
+      ],
       "lf_points": 49,
-      "lf_redshifts": [6, 7, 8, 9, 10],
-      "provenance": "Archived web figures from job_2128818; common saved production length per model; initial burn-in 500 steps excluded in production chains.",
-      "source_directory": "workflows/MCMC/fixed_btps_posterior/runs/lf_corner_snapshot_20260914",
+      "lf_redshifts": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "provenance": "Prepared LF-only figures from job_2128818 (3 models) and job_2132128 (22 models). Retained common production length, capped at 5000; model kp=3, ms=1.5 retains 4000. Initial burn-in 500 steps excluded in production chains. Model-specific gates copied from final reports; no new diagnostic calculation.",
       "coordinate_transform": "F_STAR10 = ETA_STAR + log10(t_STAR); no resampling",
-      "sample_count_semantics": "Correlated stored rows, not effective independent samples"
+      "sample_count_semantics": "Correlated stored rows, not effective independent samples",
+      "snapshot_date": "2026-09-15",
+      "model_count": 25,
+      "diagnostic_gate_passed_count": 6,
+      "source_directories": [
+        "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_only_20260910",
+        "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914"
+      ]
     },
     "joint": {
       "label": "LF + tau + xi",
@@ -30,11 +71,18 @@
       "status": "PRELIMINARY_NOT_CONVERGED",
       "dimensions": 7,
       "ensembles": 2,
-      "fixed": ["KP_h_Mpc"],
-      "likelihood": ["LF", "Planck tau", "McGreer xHI(z=5.9)"],
+      "fixed": [
+        "KP_h_Mpc"
+      ],
+      "likelihood": [
+        "LF",
+        "Planck tau",
+        "McGreer xHI(z=5.9)"
+      ],
       "xi_definition": "xi = 1 - xHI; not a likelihood on the entire xi(z) history",
       "sample_count_semantics": "Correlated stored rows, not effective independent samples",
-      "continuing_runs_included": false
+      "continuing_runs_included": false,
+      "snapshot_date": "2026-09-14"
     }
   }
 }

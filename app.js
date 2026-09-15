@@ -20,7 +20,7 @@ const state = {
 const $ = (selector) => document.querySelector(selector);
 const astroNames = new Set(["F_STAR10", "ALPHA_STAR", "F_ESC10", "ALPHA_ESC", "M_TURN", "t_STAR", "L_X", "NU_X_THRESH"]);
 const DATA_VERSION = "hii256-v18";
-const UI_VERSION = "hii256-v21";
+const UI_VERSION = "hii256-v22";
 const LF_REDSHIFTS = [6, 7, 8, 10];
 const t = (key, values) => window.AtlasI18n.t(key, values);
 const PLOT_FONT = '"Avenir Next", "Century Gothic", Futura, "Helvetica Neue", Arial, "Noto Sans CJK SC", "Microsoft YaHei", "PingFang SC", sans-serif';

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <title>21cmFAST Precomputed Parameter Atlas</title>
-  <link rel="stylesheet" href="styles.css?v=hii256-v21&amp;dock=compact-1">
+  <link rel="stylesheet" href="styles.css?v=hii256-v22&amp;dock=compact-1">
 </head>
 <body id="top">
   <header class="system-header load-in">
@@ -27,7 +27,7 @@
       </div>
       <div id="data-state" class="server-state"><i></i><span>Loading results</span></div>
       <div id="run-badge" class="run-badge idle">LOADING</div>
-      <div class="revision-tag"><small data-i18n="revision">REV</small><strong>21</strong></div>
+      <div class="revision-tag"><small data-i18n="revision">REV</small><strong>22</strong></div>
     </div>
   </header>
 
@@ -203,16 +203,20 @@
         <div class="inference-copy">
           <p class="technical-label">06A / 4D</p>
           <h3 id="mcmc-lf-title">LF only</h3>
-          <p class="inference-status" data-i18n="mcmcLFStatus">EXPLORATORY SNAPSHOT · CONVERGENCE NOT ESTABLISHED</p>
-          <p data-i18n="mcmcLFDescription">Three fixed kₚ / mₛ models. Four stellar parameters are sampled using LF alone, without τₑ or neutral-fraction constraints.</p>
+          <p id="mcmc-lf-status" class="inference-status" data-i18n="mcmcLFStatus">EXPLORATORY SNAPSHOT · SEE MODEL DIAGNOSTICS</p>
+          <p data-i18n="mcmcLFDescription">A grid of fixed kₚ / mₛ models. Four stellar parameters are sampled using LF alone, without τₑ or neutral-fraction constraints.</p>
           <p class="inference-detail" data-i18n="mcmcLFData">49 LF points: HST z = 6, 7, 8 and Donnan (2024) z = 9, 10. Native 21cmFAST LF; no 21-cm likelihood.</p>
-          <div id="mcmc-lf-models" class="inference-models" role="group" data-i18n-aria-label="mcmcModelChoice" aria-label="Fixed cosmology for LF-only inference"></div>
+          <div id="mcmc-lf-models" class="inference-models">
+            <label for="mcmc-lf-select" data-i18n="mcmcModelChoice">Fixed cosmology for LF-only inference</label>
+            <select id="mcmc-lf-select" disabled data-i18n-aria-label="mcmcModelChoice" aria-label="Fixed cosmology for LF-only inference"><option>—</option></select>
+            <span id="mcmc-lf-grid-count" aria-live="polite"></span>
+          </div>
           <dl class="inference-metadata">
             <div><dt data-i18n="mcmcFixed">FIXED COSMOLOGY</dt><dd id="mcmc-lf-fixed">—</dd></div>
             <div><dt data-i18n="mcmcSampling">STORED STEPS × WALKERS × ENSEMBLES</dt><dd id="mcmc-lf-sampling">—</dd></div>
             <div><dt data-i18n="mcmcRows">CORRELATED ROWS · NOT ESS</dt><dd id="mcmc-lf-rows">—</dd></div>
           </dl>
-          <p class="inference-detail" data-i18n="mcmcLFCaution">The two ensembles are truncated to their common saved length in each archived figure. These are sampling distributions, not final parameter constraints.</p>
+          <p class="inference-detail" data-i18n="mcmcLFCaution">Both ensembles use the saved length listed above. Passing the existing diagnostic gate is not proof of global mixing or numerical-resolution convergence. These figures are exploratory, not final parameter constraints.</p>
         </div>
         <figure class="inference-figure">
           <a id="mcmc-lf-open" target="_blank" rel="noopener" data-i18n-title="mcmcOpen" title="Open full-resolution figure">
@@ -231,6 +235,7 @@
           <p data-i18n="mcmcJointDescription">Fixed kₚ = 1 h Mpc⁻¹; free mₛ ∈ [0.5, 2]. Seven sampled parameters: four stellar parameters, two escape-fraction parameters and mₛ.</p>
           <p class="inference-detail" data-i18n="mcmcJointData">The same 49 LF points, plus Planck τₑ and McGreer xHI(z = 5.9). Here ξ = 1 − xHI: the neutral-fraction likelihood is not a measured full ξ(z) history. No 21-cm likelihood.</p>
           <dl class="inference-metadata">
+            <div><dt data-i18n="mcmcSnapshot">ARCHIVED SNAPSHOT</dt><dd id="mcmc-joint-date">2026-09-14</dd></div>
             <div><dt data-i18n="mcmcSampling">STORED STEPS × WALKERS × ENSEMBLES</dt><dd id="mcmc-joint-sampling">—</dd></div>
             <div><dt data-i18n="mcmcRows">CORRELATED ROWS · NOT ESS</dt><dd id="mcmc-joint-rows">—</dd></div>
             <div><dt data-i18n="mcmcCompute">COEVAL GRID / BOX</dt><dd>128³ / 250 cMpc</dd></div>
@@ -286,8 +291,8 @@
       </div>
     </div>
   </section>
-  <script src="i18n.js?v=hii256-v21"></script>
-  <script src="mcmc.js?v=hii256-v21"></script>
-  <script src="app.js?v=hii256-v21"></script>
+  <script src="i18n.js?v=hii256-v22"></script>
+  <script src="mcmc.js?v=hii256-v22"></script>
+  <script src="app.js?v=hii256-v22"></script>
 </body>
 </html>
