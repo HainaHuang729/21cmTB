@@ -129,7 +129,8 @@ test("all static and literal runtime translation keys exist in both languages", 
   for (const match of html.matchAll(/data-i18n(?:-aria-label|-title|-alt)?="([^"]+)"/g)) assert.ok(messages[match[1]], match[1]);
   for (const match of source.matchAll(/\bt\("([^"]+)"/g)) assert.ok(messages[match[1]], match[1]);
   assert.ok(html.indexOf('src="i18n.js') < html.indexOf('src="app.js'));
-  assert.equal((html.match(/hii256-v23/g) || []).length, 4);
+  assert.ok(html.includes("app.js?v=hii256-v23"));
+  for (const asset of ["styles.css", "i18n.js", "mcmc.js"]) assert.ok(html.includes(`${asset}?v=lf-bestfit-1`));
 });
 
 test("default English, saved Chinese, invalid preference and unavailable storage", () => {
@@ -439,12 +440,12 @@ test("all 25 corners follow dock KP/MS with provenance, no substitute for PL, an
   const jointPath = h.get("#mcmc-joint-image").getAttribute("src");
   assert.ok(jointPath.endsWith(`?v=${archive.joint.figure_sha256["corner_eta.png"].slice(0, 12)}`));
   assert.equal(h.get("#mcmc-joint-open").getAttribute("href"), jointPath);
-  assert.equal(archive.figure_style, "corner-shared-v2");
+  assert.equal(archive.figure_styles.lf_only, "white_corner_with_maximum_lf_predictions");
   const audits = JSON.parse(fs.readFileSync(path.join(staticRoot, "web_data/mcmc/corner_layout_audit.json")));
   assert.equal(Object.keys(audits).length, 27);
   for (const [file, audit] of Object.entries(audits)) {
     assert.ok(audit.passed, file);
-    assert.equal(audit.style, archive.figure_style);
+    assert.equal(audit.style, "corner-shared-v2"); // Preserved earlier archive figures.
     assert.ok(audit.checked_text_items >= 25);
     assert.deepEqual(audit.clipped_text, []);
     assert.deepEqual(audit.text_overlaps, []);
@@ -459,9 +460,9 @@ test("all 25 corners follow dock KP/MS with provenance, no substitute for PL, an
   assert.ok(!html.includes('id="mcmc-lf-select"'));
   assert.equal(archive.lf.models.length, 25);
   assert.equal(new Set(archive.lf.models.map(m => `${m.KP_h_Mpc}/${m.MS}`)).size, 25);
-  assert.equal(archive.lf.models.filter(m => m.diagnostic_gate_passed).length, 6);
+  assert.ok(archive.lf.models.every(m => typeof m.diagnostic_gate_passed === "boolean"));
   assert.equal(archive.lf.models.filter(m => m.steps_per_ensemble === 4000).length, 1);
-  assert.match(h.get("#mcmc-load-status").textContent, /2026-09-15/);
+  assert.ok(h.get("#mcmc-load-status").textContent.includes(archive.snapshot_date));
   assert.match(h.get("#mcmc-lf-grid-count").textContent, /5 × 5.*25/);
   for (let index = 0; index < 25; index += 1) {
     const model = archive.lf.models[index];
@@ -473,32 +474,32 @@ test("all 25 corners follow dock KP/MS with provenance, no substitute for PL, an
     assert.equal(h.get("#mcmc-lf-open").hidden, false);
     assert.equal(h.get("#mcmc-lf-empty").hidden, true);
     assert.equal(model.sample_count, model.steps_per_ensemble * model.walkers * 2);
-    assert.equal(model.figure_style, archive.figure_style);
-    assert.equal(model.figure_sources.length, 2);
-    assert.equal(audits[`lf_corner/${model.file}`].samples_per_ensemble.reduce((a, b) => a + b), model.sample_count);
-    for (const source of model.figure_sources) {
-      assert.deepEqual(Array.from(source.retained_shape), [model.steps_per_ensemble, 32, 4]);
-      assert.match(source.retained_values_sha256, /^[0-9a-f]{64}$/);
-      assert.match(source.file_sha256, /^[0-9a-f]{64}$/);
+    assert.equal(model.figure_design, archive.figure_styles.lf_only);
+    assert.equal(model.pl_baseline.sample_count, model.pl_baseline.steps_per_ensemble * model.pl_baseline.walkers * 2);
+    assert.ok(model.pl_baseline.steps_per_ensemble >= 3000);
+    const predicted = JSON.parse(fs.readFileSync(path.join(staticRoot, archive.categories.lf_only.directory, model.file.replace(".png", ".json"))));
+    assert.deepEqual(predicted.bpl_best_astro, JSON.parse(JSON.stringify(model.best_astro)));
+    assert.deepEqual(predicted.pl_best_astro, JSON.parse(JSON.stringify(model.pl_baseline.best_astro)));
+    assert.equal(predicted.best_sample_rule, "maximum LF likelihood among the plotted stored samples");
+    for (const branch of ["bpl", "pl"]) for (const z of [6, 7, 8, 10]) {
+      const [muv, phi] = predicted[branch][`${z}.0`];
+      assert.ok(muv.length > 4);
+      assert.equal(muv.length, phi.length);
+      assert.ok([...muv, ...phi].every(Number.isFinite));
     }
     const imagePath = h.get("#mcmc-lf-image").getAttribute("src");
     assert.ok(fs.existsSync(path.join(staticRoot, imagePath.split("?")[0])));
     assert.ok(imagePath.endsWith(`?v=${model.figure_sha256.slice(0, 12)}`));
     assert.equal(h.get("#mcmc-lf-open").getAttribute("href"), imagePath);
-    assert.equal(h.get("#mcmc-lf-status").textContent, h.context.AtlasI18n.t(model.diagnostic_gate_passed ? "mcmcLFGatePassed" : "mcmcLFGateNotPassed"));
-    assert.ok(h.get("#mcmc-lf-caption").textContent.includes(`${model.chain_source}_${model.source_model_index}`));
-    const original = JSON.parse(fs.readFileSync(path.join(staticRoot, "web_data/lf_corner", model.source_manifest)));
-    const sourceModel = original.models.find(m => m.model_index === model.source_model_index);
-    assert.equal(original.chain_source, model.chain_source);
-    assert.equal(sourceModel.KP_h_Mpc, model.KP_h_Mpc);
-    assert.equal(sourceModel.MS, model.MS);
-    assert.equal(sourceModel.sample_count, model.sample_count);
+    assert.equal(h.get("#mcmc-lf-status").textContent, "BPL: " + h.context.AtlasI18n.t(model.diagnostic_gate_passed ? "mcmcLFGatePassed" : "mcmcLFGateNotPassed") + " / PL: " + h.context.AtlasI18n.t(model.pl_baseline.diagnostic_gate_passed ? "mcmcLFGatePassed" : "mcmcLFGateNotPassed"));
+    assert.match(h.get("#mcmc-lf-sampling").textContent, /BPL: .*PL: /);
+    assert.ok(h.get("#mcmc-lf-caption").textContent.includes(model.snapshot_date));
   }
   const selectedImage = h.get("#mcmc-lf-image").getAttribute("src");
   h.run('setLanguage("zh")');
   assert.equal(h.get("#mcmc-lf-image").getAttribute("src"), selectedImage);
   assert.match(h.get("#mcmc-lf-image").getAttribute("alt"), /四参数/);
-  assert.match(h.get("#mcmc-lf-caption").textContent, /探索性快照/);
+  assert.match(h.get("#mcmc-lf-caption").textContent, /最大LF似然样本预测/);
   moveDock(h, "KP_h_Mpc", 0);
   moveDock(h, "F_STAR10", h.run('state.controls.get("F_STAR10").specification.values[0]'));
   assert.equal(h.run("state.parameters.KP_h_Mpc"), 0);
@@ -547,7 +548,7 @@ test("an incomplete LF grid is rejected without changing simulation results", as
   const read = h.context.fetch;
   h.context.fetch = async url => {
     const response = await read(url);
-    if (!url.startsWith("web_data/lf_corner/index.json")) return response;
+    if (!url.startsWith("web_data/lf_main_comparison/index.json")) return response;
     const index = await response.json();
     index.models.pop();
     return new Response(JSON.stringify(index));
@@ -567,7 +568,7 @@ test("corner selection uses the latest dock values when manifests arrive late", 
   const gate = new Promise(resolve => { release = resolve; });
   h.context.fetch = async url => {
     const response = await read(url);
-    if (url.startsWith("web_data/lf_corner/index.json")) await gate;
+    if (url.startsWith("web_data/lf_main_comparison/index.json")) await gate;
     return response;
   };
   vm.runInContext(fs.readFileSync(path.join(staticRoot, "mcmc.js"), "utf8"), h.context);

@@ -142,5 +142,8 @@
       "snapshot_date": "2026-09-14"
     }
   },
-  "figure_style": "corner-shared-v2"
+  "figure_styles": {
+    "lf_only": "white_corner_with_maximum_lf_predictions",
+    "joint": "corner-shared-v2"
+  }
 }

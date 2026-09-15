@@ -41,7 +41,7 @@ window.AtlasI18n = (() => {
     mcmcLoading: ["Loading inference manifests…","正在加载推断数据清单…"],
     mcmcLoaded: ["ARCHIVE UPDATED / {date} · Click a figure to inspect the original resolution.","归档更新 / {date} · 点击图像查看原始分辨率。"],
     mcmcFailed: ["Inference metadata could not be loaded. Reload the page to retry; the simulation atlas remains available.","推断元数据加载失败，请刷新页面重试；模拟图谱仍可使用。"],
-    mcmcLFAlt: ["BPL versus PL corner and MCMC best-fit LF at four redshifts: kp={kp}, ms={ms}", "BPL与PL的corner及四红移MCMC最佳拟合LF：kp={kp}，ms={ms}"],
+    mcmcLFAlt: ["BPL versus PL corner and MCMC best-fit LF at four redshifts: kp={kp}, ms={ms}", "BPL与PL的四参数corner及四红移MCMC最佳拟合LF：kp={kp}，ms={ms}"],
     mcmcLFCaption: ["BPL kₚ = {kp} / mₛ = {ms} versus shared PL · Maximum-LF sample predictions · {date}", "BPL kₚ = {kp} / mₛ = {ms} 与共享PL基准 · 最大LF似然样本预测 · {date}"],
     mcmcModelOption: ["LF-only model: fixed kp = {kp}, ms = {ms}","LF-only 模型：固定 kp = {kp}，ms = {ms}"],
     pageTitle: ["21cmFAST Precomputed Parameter Atlas", "21cmFAST 预计算参数图谱"],
