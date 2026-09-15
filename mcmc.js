@@ -28,7 +28,22 @@ window.AtlasMCMC = (() => {
     const model = lf.models[archive.selectedLF];
     node("mcmc-lf-fixed").textContent = hasParameters ? `kₚ = ${kp} h Mpc⁻¹ / mₛ = ${ms}` : "—";
     node("mcmc-lf-grid-count").textContent = t("mcmcLFGrid", {count: lf.models.length, kp: lf.grid.kp_h_Mpc.length, ms: lf.grid.ms.length});
-    if (!model) {
+    node("mcmc-lf-coordinates").textContent = t(kp === 0 ? "mcmcPLCoordinates" : "mcmcLFCoordinates");
+    if (kp === 0 && lf.pl_only) {
+      const pl = lf.pl_only;
+      const imagePath = `${categories.lf_only.directory}/${pl.file}?v=${pl.figure_sha256.slice(0, 12)}`;
+      node("mcmc-lf-fixed").textContent = t("mcmcPLFixed");
+      node("mcmc-lf-empty").hidden = true;
+      node("mcmc-lf-open").hidden = false;
+      node("mcmc-lf-coordinates").hidden = false;
+      node("mcmc-lf-status").textContent = "PL: " + t(pl.diagnostic_gate_passed ? "mcmcLFGatePassed" : "mcmcLFGateNotPassed");
+      node("mcmc-lf-image").setAttribute("src", imagePath);
+      node("mcmc-lf-image").setAttribute("alt", t("mcmcPLAlt"));
+      node("mcmc-lf-open").setAttribute("href", imagePath);
+      node("mcmc-lf-sampling").textContent = `PL: ${format(pl.steps_per_ensemble)} × ${pl.walkers} × 2`;
+      node("mcmc-lf-rows").textContent = format(pl.sample_count);
+      node("mcmc-lf-caption").textContent = t("mcmcPLCaption");
+    } else if (!model) {
       clearLF(t(hasParameters ? "mcmcLFUnavailableDetail" : "mcmcAwaitParameters", {kp, ms}));
       node("mcmc-lf-status").textContent = t(hasParameters ? "mcmcLFUnavailable" : "mcmcAwaitParameters");
     } else {
@@ -87,6 +102,10 @@ window.AtlasMCMC = (() => {
           !model.pl_baseline || model.pl_baseline.sample_count !== model.pl_baseline.steps_per_ensemble * model.pl_baseline.walkers * 2 || !model.chain_source || typeof model.diagnostic_gate_passed !== "boolean" ||
           model.sample_count !== model.steps_per_ensemble * model.walkers * categories.lf_only.ensembles) throw new Error("Invalid LF snapshot");
       }
+      const pl = lf.pl_only;
+      if (!pl || pl.file !== "lf_corner_pl.png" || !/^[0-9a-f]{64}$/.test(pl.figure_sha256 || "") ||
+          catalog.files_sha256[`${categories.lf_only.directory}/${pl.file}`] !== pl.figure_sha256 ||
+          pl.sample_count !== pl.steps_per_ensemble * pl.walkers * 2) throw new Error("Invalid PL reference");
       const pairs = new Set(lf.models.map(model => `${model.KP_h_Mpc}/${model.MS}`));
       if (pairs.size !== lf.models.length || lf.grid.kp_h_Mpc.length * lf.grid.ms.length !== pairs.size ||
           lf.grid.kp_h_Mpc.some(kp => lf.grid.ms.some(ms => !pairs.has(`${kp}/${ms}`)))) throw new Error("Incomplete LF model grid");

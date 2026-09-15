@@ -497,7 +497,10 @@ body.motion-ready .reveal.is-visible { opacity: 1; transform: translateY(0); tra
   body.motion-ready .reveal { opacity: 1; transform: none; }
 }
 
-/* Full-width scientific comparison selected in corner preview. */
-#mcmc-lf-only { grid-template-columns: minmax(0, 1fr); gap: 20px; }
-#mcmc-lf-only .inference-figure { width: 100%; max-width: 1200px; justify-self: center; }
-#mcmc-lf-only .inference-metadata { max-width: 950px; }
+/* Corner comparison beside its metadata; stack on narrow screens. */
+#mcmc-lf-only { grid-template-columns: minmax(260px, .65fr) minmax(0, 1.5fr); gap: 30px; }
+#mcmc-lf-only .inference-figure { width: 100%; max-width: 850px; justify-self: end; }
+@media (max-width: 900px) {
+  #mcmc-lf-only { grid-template-columns: minmax(0,1fr); }
+  #mcmc-lf-only .inference-figure { justify-self: center; }
+}

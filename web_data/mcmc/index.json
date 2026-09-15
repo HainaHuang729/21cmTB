@@ -85,8 +85,9 @@
     "web_data/lf_main_comparison/lf_corner_kp30_ms3.25.json": "1d3322ead12179edd3506dc360227007b929bf83563466e4495686c3428f4834",
     "web_data/lf_main_comparison/lf_corner_kp30_ms4.png": "debc1fee5026c09de4495ffd74d533c82c052bc532c438cc5e6efe7b9d2cb35d",
     "web_data/lf_main_comparison/lf_corner_kp30_ms4.json": "2ae22244f8e729784636b56d42e0765d19ed17a8f2f2c67356838d7456b805c5",
-    "web_data/lf_main_comparison/index.json": "deb2445a412c2c379aa34609c2b415ed77c89754d72704abe2ea57273fe08e4e",
-    "web_data/lf_main_comparison/pl_snapshot.json": "d29c29ec5f4687ef221cc1deb58d08881038c019ffb7289d8608b8c3bcf16ab3"
+    "web_data/lf_main_comparison/index.json": "ff7faa20790efa198bf4c46a634c615a7087768eb149c993b8ab690ad920a909",
+    "web_data/lf_main_comparison/pl_snapshot.json": "d29c29ec5f4687ef221cc1deb58d08881038c019ffb7289d8608b8c3bcf16ab3",
+    "web_data/lf_main_comparison/lf_corner_pl.png": "fbca1d342a4d39e8f7e4adbc02039ae2a6bd23bcfd492d233d8a335786f68ab3"
   },
   "categories": {
     "lf_only": {

@@ -1974,6 +1974,52 @@
     }
   ],
   "figure_style": "corner-shared-v2",
+  "pl_only": {
+    "steps_per_ensemble": 3000,
+    "sample_count": 192000,
+    "walkers": 32,
+    "diagnostic_gate_passed": false,
+    "best_log_LF": -37.73213837143695,
+    "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+    "best_sample_coordinates": [
+      -0.7925288216047749,
+      0.7488560620753999,
+      0.23465626621511848,
+      9.560082105038344
+    ],
+    "quantiles": [
+      [
+        -1.577429060625151,
+        0.16637794706635878,
+        0.2122691290714065,
+        9.413349241896144
+      ],
+      [
+        -1.108154507287468,
+        0.4922992119951757,
+        0.23986614696420483,
+        9.54093645148256
+      ],
+      [
+        -0.8792853070020035,
+        0.8329677060527518,
+        0.2665946428342437,
+        9.648846171719804
+      ]
+    ],
+    "best_astro": {
+      "F_STAR10": -0.9181304718007433,
+      "ALPHA_STAR": 0.23465626621511848,
+      "F_ESC10": -1.5,
+      "ALPHA_ESC": -0.25,
+      "M_TURN": 9.560082105038344,
+      "t_STAR": 0.7488560620753999,
+      "L_X": 40.0,
+      "NU_X_THRESH": 800.0
+    },
+    "file": "lf_corner_pl.png",
+    "figure_sha256": "fbca1d342a4d39e8f7e4adbc02039ae2a6bd23bcfd492d233d8a335786f68ab3"
+  },
   "comparison": "BPL vs shared PL",
   "pl_baseline": {
     "steps_per_ensemble": 3000,
