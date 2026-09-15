@@ -1,0 +1,2022 @@
+{
+  "analysis": "LF-only",
+  "snapshot_date": "2026-09-15",
+  "chain_sources": [
+    "job_2128818",
+    "job_2132128"
+  ],
+  "grid": {
+    "kp_h_Mpc": [
+      1,
+      3,
+      10,
+      20,
+      30
+    ],
+    "ms": [
+      1.5,
+      2,
+      2.5,
+      3.25,
+      4
+    ]
+  },
+  "models": [
+    {
+      "model_index": 0,
+      "KP_h_Mpc": 1,
+      "MS": 1.5,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp1_ms1.5.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ],
+      "source_model_index": 0,
+      "chain_source": "job_2128818",
+      "snapshot_date": "2026-09-15",
+      "diagnostic_gate_passed": false,
+      "source_report": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_only_20260910/job_2128818_0/final_report.json",
+      "figure_sha256": "2f08abee8b031ca19f64dffe912b1cfba8087df1964d510331f1ab3764471e9a",
+      "pl_baseline": {
+        "steps_per_ensemble": 3000,
+        "sample_count": 192000,
+        "walkers": 32,
+        "diagnostic_gate_passed": false,
+        "best_log_LF": -37.73213837143695,
+        "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+        "best_sample_coordinates": [
+          -0.7925288216047749,
+          0.7488560620753999,
+          0.23465626621511848,
+          9.560082105038344
+        ],
+        "quantiles": [
+          [
+            -1.577429060625151,
+            0.16637794706635878,
+            0.2122691290714065,
+            9.413349241896144
+          ],
+          [
+            -1.108154507287468,
+            0.4922992119951757,
+            0.23986614696420483,
+            9.54093645148256
+          ],
+          [
+            -0.8792853070020035,
+            0.8329677060527518,
+            0.2665946428342437,
+            9.648846171719804
+          ]
+        ],
+        "best_astro": {
+          "F_STAR10": -0.9181304718007433,
+          "ALPHA_STAR": 0.23465626621511848,
+          "F_ESC10": -1.5,
+          "ALPHA_ESC": -0.25,
+          "M_TURN": 9.560082105038344,
+          "t_STAR": 0.7488560620753999,
+          "L_X": 40.0,
+          "NU_X_THRESH": 800.0
+        }
+      },
+      "best_astro": {
+        "F_STAR10": -1.7235736817819713,
+        "ALPHA_STAR": 0.5123367427690672,
+        "F_ESC10": -1.5,
+        "ALPHA_ESC": -0.25,
+        "M_TURN": 9.592062628149275,
+        "t_STAR": 0.5541184056067562,
+        "L_X": 40.0,
+        "NU_X_THRESH": 800.0
+      },
+      "best_log_LF": -34.33729564011736,
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "source_report_sha256": "8d6342768418a6475f9e568d167849f7f0dac78aa9c7704e78d913c4c0690039"
+    },
+    {
+      "model_index": 1,
+      "KP_h_Mpc": 1,
+      "MS": 2,
+      "steps_per_ensemble": 10000,
+      "walkers": 32,
+      "sample_count": 640000,
+      "file": "lf_corner_kp1_ms2.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ],
+      "source_model_index": 0,
+      "chain_source": "job_2132128",
+      "snapshot_date": "2026-09-15",
+      "diagnostic_gate_passed": true,
+      "source_report": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_0/final_report.json",
+      "figure_sha256": "2b4adfbc74385a1448d353f106a168a6be651b09fce48355ccc27173e757c7f8",
+      "pl_baseline": {
+        "steps_per_ensemble": 3000,
+        "sample_count": 192000,
+        "walkers": 32,
+        "diagnostic_gate_passed": false,
+        "best_log_LF": -37.73213837143695,
+        "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+        "best_sample_coordinates": [
+          -0.7925288216047749,
+          0.7488560620753999,
+          0.23465626621511848,
+          9.560082105038344
+        ],
+        "quantiles": [
+          [
+            -1.577429060625151,
+            0.16637794706635878,
+            0.2122691290714065,
+            9.413349241896144
+          ],
+          [
+            -1.108154507287468,
+            0.4922992119951757,
+            0.23986614696420483,
+            9.54093645148256
+          ],
+          [
+            -0.8792853070020035,
+            0.8329677060527518,
+            0.2665946428342437,
+            9.648846171719804
+          ]
+        ],
+        "best_astro": {
+          "F_STAR10": -0.9181304718007433,
+          "ALPHA_STAR": 0.23465626621511848,
+          "F_ESC10": -1.5,
+          "ALPHA_ESC": -0.25,
+          "M_TURN": 9.560082105038344,
+          "t_STAR": 0.7488560620753999,
+          "L_X": 40.0,
+          "NU_X_THRESH": 800.0
+        }
+      },
+      "best_astro": {
+        "F_STAR10": -2.561407091251364,
+        "ALPHA_STAR": 0.7739249985955233,
+        "F_ESC10": -1.5,
+        "ALPHA_ESC": -0.25,
+        "M_TURN": 8.002096566391145,
+        "t_STAR": 0.39146046037733284,
+        "L_X": 40.0,
+        "NU_X_THRESH": 800.0
+      },
+      "best_log_LF": -40.935298266031424,
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "source_report_sha256": "49c0674a7019204d0d8bad4dfc4e9529e6a478424d2bb53674494cfb503b570d"
+    },
+    {
+      "model_index": 2,
+      "KP_h_Mpc": 1,
+      "MS": 2.5,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp1_ms2.5.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ],
+      "source_model_index": 1,
+      "chain_source": "job_2132128",
+      "snapshot_date": "2026-09-15",
+      "diagnostic_gate_passed": false,
+      "source_report": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_1/final_report.json",
+      "figure_sha256": "0950c4317f3a0bd62de82b06e61bc385a66ebfe369f195fd316b067b5efb3a47",
+      "pl_baseline": {
+        "steps_per_ensemble": 3000,
+        "sample_count": 192000,
+        "walkers": 32,
+        "diagnostic_gate_passed": false,
+        "best_log_LF": -37.73213837143695,
+        "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+        "best_sample_coordinates": [
+          -0.7925288216047749,
+          0.7488560620753999,
+          0.23465626621511848,
+          9.560082105038344
+        ],
+        "quantiles": [
+          [
+            -1.577429060625151,
+            0.16637794706635878,
+            0.2122691290714065,
+            9.413349241896144
+          ],
+          [
+            -1.108154507287468,
+            0.4922992119951757,
+            0.23986614696420483,
+            9.54093645148256
+          ],
+          [
+            -0.8792853070020035,
+            0.8329677060527518,
+            0.2665946428342437,
+            9.648846171719804
+          ]
+        ],
+        "best_astro": {
+          "F_STAR10": -0.9181304718007433,
+          "ALPHA_STAR": 0.23465626621511848,
+          "F_ESC10": -1.5,
+          "ALPHA_ESC": -0.25,
+          "M_TURN": 9.560082105038344,
+          "t_STAR": 0.7488560620753999,
+          "L_X": 40.0,
+          "NU_X_THRESH": 800.0
+        }
+      },
+      "best_astro": {
+        "F_STAR10": -2.961109022626324,
+        "ALPHA_STAR": 0.99969890934776,
+        "F_ESC10": -1.5,
+        "ALPHA_ESC": -0.25,
+        "M_TURN": 8.027213562088736,
+        "t_STAR": 0.7321375947321032,
+        "L_X": 40.0,
+        "NU_X_THRESH": 800.0
+      },
+      "best_log_LF": -53.736570486654784,
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "source_report_sha256": "71d2c1fb17558bb03a1aad43d9fff6912d31b7bd8dd738a71cb3f32a009f5113"
+    },
+    {
+      "model_index": 3,
+      "KP_h_Mpc": 1,
+      "MS": 3.25,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp1_ms3.25.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ],
+      "source_model_index": 2,
+      "chain_source": "job_2132128",
+      "snapshot_date": "2026-09-15",
+      "diagnostic_gate_passed": false,
+      "source_report": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_2/final_report.json",
+      "figure_sha256": "fddf18d056f70373a7b54d3f64c75ea218f989779f3207948565fe7ff8ff3bbd",
+      "pl_baseline": {
+        "steps_per_ensemble": 3000,
+        "sample_count": 192000,
+        "walkers": 32,
+        "diagnostic_gate_passed": false,
+        "best_log_LF": -37.73213837143695,
+        "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+        "best_sample_coordinates": [
+          -0.7925288216047749,
+          0.7488560620753999,
+          0.23465626621511848,
+          9.560082105038344
+        ],
+        "quantiles": [
+          [
+            -1.577429060625151,
+            0.16637794706635878,
+            0.2122691290714065,
+            9.413349241896144
+          ],
+          [
+            -1.108154507287468,
+            0.4922992119951757,
+            0.23986614696420483,
+            9.54093645148256
+          ],
+          [
+            -0.8792853070020035,
+            0.8329677060527518,
+            0.2665946428342437,
+            9.648846171719804
+          ]
+        ],
+        "best_astro": {
+          "F_STAR10": -0.9181304718007433,
+          "ALPHA_STAR": 0.23465626621511848,
+          "F_ESC10": -1.5,
+          "ALPHA_ESC": -0.25,
+          "M_TURN": 9.560082105038344,
+          "t_STAR": 0.7488560620753999,
+          "L_X": 40.0,
+          "NU_X_THRESH": 800.0
+        }
+      },
+      "best_astro": {
+        "F_STAR10": -2.99988855951714,
+        "ALPHA_STAR": 0.80427431175911,
+        "F_ESC10": -1.5,
+        "ALPHA_ESC": -0.25,
+        "M_TURN": 10.999936872816932,
+        "t_STAR": 0.9994832172900361,
+        "L_X": 40.0,
+        "NU_X_THRESH": 800.0
+      },
+      "best_log_LF": -124.05094572213537,
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "source_report_sha256": "44cbcc21447b44975775a71c6d8f4288a89d3747f279aad4ac8c8e0a84f2a697"
+    },
+    {
+      "model_index": 4,
+      "KP_h_Mpc": 1,
+      "MS": 4,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp1_ms4.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ],
+      "source_model_index": 3,
+      "chain_source": "job_2132128",
+      "snapshot_date": "2026-09-15",
+      "diagnostic_gate_passed": false,
+      "source_report": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_3/final_report.json",
+      "figure_sha256": "5f7ce995503d41a1ae51eec4dcb8b660c30c79408a8edcefc472faa1e5405202",
+      "pl_baseline": {
+        "steps_per_ensemble": 3000,
+        "sample_count": 192000,
+        "walkers": 32,
+        "diagnostic_gate_passed": false,
+        "best_log_LF": -37.73213837143695,
+        "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+        "best_sample_coordinates": [
+          -0.7925288216047749,
+          0.7488560620753999,
+          0.23465626621511848,
+          9.560082105038344
+        ],
+        "quantiles": [
+          [
+            -1.577429060625151,
+            0.16637794706635878,
+            0.2122691290714065,
+            9.413349241896144
+          ],
+          [
+            -1.108154507287468,
+            0.4922992119951757,
+            0.23986614696420483,
+            9.54093645148256
+          ],
+          [
+            -0.8792853070020035,
+            0.8329677060527518,
+            0.2665946428342437,
+            9.648846171719804
+          ]
+        ],
+        "best_astro": {
+          "F_STAR10": -0.9181304718007433,
+          "ALPHA_STAR": 0.23465626621511848,
+          "F_ESC10": -1.5,
+          "ALPHA_ESC": -0.25,
+          "M_TURN": 9.560082105038344,
+          "t_STAR": 0.7488560620753999,
+          "L_X": 40.0,
+          "NU_X_THRESH": 800.0
+        }
+      },
+      "best_astro": {
+        "F_STAR10": -2.9995631258661297,
+        "ALPHA_STAR": 0.3889186778948977,
+        "F_ESC10": -1.5,
+        "ALPHA_ESC": -0.25,
+        "M_TURN": 8.399135621269217,
+        "t_STAR": 0.9990656302865815,
+        "L_X": 40.0,
+        "NU_X_THRESH": 800.0
+      },
+      "best_log_LF": -210.9545850891995,
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "source_report_sha256": "86700c43993a2866dcdf80dc88c46789e3c62c635a75f30f6e804ea87d626b46"
+    },
+    {
+      "model_index": 5,
+      "KP_h_Mpc": 3,
+      "MS": 1.5,
+      "steps_per_ensemble": 4000,
+      "walkers": 32,
+      "sample_count": 256000,
+      "file": "lf_corner_kp3_ms1.5.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ],
+      "source_model_index": 4,
+      "chain_source": "job_2132128",
+      "snapshot_date": "2026-09-15",
+      "diagnostic_gate_passed": true,
+      "source_report": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_4/final_report.json",
+      "figure_sha256": "e44f49cd1cada426a7f4b9dbefa2381952851edc5b46e230b083429895ccfc5f",
+      "pl_baseline": {
+        "steps_per_ensemble": 3000,
+        "sample_count": 192000,
+        "walkers": 32,
+        "diagnostic_gate_passed": false,
+        "best_log_LF": -37.73213837143695,
+        "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+        "best_sample_coordinates": [
+          -0.7925288216047749,
+          0.7488560620753999,
+          0.23465626621511848,
+          9.560082105038344
+        ],
+        "quantiles": [
+          [
+            -1.577429060625151,
+            0.16637794706635878,
+            0.2122691290714065,
+            9.413349241896144
+          ],
+          [
+            -1.108154507287468,
+            0.4922992119951757,
+            0.23986614696420483,
+            9.54093645148256
+          ],
+          [
+            -0.8792853070020035,
+            0.8329677060527518,
+            0.2665946428342437,
+            9.648846171719804
+          ]
+        ],
+        "best_astro": {
+          "F_STAR10": -0.9181304718007433,
+          "ALPHA_STAR": 0.23465626621511848,
+          "F_ESC10": -1.5,
+          "ALPHA_ESC": -0.25,
+          "M_TURN": 9.560082105038344,
+          "t_STAR": 0.7488560620753999,
+          "L_X": 40.0,
+          "NU_X_THRESH": 800.0
+        }
+      },
+      "best_astro": {
+        "F_STAR10": -1.5220531186289594,
+        "ALPHA_STAR": 0.3410974794411444,
+        "F_ESC10": -1.5,
+        "ALPHA_ESC": -0.25,
+        "M_TURN": 9.803483834183996,
+        "t_STAR": 0.2698627581698293,
+        "L_X": 40.0,
+        "NU_X_THRESH": 800.0
+      },
+      "best_log_LF": -42.49501929836258,
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "source_report_sha256": "a3a5f68a66a228454a2805c7fb1d85b662685fdcab28e2ab87f58bb1abc607da"
+    },
+    {
+      "model_index": 6,
+      "KP_h_Mpc": 3,
+      "MS": 2,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp3_ms2.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ],
+      "source_model_index": 5,
+      "chain_source": "job_2132128",
+      "snapshot_date": "2026-09-15",
+      "diagnostic_gate_passed": true,
+      "source_report": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_5/final_report.json",
+      "figure_sha256": "83dd2023215cf28e5387aee704b615525525a027ac695d1a968240eb30218b59",
+      "pl_baseline": {
+        "steps_per_ensemble": 3000,
+        "sample_count": 192000,
+        "walkers": 32,
+        "diagnostic_gate_passed": false,
+        "best_log_LF": -37.73213837143695,
+        "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+        "best_sample_coordinates": [
+          -0.7925288216047749,
+          0.7488560620753999,
+          0.23465626621511848,
+          9.560082105038344
+        ],
+        "quantiles": [
+          [
+            -1.577429060625151,
+            0.16637794706635878,
+            0.2122691290714065,
+            9.413349241896144
+          ],
+          [
+            -1.108154507287468,
+            0.4922992119951757,
+            0.23986614696420483,
+            9.54093645148256
+          ],
+          [
+            -0.8792853070020035,
+            0.8329677060527518,
+            0.2665946428342437,
+            9.648846171719804
+          ]
+        ],
+        "best_astro": {
+          "F_STAR10": -0.9181304718007433,
+          "ALPHA_STAR": 0.23465626621511848,
+          "F_ESC10": -1.5,
+          "ALPHA_ESC": -0.25,
+          "M_TURN": 9.560082105038344,
+          "t_STAR": 0.7488560620753999,
+          "L_X": 40.0,
+          "NU_X_THRESH": 800.0
+        }
+      },
+      "best_astro": {
+        "F_STAR10": -1.1928728306316971,
+        "ALPHA_STAR": 0.4556828438431926,
+        "F_ESC10": -1.5,
+        "ALPHA_ESC": -0.25,
+        "M_TURN": 9.975301870181292,
+        "t_STAR": 0.8637722261704823,
+        "L_X": 40.0,
+        "NU_X_THRESH": 800.0
+      },
+      "best_log_LF": -47.53422294029734,
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "source_report_sha256": "993215cc496c6db77c683bcc3c3ec1042bcafa1079dbbe8265c48a60a460478b"
+    },
+    {
+      "model_index": 7,
+      "KP_h_Mpc": 3,
+      "MS": 2.5,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp3_ms2.5.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ],
+      "source_model_index": 6,
+      "chain_source": "job_2132128",
+      "snapshot_date": "2026-09-15",
+      "diagnostic_gate_passed": true,
+      "source_report": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_6/final_report.json",
+      "figure_sha256": "eb1912a8a6b16541683133f6e79e1a421a3e99f942b5d5396e63d29544b86ea7",
+      "pl_baseline": {
+        "steps_per_ensemble": 3000,
+        "sample_count": 192000,
+        "walkers": 32,
+        "diagnostic_gate_passed": false,
+        "best_log_LF": -37.73213837143695,
+        "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+        "best_sample_coordinates": [
+          -0.7925288216047749,
+          0.7488560620753999,
+          0.23465626621511848,
+          9.560082105038344
+        ],
+        "quantiles": [
+          [
+            -1.577429060625151,
+            0.16637794706635878,
+            0.2122691290714065,
+            9.413349241896144
+          ],
+          [
+            -1.108154507287468,
+            0.4922992119951757,
+            0.23986614696420483,
+            9.54093645148256
+          ],
+          [
+            -0.8792853070020035,
+            0.8329677060527518,
+            0.2665946428342437,
+            9.648846171719804
+          ]
+        ],
+        "best_astro": {
+          "F_STAR10": -0.9181304718007433,
+          "ALPHA_STAR": 0.23465626621511848,
+          "F_ESC10": -1.5,
+          "ALPHA_ESC": -0.25,
+          "M_TURN": 9.560082105038344,
+          "t_STAR": 0.7488560620753999,
+          "L_X": 40.0,
+          "NU_X_THRESH": 800.0
+        }
+      },
+      "best_astro": {
+        "F_STAR10": -1.3456312897714937,
+        "ALPHA_STAR": 0.5864500054985112,
+        "F_ESC10": -1.5,
+        "ALPHA_ESC": -0.25,
+        "M_TURN": 10.10699653323445,
+        "t_STAR": 0.974691408543291,
+        "L_X": 40.0,
+        "NU_X_THRESH": 800.0
+      },
+      "best_log_LF": -52.86411958979234,
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "source_report_sha256": "d7eed8f00ae56d04dc670639bc2ae65d2a5fcad99d893500563cbcd75c23fc2e"
+    },
+    {
+      "model_index": 8,
+      "KP_h_Mpc": 3,
+      "MS": 3.25,
+      "steps_per_ensemble": 10000,
+      "walkers": 32,
+      "sample_count": 640000,
+      "file": "lf_corner_kp3_ms3.25.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ],
+      "source_model_index": 7,
+      "chain_source": "job_2132128",
+      "snapshot_date": "2026-09-15",
+      "diagnostic_gate_passed": true,
+      "source_report": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_7/final_report.json",
+      "figure_sha256": "301d8e2ff0672442bb0ca771248efa31ce30fdef8eab4ca81f8fc609a4294577",
+      "pl_baseline": {
+        "steps_per_ensemble": 3000,
+        "sample_count": 192000,
+        "walkers": 32,
+        "diagnostic_gate_passed": false,
+        "best_log_LF": -37.73213837143695,
+        "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+        "best_sample_coordinates": [
+          -0.7925288216047749,
+          0.7488560620753999,
+          0.23465626621511848,
+          9.560082105038344
+        ],
+        "quantiles": [
+          [
+            -1.577429060625151,
+            0.16637794706635878,
+            0.2122691290714065,
+            9.413349241896144
+          ],
+          [
+            -1.108154507287468,
+            0.4922992119951757,
+            0.23986614696420483,
+            9.54093645148256
+          ],
+          [
+            -0.8792853070020035,
+            0.8329677060527518,
+            0.2665946428342437,
+            9.648846171719804
+          ]
+        ],
+        "best_astro": {
+          "F_STAR10": -0.9181304718007433,
+          "ALPHA_STAR": 0.23465626621511848,
+          "F_ESC10": -1.5,
+          "ALPHA_ESC": -0.25,
+          "M_TURN": 9.560082105038344,
+          "t_STAR": 0.7488560620753999,
+          "L_X": 40.0,
+          "NU_X_THRESH": 800.0
+        }
+      },
+      "best_astro": {
+        "F_STAR10": -1.7437454606450002,
+        "ALPHA_STAR": 0.8323697285539492,
+        "F_ESC10": -1.5,
+        "ALPHA_ESC": -0.25,
+        "M_TURN": 10.211205069212042,
+        "t_STAR": 0.9967676555366493,
+        "L_X": 40.0,
+        "NU_X_THRESH": 800.0
+      },
+      "best_log_LF": -60.24462179144406,
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "source_report_sha256": "c71d977a1bd3ddbc27dc802de20fd1a040894873c7afc584a4d071ca9b3e5f35"
+    },
+    {
+      "model_index": 9,
+      "KP_h_Mpc": 3,
+      "MS": 4,
+      "steps_per_ensemble": 10000,
+      "walkers": 32,
+      "sample_count": 640000,
+      "file": "lf_corner_kp3_ms4.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ],
+      "source_model_index": 8,
+      "chain_source": "job_2132128",
+      "snapshot_date": "2026-09-15",
+      "diagnostic_gate_passed": true,
+      "source_report": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_8/final_report.json",
+      "figure_sha256": "53bf4c4f322e25ecda42b7ff340b4100d6f17415501101423e3f25217bbc4cd6",
+      "pl_baseline": {
+        "steps_per_ensemble": 3000,
+        "sample_count": 192000,
+        "walkers": 32,
+        "diagnostic_gate_passed": false,
+        "best_log_LF": -37.73213837143695,
+        "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+        "best_sample_coordinates": [
+          -0.7925288216047749,
+          0.7488560620753999,
+          0.23465626621511848,
+          9.560082105038344
+        ],
+        "quantiles": [
+          [
+            -1.577429060625151,
+            0.16637794706635878,
+            0.2122691290714065,
+            9.413349241896144
+          ],
+          [
+            -1.108154507287468,
+            0.4922992119951757,
+            0.23986614696420483,
+            9.54093645148256
+          ],
+          [
+            -0.8792853070020035,
+            0.8329677060527518,
+            0.2665946428342437,
+            9.648846171719804
+          ]
+        ],
+        "best_astro": {
+          "F_STAR10": -0.9181304718007433,
+          "ALPHA_STAR": 0.23465626621511848,
+          "F_ESC10": -1.5,
+          "ALPHA_ESC": -0.25,
+          "M_TURN": 9.560082105038344,
+          "t_STAR": 0.7488560620753999,
+          "L_X": 40.0,
+          "NU_X_THRESH": 800.0
+        }
+      },
+      "best_astro": {
+        "F_STAR10": -2.18294325009183,
+        "ALPHA_STAR": 0.9994311980314196,
+        "F_ESC10": -1.5,
+        "ALPHA_ESC": -0.25,
+        "M_TURN": 10.503315121863414,
+        "t_STAR": 0.9934829365933037,
+        "L_X": 40.0,
+        "NU_X_THRESH": 800.0
+      },
+      "best_log_LF": -68.97627829763334,
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "source_report_sha256": "59ca3375f95e89bfa198aec732e82e5b937e2878ed5943d3f696bf7b79e93669"
+    },
+    {
+      "model_index": 10,
+      "KP_h_Mpc": 10,
+      "MS": 1.5,
+      "steps_per_ensemble": 10000,
+      "walkers": 32,
+      "sample_count": 640000,
+      "file": "lf_corner_kp10_ms1.5.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ],
+      "source_model_index": 9,
+      "chain_source": "job_2132128",
+      "snapshot_date": "2026-09-15",
+      "diagnostic_gate_passed": true,
+      "source_report": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_9/final_report.json",
+      "figure_sha256": "c8f1d467e5ff3261a21cd12997d8de0152f5f098a3843d6c9e86cd3398f42056",
+      "pl_baseline": {
+        "steps_per_ensemble": 3000,
+        "sample_count": 192000,
+        "walkers": 32,
+        "diagnostic_gate_passed": false,
+        "best_log_LF": -37.73213837143695,
+        "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+        "best_sample_coordinates": [
+          -0.7925288216047749,
+          0.7488560620753999,
+          0.23465626621511848,
+          9.560082105038344
+        ],
+        "quantiles": [
+          [
+            -1.577429060625151,
+            0.16637794706635878,
+            0.2122691290714065,
+            9.413349241896144
+          ],
+          [
+            -1.108154507287468,
+            0.4922992119951757,
+            0.23986614696420483,
+            9.54093645148256
+          ],
+          [
+            -0.8792853070020035,
+            0.8329677060527518,
+            0.2665946428342437,
+            9.648846171719804
+          ]
+        ],
+        "best_astro": {
+          "F_STAR10": -0.9181304718007433,
+          "ALPHA_STAR": 0.23465626621511848,
+          "F_ESC10": -1.5,
+          "ALPHA_ESC": -0.25,
+          "M_TURN": 9.560082105038344,
+          "t_STAR": 0.7488560620753999,
+          "L_X": 40.0,
+          "NU_X_THRESH": 800.0
+        }
+      },
+      "best_astro": {
+        "F_STAR10": -0.9405201135391574,
+        "ALPHA_STAR": 0.2338807813630061,
+        "F_ESC10": -1.5,
+        "ALPHA_ESC": -0.25,
+        "M_TURN": 9.603061838696336,
+        "t_STAR": 0.708970318279734,
+        "L_X": 40.0,
+        "NU_X_THRESH": 800.0
+      },
+      "best_log_LF": -37.44845786280845,
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "source_report_sha256": "e979f59621bce7971e404c74bbfe081a6fb0808a070adfb89ddacefdf66e2624"
+    },
+    {
+      "model_index": 11,
+      "KP_h_Mpc": 10,
+      "MS": 2,
+      "steps_per_ensemble": 10000,
+      "walkers": 32,
+      "sample_count": 640000,
+      "file": "lf_corner_kp10_ms2.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ],
+      "source_model_index": 10,
+      "chain_source": "job_2132128",
+      "snapshot_date": "2026-09-15",
+      "diagnostic_gate_passed": true,
+      "source_report": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_10/final_report.json",
+      "figure_sha256": "71c7938672d212ae96621f1e0a067ac1c82b1e1c4b0d0e18fa0ec52866c126f6",
+      "pl_baseline": {
+        "steps_per_ensemble": 3000,
+        "sample_count": 192000,
+        "walkers": 32,
+        "diagnostic_gate_passed": false,
+        "best_log_LF": -37.73213837143695,
+        "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+        "best_sample_coordinates": [
+          -0.7925288216047749,
+          0.7488560620753999,
+          0.23465626621511848,
+          9.560082105038344
+        ],
+        "quantiles": [
+          [
+            -1.577429060625151,
+            0.16637794706635878,
+            0.2122691290714065,
+            9.413349241896144
+          ],
+          [
+            -1.108154507287468,
+            0.4922992119951757,
+            0.23986614696420483,
+            9.54093645148256
+          ],
+          [
+            -0.8792853070020035,
+            0.8329677060527518,
+            0.2665946428342437,
+            9.648846171719804
+          ]
+        ],
+        "best_astro": {
+          "F_STAR10": -0.9181304718007433,
+          "ALPHA_STAR": 0.23465626621511848,
+          "F_ESC10": -1.5,
+          "ALPHA_ESC": -0.25,
+          "M_TURN": 9.560082105038344,
+          "t_STAR": 0.7488560620753999,
+          "L_X": 40.0,
+          "NU_X_THRESH": 800.0
+        }
+      },
+      "best_astro": {
+        "F_STAR10": -1.2908375233720775,
+        "ALPHA_STAR": 0.23255701581559826,
+        "F_ESC10": -1.5,
+        "ALPHA_ESC": -0.25,
+        "M_TURN": 9.647876919145547,
+        "t_STAR": 0.3150250523017174,
+        "L_X": 40.0,
+        "NU_X_THRESH": 800.0
+      },
+      "best_log_LF": -37.192953202118375,
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "source_report_sha256": "90b97ec2010abaef7bdc221bd8e6aeb89d37ced6d3e28abf84d61a20e2a09b2b"
+    },
+    {
+      "model_index": 12,
+      "KP_h_Mpc": 10,
+      "MS": 2.5,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp10_ms2.5.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ],
+      "source_model_index": 1,
+      "chain_source": "job_2128818",
+      "snapshot_date": "2026-09-15",
+      "diagnostic_gate_passed": false,
+      "source_report": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_only_20260910/job_2128818_1/final_report.json",
+      "figure_sha256": "8db8f4bfa4105024b8360bd96956ccb8fd61cc3c41747e90a2aed26ecc90e3d5",
+      "pl_baseline": {
+        "steps_per_ensemble": 3000,
+        "sample_count": 192000,
+        "walkers": 32,
+        "diagnostic_gate_passed": false,
+        "best_log_LF": -37.73213837143695,
+        "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+        "best_sample_coordinates": [
+          -0.7925288216047749,
+          0.7488560620753999,
+          0.23465626621511848,
+          9.560082105038344
+        ],
+        "quantiles": [
+          [
+            -1.577429060625151,
+            0.16637794706635878,
+            0.2122691290714065,
+            9.413349241896144
+          ],
+          [
+            -1.108154507287468,
+            0.4922992119951757,
+            0.23986614696420483,
+            9.54093645148256
+          ],
+          [
+            -0.8792853070020035,
+            0.8329677060527518,
+            0.2665946428342437,
+            9.648846171719804
+          ]
+        ],
+        "best_astro": {
+          "F_STAR10": -0.9181304718007433,
+          "ALPHA_STAR": 0.23465626621511848,
+          "F_ESC10": -1.5,
+          "ALPHA_ESC": -0.25,
+          "M_TURN": 9.560082105038344,
+          "t_STAR": 0.7488560620753999,
+          "L_X": 40.0,
+          "NU_X_THRESH": 800.0
+        }
+      },
+      "best_astro": {
+        "F_STAR10": -0.859168633633179,
+        "ALPHA_STAR": 0.23089057108144487,
+        "F_ESC10": -1.5,
+        "ALPHA_ESC": -0.25,
+        "M_TURN": 9.700829432009836,
+        "t_STAR": 0.8473140625784031,
+        "L_X": 40.0,
+        "NU_X_THRESH": 800.0
+      },
+      "best_log_LF": -37.00264596997539,
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "source_report_sha256": "da641237d794835d09bbd7779db7960f8e3dda716047be8c9e8cec15d2eb193e"
+    },
+    {
+      "model_index": 13,
+      "KP_h_Mpc": 10,
+      "MS": 3.25,
+      "steps_per_ensemble": 10000,
+      "walkers": 32,
+      "sample_count": 640000,
+      "file": "lf_corner_kp10_ms3.25.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ],
+      "source_model_index": 11,
+      "chain_source": "job_2132128",
+      "snapshot_date": "2026-09-15",
+      "diagnostic_gate_passed": true,
+      "source_report": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_11/final_report.json",
+      "figure_sha256": "754e3a55ddcd79834ef8858e11b8bbdfc991d65e067149ddb2494cc729ee34f1",
+      "pl_baseline": {
+        "steps_per_ensemble": 3000,
+        "sample_count": 192000,
+        "walkers": 32,
+        "diagnostic_gate_passed": false,
+        "best_log_LF": -37.73213837143695,
+        "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+        "best_sample_coordinates": [
+          -0.7925288216047749,
+          0.7488560620753999,
+          0.23465626621511848,
+          9.560082105038344
+        ],
+        "quantiles": [
+          [
+            -1.577429060625151,
+            0.16637794706635878,
+            0.2122691290714065,
+            9.413349241896144
+          ],
+          [
+            -1.108154507287468,
+            0.4922992119951757,
+            0.23986614696420483,
+            9.54093645148256
+          ],
+          [
+            -0.8792853070020035,
+            0.8329677060527518,
+            0.2665946428342437,
+            9.648846171719804
+          ]
+        ],
+        "best_astro": {
+          "F_STAR10": -0.9181304718007433,
+          "ALPHA_STAR": 0.23465626621511848,
+          "F_ESC10": -1.5,
+          "ALPHA_ESC": -0.25,
+          "M_TURN": 9.560082105038344,
+          "t_STAR": 0.7488560620753999,
+          "L_X": 40.0,
+          "NU_X_THRESH": 800.0
+        }
+      },
+      "best_astro": {
+        "F_STAR10": -0.9154365259282589,
+        "ALPHA_STAR": 0.23454742492416938,
+        "F_ESC10": -1.5,
+        "ALPHA_ESC": -0.25,
+        "M_TURN": 9.786010554030756,
+        "t_STAR": 0.7512747141643509,
+        "L_X": 40.0,
+        "NU_X_THRESH": 800.0
+      },
+      "best_log_LF": -37.132705034750586,
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "source_report_sha256": "0c12d5acca953916183a92d85e3ee630a3f7909cee966669a60be185ab175fe2"
+    },
+    {
+      "model_index": 14,
+      "KP_h_Mpc": 10,
+      "MS": 4,
+      "steps_per_ensemble": 10000,
+      "walkers": 32,
+      "sample_count": 640000,
+      "file": "lf_corner_kp10_ms4.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ],
+      "source_model_index": 12,
+      "chain_source": "job_2132128",
+      "snapshot_date": "2026-09-15",
+      "diagnostic_gate_passed": true,
+      "source_report": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_12/final_report.json",
+      "figure_sha256": "3932d7a01f9d99f3d22dde279d254abc5de093d6318d4052b88f714c5f55269f",
+      "pl_baseline": {
+        "steps_per_ensemble": 3000,
+        "sample_count": 192000,
+        "walkers": 32,
+        "diagnostic_gate_passed": false,
+        "best_log_LF": -37.73213837143695,
+        "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+        "best_sample_coordinates": [
+          -0.7925288216047749,
+          0.7488560620753999,
+          0.23465626621511848,
+          9.560082105038344
+        ],
+        "quantiles": [
+          [
+            -1.577429060625151,
+            0.16637794706635878,
+            0.2122691290714065,
+            9.413349241896144
+          ],
+          [
+            -1.108154507287468,
+            0.4922992119951757,
+            0.23986614696420483,
+            9.54093645148256
+          ],
+          [
+            -0.8792853070020035,
+            0.8329677060527518,
+            0.2665946428342437,
+            9.648846171719804
+          ]
+        ],
+        "best_astro": {
+          "F_STAR10": -0.9181304718007433,
+          "ALPHA_STAR": 0.23465626621511848,
+          "F_ESC10": -1.5,
+          "ALPHA_ESC": -0.25,
+          "M_TURN": 9.560082105038344,
+          "t_STAR": 0.7488560620753999,
+          "L_X": 40.0,
+          "NU_X_THRESH": 800.0
+        }
+      },
+      "best_astro": {
+        "F_STAR10": -0.9499000558898961,
+        "ALPHA_STAR": 0.25165553795891576,
+        "F_ESC10": -1.5,
+        "ALPHA_ESC": -0.25,
+        "M_TURN": 9.912521171820897,
+        "t_STAR": 0.7324364766044891,
+        "L_X": 40.0,
+        "NU_X_THRESH": 800.0
+      },
+      "best_log_LF": -39.17684332873033,
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "source_report_sha256": "4410c103bd9df34c8af8076b07486081474bbe3f8ad2ef476b89034b7abda7f5"
+    },
+    {
+      "model_index": 15,
+      "KP_h_Mpc": 20,
+      "MS": 1.5,
+      "steps_per_ensemble": 10000,
+      "walkers": 32,
+      "sample_count": 640000,
+      "file": "lf_corner_kp20_ms1.5.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ],
+      "source_model_index": 13,
+      "chain_source": "job_2132128",
+      "snapshot_date": "2026-09-15",
+      "diagnostic_gate_passed": true,
+      "source_report": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_13/final_report.json",
+      "figure_sha256": "bf7f6af88eba4f97f6fecbab058f895666d6c2dc0be355e8fbfae51db8da7cd8",
+      "pl_baseline": {
+        "steps_per_ensemble": 3000,
+        "sample_count": 192000,
+        "walkers": 32,
+        "diagnostic_gate_passed": false,
+        "best_log_LF": -37.73213837143695,
+        "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+        "best_sample_coordinates": [
+          -0.7925288216047749,
+          0.7488560620753999,
+          0.23465626621511848,
+          9.560082105038344
+        ],
+        "quantiles": [
+          [
+            -1.577429060625151,
+            0.16637794706635878,
+            0.2122691290714065,
+            9.413349241896144
+          ],
+          [
+            -1.108154507287468,
+            0.4922992119951757,
+            0.23986614696420483,
+            9.54093645148256
+          ],
+          [
+            -0.8792853070020035,
+            0.8329677060527518,
+            0.2665946428342437,
+            9.648846171719804
+          ]
+        ],
+        "best_astro": {
+          "F_STAR10": -0.9181304718007433,
+          "ALPHA_STAR": 0.23465626621511848,
+          "F_ESC10": -1.5,
+          "ALPHA_ESC": -0.25,
+          "M_TURN": 9.560082105038344,
+          "t_STAR": 0.7488560620753999,
+          "L_X": 40.0,
+          "NU_X_THRESH": 800.0
+        }
+      },
+      "best_astro": {
+        "F_STAR10": -1.379224276609714,
+        "ALPHA_STAR": 0.23511419903655958,
+        "F_ESC10": -1.5,
+        "ALPHA_ESC": -0.25,
+        "M_TURN": 9.561591440791211,
+        "t_STAR": 0.2593127744577144,
+        "L_X": 40.0,
+        "NU_X_THRESH": 800.0
+      },
+      "best_log_LF": -37.74020477774998,
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "source_report_sha256": "85a3e9dd471e7b706b9f930d35e4936424f241e5376ea2a040e3e005377f10b8"
+    },
+    {
+      "model_index": 16,
+      "KP_h_Mpc": 20,
+      "MS": 2,
+      "steps_per_ensemble": 10000,
+      "walkers": 32,
+      "sample_count": 640000,
+      "file": "lf_corner_kp20_ms2.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ],
+      "source_model_index": 14,
+      "chain_source": "job_2132128",
+      "snapshot_date": "2026-09-15",
+      "diagnostic_gate_passed": true,
+      "source_report": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_14/final_report.json",
+      "figure_sha256": "6245a7cf8727539c9f069a447c83322987f853a838e9a1328706b5661c2255a8",
+      "pl_baseline": {
+        "steps_per_ensemble": 3000,
+        "sample_count": 192000,
+        "walkers": 32,
+        "diagnostic_gate_passed": false,
+        "best_log_LF": -37.73213837143695,
+        "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+        "best_sample_coordinates": [
+          -0.7925288216047749,
+          0.7488560620753999,
+          0.23465626621511848,
+          9.560082105038344
+        ],
+        "quantiles": [
+          [
+            -1.577429060625151,
+            0.16637794706635878,
+            0.2122691290714065,
+            9.413349241896144
+          ],
+          [
+            -1.108154507287468,
+            0.4922992119951757,
+            0.23986614696420483,
+            9.54093645148256
+          ],
+          [
+            -0.8792853070020035,
+            0.8329677060527518,
+            0.2665946428342437,
+            9.648846171719804
+          ]
+        ],
+        "best_astro": {
+          "F_STAR10": -0.9181304718007433,
+          "ALPHA_STAR": 0.23465626621511848,
+          "F_ESC10": -1.5,
+          "ALPHA_ESC": -0.25,
+          "M_TURN": 9.560082105038344,
+          "t_STAR": 0.7488560620753999,
+          "L_X": 40.0,
+          "NU_X_THRESH": 800.0
+        }
+      },
+      "best_astro": {
+        "F_STAR10": -0.9163609880386705,
+        "ALPHA_STAR": 0.23531627788927476,
+        "F_ESC10": -1.5,
+        "ALPHA_ESC": -0.25,
+        "M_TURN": 9.561620450858493,
+        "t_STAR": 0.7538605816851565,
+        "L_X": 40.0,
+        "NU_X_THRESH": 800.0
+      },
+      "best_log_LF": -37.74699535546681,
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "source_report_sha256": "82b3005c6e9f1c61e3dee6eafb787a1c75e47f13a55c5d58655e115783690c74"
+    },
+    {
+      "model_index": 17,
+      "KP_h_Mpc": 20,
+      "MS": 2.5,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp20_ms2.5.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ],
+      "source_model_index": 15,
+      "chain_source": "job_2132128",
+      "snapshot_date": "2026-09-15",
+      "diagnostic_gate_passed": true,
+      "source_report": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_15/final_report.json",
+      "figure_sha256": "8b4399cd866d59430fddc61d2946dbc5e359837b3ed2ce5a5b1298d7876c3595",
+      "pl_baseline": {
+        "steps_per_ensemble": 3000,
+        "sample_count": 192000,
+        "walkers": 32,
+        "diagnostic_gate_passed": false,
+        "best_log_LF": -37.73213837143695,
+        "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+        "best_sample_coordinates": [
+          -0.7925288216047749,
+          0.7488560620753999,
+          0.23465626621511848,
+          9.560082105038344
+        ],
+        "quantiles": [
+          [
+            -1.577429060625151,
+            0.16637794706635878,
+            0.2122691290714065,
+            9.413349241896144
+          ],
+          [
+            -1.108154507287468,
+            0.4922992119951757,
+            0.23986614696420483,
+            9.54093645148256
+          ],
+          [
+            -0.8792853070020035,
+            0.8329677060527518,
+            0.2665946428342437,
+            9.648846171719804
+          ]
+        ],
+        "best_astro": {
+          "F_STAR10": -0.9181304718007433,
+          "ALPHA_STAR": 0.23465626621511848,
+          "F_ESC10": -1.5,
+          "ALPHA_ESC": -0.25,
+          "M_TURN": 9.560082105038344,
+          "t_STAR": 0.7488560620753999,
+          "L_X": 40.0,
+          "NU_X_THRESH": 800.0
+        }
+      },
+      "best_astro": {
+        "F_STAR10": -1.367540622528355,
+        "ALPHA_STAR": 0.23582938198114142,
+        "F_ESC10": -1.5,
+        "ALPHA_ESC": -0.25,
+        "M_TURN": 9.565725492305589,
+        "t_STAR": 0.26701336866828973,
+        "L_X": 40.0,
+        "NU_X_THRESH": 800.0
+      },
+      "best_log_LF": -37.74990040410847,
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "source_report_sha256": "68f27340ea0700cf91f5fccc51d6db550b0610b6f81221a1a05ec0942df1a257"
+    },
+    {
+      "model_index": 18,
+      "KP_h_Mpc": 20,
+      "MS": 3.25,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp20_ms3.25.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ],
+      "source_model_index": 16,
+      "chain_source": "job_2132128",
+      "snapshot_date": "2026-09-15",
+      "diagnostic_gate_passed": true,
+      "source_report": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_16/final_report.json",
+      "figure_sha256": "0aaf138cb36dc4750d82aee1b8dc6a44f0d11987cc225769574115c8348dbd95",
+      "pl_baseline": {
+        "steps_per_ensemble": 3000,
+        "sample_count": 192000,
+        "walkers": 32,
+        "diagnostic_gate_passed": false,
+        "best_log_LF": -37.73213837143695,
+        "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+        "best_sample_coordinates": [
+          -0.7925288216047749,
+          0.7488560620753999,
+          0.23465626621511848,
+          9.560082105038344
+        ],
+        "quantiles": [
+          [
+            -1.577429060625151,
+            0.16637794706635878,
+            0.2122691290714065,
+            9.413349241896144
+          ],
+          [
+            -1.108154507287468,
+            0.4922992119951757,
+            0.23986614696420483,
+            9.54093645148256
+          ],
+          [
+            -0.8792853070020035,
+            0.8329677060527518,
+            0.2665946428342437,
+            9.648846171719804
+          ]
+        ],
+        "best_astro": {
+          "F_STAR10": -0.9181304718007433,
+          "ALPHA_STAR": 0.23465626621511848,
+          "F_ESC10": -1.5,
+          "ALPHA_ESC": -0.25,
+          "M_TURN": 9.560082105038344,
+          "t_STAR": 0.7488560620753999,
+          "L_X": 40.0,
+          "NU_X_THRESH": 800.0
+        }
+      },
+      "best_astro": {
+        "F_STAR10": -1.5204094152538215,
+        "ALPHA_STAR": 0.23637377770461276,
+        "F_ESC10": -1.5,
+        "ALPHA_ESC": -0.25,
+        "M_TURN": 9.576422099955524,
+        "t_STAR": 0.18801995406876706,
+        "L_X": 40.0,
+        "NU_X_THRESH": 800.0
+      },
+      "best_log_LF": -37.74150138702973,
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "source_report_sha256": "5c7ec3459fa009244f34f600f50f946a4fd00119dc049467f11c50aa9497e13b"
+    },
+    {
+      "model_index": 19,
+      "KP_h_Mpc": 20,
+      "MS": 4,
+      "steps_per_ensemble": 10000,
+      "walkers": 32,
+      "sample_count": 640000,
+      "file": "lf_corner_kp20_ms4.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ],
+      "source_model_index": 17,
+      "chain_source": "job_2132128",
+      "snapshot_date": "2026-09-15",
+      "diagnostic_gate_passed": true,
+      "source_report": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_17/final_report.json",
+      "figure_sha256": "75a583768a9f79b1850bf84d3e46c3ad1ddede7d6c1989ca8191c5d9af46a543",
+      "pl_baseline": {
+        "steps_per_ensemble": 3000,
+        "sample_count": 192000,
+        "walkers": 32,
+        "diagnostic_gate_passed": false,
+        "best_log_LF": -37.73213837143695,
+        "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+        "best_sample_coordinates": [
+          -0.7925288216047749,
+          0.7488560620753999,
+          0.23465626621511848,
+          9.560082105038344
+        ],
+        "quantiles": [
+          [
+            -1.577429060625151,
+            0.16637794706635878,
+            0.2122691290714065,
+            9.413349241896144
+          ],
+          [
+            -1.108154507287468,
+            0.4922992119951757,
+            0.23986614696420483,
+            9.54093645148256
+          ],
+          [
+            -0.8792853070020035,
+            0.8329677060527518,
+            0.2665946428342437,
+            9.648846171719804
+          ]
+        ],
+        "best_astro": {
+          "F_STAR10": -0.9181304718007433,
+          "ALPHA_STAR": 0.23465626621511848,
+          "F_ESC10": -1.5,
+          "ALPHA_ESC": -0.25,
+          "M_TURN": 9.560082105038344,
+          "t_STAR": 0.7488560620753999,
+          "L_X": 40.0,
+          "NU_X_THRESH": 800.0
+        }
+      },
+      "best_astro": {
+        "F_STAR10": -1.0279270114043948,
+        "ALPHA_STAR": 0.23606075436960194,
+        "F_ESC10": -1.5,
+        "ALPHA_ESC": -0.25,
+        "M_TURN": 9.608001134140455,
+        "t_STAR": 0.583457717781181,
+        "L_X": 40.0,
+        "NU_X_THRESH": 800.0
+      },
+      "best_log_LF": -37.68959459511817,
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "source_report_sha256": "69dde7b12e56fd28bc918a81df669219158bf4b1d45a08df0c42425bfee0d886"
+    },
+    {
+      "model_index": 20,
+      "KP_h_Mpc": 30,
+      "MS": 1.5,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp30_ms1.5.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ],
+      "source_model_index": 18,
+      "chain_source": "job_2132128",
+      "snapshot_date": "2026-09-15",
+      "diagnostic_gate_passed": true,
+      "source_report": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_18/final_report.json",
+      "figure_sha256": "f18eee64860eec3a3857b3dbbb41b4e66e1e5065803b06809f6bba9aa43468e8",
+      "pl_baseline": {
+        "steps_per_ensemble": 3000,
+        "sample_count": 192000,
+        "walkers": 32,
+        "diagnostic_gate_passed": false,
+        "best_log_LF": -37.73213837143695,
+        "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+        "best_sample_coordinates": [
+          -0.7925288216047749,
+          0.7488560620753999,
+          0.23465626621511848,
+          9.560082105038344
+        ],
+        "quantiles": [
+          [
+            -1.577429060625151,
+            0.16637794706635878,
+            0.2122691290714065,
+            9.413349241896144
+          ],
+          [
+            -1.108154507287468,
+            0.4922992119951757,
+            0.23986614696420483,
+            9.54093645148256
+          ],
+          [
+            -0.8792853070020035,
+            0.8329677060527518,
+            0.2665946428342437,
+            9.648846171719804
+          ]
+        ],
+        "best_astro": {
+          "F_STAR10": -0.9181304718007433,
+          "ALPHA_STAR": 0.23465626621511848,
+          "F_ESC10": -1.5,
+          "ALPHA_ESC": -0.25,
+          "M_TURN": 9.560082105038344,
+          "t_STAR": 0.7488560620753999,
+          "L_X": 40.0,
+          "NU_X_THRESH": 800.0
+        }
+      },
+      "best_astro": {
+        "F_STAR10": -0.8902450060997201,
+        "ALPHA_STAR": 0.23547239258642758,
+        "F_ESC10": -1.5,
+        "ALPHA_ESC": -0.25,
+        "M_TURN": 9.559165800265264,
+        "t_STAR": 0.8002136322978943,
+        "L_X": 40.0,
+        "NU_X_THRESH": 800.0
+      },
+      "best_log_LF": -37.72876380139075,
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "source_report_sha256": "c444655e2ef9eb86d0b69be30847156ff3b6a1f3fcde956dad6f62ce60e0e79e"
+    },
+    {
+      "model_index": 21,
+      "KP_h_Mpc": 30,
+      "MS": 2,
+      "steps_per_ensemble": 10000,
+      "walkers": 32,
+      "sample_count": 640000,
+      "file": "lf_corner_kp30_ms2.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ],
+      "source_model_index": 19,
+      "chain_source": "job_2132128",
+      "snapshot_date": "2026-09-15",
+      "diagnostic_gate_passed": true,
+      "source_report": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_19/final_report.json",
+      "figure_sha256": "d807dfedc099d0562174bd47cc2e02bc76210323a3e43a26f23746e871702555",
+      "pl_baseline": {
+        "steps_per_ensemble": 3000,
+        "sample_count": 192000,
+        "walkers": 32,
+        "diagnostic_gate_passed": false,
+        "best_log_LF": -37.73213837143695,
+        "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+        "best_sample_coordinates": [
+          -0.7925288216047749,
+          0.7488560620753999,
+          0.23465626621511848,
+          9.560082105038344
+        ],
+        "quantiles": [
+          [
+            -1.577429060625151,
+            0.16637794706635878,
+            0.2122691290714065,
+            9.413349241896144
+          ],
+          [
+            -1.108154507287468,
+            0.4922992119951757,
+            0.23986614696420483,
+            9.54093645148256
+          ],
+          [
+            -0.8792853070020035,
+            0.8329677060527518,
+            0.2665946428342437,
+            9.648846171719804
+          ]
+        ],
+        "best_astro": {
+          "F_STAR10": -0.9181304718007433,
+          "ALPHA_STAR": 0.23465626621511848,
+          "F_ESC10": -1.5,
+          "ALPHA_ESC": -0.25,
+          "M_TURN": 9.560082105038344,
+          "t_STAR": 0.7488560620753999,
+          "L_X": 40.0,
+          "NU_X_THRESH": 800.0
+        }
+      },
+      "best_astro": {
+        "F_STAR10": -1.112950893985457,
+        "ALPHA_STAR": 0.2355210106207322,
+        "F_ESC10": -1.5,
+        "ALPHA_ESC": -0.25,
+        "M_TURN": 9.561022453472694,
+        "t_STAR": 0.47909529311915694,
+        "L_X": 40.0,
+        "NU_X_THRESH": 800.0
+      },
+      "best_log_LF": -37.72540501358296,
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "source_report_sha256": "791ee3af4ea5d50e8bcd8726137750d977e65d5dd6e66bf36e262a6fc89fe725"
+    },
+    {
+      "model_index": 22,
+      "KP_h_Mpc": 30,
+      "MS": 2.5,
+      "steps_per_ensemble": 10000,
+      "walkers": 32,
+      "sample_count": 640000,
+      "file": "lf_corner_kp30_ms2.5.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ],
+      "source_model_index": 20,
+      "chain_source": "job_2132128",
+      "snapshot_date": "2026-09-15",
+      "diagnostic_gate_passed": true,
+      "source_report": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_20/final_report.json",
+      "figure_sha256": "852ce68ec83bf27905b056f370622c9a68026037a45677284ed7f345c521702e",
+      "pl_baseline": {
+        "steps_per_ensemble": 3000,
+        "sample_count": 192000,
+        "walkers": 32,
+        "diagnostic_gate_passed": false,
+        "best_log_LF": -37.73213837143695,
+        "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+        "best_sample_coordinates": [
+          -0.7925288216047749,
+          0.7488560620753999,
+          0.23465626621511848,
+          9.560082105038344
+        ],
+        "quantiles": [
+          [
+            -1.577429060625151,
+            0.16637794706635878,
+            0.2122691290714065,
+            9.413349241896144
+          ],
+          [
+            -1.108154507287468,
+            0.4922992119951757,
+            0.23986614696420483,
+            9.54093645148256
+          ],
+          [
+            -0.8792853070020035,
+            0.8329677060527518,
+            0.2665946428342437,
+            9.648846171719804
+          ]
+        ],
+        "best_astro": {
+          "F_STAR10": -0.9181304718007433,
+          "ALPHA_STAR": 0.23465626621511848,
+          "F_ESC10": -1.5,
+          "ALPHA_ESC": -0.25,
+          "M_TURN": 9.560082105038344,
+          "t_STAR": 0.7488560620753999,
+          "L_X": 40.0,
+          "NU_X_THRESH": 800.0
+        }
+      },
+      "best_astro": {
+        "F_STAR10": -1.6944932021504695,
+        "ALPHA_STAR": 0.23549402272136516,
+        "F_ESC10": -1.5,
+        "ALPHA_ESC": -0.25,
+        "M_TURN": 9.562595383720717,
+        "t_STAR": 0.1255327391138732,
+        "L_X": 40.0,
+        "NU_X_THRESH": 800.0
+      },
+      "best_log_LF": -37.721033063396845,
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "source_report_sha256": "e428fb3a5b370f8b41b5c593e72a182fa2db2cc7be79ceafd18dfce26333231e"
+    },
+    {
+      "model_index": 23,
+      "KP_h_Mpc": 30,
+      "MS": 3.25,
+      "steps_per_ensemble": 10000,
+      "walkers": 32,
+      "sample_count": 640000,
+      "file": "lf_corner_kp30_ms3.25.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ],
+      "source_model_index": 21,
+      "chain_source": "job_2132128",
+      "snapshot_date": "2026-09-15",
+      "diagnostic_gate_passed": true,
+      "source_report": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_21/final_report.json",
+      "figure_sha256": "8c6638d1976a624ac7acc4db3f68fa17d9eb2a734aedfd0931c38e5445c9987b",
+      "pl_baseline": {
+        "steps_per_ensemble": 3000,
+        "sample_count": 192000,
+        "walkers": 32,
+        "diagnostic_gate_passed": false,
+        "best_log_LF": -37.73213837143695,
+        "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+        "best_sample_coordinates": [
+          -0.7925288216047749,
+          0.7488560620753999,
+          0.23465626621511848,
+          9.560082105038344
+        ],
+        "quantiles": [
+          [
+            -1.577429060625151,
+            0.16637794706635878,
+            0.2122691290714065,
+            9.413349241896144
+          ],
+          [
+            -1.108154507287468,
+            0.4922992119951757,
+            0.23986614696420483,
+            9.54093645148256
+          ],
+          [
+            -0.8792853070020035,
+            0.8329677060527518,
+            0.2665946428342437,
+            9.648846171719804
+          ]
+        ],
+        "best_astro": {
+          "F_STAR10": -0.9181304718007433,
+          "ALPHA_STAR": 0.23465626621511848,
+          "F_ESC10": -1.5,
+          "ALPHA_ESC": -0.25,
+          "M_TURN": 9.560082105038344,
+          "t_STAR": 0.7488560620753999,
+          "L_X": 40.0,
+          "NU_X_THRESH": 800.0
+        }
+      },
+      "best_astro": {
+        "F_STAR10": -1.5141737422600718,
+        "ALPHA_STAR": 0.23576761494816573,
+        "F_ESC10": -1.5,
+        "ALPHA_ESC": -0.25,
+        "M_TURN": 9.564161716421935,
+        "t_STAR": 0.19033216033340694,
+        "L_X": 40.0,
+        "NU_X_THRESH": 800.0
+      },
+      "best_log_LF": -37.71014039661156,
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "source_report_sha256": "87dd0509ae261c510876cd3320e9a00df1f5e99ebd92bf758e2ef3c5e270f4f7"
+    },
+    {
+      "model_index": 24,
+      "KP_h_Mpc": 30,
+      "MS": 4,
+      "steps_per_ensemble": 5000,
+      "walkers": 32,
+      "sample_count": 320000,
+      "file": "lf_corner_kp30_ms4.png",
+      "parameters": [
+        "F_STAR10",
+        "t_STAR",
+        "ALPHA_STAR",
+        "M_TURN"
+      ],
+      "source_model_index": 2,
+      "chain_source": "job_2128818",
+      "snapshot_date": "2026-09-15",
+      "diagnostic_gate_passed": false,
+      "source_report": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_only_20260910/job_2128818_2/final_report.json",
+      "figure_sha256": "debc1fee5026c09de4495ffd74d533c82c052bc532c438cc5e6efe7b9d2cb35d",
+      "pl_baseline": {
+        "steps_per_ensemble": 3000,
+        "sample_count": 192000,
+        "walkers": 32,
+        "diagnostic_gate_passed": false,
+        "best_log_LF": -37.73213837143695,
+        "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+        "best_sample_coordinates": [
+          -0.7925288216047749,
+          0.7488560620753999,
+          0.23465626621511848,
+          9.560082105038344
+        ],
+        "quantiles": [
+          [
+            -1.577429060625151,
+            0.16637794706635878,
+            0.2122691290714065,
+            9.413349241896144
+          ],
+          [
+            -1.108154507287468,
+            0.4922992119951757,
+            0.23986614696420483,
+            9.54093645148256
+          ],
+          [
+            -0.8792853070020035,
+            0.8329677060527518,
+            0.2665946428342437,
+            9.648846171719804
+          ]
+        ],
+        "best_astro": {
+          "F_STAR10": -0.9181304718007433,
+          "ALPHA_STAR": 0.23465626621511848,
+          "F_ESC10": -1.5,
+          "ALPHA_ESC": -0.25,
+          "M_TURN": 9.560082105038344,
+          "t_STAR": 0.7488560620753999,
+          "L_X": 40.0,
+          "NU_X_THRESH": 800.0
+        }
+      },
+      "best_astro": {
+        "F_STAR10": -0.972817396803704,
+        "ALPHA_STAR": 0.23518455812513622,
+        "F_ESC10": -1.5,
+        "ALPHA_ESC": -0.25,
+        "M_TURN": 9.568589037516135,
+        "t_STAR": 0.6609519672378623,
+        "L_X": 40.0,
+        "NU_X_THRESH": 800.0
+      },
+      "best_log_LF": -37.68185990964157,
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "source_report_sha256": "d34337f23babe7de8e46e489e0f301e108e930681713c83e8bf066c1f9b949cb"
+    }
+  ],
+  "figure_style": "corner-shared-v2",
+  "comparison": "BPL vs shared PL",
+  "pl_baseline": {
+    "steps_per_ensemble": 3000,
+    "sample_count": 192000,
+    "walkers": 32,
+    "diagnostic_gate_passed": false,
+    "best_log_LF": -37.73213837143695,
+    "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+    "best_sample_coordinates": [
+      -0.7925288216047749,
+      0.7488560620753999,
+      0.23465626621511848,
+      9.560082105038344
+    ],
+    "quantiles": [
+      [
+        -1.577429060625151,
+        0.16637794706635878,
+        0.2122691290714065,
+        9.413349241896144
+      ],
+      [
+        -1.108154507287468,
+        0.4922992119951757,
+        0.23986614696420483,
+        9.54093645148256
+      ],
+      [
+        -0.8792853070020035,
+        0.8329677060527518,
+        0.2665946428342437,
+        9.648846171719804
+      ]
+    ],
+    "best_astro": {
+      "F_STAR10": -0.9181304718007433,
+      "ALPHA_STAR": 0.23465626621511848,
+      "F_ESC10": -1.5,
+      "ALPHA_ESC": -0.25,
+      "M_TURN": 9.560082105038344,
+      "t_STAR": 0.7488560620753999,
+      "L_X": 40.0,
+      "NU_X_THRESH": 800.0
+    }
+  }
+}

@@ -7,7 +7,7 @@ window.AtlasMCMC = (() => {
   const node = (id) => document.getElementById(id);
   const format = (value) => Number(value).toLocaleString(window.AtlasI18n.language === "zh" ? "zh-CN" : "en-US");
   async function readJSON(path) {
-    const response = await fetch(`${path}?v=corner-shared-v2`);
+    const response = await fetch(`${path}?v=lf-bestfit-1`, {cache: "no-cache"});
     if (!response.ok) throw new Error(`${path}: HTTP ${response.status}`);
     return response.json();
   }
@@ -35,14 +35,14 @@ window.AtlasMCMC = (() => {
       node("mcmc-lf-empty").hidden = true;
       node("mcmc-lf-open").hidden = false;
       node("mcmc-lf-coordinates").hidden = false;
-      node("mcmc-lf-status").textContent = t(model.diagnostic_gate_passed ? "mcmcLFGatePassed" : "mcmcLFGateNotPassed");
+      node("mcmc-lf-status").textContent = "BPL: " + t(model.diagnostic_gate_passed ? "mcmcLFGatePassed" : "mcmcLFGateNotPassed") + " / PL: " + t(model.pl_baseline.diagnostic_gate_passed ? "mcmcLFGatePassed" : "mcmcLFGateNotPassed");
       const imagePath = `${categories.lf_only.directory}/${model.file}?v=${model.figure_sha256.slice(0, 12)}`;
       const image = node("mcmc-lf-image");
       if (image.getAttribute("src") !== imagePath) image.setAttribute("src", imagePath);
       image.setAttribute("alt", t("mcmcLFAlt", {kp, ms}));
       node("mcmc-lf-open").setAttribute("href", imagePath);
-      node("mcmc-lf-sampling").textContent = `${format(model.steps_per_ensemble)} × ${model.walkers} × ${categories.lf_only.ensembles}`;
-      node("mcmc-lf-rows").textContent = format(model.sample_count);
+      node("mcmc-lf-sampling").textContent = `BPL: ${format(model.steps_per_ensemble)} × ${model.walkers} × 2 / PL: ${format(model.pl_baseline.steps_per_ensemble)} × ${model.pl_baseline.walkers} × 2`;
+      node("mcmc-lf-rows").textContent = `BPL: ${format(model.sample_count)} / PL: ${format(model.pl_baseline.sample_count)}`;
       node("mcmc-lf-caption").textContent = t("mcmcLFCaption", {kp, ms, job: `${model.chain_source}_${model.source_model_index}`, date: model.snapshot_date});
     }
     const [steps, walkers] = joint.sources[0].shape;
@@ -84,7 +84,7 @@ window.AtlasMCMC = (() => {
       for (const model of lf.models) {
         if (!/^lf_corner_[\w.]+\.png$/.test(model.file) || model.parameters.length !== 4 ||
           !/^[0-9a-f]{64}$/.test(model.figure_sha256) || catalog.files_sha256[`${categories.lf_only.directory}/${model.file}`] !== model.figure_sha256 ||
-          !model.chain_source || typeof model.diagnostic_gate_passed !== "boolean" ||
+          !model.pl_baseline || model.pl_baseline.sample_count !== model.pl_baseline.steps_per_ensemble * model.pl_baseline.walkers * 2 || !model.chain_source || typeof model.diagnostic_gate_passed !== "boolean" ||
           model.sample_count !== model.steps_per_ensemble * model.walkers * categories.lf_only.ensembles) throw new Error("Invalid LF snapshot");
       }
       const pairs = new Set(lf.models.map(model => `${model.KP_h_Mpc}/${model.MS}`));
