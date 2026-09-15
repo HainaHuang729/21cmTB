@@ -28,6 +28,7 @@ function harness({stored, blockedStorage = false} = {}) {
       },
       setAttribute(name, value) { attributes.set(name, String(value)); },
       getAttribute(name) { return attributes.get(name); },
+      removeAttribute(name) { attributes.delete(name); },
       addEventListener(name, callback) { listeners.set(name, callback); },
       trigger(name) { return listeners.get(name)?.(); },
       appendChild(child) { this.children.push(child); },
@@ -128,7 +129,7 @@ test("all static and literal runtime translation keys exist in both languages", 
   for (const match of html.matchAll(/data-i18n(?:-aria-label|-title|-alt)?="([^"]+)"/g)) assert.ok(messages[match[1]], match[1]);
   for (const match of source.matchAll(/\bt\("([^"]+)"/g)) assert.ok(messages[match[1]], match[1]);
   assert.ok(html.indexOf('src="i18n.js') < html.indexOf('src="app.js'));
-  assert.equal((html.match(/hii256-v22/g) || []).length, 4);
+  assert.equal((html.match(/hii256-v23/g) || []).length, 4);
 });
 
 test("default English, saved Chinese, invalid preference and unavailable storage", () => {
@@ -225,6 +226,17 @@ function useStoredFiles(h) {
   // Data tests exercise the actual loader and decoder; drawing is covered above.
   h.run("drawAll = () => {};");
   return requests;
+}
+
+function moveDock(h, name, value) {
+  h.context.dockChange = {name, value};
+  h.run(`{
+    const control = state.controls.get(dockChange.name);
+    const index = control.specification.values.indexOf(dockChange.value);
+    if (index < 0) throw new Error("Unknown test parameter value");
+    control.slider.value = String(index);
+    control.slider.trigger("input");
+  }`);
 }
 
 test("adding KP=0 preserves every existing grid and astrophysical scan mapping", () => {
@@ -404,12 +416,13 @@ test("all four LF panels pair model, PL and observations by redshift with shared
   assert.ok(!html.includes("lf-redshift-options"));
 });
 
-test("MCMC categories keep provenance, correlated sample counts, selection and bilingual copy", async () => {
+test("all 25 corners follow dock KP/MS with provenance, no substitute for PL, and bilingual copy", async () => {
   const h = harness(); seedDesign(h); const requests = useStoredFiles(h);
   const mcmcSource = fs.readFileSync(path.join(staticRoot, "mcmc.js"), "utf8");
   vm.runInContext(mcmcSource, h.context);
   for (const match of mcmcSource.matchAll(/\bt\("([^"]+)"/g)) assert.ok(h.context.AtlasI18n.messages[match[1]], match[1]);
-  await h.run("AtlasMCMC.initialize(state.mcmc)");
+  await h.run("AtlasMCMC.initialize(state.mcmc, state.parameters)");
+  h.run("loadRun = async (runId) => { state.lastRequestedRun = runId; };");
   assert.equal(h.run("state.mcmc.status"), "ready");
   assert.equal(requests.length, 3);
   const archive = h.run("state.mcmc.catalog");
@@ -423,10 +436,27 @@ test("MCMC categories keep provenance, correlated sample counts, selection and b
   assert.equal(archive.joint.lf_points, archive.categories.lf_only.lf_points);
   assert.equal(h.get("#mcmc-joint-rows").textContent, "20,480");
   assert.equal(h.get("#mcmc-joint-date").textContent, "2026-09-14");
-  const selector = h.get("#mcmc-lf-select");
-  assert.equal(selector.disabled, false);
-  assert.equal(selector.children.length, 5);
-  assert.equal(selector.children.flatMap(group => group.children).length, 25);
+  const jointPath = h.get("#mcmc-joint-image").getAttribute("src");
+  assert.ok(jointPath.endsWith(`?v=${archive.joint.figure_sha256["corner_eta.png"].slice(0, 12)}`));
+  assert.equal(h.get("#mcmc-joint-open").getAttribute("href"), jointPath);
+  assert.equal(archive.figure_style, "corner-shared-v2");
+  const audits = JSON.parse(fs.readFileSync(path.join(staticRoot, "web_data/mcmc/corner_layout_audit.json")));
+  assert.equal(Object.keys(audits).length, 27);
+  for (const [file, audit] of Object.entries(audits)) {
+    assert.ok(audit.passed, file);
+    assert.equal(audit.style, archive.figure_style);
+    assert.ok(audit.checked_text_items >= 25);
+    assert.deepEqual(audit.clipped_text, []);
+    assert.deepEqual(audit.text_overlaps, []);
+    assert.deepEqual(audit.text_on_plot, []);
+    assert.equal(audit.smoothing, false);
+    assert.equal(audit.bins_1d, 35);
+    assert.equal(audit.bins_2d, 32);
+    const png = fs.readFileSync(path.join(staticRoot, "web_data", file));
+    assert.equal(png.readUInt32BE(16), audit.pixel_size[0]);
+    assert.equal(png.readUInt32BE(20), audit.pixel_size[1]);
+  }
+  assert.ok(!html.includes('id="mcmc-lf-select"'));
   assert.equal(archive.lf.models.length, 25);
   assert.equal(new Set(archive.lf.models.map(m => `${m.KP_h_Mpc}/${m.MS}`)).size, 25);
   assert.equal(archive.lf.models.filter(m => m.diagnostic_gate_passed).length, 6);
@@ -434,12 +464,23 @@ test("MCMC categories keep provenance, correlated sample counts, selection and b
   assert.match(h.get("#mcmc-load-status").textContent, /2026-09-15/);
   assert.match(h.get("#mcmc-lf-grid-count").textContent, /5 × 5.*25/);
   for (let index = 0; index < 25; index += 1) {
-    selector.value = String(index);
-    selector.onchange();
     const model = archive.lf.models[index];
+    moveDock(h, "KP_h_Mpc", model.KP_h_Mpc);
+    moveDock(h, "MS", model.MS);
     assert.equal(h.run("state.mcmc.selectedLF"), index);
-    assert.equal(selector.value, String(index));
+    assert.equal(h.run("state.parameters.KP_h_Mpc"), model.KP_h_Mpc);
+    assert.equal(h.run("state.parameters.MS"), model.MS);
+    assert.equal(h.get("#mcmc-lf-open").hidden, false);
+    assert.equal(h.get("#mcmc-lf-empty").hidden, true);
     assert.equal(model.sample_count, model.steps_per_ensemble * model.walkers * 2);
+    assert.equal(model.figure_style, archive.figure_style);
+    assert.equal(model.figure_sources.length, 2);
+    assert.equal(audits[`lf_corner/${model.file}`].samples_per_ensemble.reduce((a, b) => a + b), model.sample_count);
+    for (const source of model.figure_sources) {
+      assert.deepEqual(Array.from(source.retained_shape), [model.steps_per_ensemble, 32, 4]);
+      assert.match(source.retained_values_sha256, /^[0-9a-f]{64}$/);
+      assert.match(source.file_sha256, /^[0-9a-f]{64}$/);
+    }
     const imagePath = h.get("#mcmc-lf-image").getAttribute("src");
     assert.ok(fs.existsSync(path.join(staticRoot, imagePath.split("?")[0])));
     assert.ok(imagePath.endsWith(`?v=${model.figure_sha256.slice(0, 12)}`));
@@ -458,10 +499,28 @@ test("MCMC categories keep provenance, correlated sample counts, selection and b
   assert.equal(h.get("#mcmc-lf-image").getAttribute("src"), selectedImage);
   assert.match(h.get("#mcmc-lf-image").getAttribute("alt"), /四参数/);
   assert.match(h.get("#mcmc-lf-caption").textContent, /探索性快照/);
-  select(h, "KP_h_Mpc", 0); select(h, "F_STAR10", 0);
-  assert.equal(h.run("state.mcmc.selectedLF"), 24);
-  assert.equal(selector.value, "24");
-  assert.match(h.get("#mcmc-lf-select").getAttribute("aria-label"), /固定宇宙学/);
+  moveDock(h, "KP_h_Mpc", 0);
+  moveDock(h, "F_STAR10", h.run('state.controls.get("F_STAR10").specification.values[0]'));
+  assert.equal(h.run("state.parameters.KP_h_Mpc"), 0);
+  assert.equal(h.run("state.mcmc.selectedLF"), -1);
+  assert.equal(h.get("#mcmc-lf-open").hidden, true);
+  assert.equal(h.get("#mcmc-lf-empty").hidden, false);
+  assert.equal(h.get("#mcmc-lf-image").getAttribute("src"), undefined);
+  assert.equal(h.get("#mcmc-lf-open").getAttribute("href"), undefined);
+  assert.match(h.get("#mcmc-lf-empty").textContent, /没有 kₚ = 0/);
+  assert.equal(h.get("#mcmc-lf-rows").textContent, "—");
+  moveDock(h, "MS", 2);
+  assert.equal(h.run("state.mcmc.selectedLF"), -1);
+  moveDock(h, "KP_h_Mpc", 20);
+  assert.equal(h.run("state.mcmc.selectedLF"), 16);
+  assert.equal(h.get("#mcmc-lf-open").hidden, false);
+  assert.equal(h.get("#mcmc-joint-image").getAttribute("src"), jointPath);
+  // BPL stellar scans reset the cosmology: follow the actual dock, not the old corner.
+  moveDock(h, "F_STAR10", h.run('state.controls.get("F_STAR10").specification.values[0]'));
+  assert.equal(h.run("state.mcmc.selectedLF"), 0);
+  moveDock(h, "KP_h_Mpc", 30); moveDock(h, "MS", 4);
+  h.run("resetControls()");
+  assert.equal(h.run("state.mcmc.selectedLF"), 0);
   assert.equal(requests.length, 3);
   assert.ok(html.indexOf('id="mcmc-section"') > html.indexOf('class="slice-model-row pl-slice-row"'));
 });
@@ -470,16 +529,16 @@ test("MCMC fetch failure is isolated and retryable", async () => {
   const h = harness(); seed(h);
   vm.runInContext(fs.readFileSync(path.join(staticRoot, "mcmc.js"), "utf8"), h.context);
   const before = h.run("state.result");
-  await h.run("AtlasMCMC.initialize(state.mcmc)");
+  await h.run("AtlasMCMC.initialize(state.mcmc, state.parameters)");
   assert.equal(h.run("state.mcmc.status"), "error");
-  assert.equal(h.get("#mcmc-lf-select").disabled, true);
+  assert.equal(h.get("#mcmc-lf-open").hidden, true);
   assert.equal(h.run("state.result"), before);
   h.run('setLanguage("zh")');
   assert.match(h.get("#mcmc-load-status").textContent, /加载失败/);
   useStoredFiles(h);
-  await h.run("AtlasMCMC.initialize(state.mcmc)");
+  await h.run("AtlasMCMC.initialize(state.mcmc, state.parameters)");
   assert.equal(h.run("state.mcmc.status"), "ready");
-  assert.equal(h.get("#mcmc-lf-select").disabled, false);
+  assert.equal(h.get("#mcmc-lf-empty").hidden, false); // No cosmology controls in this fixture.
 });
 
 test("an incomplete LF grid is rejected without changing simulation results", async () => {
@@ -494,8 +553,39 @@ test("an incomplete LF grid is rejected without changing simulation results", as
     return new Response(JSON.stringify(index));
   };
   vm.runInContext(fs.readFileSync(path.join(staticRoot, "mcmc.js"), "utf8"), h.context);
-  await h.run("AtlasMCMC.initialize(state.mcmc)");
+  await h.run("AtlasMCMC.initialize(state.mcmc, state.parameters)");
   assert.equal(h.run("state.mcmc.status"), "error");
-  assert.equal(h.get("#mcmc-lf-select").disabled, true);
+  assert.equal(h.get("#mcmc-lf-open").hidden, true);
   assert.equal(h.run("state.result"), before);
+});
+
+test("corner selection uses the latest dock values when manifests arrive late", async () => {
+  const h = harness(); seedDesign(h); useStoredFiles(h);
+  h.run("loadRun = async () => {};");
+  const read = h.context.fetch;
+  let release;
+  const gate = new Promise(resolve => { release = resolve; });
+  h.context.fetch = async url => {
+    const response = await read(url);
+    if (url.startsWith("web_data/lf_corner/index.json")) await gate;
+    return response;
+  };
+  vm.runInContext(fs.readFileSync(path.join(staticRoot, "mcmc.js"), "utf8"), h.context);
+  const pending = h.run("AtlasMCMC.initialize(state.mcmc, state.parameters)");
+  moveDock(h, "KP_h_Mpc", 30); moveDock(h, "MS", 4);
+  assert.equal(h.get("#mcmc-lf-open").hidden, true);
+  release(); await pending;
+  assert.equal(h.run("state.mcmc.selectedLF"), 24);
+  assert.match(h.get("#mcmc-lf-image").getAttribute("src"), /kp30_ms4/);
+});
+
+test("archive ready before parameter controls waits instead of choosing a default corner", async () => {
+  const h = harness(); useStoredFiles(h);
+  vm.runInContext(fs.readFileSync(path.join(staticRoot, "mcmc.js"), "utf8"), h.context);
+  await h.run("AtlasMCMC.initialize(state.mcmc, state.parameters)");
+  assert.equal(h.run("state.mcmc.selectedLF"), -1);
+  assert.match(h.get("#mcmc-lf-empty").textContent, /Waiting for/);
+  seedDesign(h); h.run("renderLocalizedUI()");
+  assert.equal(h.run("state.mcmc.selectedLF"), 0);
+  assert.equal(h.get("#mcmc-lf-empty").hidden, true);
 });

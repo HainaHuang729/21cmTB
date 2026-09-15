@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <title>21cmFAST Precomputed Parameter Atlas</title>
-  <link rel="stylesheet" href="styles.css?v=hii256-v22&amp;dock=compact-1">
+  <link rel="stylesheet" href="styles.css?v=hii256-v23&amp;dock=compact-1">
 </head>
 <body id="top">
   <header class="system-header load-in">
@@ -27,7 +27,7 @@
       </div>
       <div id="data-state" class="server-state"><i></i><span>Loading results</span></div>
       <div id="run-badge" class="run-badge idle">LOADING</div>
-      <div class="revision-tag"><small data-i18n="revision">REV</small><strong>22</strong></div>
+      <div class="revision-tag"><small data-i18n="revision">REV</small><strong>23</strong></div>
     </div>
   </header>
 
@@ -196,7 +196,7 @@
         <div><span class="section-index">06</span><div><h2 id="mcmc-title" data-i18n="mcmcTitle">MCMC Inference Archive</h2><p data-i18n="mcmcSubtitle">TWO LIKELIHOOD BRANCHES · STORED CHAIN SNAPSHOTS</p></div></div>
         <a class="text-button" href="web_data/mcmc/index.json" data-i18n="mcmcManifest">Archive manifest ↗</a>
       </div>
-      <p class="mcmc-intro" data-i18n="mcmcIndependent">These archived inference runs are independent of the parameter dock above. Choose an LF-only model below; the simulation sliders do not recompute or reweight these chains.</p>
+      <p class="mcmc-intro" data-i18n="mcmcIndependent">LF-only corners follow kₚ and mₛ in the bottom parameter dock. Other sliders do not condition these four-dimensional sampling distributions. Switching models only loads stored figures; no chain is recomputed or reweighted. The free-mₛ joint archive remains a separate fixed snapshot.</p>
       <p id="mcmc-load-status" class="mcmc-load-status" role="status" aria-live="polite"></p>
 
       <article id="mcmc-lf-only" class="inference-branch" aria-labelledby="mcmc-lf-title">
@@ -207,8 +207,7 @@
           <p data-i18n="mcmcLFDescription">A grid of fixed kₚ / mₛ models. Four stellar parameters are sampled using LF alone, without τₑ or neutral-fraction constraints.</p>
           <p class="inference-detail" data-i18n="mcmcLFData">49 LF points: HST z = 6, 7, 8 and Donnan (2024) z = 9, 10. Native 21cmFAST LF; no 21-cm likelihood.</p>
           <div id="mcmc-lf-models" class="inference-models">
-            <label for="mcmc-lf-select" data-i18n="mcmcModelChoice">Fixed cosmology for LF-only inference</label>
-            <select id="mcmc-lf-select" disabled data-i18n-aria-label="mcmcModelChoice" aria-label="Fixed cosmology for LF-only inference"><option>—</option></select>
+            <span data-i18n="mcmcDockLinked">LINKED TO PARAMETER DOCK / kₚ + mₛ</span>
             <span id="mcmc-lf-grid-count" aria-live="polite"></span>
           </div>
           <dl class="inference-metadata">
@@ -219,11 +218,12 @@
           <p class="inference-detail" data-i18n="mcmcLFCaution">Both ensembles use the saved length listed above. Passing the existing diagnostic gate is not proof of global mixing or numerical-resolution convergence. These figures are exploratory, not final parameter constraints.</p>
         </div>
         <figure class="inference-figure">
+          <div id="mcmc-lf-empty" class="inference-empty" role="status" aria-live="polite" hidden></div>
           <a id="mcmc-lf-open" target="_blank" rel="noopener" data-i18n-title="mcmcOpen" title="Open full-resolution figure">
             <img id="mcmc-lf-image" width="1700" height="1700" loading="lazy" decoding="async" alt="LF-only four-parameter sampling distribution">
           </a>
           <figcaption><span>FIG / 06A</span><span id="mcmc-lf-caption"></span></figcaption>
-          <p class="inference-detail" data-i18n="mcmcLFCoordinates">Native coordinates: log₁₀ f★,10, t★, α★, log₁₀(Mturn/M☉). Conversion: log₁₀ f★,10 = η★ + log₁₀ t★.</p>
+          <p id="mcmc-lf-coordinates" class="inference-detail" data-i18n="mcmcLFCoordinates">Native coordinates: log₁₀ f★,10, t★, α★, log₁₀(Mturn/M☉). Conversion only: log₁₀ f★,10 = η★ + log₁₀ t★. Blue / ensemble 0 · Orange / ensemble 1 · Solid / 68% · Dashed / 95% binned sample mass; not validated credible regions.</p>
         </figure>
       </article>
 
@@ -244,10 +244,10 @@
           <a class="system-action" href="ms-corner.html" data-i18n="mcmcDiagnostics">Coordinates & convergence diagnostics ↗</a>
         </div>
         <figure class="inference-figure">
-          <a id="mcmc-joint-open" href="web_data/ms_corner_chunk1/corner_eta.png" target="_blank" rel="noopener" data-i18n-title="mcmcOpen" title="Open full-resolution figure">
-            <img id="mcmc-joint-image" src="web_data/ms_corner_chunk1/corner_eta.png" width="2400" height="2400" loading="lazy" decoding="async" data-i18n-alt="mcmcJointAlt" alt="Preliminary seven-parameter joint sampling distribution; not converged">
+          <a id="mcmc-joint-open" href="web_data/ms_corner_chunk1/corner_eta.png?v=corner-shared-v2" target="_blank" rel="noopener" data-i18n-title="mcmcOpen" title="Open full-resolution figure">
+            <img id="mcmc-joint-image" src="web_data/ms_corner_chunk1/corner_eta.png?v=corner-shared-v2" width="2400" height="2400" loading="lazy" decoding="async" data-i18n-alt="mcmcJointAlt" alt="Preliminary seven-parameter joint sampling distribution; not converged">
           </a>
-          <figcaption><span>FIG / 06B</span><span data-i18n="mcmcJointCaption">Blue / ensemble 0 · Orange / ensemble 1 · η★ = log₁₀(f★,10/t★). Contours are empirical sample regions, not validated credible regions.</span></figcaption>
+          <figcaption><span>FIG / 06B</span><span data-i18n="mcmcJointCaption">Blue / ensemble 0 · Orange / ensemble 1 · Solid / 68% · Dashed / 95% binned sample mass. η★ = log₁₀(f★,10/t★). These are empirical sample regions, not validated credible regions.</span></figcaption>
         </figure>
       </article>
       <p class="inference-separation" data-i18n="mcmcSeparation">Different parameter spaces, separate chains. LF-only fixes both kₚ and mₛ; joint inference also samples mₛ and escape fractions. Differences cannot be attributed solely to adding τ and ξ. Original scientific plot annotations remain in English.</p>
@@ -291,8 +291,8 @@
       </div>
     </div>
   </section>
-  <script src="i18n.js?v=hii256-v22"></script>
-  <script src="mcmc.js?v=hii256-v22"></script>
-  <script src="app.js?v=hii256-v22"></script>
+  <script src="i18n.js?v=hii256-v23"></script>
+  <script src="mcmc.js?v=hii256-v23"></script>
+  <script src="app.js?v=hii256-v23"></script>
 </body>
 </html>

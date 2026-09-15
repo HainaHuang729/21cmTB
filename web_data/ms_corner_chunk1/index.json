@@ -37,5 +37,10 @@
     "corner_eta.png",
     "corner_native.png",
     "ensemble_traces.png"
-  ]
+  ],
+  "figure_sha256": {
+    "corner_eta.png": "b31927206eb5e6c96e864053abe7e156272044e82bcaf8e37180ad9e52e8d630",
+    "corner_native.png": "87bb8c11d7c8ea764aa27fc6d0240c34b15b731ba953d3065697af58a2dd20c6"
+  },
+  "figure_style": "corner-shared-v2"
 }

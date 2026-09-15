@@ -12,7 +12,7 @@ const state = {
   requestSerial: 0,
   sliceIndex: null,
   sliceTimer: null,
-  mcmc: {catalog: null, selectedLF: 0, status: "loading"},
+  mcmc: {catalog: null, selectedLF: -1, status: "loading"},
   plCache: null,
   parametersCollapsed: false,
 };
@@ -20,7 +20,7 @@ const state = {
 const $ = (selector) => document.querySelector(selector);
 const astroNames = new Set(["F_STAR10", "ALPHA_STAR", "F_ESC10", "ALPHA_ESC", "M_TURN", "t_STAR", "L_X", "NU_X_THRESH"]);
 const DATA_VERSION = "hii256-v18";
-const UI_VERSION = "hii256-v22";
+const UI_VERSION = "hii256-v23";
 const LF_REDSHIFTS = [6, 7, 8, 10];
 const t = (key, values) => window.AtlasI18n.t(key, values);
 const PLOT_FONT = '"Avenir Next", "Century Gothic", Futura, "Helvetica Neue", Arial, "Noto Sans CJK SC", "Microsoft YaHei", "PingFang SC", sans-serif';
@@ -258,6 +258,7 @@ function createParameter(specification) {
     updateSliderVisual(control);
     const runId = resolveRunId(specification.name);
     renderModelLabels();
+    window.AtlasMCMC?.render(state.mcmc);
     loadRun(runId);
   });
   state.controls.set(specification.name, control);
@@ -991,6 +992,7 @@ function resetControls() {
   state.activeAstro = null;
   for (const control of state.controls.values()) resetOne(control);
   renderModelLabels();
+  window.AtlasMCMC?.render(state.mcmc);
   return loadRun(state.design.baseline_run_id);
 }
 
@@ -1045,5 +1047,5 @@ window.AtlasI18n.apply();
 renderLocalizedUI();
 initializeMotion();
 initializeParameterDock();
-window.AtlasMCMC?.initialize(state.mcmc);
+window.AtlasMCMC?.initialize(state.mcmc, state.parameters);
 initialize();

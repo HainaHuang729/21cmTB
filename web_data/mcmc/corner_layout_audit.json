@@ -1,0 +1,1602 @@
+{
+  "lf_corner/lf_corner_kp1_ms1.5.png": {
+    "checked_text_items": 31,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 4,
+    "samples_per_ensemble": [
+      160000,
+      160000
+    ],
+    "pixel_size": [
+      1700,
+      1700
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -3.0579181677427143,
+        -1.2838182461503596
+      ],
+      [
+        -0.011637929657896944,
+        1.03414921940614
+      ],
+      [
+        0.36099089252440375,
+        0.6823650433593872
+      ],
+      [
+        7.922473229807891,
+        10.294107807927245
+      ]
+    ],
+    "sources": [
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_only_20260910/job_2128818_0/ensemble_0.h5",
+        "file_sha256": "540c3d741b75b79f26db9552a88faade78111dd217e57b6d50db9c52dcf5a341",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "ace58adf4a335fe2fd26c1dc1994a733940c606f908c2814f8192f82f401cb76"
+      },
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_only_20260910/job_2128818_0/ensemble_1.h5",
+        "file_sha256": "be276608bd9c8dbd727f354c8689a5a6ee7cba851a2a08a48eec63ecfd55b613",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "c5dbfd0e7ea73af05ea682e0e8b2bd5c1947a1bb3f0ab2132d22df2e2c6690ef"
+      }
+    ]
+  },
+  "lf_corner/lf_corner_kp1_ms2.png": {
+    "checked_text_items": 29,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 4,
+    "samples_per_ensemble": [
+      160000,
+      160000
+    ],
+    "pixel_size": [
+      1700,
+      1700
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -3.0350693900921746,
+        -1.9607703923087973
+      ],
+      [
+        0.07676449002597734,
+        1.031220190933782
+      ],
+      [
+        0.6133312789748495,
+        0.9645777873481641
+      ],
+      [
+        7.916316764125288,
+        10.47972588448828
+      ]
+    ],
+    "sources": [
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_0/ensemble_0.h5",
+        "file_sha256": "084c09f863e46cc4412fff7dfeff3dacec43098dc40db0b76683a43af4621a3f",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "ae10ba05a2e158d3c0d13cb549264588c5bd861d8ef4f0e371a7a6c664768897"
+      },
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_0/ensemble_1.h5",
+        "file_sha256": "08646458a0140e4261e2d5a0b053f10b9bdb808fdf6626f9d9cca3ce252f94a0",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "89654fc2431d96a5afdf192aa756d26389debaa9814a9bd8a187841a0cec2e0f"
+      }
+    ]
+  },
+  "lf_corner/lf_corner_kp1_ms2.5.png": {
+    "checked_text_items": 31,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 4,
+    "samples_per_ensemble": [
+      160000,
+      160000
+    ],
+    "pixel_size": [
+      1700,
+      1700
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -3.0914646151736003,
+        -0.2952372768071217
+      ],
+      [
+        -0.017890032576763387,
+        1.0344199180407314
+      ],
+      [
+        0.1545815817187317,
+        1.0285888120377253
+      ],
+      [
+        7.8950241350793835,
+        11.104925843250573
+      ]
+    ],
+    "sources": [
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_1/ensemble_0.h5",
+        "file_sha256": "602207510378a24582cf6a522676718f3d2333bee27b3c6c4d63f8f6f99cd316",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "17752b4f14f5b03279c2c55d93aba1314f8cdb5da95cf17b08c45450e5dcaf56"
+      },
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_1/ensemble_1.h5",
+        "file_sha256": "024789228f4943d791ddcfe0d11b4ca4a635ce0376d6fdac4136a13d3c37ddc0",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "850ddd07ca4f480d26196e602b7d8e4d8b6a37ca485f16b3ae36b93aecdb5667"
+      }
+    ]
+  },
+  "lf_corner/lf_corner_kp1_ms3.25.png": {
+    "checked_text_items": 31,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 4,
+    "samples_per_ensemble": [
+      160000,
+      160000
+    ],
+    "pixel_size": [
+      1700,
+      1700
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -3.086268608886114,
+        -0.44891370117616725
+      ],
+      [
+        -0.02428448878287115,
+        1.034637376708068
+      ],
+      [
+        0.2665443804898482,
+        0.8496922076412379
+      ],
+      [
+        7.921885309205031,
+        11.104090274001617
+      ]
+    ],
+    "sources": [
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_2/ensemble_0.h5",
+        "file_sha256": "746d0ab491b0c0c3ec134ee95197df899c4e6f52ec100f01fd44cf629c9576f2",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "ca120a02dcfa2774bc6e77d56a5d1988e4adace9c823628023a83b6e0b992e05"
+      },
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_2/ensemble_1.h5",
+        "file_sha256": "5ae246749cbf055fdafbba6cae2d981111cb70466ee93391ea02c105c287e613",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "955d83644df9662860596acce51714e0ebfcbcff7b3285aec0f20cb2efc47f07"
+      }
+    ]
+  },
+  "lf_corner/lf_corner_kp1_ms4.png": {
+    "checked_text_items": 29,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 4,
+    "samples_per_ensemble": [
+      160000,
+      160000
+    ],
+    "pixel_size": [
+      1700,
+      1700
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -3.0783844114874204,
+        -0.6820325318383255
+      ],
+      [
+        -0.02426745727100641,
+        1.0346296506867343
+      ],
+      [
+        -0.37214791630567573,
+        0.9512046549708401
+      ],
+      [
+        7.895098996019718,
+        11.10470749055455
+      ]
+    ],
+    "sources": [
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_3/ensemble_0.h5",
+        "file_sha256": "17bbb867fd3e4e8b62573f2935fb3f55b48372cacc708ca5338df8a6ba919144",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "c08c49d456d0e0dfd37225da3a3ff4c73ad6c44f7ddfa592c17edc245ecfd39f"
+      },
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_3/ensemble_1.h5",
+        "file_sha256": "e6dadc3e81481d53b787d06ce98fe03ab72fe314498855c7d5be2c9801144ca9",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "5deaf609f56f382bf490b7932b644fb872e02c9200d658bc8c91af598de84d0a"
+      }
+    ]
+  },
+  "lf_corner/lf_corner_kp3_ms1.5.png": {
+    "checked_text_items": 31,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 4,
+    "samples_per_ensemble": [
+      128000,
+      128000
+    ],
+    "pixel_size": [
+      1700,
+      1700
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -3.0753460368693375,
+        -0.7526791599071451
+      ],
+      [
+        -0.024637840497508397,
+        1.0346470082845072
+      ],
+      [
+        0.20569252487517675,
+        0.49932390452396846
+      ],
+      [
+        8.804567024130646,
+        10.19875165210967
+      ]
+    ],
+    "sources": [
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_4/ensemble_0.h5",
+        "file_sha256": "8bf4058ea60254d9dea114d265ae092d753da3de1cb4d5f6da9bbee225ac0807",
+        "retained_shape": [
+          4000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "048a2e6183f70ef97a5960b844cca86c50d6515cfd7aa90c61677761ac65ff6e"
+      },
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_4/ensemble_1.h5",
+        "file_sha256": "f26a6df7463cb5776c2325016543c276519a4bac598ad5dd450271cfa9b57c8f",
+        "retained_shape": [
+          4000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "f121256520311886f067389932bcfe6fb5a261908a30d03371d98d89c5b26c60"
+      }
+    ]
+  },
+  "lf_corner/lf_corner_kp3_ms2.png": {
+    "checked_text_items": 30,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 4,
+    "samples_per_ensemble": [
+      160000,
+      160000
+    ],
+    "pixel_size": [
+      1700,
+      1700
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -3.07040667195001,
+        -0.9140274965599605
+      ],
+      [
+        -0.023683521549084645,
+        1.034614755820517
+      ],
+      [
+        0.2785124754293858,
+        0.6127984091375479
+      ],
+      [
+        9.137651797860071,
+        10.44044766355869
+      ]
+    ],
+    "sources": [
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_5/ensemble_0.h5",
+        "file_sha256": "b079039242c76063c47e6a05ec8f9ecbb033ba120eeb3c97b1cbf929ffaf99f2",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "6ccb322619ace301e8614196b685fa702c001ddc231d72eba85780564be9fc52"
+      },
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_5/ensemble_1.h5",
+        "file_sha256": "7f8d1f40f3ab94b457d951be05477092d8395ebb0cb2924c7a0bf86cb4df2a68",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "2971dfc6c65f7d2d9debeae0398306b5c4928417c80218d4387554fdf87fecf3"
+      }
+    ]
+  },
+  "lf_corner/lf_corner_kp3_ms2.5.png": {
+    "checked_text_items": 32,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 4,
+    "samples_per_ensemble": [
+      160000,
+      160000
+    ],
+    "pixel_size": [
+      1700,
+      1700
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -3.0653106196988937,
+        -1.0683176258699478
+      ],
+      [
+        -0.018372213590348338,
+        1.0344264105102952
+      ],
+      [
+        0.4039385707366535,
+        0.7828030153661586
+      ],
+      [
+        9.214937890097257,
+        10.563604761397198
+      ]
+    ],
+    "sources": [
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_6/ensemble_0.h5",
+        "file_sha256": "8dd27ef1d95b87ff5bc106a42885becfe3c34eb58703a54e46c22cfa49b76101",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "1cc9d177c90b52ebc21359e5c47b409621473515316a0ce5d95ac3096794cb11"
+      },
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_6/ensemble_1.h5",
+        "file_sha256": "a6477587efa24c0ddf8fef267acc9f1a4e34cf661ff6c130f991afa1f4151361",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "0418aced28cb01326fa847816c3263cd14c03afb429863d2e7d2f23c9553155f"
+      }
+    ]
+  },
+  "lf_corner/lf_corner_kp3_ms3.25.png": {
+    "checked_text_items": 29,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 4,
+    "samples_per_ensemble": [
+      160000,
+      160000
+    ],
+    "pixel_size": [
+      1700,
+      1700
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -3.051236161849902,
+        -1.4827715515557154
+      ],
+      [
+        0.0062192845389937995,
+        1.0336044849876171
+      ],
+      [
+        0.6223000738914779,
+        1.0124629805728245
+      ],
+      [
+        8.530135038922884,
+        10.67939829897253
+      ]
+    ],
+    "sources": [
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_7/ensemble_0.h5",
+        "file_sha256": "44c3c88dd57638ae4cad70f28ed092d00566d7182740ac54a9b4c5772ba24969",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "3b26ccf61b8c25e1e2f7c6d426c66ec1765d3d5e1eb45f0d622337cf5ab02cf8"
+      },
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_7/ensemble_1.h5",
+        "file_sha256": "088197d7abc3bbfe4533603d8c1df11a4c0ac36fe9817e2fc0aa83701909216e",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "1088eaf7523fe4591884c79d8d0773fab3c9dc570a5a467464d622e283076f40"
+      }
+    ]
+  },
+  "lf_corner/lf_corner_kp3_ms4.png": {
+    "checked_text_items": 27,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 4,
+    "samples_per_ensemble": [
+      160000,
+      160000
+    ],
+    "pixel_size": [
+      1700,
+      1700
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -3.037075963230194,
+        -1.9028677697510856
+      ],
+      [
+        0.06541960762157012,
+        1.0315945568698368
+      ],
+      [
+        0.8035297419483175,
+        1.0066437413244465
+      ],
+      [
+        7.92448267002027,
+        11.04543753399146
+      ]
+    ],
+    "sources": [
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_8/ensemble_0.h5",
+        "file_sha256": "b99a600219dc75adb082e38d2ec5a31f105bb0ab45b8a036d2af80e56453260e",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "162896013af8e0f849358371f08c3756213718133f7ac699cb2d4663700c8098"
+      },
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_8/ensemble_1.h5",
+        "file_sha256": "8c6493d9f3f12fa6a4435e53a16c81b11d2df612ab0909561c3d09ea9c4dd440",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "522e0a2c4d422f0676574fe2b2d635cdf55a95fdb17730f26b6f787e17b937a0"
+      }
+    ]
+  },
+  "lf_corner/lf_corner_kp10_ms1.5.png": {
+    "checked_text_items": 31,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 4,
+    "samples_per_ensemble": [
+      160000,
+      160000
+    ],
+    "pixel_size": [
+      1700,
+      1700
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -2.920647003978823,
+        -0.6173421031904102
+      ],
+      [
+        -0.02464091482104814,
+        1.0346473622865253
+      ],
+      [
+        0.11213062373777113,
+        0.36995637023473543
+      ],
+      [
+        8.395672468516066,
+        10.028296484713874
+      ]
+    ],
+    "sources": [
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_9/ensemble_0.h5",
+        "file_sha256": "373aa19f8d32073adea8b0436ebf097da8d516d83f1a8c80a036a40c4e2fe64f",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "608482c0c90e2c12d0ba515d59e13870271a70c846b3e38cda31ccd0fc9606e7"
+      },
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_9/ensemble_1.h5",
+        "file_sha256": "6c2547965431536a25d63fc570c82ee165c6832208af1c86da340c3a2e2f8f23",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "e77be15a4678035542a8003302c6bda670fd5843dd87a57a543d64fba18d64ca"
+      }
+    ]
+  },
+  "lf_corner/lf_corner_kp10_ms2.png": {
+    "checked_text_items": 31,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 4,
+    "samples_per_ensemble": [
+      160000,
+      160000
+    ],
+    "pixel_size": [
+      1700,
+      1700
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -2.9320757777869844,
+        -0.6241825865678351
+      ],
+      [
+        -0.024629189856745795,
+        1.0346023901944768
+      ],
+      [
+        0.11253411620885226,
+        0.37221001841005413
+      ],
+      [
+        9.00475026065301,
+        10.03612410870836
+      ]
+    ],
+    "sources": [
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_10/ensemble_0.h5",
+        "file_sha256": "6a0e130161bc3e8d4208a82ebc1ab69e3d1f954102c0d4db3dbc2eecafc91350",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "30166136356ea4a18a9846a21768227fffa0f0b0ebed7334c9f2e253b2f905eb"
+      },
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_10/ensemble_1.h5",
+        "file_sha256": "9c99dd42c86c5ae66d64393daa9ea15e6118cc941dbe125f0795d92eb23afc9c",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "368d99d6103537288dfa252f542b25b7ae2a8194210bce43fe5539198a4c37eb"
+      }
+    ]
+  },
+  "lf_corner/lf_corner_kp10_ms2.5.png": {
+    "checked_text_items": 31,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 4,
+    "samples_per_ensemble": [
+      160000,
+      160000
+    ],
+    "pixel_size": [
+      1700,
+      1700
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -2.9461282662345116,
+        -0.6246701505447319
+      ],
+      [
+        -0.024644720556598505,
+        1.0346300341698875
+      ],
+      [
+        0.11459873989510815,
+        0.360499613569378
+      ],
+      [
+        9.141777105250588,
+        10.116108837344962
+      ]
+    ],
+    "sources": [
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_only_20260910/job_2128818_1/ensemble_0.h5",
+        "file_sha256": "ac32bb7f9fac83dc32c6635899ee36e707c63d1663069e7d6de649f36f4e06e9",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "6962626a0fdb3d99b9ebe03258cd6dfb55a05fe1930bf84c877b4e38e76c8a36"
+      },
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_only_20260910/job_2128818_1/ensemble_1.h5",
+        "file_sha256": "22a746f086d93ca018d05f7b1f083dcfa11126b461bb8f130951c9ba6501e834",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "aab72530c61ee47de9df81c1786cb05a76e474145793b9a703cd0c38dc902bca"
+      }
+    ]
+  },
+  "lf_corner/lf_corner_kp10_ms3.25.png": {
+    "checked_text_items": 31,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 4,
+    "samples_per_ensemble": [
+      160000,
+      160000
+    ],
+    "pixel_size": [
+      1700,
+      1700
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -2.9441920358210854,
+        -0.6257321647931355
+      ],
+      [
+        -0.024645397331571187,
+        1.0346438966963096
+      ],
+      [
+        0.1067380787338445,
+        0.3644399778969512
+      ],
+      [
+        9.42153656843974,
+        10.101947952925558
+      ]
+    ],
+    "sources": [
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_11/ensemble_0.h5",
+        "file_sha256": "ef4a286cf1aeb5958660731c63eaf2c99252ec9bd68e6e0a4a98d7089179ef20",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "625f656bddf3c135fd29d56506122d92da86f3d6a74218024724d164046c01d4"
+      },
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_11/ensemble_1.h5",
+        "file_sha256": "8506994336b713975d4d22a06dd7a3f33e79e3a772cf27841056f1c8b071dcea",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "69358ae0a0ff3d6ddf612c8e815f5724e6abdc75d645c6e65322a9c0381e54f1"
+      }
+    ]
+  },
+  "lf_corner/lf_corner_kp10_ms4.png": {
+    "checked_text_items": 29,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 4,
+    "samples_per_ensemble": [
+      160000,
+      160000
+    ],
+    "pixel_size": [
+      1700,
+      1700
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -2.984245853422267,
+        -0.6369705733568654
+      ],
+      [
+        -0.024630349159326596,
+        1.0346265320172905
+      ],
+      [
+        0.13090850323080866,
+        0.38119711536322687
+      ],
+      [
+        9.608984928827178,
+        10.166987291863743
+      ]
+    ],
+    "sources": [
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_12/ensemble_0.h5",
+        "file_sha256": "79259fcd288074e1266680af269427ff993f27f93fd4d0d88d56c256a5a6661e",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "0c70b7ae67842772d51f46552873fcb859e70011f4a2ae3dc1f38e9f740d4a04"
+      },
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_12/ensemble_1.h5",
+        "file_sha256": "58fc6a4ba1f1a957df2a2f3772261ba3af9321fc9b8c4a8fd2ab2bd04f039579",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "0dc4afecb90759a70894896511dd2a950daf401fb12d2531a8d2f56b4dca7c42"
+      }
+    ]
+  },
+  "lf_corner/lf_corner_kp20_ms1.5.png": {
+    "checked_text_items": 31,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 4,
+    "samples_per_ensemble": [
+      160000,
+      160000
+    ],
+    "pixel_size": [
+      1700,
+      1700
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -2.925021231499461,
+        -0.626961938004301
+      ],
+      [
+        -0.024648091826030137,
+        1.0346433033876825
+      ],
+      [
+        0.10350909304369116,
+        0.37098415872044244
+      ],
+      [
+        7.956545782907846,
+        10.07431921499705
+      ]
+    ],
+    "sources": [
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_13/ensemble_0.h5",
+        "file_sha256": "5bb3d2dd02839643b88f3f8276c81c5f2d531d9271183a432fde90b7545d57ce",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "7009793acb7b160da131ebcae8714510fbfac1950ea09a79d2fe48269faffa4c"
+      },
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_13/ensemble_1.h5",
+        "file_sha256": "9255ac096d1bb7ff6e61fa13ac24c18f3037f5b1e439d09998d422f9de42b55e",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "99e386a0cc6a2a020c9db954ee8584d9a1f4324443ca9b6b999d6c7ab8a05e31"
+      }
+    ]
+  },
+  "lf_corner/lf_corner_kp20_ms2.png": {
+    "checked_text_items": 29,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 4,
+    "samples_per_ensemble": [
+      160000,
+      160000
+    ],
+    "pixel_size": [
+      1700,
+      1700
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -2.941698183725488,
+        -0.6086552488277647
+      ],
+      [
+        -0.024642634967098842,
+        1.0346452188211481
+      ],
+      [
+        0.11575123226542713,
+        0.3849276352658634
+      ],
+      [
+        8.089623132101773,
+        10.030248185333624
+      ]
+    ],
+    "sources": [
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_14/ensemble_0.h5",
+        "file_sha256": "0b67126e3d4c0d44e493c0406999ec33d33bf7b6fd3ff2b154a2d9e0b35665a8",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "0320d9c7233d65e1a209e3b1770513bc7011c5a356839893716d2b7d6117fbbd"
+      },
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_14/ensemble_1.h5",
+        "file_sha256": "305b36a0dfb5b89b36985d60d9034cdb17bd2d5f34c789640dba88592da8b8a0",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "ffece4b70bbf65cd7852dbda9f2498913cd3df88c4154ae53de75c642a57e2a6"
+      }
+    ]
+  },
+  "lf_corner/lf_corner_kp20_ms2.5.png": {
+    "checked_text_items": 31,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 4,
+    "samples_per_ensemble": [
+      160000,
+      160000
+    ],
+    "pixel_size": [
+      1700,
+      1700
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -2.9340749467074,
+        -0.6183704524051857
+      ],
+      [
+        -0.024648575983864114,
+        1.0346492023484026
+      ],
+      [
+        0.09278710316137145,
+        0.380594323630728
+      ],
+      [
+        8.095426129593815,
+        10.059911874226003
+      ]
+    ],
+    "sources": [
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_15/ensemble_0.h5",
+        "file_sha256": "d5794622e20ffe2c2e93185848c8093e4b2169b01be0901d937c86c9d7b2eedd",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "7d52f72f3ceac7a78e1e6eab977d1d2f41e51dd42ae87d76c14fe6ae364666fb"
+      },
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_15/ensemble_1.h5",
+        "file_sha256": "67f64517c286f29a5724dc1882b6ac02c3c2b530b49befcda5545487a388752f",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "aed81dfcb27e7f52df94790aa3d0780b7e7d1f007d891eb81fce72f002542f46"
+      }
+    ]
+  },
+  "lf_corner/lf_corner_kp20_ms3.25.png": {
+    "checked_text_items": 31,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 4,
+    "samples_per_ensemble": [
+      160000,
+      160000
+    ],
+    "pixel_size": [
+      1700,
+      1700
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -2.9458382414268147,
+        -0.6155754041939858
+      ],
+      [
+        -0.02464426881457798,
+        1.0346436811913693
+      ],
+      [
+        0.11773255728822377,
+        0.363681964613883
+      ],
+      [
+        8.250741944652173,
+        10.039744671437582
+      ]
+    ],
+    "sources": [
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_16/ensemble_0.h5",
+        "file_sha256": "ce7fc727fb72050fd9c58349d9fca6de6bff6cb9191e32444350113c3304e0dd",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "a2a7ace259233b864d5bf9e4d1b6854fe2c0a1c3839821a15c2dda4acf84b36d"
+      },
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_16/ensemble_1.h5",
+        "file_sha256": "266f1d0698d2443b8244a02f6b9c7f3aed409d9ce83e01f91a2bbc78eddacc16",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "272aaaae0eb80695ec0eb9d2fa9fd411dca8b6598a6256301cdffc4a5c3b9e6f"
+      }
+    ]
+  },
+  "lf_corner/lf_corner_kp20_ms4.png": {
+    "checked_text_items": 31,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 4,
+    "samples_per_ensemble": [
+      160000,
+      160000
+    ],
+    "pixel_size": [
+      1700,
+      1700
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -2.9637730540560256,
+        -0.628682996243927
+      ],
+      [
+        -0.024629502656971447,
+        1.0346397562130407
+      ],
+      [
+        0.11666582452476869,
+        0.36416398380783715
+      ],
+      [
+        8.629696169535963,
+        10.024646293810823
+      ]
+    ],
+    "sources": [
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_17/ensemble_0.h5",
+        "file_sha256": "261f2d57a294a905f6010c45f06db592a050b812d60d1ae76a041f3aadb771ea",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "e3e73fc9f548a96e2599cb7eca98b4c80962c1853837af5c5e215fa18c9e41fb"
+      },
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_17/ensemble_1.h5",
+        "file_sha256": "51633fd15a0434ee2d674640ee6f057b5fd78a11280e422f0663f087be39d173",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "f010205c8e3f0b610b2f454bb0bfb58c3b8663c7d03fe52f5226472edaab0c32"
+      }
+    ]
+  },
+  "lf_corner/lf_corner_kp30_ms1.5.png": {
+    "checked_text_items": 29,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 4,
+    "samples_per_ensemble": [
+      160000,
+      160000
+    ],
+    "pixel_size": [
+      1700,
+      1700
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -2.949700260303118,
+        -0.5933128063827251
+      ],
+      [
+        -0.02464869277861547,
+        1.0346317564205434
+      ],
+      [
+        0.1031507897304673,
+        0.38059322628135966
+      ],
+      [
+        8.048252242401405,
+        10.050702522143105
+      ]
+    ],
+    "sources": [
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_18/ensemble_0.h5",
+        "file_sha256": "b69c1263e15821c427f4b7e8aef39f13db5a3b6f9e59d155b5d415cfffdbb2f3",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "0e40757c4e00cf2eebdb12b8833086e2d3e11391b20e0b1dbf2f850f13002e10"
+      },
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_18/ensemble_1.h5",
+        "file_sha256": "905cd0b8dc6082eff368d467c774a86721e752c8b56484f39e1fd1bbcb8ac586",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "240962628d69e068a7363cae4acd36d8d9dc711af886166059dbe4ca7543758d"
+      }
+    ]
+  },
+  "lf_corner/lf_corner_kp30_ms2.png": {
+    "checked_text_items": 29,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 4,
+    "samples_per_ensemble": [
+      160000,
+      160000
+    ],
+    "pixel_size": [
+      1700,
+      1700
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -2.931736301170349,
+        -0.6286890114834429
+      ],
+      [
+        -0.024615589527604592,
+        1.0346274562716289
+      ],
+      [
+        0.11593885724006138,
+        0.3797415371902278
+      ],
+      [
+        8.025550711632278,
+        10.048011950210393
+      ]
+    ],
+    "sources": [
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_19/ensemble_0.h5",
+        "file_sha256": "b36b5c3b8897c99479dc5fc501433c9a6990e188cb0254c0d83c33e68292d003",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "92b0833ff92a895cb9161ed3792c143252b7e314a5d7ae8cc82b4fd158da91ef"
+      },
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_19/ensemble_1.h5",
+        "file_sha256": "92d5d03f736e8d55a95e6e0bf4f1851acd461dd20f347376f796655e0eb3a29e",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "f3d9f63c11250817205b0298005131a3a97af1e26061588aeca35870029f2cc9"
+      }
+    ]
+  },
+  "lf_corner/lf_corner_kp30_ms2.5.png": {
+    "checked_text_items": 31,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 4,
+    "samples_per_ensemble": [
+      160000,
+      160000
+    ],
+    "pixel_size": [
+      1700,
+      1700
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -2.9361106286798844,
+        -0.6057717447375384
+      ],
+      [
+        -0.024632978372360857,
+        1.0346255219745493
+      ],
+      [
+        0.10595121258853982,
+        0.37679510878132905
+      ],
+      [
+        7.9608673651419375,
+        10.06662407313477
+      ]
+    ],
+    "sources": [
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_20/ensemble_0.h5",
+        "file_sha256": "5df181f912cf02a4435c0f4e38839dbfb188c4b87e583f9abb571e04134430c1",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "bef7104920fcab67da7d44aef6275bab628deddcbe19736dda60167ad78d079e"
+      },
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_20/ensemble_1.h5",
+        "file_sha256": "6b2215f67530abc317305ab0a764bdc4cfe66aa986288c69dc939eddb0d3aec8",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "d6f7a94837944fcf38d4af8c7223916b84fa87b9b0dc3110b389d6ea7094fdc4"
+      }
+    ]
+  },
+  "lf_corner/lf_corner_kp30_ms3.25.png": {
+    "checked_text_items": 29,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 4,
+    "samples_per_ensemble": [
+      160000,
+      160000
+    ],
+    "pixel_size": [
+      1700,
+      1700
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -2.943155514588226,
+        -0.6205445267742664
+      ],
+      [
+        -0.024646548247113632,
+        1.0346485515383859
+      ],
+      [
+        0.1078735090109661,
+        0.3690269791260964
+      ],
+      [
+        8.13148734838244,
+        10.028215629743332
+      ]
+    ],
+    "sources": [
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_21/ensemble_0.h5",
+        "file_sha256": "be57613d3ed4bed654f7237b5000c954de71b1f3586cbff3dadf712a8adccaef",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "48240aa2ccddb7a1477b37d364944a68593ab1714a4132cc0ed46c27b35b8afe"
+      },
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_grid_remaining_20260914/job_2132128_21/ensemble_1.h5",
+        "file_sha256": "7f94048dde2eac753a7b2ee799c484b05bc775597ece19d2d490359217f404ad",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "7218b509378fb054426edcf6f05c4ab41ae3fcaa14d118cad03e58463f3dd49a"
+      }
+    ]
+  },
+  "lf_corner/lf_corner_kp30_ms4.png": {
+    "checked_text_items": 31,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 4,
+    "samples_per_ensemble": [
+      160000,
+      160000
+    ],
+    "pixel_size": [
+      1700,
+      1700
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -2.9823980345383476,
+        -0.6213666524629141
+      ],
+      [
+        -0.02460881651050125,
+        1.0346464853883461
+      ],
+      [
+        0.11144446642743708,
+        0.3839579430290835
+      ],
+      [
+        8.351486053611245,
+        10.027447304244829
+      ]
+    ],
+    "sources": [
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_only_20260910/job_2128818_2/ensemble_0.h5",
+        "file_sha256": "fa20905ebcf581b9e24e768f3b97238d830784c75c0a1c70e7386eb41057f639",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "bf728a50b83d32647aab2e8e3078b972c99e341ec939f8d12d1d279df65d5e1c"
+      },
+      {
+        "file": "workflows/MCMC/fixed_btps_posterior/runs/web_fixed_bt_lf_only_20260910/job_2128818_2/ensemble_1.h5",
+        "file_sha256": "43d4e6b1670861df271e530fea43096c58d09aea4cf91cecebe6dd01f9e630d0",
+        "retained_shape": [
+          5000,
+          32,
+          4
+        ],
+        "retained_values_sha256": "bbab460b82732e01811a426d7027ca6550e787e3a74e349cfcc8bee0bc4fa4c2"
+      }
+    ]
+  },
+  "ms_corner_chunk1/corner_eta.png": {
+    "checked_text_items": 51,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 7,
+    "samples_per_ensemble": [
+      10240,
+      10240
+    ],
+    "pixel_size": [
+      2400,
+      2400
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -2.1499492118492394,
+        -0.44433079048255714
+      ],
+      [
+        0.019134003903279496,
+        1.0319430395248317
+      ],
+      [
+        0.11949989085797978,
+        0.8037609906215006
+      ],
+      [
+        7.931286268365822,
+        10.19643034547508
+      ],
+      [
+        -2.001849447218535,
+        0.05640951114383186
+      ],
+      [
+        -1.0417581317265878,
+        0.5516611882191126
+      ],
+      [
+        0.5689475260933406,
+        1.9984031342144533
+      ]
+    ]
+  },
+  "ms_corner_chunk1/corner_native.png": {
+    "checked_text_items": 51,
+    "clipped_text": [],
+    "text_overlaps": [],
+    "text_on_plot": [],
+    "passed": true,
+    "style": "corner-shared-v2",
+    "dimensions": 7,
+    "samples_per_ensemble": [
+      10240,
+      10240
+    ],
+    "pixel_size": [
+      2400,
+      2400
+    ],
+    "bins_1d": 35,
+    "bins_2d": 32,
+    "smoothing": false,
+    "limits": [
+      [
+        -3.017871149550623,
+        -0.6658617559114255
+      ],
+      [
+        0.019134003903279496,
+        1.0319430395248317
+      ],
+      [
+        0.11949989085797978,
+        0.8037609906215006
+      ],
+      [
+        7.931286268365822,
+        10.19643034547508
+      ],
+      [
+        -2.001849447218535,
+        0.05640951114383186
+      ],
+      [
+        -1.0417581317265878,
+        0.5516611882191126
+      ],
+      [
+        0.5689475260933406,
+        1.9984031342144533
+      ]
+    ]
+  }
+}

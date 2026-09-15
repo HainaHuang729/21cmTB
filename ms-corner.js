@@ -23,7 +23,7 @@ Object.assign(window.AtlasI18n.messages, {
   msData: ["Data: 49 LF points — HST z = 6, 7, 8 and Donnan (2024) z = 9, 10, restricted to z < 11 — plus Planck τₑ and McGreer xHI(5.9). No 21-cm likelihood is used.", "约束数据：49个LF点（HST z = 6, 7, 8；Donnan 2024 z = 9, 10，仅 z < 11），加上 Planck τₑ 和 McGreer xHI(5.9)。不使用任何21厘米似然。"],
   msCompute: ["Direct 21cmFAST coeval simulations plus τ integration; no emulator or lightcone. HII_DIM = 128, DIM = 512, BOX_LEN = 250 cMpc. These are not the Atlas lightcone-grid runs.", "直接运行 21cmFAST 共时模拟并积分计算 τ；不使用模拟器或光锥。HII_DIM = 128，DIM = 512，BOX_LEN = 250 cMpc。与图谱首页的光锥网格不是同一组运行。"],
   msSampling: ["Sampling coordinates", "采样参数坐标"],
-  msCaption: ["η★ = log₁₀(f★,10/t★); masses are in M☉. Blue: ensemble 0. Orange: ensemble 1. Contours enclose 68% / 95% of each empirical distribution, not validated credible regions.", "η★ = log₁₀(f★,10/t★)，质量单位为 M☉。蓝色为 ensemble 0，橙色为 ensemble 1。轮廓包围各组经验分布的68% / 95%样本质量，并非已通过验证的可信区域。"],
+  msCaption: ["η★ = log₁₀(f★,10/t★); masses are in M☉. Blue: ensemble 0. Orange: ensemble 1. Solid / 68%; dashed / 95% binned sample mass. These are empirical sample regions, not validated credible regions.", "η★ = log₁₀(f★,10/t★)，质量单位为 M☉。蓝色为 ensemble 0，橙色为 ensemble 1。实线 / 68%；虚线 / 95% 分箱样本质量。轮廓为经验采样区域，并非已通过验证的可信区域。"],
   msFigureLanguage: ["Scientific symbols and the original English plot annotations are shared between languages; captions and interpretation switch with the interface.", "两种语言共用科学符号和原始英文图内标注；图注及解读随界面语言切换。"],
   msNative: ["Native stellar-efficiency coordinates", "原始恒星形成效率坐标"],
   msTransform: ["Coordinate transformation only: log₁₀ f★,10 = η★ + log₁₀ t★. No resampling or change of weights.", "仅作坐标变换：log₁₀ f★,10 = η★ + log₁₀ t★，没有重新采样或改变权重。"],
