@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="zh-Hans">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Cache-Control" content="no-cache">
   <link rel="canonical" href="park-pl-comparison.html">
-  <title>Park / PL · 合并对照</title>
+  <title>Park / PL · Combined comparison</title>
   <style>
     :root { color-scheme: light; --ink: #181a19; --muted: #686b67; --line: #d6d7d2; }
     * { box-sizing: border-box; }
@@ -40,34 +40,34 @@
 </head>
 <body>
 <main>
-  <nav aria-label="对照页导航">
-    <a href="index.html#mcmc-section">← 返回 MCMC 归档</a>
-    <a href="#comparison">合并图</a>
-    <a href="#parameters">参数汇总</a>
+  <nav aria-label="Comparison navigation">
+    <a href="index.html#mcmc-section">← Back to MCMC archive</a>
+    <a href="#comparison">Combined figure</a>
+    <a href="#parameters">Parameter summary</a>
   </nav>
   <header>
     <p class="technical">LF ONLY / PARK + PL / MUV &gt; −20</p>
-    <h1>Park / PL · 合并对照</h1>
-    <p>保留最新的两模型叠加版本：四参数 corner 与最佳拟合 LF 放在同一张图中。</p>
-    <p><span class="park">红色实线：Park 设置的 PL</span>；<span class="pl">蓝色虚线：当前 HST+JWST 数据的 −20 PL</span>。两者均为 PL 宇宙学，分别独立归一化，不是 BPL 与 PL 的比较。</p>
-    <p class="muted">Park 使用 27 个 HST 点（z = 6、7、8、10）；当前 PL 使用 34 个 HST+JWST 点（z = 6、7、8、9、10）。两者的 Mturn 和 t★ 先验也不同，因此不能将差异只归因于观测数据的变化。</p>
-    <aside class="status" role="note">两条链各 15000 步 × 32 walkers × 2 ensembles，均尚未通过收敛检查（Park 最大 R̂≈2.07，当前 PL≈2.22）。这些是探索性采样结果，不是最终参数约束。</aside>
+    <h1>Park / PL · Combined comparison</h1>
+    <p>The latest two-model overlay combines the four-parameter corner plot and best-fit luminosity functions in one figure.</p>
+    <p><span class="park">Red solid: PL with Park settings</span>; <span class="pl">Blue dashed: PL with the current HST+JWST data and MUV &gt; −20</span>. Both use PL cosmology and are normalized separately. This is not a BPL–PL comparison.</p>
+    <p class="muted">Park uses 27 HST points at z = 6, 7, 8, 10; the current PL analysis uses 34 HST+JWST points at z = 6, 7, 8, 9, 10. The Mturn and t★ priors also differ, so differences cannot be attributed solely to the observational data.</p>
+    <aside class="status" role="note">Each model has 15000 stored steps × 32 walkers × 2 ensembles. Neither has passed the convergence checks (maximum R̂ ≈ 2.07 for Park and ≈ 2.22 for the current PL analysis). These are exploratory sampling results, not final parameter constraints.</aside>
   </header>
   <section id="comparison" aria-labelledby="comparison-title">
-    <h2 id="comparison-title">Corner + 最佳拟合 LF</h2>
+    <h2 id="comparison-title">Corner + best-fit LF</h2>
     <figure>
-      <a href="web_data/park_pl_comparison/park_vs_pl_muv20.png?v=208596455ee6" target="_blank" rel="noopener" title="打开原始分辨率合并图">
-        <img src="web_data/park_pl_comparison/park_vs_pl_muv20.png?v=208596455ee6" width="2080" height="2080" alt="Park 与最新 −20 PL 的叠加 corner 和 z=6、7、8、10 最佳拟合 LF">
+      <a href="web_data/park_pl_comparison/park_vs_pl_muv20.png?v=208596455ee6" target="_blank" rel="noopener" title="Open the full-resolution combined figure">
+        <img src="web_data/park_pl_comparison/park_vs_pl_muv20.png?v=208596455ee6" width="2080" height="2080" alt="Overlaid Park and current MUV > −20 PL corner plot with best-fit LF at z = 6, 7, 8, 10">
       </a>
-      <figcaption>FIG / 01 · LF 面板展示 z = 6、7、8、10。各条曲线取对应链的最大 LF 似然样本；共同的 HST 点只绘制一次，z = 10 同时展示 HST 与 JWST 数据。PL 拟合还使用 z = 9，完整曲线与观测值保留在下载数据中。</figcaption>
+      <figcaption>FIG / 01 · The LF panels show z = 6, 7, 8, 10. Each model’s curves use its maximum-LF-likelihood sample. Shared HST points are plotted once; z = 10 includes both HST and JWST data. The PL fit also includes z = 9; all curves and observations are available in the data download.</figcaption>
     </figure>
   </section>
   <section id="parameters" aria-labelledby="parameters-title">
-    <h2 id="parameters-title">参数汇总</h2>
-    <div class="scroll" role="region" aria-label="Park 与 PL 参数表" tabindex="0">
+    <h2 id="parameters-title">Parameter summary</h2>
+    <div class="scroll" role="region" aria-label="Park and PL parameter table" tabindex="0">
       <table>
-        <caption>最佳样本为同一组最大 LF 似然参数；中位数与 16%–84% 为各参数的边缘采样分位数。</caption>
-        <thead><tr><th scope="col">模型</th><th scope="col">参数</th><th scope="col">最佳样本</th><th scope="col">中位数</th><th scope="col">16%–84%</th></tr></thead>
+        <caption>Best-sample values belong to the same maximum-LF-likelihood parameter set. Medians and 16%–84% ranges are marginal sample quantiles.</caption>
+        <thead><tr><th scope="col">Model</th><th scope="col">Parameter</th><th scope="col">Best sample</th><th scope="col">Median</th><th scope="col">16%–84%</th></tr></thead>
         <tbody>
           <tr><th scope="row">Park</th><td>log₁₀ f★,10</td><td>-1.2266</td><td>-1.2403</td><td>-1.7194 – -1.0205</td></tr>
           <tr><th scope="row">Park</th><td>t★</td><td>0.5451</td><td>0.5012</td><td>0.1564 – 0.8406</td></tr>
@@ -82,8 +82,8 @@
     </div>
   </section>
   <footer>
-    <a href="web_data/park_pl_comparison/index.json">下载两模型的完整曲线、参数与诊断数据 ↗</a>
-    <a href="index.html#mcmc-section">返回 MCMC 归档</a>
+    <a href="web_data/park_pl_comparison/index.json">Download complete curves, parameters and diagnostics for both models ↗</a>
+    <a href="index.html#mcmc-section">Back to MCMC archive</a>
   </footer>
 </main>
 </body>

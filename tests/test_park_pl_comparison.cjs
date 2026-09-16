@@ -51,7 +51,19 @@ test("the single combined figure is the unchanged latest Park/PL overlay", () =>
   assert.deepEqual(Object.keys(data.PL.observations), ["6", "7", "8", "9", "10"]);
   assert.equal(Object.values(data.Park.observations).flat().length, 27);
   assert.equal(Object.values(data.PL.observations).flat().length, 34);
-  assert.match(html, /均尚未通过收敛检查/);
+  assert.match(html, /Neither has passed the convergence checks/);
+});
+
+test("the comparison and legacy pages use English throughout", () => {
+  for (const file of ["park-pl-comparison.html", "park2019-lf.html", "pl-muv20-lf.html"]) {
+    const page = read(file);
+    assert.match(page, /<html lang="en">/);
+    assert.doesNotMatch(page, /[\u3400-\u4dbf\u4e00-\u9fff]/u);
+  }
+  for (const label of ["Comparison navigation", "Parameter summary", "Best sample",
+                       "Median", "Open the full-resolution combined figure"]) {
+    assert.ok(html.includes(label), label);
+  }
 });
 
 test("parameter summary matches all eight rows of the saved comparison", () => {
