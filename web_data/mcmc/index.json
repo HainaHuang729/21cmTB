@@ -87,7 +87,13 @@
     "web_data/lf_main_comparison/lf_corner_kp30_ms4.json": "436a41a983cc496887a456b79fcd52a9672a9c4f296eba93adcb40bb1166fa78",
     "web_data/lf_main_comparison/index.json": "7384af370ffa2401c318420633de32fd6f760706c8f3153f53a939b877558f2f",
     "web_data/lf_main_comparison/pl_snapshot.json": "5741a888707b59a4229e8786d6b5ddfe94c1d4c8c6a2c2ff2ae07515cca86e7a",
-    "web_data/lf_main_comparison/lf_corner_pl.png": "1d61a4f3092cfbae4ac33d301bd28aa4f8f3f72878b38436038d19246468110e"
+    "web_data/lf_main_comparison/lf_corner_pl.png": "1d61a4f3092cfbae4ac33d301bd28aa4f8f3f72878b38436038d19246468110e",
+    "web_data/ms_corner_lfstyle/corner_eta.png": "434199ed91f493daa36df34304aebd915843ddadfe552b53c3b26825b82cf619",
+    "web_data/ms_corner_lfstyle/corner_native.png": "c1eb076c31211c12ecfad86647ae56c2db5e2230bfc3ed00deb8c658ec62c2f6",
+    "web_data/ms_corner_lfstyle/diagnostics.json": "8c4e9e16e6f509f094179383d61c46daa00c396dceb2fd03759aa43b0e048c17",
+    "web_data/ms_corner_lfstyle/ensemble_traces.png": "9f83a2fda6c7ae9b406ca08e0e9c78314929a76076f1c9225dd5ad91355a3800",
+    "web_data/ms_corner_lfstyle/index.json": "89e612d7bdd648da9d7bc37bd8560dbcaff10b3d09bc63ff547296838858a861",
+    "web_data/ms_corner_lfstyle/layout_audit.json": "dcfccbb0c8041cf2af54872e58df35a15a3ff9469dfdf4e58847413feb92d646"
   },
   "categories": {
     "lf_only": {
@@ -125,7 +131,7 @@
     },
     "joint": {
       "label": "LF + tau + xi",
-      "directory": "web_data/ms_corner_chunk1",
+      "directory": "web_data/ms_corner_lfstyle",
       "status": "PRELIMINARY_NOT_CONVERGED",
       "dimensions": 7,
       "ensembles": 2,
@@ -145,6 +151,6 @@
   },
   "figure_styles": {
     "lf_only": "white_corner_with_maximum_lf_predictions",
-    "joint": "corner-shared-v2"
+    "joint": "joint-white-lf-style-v1"
   }
 }

@@ -6,6 +6,24 @@ const test = require('node:test');
 const root = path.resolve(__dirname, '..');
 const html = fs.readFileSync(path.join(root, 'ms-corner.html'), 'utf8');
 
+test('LF-style redraw preserves source rows and validates new image provenance', () => {
+  const crypto=require('node:crypto');
+  const old=JSON.parse(fs.readFileSync(path.join(root,'web_data/ms_corner_chunk1/index.json')));
+  const current=JSON.parse(fs.readFileSync(path.join(root,'web_data/ms_corner_lfstyle/index.json')));
+  const audits=JSON.parse(fs.readFileSync(path.join(root,'web_data/ms_corner_lfstyle/layout_audit.json')));
+  assert.deepEqual(current.sources,old.sources);
+  assert.equal(current.status,old.status);
+  for(const file of ['corner_eta.png','corner_native.png']) {
+    const png=fs.readFileSync(path.join(root,'web_data/ms_corner_lfstyle',file));
+    assert.equal(crypto.createHash('sha256').update(png).digest('hex'),current.figure_sha256[file]);
+    assert.equal(audits[file].passed,true);
+    assert.deepEqual(audits[file].text_overlaps,[]);
+    assert.deepEqual(audits[file].clipped_text,[]);
+    assert.equal(audits[file].smoothing_sigma_bins,1);
+    assert.deepEqual(audits[file].samples_per_ensemble,[10240,10240]);
+  }
+});
+
 function harness(stored = null, search = '', blocked = false) {
   const nodes = [...html.matchAll(/<[a-z][^>]*>/gi)].map(match => {
     const attrs = Object.fromEntries([...match[0].matchAll(/([\w-]+)="([^"]*)"/g)].map(v => [v[1], v[2]]));

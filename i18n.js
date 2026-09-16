@@ -39,7 +39,7 @@ window.AtlasI18n = (() => {
     mcmcJointCaution: ["Both ensembles still drift. The saved snapshot contains 160 steps after 40 initial burn-in steps; continuing runs are not included. The two colors represent ensembles of one model, not PL versus BPL.","两组独立采样仍存在漂移。快照保存初始 burn-in 40 步后的 160 步，不包括正在续跑的结果。两种颜色表示同一模型的独立采样组，并非 PL 与 BPL 对比。"],
     mcmcDiagnostics: ["Coordinates & convergence diagnostics ↗","坐标变换与收敛诊断 ↗"],
     mcmcJointAlt: ["Preliminary seven-parameter joint sampling distribution; not converged","初步七参数联合采样分布；尚未收敛"],
-    mcmcJointCaption: ["Blue / ensemble 0 · Orange / ensemble 1 · Solid / 68% · Dashed / 95% binned sample mass. η★ = log₁₀(f★,10/t★). These are empirical sample regions, not validated credible regions.","蓝色 / ensemble 0 · 橙色 / ensemble 1 · 实线 / 68% · 虚线 / 95% 分箱样本质量。η★ = log₁₀(f★,10/t★)。轮廓为经验采样区域，而非已验证的可信区域。"],
+    mcmcJointCaption: ["Red solid: ensemble 0; blue dashed: ensemble 1 (not BPL/PL). Labels: empirical median and 16–84% range. Contours: 68% / 95% mass of 60-bin histograms smoothed with Gaussian σ = 1 bin, for display only. Not validated credible regions.","红色实线：ensemble 0；蓝色虚线：ensemble 1（不是BPL/PL）。标注为经验中位数及16–84%样本范围。轮廓为60格直方图经高斯σ=1格平滑后的68% / 95%质量范围，仅用于显示，不是已验证的可信区域。"],
     mcmcSeparation: ["Different parameter spaces, separate chains. LF-only fixes both kₚ and mₛ; joint inference also samples mₛ and escape fractions. Differences cannot be attributed solely to adding τ and ξ. Original scientific plot annotations remain in English.","参数空间不同，链分别归档。LF-only 固定 kₚ 和 mₛ；联合推断还采样 mₛ 和逃逸率。不能把差异仅归因于加入 τ 和 ξ。原始科学图内标注保留英文。"],
     mcmcOpen: ["Open full-resolution figure","打开原始分辨率图片"],
     mcmcLoading: ["Loading inference manifests…","正在加载推断数据清单…"],

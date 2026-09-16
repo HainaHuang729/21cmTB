@@ -1,0 +1,285 @@
+{
+  "inputs": [
+    {
+      "path": "/oss06/data/project/tkcastrosim/HNHuang/project_mcmc/workflows/MCMC/fixed_btps_posterior/runs/chains_ms_exact/production_chunk1_ensemble0_job_2123619_0/chain.h5",
+      "sha256": "316a978757ec83db97cf98d84918a29905044e856944efe73a3b54c7cdda26ff"
+    },
+    {
+      "path": "/oss06/data/project/tkcastrosim/HNHuang/project_mcmc/workflows/MCMC/fixed_btps_posterior/runs/chains_ms_exact/production_chunk1_ensemble1_job_2123619_1/chain.h5",
+      "sha256": "e88176830d7072d2a7a6e47fef14b8c2ffe7c9f7b989dc3dd6c8f64c2ff825ed"
+    }
+  ],
+  "interpretation": "Advisory short-chain diagnostics. No walker-based Rhat. ESS estimates use ensemble mean time series and remain provisional until stationarity and long-chain tests pass.",
+  "parameters": {
+    "ETA_STAR": {
+      "ensembles": [
+        {
+          "q16": -1.5139004182373639,
+          "median": -1.2821473439560847,
+          "q84": -1.062553968553513,
+          "half_medians": [
+            -1.2225791826211367,
+            -1.3428436134174042
+          ],
+          "half_shift_over_68width": 0.26645702182992165,
+          "ensemble_mean_IAT_steps": 49.15716532561167,
+          "length_over_IAT": 3.2548662832809327,
+          "provisional_ESS_for_mean": 38.523858112639886,
+          "zero_movement_walkers": 0
+        },
+        {
+          "q16": -1.4764684265743138,
+          "median": -1.2587111203811245,
+          "q84": -1.050396287497599,
+          "half_medians": [
+            -1.2297509649124263,
+            -1.2885994579385043
+          ],
+          "half_shift_over_68width": 0.13811861332590497,
+          "ensemble_mean_IAT_steps": 47.72406861244478,
+          "length_over_IAT": 3.3526060256789916,
+          "provisional_ESS_for_mean": 78.18461697284015,
+          "zero_movement_walkers": 0
+        }
+      ],
+      "between_median_shift_over_mean_68width": 0.05342085037898714
+    },
+    "t_STAR": {
+      "ensembles": [
+        {
+          "q16": 0.29573875680638484,
+          "median": 0.55544279538514,
+          "q84": 0.7822287884078909,
+          "half_medians": [
+            0.556662307379076,
+            0.5524847154682452
+          ],
+          "half_shift_over_68width": 0.008587209684601988,
+          "ensemble_mean_IAT_steps": 19.119983836084902,
+          "length_over_IAT": 8.368207911244886,
+          "provisional_ESS_for_mean": 2041.4958579792954,
+          "zero_movement_walkers": 0
+        },
+        {
+          "q16": 0.27803880921864915,
+          "median": 0.4625168636777728,
+          "q84": 0.6676030933383302,
+          "half_medians": [
+            0.46250651626112993,
+            0.4628441787217746
+          ],
+          "half_shift_over_68width": 0.0008667695535993078,
+          "ensemble_mean_IAT_steps": 29.597456200078117,
+          "length_over_IAT": 5.405869981474209,
+          "provisional_ESS_for_mean": 669.5223945151149,
+          "zero_movement_walkers": 0
+        }
+      ],
+      "between_median_shift_over_mean_68width": 0.2121465074476998
+    },
+    "ALPHA_STAR": {
+      "ensembles": [
+        {
+          "q16": 0.3471141722073709,
+          "median": 0.44237082759156476,
+          "q84": 0.5448876509337636,
+          "half_medians": [
+            0.42367513481320873,
+            0.46168999641499986
+          ],
+          "half_shift_over_68width": 0.19221415250718388,
+          "ensemble_mean_IAT_steps": 48.43922601790288,
+          "length_over_IAT": 3.3031081037683148,
+          "provisional_ESS_for_mean": 46.89246367362712,
+          "zero_movement_walkers": 0
+        },
+        {
+          "q16": 0.33156541697953934,
+          "median": 0.4312692406913578,
+          "q84": 0.5217212826068282,
+          "half_medians": [
+            0.42165311826910595,
+            0.44298170083134125
+          ],
+          "half_shift_over_68width": 0.11216368473239716,
+          "ensemble_mean_IAT_steps": 44.56530414136852,
+          "length_over_IAT": 3.5902369137312182,
+          "provisional_ESS_for_mean": 97.46005074669687,
+          "zero_movement_walkers": 0
+        }
+      ],
+      "between_median_shift_over_mean_68width": 0.057235097379410745
+    },
+    "M_TURN": {
+      "ensembles": [
+        {
+          "q16": 8.724554226560194,
+          "median": 9.41057366834405,
+          "q84": 9.710937055850863,
+          "half_medians": [
+            9.297580805975612,
+            9.526867394120272
+          ],
+          "half_shift_over_68width": 0.23245192569861092,
+          "ensemble_mean_IAT_steps": 53.356778770544025,
+          "length_over_IAT": 2.998681773651769,
+          "provisional_ESS_for_mean": 51.63216934260354,
+          "zero_movement_walkers": 0
+        },
+        {
+          "q16": 9.24280479889766,
+          "median": 9.568333200087425,
+          "q84": 9.759322393390919,
+          "half_medians": [
+            9.52729191553456,
+            9.6084096645571
+          ],
+          "half_shift_over_68width": 0.1570474072662001,
+          "ensemble_mean_IAT_steps": 35.20505580712603,
+          "length_over_IAT": 4.5448017715573,
+          "provisional_ESS_for_mean": 91.44881349519112,
+          "zero_movement_walkers": 0
+        }
+      ],
+      "between_median_shift_over_mean_68width": 0.20994009882062054
+    },
+    "F_ESC10": {
+      "ensembles": [
+        {
+          "q16": -1.4671230967506033,
+          "median": -1.1961759808589623,
+          "q84": -0.8884035922918346,
+          "half_medians": [
+            -1.1968086312521726,
+            -1.1953787274417556
+          ],
+          "half_shift_over_68width": 0.0024708063222343866,
+          "ensemble_mean_IAT_steps": 34.49362273886301,
+          "length_over_IAT": 4.638538584691263,
+          "provisional_ESS_for_mean": 684.6986367917008,
+          "zero_movement_walkers": 0
+        },
+        {
+          "q16": -1.3161093441979328,
+          "median": -1.070947161049904,
+          "q84": -0.784809127100381,
+          "half_medians": [
+            -1.0503995254696232,
+            -1.102115971381915
+          ],
+          "half_shift_over_68width": 0.09733940293646863,
+          "ensemble_mean_IAT_steps": 18.132822243816022,
+          "length_over_IAT": 8.823778110689087,
+          "provisional_ESS_for_mean": 685.5920301243565,
+          "zero_movement_walkers": 0
+        }
+      ],
+      "between_median_shift_over_mean_68width": 0.22563350430112955
+    },
+    "ALPHA_ESC": {
+      "ensembles": [
+        {
+          "q16": -0.20318239641143787,
+          "median": 0.15425134608527377,
+          "q84": 0.41343476173373483,
+          "half_medians": [
+            0.06558014818139052,
+            0.25717171429043495
+          ],
+          "half_shift_over_68width": 0.31071397151088886,
+          "ensemble_mean_IAT_steps": 50.92126157388811,
+          "length_over_IAT": 3.1421059701719236,
+          "provisional_ESS_for_mean": 62.835648704585516,
+          "zero_movement_walkers": 0
+        },
+        {
+          "q16": -0.28234366008719214,
+          "median": 0.13059535084420174,
+          "q84": 0.4188191829788121,
+          "half_medians": [
+            0.030240820970001914,
+            0.22347057555763447
+          ],
+          "half_shift_over_68width": 0.27558470403635293,
+          "ensemble_mean_IAT_steps": 45.64782474110059,
+          "length_over_IAT": 3.5050958267445873,
+          "provisional_ESS_for_mean": 42.183410278409106,
+          "zero_movement_walkers": 0
+        }
+      ],
+      "between_median_shift_over_mean_68width": 0.03590279897908561
+    },
+    "MS": {
+      "ensembles": [
+        {
+          "q16": 1.179211110057322,
+          "median": 1.3415697429300515,
+          "q84": 1.5135497235427258,
+          "half_medians": [
+            1.2823028602933382,
+            1.394578935785801
+          ],
+          "half_shift_over_68width": 0.3358154606254129,
+          "ensemble_mean_IAT_steps": 49.39773629210061,
+          "length_over_IAT": 3.2390148215270798,
+          "provisional_ESS_for_mean": 28.541849822742083,
+          "zero_movement_walkers": 0
+        },
+        {
+          "q16": 1.1844018451500484,
+          "median": 1.3255300967735237,
+          "q84": 1.4989686706556877,
+          "half_medians": [
+            1.2998794524309194,
+            1.3578169704381404
+          ],
+          "half_shift_over_68width": 0.18418190765695464,
+          "ensemble_mean_IAT_steps": 47.99109752691284,
+          "length_over_IAT": 3.3339516753138203,
+          "provisional_ESS_for_mean": 51.5508012112417,
+          "zero_movement_walkers": 0
+        }
+      ],
+      "between_median_shift_over_mean_68width": 0.04943600467108783
+    },
+    "log_posterior": {
+      "ensembles": [
+        {
+          "q16": -44.05449154204142,
+          "median": -41.31682631754654,
+          "q84": -39.88960876659802,
+          "half_medians": [
+            -42.34700355436228,
+            -40.70636710339356
+          ],
+          "half_shift_over_68width": 0.3939213993349568,
+          "ensemble_mean_IAT_steps": 27.86370888809697,
+          "length_over_IAT": 5.742236277394859,
+          "provisional_ESS_for_mean": 22.484623554655514,
+          "zero_movement_walkers": 0
+        },
+        {
+          "q16": -43.666633192857276,
+          "median": -41.11614157073451,
+          "q84": -39.74433000394245,
+          "half_medians": [
+            -41.56991953931847,
+            -40.68806620482597
+          ],
+          "half_shift_over_68width": 0.22483048658369467,
+          "ensemble_mean_IAT_steps": 18.22554180061347,
+          "length_over_IAT": 8.778888537328115,
+          "provisional_ESS_for_mean": 25.06557054063828,
+          "zero_movement_walkers": 0
+        }
+      ],
+      "between_median_shift_over_mean_68width": 0.04963030346933681
+    }
+  },
+  "advisory_gates": {
+    "length_at_least_50_IAT": false,
+    "half_median_stability": false,
+    "between_ensemble_medians": false
+  },
+  "status": "insufficient_for_freeze"
+}

@@ -46,23 +46,23 @@
   </section>
   <section id="corner" class="ms-card" aria-labelledby="corner-title">
     <div class="section-heading"><div><span class="section-index">03</span><h2 id="corner-title" data-i18n="msSampling">Sampling coordinates</h2></div></div>
-    <p data-i18n="msCaption">η★ = log₁₀(f★,10/t★); masses are in M☉. Blue: ensemble 0. Orange: ensemble 1. Contours enclose 68% / 95% of each empirical distribution, not validated credible regions.</p>
-    <a href="web_data/ms_corner_chunk1/corner_eta.png?v=corner-shared-v2"><img src="web_data/ms_corner_chunk1/corner_eta.png?v=corner-shared-v2" data-ms-alt="msEtaAlt" alt="Preliminary seven-parameter corner for two independent ensembles"></a>
+    <p data-i18n="msCaption">Red solid: ensemble 0; blue dashed: ensemble 1 (not BPL/PL). Labels: empirical median and 16–84% range. Contours: 68% / 95% mass of 60-bin histograms smoothed with Gaussian σ = 1 bin, for display only. Not validated credible regions.</p>
+    <a href="web_data/ms_corner_lfstyle/corner_eta.png?v=joint-white-lf-style-v1"><img src="web_data/ms_corner_lfstyle/corner_eta.png?v=joint-white-lf-style-v1" data-ms-alt="msEtaAlt" alt="Preliminary seven-parameter corner for two independent ensembles"></a>
     <p class="ms-note" data-i18n="msFigureLanguage">Scientific symbols and the original English plot annotations are shared between languages; captions and interpretation switch with the interface.</p>
   </section>
   <section class="ms-card"><details><summary data-i18n="msNative">Native stellar-efficiency coordinates</summary>
     <p data-i18n="msTransform">Coordinate transformation only: log₁₀ f★,10 = η★ + log₁₀ t★. No resampling or change of weights.</p>
-    <a href="web_data/ms_corner_chunk1/corner_native.png?v=corner-shared-v2"><img loading="lazy" src="web_data/ms_corner_chunk1/corner_native.png?v=corner-shared-v2" data-ms-alt="msNativeAlt" alt="Preliminary corner in native stellar-efficiency coordinates"></a>
+    <a href="web_data/ms_corner_lfstyle/corner_native.png?v=joint-white-lf-style-v1"><img loading="lazy" src="web_data/ms_corner_lfstyle/corner_native.png?v=joint-white-lf-style-v1" data-ms-alt="msNativeAlt" alt="Preliminary corner in native stellar-efficiency coordinates"></a>
   </details></section>
   <section id="diagnostics" class="ms-card" aria-labelledby="diagnostics-title">
     <div class="section-heading"><div><span class="section-index">04</span><h2 id="diagnostics-title" data-i18n="msWhy">Why the posterior is not frozen</h2></div></div>
     <p data-i18n="msDrift">mₛ, αesc and the log posterior still drift between the first and second halves. The chains are too short for reliable final autocorrelation estimates. Walkers within an ensemble are not treated as independent chains for R̂. Trace bands show the 16th–84th percentiles across walkers at each step, not error bars.</p>
-    <a href="web_data/ms_corner_chunk1/ensemble_traces.png?v=2123619-160"><img loading="lazy" src="web_data/ms_corner_chunk1/ensemble_traces.png?v=2123619-160" data-ms-alt="msTraceAlt" alt="Independent-ensemble traces showing remaining drift"></a>
-    <div class="ms-links"><a href="web_data/ms_corner_chunk1/index.json" data-i18n="msProvenance">Provenance &amp; settings ↗</a><a href="web_data/ms_corner_chunk1/diagnostics.json" data-i18n="msReport">Full diagnostics ↗</a></div>
+    <a href="web_data/ms_corner_lfstyle/ensemble_traces.png?v=2123619-160"><img loading="lazy" src="web_data/ms_corner_lfstyle/ensemble_traces.png?v=2123619-160" data-ms-alt="msTraceAlt" alt="Independent-ensemble traces showing remaining drift"></a>
+    <div class="ms-links"><a href="web_data/ms_corner_lfstyle/index.json" data-i18n="msProvenance">Provenance &amp; settings ↗</a><a href="web_data/ms_corner_lfstyle/diagnostics.json" data-i18n="msReport">Full diagnostics ↗</a></div>
   </section>
   <footer class="ms-footer"><span class="technical-label" data-i18n="msFooter">ARCHIVE / JOINT NON-21 · READ ONLY · NOT LF-ONLY</span><a href="index.html" data-i18n="msBack">Return to Signal Atlas ↗</a></footer>
 </main>
 <script src="i18n.js?v=joint-bilingual-1"></script>
-<script src="ms-corner.js?v=corner-shared-v2"></script>
+<script src="ms-corner.js?v=joint-white-lf-style-v1"></script>
 </body>
 </html>
