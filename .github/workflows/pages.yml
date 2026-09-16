@@ -36,6 +36,7 @@ jobs:
           node tests/test_i18n.cjs
           node --check ms-corner.js
           node tests/test_ms_corner.cjs
+          node tests/test_park_pl_comparison.cjs
           python - <<'PY'
           import json
           import pathlib

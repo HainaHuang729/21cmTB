@@ -4,6 +4,7 @@
 // deliberately shared between languages and never translated or transformed.
 window.AtlasI18n = (() => {
   const messages = {
+    parkPLComparison: ["Park / PL · Combined corner & best-fit LF ↗", "Park / PL · 合并 corner 与最佳拟合 LF ↗"],
     plParameterMismatch: ["The stored PL result does not match the selected astrophysical parameters.","预存 PL 结果与当前天体物理参数不匹配。"],
     lfSharedAxes: ["FOUR REDSHIFTS / SHARED AXES","四个红移 / 统一坐标"],
     magnitudeAxisShort: ["UV magnitude, M_UV","紫外星等 M_UV"],
