@@ -31,19 +31,20 @@ test("legacy bookmarks lead to the combined display without duplicating figures"
   }
 });
 
-test("the single combined figure is the unchanged latest Park/PL overlay", () => {
+test("the single combined figure uses the latest -20 Park/PL snapshots", () => {
   assert.equal((html.match(/<img\b/g) || []).length, 1);
   const file = "web_data/park_pl_comparison/park_vs_pl_muv20.png";
   const image = fs.readFileSync(path.join(root, file));
   assert.equal(crypto.createHash("sha256").update(image).digest("hex"), data.figure_sha256);
-  assert.equal(data.figure_sha256, "208596455ee68ad2758413b923f818bf84c68e8e5bda6266ef88028ccd1edc06");
   assert.ok(html.includes(`${file}?v=${data.figure_sha256.slice(0, 12)}`));
   assert.equal(image.readUInt32BE(16), 2080);
   assert.equal(image.readUInt32BE(20), 2080);
   for (const name of ["Park", "PL"]) {
-    assert.equal(data[name].steps_per_ensemble, 15000);
+    assert.equal(data[name].steps_per_ensemble, name === "Park" ? 15000 : 30000);
     assert.equal(data[name].walkers, 32);
-    assert.equal(data[name].sample_count, 960000);
+    assert.equal(data[name].sample_count, data[name].steps_per_ensemble * 32 * 2);
+    assert.equal(data[name].magnitude_cut, -20);
+    assert.ok(Object.values(data[name].observations).flat().every(point => point.muv > -20));
     assert.equal(data[name].diagnostic_gate_passed, false);
     assert.equal(data[name].diagnostics.passed, false);
   }

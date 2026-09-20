@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Cache-Control" content="no-cache">
-<title>Signal Atlas · Joint non-21-cm inference</title>
+<title>Signal Atlas · MUV > −20 joint test</title>
 <link rel="stylesheet" href="styles.css?v=hii256-v20">
 <link rel="stylesheet" href="ms-corner.css?v=joint-bilingual-1">
 </head>
@@ -12,7 +12,7 @@
   <a class="system-identity" href="index.html" data-i18n-aria-label="home" aria-label="21 cm Signal Atlas home"><span class="identity-mark">21</span><span><b data-i18n="identity">SIGNAL ATLAS</b><small data-i18n="precomputed">PRECOMPUTED / 21cmFAST</small></span></a>
   <nav class="system-navigation" data-i18n-aria-label="navigation" aria-label="Atlas sections">
     <a href="index.html"><span>01</span><b data-i18n="msAtlas">Atlas</b></a>
-    <a href="#corner"><span>02</span><b data-i18n="msCorner">Corner</b></a>
+    <a href="#corner"><span>02</span><b data-i18n="msCorner">Samples</b></a>
     <a href="#diagnostics"><span>03</span><b data-i18n="msDiagnostics">Diagnostics</b></a>
   </nav>
   <div class="system-register"><div class="language-switch" role="group" data-i18n-aria-label="language" aria-label="Interface language">
@@ -22,47 +22,47 @@
 </header>
 <main class="ms-content">
   <section class="ms-intro">
-    <p class="technical-label" data-i18n="msKicker">INFERENCE / JOINT NON-21 · SNAPSHOT / 2026-09-14</p>
-    <h1 data-i18n="msTitle">Fixed kₚ. Free mₛ.</h1>
+    <p class="technical-label" data-i18n="msKicker">JOINT TEST / MUV &gt; −20 · SNAPSHOT / 2026-09-18</p>
+    <h1 data-i18n="msTitle">Fixed cosmology. Joint test.</h1>
     <p class="ms-equation">LF + τₑ + x<sub>HI</sub></p>
-    <p data-i18n="msSubtitle">Two independent ensembles of one cosmological model — not a ΛCDM–BTPS comparison.</p>
+    <p data-i18n="msSubtitle">Fixed kₚ = 10 h Mpc⁻¹ and mₛ = 2.5. Eight sampled parameters: four stellar, two escape-fraction and two X-ray parameters. One short ensemble; not the earlier free-mₛ analysis.</p>
   </section>
-  <aside class="ms-warning" role="note"><strong data-i18n="msWarning">PRELIMINARY — NOT CONVERGED</strong><p data-i18n="msWarningBody">Both ensembles still drift. These figures show current sampling distributions, not final credible intervals or publishable constraints.</p></aside>
+  <aside class="ms-warning" role="note"><strong data-i18n="msWarning">FUNCTIONAL TEST ONLY · NOT A POSTERIOR</strong><p data-i18n="msWarningBody">3 stored steps × 16 walkers after 1 initial burn-in step. These 48 correlated rows test runtime and interface stability only. The running continuation is not included; no convergence or credible-interval claim.</p></aside>
   <section class="ms-card" aria-labelledby="branch-title">
     <div class="section-heading"><div><span class="section-index">01</span><h2 id="branch-title" data-i18n="msIdentity">Separate inference branches</h2></div></div>
     <div class="ms-branches">
-      <article><p class="technical-label" data-i18n="msThis">THIS PAGE / JOINT · FREE mₛ</p><p data-i18n="msJoint">Fixed kₚ = 1 h Mpc⁻¹; sampled mₛ. Seven parameters: four star-formation parameters, two escape-fraction parameters and mₛ. Likelihood: LF + τₑ + xHI.</p></article>
-      <article><p class="technical-label" data-i18n="msOther">OTHER BRANCH / LF-ONLY · FIXED COSMOLOGY</p><p data-i18n="msLFOnly">Fixed kₚ and mₛ for each model. Four star-formation parameters, constrained by LF only. No τₑ or xHI likelihood.</p></article>
+      <article><p class="technical-label" data-i18n="msThis">THIS PAGE / EIGHT-PARAMETER JOINT TEST</p><p data-i18n="msJoint">Fixed kₚ = 10 h Mpc⁻¹ and mₛ = 2.5. Eight sampled parameters: four stellar, two escape-fraction and two X-ray parameters. One short ensemble; not the earlier free-mₛ analysis.</p></article>
+      <article><p class="technical-label" data-i18n="msOther">OTHER BRANCH / FOUR-PARAMETER LF ONLY</p><p data-i18n="msLFOnly">A grid of fixed kₚ / mₛ models. Four stellar parameters are sampled using LF alone, without τₑ or neutral-fraction constraints.</p></article>
     </div>
-    <p class="ms-note" data-i18n="msSeparation">Chains, progress, convergence and figures are recorded separately. This is neither a replacement for the LF-only figures nor a reweighted LF-only chain. Because the parameter spaces also differ, their differences cannot be attributed solely to adding reionization constraints.</p>
+    <p class="ms-note" data-i18n="msSeparation">Separate chains and parameter spaces, all with MUV &gt; −20. LF-only samples four parameters; the joint functional test samples eight at fixed kₚ = 10 and mₛ = 2.5. It cannot establish the effect of adding τ and ξ. Plot annotations remain in English.</p>
   </section>
   <section class="ms-card" aria-labelledby="setup-title">
     <div class="section-heading"><div><span class="section-index">02</span><h2 id="setup-title" data-i18n="msSetup">Snapshot &amp; configuration</h2></div></div>
-    <p data-i18n="msSample">kₚ = 1 h Mpc⁻¹ = 0.678 Mpc⁻¹; mₛ ∈ [0.5, 2.0]. Each ensemble has 64 walkers and 160 saved steps after 40 initial burn-in steps. No additional samples are discarded here.</p>
-    <p data-i18n="msCaution">20,480 correlated stored rows are not 20,480 independent effective samples. The mₛ prior also includes non-blue slopes.</p>
-    <p data-i18n="msData">Data: 49 LF points — HST z = 6, 7, 8 and Donnan (2024) z = 9, 10, restricted to z &lt; 11 — plus Planck τₑ and McGreer xHI(5.9). No 21-cm likelihood is used.</p>
-    <p data-i18n="msCompute">Direct 21cmFAST coeval simulations plus τ integration; no emulator or lightcone. HII_DIM = 128, DIM = 512, BOX_LEN = 250 cMpc. These are not the Atlas lightcone-grid runs.</p>
-    <p class="technical-label">SOURCE JOB / 2123619 · SNAPSHOT / 160 × 64 × 7 / ENSEMBLE</p>
+    <p data-i18n="msSample">3 stored steps × 16 walkers after 1 initial burn-in step. These 48 correlated rows test runtime and interface stability only. The running continuation is not included; no convergence or credible-interval claim.</p>
+    <p data-i18n="msCaution">48 correlated rows are not 48 independent effective samples. The source is the completed three-step run; the live continuation is not included.</p>
+    <p data-i18n="msData">The same 34 LF points with MUV &gt; −20, plus Planck τₑ and McGreer xHI(z = 5.9). ξ = 1 − xHI; this is not a measured full ξ(z) history. No 21-cm likelihood.</p>
+    <p data-i18n="msCompute">Direct 21cmFAST coeval simulations and τ integration. HII_DIM = 256, DIM = 768, BOX_LEN = 250 cMpc. These are not the Atlas lightcone-grid runs.</p>
+    <p class="technical-label">SOURCE JOB / 2135863 · SNAPSHOT / 3 × 16 × 8 · ONE ENSEMBLE</p>
   </section>
   <section id="corner" class="ms-card" aria-labelledby="corner-title">
-    <div class="section-heading"><div><span class="section-index">03</span><h2 id="corner-title" data-i18n="msSampling">Sampling coordinates</h2></div></div>
-    <p data-i18n="msCaption">Red solid: ensemble 0; blue dashed: ensemble 1 (not BPL/PL). Labels: empirical median and 16–84% range. Contours: 68% / 95% mass of 60-bin histograms smoothed with Gaussian σ = 1 bin, for display only. Not validated credible regions.</p>
-    <a href="web_data/ms_corner_lfstyle/corner_eta.png?v=joint-white-lf-style-v1"><img src="web_data/ms_corner_lfstyle/corner_eta.png?v=joint-white-lf-style-v1" data-ms-alt="msEtaAlt" alt="Preliminary seven-parameter corner for two independent ensembles"></a>
-    <p class="ms-note" data-i18n="msFigureLanguage">Scientific symbols and the original English plot annotations are shared between languages; captions and interpretation switch with the interface.</p>
+    <div class="section-heading"><div><span class="section-index">03</span><h2 id="corner-title" data-i18n="msSampling">Raw sampling coordinates</h2></div></div>
+    <p data-i18n="msCaption">Raw scatter and marginal counts for one short ensemble. No smoothed credible contours or interval estimates. η★ = log₁₀(f★,10/t★).</p>
+    <a href="web_data/joint_muv20/corner_eta.png?v=19eac6c96780"><img src="web_data/joint_muv20/corner_eta.png?v=19eac6c96780" data-ms-alt="msEtaAlt" alt="Eight-parameter joint functional-test samples with MUV > −20; not posterior constraints"></a>
+    <p class="ms-note" data-i18n="msFigureLanguage">Plot annotations remain in English; captions switch with the interface.</p>
   </section>
   <section class="ms-card"><details><summary data-i18n="msNative">Native stellar-efficiency coordinates</summary>
     <p data-i18n="msTransform">Coordinate transformation only: log₁₀ f★,10 = η★ + log₁₀ t★. No resampling or change of weights.</p>
-    <a href="web_data/ms_corner_lfstyle/corner_native.png?v=joint-white-lf-style-v1"><img loading="lazy" src="web_data/ms_corner_lfstyle/corner_native.png?v=joint-white-lf-style-v1" data-ms-alt="msNativeAlt" alt="Preliminary corner in native stellar-efficiency coordinates"></a>
+    <a href="web_data/joint_muv20/corner_native.png?v=a2effe943a6e"><img loading="lazy" src="web_data/joint_muv20/corner_native.png?v=a2effe943a6e" data-ms-alt="msNativeAlt" alt="Eight-parameter raw samples in native stellar coordinates"></a>
   </details></section>
   <section id="diagnostics" class="ms-card" aria-labelledby="diagnostics-title">
-    <div class="section-heading"><div><span class="section-index">04</span><h2 id="diagnostics-title" data-i18n="msWhy">Why the posterior is not frozen</h2></div></div>
-    <p data-i18n="msDrift">mₛ, αesc and the log posterior still drift between the first and second halves. The chains are too short for reliable final autocorrelation estimates. Walkers within an ensemble are not treated as independent chains for R̂. Trace bands show the 16th–84th percentiles across walkers at each step, not error bars.</p>
-    <a href="web_data/ms_corner_lfstyle/ensemble_traces.png?v=2123619-160"><img loading="lazy" src="web_data/ms_corner_lfstyle/ensemble_traces.png?v=2123619-160" data-ms-alt="msTraceAlt" alt="Independent-ensemble traces showing remaining drift"></a>
-    <div class="ms-links"><a href="web_data/ms_corner_lfstyle/index.json" data-i18n="msProvenance">Provenance &amp; settings ↗</a><a href="web_data/ms_corner_lfstyle/diagnostics.json" data-i18n="msReport">Full diagnostics ↗</a></div>
+    <div class="section-heading"><div><span class="section-index">04</span><h2 id="diagnostics-title" data-i18n="msWhy">Execution is not convergence</h2></div></div>
+    <p data-i18n="msDrift">This short run starts near the webpage baseline. It tests runtime and interface stability, not posterior exploration. Three steps cannot support R̂, effective-sample-size or credible-interval claims. Lines show individual walkers, not independent chains.</p>
+    <a href="web_data/joint_muv20/ensemble_traces.png?v=c8d7fba5c592"><img loading="lazy" src="web_data/joint_muv20/ensemble_traces.png?v=c8d7fba5c592" data-ms-alt="msTraceAlt" alt="Three-step functional-test traces of sixteen walkers"></a>
+    <div class="ms-links"><a href="web_data/joint_muv20/index.json" data-i18n="msProvenance">Provenance &amp; stored samples ↗</a><a href="web_data/joint_muv20/diagnostics.json" data-i18n="msReport">Functional-test report ↗</a></div>
   </section>
-  <footer class="ms-footer"><span class="technical-label" data-i18n="msFooter">ARCHIVE / JOINT NON-21 · READ ONLY · NOT LF-ONLY</span><a href="index.html" data-i18n="msBack">Return to Signal Atlas ↗</a></footer>
+  <footer class="ms-footer"><span class="technical-label" data-i18n="msFooter">JOINT / MUV &gt; −20 / FUNCTIONAL TEST ONLY</span><a href="index.html" data-i18n="msBack">Return to Signal Atlas ↗</a></footer>
 </main>
-<script src="i18n.js?v=joint-bilingual-1"></script>
-<script src="ms-corner.js?v=joint-white-lf-style-v1"></script>
+<script src="i18n.js?v=muv20-20260918"></script>
+<script src="ms-corner.js?v=muv20-20260918"></script>
 </body>
 </html>

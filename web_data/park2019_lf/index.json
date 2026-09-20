@@ -240,7 +240,6 @@
       }
     ]
   },
-  "figure_sha256": "62f1f7c33737e1d4697948984978cfe41ab69e7c1dd5212a21deac8a90cd2e00",
   "diagnostics": {
     "passed": false,
     "checks": {
@@ -306,6 +305,9 @@
     },
     "interpretation": "Diagnostic pilot gate; not a proof of global mixing or of numerical-resolution convergence."
   },
+  "magnitude_cut": -20,
+  "lf_points": 27,
+  "best_sample_rule": "maximum LF likelihood among the plotted stored samples",
   "curves": {
     "6.0": [
       [
@@ -1131,5 +1133,10 @@
         -30.0
       ]
     ]
-  }
+  },
+  "source_report": "/oss06/data/project/tkcastrosim/HNHuang/project_mcmc/workflows/MCMC/fixed_btps_posterior/runs/park2019_pl_lf_control_20260915/job_2134277/final_report.json",
+  "source_report_sha256": "782cdb39cc0a26a7607fc04366cfda0a0c80aa04e2433aaa4a719247c9e90654",
+  "source_manifest_sha256": "dbcabf443d907b24d409ef2a66bbe3659586db94397b2a8f189e8231a426141e",
+  "recomputed_best_log_LF": -7.263927331194178,
+  "snapshot_date": "2026-09-18"
 }

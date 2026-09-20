@@ -1,0 +1,33 @@
+{
+  "status": "pass",
+  "scientific_role": "SMOKE_ONLY_NOT_CONVERGED_NOT_A_POSTERIOR",
+  "chain_shape": [
+    3,
+    16,
+    8
+  ],
+  "finite_log_prob": true,
+  "mean_acceptance": 0.5625,
+  "acceptance_by_walker": [
+    0.5,
+    0.75,
+    0.25,
+    0.5,
+    0.5,
+    0.75,
+    0.75,
+    0.75,
+    0.75,
+    0.5,
+    0.25,
+    0.5,
+    0.75,
+    0.25,
+    0.75,
+    0.5
+  ],
+  "proposal_status_counts": {
+    "ok": 80
+  },
+  "median_successful_evaluation_seconds": 7207.923087345203
+}

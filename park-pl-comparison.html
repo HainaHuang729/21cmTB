@@ -51,13 +51,13 @@
     <p>The latest two-model overlay combines the four-parameter corner plot and best-fit luminosity functions in one figure.</p>
     <p><span class="park">Red solid: PL with Park settings</span>; <span class="pl">Blue dashed: PL with the current HST+JWST data and MUV &gt; −20</span>. Both use PL cosmology and are normalized separately. This is not a BPL–PL comparison.</p>
     <p class="muted">Park uses 27 HST points at z = 6, 7, 8, 10; the current PL analysis uses 34 HST+JWST points at z = 6, 7, 8, 9, 10. The Mturn and t★ priors also differ, so differences cannot be attributed solely to the observational data.</p>
-    <aside class="status" role="note">Each model has 15000 stored steps × 32 walkers × 2 ensembles. Neither has passed the convergence checks (maximum R̂ ≈ 2.07 for Park and ≈ 2.22 for the current PL analysis). These are exploratory sampling results, not final parameter constraints.</aside>
+    <aside class="status" role="note">Park: 15000 stored steps; current PL: 30000 stored steps. Each uses 32 walkers × 2 ensembles. Neither has passed the convergence checks (maximum R̂ ≈ 2.07 for Park and ≈ 2.15 for PL). These are exploratory sampling results, not final parameter constraints. Snapshot: 2026-09-18.</aside>
   </header>
   <section id="comparison" aria-labelledby="comparison-title">
     <h2 id="comparison-title">Corner + best-fit LF</h2>
     <figure>
-      <a href="web_data/park_pl_comparison/park_vs_pl_muv20.png?v=208596455ee6" target="_blank" rel="noopener" title="Open the full-resolution combined figure">
-        <img src="web_data/park_pl_comparison/park_vs_pl_muv20.png?v=208596455ee6" width="2080" height="2080" alt="Overlaid Park and current MUV > −20 PL corner plot with best-fit LF at z = 6, 7, 8, 10">
+      <a href="web_data/park_pl_comparison/park_vs_pl_muv20.png?v=05e613536cc5" target="_blank" rel="noopener" title="Open the full-resolution combined figure">
+        <img src="web_data/park_pl_comparison/park_vs_pl_muv20.png?v=05e613536cc5" width="2080" height="2080" alt="Overlaid Park and current MUV > −20 PL corner plot with best-fit LF at z = 6, 7, 8, 10">
       </a>
       <figcaption>FIG / 01 · The LF panels show z = 6, 7, 8, 10. Each model’s curves use its maximum-LF-likelihood sample. Shared HST points are plotted once; z = 10 includes both HST and JWST data. The PL fit also includes z = 9; all curves and observations are available in the data download.</figcaption>
     </figure>
@@ -69,15 +69,15 @@
         <caption>Best-sample values belong to the same maximum-LF-likelihood parameter set. Medians and 16%–84% ranges are marginal sample quantiles.</caption>
         <thead><tr><th scope="col">Model</th><th scope="col">Parameter</th><th scope="col">Best sample</th><th scope="col">Median</th><th scope="col">16%–84%</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Park</th><td>log₁₀ f★,10</td><td>-1.2266</td><td>-1.2403</td><td>-1.7194 – -1.0205</td></tr>
-          <tr><th scope="row">Park</th><td>t★</td><td>0.5451</td><td>0.5012</td><td>0.1564 – 0.8406</td></tr>
-          <tr><th scope="row">Park</th><td>α★</td><td>0.5161</td><td>0.4971</td><td>0.4293 – 0.5660</td></tr>
-          <tr><th scope="row">Park</th><td>log₁₀(Mturn/M☉)</td><td>8.0159</td><td>8.6027</td><td>8.1900 – 9.0644</td></tr>
-          <tr><th scope="row">PL</th><td>log₁₀ f★,10</td><td>-1.5274</td><td>-1.2154</td><td>-1.6921 – -0.9910</td></tr>
-          <tr><th scope="row">PL</th><td>t★</td><td>0.2519</td><td>0.4950</td><td>0.1548 – 0.8390</td></tr>
-          <tr><th scope="row">PL</th><td>α★</td><td>0.5450</td><td>0.5339</td><td>0.4722 – 0.5984</td></tr>
-          <tr><th scope="row">PL</th><td>log₁₀(Mturn/M☉)</td><td>8.4720</td><td>8.6356</td><td>8.2053 – 9.0979</td></tr>
-        </tbody>
+<tr><th scope="row">Park</th><td>log₁₀ f★,10</td><td>-1.2266</td><td>-1.2403</td><td>-1.7194 – -1.0205</td></tr>
+<tr><th scope="row">Park</th><td>t★</td><td>0.5451</td><td>0.5012</td><td>0.1564 – 0.8406</td></tr>
+<tr><th scope="row">Park</th><td>α★</td><td>0.5161</td><td>0.4971</td><td>0.4293 – 0.5660</td></tr>
+<tr><th scope="row">Park</th><td>log₁₀(Mturn/M☉)</td><td>8.0159</td><td>8.6027</td><td>8.1900 – 9.0644</td></tr>
+<tr><th scope="row">PL</th><td>log₁₀ f★,10</td><td>-1.0491</td><td>-1.2163</td><td>-1.6917 – -0.9920</td></tr>
+<tr><th scope="row">PL</th><td>t★</td><td>0.7585</td><td>0.4942</td><td>0.1549 – 0.8381</td></tr>
+<tr><th scope="row">PL</th><td>α★</td><td>0.5451</td><td>0.5345</td><td>0.4728 – 0.5993</td></tr>
+<tr><th scope="row">PL</th><td>log₁₀(Mturn/M☉)</td><td>8.4573</td><td>8.6356</td><td>8.2057 – 9.0969</td></tr>
+</tbody>
       </table>
     </div>
   </section>

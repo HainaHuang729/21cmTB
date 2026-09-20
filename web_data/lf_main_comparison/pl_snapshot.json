@@ -1,44 +1,117 @@
 {
-  "steps_per_ensemble": 10000,
-  "sample_count": 640000,
+  "steps_per_ensemble": 30000,
+  "sample_count": 1920000,
   "walkers": 32,
-  "diagnostic_gate_passed": true,
-  "best_log_LF": -37.73188562689184,
-  "source": "workflows/MCMC/fixed_btps_posterior/runs/web_pl_lf_baseline_20260915/job_2134181",
+  "diagnostic_gate_passed": false,
+  "best_log_LF": -13.261040774593372,
+  "source": "/oss06/data/project/tkcastrosim/HNHuang/project_mcmc/workflows/MCMC/fixed_btps_posterior/runs/pl_lf_muv20_control_20260916/job_2134570",
   "best_sample_coordinates": [
-    -0.7935788593322892,
-    0.2361155448172243,
-    0.2354795332704518,
-    9.559923542941076
+    -0.9290946974679811,
+    0.7584908688848016,
+    0.5451494567872581,
+    8.457259067857061
   ],
   "quantiles": [
     [
-      -1.5768609959102533,
-      0.16692180475307405,
-      0.2124520369545702,
-      9.415928203058774
+      -1.6916890805341551,
+      0.1549378173939815,
+      0.47275504240421884,
+      8.205662408157366
     ],
     [
-      -1.1023800083649444,
-      0.4988692389491386,
-      0.23945194765439654,
-      9.542676936578026
+      -1.2162503902549981,
+      0.4942002302616064,
+      0.5344595443779204,
+      8.635625210740104
     ],
     [
-      -0.8761446540131861,
-      0.8391087479030888,
-      0.26636373889210413,
-      9.649916883370146
+      -0.9919640632116904,
+      0.838117025894219,
+      0.5993071264221707,
+      9.09692524960012
     ]
   ],
   "best_astro": {
-    "F_STAR10": -1.420454279258608,
-    "ALPHA_STAR": 0.2354795332704518,
+    "F_STAR10": -1.0491443405809788,
+    "ALPHA_STAR": 0.5451494567872581,
     "F_ESC10": -1.5,
     "ALPHA_ESC": -0.25,
-    "M_TURN": 9.559923542941076,
-    "t_STAR": 0.2361155448172243,
+    "M_TURN": 8.457259067857061,
+    "t_STAR": 0.7584908688848016,
     "L_X": 40.0,
     "NU_X_THRESH": 800.0
-  }
+  },
+  "diagnostics": {
+    "passed": false,
+    "checks": {
+      "independent_rank_folded_rhat": false,
+      "length_vs_autocorrelation": true,
+      "autocorrelation_stability": true,
+      "independent_quantile_agreement": true,
+      "ensemble_mean_ess": true,
+      "no_numerical_domain_failures": true
+    },
+    "steps_per_ensemble": 30000,
+    "independent_ensembles": 2,
+    "walkers_per_ensemble": 32,
+    "parameters": {
+      "ETA_STAR": {
+        "max_rank_folded_rhat_across_matching_walkers": 2.151975794601023,
+        "max_integrated_time": 92.38211114586323,
+        "steps_per_integrated_time": 324.73819474240673,
+        "iat_relative_change_vs_last_half": 0.11176167048087196,
+        "estimated_ensemble_mean_ess": 1148055.7587804897,
+        "independent_quantile_shift_in_68pct_widths": 0.06175559944887374
+      },
+      "t_STAR": {
+        "max_rank_folded_rhat_across_matching_walkers": 1.7285585049429042,
+        "max_integrated_time": 107.67968897441651,
+        "steps_per_integrated_time": 278.60407367194074,
+        "iat_relative_change_vs_last_half": 0.10311279805568857,
+        "estimated_ensemble_mean_ess": 20781.090182355856,
+        "independent_quantile_shift_in_68pct_widths": 0.043692871520478724
+      },
+      "ALPHA_STAR": {
+        "max_rank_folded_rhat_across_matching_walkers": 1.7960809197719372,
+        "max_integrated_time": 97.07744059460924,
+        "steps_per_integrated_time": 309.03163305755623,
+        "iat_relative_change_vs_last_half": 0.03434097699267814,
+        "estimated_ensemble_mean_ess": 32794.916701115675,
+        "independent_quantile_shift_in_68pct_widths": 0.021246905923997125
+      },
+      "M_TURN": {
+        "max_rank_folded_rhat_across_matching_walkers": 1.9435648392368534,
+        "max_integrated_time": 100.59974168936198,
+        "steps_per_integrated_time": 298.2115013042064,
+        "iat_relative_change_vs_last_half": 0.09820099782551235,
+        "estimated_ensemble_mean_ess": 36743.54408745545,
+        "independent_quantile_shift_in_68pct_widths": 0.04390954121705783
+      },
+      "F_STAR10": {
+        "max_rank_folded_rhat_across_matching_walkers": 1.8615580900425335,
+        "max_integrated_time": 96.53778598378483,
+        "steps_per_integrated_time": 310.7591467349273,
+        "iat_relative_change_vs_last_half": 0.06528888275104736,
+        "estimated_ensemble_mean_ess": 26130.517435169255,
+        "independent_quantile_shift_in_68pct_widths": 0.018584346773673606
+      },
+      "log_LF": {
+        "max_rank_folded_rhat_across_matching_walkers": 1.8955706106421941,
+        "max_integrated_time": 22.488829401917155,
+        "steps_per_integrated_time": 1333.9956235090885,
+        "iat_relative_change_vs_last_half": 0.02960291154926486,
+        "estimated_ensemble_mean_ess": 33824700.79557585,
+        "independent_quantile_shift_in_68pct_widths": 0.09736205301787791
+      }
+    },
+    "interpretation": "Diagnostic pilot gate; not a proof of global mixing or of numerical-resolution convergence."
+  },
+  "magnitude_cut": -20,
+  "lf_points": 34,
+  "best_sample_rule": "maximum LF likelihood among the plotted stored samples",
+  "source_report": "/oss06/data/project/tkcastrosim/HNHuang/project_mcmc/workflows/MCMC/fixed_btps_posterior/runs/pl_lf_muv20_control_20260916/job_2134570/final_report.json",
+  "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
+  "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
+  "recomputed_best_log_LF": -13.261040774593372,
+  "snapshot_date": "2026-09-18"
 }

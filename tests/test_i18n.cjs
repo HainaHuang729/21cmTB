@@ -130,7 +130,8 @@ test("all static and literal runtime translation keys exist in both languages", 
   for (const match of source.matchAll(/\bt\("([^"]+)"/g)) assert.ok(messages[match[1]], match[1]);
   assert.ok(html.indexOf('src="i18n.js') < html.indexOf('src="app.js'));
   assert.ok(html.includes("app.js?v=hii256-v23"));
-  for (const asset of ["styles.css", "i18n.js", "mcmc.js"]) assert.ok(html.includes(`${asset}?v=lf-bestfit-1`));
+  assert.ok(html.includes("styles.css?v=lf-bestfit-1"));
+  for (const asset of ["i18n.js", "mcmc.js"]) assert.ok(html.includes(`${asset}?v=muv20-20260918`));
 });
 
 test("default English, saved Chinese, invalid preference and unavailable storage", () => {
@@ -399,7 +400,7 @@ test("all four LF panels pair model, PL and observations by redshift with shared
       redshift: [10, 8, 7, 6], curves: [10, 8, 7, 6].map(z => ({muv: [-20], log10_phi: [-z]}))
     }};
     state.design.lf_observations.by_display_redshift = Object.fromEntries(
-      [6, 7, 8, 10].map(z => [String(z), [{redshift: z, phi: 1e-5, sigma_plus: 2e-6, sigma_minus: 1e-6}]])
+      [6, 7, 8, 10].map(z => [String(z), [-21, -20, -19].map(muv => ({redshift: z, muv, phi: 1e-5, sigma_plus: 2e-6, sigma_minus: 1e-6}))])
     );
     var panelsDrawn = [];
     drawLFPanel = (panel, bounds) => panelsDrawn.push({panel, bounds});
@@ -410,6 +411,8 @@ test("all four LF panels pair model, PL and observations by redshift with shared
   for (const {panel, bounds} of results) {
     assert.equal(panel.plCurve.log10_phi[0], -panel.redshift);
     assert.equal(panel.observations[0].redshift, panel.redshift);
+    assert.equal(panel.observations.length, 1);
+    assert.equal(panel.observations[0].muv, -19);
     assert.equal(bounds, results[0].bounds);
     assert.ok(bounds[0] <= -10 && bounds[1] >= -1);
   }
@@ -432,11 +435,11 @@ test("all 25 corners follow dock KP/MS with provenance, no substitute for PL, an
   }
   assert.deepEqual(Array.from(archive.categories.lf_only.likelihood), ["LF"]);
   assert.equal(archive.categories.lf_only.dimensions, 4);
-  assert.equal(archive.categories.joint.dimensions, 7);
-  assert.equal(archive.joint.status, "PRELIMINARY_NOT_CONVERGED");
+  assert.equal(archive.categories.joint.dimensions, 8);
+  assert.equal(archive.joint.status, "SMOKE_ONLY_NOT_CONVERGED_NOT_A_POSTERIOR");
   assert.equal(archive.joint.lf_points, archive.categories.lf_only.lf_points);
-  assert.equal(h.get("#mcmc-joint-rows").textContent, "20,480");
-  assert.equal(h.get("#mcmc-joint-date").textContent, "2026-09-14");
+  assert.equal(h.get("#mcmc-joint-rows").textContent, "48");
+  assert.equal(h.get("#mcmc-joint-date").textContent, archive.joint.snapshot_date);
   const jointPath = h.get("#mcmc-joint-image").getAttribute("src");
   assert.ok(jointPath.endsWith(`?v=${archive.joint.figure_sha256["corner_eta.png"].slice(0, 12)}`));
   assert.equal(h.get("#mcmc-joint-open").getAttribute("href"), jointPath);
@@ -461,7 +464,7 @@ test("all 25 corners follow dock KP/MS with provenance, no substitute for PL, an
   assert.equal(archive.lf.models.length, 25);
   assert.equal(new Set(archive.lf.models.map(m => `${m.KP_h_Mpc}/${m.MS}`)).size, 25);
   assert.ok(archive.lf.models.every(m => typeof m.diagnostic_gate_passed === "boolean"));
-  assert.equal(archive.lf.models.filter(m => m.steps_per_ensemble === 4000).length, 1);
+  assert.equal(archive.lf.models.filter(m => m.steps_per_ensemble === 15000).length, 25);
   assert.ok(h.get("#mcmc-load-status").textContent.includes(archive.snapshot_date));
   assert.match(h.get("#mcmc-lf-grid-count").textContent, /5 × 5.*25/);
   for (let index = 0; index < 25; index += 1) {

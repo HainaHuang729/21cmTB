@@ -1,0 +1,12 @@
+{
+  "corner_eta.png": {
+    "passed": true,
+    "clipped_text": [],
+    "text_overlaps": []
+  },
+  "corner_native.png": {
+    "passed": true,
+    "clipped_text": [],
+    "text_overlaps": []
+  }
+}

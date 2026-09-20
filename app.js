@@ -902,7 +902,7 @@ function lfPanelData(redshift) {
     redshift,
     current: lf.curves[lf.redshift.indexOf(redshift)],
     plCurve: reference?.curves[reference.redshift.indexOf(redshift)] || null,
-    observations: state.design.lf_observations.by_display_redshift[String(redshift)] || [],
+    observations: (state.design.lf_observations.by_display_redshift[String(redshift)] || []).filter(point => point.muv > -20),
   };
 }
 
@@ -933,7 +933,7 @@ function drawLuminosityFunction() {
 function drawLFPanel({redshift, current, plCurve, observations}, [yMin, yMax]) {
   const {context: ctx, width, height} = canvasContext($(`#lf-chart-${redshift}`));
   const margin = {left: 66, right: 15, top: 20, bottom: 52};
-  const xMin = -24, xMax = -10;
+  const xMin = -20, xMax = -10;
   const displayRedshift = String(redshift);
   const {plotWidth, plotHeight} = preparePlot(ctx, width, height, margin);
   const px = (value) => margin.left + (value - xMin) / (xMax - xMin) * plotWidth;

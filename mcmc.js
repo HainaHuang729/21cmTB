@@ -7,7 +7,7 @@ window.AtlasMCMC = (() => {
   const node = (id) => document.getElementById(id);
   const format = (value) => Number(value).toLocaleString(window.AtlasI18n.language === "zh" ? "zh-CN" : "en-US");
   async function readJSON(path) {
-    const response = await fetch(`${path}?v=lf-bestfit-1`, {cache: "no-cache"});
+    const response = await fetch(`${path}?v=muv20-20260918`, {cache: "no-cache"});
     if (!response.ok) throw new Error(`${path}: HTTP ${response.status}`);
     return response.json();
   }
@@ -95,21 +95,23 @@ window.AtlasMCMC = (() => {
         readJSON(`${categories.lf_only.directory}/index.json`),
         readJSON(`${categories.joint.directory}/index.json`),
       ]);
-      if (lf.analysis !== "LF-only" || !lf.models.length || joint.status !== "PRELIMINARY_NOT_CONVERGED") throw new Error("Unexpected archive identity");
+      if (lf.analysis !== "LF-only" || !lf.models.length || joint.status !== "SMOKE_ONLY_NOT_CONVERGED_NOT_A_POSTERIOR") throw new Error("Unexpected archive identity");
+      if ([lf, joint, categories.lf_only, categories.joint].some(item => item.magnitude_cut !== -20 || item.lf_points !== 34)) throw new Error("Mixed LF magnitude selections");
       for (const model of lf.models) {
         if (!/^lf_corner_[\w.]+\.png$/.test(model.file) || model.parameters.length !== 4 ||
           !/^[0-9a-f]{64}$/.test(model.figure_sha256) || catalog.files_sha256[`${categories.lf_only.directory}/${model.file}`] !== model.figure_sha256 ||
-          !model.pl_baseline || model.pl_baseline.sample_count !== model.pl_baseline.steps_per_ensemble * model.pl_baseline.walkers * 2 || !model.chain_source || typeof model.diagnostic_gate_passed !== "boolean" ||
+          model.magnitude_cut !== -20 || !model.pl_baseline || model.pl_baseline.magnitude_cut !== -20 || model.pl_baseline.sample_count !== model.pl_baseline.steps_per_ensemble * model.pl_baseline.walkers * 2 || !model.chain_source || typeof model.diagnostic_gate_passed !== "boolean" ||
           model.sample_count !== model.steps_per_ensemble * model.walkers * categories.lf_only.ensembles) throw new Error("Invalid LF snapshot");
       }
       const pl = lf.pl_only;
-      if (!pl || pl.file !== "lf_corner_pl.png" || !/^[0-9a-f]{64}$/.test(pl.figure_sha256 || "") ||
+      if (!pl || pl.magnitude_cut !== -20 || pl.file !== "lf_corner_pl.png" || !/^[0-9a-f]{64}$/.test(pl.figure_sha256 || "") ||
           catalog.files_sha256[`${categories.lf_only.directory}/${pl.file}`] !== pl.figure_sha256 ||
           pl.sample_count !== pl.steps_per_ensemble * pl.walkers * 2) throw new Error("Invalid PL reference");
       const pairs = new Set(lf.models.map(model => `${model.KP_h_Mpc}/${model.MS}`));
       if (pairs.size !== lf.models.length || lf.grid.kp_h_Mpc.length * lf.grid.ms.length !== pairs.size ||
           lf.grid.kp_h_Mpc.some(kp => lf.grid.ms.some(ms => !pairs.has(`${kp}/${ms}`)))) throw new Error("Incomplete LF model grid");
-      if (joint.sources.length !== 2 || joint.sources.some((source) => source.shape[2] !== 7)) throw new Error("Invalid joint snapshot");
+      if (joint.sources.length !== 1 || joint.dimensions !== 8 || joint.sources.some(source => source.shape[2] !== 8) ||
+          joint.fixed.KP_h_Mpc !== 10 || joint.fixed.MS !== 2.5 || joint.diagnostic_gate_passed !== false) throw new Error("Invalid joint snapshot");
       for (const file of ["corner_eta.png", "corner_native.png"]) {
         const digest = joint.figure_sha256?.[file];
         if (!/^[0-9a-f]{64}$/.test(digest || "") || catalog.files_sha256[`${categories.joint.directory}/${file}`] !== digest) throw new Error("Invalid joint figure provenance");

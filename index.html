@@ -81,7 +81,7 @@
           <button id="main-fullscreen" class="icon-button" type="button" title="View UV LF in fullscreen">Fullscreen</button>
         </div>
         <div class="lf-main-toolbar">
-          <strong data-i18n="lfSharedAxes">FOUR REDSHIFTS / SHARED AXES</strong>
+          <strong data-i18n="lfSharedAxes">FOUR REDSHIFTS / MUV &gt; −20</strong>
           <div class="curve-key main-curve-key"><i class="current-curve"></i><span data-current-model>BPL</span><i class="pl-curve"></i><span>PL</span><i class="hst-point"></i><span>HST</span><i class="jwst-point"></i><span>JWST</span></div>
         </div>
         <div id="lf-chart" class="lf-panel-grid">
@@ -196,7 +196,7 @@
         <div><span class="section-index">06</span><div><h2 id="mcmc-title" data-i18n="mcmcTitle">MCMC Inference Archive</h2><p data-i18n="mcmcSubtitle">TWO LIKELIHOOD BRANCHES · STORED CHAIN SNAPSHOTS</p></div></div>
         <a class="text-button" href="web_data/mcmc/index.json" data-i18n="mcmcManifest">Archive manifest ↗</a>
       </div>
-      <p class="mcmc-intro" data-i18n="mcmcIndependent">LF-only corners follow kₚ and mₛ in the bottom parameter dock. Other sliders do not condition these four-dimensional sampling distributions. Switching models only loads stored figures; no chain is recomputed or reweighted. The free-mₛ joint archive remains a separate fixed snapshot.</p>
+      <p class="mcmc-intro" data-i18n="mcmcIndependent">All active LF selections use MUV &gt; −20. LF-only corners follow kₚ and mₛ in the bottom dock; other sliders do not condition or reweight these distributions. The joint functional test is a separate snapshot at fixed kₚ = 10, mₛ = 2.5.</p>
       <p><a id="park-pl-comparison-link" class="system-action" href="park-pl-comparison.html" data-i18n="parkPLComparison">Park / PL · Combined corner &amp; best-fit LF ↗</a></p>
       <p id="mcmc-load-status" class="mcmc-load-status" role="status" aria-live="polite"></p>
 
@@ -206,7 +206,7 @@
           <h3 id="mcmc-lf-title">LF only</h3>
           <p id="mcmc-lf-status" class="inference-status" data-i18n="mcmcLFStatus">EXPLORATORY SNAPSHOT · SEE MODEL DIAGNOSTICS</p>
           <p data-i18n="mcmcLFDescription">A grid of fixed kₚ / mₛ models. Four stellar parameters are sampled using LF alone, without τₑ or neutral-fraction constraints.</p>
-          <p class="inference-detail" data-i18n="mcmcLFData">49 LF points: HST z = 6, 7, 8 and Donnan (2024) z = 9, 10. Native 21cmFAST LF; no 21-cm likelihood.</p>
+          <p class="inference-detail" data-i18n="mcmcLFData">34 LF points with MUV &gt; −20: HST z = 6, 7, 8 and Donnan (2024) z = 9, 10. Native 21cmFAST LF; no 21-cm likelihood.</p>
           <div id="mcmc-lf-models" class="inference-models">
             <span data-i18n="mcmcDockLinked">LINKED TO PARAMETER DOCK / kₚ + mₛ</span>
             <span id="mcmc-lf-grid-count" aria-live="polite"></span>
@@ -216,7 +216,7 @@
             <div><dt data-i18n="mcmcSampling">STORED STEPS × WALKERS × ENSEMBLES</dt><dd id="mcmc-lf-sampling">—</dd></div>
             <div><dt data-i18n="mcmcRows">CORRELATED ROWS · NOT ESS</dt><dd id="mcmc-lf-rows">—</dd></div>
           </dl>
-          <p class="inference-detail" data-i18n="mcmcLFCaution">Both ensembles use the saved length listed above. Passing the existing diagnostic gate is not proof of global mixing or numerical-resolution convergence. These figures are exploratory, not final parameter constraints.</p>
+          <p class="inference-detail" data-i18n="mcmcLFCaution">Each figure compares BPL with a shared PL reference using the same LF data and priors. BPL and PL snapshot lengths and diagnostic status are shown separately; passing the gate does not establish global mixing.</p>
         </div>
         <figure class="inference-figure">
           <div id="mcmc-lf-empty" class="inference-empty" role="status" aria-live="polite" hidden></div>
@@ -224,34 +224,34 @@
             <img id="mcmc-lf-image" width="1700" height="1700" loading="lazy" decoding="async" alt="LF-only four-parameter sampling distribution">
           </a>
           <figcaption><span>FIG / 06A</span><span id="mcmc-lf-caption"></span></figcaption>
-          <p id="mcmc-lf-coordinates" class="inference-detail" data-i18n="mcmcLFCoordinates">Native coordinates: log₁₀ f★,10, t★, α★, log₁₀(Mturn/M☉). Conversion only: log₁₀ f★,10 = η★ + log₁₀ t★. Blue / ensemble 0 · Orange / ensemble 1 · Solid / 68% · Dashed / 95% binned sample mass; not validated credible regions.</p>
+          <p id="mcmc-lf-coordinates" class="inference-detail" data-i18n="mcmcLFCoordinates">Red solid: BPL; blue dashed: PL. Labels: median and 16–84% interval. LF panels at z=6,7,8,10 use each chain’s maximum-LF sample; best values are listed below the corner axes.</p>
         </figure>
       </article>
 
       <article id="mcmc-joint" class="inference-branch" aria-labelledby="mcmc-joint-title">
         <div class="inference-copy">
-          <p class="technical-label">06B / 7D</p>
+          <p class="technical-label">06B / 8D</p>
           <h3 id="mcmc-joint-title">LF + τ + ξ</h3>
-          <p class="inference-status" data-i18n="mcmcJointStatus">PRELIMINARY · NOT CONVERGED</p>
-          <p data-i18n="mcmcJointDescription">Fixed kₚ = 1 h Mpc⁻¹; free mₛ ∈ [0.5, 2]. Seven sampled parameters: four stellar parameters, two escape-fraction parameters and mₛ.</p>
-          <p class="inference-detail" data-i18n="mcmcJointData">The same 49 LF points, plus Planck τₑ and McGreer xHI(z = 5.9). Here ξ = 1 − xHI: the neutral-fraction likelihood is not a measured full ξ(z) history. No 21-cm likelihood.</p>
+          <p class="inference-status" data-i18n="mcmcJointStatus">FUNCTIONAL TEST ONLY · NOT A POSTERIOR</p>
+          <p data-i18n="mcmcJointDescription">Fixed kₚ = 10 h Mpc⁻¹ and mₛ = 2.5. Eight sampled parameters: four stellar, two escape-fraction and two X-ray parameters. One short ensemble; not the earlier free-mₛ analysis.</p>
+          <p class="inference-detail" data-i18n="mcmcJointData">The same 34 LF points with MUV &gt; −20, plus Planck τₑ and McGreer xHI(z = 5.9). ξ = 1 − xHI; this is not a measured full ξ(z) history. No 21-cm likelihood.</p>
           <dl class="inference-metadata">
-            <div><dt data-i18n="mcmcSnapshot">ARCHIVED SNAPSHOT</dt><dd id="mcmc-joint-date">2026-09-14</dd></div>
+            <div><dt data-i18n="mcmcSnapshot">ARCHIVED SNAPSHOT</dt><dd id="mcmc-joint-date">2026-09-18</dd></div>
             <div><dt data-i18n="mcmcSampling">STORED STEPS × WALKERS × ENSEMBLES</dt><dd id="mcmc-joint-sampling">—</dd></div>
             <div><dt data-i18n="mcmcRows">CORRELATED ROWS · NOT ESS</dt><dd id="mcmc-joint-rows">—</dd></div>
-            <div><dt data-i18n="mcmcCompute">COEVAL GRID / BOX</dt><dd>128³ / 250 cMpc</dd></div>
+            <div><dt data-i18n="mcmcCompute">COEVAL GRID / BOX</dt><dd>256³ / 250 cMpc</dd></div>
           </dl>
-          <p class="inference-detail" data-i18n="mcmcJointCaution">Both ensembles still drift. The saved snapshot contains 160 steps after 40 initial burn-in steps; continuing runs are not included. The two colors represent ensembles of one model, not PL versus BPL.</p>
-          <a class="system-action" href="ms-corner.html" data-i18n="mcmcDiagnostics">Coordinates & convergence diagnostics ↗</a>
+          <p class="inference-detail" data-i18n="mcmcJointCaution">3 stored steps × 16 walkers after 1 initial burn-in step. These 48 correlated rows test runtime and interface stability only. The running continuation is not included; no convergence or credible-interval claim.</p>
+          <a class="system-action" href="ms-corner.html" data-i18n="mcmcDiagnostics">Coordinates &amp; convergence diagnostics ↗</a>
         </div>
         <figure class="inference-figure">
-          <a id="mcmc-joint-open" href="web_data/ms_corner_chunk1/corner_eta.png?v=corner-shared-v2" target="_blank" rel="noopener" data-i18n-title="mcmcOpen" title="Open full-resolution figure">
-            <img id="mcmc-joint-image" src="web_data/ms_corner_chunk1/corner_eta.png?v=corner-shared-v2" width="2400" height="2400" loading="lazy" decoding="async" data-i18n-alt="mcmcJointAlt" alt="Preliminary seven-parameter joint sampling distribution; not converged">
+          <a id="mcmc-joint-open" href="web_data/joint_muv20/corner_eta.png?v=muv20-20260918" target="_blank" rel="noopener" data-i18n-title="mcmcOpen" title="Open full-resolution figure">
+            <img id="mcmc-joint-image" src="web_data/joint_muv20/corner_eta.png?v=muv20-20260918" width="3080" height="3080" loading="lazy" decoding="async" data-i18n-alt="mcmcJointAlt" alt="Eight-parameter joint functional-test samples; not posterior constraints">
           </a>
-          <figcaption><span>FIG / 06B</span><span data-i18n="mcmcJointCaption">Blue / ensemble 0 · Orange / ensemble 1 · Solid / 68% · Dashed / 95% binned sample mass. η★ = log₁₀(f★,10/t★). These are empirical sample regions, not validated credible regions.</span></figcaption>
+          <figcaption><span>FIG / 06B</span><span data-i18n="mcmcJointCaption">Raw scatter and marginal counts for one short ensemble. No smoothed credible contours or interval estimates. η★ = log₁₀(f★,10/t★).</span></figcaption>
         </figure>
       </article>
-      <p class="inference-separation" data-i18n="mcmcSeparation">Different parameter spaces, separate chains. LF-only fixes both kₚ and mₛ; joint inference also samples mₛ and escape fractions. Differences cannot be attributed solely to adding τ and ξ. Original scientific plot annotations remain in English.</p>
+      <p class="inference-separation" data-i18n="mcmcSeparation">Separate chains and parameter spaces, all with MUV &gt; −20. LF-only samples four parameters; the joint functional test samples eight at fixed kₚ = 10 and mₛ = 2.5. It cannot establish the effect of adding τ and ξ. Plot annotations remain in English.</p>
     </section>
   </main>
 
@@ -292,8 +292,8 @@
       </div>
     </div>
   </section>
-  <script src="i18n.js?v=lf-bestfit-1&amp;layout=right-pl-1&amp;jointstyle=1&amp;archive=park-pl-merged-1"></script>
-  <script src="mcmc.js?v=lf-bestfit-1&amp;layout=right-pl-1"></script>
-  <script src="app.js?v=hii256-v23"></script>
+  <script src="i18n.js?v=muv20-20260918&amp;layout=right-pl-1&amp;jointstyle=1&amp;archive=park-pl-merged-1"></script>
+  <script src="mcmc.js?v=muv20-20260918&amp;layout=right-pl-1"></script>
+  <script src="app.js?v=hii256-v23&amp;data=muv20-20260918"></script>
 </body>
 </html>
