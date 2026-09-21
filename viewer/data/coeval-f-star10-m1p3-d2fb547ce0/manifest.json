@@ -1,0 +1,1297 @@
+{
+  "schemaVersion": 1,
+  "simulationId": "coeval-f-star10-m1p3-d2fb547ce0",
+  "title": "Coeval / F_STAR10 = \u22121.3",
+  "geometry": "coeval",
+  "grid": [
+    64,
+    64,
+    64
+  ],
+  "boxLength": 100.0,
+  "boxUnit": "cMpc",
+  "coordinates": {
+    "sourceArrayAxes": [
+      "grid-X",
+      "grid-Y",
+      "grid-Z"
+    ],
+    "sourceFastestAxis": "grid-Z",
+    "exportFastestAxis": "grid-X",
+    "linearIndex": "x + nx * (y + ny * z)",
+    "sourceSampling": "not explicitly documented in saved metadata",
+    "webSampling": "cell-center convention: (index + 0.5) * boxLength / gridSize",
+    "orientation": "Grid axes only; no celestial orientation inferred. Source grid-Z is the velocity-gradient/RSD direction.",
+    "sliceConvention": "Columns: first remaining axis increasing. Rows: second remaining axis decreasing. Bottom-left is low/low."
+  },
+  "identity": {
+    "parameters": {
+      "user_params": {
+        "BOX_LEN": 100.0,
+        "DIM": 192,
+        "FAST_FCOLL_TABLES": false,
+        "HII_DIM": 64,
+        "HMF": 1,
+        "KEEP_3D_VELOCITIES": false,
+        "MINIMIZE_MEMORY": false,
+        "NON_CUBIC_FACTOR": 1.0,
+        "NO_RNG": false,
+        "N_THREADS": 4,
+        "PERTURB_ON_HIGH_RES": false,
+        "POWER_SPECTRUM": 0,
+        "USE_2LPT": true,
+        "USE_FFTW_WISDOM": false,
+        "USE_INTERPOLATION_TABLES": true,
+        "USE_RELATIVE_VELOCITIES": false
+      },
+      "cosmo_params": {
+        "KP": 1,
+        "MS": 1,
+        "OMb": 0.0484,
+        "OMm": 0.308,
+        "POWER_INDEX": 0.968,
+        "SIGMA_8": 0.815,
+        "hlittle": 0.678
+      },
+      "astro_params": {
+        "ALPHA_ESC": -0.5,
+        "ALPHA_STAR": 0.5,
+        "ALPHA_STAR_MINI": 0.5,
+        "A_LW": 2.0,
+        "A_VCB": 1.0,
+        "BETA_LW": 0.6,
+        "BETA_VCB": 1.8,
+        "F_ESC10": -1.0,
+        "F_ESC7_MINI": -2.0,
+        "F_H2_SHIELD": 0.0,
+        "F_STAR10": -1.3,
+        "F_STAR7_MINI": -2.0,
+        "HII_EFF_FACTOR": 30.0,
+        "ION_Tvir_MIN": 4.69897,
+        "L_X": 40.5,
+        "L_X_MINI": 40.0,
+        "M_TURN": 8.698970004336019,
+        "NU_X_THRESH": 500.0,
+        "N_RSD_STEPS": 20,
+        "R_BUBBLE_MAX": 30.0,
+        "X_RAY_SPEC_INDEX": 1.0,
+        "X_RAY_Tvir_MIN": "none",
+        "t_STAR": 0.5
+      },
+      "flag_options": {
+        "APPLY_RSDS": true,
+        "FIX_VCB_AVG": false,
+        "INHOMO_RECO": true,
+        "M_MIN_in_Mass": false,
+        "PHOTON_CONS": false,
+        "SUBCELL_RSD": false,
+        "USE_CMB_HEATING": true,
+        "USE_HALO_FIELD": false,
+        "USE_LYA_HEATING": true,
+        "USE_MASS_DEPENDENT_ZETA": true,
+        "USE_MINI_HALOS": false,
+        "USE_TS_FLUCT": true
+      },
+      "global_params": {
+        "ALPHA_UVB": 5.0,
+        "CLUMPING_FACTOR": 2.0,
+        "CRIT_DENS_TRANSITION": 1.5,
+        "DELTA_CRIT_MODE": 1,
+        "DELTA_R_FACTOR": 1.100000023841858,
+        "DELTA_R_HII_FACTOR": 1.100000023841858,
+        "EVOLVE_DENSITY_LINEARLY": 0,
+        "FILTER": 0,
+        "FIND_BUBBLE_ALGORITHM": 2,
+        "HALO_FILTER": 0,
+        "HEAT_FILTER": 0,
+        "HII_FILTER": 1,
+        "HII_ROUND_ERR": 9.999999747378752e-06,
+        "INITIAL_REDSHIFT": 300.0,
+        "MAX_DVDR": 0.20000000298023224,
+        "MIN_DENSITY_LOW_LIMIT": 9.000000034120603e-08,
+        "M_MAX_INTEGRAL": 1.0000000272564224e+16,
+        "M_MIN_INTEGRAL": 100000.0,
+        "M_WDM": 2.0,
+        "NBINS_LF": 100,
+        "NUM_FILTER_STEPS_FOR_Ts": 40,
+        "NU_X_BAND_MAX": 2000.0,
+        "NU_X_MAX": 10000.0,
+        "N_POISSON": 5,
+        "OMk": 0.0,
+        "OMn": 0.0,
+        "OMr": 8.600000001024455e-05,
+        "OMtot": 1.0,
+        "OPTIMIZE": 0,
+        "OPTIMIZE_MIN_MASS": 99999997952.0,
+        "P_CUTOFF": 0,
+        "PhotonConsAsymptoteTo": 0.009999999776482582,
+        "PhotonConsEnd": 0.30000001192092896,
+        "PhotonConsEndCalibz": 3.5,
+        "PhotonConsStart": 0.9950000047683716,
+        "Pop": 2,
+        "Pop2_ion": 5000.0,
+        "Pop3_ion": 44021.0,
+        "R_BUBBLE_MIN": 0.6203504800796509,
+        "R_OVERLAP_FACTOR": 1.0,
+        "R_XLy_MAX": 500.0,
+        "R_smooth_density": 0.20000000298023224,
+        "RecombPhotonCons": 0,
+        "SHETH_b": 0.15000000596046448,
+        "SHETH_c": 0.05000000074505806,
+        "SMOOTH_EVOLVED_DENSITY_FIELD": 0,
+        "TK_at_Z_HEAT_MAX": -1.0,
+        "T_RE": 20000.0,
+        "T_USE_VELOCITIES": 1,
+        "USE_ADIABATIC_FLUCTUATIONS": true,
+        "USE_FAST_ATOMIC": false,
+        "VAVG": 25.860000610351562,
+        "XION_at_Z_HEAT_MAX": -1.0,
+        "Y_He": 0.24500000476837158,
+        "ZPRIME_STEP_FACTOR": 1.08,
+        "Z_HEAT_MAX": 25.0,
+        "Zreion_HeII": 3.0,
+        "g_x": 1.5,
+        "wl": -1.0
+      }
+    },
+    "randomSeed": 12345,
+    "softwareVersion": "0.1.dev1835+gaefc273.d20250321",
+    "icFingerprint": "13ccb86981e52170062c139af11851cc21416c01dbdafeabf2a18730968b50d1",
+    "initialConditionsFileSha256": "6d00cbcb8d5ccc1c02b2afc418328471289af0fd1abeac60dc372eb4dff70aec"
+  },
+  "sourceIdentity": "d2fb547ce0ef28f98ff81d75e46cb082f0263c206253f473d78eb351fffe449e",
+  "exporterVersion": "coeval-web-export/1.0.0",
+  "selectionReason": "Metadata-consistent 19-frame coeval series; prefer fiducial F_STAR10=-1.3 with xH span >0.7, then broad span and a frame near mean xH=0.5.",
+  "xHMeanRange": [
+    0.0,
+    0.9998080203699828
+  ],
+  "defaultSnapshot": "coeval-z7.81798400",
+  "stage": "all",
+  "fields": {
+    "xH": {
+      "label": "Neutral hydrogen fraction",
+      "symbol": "xH",
+      "unit": "dimensionless",
+      "definition": "Neutral hydrogen fraction; ionized display weight is derived 1-xH, not electron fraction.",
+      "palette": "neutral",
+      "displayRange": [
+        0.0,
+        1.0
+      ],
+      "rangeBasis": "All 19 audited coeval snapshots, including frames outside a pilot export",
+      "sourceDataset": "IonizedBox/xH_box"
+    },
+    "brightness_temperature": {
+      "label": "21-cm brightness temperature",
+      "symbol": "\u03b4Tb",
+      "unit": "mK",
+      "definition": "Differential 21-cm brightness temperature including saved spin-temperature and velocity-gradient/RSD effects; signed linear values.",
+      "palette": "diverging",
+      "displayRange": [
+        -142.287109375,
+        142.287109375
+      ],
+      "rangeBasis": "All 19 audited coeval snapshots, including frames outside a pilot export",
+      "sourceDataset": "BrightnessTemp/brightness_temp"
+    },
+    "density": {
+      "label": "Density contrast",
+      "symbol": "\u03b4",
+      "unit": "dimensionless",
+      "definition": "Matter density contrast \u03b4 = \u03c1 / mean(\u03c1) \u2212 1 from PerturbedField; no log transform.",
+      "palette": "density",
+      "displayRange": [
+        -0.7430337071418762,
+        9.4581880569458
+      ],
+      "rangeBasis": "All 19 audited coeval snapshots, including frames outside a pilot export",
+      "sourceDataset": "PerturbedField/density"
+    }
+  },
+  "snapshots": [
+    {
+      "id": "coeval-z26.97213649",
+      "redshift": 26.972136494294542,
+      "scaleFactor": 0.035749861302298784,
+      "meanNeutralFraction": 0.9998013973236084,
+      "fields": {
+        "xH": {
+          "url": "snapshots/coeval-z26.97213649/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": 0.9998013973236084,
+            "max": 0.9998013973236084,
+            "mean": 0.9998013973236084,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 0,
+            "zero": 0
+          },
+          "sha256": "f0abbd91f96ea26c6f9eb57cec883a6cf6543c6752a26b95ab3583ca01005751",
+          "sourceId": "283efc5bf82e1f40bb0f4edbbbd239a3c0f8419e1b0c270f72ef3f6ff86e2afb"
+        },
+        "brightness_temperature": {
+          "url": "snapshots/coeval-z26.97213649/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -8.553853988647461,
+            "max": -0.9459517598152161,
+            "mean": -2.3392870413495075,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 262144,
+            "zero": 0
+          },
+          "sha256": "eb236947d0505dff4216f75d3a6ed50bdd81b9989e2fb5afdf61552e98dbbfa2",
+          "sourceId": "8ad7a1fcbc4833a2db2d612638445037d4b27a1462506e7a31180bd8dd39f454"
+        },
+        "density": {
+          "url": "snapshots/coeval-z26.97213649/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -0.32119637727737427,
+            "max": 0.7339146733283997,
+            "mean": 5.234701561107613e-12,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 138096,
+            "zero": 0
+          },
+          "sha256": "19958fe1fa674764213945adfad7527c9657f3ab55228aa0fc71f8a7d3658482",
+          "sourceId": "cfab75a65883b6ce2f8a280070f584520d6203c5b4e5e2e1409018e766bf5ed4"
+        }
+      }
+    },
+    {
+      "id": "coeval-z24.90012638",
+      "redshift": 24.900126383606057,
+      "scaleFactor": 0.038609850206482686,
+      "meanNeutralFraction": 0.9998048010415914,
+      "fields": {
+        "xH": {
+          "url": "snapshots/coeval-z24.90012638/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": 0.999799907207489,
+            "max": 0.9998060464859009,
+            "mean": 0.9998048010415914,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 0,
+            "zero": 0
+          },
+          "sha256": "cb15109af3fdb1a97800130fdb9b9f0fc0add6dc7444d894188ddb6e60af9874",
+          "sourceId": "f39bfb039b18c1cd3ef774d78e57c601b7cd8a6abe45803338d9062c823f36e3"
+        },
+        "brightness_temperature": {
+          "url": "snapshots/coeval-z24.90012638/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -46.46712112426758,
+            "max": -0.39961040019989014,
+            "mean": -1.4614500699210566,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 262144,
+            "zero": 0
+          },
+          "sha256": "71b455149887babb42f2031dbf5ac50a45aaddd6b896e15c55e7c05432b48a60",
+          "sourceId": "ad330ef636862b7b25bb2aba875a6c3daa6cc84bcac26a63df2da2940ab5070f"
+        },
+        "density": {
+          "url": "snapshots/coeval-z24.90012638/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -0.34200751781463623,
+            "max": 0.818953812122345,
+            "mean": 1.1232104135672216e-10,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 138620,
+            "zero": 0
+          },
+          "sha256": "02bed900c3787c2c66e5f55bfd9a681c955adcd6a2c98cfd2124018fc4c4b119",
+          "sourceId": "bde7a1702ea7465e831152a048b72d8f7b25af6d966e1566253bd3cad4ffa06b"
+        }
+      }
+    },
+    {
+      "id": "coeval-z22.98159850",
+      "redshift": 22.98159850333894,
+      "scaleFactor": 0.0416986382230013,
+      "meanNeutralFraction": 0.9998080203699828,
+      "fields": {
+        "xH": {
+          "url": "snapshots/coeval-z22.98159850/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": 0.9997594356536865,
+            "max": 0.9998102784156799,
+            "mean": 0.9998080203699828,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 0,
+            "zero": 0
+          },
+          "sha256": "f3369fe98e42f451e30aaefb1e31f6082724d690171511e4ff6081eb1c8c8cc6",
+          "sourceId": "0293d1cd1eb3e6f0c71b36047cdc0314ad1f96fdfb2356b229cdfdc44fe547d1"
+        },
+        "brightness_temperature": {
+          "url": "snapshots/coeval-z22.98159850/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -142.287109375,
+            "max": -0.2185615599155426,
+            "mean": -0.8803692079166012,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 262144,
+            "zero": 0
+          },
+          "sha256": "014cf1cb38dd9a2307876a818eaf31fa89a67cd1a84fda5d8883a7f21a874ad9",
+          "sourceId": "74c5cb76955d6353f902d3ca20f18b853efcf60d2302c4cc3fbd72e73a21e5dd"
+        },
+        "density": {
+          "url": "snapshots/coeval-z22.98159850/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -0.3553297817707062,
+            "max": 0.9151220917701721,
+            "mean": 2.0269097511516065e-10,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 139140,
+            "zero": 0
+          },
+          "sha256": "cf2dee21cbd1732a27dd27a9813767013078174e27a3091a2ff0bf7e18673fb2",
+          "sourceId": "f277a7c92d6eaa09c223705cbc3455158ab6b82f14573dbc84dcf3fc52ee30cb"
+        }
+      }
+    },
+    {
+      "id": "coeval-z21.20518380",
+      "redshift": 21.205183799387907,
+      "scaleFactor": 0.04503452928084141,
+      "meanNeutralFraction": 0.9997939371078246,
+      "fields": {
+        "xH": {
+          "url": "snapshots/coeval-z21.20518380/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": 0.0,
+            "max": 0.9998137950897217,
+            "mean": 0.9997939371078246,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 0,
+            "zero": 1
+          },
+          "sha256": "e4a8b3167acac9e468638dc933751b901bf833e73088ec37adaff896b03e056d",
+          "sourceId": "b6a915d9871413abd752bb6ee48d31365d8f9497298a81ac29a6e5fecae982ca"
+        },
+        "brightness_temperature": {
+          "url": "snapshots/coeval-z21.20518380/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -71.20972442626953,
+            "max": -0.0,
+            "mean": -0.6195315108121804,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 262143,
+            "zero": 1
+          },
+          "sha256": "fc553081136409464aa2753d18ea2f94d9a56cdd9577bb5c97c9ee4d172ae0a1",
+          "sourceId": "1db83362528b9ccd2af638bfdd03d461196b5555044f9c9dfd876d58cd6270ca"
+        },
+        "density": {
+          "url": "snapshots/coeval-z21.20518380/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -0.37797319889068604,
+            "max": 1.0229337215423584,
+            "mean": 3.3160563184253533e-10,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 139813,
+            "zero": 0
+          },
+          "sha256": "40940b6ff933b705db1597b7b51cf2d1a7f063adce6f7def934146f9435d8926",
+          "sourceId": "6b609f3e9323b5913c5a950bbd9b8d8969667a22a77c7e8f1b69fd419b7c1a69"
+        }
+      }
+    },
+    {
+      "id": "coeval-z19.56035537",
+      "redshift": 19.560355369803617,
+      "scaleFactor": 0.04863729162330872,
+      "meanNeutralFraction": 0.9997332681573425,
+      "fields": {
+        "xH": {
+          "url": "snapshots/coeval-z19.56035537/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": 0.0,
+            "max": 0.9998168349266052,
+            "mean": 0.9997332681573425,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 0,
+            "zero": 2
+          },
+          "sha256": "7c700197873b41de856d5efd0c2b98cf0cf7693d23ac1cd9622f39b8befa760b",
+          "sourceId": "da7a3e72d6e66c3f9e0f037c04f1785c184fa0b4444bf3ebfeb5e09057d50bc8"
+        },
+        "brightness_temperature": {
+          "url": "snapshots/coeval-z19.56035537/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -78.40528106689453,
+            "max": -0.0,
+            "mean": -0.8999385531139978,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 262142,
+            "zero": 2
+          },
+          "sha256": "3cccabb6d3be96ca21fbb8bd61d64d6178c8323d3c47fc0cc3aef5fd88ba752a",
+          "sourceId": "4d98cb0d29c06f93a0403374fbe465f558cc043df9090717d0fe66f05cb5e668"
+        },
+        "density": {
+          "url": "snapshots/coeval-z19.56035537/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -0.39410513639450073,
+            "max": 1.148902416229248,
+            "mean": -3.2325386811749013e-10,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 140537,
+            "zero": 0
+          },
+          "sha256": "097d75faa36f246d212c56730742e335a8849865e6068fca5c239b8f96c093ba",
+          "sourceId": "f7917c8a093c054b335b091085698064715189302fd93af4c0671c8155cd39b9"
+        }
+      }
+    },
+    {
+      "id": "coeval-z18.03736608",
+      "redshift": 18.037366083151497,
+      "scaleFactor": 0.05252827495317342,
+      "meanNeutralFraction": 0.9994630561126883,
+      "fields": {
+        "xH": {
+          "url": "snapshots/coeval-z18.03736608/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": 0.0,
+            "max": 0.9998193979263306,
+            "mean": 0.9994630561126883,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 0,
+            "zero": 8
+          },
+          "sha256": "4154e0902d638dcc27ee739feb05cbb9be0abc5aa4376723ae35a8e1e196021b",
+          "sourceId": "ad7f750bdb448a6db6dad1125ab1b473ff6d474ebb226be4574444af4c66c6d7"
+        },
+        "brightness_temperature": {
+          "url": "snapshots/coeval-z18.03736608/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -93.24545288085938,
+            "max": -0.0,
+            "mean": -2.6628229737634683,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 262136,
+            "zero": 8
+          },
+          "sha256": "aa366b8586813fd85c2909feaebd03843c5aa6310e24b7e03bf09717e7b0fa70",
+          "sourceId": "32355f440a2fc14dc286b6972d0879340ce4b16690dffd3070a7fcf5a45c8a24"
+        },
+        "density": {
+          "url": "snapshots/coeval-z18.03736608/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -0.4238312244415283,
+            "max": 1.287698745727539,
+            "mean": -1.836406582356176e-10,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 141259,
+            "zero": 0
+          },
+          "sha256": "0abe26e3fcc324a946245a8d4bab4a5b3a01c4edeae3f91e8a7a36ceb49035e1",
+          "sourceId": "c42ac5026a6ca12b885677d328701dba464454916e2f9b212a26f5ecd72fc48f"
+        }
+      }
+    },
+    {
+      "id": "coeval-z16.62719082",
+      "redshift": 16.627190817732867,
+      "scaleFactor": 0.0567305369494273,
+      "meanNeutralFraction": 0.9985958036157854,
+      "fields": {
+        "xH": {
+          "url": "snapshots/coeval-z16.62719082/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": 0.0,
+            "max": 0.9998208284378052,
+            "mean": 0.9985958036157854,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 0,
+            "zero": 50
+          },
+          "sha256": "18d7b4c67d76108b942c85d82897fe19be488a8f7d7184a966d1be22baddecea",
+          "sourceId": "67284eb3573c0c3dccc093cf4ee6961ba5035d4bea0004bec4f2ee2208f2981f"
+        },
+        "brightness_temperature": {
+          "url": "snapshots/coeval-z16.62719082/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -105.51529693603516,
+            "max": -0.0,
+            "mean": -8.553195477749796,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 262094,
+            "zero": 50
+          },
+          "sha256": "0c7214f674118c3433e08ec3d3802902b1aa48a639534d1d7b167051f5994d51",
+          "sourceId": "b371af0d6bd46a14bd47aabd207bcb6492ca92256a394133d322a19db1747e1d"
+        },
+        "density": {
+          "url": "snapshots/coeval-z16.62719082/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -0.4485493004322052,
+            "max": 1.4346903562545776,
+            "mean": 1.85680137931854e-10,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 142131,
+            "zero": 0
+          },
+          "sha256": "4d3aa7453e39bd27b869ec4b41dafcc651a0c2b08988d9f83f6264ad91099e15",
+          "sourceId": "c79c4ebf56787c2aebaf56156e2e2065ce7265aac7ca242fdfd4f0d3b3997138"
+        }
+      }
+    },
+    {
+      "id": "coeval-z15.32147298",
+      "redshift": 15.321472979382282,
+      "scaleFactor": 0.06126897990538149,
+      "meanNeutralFraction": 0.9963232467203582,
+      "fields": {
+        "xH": {
+          "url": "snapshots/coeval-z15.32147298/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": 0.0,
+            "max": 0.9998201131820679,
+            "mean": 0.9963232467203582,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 0,
+            "zero": 202
+          },
+          "sha256": "1b430b07f977425b3efda95e76ba5989b5d96677761d7430b73ff7e166bdc699",
+          "sourceId": "03d3058f317db1bc277b3d8adb9979e5c3c61551329421c49bc542cbb1de5cb5"
+        },
+        "brightness_temperature": {
+          "url": "snapshots/coeval-z15.32147298/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -106.82301330566406,
+            "max": -0.0,
+            "mean": -23.17548973461362,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 261942,
+            "zero": 202
+          },
+          "sha256": "9fb340373f2f91fba7eb072d2dd9f3b0f90ad2b65350bfd9e4b8abff70271dcd",
+          "sourceId": "ffeb6a3749a1aa0f7c3fc848f1cc39db480f962d543a0a939ae6872f82b2cbc4"
+        },
+        "density": {
+          "url": "snapshots/coeval-z15.32147298/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -0.47983694076538086,
+            "max": 1.5696511268615723,
+            "mean": -3.212186072687473e-10,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 143121,
+            "zero": 0
+          },
+          "sha256": "599074f340bb77caca76094178bee47af609290c25a510f3f54f541eb5a48e39",
+          "sourceId": "185df4367b698201a4aac8e834b6d25125c4e102f28b5484676c4e1eb4bc2e12"
+        }
+      }
+    },
+    {
+      "id": "coeval-z14.11247498",
+      "redshift": 14.112474980909518,
+      "scaleFactor": 0.06617049829781202,
+      "meanNeutralFraction": 0.9912775802935121,
+      "fields": {
+        "xH": {
+          "url": "snapshots/coeval-z14.11247498/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": 0.0,
+            "max": 0.9998148083686829,
+            "mean": 0.9912775802935121,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 0,
+            "zero": 579
+          },
+          "sha256": "0b1fa33026bbc467a5bb15633ca7cfc5d95b38dbbfcbd53602d28a7413e913bd",
+          "sourceId": "abdaeae7a87f5c116c128354cedfb7e4df1f2a6cd6e669c1d43ef5dd5c6b0408"
+        },
+        "brightness_temperature": {
+          "url": "snapshots/coeval-z14.11247498/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -105.26007843017578,
+            "max": -0.0,
+            "mean": -49.195144325923934,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 261565,
+            "zero": 579
+          },
+          "sha256": "11635baa1b7eaa78209e928988c65e8db00e86849fd66d94124399ec5da64075",
+          "sourceId": "4c35c8748c693fdbbafecbf15c32face96088170b806fb4e432f694f304a0038"
+        },
+        "density": {
+          "url": "snapshots/coeval-z14.11247498/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -0.5142074823379517,
+            "max": 1.7201968431472778,
+            "mean": -4.773204054231428e-11,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 144107,
+            "zero": 0
+          },
+          "sha256": "2c8a449df4716cda8e7e3fdd82bdb88438809c18ae6632c1b6b1d36dfc27312e",
+          "sourceId": "13514da853c185ee00269e18fc9ff5ea08fd69a7aec94c777a027835a93d6a92"
+        }
+      }
+    },
+    {
+      "id": "coeval-z12.99303239",
+      "redshift": 12.993032389731034,
+      "scaleFactor": 0.07146413816163699,
+      "meanNeutralFraction": 0.98122185582258,
+      "fields": {
+        "xH": {
+          "url": "snapshots/coeval-z12.99303239/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": 0.0,
+            "max": 0.9997978806495667,
+            "mean": 0.98122185582258,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 0,
+            "zero": 1456
+          },
+          "sha256": "f46b97e1e15f03480d18ff152f9843bd3fe4cbdd961897cdc3b1a4b0aaeb8252",
+          "sourceId": "927a7d418a66d3f8f70ff3a765e4ebf7b1c7d6fd0e5827c1e9b872fc4ef30212"
+        },
+        "brightness_temperature": {
+          "url": "snapshots/coeval-z12.99303239/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -110.37810516357422,
+            "max": -0.0,
+            "mean": -73.39723468994612,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 260688,
+            "zero": 1456
+          },
+          "sha256": "42268bbb60c0368488a1e8029846a45652868dbb18dfc4a21d22ead2d1d1e3ac",
+          "sourceId": "ffdda3287a49c9fdfff9dee2c4b1dc8f9f1851362ad09bda528aeeae55d72347"
+        },
+        "density": {
+          "url": "snapshots/coeval-z12.99303239/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -0.5402547121047974,
+            "max": 1.8995001316070557,
+            "mean": 7.467049201181908e-11,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 145226,
+            "zero": 0
+          },
+          "sha256": "590c949830cc8b65da3ab2ed52b103e406ac0e21f68b1a97155aabddcc6ad30a",
+          "sourceId": "d2c4b97c2e2d06207f948abab30107a7b2385b5b226ca7366652defbfeadf8e4"
+        }
+      }
+    },
+    {
+      "id": "coeval-z11.95651147",
+      "redshift": 11.95651147197318,
+      "scaleFactor": 0.07718126921456794,
+      "meanNeutralFraction": 0.962830777892111,
+      "fields": {
+        "xH": {
+          "url": "snapshots/coeval-z11.95651147/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": 0.0,
+            "max": 0.999752938747406,
+            "mean": 0.962830777892111,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 0,
+            "zero": 3479
+          },
+          "sha256": "d8914f1356a9d49d8472ee97fda6326af47fb194c0009dad035c4ced0982b15b",
+          "sourceId": "a8257138adf325c76c46ce7a73aebd2db6b326a6d363d83a2095f185cb1b217f"
+        },
+        "brightness_temperature": {
+          "url": "snapshots/coeval-z11.95651147/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -114.7419662475586,
+            "max": -0.0,
+            "mean": -67.63396457018945,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 258665,
+            "zero": 3479
+          },
+          "sha256": "3740e5a206796efc1a7261a025bb305683b4ea6432399112e2ece3cf8e1ca459",
+          "sourceId": "3225512ad528bd7c00623ad42a3ae6b36440f7f48f6bef4891497b620ffd7a1a"
+        },
+        "density": {
+          "url": "snapshots/coeval-z11.95651147/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -0.5635330080986023,
+            "max": 2.2539148330688477,
+            "mean": 4.150835231087058e-11,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 146369,
+            "zero": 0
+          },
+          "sha256": "319b55b5f4bd3bc2656ecf4df82805d33b6779a1f130482f4947c8e529513e9c",
+          "sourceId": "db001c15ce9405fb8096397cb0ecb8f5df20c201b57a7cbcbbf82d5eccdd3218"
+        }
+      }
+    },
+    {
+      "id": "coeval-z10.99676988",
+      "redshift": 10.996769881456647,
+      "scaleFactor": 0.0833557707517334,
+      "meanNeutralFraction": 0.9321641865929631,
+      "fields": {
+        "xH": {
+          "url": "snapshots/coeval-z10.99676988/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": 0.0,
+            "max": 0.999645471572876,
+            "mean": 0.9321641865929631,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 0,
+            "zero": 7379
+          },
+          "sha256": "4ebf78a44684b4cd5a642ea3e2ed43bc2cf58b52c4be96fa50511508bc2ed0e3",
+          "sourceId": "cdbfc02e4d17e479ee727b94d49c867908cc562368598213298860d54c84b65f"
+        },
+        "brightness_temperature": {
+          "url": "snapshots/coeval-z10.99676988/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -70.0638198852539,
+            "max": 3.5941214561462402,
+            "mean": -34.749456777192684,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 254741,
+            "zero": 7379
+          },
+          "sha256": "39d96ffb874d004f13d108a2aa01839cafdd59ff7b8f5c80b210f6c9c1e4e0eb",
+          "sourceId": "997c97968b9445585b4cd750d97ebff0154bd2cfa2fd05488e951616316807e7"
+        },
+        "density": {
+          "url": "snapshots/coeval-z10.99676988/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -0.5829557776451111,
+            "max": 2.6957802772521973,
+            "mean": -9.64286428484229e-11,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 147535,
+            "zero": 0
+          },
+          "sha256": "08ca2cad7be3983696dfc84528f8d39586af72790af7341f261ef3b0901a9854",
+          "sourceId": "6bab0a0010854508bc67554302d3988ed47cdc7cd0e66c1c5d82c30d5a418215"
+        }
+      }
+    },
+    {
+      "id": "coeval-z10.10812026",
+      "redshift": 10.108120260608006,
+      "scaleFactor": 0.09002423241187206,
+      "meanNeutralFraction": 0.8832713784280326,
+      "fields": {
+        "xH": {
+          "url": "snapshots/coeval-z10.10812026/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": 0.0,
+            "max": 0.9994156360626221,
+            "mean": 0.8832713784280326,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 0,
+            "zero": 15020
+          },
+          "sha256": "4e7a525b830675852c3cd206a45b5a88963fa3369dec182be25a53ab8178b68b",
+          "sourceId": "79ef3f59140c6af8d09688b25f0e2e8910c3e38acff3cd4358f6fff9eb1f998c"
+        },
+        "brightness_temperature": {
+          "url": "snapshots/coeval-z10.10812026/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -20.71666717529297,
+            "max": 16.14118194580078,
+            "mean": -6.296023991137668,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 230802,
+            "zero": 15020
+          },
+          "sha256": "2481013a3b93a1b8c8ab94c4dbbe93de2e4f1a897fd22ba98e1dd014a62d588e",
+          "sourceId": "881f07d22d2d780877dec1fe125a2bdd76acb4959cbe55bb4c6e6a38dce90c0e"
+        },
+        "density": {
+          "url": "snapshots/coeval-z10.10812026/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -0.6163439750671387,
+            "max": 3.2613792419433594,
+            "mean": 1.2425260820236872e-10,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 148872,
+            "zero": 0
+          },
+          "sha256": "ae0d270f3bf8240600690b556fb8f5652b7e6e82954d425dc98040e3e8ad6d2a",
+          "sourceId": "52e519d162539662b0eab3e6610e96a9ceacc5490c3c7f207601f62df2b4fe03"
+        }
+      }
+    },
+    {
+      "id": "coeval-z9.28529654",
+      "redshift": 9.285296537600004,
+      "scaleFactor": 0.09722617100482184,
+      "meanNeutralFraction": 0.8104845807073779,
+      "fields": {
+        "xH": {
+          "url": "snapshots/coeval-z9.28529654/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": 0.0,
+            "max": 0.9989395141601562,
+            "mean": 0.8104845807073779,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 0,
+            "zero": 28586
+          },
+          "sha256": "19eaeb0c0d12077fa1a4f6511863dd8eb1044084cad909c93e1b8530b6ddcd2f",
+          "sourceId": "03585281a5552ba325c4a6898e6818922f087240965e451a7387c6bc14f1cc15"
+        },
+        "brightness_temperature": {
+          "url": "snapshots/coeval-z9.28529654/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": 0.0,
+            "max": 20.341955184936523,
+            "mean": 7.4190126563403656,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 0,
+            "zero": 28586
+          },
+          "sha256": "aba4404891ad80f2c049e0f5adc75c9dcb700dd36984707cfb34b2e24b13185c",
+          "sourceId": "502f74cc71d93804b6cb33c0936dd838b540ec185d1ca7c0f6b9f3d15ddae9f1"
+        },
+        "density": {
+          "url": "snapshots/coeval-z9.28529654/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -0.6492893695831299,
+            "max": 3.9732539653778076,
+            "mean": 4.58150850590755e-10,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 150339,
+            "zero": 0
+          },
+          "sha256": "fa3b75cc545c96b4af61a272b9f3091341652858b33f98903fd4cf0fcaa43a91",
+          "sourceId": "43eb8c870912b085ab13836ba6c7053fc93bfdbbf482738cb9f3feda83672295"
+        }
+      }
+    },
+    {
+      "id": "coeval-z8.52342272",
+      "redshift": 8.523422720000003,
+      "scaleFactor": 0.1050042646852076,
+      "meanNeutralFraction": 0.6996442776981295,
+      "fields": {
+        "xH": {
+          "url": "snapshots/coeval-z8.52342272/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": 0.0,
+            "max": 0.9979881048202515,
+            "mean": 0.6996442776981295,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 0,
+            "zero": 53418
+          },
+          "sha256": "514c52c4ec101bb64367fb544283bc3f3d72035c5089696e04c1656d1bf7cba6",
+          "sourceId": "bedf29e50e644719a77dbe49f8f19a66575d2e7c7179feaeb80c73527d9655ab"
+        },
+        "brightness_temperature": {
+          "url": "snapshots/coeval-z8.52342272/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": 0.0,
+            "max": 22.359752655029297,
+            "mean": 10.90488288992583,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 0,
+            "zero": 53418
+          },
+          "sha256": "13c0b414346bd862e1bf6b7f19c92ab247ee9138a07608d27aa7b277b33eb131",
+          "sourceId": "ef4c5ea3e287d7a8c3dc616d3fedf057bbd4736bbb9d6920e5b3f6dc55d13cd9"
+        },
+        "density": {
+          "url": "snapshots/coeval-z8.52342272/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -0.6756340265274048,
+            "max": 4.793627738952637,
+            "mean": 1.1735412641655785e-10,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 151802,
+            "zero": 0
+          },
+          "sha256": "26db496598d03e796b583a056b07a41da32977bd09ee421f6e93b985e3e604c8",
+          "sourceId": "9d560abb9aad50d64c1f8c45f1646b4a474b8c79911cd8129ffdc89f3b2e452c"
+        }
+      }
+    },
+    {
+      "id": "coeval-z7.81798400",
+      "redshift": 7.817984000000003,
+      "scaleFactor": 0.11340460586002421,
+      "meanNeutralFraction": 0.5387019409253746,
+      "fields": {
+        "xH": {
+          "url": "snapshots/coeval-z7.81798400/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": 0.0,
+            "max": 0.9960834980010986,
+            "mean": 0.5387019409253746,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 0,
+            "zero": 94945
+          },
+          "sha256": "fda439e26c37e32c87723a78f16d818de1ee04282a185457f7d98bfd0e453e93",
+          "sourceId": "66cbd4ee2da0ee80831ef933691fe0c0618f33b9dc87107e92b598e6a5a8d854"
+        },
+        "brightness_temperature": {
+          "url": "snapshots/coeval-z7.81798400/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": 0.0,
+            "max": 21.660978317260742,
+            "mean": 9.131463730034625,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 0,
+            "zero": 94945
+          },
+          "sha256": "a3d4b2486f8ce20dddb9ee18c94014340ac4ba7f4a7be09870479fa30a20a671",
+          "sourceId": "6261cd69d02bd1cfad125f70539437d669e5aefa65c8f4e8f83a7f88c66230e0"
+        },
+        "density": {
+          "url": "snapshots/coeval-z7.81798400/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -0.6901696920394897,
+            "max": 5.716208457946777,
+            "mean": 2.660973663637378e-10,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 153402,
+            "zero": 0
+          },
+          "sha256": "599dba66b19e5902efb95cb09503a6aec77c2cfff9aaf781b950ba88c3ea1b6e",
+          "sourceId": "7ef5cdffbff3944e196bd4e68a3c74a5bca349c008a01b70ca6b25b0e311202b"
+        }
+      }
+    },
+    {
+      "id": "coeval-z7.16480000",
+      "redshift": 7.164800000000001,
+      "scaleFactor": 0.12247697432882616,
+      "meanNeutralFraction": 0.33263700331398205,
+      "fields": {
+        "xH": {
+          "url": "snapshots/coeval-z7.16480000/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": 0.0,
+            "max": 0.989363431930542,
+            "mean": 0.33263700331398205,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 0,
+            "zero": 154307
+          },
+          "sha256": "f51b218d075eb490dfe1ca589b178803f42f879139c87572407d870321a93497",
+          "sourceId": "844d29a89ea3b58509639a8e9fcdd17b19c4f633f496a14d6da58448e2463d9c"
+        },
+        "brightness_temperature": {
+          "url": "snapshots/coeval-z7.16480000/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": 0.0,
+            "max": 19.365795135498047,
+            "mean": 5.313730420265927,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 0,
+            "zero": 154307
+          },
+          "sha256": "9335228506926cb75f7d8231984726ab6512fb9add278c20406eaa4b3b42741d",
+          "sourceId": "2cb3a77879c83ad72dde7403f478c0f007f0c0592c480c54674286cbd842f1b7"
+        },
+        "density": {
+          "url": "snapshots/coeval-z7.16480000/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -0.7050876617431641,
+            "max": 6.840493202209473,
+            "mean": -3.8267877755515656e-10,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 155146,
+            "zero": 0
+          },
+          "sha256": "880c906fd65cc1324acb13386582618dee971f109a775f5349806c6f870cca45",
+          "sourceId": "3031192715eec959c43cbb890dea033b729173712942d269ccd112b49d304efe"
+        }
+      }
+    },
+    {
+      "id": "coeval-z6.56000000",
+      "redshift": 6.5600000000000005,
+      "scaleFactor": 0.13227513227513227,
+      "meanNeutralFraction": 0.1139009296530773,
+      "fields": {
+        "xH": {
+          "url": "snapshots/coeval-z6.56000000/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": 0.0,
+            "max": 0.9573155045509338,
+            "mean": 0.1139009296530773,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 0,
+            "zero": 223190
+          },
+          "sha256": "8664612e2d01191e3b7bc7610e3d5b271d88ed3209738cb1502aa2ce896189e7",
+          "sourceId": "9a432d33e7bbccba8aabf709f051a51f20fe331ce19466fff3a96fbf28f9ac3a"
+        },
+        "brightness_temperature": {
+          "url": "snapshots/coeval-z6.56000000/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": 0.0,
+            "max": 16.330402374267578,
+            "mean": 1.5993333923237287,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 0,
+            "zero": 223190
+          },
+          "sha256": "fae990a4d994181b671ea369558d6e046c38b8d5d1bf3c94054fae8b45676208",
+          "sourceId": "84950650edb8aa04e9e809bb414b148d9d64486ef7f3b1ac9012a99a133eecc1"
+        },
+        "density": {
+          "url": "snapshots/coeval-z6.56000000/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -0.7221737504005432,
+            "max": 8.120691299438477,
+            "mean": -3.2306068931120535e-10,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 156819,
+            "zero": 0
+          },
+          "sha256": "f8a3ed83526629171cf639fe1186ab129b7ed8389dbd1defbd8da2ccbc303920",
+          "sourceId": "eeac680272838cbf950bf5432a097c8a19b06aa9ebde2211e4c37bea4f49d20b"
+        }
+      }
+    },
+    {
+      "id": "coeval-z6.00000000",
+      "redshift": 6.0,
+      "scaleFactor": 0.14285714285714285,
+      "meanNeutralFraction": 0.0,
+      "fields": {
+        "xH": {
+          "url": "snapshots/coeval-z6.00000000/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": 0.0,
+            "max": 0.0,
+            "mean": 0.0,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 0,
+            "zero": 262144
+          },
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "f648bfd46a2be29fe323419f7d6f72f482683e2127eb56d02c01114f85234daf"
+        },
+        "brightness_temperature": {
+          "url": "snapshots/coeval-z6.00000000/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": 0.0,
+            "max": 0.0,
+            "mean": 0.0,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 0,
+            "zero": 262144
+          },
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "7e5b03f295a9148d43041f5bd55a0a8433bfee50eff73d430ff19cb660516a1e"
+        },
+        "density": {
+          "url": "snapshots/coeval-z6.00000000/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "statistics": {
+            "min": -0.7430337071418762,
+            "max": 9.4581880569458,
+            "mean": -4.307665335545607e-12,
+            "nonfinite": 0,
+            "count": 262144,
+            "negative": 158733,
+            "zero": 0
+          },
+          "sha256": "a58d49fdd8ece17d8b9450fd03354793267656c58432e172d8363a1a7bbf7767",
+          "sourceId": "55c3cd0f6e7eb2dc94b6e831de051894c6a1a1eb260abdbb35fd6aa95c0969b6"
+        }
+      }
+    }
+  ],
+  "rendering": {
+    "nonfinitePolicy": "Preserved in binary; skipped in volume interpolation if any contributing cell is invalid; magenta in exact slices.",
+    "transferFunction": "False-color physical-field mapping. Opacity is a display coefficient, not a measured optical depth."
+  },
+  "provenance": {
+    "inventorySha256": "fc400aef37b943c55e38a563335acb0346401b2d6439d45ca3b3f19da4fafd41",
+    "definitionSourceSha256": {
+      "_version.py": "ddbb173338ccb71fb08993507385a117a4b1e4b1334d20dd1295fd7872767522",
+      "inputs.py": "c31445def393e99767bc3da1377dcd410244f594297991a2ae7ff1a1edd12dfe",
+      "outputs.py": "08c6d01ab37e15284e340d0362e32881fce6e288818bd2a1d16c154c82296682",
+      "lightcones.py": "8f03e8f3774d90517fd171ae05c8a0fa10c6af4909c3d309ef6898bea653063b",
+      "wrapper.py": "cadf7791af97bfa297ae868e9edb22f4f3bf947a19618c1c5c886e2129ae62eb",
+      "src/indexing.c": "11523bbafd34cde8e80de2d9d129302a4dc18ba655ef93488c1ee68c3961895c",
+      "src/PerturbField.c": "1dbdd5aeb11888261d1971bd44a8b47a29a989cdf23639464b83f85b7fe55f7e",
+      "src/BrightnessTemperatureBox.c": "dd20cd97ae376542ce523a97f13e26a242488f0422cd7385244081206b23841d"
+    },
+    "initialConditionsEvidence": "One unique IC product; all cache classes share seed, version, user/cosmology parameters, and matching shared physics parameters. IC content fingerprint retained, not a filename hash.",
+    "fieldDefinitionEvidence": "Local matching-version 21cmFAST source: outputs.py global_xH; PerturbField.c normalized density minus one; BrightnessTemperatureBox.c K-to-mK conversion; inputs.py BOX_LEN and wrapper.py comoving distance."
+  }
+}
