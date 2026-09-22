@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "models": {
+    "PL": {
+      "64": "coeval-pl256-full-v2-display64/manifest-all.json"
+    },
+    "BT": {
+      "64": "coeval-bt256-full-v1-display64/manifest-all.json"
+    }
+  },
+  "stage": "all",
+  "snapshotsPerModel": 85,
+  "defaultResolution": 64,
+  "phaseMatching": "not verified",
+  "validation": {
+    "arrayReadbacks": 1530,
+    "axes": "x-fastest round-trip and 3 orthogonal slices",
+    "passed": true
+  },
+  "publishedFields": [
+    "xH",
+    "density"
+  ],
+  "omittedFields": {
+    "brightness_temperature": "BT source caches contain extreme finite values; physical validation pending. Original arrays retained on HPC."
+  }
+}

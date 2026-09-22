@@ -134,10 +134,15 @@ jobs:
           assert sum(path.stat().st_size for path in binaries + pl_binaries) < 1_500_000_000
           PY
 
+      - name: Assemble site without on-demand volume repository
+        run: |
+          mkdir -p "$RUNNER_TEMP/pages-site"
+          rsync -a --exclude='.git/' --exclude='viewer-data64/' ./ "$RUNNER_TEMP/pages-site/"
+
       - name: Upload static site
         uses: actions/upload-pages-artifact@v4
         with:
-          path: .
+          path: ${{ runner.temp }}/pages-site
 
       - name: Deploy
         id: deployment

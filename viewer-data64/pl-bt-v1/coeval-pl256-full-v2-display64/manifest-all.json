@@ -1,0 +1,3495 @@
+{
+  "schemaVersion": 1,
+  "simulationId": "coeval-pl256-full-v2-display64",
+  "title": "PL / native 256³",
+  "geometry": "coeval",
+  "grid": [
+    64,
+    64,
+    64
+  ],
+  "source_grid_shape": [
+    256,
+    256,
+    256
+  ],
+  "display_grid_shape": [
+    64,
+    64,
+    64
+  ],
+  "downsampling_method": "volume mean of 4³ linear-value cells; float64 accumulation, float32 output",
+  "source_simulation_id": "coeval-pl256-full-v2",
+  "sourceIdentity": "9e59fd3acf0976a36c24cd45c8749bbea8942bc606d0e72f63bd131504e58ce5",
+  "boxLength": 250,
+  "boxUnit": "cMpc",
+  "stage": "all",
+  "coordinates": {
+    "orientation": "Grid-axis convention, no celestial directions inferred",
+    "sourceSampling": "source sampling origin not explicitly documented",
+    "webSampling": "cell-center convention (index+0.5)*boxLength/gridSize",
+    "sourceArrayAxes": [
+      "grid-X",
+      "grid-Y",
+      "grid-Z"
+    ],
+    "exportFastestAxis": "grid-X",
+    "linearIndex": "x + nx * (y + ny * z)",
+    "sourceFastestAxis": "grid-Z"
+  },
+  "identity": {
+    "randomSeed": 725213656658,
+    "softwareVersion": "0.1.dev1835+gaefc273.d20250321",
+    "icFingerprint": "b6600197c677906f43746d8fdd82c0cf7b3e763ae5fb94a44464458aa630e92e"
+  },
+  "fields": {
+    "xH": {
+      "label": "Neutral hydrogen fraction",
+      "symbol": "xH",
+      "unit": "dimensionless",
+      "definition": "Neutral hydrogen fraction; ionized display weight is derived 1-xH, not electron fraction.",
+      "palette": "neutral",
+      "displayRange": [
+        0,
+        1
+      ]
+    },
+    "brightness_temperature": {
+      "label": "21-cm brightness temperature",
+      "symbol": "δTb",
+      "unit": "mK",
+      "definition": "Differential 21-cm brightness temperature including saved spin-temperature and velocity-gradient/RSD effects; signed linear values.",
+      "palette": "diverging",
+      "displayRange": [
+        -34431853016383490,
+        34431853016383490
+      ],
+      "qualityStatus": "under-review",
+      "qualityNote": "Extreme finite Tb in BT source caches; no corrections applied. Do not treat finite/readback validation as physical validation."
+    },
+    "density": {
+      "label": "Density contrast",
+      "symbol": "δ",
+      "unit": "dimensionless",
+      "definition": "Matter density contrast δ = ρ / mean(ρ) − 1 from PerturbedField; no log transform.",
+      "palette": "density",
+      "displayRange": [
+        -0.8895535469055176,
+        19.483211517333984
+      ]
+    }
+  },
+  "snapshots": [
+    {
+      "id": "z35.2169290409",
+      "redshift": 35.216929040913264,
+      "scaleFactor": 0.02761139683793531,
+      "meanNeutralFraction": 0.9997944831848145,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z35.2169290409/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "6d13be9ffda4391b032a4302ab4eb9528d407f49a3565ef59f194e937e6c0dc9",
+          "sourceId": "c5135c8b2144c5769c5f3ba5c1704f1250ff669db1c187aa0fbf8074782d2787",
+          "statistics": {
+            "min": 0.9997944831848145,
+            "max": 0.9997944831848145,
+            "mean": 0.9997944831848145,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z35.2169290409/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "d1f691e0db56977deac0628e13ad6eea4a921ffe847a9c507d1a03ae11f7c1d3",
+          "sourceId": "c5135c8b2144c5769c5f3ba5c1704f1250ff669db1c187aa0fbf8074782d2787",
+          "statistics": {
+            "min": -0.24416881799697876,
+            "max": 0.3532293736934662,
+            "mean": -1.9982467069912246e-11,
+            "nonfinite": 0,
+            "negative": 135407,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z34.5067938413",
+      "redshift": 34.506793841325106,
+      "scaleFactor": 0.02816362424804842,
+      "meanNeutralFraction": 0.9997953859019617,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z34.5067938413/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "9bbb416ddc025fcb5691978370d1163d7009652c7610d413d55ecd992c739b60",
+          "sourceId": "4fb22ea3ac9742f7dbe885b6c96162d441a3215657d64ead4cfe71c59b44b1cb",
+          "statistics": {
+            "min": 0.9997952580451965,
+            "max": 0.9997955560684204,
+            "mean": 0.9997953859290192,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z34.5067938413/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "29185cfe0d14a1230819c8fc7ee208102e911b628138e80a1656900070d13533",
+          "sourceId": "4fb22ea3ac9742f7dbe885b6c96162d441a3215657d64ead4cfe71c59b44b1cb",
+          "statistics": {
+            "min": -0.2482384890317917,
+            "max": 0.3621456027030945,
+            "mean": 4.904937567218326e-12,
+            "nonfinite": 0,
+            "negative": 135492,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z33.8105828483",
+      "redshift": 33.81058284831792,
+      "scaleFactor": 0.028726896195830888,
+      "meanNeutralFraction": 0.9997964348928008,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z33.8105828483/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "d58ce3cf53967569ca6d7faccfd22805dba9f799e7025403368242f882768c89",
+          "sourceId": "4042ba713e5fa430a29af21e8d2676c380ac0e6e3e33b8a1510d971fcc743156",
+          "statistics": {
+            "min": 0.9997960925102234,
+            "max": 0.9997969269752502,
+            "mean": 0.9997964348904134,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z33.8105828483/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "08180cd5105df0983300792c672f2727de9216e4d207f9b6dfab0c1e51cc1cb1",
+          "sourceId": "4042ba713e5fa430a29af21e8d2676c380ac0e6e3e33b8a1510d971fcc743156",
+          "statistics": {
+            "min": -0.2523695230484009,
+            "max": 0.3713825047016144,
+            "mean": -3.9006742280633944e-11,
+            "nonfinite": 0,
+            "negative": 135588,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z33.1280230385",
+      "redshift": 33.12802303848853,
+      "scaleFactor": 0.029301433571825446,
+      "meanNeutralFraction": 0.9997974425246454,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z33.1280230385/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "f6c163764bcd769e2fbbd071b21927b0c80908d18c45a376a34e6df076053402",
+          "sourceId": "68833d2a49c2194d699e1aaeff67bf6522cabab05e9a93f1c80f4678eac21d8a",
+          "statistics": {
+            "min": 0.9997968673706055,
+            "max": 0.9997981786727905,
+            "mean": 0.9997974424836684,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z33.1280230385/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "ad46aac1426439b9e68c9e61e09fecb6921b7339e2809562d048997b08e8b9ed",
+          "sourceId": "68833d2a49c2194d699e1aaeff67bf6522cabab05e9a93f1c80f4678eac21d8a",
+          "statistics": {
+            "min": -0.2565889358520508,
+            "max": 0.38088151812553406,
+            "mean": -7.535971846550638e-12,
+            "nonfinite": 0,
+            "negative": 135697,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z32.4588467418",
+      "redshift": 32.45884674182881,
+      "scaleFactor": 0.029887461684381462,
+      "meanNeutralFraction": 0.9997984101117083,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z32.4588467418/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "f6c47f36270c25556671347cc90aac6c4d5111d0e67d07ccdd7fd2961001f30a",
+          "sourceId": "58912e5e2d3e9c04cd5ed9fc15127bcf1a3a3fabe7804e5964b933c37ea620fd",
+          "statistics": {
+            "min": 0.9997976422309875,
+            "max": 0.9997994303703308,
+            "mean": 0.9997984101180464,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z32.4588467418/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "0f7bac0aad17d5ca85b2196c37f833ca8edac36ae858bd93c39422cb5964199f",
+          "sourceId": "58912e5e2d3e9c04cd5ed9fc15127bcf1a3a3fabe7804e5964b933c37ea620fd",
+          "statistics": {
+            "min": -0.2607805132865906,
+            "max": 0.3907267451286316,
+            "mean": -1.956643180811568e-11,
+            "nonfinite": 0,
+            "negative": 135792,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z31.8027915368",
+      "redshift": 31.802791536757262,
+      "scaleFactor": 0.030485210348010997,
+      "meanNeutralFraction": 0.9997993389397877,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z31.8027915368/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "cec2cad83214c702871240b8d1a6aef3dd10767b60a8f1a48069a9f1da08f965",
+          "sourceId": "7932232347caecd48eeb35d3a967679523c1bdb2323be41d7f2c66a8b4603aaf",
+          "statistics": {
+            "min": 0.9997983574867249,
+            "max": 0.9998006820678711,
+            "mean": 0.9997993389276871,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z31.8027915368/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "5777411646092654b412e0a0ab356338e70cc02f27cc36d4fedb8cbe8accb7c5",
+          "sourceId": "7932232347caecd48eeb35d3a967679523c1bdb2323be41d7f2c66a8b4603aaf",
+          "statistics": {
+            "min": -0.2648653984069824,
+            "max": 0.4008629024028778,
+            "mean": -5.173621253629079e-11,
+            "nonfinite": 0,
+            "negative": 135890,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z31.1596001472",
+      "redshift": 31.159600147208778,
+      "scaleFactor": 0.031094913973511974,
+      "meanNeutralFraction": 0.9998002302385665,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z31.1596001472/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "6dceb3781564d1b3c39ecf06463ae1447cd1a94cb1468d3f742e4e46989472bd",
+          "sourceId": "d863659e1643d482da8a05d0907a92d999ba2260278d440bcd85d79c1f406dbf",
+          "statistics": {
+            "min": 0.9997990131378174,
+            "max": 0.9998018741607666,
+            "mean": 0.9998002302281748,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z31.1596001472/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "c7e21221f2496954fcae6264f5515ae81dcbdd5b297f5156bd67b795f73a7788",
+          "sourceId": "d863659e1643d482da8a05d0907a92d999ba2260278d440bcd85d79c1f406dbf",
+          "statistics": {
+            "min": -0.26894327998161316,
+            "max": 0.41111019253730774,
+            "mean": 1.703362451088708e-11,
+            "nonfinite": 0,
+            "negative": 135975,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z30.5290203417",
+      "redshift": 30.52902034174227,
+      "scaleFactor": 0.0317168116598938,
+      "meanNeutralFraction": 0.9998010852129973,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z30.5290203417/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "8e46fa8f635ff29184e439b9c9c243c8ba7f601d082cf83f39ecd37a3b4a9983",
+          "sourceId": "444d9711e628954ded1964ad0802a10ca9638153331d3b285f4af6ea2ec8f139",
+          "statistics": {
+            "min": 0.9997996687889099,
+            "max": 0.9998030662536621,
+            "mean": 0.9998010851888921,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z30.5290203417/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "6cf4d55732f28f44b5c3104d6132192878e99f863902d187ec78d17f9e5fba68",
+          "sourceId": "444d9711e628954ded1964ad0802a10ca9638153331d3b285f4af6ea2ec8f139",
+          "statistics": {
+            "min": -0.2729453444480896,
+            "max": 0.421656996011734,
+            "mean": 3.438116458198692e-11,
+            "nonfinite": 0,
+            "negative": 136065,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z29.9108048346",
+      "redshift": 29.910804834626553,
+      "scaleFactor": 0.0323511472881415,
+      "meanNeutralFraction": 0.9998019050106279,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z29.9108048346/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "5718d8c1da2e379f18692a6589e1c18a8c2c22166e4da8d74a134f1e3ae41099",
+          "sourceId": "996d23575b868f28400e91c707b683a6350d62186b6f5e316b58c9ee15294506",
+          "statistics": {
+            "min": 0.9998002648353577,
+            "max": 0.9998041987419128,
+            "mean": 0.9998019050167386,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z29.9108048346/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "d46dbc3ea4f22c0be79e38a198c5c4bc1c7646e970136ea2fd1f79ac859dffe4",
+          "sourceId": "996d23575b868f28400e91c707b683a6350d62186b6f5e316b58c9ee15294506",
+          "statistics": {
+            "min": -0.27726036310195923,
+            "max": 0.4323514699935913,
+            "mean": -3.769344558701704e-11,
+            "nonfinite": 0,
+            "negative": 136180,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z29.3047111889",
+      "redshift": 29.304711188865735,
+      "scaleFactor": 0.032998169616855165,
+      "meanNeutralFraction": 0.9998026907798447,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z29.3047111889/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "10c8f530cf5e63bab6f2f8134209fd074284b50f5c147ae639fe791b81681966",
+          "sourceId": "a05aa86dc8c7bb0426694a87bac81179839f32b4cda57bdb454f5d1ac7844730",
+          "statistics": {
+            "min": 0.9998008012771606,
+            "max": 0.9998053312301636,
+            "mean": 0.9998026907851454,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z29.3047111889/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "d5ee0a4d9653dcb47bc6b5a3c5155039a815532d8fa31f0aa4a41606f04c3813",
+          "sourceId": "a05aa86dc8c7bb0426694a87bac81179839f32b4cda57bdb454f5d1ac7844730",
+          "statistics": {
+            "min": -0.28178393840789795,
+            "max": 0.4432368576526642,
+            "mean": 1.3575363055906564e-11,
+            "nonfinite": 0,
+            "negative": 136279,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z28.7105017211",
+      "redshift": 28.71050172112606,
+      "scaleFactor": 0.03365813237980213,
+      "meanNeutralFraction": 0.999803443595578,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z28.7105017211/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "8921ac01edcdd4a24c3a6bbd175a255320a014f18d2fff0c2e221e3a55702560",
+          "sourceId": "2c8451ea58c73728cd0ea00b5e568c56bff866fb0d29fda2794b15b2d75edffb",
+          "statistics": {
+            "min": 0.9998013377189636,
+            "max": 0.9998064041137695,
+            "mean": 0.9998034436052876,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z28.7105017211/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "15d02962d31432c30635212a0f0f2d290f14b3da7a85ab91309eec5cecc3d16e",
+          "sourceId": "2c8451ea58c73728cd0ea00b5e568c56bff866fb0d29fda2794b15b2d75edffb",
+          "statistics": {
+            "min": -0.28659579157829285,
+            "max": 0.45438042283058167,
+            "mean": 7.526729239870633e-12,
+            "nonfinite": 0,
+            "negative": 136392,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z28.1279434085",
+      "redshift": 28.127943408526953,
+      "scaleFactor": 0.03433129438542024,
+      "meanNeutralFraction": 0.9998041645263633,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z28.1279434085/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "2a88256f17353e01dac09899f188879ff025b4e5434b3fc3056ba3b6583d406f",
+          "sourceId": "a56ea82f4751b1ea2243a3418e4b691717e938421be3d9fa3d11d77848edfd45",
+          "statistics": {
+            "min": 0.9998018741607666,
+            "max": 0.9998074173927307,
+            "mean": 0.9998041645305875,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z28.1279434085/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "97bb2e54ae6a7ae08201ad1eb96439e418756318c561d07fda8ab0988914fea4",
+          "sourceId": "a56ea82f4751b1ea2243a3418e4b691717e938421be3d9fa3d11d77848edfd45",
+          "statistics": {
+            "min": -0.2915222644805908,
+            "max": 0.4658452272415161,
+            "mean": 1.3047535274424149e-11,
+            "nonfinite": 0,
+            "negative": 136528,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z27.5568077973",
+      "redshift": 27.556807797259644,
+      "scaleFactor": 0.035017919618311175,
+      "meanNeutralFraction": 0.9998048546075502,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z27.5568077973/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "8e4454bec3881d5e51c438e72dbd4b1bd9002532899a34564eae4c95f5076935",
+          "sourceId": "75423045059c9bf7152910aecaba399b843762c8c81f385432ce24760e5c1287",
+          "statistics": {
+            "min": 0.9998023509979248,
+            "max": 0.9998084306716919,
+            "mean": 0.999804854612421,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z27.5568077973/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "a1820cb30432a4897403c04199a1e05f3866e2bbd2d6e2f864a8b49d30542574",
+          "sourceId": "75423045059c9bf7152910aecaba399b843762c8c81f385432ce24760e5c1287",
+          "statistics": {
+            "min": -0.2965947985649109,
+            "max": 0.4777620732784271,
+            "mean": 8.954836872021588e-12,
+            "nonfinite": 0,
+            "negative": 136655,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z26.9968709130",
+      "redshift": 26.996870912997625,
+      "scaleFactor": 0.03571827734276359,
+      "meanNeutralFraction": 0.9998055148235885,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z26.9968709130/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "f47a58a892749cfe89bb1aa560f9174d840899cb175f8ef81a2036db756eba4c",
+          "sourceId": "558f7c69d6c2f0cf01bf2eb3384e3fe5e2c00f14513074ecdefcebfac59ae179",
+          "statistics": {
+            "min": 0.9998027682304382,
+            "max": 0.9998093843460083,
+            "mean": 0.9998055148032563,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z26.9968709130/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "694afc330175ba7b4e20b034411f8f51fd5fe66ea93874dc5b9ed8e53835a928",
+          "sourceId": "558f7c69d6c2f0cf01bf2eb3384e3fe5e2c00f14513074ecdefcebfac59ae179",
+          "statistics": {
+            "min": -0.3018127381801605,
+            "max": 0.4900537133216858,
+            "mean": -3.0227487179956825e-11,
+            "nonfinite": 0,
+            "negative": 136763,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z26.4479131731",
+      "redshift": 26.447913173063746,
+      "scaleFactor": 0.036432642208346785,
+      "meanNeutralFraction": 0.9998061461361871,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z26.4479131731/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "486f85da332a123ca38a090df79d617d23ae88443472269388a623adcdf5de70",
+          "sourceId": "6599d6735f3278574b0f9de2eba4cd9e31142e35dfe1b70899832f1be02537dc",
+          "statistics": {
+            "min": 0.9998031854629517,
+            "max": 0.9998102784156799,
+            "mean": 0.9998061461133148,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z26.4479131731/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "4f1a8783c138863402f1c0ef50a63f6aa99717ba12fb95013bf0317f29cc70a3",
+          "sourceId": "6599d6735f3278574b0f9de2eba4cd9e31142e35dfe1b70899832f1be02537dc",
+          "statistics": {
+            "min": -0.30709582567214966,
+            "max": 0.5027875304222107,
+            "mean": -2.386868480641624e-12,
+            "nonfinite": 0,
+            "negative": 136887,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z25.9097193003",
+      "redshift": 25.90971930031952,
+      "scaleFactor": 0.03716129435761622,
+      "meanNeutralFraction": 0.9998067494654919,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z25.9097193003/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "ea84af865bea98fb7185457b420f729653eb64280d39f78a8ad0b73d4dfbff69",
+          "sourceId": "4f3ef447e80fbf0dbf9696ec28eb3e7fc77498bdb4a7077c2c480c74e507f290",
+          "statistics": {
+            "min": 0.9998035430908203,
+            "max": 0.999811053276062,
+            "mean": 0.9998067494852876,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z25.9097193003/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "e89cc69ec83cc02a7d5fc5c5ccdb45e361d07c3613749ca79fea2a7ffbefa64b",
+          "sourceId": "4f3ef447e80fbf0dbf9696ec28eb3e7fc77498bdb4a7077c2c480c74e507f290",
+          "statistics": {
+            "min": -0.312444806098938,
+            "max": 0.5159696936607361,
+            "mean": -2.100053464459961e-11,
+            "nonfinite": 0,
+            "negative": 137001,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z25.3820782387",
+      "redshift": 25.38207823874287,
+      "scaleFactor": 0.037904519535973104,
+      "meanNeutralFraction": 0.9998073257014148,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z25.3820782387/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "9b0d4c9c43a4783c4e05bcaf2cc1dda02275a919988738f07e3cbceeda2cf290",
+          "sourceId": "e55dd3562f3a73c169a0fe18602b241900c02c0b856d29560ff88e7698e8a73b",
+          "statistics": {
+            "min": 0.999803900718689,
+            "max": 0.9998118877410889,
+            "mean": 0.9998073256479074,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z25.3820782387/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "dcffe72d65b4bc7918050876c7bea42a6ce68fce9cfc5bccf17d24f336740848",
+          "sourceId": "e55dd3562f3a73c169a0fe18602b241900c02c0b856d29560ff88e7698e8a73b",
+          "statistics": {
+            "min": -0.31782689690589905,
+            "max": 0.5296074748039246,
+            "mean": -1.0434986208451846e-11,
+            "nonfinite": 0,
+            "negative": 137141,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z24.8647830707",
+      "redshift": 24.864783070661233,
+      "scaleFactor": 0.03866260920372123,
+      "meanNeutralFraction": 0.999807875682933,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z24.8647830707/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "70a40f1ea962374e468e14c5fbfd941e5796a7d2c8cc172b823470fe5af735a8",
+          "sourceId": "3f54171ace3b7261739d9c2164a563105422c5fee9b6e7ba6b7024424031dee4",
+          "statistics": {
+            "min": 0.9998041987419128,
+            "max": 0.9998127818107605,
+            "mean": 0.9998078756611903,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z24.8647830707/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "d26834501c5bdff5ec2a8f329674583452d55e5ef0ee6545332024bb236e5ef2",
+          "sourceId": "3f54171ace3b7261739d9c2164a563105422c5fee9b6e7ba6b7024424031dee4",
+          "statistics": {
+            "min": -0.3231963813304901,
+            "max": 0.5434693694114685,
+            "mean": -1.328520626842078e-12,
+            "nonfinite": 0,
+            "negative": 137265,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z24.3576309356",
+      "redshift": 24.35763093560751,
+      "scaleFactor": 0.039435860650364904,
+      "meanNeutralFraction": 0.999808400147927,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z24.3576309356/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "2d3731bb3fcc03bba99b5e07cd7f72abe71d6ae6f056016c9006e9c991d1bfa3",
+          "sourceId": "2f346f2482f98ee4c0caf5b74a30c60e78d815ed1148d22832c8f16d5ed108d3",
+          "statistics": {
+            "min": 0.9998044967651367,
+            "max": 0.9998136162757874,
+            "mean": 0.9998084001306324,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z24.3576309356/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "215b0069074482e8b5d592bb8dff9ad7ce7bf9e5f022e6c6536485450a63ddc1",
+          "sourceId": "2f346f2482f98ee4c0caf5b74a30c60e78d815ed1148d22832c8f16d5ed108d3",
+          "statistics": {
+            "min": -0.3287810981273651,
+            "max": 0.557553768157959,
+            "mean": -1.5712334211492873e-11,
+            "nonfinite": 0,
+            "negative": 137379,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z23.8604229508",
+      "redshift": 23.860422950767106,
+      "scaleFactor": 0.04022457711119285,
+      "meanNeutralFraction": 0.999808899754747,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z23.8604229508/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "15c9cdf5fea8d45e86eaf5ba5c94632c4ff3369260195e5f89fa913b6c6febb6",
+          "sourceId": "96d95c6422af1aef4d75bf3796dd9a3d0e05ed2eac541c4e03fdd7029838606c",
+          "statistics": {
+            "min": 0.9998047947883606,
+            "max": 0.9998143315315247,
+            "mean": 0.9998088997633658,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z23.8604229508/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "af76e1f5bbe584136c6f7f573b13a4aa37abd56ffe1b5a1c6a0d9edfd0a250d8",
+          "sourceId": "96d95c6422af1aef4d75bf3796dd9a3d0e05ed2eac541c4e03fdd7029838606c",
+          "statistics": {
+            "min": -0.33445265889167786,
+            "max": 0.5719022750854492,
+            "mean": 9.071354778455998e-12,
+            "nonfinite": 0,
+            "negative": 137510,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z23.3729641330",
+      "redshift": 23.37296413298481,
+      "scaleFactor": 0.04102906788619379,
+      "meanNeutralFraction": 0.9998093750002681,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z23.3729641330/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "11271b4c72365eccc39ef08f43a595d9d77a83633e2165b7316b2461218b35db",
+          "sourceId": "33aa8dce39759978acd52e365eb079a9ed06e3c110fcf47c7f9703944eef697f",
+          "statistics": {
+            "min": 0.9998025894165039,
+            "max": 0.9998149871826172,
+            "mean": 0.999809375046425,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z23.3729641330/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "abcddf7f10d02d96919fe1377d74832f2e17da62264f2eff99d0a05aeb7a387f",
+          "sourceId": "33aa8dce39759978acd52e365eb079a9ed06e3c110fcf47c7f9703944eef697f",
+          "statistics": {
+            "min": -0.34021005034446716,
+            "max": 0.5865482091903687,
+            "mean": -9.162004488416642e-12,
+            "nonfinite": 0,
+            "negative": 137655,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z22.8950633223",
+      "redshift": 22.895063322300953,
+      "scaleFactor": 0.0418496484613503,
+      "meanNeutralFraction": 0.9998098260992201,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z22.8950633223/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "7367595586bba7898ddedd813b05f713c91a90f14f42758e35bbb5b9bab61c39",
+          "sourceId": "31facbc1028447cf5d07ba6275e191c6f7963de8507a8ad7b3d7ec8bd74ce6bc",
+          "statistics": {
+            "min": 0.9997958540916443,
+            "max": 0.9998154044151306,
+            "mean": 0.9998098261135056,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z22.8950633223/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "4367dc7cf5fba2e1aa29de656db02ee541438eecf83bec7e701cb41eb62c8266",
+          "sourceId": "31facbc1028447cf5d07ba6275e191c6f7963de8507a8ad7b3d7ec8bd74ce6bc",
+          "statistics": {
+            "min": -0.3460865020751953,
+            "max": 0.6012194156646729,
+            "mean": 1.2337672550266632e-11,
+            "nonfinite": 0,
+            "negative": 137802,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z22.4265331070",
+      "redshift": 22.426533106986874,
+      "scaleFactor": 0.04268664063235861,
+      "meanNeutralFraction": 0.9998102529145036,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z22.4265331070/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "a1c5995265d42ef3e8dc822d98168ebeff46cd27c02ad4f22148c9b0ff427554",
+          "sourceId": "824c1caa5c986c2b140b2bde8c4b404b1ead0ed5e4773810ee7514fdd0e543bf",
+          "statistics": {
+            "min": 0.9997819662094116,
+            "max": 0.9998160004615784,
+            "mean": 0.9998102529234529,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z22.4265331070/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "547cb4126121339af3a84a3a1d9943ffc19974d90edce94afbd9dc48a667a7da",
+          "sourceId": "824c1caa5c986c2b140b2bde8c4b404b1ead0ed5e4773810ee7514fdd0e543bf",
+          "statistics": {
+            "min": -0.35200023651123047,
+            "max": 0.6161577701568604,
+            "mean": -1.3192780201620735e-12,
+            "nonfinite": 0,
+            "negative": 137948,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z21.9671897501",
+      "redshift": 21.96718975005025,
+      "scaleFactor": 0.04354037263082272,
+      "meanNeutralFraction": 0.9998106546402141,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z21.9671897501/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "216ae54b430e699305d1fcdc6547d337d0e6ef12db0116231d87ea764a1ce423",
+          "sourceId": "841f01c20c2683ab89da7dfe5c845186a11d63327f88f5afd3d115d206994ab1",
+          "statistics": {
+            "min": 0.999756395816803,
+            "max": 0.999816358089447,
+            "mean": 0.9998106546163399,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z21.9671897501/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "dbf1b150e46b1daa81a69e87602fd73d93dc2ade4e7f9e4fbdcb81ed9f34cd18",
+          "sourceId": "841f01c20c2683ab89da7dfe5c845186a11d63327f88f5afd3d115d206994ab1",
+          "statistics": {
+            "min": -0.3577336072921753,
+            "max": 0.6314558386802673,
+            "mean": 1.133193539004651e-11,
+            "nonfinite": 0,
+            "negative": 138077,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z21.5168531172",
+      "redshift": 21.51685311718151,
+      "scaleFactor": 0.04441117925297248,
+      "meanNeutralFraction": 0.9998110294019185,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z21.5168531172/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "13d2c777a2969eb25f1d10a6042ecab5270e29180a96b3282a0b20a93dcbf21b",
+          "sourceId": "ef1f17a65880c3ab1126dc38148d8c65bc5e7adb4a8b90cac3d2422fd30111e5",
+          "statistics": {
+            "min": 0.9997121095657349,
+            "max": 0.9998166561126709,
+            "mean": 0.9998110293879563,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z21.5168531172/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "4bc2ba8325d28232b51156426aa2891d968d74ee1027969a6987e3a503c47490",
+          "sourceId": "ef1f17a65880c3ab1126dc38148d8c65bc5e7adb4a8b90cac3d2422fd30111e5",
+          "statistics": {
+            "min": -0.3632534146308899,
+            "max": 0.6471667885780334,
+            "mean": -7.403314072895739e-11,
+            "nonfinite": 0,
+            "negative": 138181,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z21.0753466061",
+      "redshift": 21.07534660611307,
+      "scaleFactor": 0.045299401990955904,
+      "meanNeutralFraction": 0.9998113739545822,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z21.0753466061/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "74898ac8f84edf166f4d0607542982e1a9ddd7a443cf913abc49c41e9b87f1b1",
+          "sourceId": "dc892baf5c5e9932b4db0fa3d0c9e224014648345cbce159ab50ee25d5f354a4",
+          "statistics": {
+            "min": 0.9996373057365417,
+            "max": 0.9998170137405396,
+            "mean": 0.9998113739711698,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z21.0753466061/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "eedcc0d8372983160ba9acaf33c588f52ef75c026333b73766570bcf4204248c",
+          "sourceId": "dc892baf5c5e9932b4db0fa3d0c9e224014648345cbce159ab50ee25d5f354a4",
+          "statistics": {
+            "min": -0.36834046244621277,
+            "max": 0.6631286144256592,
+            "mean": 2.9818675306714226e-11,
+            "nonfinite": 0,
+            "negative": 138316,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z20.6424970774",
+      "redshift": 20.642497077363668,
+      "scaleFactor": 0.046205389166757496,
+      "meanNeutralFraction": 0.9998033852703623,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z20.6424970774/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "8560e0636e8b236d36dc1ae9284ade11216cce45867f3da2e732d053d7172837",
+          "sourceId": "994d94cca843e6180c41935294f620f69256ecb6b37b988b79bd7252f6589a92",
+          "statistics": {
+            "min": 0.8990404009819031,
+            "max": 0.9998171925544739,
+            "mean": 0.9998033852800745,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z20.6424970774/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "d0455a76c3e4dde7bc3839fc09bdd964abbdea98fb464033a43471ee2d1b500f",
+          "sourceId": "994d94cca843e6180c41935294f620f69256ecb6b37b988b79bd7252f6589a92",
+          "statistics": {
+            "min": -0.37313175201416016,
+            "max": 0.6794317960739136,
+            "mean": -2.711775248798176e-11,
+            "nonfinite": 0,
+            "negative": 138467,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z20.2181347863",
+      "redshift": 20.21813478634066,
+      "scaleFactor": 0.04712949606879479,
+      "meanNeutralFraction": 0.9997995693878168,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z20.2181347863/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "d080b5c373b640f64a90558d63980be1559b703d660c3b4853f7cfc3eb995dd7",
+          "sourceId": "4cfbb8db2b7df14159c19dce20dbfbc9fbe484afa8a107f435a0543cee3e8c4f",
+          "statistics": {
+            "min": 0.8959335088729858,
+            "max": 0.999817430973053,
+            "mean": 0.9997995693950088,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z20.2181347863/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "258b2860fd5300d3755b6f92f82098e12917682f931fa4fb75e9b14046ce2868",
+          "sourceId": "4cfbb8db2b7df14159c19dce20dbfbc9fbe484afa8a107f435a0543cee3e8c4f",
+          "statistics": {
+            "min": -0.377846896648407,
+            "max": 0.6962207555770874,
+            "mean": -3.310438034809238e-11,
+            "nonfinite": 0,
+            "negative": 138626,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z19.8020933168",
+      "redshift": 19.80209331677363,
+      "scaleFactor": 0.048072085091246886,
+      "meanNeutralFraction": 0.9997937304605733,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z19.8020933168/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "323076a15948b62364ed1b25eab2a786dc75e287eebaefd7e7d871172d3ca184",
+          "sourceId": "244aeb7801b4177d3335051d3f165635f91c6e25461b061114b0c0143ad7877b",
+          "statistics": {
+            "min": 0.8820388913154602,
+            "max": 0.9998176097869873,
+            "mean": 0.999793730464944,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z19.8020933168/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "d4f15f8fa191691f9161b4e587cbb764ad8b678e726978948562b008f72087f7",
+          "sourceId": "244aeb7801b4177d3335051d3f165635f91c6e25461b061114b0c0143ad7877b",
+          "statistics": {
+            "min": -0.38270944356918335,
+            "max": 0.7136036157608032,
+            "mean": -2.6746438397395877e-11,
+            "nonfinite": 0,
+            "negative": 138783,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z19.3942095155",
+      "redshift": 19.39420951545324,
+      "scaleFactor": 0.04903352587616956,
+      "meanNeutralFraction": 0.9997849033043364,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z19.3942095155/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "254b1a252c1b6a66dd3d0c2d052f85a265e726bfdd7d13312149ed04605d1fba",
+          "sourceId": "43a54d2eea285aef4a99da1badc1d60bcedbfed6de8025be471c3f457820ec0f",
+          "statistics": {
+            "min": 0.8770627379417419,
+            "max": 0.9998178482055664,
+            "mean": 0.999784903277714,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z19.3942095155/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "f546cbec594f2c84914dda8c871f6031e7c5e005a5923174b78904c4bac7f16e",
+          "sourceId": "43a54d2eea285aef4a99da1badc1d60bcedbfed6de8025be471c3f457820ec0f",
+          "statistics": {
+            "min": -0.38775724172592163,
+            "max": 0.7316163182258606,
+            "mean": -3.688624405917551e-11,
+            "nonfinite": 0,
+            "negative": 138897,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z18.9943234282",
+      "redshift": 18.9943234282497,
+      "scaleFactor": 0.05001419545845267,
+      "meanNeutralFraction": 0.9997719577816482,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z18.9943234282/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "4ebccaaf5cca215ae534d0965d5e57a20c4cbab9540b18d218b172b33e72459e",
+          "sourceId": "cdddf76d464229a9944fbfced4355e8dbaccd3ddae63342a4525d071b62fce82",
+          "statistics": {
+            "min": 0.856612503528595,
+            "max": 0.9998186826705933,
+            "mean": 0.9997719577715998,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z18.9943234282/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "0c4155f62b78fa701e48e4f2bff8d6a33e2b4694dcd0812f1aeb42e666b86726",
+          "sourceId": "cdddf76d464229a9944fbfced4355e8dbaccd3ddae63342a4525d071b62fce82",
+          "statistics": {
+            "min": -0.3930792808532715,
+            "max": 0.7501894235610962,
+            "mean": -1.242289604519442e-11,
+            "nonfinite": 0,
+            "negative": 139050,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z18.6022782374",
+      "redshift": 18.60227823738577,
+      "scaleFactor": 0.05101447841367665,
+      "meanNeutralFraction": 0.9997521231904862,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z18.6022782374/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "98709f411cf188698e5c736c150edcabcbfb6dd552538060d780d153aee955c1",
+          "sourceId": "49964ec1f7864faaf527ac19eef246de1fe7df3fd0994875a5831cf58d046c96",
+          "statistics": {
+            "min": 0.8143653273582458,
+            "max": 0.9998185634613037,
+            "mean": 0.9997521231828159,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z18.6022782374/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "e7f5eee3ce29985d3d2e9109612acc1c0d516896b23282010d37ae87caa7febb",
+          "sourceId": "49964ec1f7864faaf527ac19eef246de1fe7df3fd0994875a5831cf58d046c96",
+          "statistics": {
+            "min": -0.398590087890625,
+            "max": 0.7695857882499695,
+            "mean": -6.064251878434845e-11,
+            "nonfinite": 0,
+            "negative": 139199,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z18.2179201999",
+      "redshift": 18.217920199939716,
+      "scaleFactor": 0.052034767008926223,
+      "meanNeutralFraction": 0.999725059999278,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z18.2179201999/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "c93d580d579b2d52692668c3185a660082579b061bec1d2774471fd57404f3cf",
+          "sourceId": "fa23ab6ee572d775b93e2e0d3eb7a0f099218e2402ede056a6ab55f245220dde",
+          "statistics": {
+            "min": 0.7529152631759644,
+            "max": 0.9998180866241455,
+            "mean": 0.9997250600683856,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z18.2179201999/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "a1d7956c31f525fcd499832076378f6adaa873315fbf21d8ac68a4a6dae6a4ea",
+          "sourceId": "fa23ab6ee572d775b93e2e0d3eb7a0f099218e2402ede056a6ab55f245220dde",
+          "statistics": {
+            "min": -0.4043307602405548,
+            "max": 0.7899131178855896,
+            "mean": 3.9560882347799975e-11,
+            "nonfinite": 0,
+            "negative": 139362,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z17.8410985876",
+      "redshift": 17.84109858755407,
+      "scaleFactor": 0.05307546135662033,
+      "meanNeutralFraction": 0.9996850849124066,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z17.8410985876/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "8fca9ede3e7dc80ebe111877858c34a41cd63647d977549f86ea3f989fbf6b9f",
+          "sourceId": "7b15e5471595e5c4752a2e953a45b044e8145e844b81df648f5b5292a7fcb560",
+          "statistics": {
+            "min": 0.6420379281044006,
+            "max": 0.9998171329498291,
+            "mean": 0.9996850848447139,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z17.8410985876/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "04f97e25f3c57753c1355d0fb2ce1bf29525055595ff5a376cc47fc07438e80b",
+          "sourceId": "7b15e5471595e5c4752a2e953a45b044e8145e844b81df648f5b5292a7fcb560",
+          "statistics": {
+            "min": -0.41021865606307983,
+            "max": 0.81112140417099,
+            "mean": -4.470673831136196e-12,
+            "nonfinite": 0,
+            "negative": 139527,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z17.4716656273",
+      "redshift": 17.4716656273266,
+      "scaleFactor": 0.05413696957141865,
+      "meanNeutralFraction": 0.9996296852579732,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z17.4716656273/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "c493685df22793c5feb5715cac61f42a1bdc41d76190f217f0c3cd762b2a2fd1",
+          "sourceId": "5bf238cdfb2982087f1aa35e88e31deb8e8ad907c30b565c20dccd25c78c6e70",
+          "statistics": {
+            "min": 0.5768054127693176,
+            "max": 0.9998166561126709,
+            "mean": 0.9996296853259992,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z17.4716656273/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "2344c42354ec44b1b24c1b35144e88d8943ac88f332c65606510584722f90bb9",
+          "sourceId": "5bf238cdfb2982087f1aa35e88e31deb8e8ad907c30b565c20dccd25c78c6e70",
+          "statistics": {
+            "min": -0.4162278175354004,
+            "max": 0.8331242799758911,
+            "mean": -3.910533008522066e-11,
+            "nonfinite": 0,
+            "negative": 139716,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z17.1094764439",
+      "redshift": 17.10947644386025,
+      "scaleFactor": 0.055219707930266274,
+      "meanNeutralFraction": 0.9995547836946207,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z17.1094764439/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "3d0055ae664f70f13f590be2ae82929bc87435461be8fd151b27969ffe49c2c7",
+          "sourceId": "c931f3c21c768379888815b4e49e50cc9a30688be21b10e1f839c472a79b6950",
+          "statistics": {
+            "min": 0.5210784673690796,
+            "max": 0.9998156428337097,
+            "mean": 0.9995547836285823,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z17.1094764439/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "edef141f889fa700fcdd0f4fe3591fad46a39171b87673743294b9dad66e8225",
+          "sourceId": "c931f3c21c768379888815b4e49e50cc9a30688be21b10e1f839c472a79b6950",
+          "statistics": {
+            "min": -0.4222766160964966,
+            "max": 0.8557955622673035,
+            "mean": 6.616956982341549e-12,
+            "nonfinite": 0,
+            "negative": 139917,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z16.7543890024",
+      "redshift": 16.754389002449358,
+      "scaleFactor": 0.05632410103563925,
+      "meanNeutralFraction": 0.9994545202465057,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z16.7543890024/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "356536b4379a9f5a58f24f7ea03651e7bc8be609d2beb8a8da6483468cd00818",
+          "sourceId": "a4645afa19c8568a2d2bf20803ca289fa533f9b006939498edb4b44537b2914f",
+          "statistics": {
+            "min": 0.5023765563964844,
+            "max": 0.9998140931129456,
+            "mean": 0.9994545202691825,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z16.7543890024/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "35c3ecb67efc3006eff4f0b8da68dde8c0cf0f9d523de6ce99ebffdca7ec1d1b",
+          "sourceId": "a4645afa19c8568a2d2bf20803ca289fa533f9b006939498edb4b44537b2914f",
+          "statistics": {
+            "min": -0.4284113645553589,
+            "max": 0.8793696761131287,
+            "mean": 4.2891357132646135e-11,
+            "nonfinite": 0,
+            "negative": 140088,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z16.4062640534",
+      "redshift": 16.4062640533799,
+      "scaleFactor": 0.05745058198205506,
+      "meanNeutralFraction": 0.9993248195285545,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z16.4062640534/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "26b650b54d4f80e28d7ee5f6ab2b712edf32938b53a7bf0ffdc27a83027d9c56",
+          "sourceId": "3739a596ef26413f427128f717209a35a4030829a2ee77483efe1713536ff051",
+          "statistics": {
+            "min": 0.42287886142730713,
+            "max": 0.9998121857643127,
+            "mean": 0.9993248195436308,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z16.4062640534/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "bf810620cf9f6cfd2476f005863f380e053b84e5701a82deee761e11e2f32664",
+          "sourceId": "3739a596ef26413f427128f717209a35a4030829a2ee77483efe1713536ff051",
+          "statistics": {
+            "min": -0.43436285853385925,
+            "max": 0.9035798907279968,
+            "mean": -2.4601820580727463e-11,
+            "nonfinite": 0,
+            "negative": 140264,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z16.0649650773",
+      "redshift": 16.06496507732184,
+      "scaleFactor": 0.05859959252591328,
+      "meanNeutralFraction": 0.9991543156526964,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z16.0649650773/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "125ac21afabfc69f8e2796f2f0c25a2deb47489b8f47028d6ba4fbd47320ed88",
+          "sourceId": "bb0a216dddefcf7a5fa059663a2d4a8e80bb9125e1db57c47465036be944d9e5",
+          "statistics": {
+            "min": 0.32495591044425964,
+            "max": 0.9998094439506531,
+            "mean": 0.9991543156497755,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z16.0649650773/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "afece58b2da140dc478d6f62f9c1f8b478a377f0cc2a4a44ff24708c5c25a9b0",
+          "sourceId": "bb0a216dddefcf7a5fa059663a2d4a8e80bb9125e1db57c47465036be944d9e5",
+          "statistics": {
+            "min": -0.4400264620780945,
+            "max": 0.9281930923461914,
+            "mean": -7.619951891690846e-11,
+            "nonfinite": 0,
+            "negative": 140426,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z15.7303582318",
+      "redshift": 15.730358231792255,
+      "scaleFactor": 0.05977158325873301,
+      "meanNeutralFraction": 0.9989380341921108,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z15.7303582318/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "424bcd958fe5093a23af472a8ccc872b8948e50dec6e82c2ce4442c8ea7d4b66",
+          "sourceId": "2540082be4e632ed2cb8e5f226e7360f6bb9e1cc79ad5836d8588010731e2471",
+          "statistics": {
+            "min": 0.2412492334842682,
+            "max": 0.9998059272766113,
+            "mean": 0.9989380341426113,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z15.7303582318/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "2aacd6dc96df1bcde8b207883f8907638d60ca5ee86e5840dbaaaf7b5f740578",
+          "sourceId": "2540082be4e632ed2cb8e5f226e7360f6bb9e1cc79ad5836d8588010731e2471",
+          "statistics": {
+            "min": -0.4450247883796692,
+            "max": 0.953241765499115,
+            "mean": -5.1373377774055484e-11,
+            "nonfinite": 0,
+            "negative": 140625,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z15.4023122987",
+      "redshift": 15.402312298668171,
+      "scaleFactor": 0.060967013783855196,
+      "meanNeutralFraction": 0.9986601607460398,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z15.4023122987/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "9bf3b89a35e9b236f18385cee7c5ba1ba987f33e51a09df95ec9981d878a8cdd",
+          "sourceId": "968881fbab239e0b712aea4b164482c7512d6112597a28a08ed640d56609ee45",
+          "statistics": {
+            "min": 0.18137584626674652,
+            "max": 0.9998009204864502,
+            "mean": 0.9986601607160424,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z15.4023122987/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "8e5b969d948ef4732e6b2a5b3ccb485f3472aa4e94a4e7b0813ee39423ac0ba3",
+          "sourceId": "968881fbab239e0b712aea4b164482c7512d6112597a28a08ed640d56609ee45",
+          "statistics": {
+            "min": -0.4496622383594513,
+            "max": 0.978933572769165,
+            "mean": -4.708691769828022e-11,
+            "nonfinite": 0,
+            "negative": 140826,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z15.0806986327",
+      "redshift": 15.080698632728584,
+      "scaleFactor": 0.0621863528966788,
+      "meanNeutralFraction": 0.998301789871144,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z15.0806986327/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "2af60a3bec8c8b83ec02bd924eaa86f65cd55aa0a9eb2634a1ffb5ba1850e58c",
+          "sourceId": "3e68d839fdc3b40cf6bdf9caedcf2d23e8904018cf5435866d536dac0b3270b9",
+          "statistics": {
+            "min": 0.12419271469116211,
+            "max": 0.9997944831848145,
+            "mean": 0.9983017898875346,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z15.0806986327/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "eab758604bd2f64a3c9fa1b0335d6552d1e46ae6f2ab03e95ff7103e549d2b69",
+          "sourceId": "3e68d839fdc3b40cf6bdf9caedcf2d23e8904018cf5435866d536dac0b3270b9",
+          "statistics": {
+            "min": -0.45411211252212524,
+            "max": 1.0056653022766113,
+            "mean": -3.3154312628624893e-11,
+            "nonfinite": 0,
+            "negative": 141031,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z14.7653911112",
+      "redshift": 14.765391111205448,
+      "scaleFactor": 0.06343007876850182,
+      "meanNeutralFraction": 0.9978512138873957,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z14.7653911112/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "2ae162c8ef503fa929266afb5480f589e527a3caff171a5d316d9f79c8373bd6",
+          "sourceId": "7a6bb501e658d413f481ca19fb282493ee81d5ae5a27e408f9b0b1df454f11a6",
+          "statistics": {
+            "min": 0.0743427723646164,
+            "max": 0.9997854232788086,
+            "mean": 0.9978512138253279,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z14.7653911112/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "3c6241524d11579189a76b35baa9a3b4b14cf0ae674a258441e3f74f4ef44909",
+          "sourceId": "7a6bb501e658d413f481ca19fb282493ee81d5ae5a27e408f9b0b1df454f11a6",
+          "statistics": {
+            "min": -0.4588196277618408,
+            "max": 1.033684253692627,
+            "mean": -6.871492264082235e-11,
+            "nonfinite": 0,
+            "negative": 141221,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z14.4562660843",
+      "redshift": 14.45626608432385,
+      "scaleFactor": 0.06469867913403912,
+      "meanNeutralFraction": 0.9972825576406165,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z14.4562660843/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "47011ffc1ad748a1e7acd41a56fabd3e13e66f6a2dfb54421faae8c1a3d62b38",
+          "sourceId": "6b90109e19ed386febc668278e3e02684e9064c2d42e2d5d35043c19f115481a",
+          "statistics": {
+            "min": 0.03065580502152443,
+            "max": 0.9997730851173401,
+            "mean": 0.9972825575622295,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 0,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z14.4562660843/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "c44f15de21eb997da6d6a7f737a74c775d2e101d703b13219f9f8d7c5ececa20",
+          "sourceId": "6b90109e19ed386febc668278e3e02684e9064c2d42e2d5d35043c19f115481a",
+          "statistics": {
+            "min": -0.46378087997436523,
+            "max": 1.0625077486038208,
+            "mean": -2.991848435662803e-11,
+            "nonfinite": 0,
+            "negative": 141386,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z14.1532023268",
+      "redshift": 14.153202326812007,
+      "scaleFactor": 0.06599265148269053,
+      "meanNeutralFraction": 0.9965759146107289,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z14.1532023268/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "92af779e9e425a0dcecac2a0d70825a652a1635d417b56b67ade26a1fe806b85",
+          "sourceId": "99387ffd2a3b576f9d710db80a42d8ed31499f468336010b0ea71df6e3436461",
+          "statistics": {
+            "min": 0,
+            "max": 0.9997562170028687,
+            "mean": 0.996575914631272,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 1,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z14.1532023268/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "ada0174ea89e68526d79615a2fa3b773653a39f0df9148e7488b9efdfd75a224",
+          "sourceId": "99387ffd2a3b576f9d710db80a42d8ed31499f468336010b0ea71df6e3436461",
+          "statistics": {
+            "min": -0.4691826105117798,
+            "max": 1.0923774242401123,
+            "mean": -1.0772743808118435e-11,
+            "nonfinite": 0,
+            "negative": 141633,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z13.8560809904",
+      "redshift": 13.856080990362024,
+      "scaleFactor": 0.0673125032536344,
+      "meanNeutralFraction": 0.9957014316116789,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z13.8560809904/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "35a4c1d2cfc544063d862f80749eb15cc25086d26962baa22470774535088980",
+          "sourceId": "75a2cc261cc4acc79e6151d9af90c07ee90cf7cbd376d7268f6dde14ed6300c3",
+          "statistics": {
+            "min": 0,
+            "max": 0.9997333288192749,
+            "mean": 0.9957014315957586,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 1,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z13.8560809904/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "cadf16d7f31d457817628f5c7ff0ae40ed666208c3d61a7ecdb2890451ef6a39",
+          "sourceId": "75a2cc261cc4acc79e6151d9af90c07ee90cf7cbd376d7268f6dde14ed6300c3",
+          "statistics": {
+            "min": -0.4747650623321533,
+            "max": 1.1238752603530884,
+            "mean": 7.253725398115307e-12,
+            "nonfinite": 0,
+            "negative": 141887,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z13.5647855570",
+      "redshift": 13.564785557022805,
+      "scaleFactor": 0.06865875203482298,
+      "meanNeutralFraction": 0.9946222463668719,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z13.5647855570/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "2ee58269f3e735048ea193429862177b158e6bec7743721b5c447057134834dc",
+          "sourceId": "c8a0bf6333b8e0f26c6246417ae9fb80499191d7c67af35a25b32cecba7ea474",
+          "statistics": {
+            "min": 0,
+            "max": 0.9997029900550842,
+            "mean": 0.9946222463073973,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 1,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z13.5647855570/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "8f5237428d88d87447888eda5a40169dc7479b352b12b4ed5998883e027af6b4",
+          "sourceId": "c8a0bf6333b8e0f26c6246417ae9fb80499191d7c67af35a25b32cecba7ea474",
+          "statistics": {
+            "min": -0.480319619178772,
+            "max": 1.158971905708313,
+            "mean": -1.2144313332740353e-11,
+            "nonfinite": 0,
+            "negative": 142091,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z13.2792017935",
+      "redshift": 13.279201793506829,
+      "scaleFactor": 0.07003192576595768,
+      "meanNeutralFraction": 0.9933123650506843,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z13.2792017935/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "05b74b724c576bfd5fc4e5191ffa1f585ea6d9819cb24ba0f7375ab828bbb93d",
+          "sourceId": "af75896dd340db846b74d4f9962a1ecc1531c08c106990d50e734f9c8ccdf825",
+          "statistics": {
+            "min": 0,
+            "max": 0.9996628165245056,
+            "mean": 0.9933123650265188,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 5,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z13.2792017935/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "91056b27ceb9b84489f3041080ef4e16e46639c30a9b0732ea107a13106271f5",
+          "sourceId": "af75896dd340db846b74d4f9962a1ecc1531c08c106990d50e734f9c8ccdf825",
+          "statistics": {
+            "min": -0.4858185648918152,
+            "max": 1.1954816579818726,
+            "mean": -9.288181335165291e-12,
+            "nonfinite": 0,
+            "negative": 142271,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z12.9992177064",
+      "redshift": 12.999217706392859,
+      "scaleFactor": 0.07143256294552386,
+      "meanNeutralFraction": 0.9917203353102602,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z12.9992177064/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "6e488562ed1a972a88a0df0834538b015bb7ce3de4d33239454ce081dd682e99",
+          "sourceId": "b668a296e0b610d2884c8a4d8b9cabee1e34fb9992fd66ccfb6a4cd0a9fabcfe",
+          "statistics": {
+            "min": 0,
+            "max": 0.9996104836463928,
+            "mean": 0.9917203353604407,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 9,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z12.9992177064/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "754c99f344b8268bfe3f812785d8437cc49e704830153a3826b7b25fb437275b",
+          "sourceId": "b668a296e0b610d2884c8a4d8b9cabee1e34fb9992fd66ccfb6a4cd0a9fabcfe",
+          "statistics": {
+            "min": -0.4913223087787628,
+            "max": 1.2348277568817139,
+            "mean": 1.7698564835910702e-11,
+            "nonfinite": 0,
+            "negative": 142514,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z12.7247234982",
+      "redshift": 12.724723498207045,
+      "scaleFactor": 0.07286121284196632,
+      "meanNeutralFraction": 0.9898022449668353,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z12.7247234982/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "b58456cec222a38d62f7e819d3187d102683fa5e3ed31e8e6167d92645e65202",
+          "sourceId": "419a277e1093cd313e22c8ae268c2fbc5fe7c68165ff0f7dd7f78b23b8896156",
+          "statistics": {
+            "min": 0,
+            "max": 0.9995410442352295,
+            "mean": 0.9898022449949231,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 15,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z12.7247234982/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "f56c7b232ebecea41a5f419270f0597ee0d3dbf1e5c98e9c5dbb526f1284b908",
+          "sourceId": "419a277e1093cd313e22c8ae268c2fbc5fe7c68165ff0f7dd7f78b23b8896156",
+          "statistics": {
+            "min": -0.49692654609680176,
+            "max": 1.2770999670028687,
+            "mean": -5.325156982038948e-11,
+            "nonfinite": 0,
+            "negative": 142756,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z12.4556115244",
+      "redshift": 12.455611524365164,
+      "scaleFactor": 0.07431843570908829,
+      "meanNeutralFraction": 0.9875145450848318,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z12.4556115244/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "5a250ccac6af34b73cb94e5a9c30d7afac0106745154534c83c71499f990b528",
+          "sourceId": "aabb6122a2fdf85e9cd560061c5f6685316222fc6b3b16734eb6b4fc69d6db9b",
+          "statistics": {
+            "min": 0,
+            "max": 0.99945068359375,
+            "mean": 0.9875145450611456,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 24,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z12.4556115244/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "8b03d73d1dc441cf7990748546bc8b3ae0f70b246fcc3f0593aa228e33fb25ac",
+          "sourceId": "aabb6122a2fdf85e9cd560061c5f6685316222fc6b3b16734eb6b4fc69d6db9b",
+          "statistics": {
+            "min": -0.5024591684341431,
+            "max": 1.32140052318573,
+            "mean": -7.02140567909737e-11,
+            "nonfinite": 0,
+            "negative": 143001,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z12.1917762510",
+      "redshift": 12.191776250959146,
+      "scaleFactor": 0.07580480300575838,
+      "meanNeutralFraction": 0.9848180342302663,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z12.1917762510/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "d5641e19f9440cc011cd04552a14ce2c659831a75d7da7239eabf6ccc4600c7f",
+          "sourceId": "ef8155d4bc3be89fc799e018c1505ac2cdfd65579008f2ba8d91ea08cdead96e",
+          "statistics": {
+            "min": 0,
+            "max": 0.9993336796760559,
+            "mean": 0.9848180342339834,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 39,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z12.1917762510/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "8df9141a7805f0d485b4ec73038a5b35b2101e221a833f73473fe464e7b317d4",
+          "sourceId": "ef8155d4bc3be89fc799e018c1505ac2cdfd65579008f2ba8d91ea08cdead96e",
+          "statistics": {
+            "min": -0.507999837398529,
+            "max": 1.3678314685821533,
+            "mean": -3.1629976415814554e-11,
+            "nonfinite": 0,
+            "negative": 143241,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z11.9331142134",
+      "redshift": 11.933114213371297,
+      "scaleFactor": 0.07732089762001168,
+      "meanNeutralFraction": 0.9816058308466004,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z11.9331142134/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "c641701693e343a4623967cfa633a08e706d17bf13741f31a45e41374183eeef",
+          "sourceId": "5150abebe6e7992ba040a5a58484989660e3fe353ad47715c8274788f4151919",
+          "statistics": {
+            "min": 0,
+            "max": 0.999183714389801,
+            "mean": 0.981605830862569,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 54,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z11.9331142134/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "1ecca14a0a7662b9dc58fcfc9720d98fecf7c4a1f2ed86b6d54be4004f0f6935",
+          "sourceId": "5150abebe6e7992ba040a5a58484989660e3fe353ad47715c8274788f4151919",
+          "statistics": {
+            "min": -0.5136685967445374,
+            "max": 1.4173005819320679,
+            "mean": -4.0375869314601687e-11,
+            "nonfinite": 0,
+            "negative": 143485,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z11.6795239757",
+      "redshift": 11.679523975700024,
+      "scaleFactor": 0.07886731409763284,
+      "meanNeutralFraction": 0.9778005231189923,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z11.6795239757/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "50a2993f55fa3bde23018ddbc0b5a4144ff9b66ec60d421d4e709cf260fd6a97",
+          "sourceId": "4a4a3b5ddaa3008596b9214066e44a96710cc56a7c76f6d13292e08e36979ad2",
+          "statistics": {
+            "min": 0,
+            "max": 0.9989906549453735,
+            "mean": 0.9778005231577538,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 88,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z11.6795239757/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "9d3c7205ecac106b8bb6c47ba50b9097a0684e8888b5329f46dd30054f6d0063",
+          "sourceId": "4a4a3b5ddaa3008596b9214066e44a96710cc56a7c76f6d13292e08e36979ad2",
+          "statistics": {
+            "min": -0.5189780592918396,
+            "max": 1.4691098928451538,
+            "mean": -4.037126188904949e-11,
+            "nonfinite": 0,
+            "negative": 143747,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z11.4309060910",
+      "redshift": 11.430906090981118,
+      "scaleFactor": 0.08044465887531085,
+      "meanNeutralFraction": 0.973341766809241,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z11.4309060910/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "263ac760ffb166a1ec9991ef86525dce02fdbb3eec4b1f4f2a10b9e2a86795e3",
+          "sourceId": "ea53f438c19a619e270fb04ad5db2d4ab41abfffa1fbb860b6b83bdc01216c78",
+          "statistics": {
+            "min": 0,
+            "max": 0.9987446665763855,
+            "mean": 0.973341766785154,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 126,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z11.4309060910/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "9e8a1286254cc95e797429c4c22ed3d852041eb79421c0d23877d87c8808a509",
+          "sourceId": "ea53f438c19a619e270fb04ad5db2d4ab41abfffa1fbb860b6b83bdc01216c78",
+          "statistics": {
+            "min": -0.5241210460662842,
+            "max": 1.5228254795074463,
+            "mean": 2.3601537391115812e-11,
+            "nonfinite": 0,
+            "negative": 144014,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z11.1871630622",
+      "redshift": 11.187163062189025,
+      "scaleFactor": 0.08205355051845697,
+      "meanNeutralFraction": 0.9681372017648187,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z11.1871630622/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "ed932d89264819ff5eec6447f531ec490fa2f7e2f4589c2ac87299be97269cba",
+          "sourceId": "d672013b61df41d93373259dc6ef6ca84d4c921a66f67417fd2040dda5847c76",
+          "statistics": {
+            "min": 0,
+            "max": 0.9984351992607117,
+            "mean": 0.9681372017685277,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 194,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z11.1871630622/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "763409ce33cd070bf2e3fe2fd33752236c11ee39da33cc03bb7935828fd23030",
+          "sourceId": "d672013b61df41d93373259dc6ef6ca84d4c921a66f67417fd2040dda5847c76",
+          "statistics": {
+            "min": -0.5289636254310608,
+            "max": 1.577724814414978,
+            "mean": 1.3465756287800446e-11,
+            "nonfinite": 0,
+            "negative": 144261,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z10.9481993040",
+      "redshift": 10.948199304002786,
+      "scaleFactor": 0.08369461996377883,
+      "meanNeutralFraction": 0.9620592182130234,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z10.9481993040/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "7d1fe81fae14d4bc2993caa3f7d8a6095108ee3eb8d9d7e75338082d27927b1e",
+          "sourceId": "f900df2caffed404e193b4a771abde57634259c1ade4674d56ec781458de9044",
+          "statistics": {
+            "min": 0,
+            "max": 0.9980452656745911,
+            "mean": 0.9620592182196219,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 283,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z10.9481993040/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "c2a99148806f5783c9aa08c33e4c514c64b60060e4d5d6aaf6e6f2cd3828b311",
+          "sourceId": "f900df2caffed404e193b4a771abde57634259c1ade4674d56ec781458de9044",
+          "statistics": {
+            "min": -0.5337499380111694,
+            "max": 1.6350921392440796,
+            "mean": 3.8080094633130557e-11,
+            "nonfinite": 0,
+            "negative": 144547,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z10.7139211053",
+      "redshift": 10.713921105321667,
+      "scaleFactor": 0.08536851076670622,
+      "meanNeutralFraction": 0.9550089676492659,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z10.7139211053/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "3776868b2e9f3a23c9d6dd87265423088ebabafb39711298ff7c37d6a9c3e0a7",
+          "sourceId": "a1d7c2c730c44b38e2cf77eabaed019955a3b5f68aaddf98ae24a792594f4f77",
+          "statistics": {
+            "min": 0,
+            "max": 0.9975562691688538,
+            "mean": 0.955008967693562,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 422,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z10.7139211053/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "fa5e2f03d8926e3df564d3fd9e65ef1835e3acd5f2d5b95c6348391e33aa7d6a",
+          "sourceId": "a1d7c2c730c44b38e2cf77eabaed019955a3b5f68aaddf98ae24a792594f4f77",
+          "statistics": {
+            "min": -0.5383492112159729,
+            "max": 1.6941865682601929,
+            "mean": 5.392375435064878e-11,
+            "nonfinite": 0,
+            "negative": 144840,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z10.4842365925",
+      "redshift": 10.484236592515781,
+      "scaleFactor": 0.08707587935376522,
+      "meanNeutralFraction": 0.946878262810857,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z10.4842365925/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "caa019aa18b934444c2a699ec3430786a24d1c082f0a0c38eeb14c574a0f087f",
+          "sourceId": "7a84e3744a121bb02f6e2112fb02b9368af696faf6ec610e0d299f03d8ae4cd3",
+          "statistics": {
+            "min": 0,
+            "max": 0.996944785118103,
+            "mean": 0.9468782628422572,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 632,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z10.4842365925/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "3202b7326dedf32f97a38c7e24b74c4ae4e3d24e01f966d853f3e9dce07072a7",
+          "sourceId": "7a84e3744a121bb02f6e2112fb02b9368af696faf6ec610e0d299f03d8ae4cd3",
+          "statistics": {
+            "min": -0.5430080890655518,
+            "max": 1.7544912099838257,
+            "mean": -1.1275880229533186e-10,
+            "nonfinite": 0,
+            "negative": 145120,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z10.2590556934",
+      "redshift": 10.259055693397281,
+      "scaleFactor": 0.08881739527999993,
+      "meanNeutralFraction": 0.9374873609504858,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z10.2590556934/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "586d6fe4055aeb43e1805587d2d1ded2e6637e28f479a05bf36d7e03a1bdfade",
+          "sourceId": "704dcc3c1105b3cc3a6c914502cffad42ceef0d95cde2bea3701532a731a6860",
+          "statistics": {
+            "min": 0,
+            "max": 0.996177613735199,
+            "mean": 0.9374873609438774,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 894,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z10.2590556934/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "e34825927dc933732f50535438c9311c12a3b6af1e3e43914800766e61d9dc29",
+          "sourceId": "704dcc3c1105b3cc3a6c914502cffad42ceef0d95cde2bea3701532a731a6860",
+          "statistics": {
+            "min": -0.5476030707359314,
+            "max": 1.8178683519363403,
+            "mean": -1.0433548469634957e-10,
+            "nonfinite": 0,
+            "negative": 145347,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z10.0382901019",
+      "redshift": 10.038290101897996,
+      "scaleFactor": 0.09059374149154256,
+      "meanNeutralFraction": 0.92663018207416,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z10.0382901019/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "e7685cfd58c8aae5b92724c2ba638a8799ad6aee021dba93f661b974da9f743b",
+          "sourceId": "c0f4dd631a9957ad2bc21693af2ecfea6d17d1175112b97552505a843b27958c",
+          "statistics": {
+            "min": 0,
+            "max": 0.9952417016029358,
+            "mean": 0.9266301820536422,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 1251,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z10.0382901019/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "bd6d46dc12c5d751d1077d36732fee42c5d657e797c0e0a3183b2a19b2507662",
+          "sourceId": "c0f4dd631a9957ad2bc21693af2ecfea6d17d1175112b97552505a843b27958c",
+          "statistics": {
+            "min": -0.5519729852676392,
+            "max": 1.8840901851654053,
+            "mean": -3.770239676015308e-11,
+            "nonfinite": 0,
+            "negative": 145621,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z9.8218532434",
+      "redshift": 9.821853243439673,
+      "scaleFactor": 0.09240561459343491,
+      "meanNeutralFraction": 0.9140833754285597,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z9.8218532434/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "b563d5f808daa7e7cdd81329601c1ff0e33b5b704811d357217d729054dd7414",
+          "sourceId": "3033e3a812153f96647848117a22419b44b7cfc632fcdb16f47ef4c97045bea1",
+          "statistics": {
+            "min": 0,
+            "max": 0.9940814971923828,
+            "mean": 0.9140833754558901,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 1710,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z9.8218532434/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "34d4f0493b71771f7f126de668a311aaa86cae47cf691dd651867fcd6f10f985",
+          "sourceId": "3033e3a812153f96647848117a22419b44b7cfc632fcdb16f47ef4c97045bea1",
+          "statistics": {
+            "min": -0.5562129616737366,
+            "max": 1.9526257514953613,
+            "mean": -1.6387116663629797e-10,
+            "nonfinite": 0,
+            "negative": 145911,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z9.6096602410",
+      "redshift": 9.609660240983217,
+      "scaleFactor": 0.0942537251228064,
+      "meanNeutralFraction": 0.8995668644150572,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z9.6096602410/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "d5dbc138118f054338b60c6c5eda7e8f99514a172511858459046f99ca7f0a3a",
+          "sourceId": "86d1bf4ce5d13de372c9ef2c4610812d2d7adb81fed04c7acd4aa76fad670303",
+          "statistics": {
+            "min": 0,
+            "max": 0.9926436543464661,
+            "mean": 0.8995668643711454,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 2401,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z9.6096602410/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "7adc421feb51bb6138f3c001522b6506f1767cdf5d81c6810051923371401a32",
+          "sourceId": "86d1bf4ce5d13de372c9ef2c4610812d2d7adb81fed04c7acd4aa76fad670303",
+          "statistics": {
+            "min": -0.5604833364486694,
+            "max": 2.020890235900879,
+            "mean": -7.466693929814028e-12,
+            "nonfinite": 0,
+            "negative": 146135,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z9.4016278817",
+      "redshift": 9.401627881743652,
+      "scaleFactor": 0.09613879782751537,
+      "meanNeutralFraction": 0.882811733868318,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z9.4016278817/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "8b2df292bccc3eb6d0a281fda39bb011e068be6de5fa59bd86ed052f7d5da988",
+          "sourceId": "c6c97fffaa9fdc93f76090d4300d9f1e9fc7e84bde4871ac40de39b0111628eb",
+          "statistics": {
+            "min": 0,
+            "max": 0.9908792972564697,
+            "mean": 0.8828117338307653,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 3280,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z9.4016278817/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "51c0c8665a8b65e3c268924e535475e42c765a8e645988c946d8b957f9203b93",
+          "sourceId": "c6c97fffaa9fdc93f76090d4300d9f1e9fc7e84bde4871ac40de39b0111628eb",
+          "statistics": {
+            "min": -0.564767599105835,
+            "max": 2.091521739959717,
+            "mean": -7.5972450552797e-11,
+            "nonfinite": 0,
+            "negative": 146401,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z9.1976745846",
+      "redshift": 9.197674584557705,
+      "scaleFactor": 0.09806157195036364,
+      "meanNeutralFraction": 0.8634859188989448,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z9.1976745846/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "b90895a6edd108b21185dba8a0d5d77e369fda8cb7b65dac90834edeafc27bb6",
+          "sourceId": "f1580d8fdaf5fdb239f5b63a765449eee94a1a40cfc0341fc42cb915a9da9fc2",
+          "statistics": {
+            "min": 0,
+            "max": 0.9887082576751709,
+            "mean": 0.8634859189089519,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 4539,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z9.1976745846/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "0cb00da5b3adbda2fdf2d13e2d118f3f37f59bfd263a83f18b2960939ed2ef6f",
+          "sourceId": "f1580d8fdaf5fdb239f5b63a765449eee94a1a40cfc0341fc42cb915a9da9fc2",
+          "statistics": {
+            "min": -0.5693302154541016,
+            "max": 2.16436767578125,
+            "mean": -4.77885508942677e-11,
+            "nonfinite": 0,
+            "negative": 146666,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z8.9977203679",
+      "redshift": 8.997720367891262,
+      "scaleFactor": 0.10002280151899487,
+      "meanNeutralFraction": 0.8411854568755733,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z8.9977203679/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "0939876b27b880fa9e63caaf5e970410be33dbd08da80f19b8af401a1e4d793e",
+          "sourceId": "d6cad49419d952ccf63e51ef83a06c14e776dc1d9c1c90083f3f74d41bffaded",
+          "statistics": {
+            "min": 0,
+            "max": 0.9860576391220093,
+            "mean": 0.8411854568916974,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 6238,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z8.9977203679/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "7460bcf88ba2c5b096b8a08c046760645a867507fa1224a2ebc8f82f1eeedc7e",
+          "sourceId": "d6cad49419d952ccf63e51ef83a06c14e776dc1d9c1c90083f3f74d41bffaded",
+          "statistics": {
+            "min": -0.5737576484680176,
+            "max": 2.2406005859375,
+            "mean": -1.2519607572869518e-10,
+            "nonfinite": 0,
+            "negative": 146969,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z8.8016868185",
+      "redshift": 8.801686818474119,
+      "scaleFactor": 0.10202325564159123,
+      "meanNeutralFraction": 0.8156697395190889,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z8.8016868185/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "d8b0e19f22f459ba790fb6fc7051d23ead368f976ef2930a0c447cb250f3ad82",
+          "sourceId": "df9928501ac6fa1774c3a9c0387c3777536a67e53fc5b3c0cd6bf82edb42d084",
+          "statistics": {
+            "min": 0,
+            "max": 0.9828495383262634,
+            "mean": 0.8156697394488237,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 8501,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z8.8016868185/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "272f0db951a505e06086d62235e9d507271acfb0424331c6af8442ac74415a86",
+          "sourceId": "df9928501ac6fa1774c3a9c0387c3777536a67e53fc5b3c0cd6bf82edb42d084",
+          "statistics": {
+            "min": -0.5783191919326782,
+            "max": 2.3179705142974854,
+            "mean": -1.8024470804789416e-12,
+            "nonfinite": 0,
+            "negative": 147318,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z8.6094970605",
+      "redshift": 8.609497060549735,
+      "scaleFactor": 0.10406371880848388,
+      "meanNeutralFraction": 0.7861202830924396,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z8.6094970605/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "9331c902cc5d7c8baed579f1d162833f5b31586329ed7fa4ba5472fcba483b4e",
+          "sourceId": "b625e1c9dd6c35fac16e0836c6f02d9f7d869b2a546f1ecf8f739cb057827a1f",
+          "statistics": {
+            "min": 0,
+            "max": 0.978814423084259,
+            "mean": 0.7861202830807175,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 11586,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z8.6094970605/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "23c60535ba5db6fde8f082a76f8f2d77f6fa5a908ce1c3e0e7126f8c71689004",
+          "sourceId": "b625e1c9dd6c35fac16e0836c6f02d9f7d869b2a546f1ecf8f739cb057827a1f",
+          "statistics": {
+            "min": -0.583094596862793,
+            "max": 2.397428512573242,
+            "mean": -8.572975662701765e-12,
+            "nonfinite": 0,
+            "negative": 147598,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z8.4210757257",
+      "redshift": 8.421075725727935,
+      "scaleFactor": 0.10614499119979565,
+      "meanNeutralFraction": 0.7522235653059187,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z8.4210757257/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "4003a2d3d1d8669abd1e46c90f306fa0ba56f5ee654a81a4b2d1534a948e0ccc",
+          "sourceId": "3dd919f9d1820f55e872eceee522da7fff739011c41808cb5bcafbba127ed8ec",
+          "statistics": {
+            "min": 0,
+            "max": 0.9739962220191956,
+            "mean": 0.7522235653273084,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 15734,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z8.4210757257/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "798425723b6cc867245f4af7ec7b0da19ef64e0d9c4d8cb151898a7b46e2f299",
+          "sourceId": "3dd919f9d1820f55e872eceee522da7fff739011c41808cb5bcafbba127ed8ec",
+          "statistics": {
+            "min": -0.587899386882782,
+            "max": 2.478475332260132,
+            "mean": -1.3558648648270832e-10,
+            "nonfinite": 0,
+            "negative": 147949,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z8.2363489234",
+      "redshift": 8.236348923428736,
+      "scaleFactor": 0.1082678889992365,
+      "meanNeutralFraction": 0.7126402959781073,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z8.2363489234/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "90a37d6a8fcbedad818dd4f384ad9d53a0ba8087c5399ad838f3cc3dca0051e6",
+          "sourceId": "980a725be1b08427800ff9fa9fdfbeef804bb34085d82eff84afd61357e366e3",
+          "statistics": {
+            "min": 0,
+            "max": 0.9680567383766174,
+            "mean": 0.712640295997955,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 21205,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z8.2363489234/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "e4751b8679fb0e77386c2fc09514962d792100e905f8b4d561ad30b792ecba5d",
+          "sourceId": "980a725be1b08427800ff9fa9fdfbeef804bb34085d82eff84afd61357e366e3",
+          "statistics": {
+            "min": -0.5927849411964417,
+            "max": 2.563606023788452,
+            "mean": -3.984162999515206e-11,
+            "nonfinite": 0,
+            "negative": 148268,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z8.0552442119",
+      "redshift": 8.055244211905698,
+      "scaleFactor": 0.11043324471417514,
+      "meanNeutralFraction": 0.6656327729925839,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z8.0552442119/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "2069e6d72a43aaccc1f2ac666c06145babcd0c02f2147df8d1573d337ec98600",
+          "sourceId": "6bb9b3fdd26b2691b070b68d94edc54a1c602394d79e4b8cf8cf5fe687ffc508",
+          "statistics": {
+            "min": 0,
+            "max": 0.9607270956039429,
+            "mean": 0.6656327729710938,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 28840,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z8.0552442119/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "57ceb0549178781c5380e38eb3062c41de034e0b3b324f1e9fd74bc5470a79ff",
+          "sourceId": "6bb9b3fdd26b2691b070b68d94edc54a1c602394d79e4b8cf8cf5fe687ffc508",
+          "statistics": {
+            "min": -0.5977020263671875,
+            "max": 2.6535141468048096,
+            "mean": -8.596556799744803e-11,
+            "nonfinite": 0,
+            "negative": 148594,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z7.9655884133",
+      "redshift": 7.965588413275457,
+      "scaleFactor": 0.11153757610814341,
+      "meanNeutralFraction": 0.6385024276499107,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z7.9655884133/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "8323c4486a8df1cb8964717d780315ba96f52d3f301df16552d520a9eeeeaa72",
+          "sourceId": "6a3caef2beb904deae0f458f0a44a369ecca25e0395ad7356e564d30a1b77752",
+          "statistics": {
+            "min": 0,
+            "max": 0.9564847350120544,
+            "mean": 0.6385024276777416,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 33929,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z7.9655884133/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "b6d4ee846748ba522ed8e71720053d17d525ac099e595eefb8ff77db948297ad",
+          "sourceId": "6a3caef2beb904deae0f458f0a44a369ecca25e0395ad7356e564d30a1b77752",
+          "statistics": {
+            "min": -0.6000768542289734,
+            "max": 2.699887275695801,
+            "mean": 4.6735670888864433e-11,
+            "nonfinite": 0,
+            "negative": 148772,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z7.8776905698",
+      "redshift": 7.877690569837458,
+      "scaleFactor": 0.11264190750211167,
+      "meanNeutralFraction": 0.6098651921703235,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z7.8776905698/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "2f0963a6ed57686a32426921d365aafd449cc8bf248755cba851d1d4088c8873",
+          "sourceId": "9debca4634a18704a21aca9014107babb245122b2c52b3c640907f881b68797f",
+          "statistics": {
+            "min": 0,
+            "max": 0.9518331289291382,
+            "mean": 0.6098651921715441,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 39699,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z7.8776905698/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "adb4bbd27c137c5dfaf34b71311b49be7ccbd483f55dbaed36159250063106bd",
+          "sourceId": "9debca4634a18704a21aca9014107babb245122b2c52b3c640907f881b68797f",
+          "statistics": {
+            "min": -0.602226972579956,
+            "max": 2.7472643852233887,
+            "mean": 3.457911734727759e-11,
+            "nonfinite": 0,
+            "negative": 148957,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z7.7036183685",
+      "redshift": 7.703618368476279,
+      "scaleFactor": 0.11489474350368001,
+      "meanNeutralFraction": 0.5442002098679235,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z7.7036183685/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "914ccbb7ca2d278ee98e2bfe8fef62ac7009bbaee72629c36e0874cf0e570a67",
+          "sourceId": "8ddc448416c6c39c080dccfc400cd05735d0fb755f05237c54744b6caedd3805",
+          "statistics": {
+            "min": 0,
+            "max": 0.9409053325653076,
+            "mean": 0.5442002098631478,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 54642,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z7.7036183685/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "5cefbd1d9864032b581507504eb0bb20953a38ceb952e8300729ec3fe781676e",
+          "sourceId": "8ddc448416c6c39c080dccfc400cd05735d0fb755f05237c54744b6caedd3805",
+          "statistics": {
+            "min": -0.606536865234375,
+            "max": 2.845254421234131,
+            "mean": 3.444228235949254e-11,
+            "nonfinite": 0,
+            "negative": 149298,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z7.5329593443",
+      "redshift": 7.532959344342709,
+      "scaleFactor": 0.11719263618231028,
+      "meanNeutralFraction": 0.4670342172934876,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z7.5329593443/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "3b7a20e489fad1b77f7644545efd79c4f3333d9cb146935b81cdda0b1b958d7b",
+          "sourceId": "8772f990d4397a3f0cb056cf1e06cfbfdf80fd061b7443489b5c4b645a0a9a50",
+          "statistics": {
+            "min": 0,
+            "max": 0.9277839064598083,
+            "mean": 0.4670342172634889,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 75072,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z7.5329593443/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "fdd89add75656bb3a9a1ad16ac55113f74e8ba2243187a3de3b079be313a23f9",
+          "sourceId": "8772f990d4397a3f0cb056cf1e06cfbfdf80fd061b7443489b5c4b645a0a9a50",
+          "statistics": {
+            "min": -0.6111348271369934,
+            "max": 2.9453372955322266,
+            "mean": -8.80971406935771e-11,
+            "nonfinite": 0,
+            "negative": 149638,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z7.3656465725",
+      "redshift": 7.365646572455642,
+      "scaleFactor": 0.11953648667068434,
+      "meanNeutralFraction": 0.3745886430901191,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z7.3656465725/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "7cdbae2d3593ff48948f46bb4e2ded28ef1e46209e9c21d809282ce606acdf68",
+          "sourceId": "012991124490f1d25d9acab7b7bf882ac59059844d22e24804d2d3835059f7a1",
+          "statistics": {
+            "min": 0,
+            "max": 0.9122256636619568,
+            "mean": 0.37458864309404794,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 103423,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z7.3656465725/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "3ab1f5705c715796384486b07671f610dc1caa19792c6f6d81cb567bd6d1e84f",
+          "sourceId": "012991124490f1d25d9acab7b7bf882ac59059844d22e24804d2d3835059f7a1",
+          "statistics": {
+            "min": -0.6174477934837341,
+            "max": 3.0490126609802246,
+            "mean": 5.356828869373942e-11,
+            "nonfinite": 0,
+            "negative": 149988,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z7.2016144401",
+      "redshift": 7.201614440087278,
+      "scaleFactor": 0.12192721412412047,
+      "meanNeutralFraction": 0.2625418697945836,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z7.2016144401/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "2982cc84450f324f754898580ebea77ba0f4f7b6033d793302620c5dfbe23645",
+          "sourceId": "e0742bd52f192f8c816e3803fa2fa1dee70c8dd32d01b715968ded95c3813c72",
+          "statistics": {
+            "min": 0,
+            "max": 0.8934996724128723,
+            "mean": 0.26254186980780725,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 143748,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z7.2016144401/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "8a2ce07af548b0c56b1260db2817fa646c4bc87d6c5d0ed5e6d21ed1159c1ce1",
+          "sourceId": "e0742bd52f192f8c816e3803fa2fa1dee70c8dd32d01b715968ded95c3813c72",
+          "statistics": {
+            "min": -0.6237766742706299,
+            "max": 3.1572699546813965,
+            "mean": -3.7662539753569035e-11,
+            "nonfinite": 0,
+            "negative": 150291,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z7.0407986210",
+      "redshift": 7.040798621032687,
+      "scaleFactor": 0.12436575608102583,
+      "meanNeutralFraction": 0.14629415704899795,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z7.0407986210/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "02462d3839b5fa1bb7c5810263d07272376dca3700206d845516fc21f9d66316",
+          "sourceId": "e57774b79f684e47630abcf76d88d2056ef0bd4f7877e840879141ce509c8fb9",
+          "statistics": {
+            "min": 0,
+            "max": 0.8710679411888123,
+            "mean": 0.14629415704905213,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 190873,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z7.0407986210/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "e019e24d22ee6063d4400e49cce78bc8a1010c712a4bd30af374f5ba412bca58",
+          "sourceId": "e57774b79f684e47630abcf76d88d2056ef0bd4f7877e840879141ce509c8fb9",
+          "statistics": {
+            "min": -0.6315359473228455,
+            "max": 3.2717931270599365,
+            "mean": -1.5747636528118392e-10,
+            "nonfinite": 0,
+            "negative": 150703,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z6.8831360504",
+      "redshift": 6.883136050383897,
+      "scaleFactor": 0.12685306883055777,
+      "meanNeutralFraction": 0.040355033884126534,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z6.8831360504/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "a530ece129551b5c4cf7d54cbad553e6aa02135f2de929a3eb83ef2cbd9ef87d",
+          "sourceId": "7a745cc542747b17cd0b75736327812af4fc1a9dac02e849bcb8a303b7be9160",
+          "statistics": {
+            "min": 0,
+            "max": 0.8452349305152893,
+            "mean": 0.04035503388271788,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 240236,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z6.8831360504/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "de1db09b596b5550d96c017248861fd842f555c9c28a461f9619c5291de73374",
+          "sourceId": "7a745cc542747b17cd0b75736327812af4fc1a9dac02e849bcb8a303b7be9160",
+          "statistics": {
+            "min": -0.6402124166488647,
+            "max": 3.3934593200683594,
+            "mean": 1.204755739614427e-10,
+            "nonfinite": 0,
+            "negative": 151047,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z6.7285648998",
+      "redshift": 6.728564899798602,
+      "scaleFactor": 0.12939012778763867,
+      "meanNeutralFraction": 0.008644888423494201,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z6.7285648998/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "b95be51c32bb39df86f0abf848f4cd29c7a31e2b0aba0aab953f46b4763dac77",
+          "sourceId": "0e26330bbe68838ef13e860efe7ebba106dcca534c4987675f252a91e566433f",
+          "statistics": {
+            "min": 0,
+            "max": 0.8166311979293823,
+            "mean": 0.008644888427120634,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 256989,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z6.7285648998/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "ebd4dd1a04e29cc876df7bb65ef209fe101975a5f28a30094c3e96a6b422920f",
+          "sourceId": "0e26330bbe68838ef13e860efe7ebba106dcca534c4987675f252a91e566433f",
+          "statistics": {
+            "min": -0.6497991681098938,
+            "max": 3.5157625675201416,
+            "mean": -3.303707307722448e-11,
+            "nonfinite": 0,
+            "negative": 151432,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z6.5770245533",
+      "redshift": 6.577024553253801,
+      "scaleFactor": 0.1319779278754706,
+      "meanNeutralFraction": 0.001547427797460088,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z6.5770245533/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "a8dd67b014bd944bcb592670cd2c919536daf6bc1a9a7955304d6fb122c23d00",
+          "sourceId": "495a9a577d24a12eea819456a0aba0598f1d355681b33f2dd8df5b99282e49be",
+          "statistics": {
+            "min": 0,
+            "max": 0.7875732183456421,
+            "mean": 0.001547427795797418,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 261169,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z6.5770245533/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "b35cda0b36c1e1a7b3d9ebe43fbeab60d75cb2a2b89bb163ac2f1332cf9a4c20",
+          "sourceId": "495a9a577d24a12eea819456a0aba0598f1d355681b33f2dd8df5b99282e49be",
+          "statistics": {
+            "min": -0.6597896814346313,
+            "max": 3.640226364135742,
+            "mean": 1.7779333560952182e-11,
+            "nonfinite": 0,
+            "negative": 151815,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z6.4284555833",
+      "redshift": 6.428455583274849,
+      "scaleFactor": 0.13461748391570083,
+      "meanNeutralFraction": 0,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z6.4284555833/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "bbfc1d83a0490f58515e06950b36fee5462f50a4fe470fe341b95fa02a3b148b",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z6.4284555833/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "7224e6f7d65e294814f44447cdf546cfa5eb609a1443b3aaeeab18b93acabd96",
+          "sourceId": "bbfc1d83a0490f58515e06950b36fee5462f50a4fe470fe341b95fa02a3b148b",
+          "statistics": {
+            "min": -0.6696965098381042,
+            "max": 3.77241587638855,
+            "mean": -2.0995538640988798e-11,
+            "nonfinite": 0,
+            "negative": 152254,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z6.2827997276",
+      "redshift": 6.282799727630618,
+      "scaleFactor": 0.1373098310263901,
+      "meanNeutralFraction": 0,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z6.2827997276/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "19adce2b16a0f6e48eba642a33aff74aa77027562cb843f4d9ee7d85a7b2daa8",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z6.2827997276/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "e2b53aae492ade49d135800fabf46c76a9edcdf804024fd2e96df2010baaebba",
+          "sourceId": "19adce2b16a0f6e48eba642a33aff74aa77027562cb843f4d9ee7d85a7b2daa8",
+          "statistics": {
+            "min": -0.6782825589179993,
+            "max": 3.926090717315674,
+            "mean": 2.1840140806972386e-11,
+            "nonfinite": 0,
+            "negative": 152662,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z6.1399998665",
+      "redshift": 6.139999866485596,
+      "scaleFactor": 0.14005602502794073,
+      "meanNeutralFraction": 0,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z6.1399998665/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "e70d20dbfaa0520fd95b68372a9e9fd88cc337838bb53b3c3fb47edae8b70b2e",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z6.1399998665/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "9d9b1201cdf259dd92ae38b4b4e381c39bb7499e3e5ba4870ae439e07bab67ed",
+          "sourceId": "e70d20dbfaa0520fd95b68372a9e9fd88cc337838bb53b3c3fb47edae8b70b2e",
+          "statistics": {
+            "min": -0.6859145760536194,
+            "max": 4.090336322784424,
+            "mean": 8.737288670346288e-12,
+            "nonfinite": 0,
+            "negative": 153112,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    },
+    {
+      "id": "z6.0000000000",
+      "redshift": 6,
+      "scaleFactor": 0.14285714285714285,
+      "meanNeutralFraction": 0,
+      "fields": {
+        "xH": {
+          "url": "snapshots/z6.0000000000/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "5296a61245158d9ad104a3095b43b6a2039b6d358410e3db5dd6cb5cca13c1f1",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "density": {
+          "url": "snapshots/z6.0000000000/density.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "5ffebe133d37f36845f64eb6734bd597c64fccb6101d210a103660a15af8b468",
+          "sourceId": "5296a61245158d9ad104a3095b43b6a2039b6d358410e3db5dd6cb5cca13c1f1",
+          "statistics": {
+            "min": -0.6928053498268127,
+            "max": 4.2639665603637695,
+            "mean": -2.2017287992781576e-10,
+            "nonfinite": 0,
+            "negative": 153562,
+            "zero": 0,
+            "count": 262144
+          }
+        }
+      }
+    }
+  ],
+  "exporterVersion": "comparison-1",
+  "caveat": "Averaged intermediate xH is a cell-volume mean, not a resolved ionization boundary. Same seed is not proof of cross-model phase matching.",
+  "defaultSnapshot": "z7.5329593443",
+  "publication": {
+    "displayOnly": true,
+    "publishedFields": [
+      "xH",
+      "density"
+    ],
+    "nativeDataUploaded": false
+  }
+}
