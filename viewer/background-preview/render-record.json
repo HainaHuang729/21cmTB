@@ -1,0 +1,137 @@
+{
+  "previewOnly": true,
+  "environment": "Chromium SwiftShader",
+  "records": [
+    {
+      "id": "warm",
+      "background": [
+        232,
+        231,
+        223
+      ],
+      "simulationId": "coeval-f-star10-m1p3-d2fb547ce0",
+      "snapshot": "coeval-z6.56000000",
+      "redshift": 6.5600000000000005,
+      "field": "brightness_temperature",
+      "unit": "mK",
+      "grid": [
+        64,
+        64,
+        64
+      ],
+      "range": [
+        -142.287109375,
+        142.287109375
+      ],
+      "opacity": 2.6,
+      "steps": 300,
+      "camera": [
+        1.7999999999999996,
+        1.3499999999999996,
+        2.2
+      ],
+      "sourceSHA256": "fae990a4d994181b671ea369558d6e046c38b8d5d1bf3c94054fae8b45676208",
+      "imageSHA256": "69f24560ad9eccf0694995fedf82a3ab5e0686ac17e09df3dad499956137e918"
+    },
+    {
+      "id": "cool",
+      "background": [
+        224,
+        231,
+        236
+      ],
+      "simulationId": "coeval-f-star10-m1p3-d2fb547ce0",
+      "snapshot": "coeval-z6.56000000",
+      "redshift": 6.5600000000000005,
+      "field": "brightness_temperature",
+      "unit": "mK",
+      "grid": [
+        64,
+        64,
+        64
+      ],
+      "range": [
+        -142.287109375,
+        142.287109375
+      ],
+      "opacity": 2.6,
+      "steps": 300,
+      "camera": [
+        1.7999999999999996,
+        1.3499999999999996,
+        2.2
+      ],
+      "sourceSHA256": "fae990a4d994181b671ea369558d6e046c38b8d5d1bf3c94054fae8b45676208",
+      "imageSHA256": "f2ce8b096084cc6b943690856bc3cf978cd990e59a1ee6b5117adf81b134b72c"
+    },
+    {
+      "id": "mid",
+      "background": [
+        69,
+        75,
+        80
+      ],
+      "simulationId": "coeval-f-star10-m1p3-d2fb547ce0",
+      "snapshot": "coeval-z6.56000000",
+      "redshift": 6.5600000000000005,
+      "field": "brightness_temperature",
+      "unit": "mK",
+      "grid": [
+        64,
+        64,
+        64
+      ],
+      "range": [
+        -142.287109375,
+        142.287109375
+      ],
+      "opacity": 2.6,
+      "steps": 300,
+      "camera": [
+        1.7999999999999996,
+        1.3499999999999996,
+        2.2
+      ],
+      "sourceSHA256": "fae990a4d994181b671ea369558d6e046c38b8d5d1bf3c94054fae8b45676208",
+      "imageSHA256": "e50b525966238acbb61d12a1c811edcac0286ce6fe016edd91e2ccf12f47cf85"
+    },
+    {
+      "id": "current",
+      "background": [
+        14,
+        25,
+        30
+      ],
+      "simulationId": "coeval-f-star10-m1p3-d2fb547ce0",
+      "snapshot": "coeval-z6.56000000",
+      "redshift": 6.5600000000000005,
+      "field": "brightness_temperature",
+      "unit": "mK",
+      "grid": [
+        64,
+        64,
+        64
+      ],
+      "range": [
+        -142.287109375,
+        142.287109375
+      ],
+      "opacity": 2.6,
+      "steps": 300,
+      "camera": [
+        1.7999999999999996,
+        1.3499999999999996,
+        2.2
+      ],
+      "sourceSHA256": "fae990a4d994181b671ea369558d6e046c38b8d5d1bf3c94054fae8b45676208",
+      "imageSHA256": "daa7a5f5cae952e39be665889ec750f01cdfd04c4a3763cc2f09d74fa748e1a0"
+    }
+  ],
+  "validation": {
+    "sameDataAndSettings": true,
+    "dialogs": true,
+    "mobile": true,
+    "errors": [],
+    "productionUnchanged": true
+  }
+}
