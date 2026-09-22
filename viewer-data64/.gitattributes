@@ -1,0 +1,2 @@
+# Scientific float32 byte streams must never undergo line-ending conversion.
+*.bin -text -diff
