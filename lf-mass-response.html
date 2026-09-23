@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Halo mass → UV · Parameter response</title>
+  <link rel="stylesheet" href="lf-mass-response.css?v=1">
+</head>
+<body>
+<main>
+  <nav><a href="index.html#analysis-section" id="back">← Back to LF</a><span>21CM / MASS–UV RELATION</span><button id="language" type="button">中文</button></nav>
+  <header>
+    <p class="technical">MASS / 10¹⁰ M☉ · REDSHIFT / 6, 7, 8, 10</p>
+    <h1 id="heading">One halo mass.<br>Four parameter responses.</h1>
+    <p id="intro">UV absolute magnitude of a 10¹⁰ M☉ halo, using the same 21cmFAST relation as the LF reference lines.</p>
+    <p class="note" id="note">Controlled parameter sweeps, not MCMC correlations or new simulations. At this pivot mass, α★ cancels; kp and ms affect halo abundance but do not enter this mass–UV relation. Horizontal curves are expected.</p>
+  </header>
+  <section class="controls" aria-label="Fixed parameter values">
+    <label><span id="f-label">Fixed log₁₀ f★,10</span><output id="f-value">−1.30</output><input id="fstar" type="range" min="-3" max="0" step="0.01" value="-1.3"></label>
+    <label><span id="t-label">Fixed t★</span><output id="t-value">0.50</output><input id="tstar" type="range" min="0.01" max="1" step="0.01" value="0.5"></label>
+    <button type="button" id="reset">Reset defaults</button>
+    <button type="button" id="download">Download CSV</button>
+  </section>
+  <p id="status" role="status">Loading the atlas cosmology…</p>
+  <div class="legend" id="legend" aria-label="Redshifts"></div>
+  <section class="plots" id="plots" aria-label="UV magnitude parameter responses"></section>
+  <section class="readout">
+    <h2 id="readout-heading">Current reference values</h2>
+    <p id="hover" aria-live="polite">Move over a plot to read its values.</p>
+    <table><thead><tr><th>z</th><th>MUV (AB mag)</th></tr></thead><tbody id="values"></tbody></table>
+  </section>
+  <footer>
+    <p id="formula">At Mhalo = 10¹⁰ M☉: SFR = Mhalo (Ωb/Ωm) min(f★,10, 1) H(z) / t★, with H(z) expressed in yr⁻¹; MUV = 51.63 − 2.5 log₁₀[SFR / (1.15 × 10⁻²⁸)].</p>
+    <p id="scope">kp is in h Mpc⁻¹. f★,10 is shown on a logarithmic axis; MUV is not logarithmically transformed again. Smaller MUV means brighter. The f★ panel varies f★; the other three panels hold it fixed. All panels share one magnitude scale.</p>
+    <p id="provenance"></p>
+  </footer>
+</main>
+<script src="lf-mass.js?v=20260923"></script>
+<script src="lf-mass-response.js?v=1"></script>
+</body>
+</html>

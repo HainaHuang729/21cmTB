@@ -925,6 +925,8 @@ function sharedLFBounds(panels) {
 
 function drawLuminosityFunction() {
   if (!state.result) return;
+  const responseLink = $("#lf-mass-response-link");
+  if (responseLink) responseLink.href = `lf-mass-response.html?fstar=${encodeURIComponent(state.result.parameters?.F_STAR10 ?? -1.3)}&tstar=${encodeURIComponent(state.result.parameters?.t_STAR ?? .5)}`;
   const panels = LF_REDSHIFTS.map(lfPanelData);
   const bounds = sharedLFBounds(panels);
   panels.forEach((panel) => drawLFPanel(panel, bounds));

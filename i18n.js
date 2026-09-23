@@ -91,6 +91,7 @@ window.AtlasI18n = (() => {
     destination: ["DESTINATION / REIONIZATION", "终点 / 再电离"],
     parameters: ["Model Parameters", "模型参数"],
     parameterSubtitle: ["10 PARAMETERS · EXACT PRECOMPUTED RUNS", "10 个参数 · 精确预计算结果"],
+    lfMassResponse: ["10¹⁰ M☉ → UV · Parameter-response charts ↗", "10¹⁰ M☉ → UV · 参数响应图 ↗"],
     lfMassNote: ["Dotted vertical line: UV magnitude of a 10¹⁰ M☉ halo at this redshift and model parameters. Matched BPL/PL mass–UV markers coincide.", "竖向点线：当前红移和模型参数下，10¹⁰ M☉ 暗物质晕对应的 UV 星等。同天体物理参数的 BPL/PL 标记重合。"],
     collapseParameters: ["Collapse", "收起"],
     expandParameters: ["Expand", "展开"],
