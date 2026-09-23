@@ -263,10 +263,36 @@
         "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
         "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
         "recomputed_best_log_LF": -13.261040774593372,
-        "snapshot_date": "2026-09-18"
+        "snapshot_date": "2026-09-18",
+        "halo_mass_marker": {
+          "halo_mass_msun": 10000000000.0,
+          "definition": "halo mass, not stellar mass",
+          "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+          "muv_by_redshift": {
+            "6.0": -16.023066836155827,
+            "7.0": -16.23952214892521,
+            "8.0": -16.43078996577777,
+            "9.0": -16.602080321371666,
+            "10.0": -16.757151891526966
+          },
+          "native_mapping_max_error_mag": 1.2692740369857347e-07
+        }
       },
-      "figure_sha256": "470c340edab5dec233132b291ab0a77eec001120a30fd20133b9a65edbd3f0b8",
-      "figure_design": "white_corner_with_maximum_lf_predictions"
+      "figure_sha256": "06bf4ba650650eef64712fe3e5914cd52e7f75dc49fb83b21e8251230a476243",
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "halo_mass_marker": {
+        "halo_mass_msun": 10000000000.0,
+        "definition": "halo mass, not stellar mass",
+        "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+        "muv_by_redshift": {
+          "6.0": -14.25380150813475,
+          "7.0": -14.470256820904147,
+          "8.0": -14.661524637756706,
+          "9.0": -14.832814993350603,
+          "10.0": -14.987886563505889
+        },
+        "native_mapping_max_error_mag": 2.0832548841553944e-07
+      }
     },
     {
       "steps_per_ensemble": 15000,
@@ -511,10 +537,36 @@
         "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
         "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
         "recomputed_best_log_LF": -13.261040774593372,
-        "snapshot_date": "2026-09-18"
+        "snapshot_date": "2026-09-18",
+        "halo_mass_marker": {
+          "halo_mass_msun": 10000000000.0,
+          "definition": "halo mass, not stellar mass",
+          "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+          "muv_by_redshift": {
+            "6.0": -16.023066836155827,
+            "7.0": -16.23952214892521,
+            "8.0": -16.43078996577777,
+            "9.0": -16.602080321371666,
+            "10.0": -16.757151891526966
+          },
+          "native_mapping_max_error_mag": 1.2692740369857347e-07
+        }
       },
-      "figure_sha256": "59c3482dfd3a3a776cefeb5e8bc263a0cb9259cdbd65e6db917f6f797d6b1ae3",
-      "figure_design": "white_corner_with_maximum_lf_predictions"
+      "figure_sha256": "306bed3a85237a2269f5925556cb878920d7f496cd1ce083c28173096d29bce0",
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "halo_mass_marker": {
+        "halo_mass_msun": 10000000000.0,
+        "definition": "halo mass, not stellar mass",
+        "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+        "muv_by_redshift": {
+          "6.0": -12.569172741822065,
+          "7.0": -12.785628054591463,
+          "8.0": -12.976895871444022,
+          "9.0": -13.148186227037918,
+          "10.0": -13.303257797193218
+        },
+        "native_mapping_max_error_mag": 2.7649925016248744e-07
+      }
     },
     {
       "steps_per_ensemble": 15000,
@@ -759,10 +811,36 @@
         "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
         "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
         "recomputed_best_log_LF": -13.261040774593372,
-        "snapshot_date": "2026-09-18"
+        "snapshot_date": "2026-09-18",
+        "halo_mass_marker": {
+          "halo_mass_msun": 10000000000.0,
+          "definition": "halo mass, not stellar mass",
+          "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+          "muv_by_redshift": {
+            "6.0": -16.023066836155827,
+            "7.0": -16.23952214892521,
+            "8.0": -16.43078996577777,
+            "9.0": -16.602080321371666,
+            "10.0": -16.757151891526966
+          },
+          "native_mapping_max_error_mag": 1.2692740369857347e-07
+        }
       },
-      "figure_sha256": "e59e1607ee44c55d4ad13c78490bd894b496ad9082c4c6f34f4ee98f9cb6b4fb",
-      "figure_design": "white_corner_with_maximum_lf_predictions"
+      "figure_sha256": "e0338c3d11ced3fd7cdfdfb14fe8f17d15258dda5b587de6f9c40b1bd8765957",
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "halo_mass_marker": {
+        "halo_mass_msun": 10000000000.0,
+        "definition": "halo mass, not stellar mass",
+        "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+        "muv_by_redshift": {
+          "6.0": -11.27531180905774,
+          "7.0": -11.491767121827145,
+          "8.0": -11.683034938679697,
+          "9.0": -11.854325294273593,
+          "10.0": -12.009396864428894
+        },
+        "native_mapping_max_error_mag": 2.794418492158002e-07
+      }
     },
     {
       "steps_per_ensemble": 15000,
@@ -1007,10 +1085,36 @@
         "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
         "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
         "recomputed_best_log_LF": -13.261040774593372,
-        "snapshot_date": "2026-09-18"
+        "snapshot_date": "2026-09-18",
+        "halo_mass_marker": {
+          "halo_mass_msun": 10000000000.0,
+          "definition": "halo mass, not stellar mass",
+          "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+          "muv_by_redshift": {
+            "6.0": -16.023066836155827,
+            "7.0": -16.23952214892521,
+            "8.0": -16.43078996577777,
+            "9.0": -16.602080321371666,
+            "10.0": -16.757151891526966
+          },
+          "native_mapping_max_error_mag": 1.2692740369857347e-07
+        }
       },
-      "figure_sha256": "f6cea87020a2c47aef5e723fdfa14bd4f258c6c5e9365b879eb5907c5b7dc754",
-      "figure_design": "white_corner_with_maximum_lf_predictions"
+      "figure_sha256": "1520b730be84abbc81204bcc27eda81b0a5281a1576413cfe6b15b51b814a432",
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "halo_mass_marker": {
+        "halo_mass_msun": 10000000000.0,
+        "definition": "halo mass, not stellar mass",
+        "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+        "muv_by_redshift": {
+          "6.0": -10.847638385956948,
+          "7.0": -11.064093698726339,
+          "8.0": -11.25536151557889,
+          "9.0": -11.426651871172787,
+          "10.0": -11.581723441328087
+        },
+        "native_mapping_max_error_mag": 8.217959646117379e-08
+      }
     },
     {
       "steps_per_ensemble": 15000,
@@ -1255,10 +1359,36 @@
         "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
         "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
         "recomputed_best_log_LF": -13.261040774593372,
-        "snapshot_date": "2026-09-18"
+        "snapshot_date": "2026-09-18",
+        "halo_mass_marker": {
+          "halo_mass_msun": 10000000000.0,
+          "definition": "halo mass, not stellar mass",
+          "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+          "muv_by_redshift": {
+            "6.0": -16.023066836155827,
+            "7.0": -16.23952214892521,
+            "8.0": -16.43078996577777,
+            "9.0": -16.602080321371666,
+            "10.0": -16.757151891526966
+          },
+          "native_mapping_max_error_mag": 1.2692740369857347e-07
+        }
       },
-      "figure_sha256": "42c91cfa3b65e84addc91800a4a2dfc7153ee48fe9115681cdaeacec4795eb1d",
-      "figure_design": "white_corner_with_maximum_lf_predictions"
+      "figure_sha256": "29dc69cbda40366e2f02b86096cc31ac6b7ff43d3a0fc43435ff01a18f43f3b5",
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "halo_mass_marker": {
+        "halo_mass_msun": 10000000000.0,
+        "definition": "halo mass, not stellar mass",
+        "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+        "muv_by_redshift": {
+          "6.0": -10.846921810399806,
+          "7.0": -11.06337712316921,
+          "8.0": -11.254644940021763,
+          "9.0": -11.425935295615659,
+          "10.0": -11.58100686577096
+        },
+        "native_mapping_max_error_mag": 2.645828516278925e-07
+      }
     },
     {
       "steps_per_ensemble": 15000,
@@ -1503,10 +1633,36 @@
         "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
         "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
         "recomputed_best_log_LF": -13.261040774593372,
-        "snapshot_date": "2026-09-18"
+        "snapshot_date": "2026-09-18",
+        "halo_mass_marker": {
+          "halo_mass_msun": 10000000000.0,
+          "definition": "halo mass, not stellar mass",
+          "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+          "muv_by_redshift": {
+            "6.0": -16.023066836155827,
+            "7.0": -16.23952214892521,
+            "8.0": -16.43078996577777,
+            "9.0": -16.602080321371666,
+            "10.0": -16.757151891526966
+          },
+          "native_mapping_max_error_mag": 1.2692740369857347e-07
+        }
       },
-      "figure_sha256": "ed7d739f9648890fea2137497b1e58eb1ae685727113a9884361fc468e0ae8e6",
-      "figure_design": "white_corner_with_maximum_lf_predictions"
+      "figure_sha256": "893cc935d0e688eab8b2bb3767f31f7977eb42e8f0e893a558caca6bbc4813fa",
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "halo_mass_marker": {
+        "halo_mass_msun": 10000000000.0,
+        "definition": "halo mass, not stellar mass",
+        "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+        "muv_by_redshift": {
+          "6.0": -15.391701200108422,
+          "7.0": -15.60815651287782,
+          "8.0": -15.799424329730364,
+          "9.0": -15.970714685324275,
+          "10.0": -16.12578625547956
+        },
+        "native_mapping_max_error_mag": 1.9656928174072164e-07
+      }
     },
     {
       "steps_per_ensemble": 15000,
@@ -1751,10 +1907,36 @@
         "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
         "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
         "recomputed_best_log_LF": -13.261040774593372,
-        "snapshot_date": "2026-09-18"
+        "snapshot_date": "2026-09-18",
+        "halo_mass_marker": {
+          "halo_mass_msun": 10000000000.0,
+          "definition": "halo mass, not stellar mass",
+          "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+          "muv_by_redshift": {
+            "6.0": -16.023066836155827,
+            "7.0": -16.23952214892521,
+            "8.0": -16.43078996577777,
+            "9.0": -16.602080321371666,
+            "10.0": -16.757151891526966
+          },
+          "native_mapping_max_error_mag": 1.2692740369857347e-07
+        }
       },
-      "figure_sha256": "b32bea83a8faa4f6bcca5568e22db6b335847d0e679df80a00ae96d203ab6a89",
-      "figure_design": "white_corner_with_maximum_lf_predictions"
+      "figure_sha256": "a94b8938f6a7bfe7b1e9ef53ca4240ba7dbc46a2763cfea4fefeecaeb970a688",
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "halo_mass_marker": {
+        "halo_mass_msun": 10000000000.0,
+        "definition": "halo mass, not stellar mass",
+        "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+        "muv_by_redshift": {
+          "6.0": -14.722063980969232,
+          "7.0": -14.93851929373863,
+          "8.0": -15.129787110591188,
+          "9.0": -15.301077466185085,
+          "10.0": -15.456149036340385
+        },
+        "native_mapping_max_error_mag": 9.896110952922754e-08
+      }
     },
     {
       "steps_per_ensemble": 15000,
@@ -1999,10 +2181,36 @@
         "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
         "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
         "recomputed_best_log_LF": -13.261040774593372,
-        "snapshot_date": "2026-09-18"
+        "snapshot_date": "2026-09-18",
+        "halo_mass_marker": {
+          "halo_mass_msun": 10000000000.0,
+          "definition": "halo mass, not stellar mass",
+          "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+          "muv_by_redshift": {
+            "6.0": -16.023066836155827,
+            "7.0": -16.23952214892521,
+            "8.0": -16.43078996577777,
+            "9.0": -16.602080321371666,
+            "10.0": -16.757151891526966
+          },
+          "native_mapping_max_error_mag": 1.2692740369857347e-07
+        }
       },
-      "figure_sha256": "116e539d81fc385bba3754d02a990e75687e7a388ac94690fa49988939156d7f",
-      "figure_design": "white_corner_with_maximum_lf_predictions"
+      "figure_sha256": "a5d0769190d9b2a165cc82a45f649cbf4ce6986d4b074005dc3ecfe321e1065a",
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "halo_mass_marker": {
+        "halo_mass_msun": 10000000000.0,
+        "definition": "halo mass, not stellar mass",
+        "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+        "muv_by_redshift": {
+          "6.0": -14.310952200693741,
+          "7.0": -14.527407513463125,
+          "8.0": -14.718675330315683,
+          "9.0": -14.88996568590958,
+          "10.0": -15.04503725606488
+        },
+        "native_mapping_max_error_mag": 7.137378332799926e-08
+      }
     },
     {
       "steps_per_ensemble": 15000,
@@ -2247,10 +2455,36 @@
         "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
         "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
         "recomputed_best_log_LF": -13.261040774593372,
-        "snapshot_date": "2026-09-18"
+        "snapshot_date": "2026-09-18",
+        "halo_mass_marker": {
+          "halo_mass_msun": 10000000000.0,
+          "definition": "halo mass, not stellar mass",
+          "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+          "muv_by_redshift": {
+            "6.0": -16.023066836155827,
+            "7.0": -16.23952214892521,
+            "8.0": -16.43078996577777,
+            "9.0": -16.602080321371666,
+            "10.0": -16.757151891526966
+          },
+          "native_mapping_max_error_mag": 1.2692740369857347e-07
+        }
       },
-      "figure_sha256": "2ce1bc073c82005c3e5caa773470c3471613e76e34e11f4428904a3a8611e7a5",
-      "figure_design": "white_corner_with_maximum_lf_predictions"
+      "figure_sha256": "8730a6d71fa71cc5cdaf9aedf3b0a58a793356bcae1ae16317eaf1c073cc69b7",
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "halo_mass_marker": {
+        "halo_mass_msun": 10000000000.0,
+        "definition": "halo mass, not stellar mass",
+        "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+        "muv_by_redshift": {
+          "6.0": -13.710024930652345,
+          "7.0": -13.926480243421743,
+          "8.0": -14.117748060274302,
+          "9.0": -14.289038415868198,
+          "10.0": -14.444109986023498
+        },
+        "native_mapping_max_error_mag": 1.7231175064580384e-07
+      }
     },
     {
       "steps_per_ensemble": 15000,
@@ -2495,10 +2729,36 @@
         "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
         "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
         "recomputed_best_log_LF": -13.261040774593372,
-        "snapshot_date": "2026-09-18"
+        "snapshot_date": "2026-09-18",
+        "halo_mass_marker": {
+          "halo_mass_msun": 10000000000.0,
+          "definition": "halo mass, not stellar mass",
+          "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+          "muv_by_redshift": {
+            "6.0": -16.023066836155827,
+            "7.0": -16.23952214892521,
+            "8.0": -16.43078996577777,
+            "9.0": -16.602080321371666,
+            "10.0": -16.757151891526966
+          },
+          "native_mapping_max_error_mag": 1.2692740369857347e-07
+        }
       },
-      "figure_sha256": "4977b309491d3eabb0280803b8d192f828141ea4c929209579b9666ee21609e6",
-      "figure_design": "white_corner_with_maximum_lf_predictions"
+      "figure_sha256": "e9206a9dfae6196e7ec3263bfb037a435a76a9170ea49f65833783635436bb59",
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "halo_mass_marker": {
+        "halo_mass_msun": 10000000000.0,
+        "definition": "halo mass, not stellar mass",
+        "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+        "muv_by_redshift": {
+          "6.0": -12.844001207947663,
+          "7.0": -13.06045652071706,
+          "8.0": -13.251724337569605,
+          "9.0": -13.423014693163516,
+          "10.0": -13.578086263318802
+        },
+        "native_mapping_max_error_mag": 2.1111478076818457e-07
+      }
     },
     {
       "steps_per_ensemble": 15000,
@@ -2743,10 +3003,36 @@
         "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
         "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
         "recomputed_best_log_LF": -13.261040774593372,
-        "snapshot_date": "2026-09-18"
+        "snapshot_date": "2026-09-18",
+        "halo_mass_marker": {
+          "halo_mass_msun": 10000000000.0,
+          "definition": "halo mass, not stellar mass",
+          "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+          "muv_by_redshift": {
+            "6.0": -16.023066836155827,
+            "7.0": -16.23952214892521,
+            "8.0": -16.43078996577777,
+            "9.0": -16.602080321371666,
+            "10.0": -16.757151891526966
+          },
+          "native_mapping_max_error_mag": 1.2692740369857347e-07
+        }
       },
-      "figure_sha256": "87bcea8a85978bd1ecfb02469096c47ea977ea21725c930b1ab1523389125c6c",
-      "figure_design": "white_corner_with_maximum_lf_predictions"
+      "figure_sha256": "689b1b2ba110a34eb53bac34de9d7599a893fff74ddb4b4d5ab4a119e0a346c9",
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "halo_mass_marker": {
+        "halo_mass_msun": 10000000000.0,
+        "definition": "halo mass, not stellar mass",
+        "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+        "muv_by_redshift": {
+          "6.0": -16.036423687238347,
+          "7.0": -16.25287900000773,
+          "8.0": -16.44414681686029,
+          "9.0": -16.6154371724542,
+          "10.0": -16.770508742609486
+        },
+        "native_mapping_max_error_mag": 2.4826881883655005e-07
+      }
     },
     {
       "steps_per_ensemble": 15000,
@@ -2991,10 +3277,36 @@
         "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
         "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
         "recomputed_best_log_LF": -13.261040774593372,
-        "snapshot_date": "2026-09-18"
+        "snapshot_date": "2026-09-18",
+        "halo_mass_marker": {
+          "halo_mass_msun": 10000000000.0,
+          "definition": "halo mass, not stellar mass",
+          "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+          "muv_by_redshift": {
+            "6.0": -16.023066836155827,
+            "7.0": -16.23952214892521,
+            "8.0": -16.43078996577777,
+            "9.0": -16.602080321371666,
+            "10.0": -16.757151891526966
+          },
+          "native_mapping_max_error_mag": 1.2692740369857347e-07
+        }
       },
-      "figure_sha256": "22a938a529ea2745a4676ddda6cb1f297c18bb0df2996089e36e6af150d4a0f3",
-      "figure_design": "white_corner_with_maximum_lf_predictions"
+      "figure_sha256": "aa3fe25e3da437c095e63fe676ab734e93e58494de3122db42a0817181506830",
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "halo_mass_marker": {
+        "halo_mass_msun": 10000000000.0,
+        "definition": "halo mass, not stellar mass",
+        "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+        "muv_by_redshift": {
+          "6.0": -16.047053611286437,
+          "7.0": -16.263508924055834,
+          "8.0": -16.454776740908393,
+          "9.0": -16.62606709650229,
+          "10.0": -16.781138666657576
+        },
+        "native_mapping_max_error_mag": 2.3272940552487853e-07
+      }
     },
     {
       "steps_per_ensemble": 15000,
@@ -3239,10 +3551,36 @@
         "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
         "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
         "recomputed_best_log_LF": -13.261040774593372,
-        "snapshot_date": "2026-09-18"
+        "snapshot_date": "2026-09-18",
+        "halo_mass_marker": {
+          "halo_mass_msun": 10000000000.0,
+          "definition": "halo mass, not stellar mass",
+          "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+          "muv_by_redshift": {
+            "6.0": -16.023066836155827,
+            "7.0": -16.23952214892521,
+            "8.0": -16.43078996577777,
+            "9.0": -16.602080321371666,
+            "10.0": -16.757151891526966
+          },
+          "native_mapping_max_error_mag": 1.2692740369857347e-07
+        }
       },
-      "figure_sha256": "27b36e4c9b93a428727d836654da492c8a763015cb812b09dd99133e947229f1",
-      "figure_design": "white_corner_with_maximum_lf_predictions"
+      "figure_sha256": "7e11b65db9f0ff61b934e242c3b18d95ae7d31affe553380f8abb861790681f5",
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "halo_mass_marker": {
+        "halo_mass_msun": 10000000000.0,
+        "definition": "halo mass, not stellar mass",
+        "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+        "muv_by_redshift": {
+          "6.0": -16.051653411072316,
+          "7.0": -16.268108723841713,
+          "8.0": -16.459376540694272,
+          "9.0": -16.63066689628817,
+          "10.0": -16.785738466443455
+        },
+        "native_mapping_max_error_mag": 1.8012720204296784e-07
+      }
     },
     {
       "steps_per_ensemble": 15000,
@@ -3487,10 +3825,36 @@
         "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
         "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
         "recomputed_best_log_LF": -13.261040774593372,
-        "snapshot_date": "2026-09-18"
+        "snapshot_date": "2026-09-18",
+        "halo_mass_marker": {
+          "halo_mass_msun": 10000000000.0,
+          "definition": "halo mass, not stellar mass",
+          "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+          "muv_by_redshift": {
+            "6.0": -16.023066836155827,
+            "7.0": -16.23952214892521,
+            "8.0": -16.43078996577777,
+            "9.0": -16.602080321371666,
+            "10.0": -16.757151891526966
+          },
+          "native_mapping_max_error_mag": 1.2692740369857347e-07
+        }
       },
-      "figure_sha256": "a6e98713873a6efee2b3148720b331e724f819d1d66792e05db575dfde7b9e55",
-      "figure_design": "white_corner_with_maximum_lf_predictions"
+      "figure_sha256": "d032fceb2a1bcd4e93693442d348192a792e3d43a2c1acb82bf3d51e14a2f5ac",
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "halo_mass_marker": {
+        "halo_mass_msun": 10000000000.0,
+        "definition": "halo mass, not stellar mass",
+        "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+        "muv_by_redshift": {
+          "6.0": -16.041080155597875,
+          "7.0": -16.257535468367273,
+          "8.0": -16.44880328521983,
+          "9.0": -16.620093640813728,
+          "10.0": -16.77516521096903
+        },
+        "native_mapping_max_error_mag": 2.201205973051401e-07
+      }
     },
     {
       "steps_per_ensemble": 15000,
@@ -3735,10 +4099,36 @@
         "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
         "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
         "recomputed_best_log_LF": -13.261040774593372,
-        "snapshot_date": "2026-09-18"
+        "snapshot_date": "2026-09-18",
+        "halo_mass_marker": {
+          "halo_mass_msun": 10000000000.0,
+          "definition": "halo mass, not stellar mass",
+          "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+          "muv_by_redshift": {
+            "6.0": -16.023066836155827,
+            "7.0": -16.23952214892521,
+            "8.0": -16.43078996577777,
+            "9.0": -16.602080321371666,
+            "10.0": -16.757151891526966
+          },
+          "native_mapping_max_error_mag": 1.2692740369857347e-07
+        }
       },
-      "figure_sha256": "671971a7aa8c2c9e5a098e4dc2fb6ec9a0aa2f84fd4fe3666c969310fbc531fc",
-      "figure_design": "white_corner_with_maximum_lf_predictions"
+      "figure_sha256": "258c535c7293c9aa19fdb4a6422dc431b91d67c353e2819c3753a8e82262506e",
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "halo_mass_marker": {
+        "halo_mass_msun": 10000000000.0,
+        "definition": "halo mass, not stellar mass",
+        "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+        "muv_by_redshift": {
+          "6.0": -15.935313479350505,
+          "7.0": -16.151768792119903,
+          "8.0": -16.343036608972447,
+          "9.0": -16.514326964566358,
+          "10.0": -16.669398534721658
+        },
+        "native_mapping_max_error_mag": 1.8102544174780633e-07
+      }
     },
     {
       "steps_per_ensemble": 15000,
@@ -3983,10 +4373,36 @@
         "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
         "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
         "recomputed_best_log_LF": -13.261040774593372,
-        "snapshot_date": "2026-09-18"
+        "snapshot_date": "2026-09-18",
+        "halo_mass_marker": {
+          "halo_mass_msun": 10000000000.0,
+          "definition": "halo mass, not stellar mass",
+          "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+          "muv_by_redshift": {
+            "6.0": -16.023066836155827,
+            "7.0": -16.23952214892521,
+            "8.0": -16.43078996577777,
+            "9.0": -16.602080321371666,
+            "10.0": -16.757151891526966
+          },
+          "native_mapping_max_error_mag": 1.2692740369857347e-07
+        }
       },
-      "figure_sha256": "d5ac679310e6e37b896c9b56d080f6adc4c3a34b29c920a1ebb9f4816efff0b0",
-      "figure_design": "white_corner_with_maximum_lf_predictions"
+      "figure_sha256": "8038ed470cd9d7adb227444783e83a8b741193ca0adce40c0fb221e1613a39f9",
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "halo_mass_marker": {
+        "halo_mass_msun": 10000000000.0,
+        "definition": "halo mass, not stellar mass",
+        "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+        "muv_by_redshift": {
+          "6.0": -16.02417400001928,
+          "7.0": -16.24062931278869,
+          "8.0": -16.431897129641236,
+          "9.0": -16.603187485235132,
+          "10.0": -16.75825905539042
+        },
+        "native_mapping_max_error_mag": 1.0607364231418615e-07
+      }
     },
     {
       "steps_per_ensemble": 15000,
@@ -4231,10 +4647,36 @@
         "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
         "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
         "recomputed_best_log_LF": -13.261040774593372,
-        "snapshot_date": "2026-09-18"
+        "snapshot_date": "2026-09-18",
+        "halo_mass_marker": {
+          "halo_mass_msun": 10000000000.0,
+          "definition": "halo mass, not stellar mass",
+          "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+          "muv_by_redshift": {
+            "6.0": -16.023066836155827,
+            "7.0": -16.23952214892521,
+            "8.0": -16.43078996577777,
+            "9.0": -16.602080321371666,
+            "10.0": -16.757151891526966
+          },
+          "native_mapping_max_error_mag": 1.2692740369857347e-07
+        }
       },
-      "figure_sha256": "69a3ae6272f0563c0a3dafc5cf8aa4de7df25216ca5a273451dfcef15368cc3c",
-      "figure_design": "white_corner_with_maximum_lf_predictions"
+      "figure_sha256": "7f2f454712565321f63cfbfc8bfa753260a94c54f67cbd60a99f8810bf3eec2e",
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "halo_mass_marker": {
+        "halo_mass_msun": 10000000000.0,
+        "definition": "halo mass, not stellar mass",
+        "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+        "muv_by_redshift": {
+          "6.0": -16.02380672447959,
+          "7.0": -16.240262037249003,
+          "8.0": -16.431529854101548,
+          "9.0": -16.602820209695444,
+          "10.0": -16.757891779850745
+        },
+        "native_mapping_max_error_mag": 2.2790514009329854e-07
+      }
     },
     {
       "steps_per_ensemble": 15000,
@@ -4479,10 +4921,36 @@
         "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
         "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
         "recomputed_best_log_LF": -13.261040774593372,
-        "snapshot_date": "2026-09-18"
+        "snapshot_date": "2026-09-18",
+        "halo_mass_marker": {
+          "halo_mass_msun": 10000000000.0,
+          "definition": "halo mass, not stellar mass",
+          "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+          "muv_by_redshift": {
+            "6.0": -16.023066836155827,
+            "7.0": -16.23952214892521,
+            "8.0": -16.43078996577777,
+            "9.0": -16.602080321371666,
+            "10.0": -16.757151891526966
+          },
+          "native_mapping_max_error_mag": 1.2692740369857347e-07
+        }
       },
-      "figure_sha256": "24fdbdecf56c9c42fd70b29c9ec06430d222ebc0c87460e5d1d14bfd1a24b773",
-      "figure_design": "white_corner_with_maximum_lf_predictions"
+      "figure_sha256": "bb10bc9af34467108da1f6e352a219c269a08f6147f912ce505c4abb39870fd5",
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "halo_mass_marker": {
+        "halo_mass_msun": 10000000000.0,
+        "definition": "halo mass, not stellar mass",
+        "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+        "muv_by_redshift": {
+          "6.0": -16.02242717771363,
+          "7.0": -16.238882490483014,
+          "8.0": -16.430150307335587,
+          "9.0": -16.601440662929484,
+          "10.0": -16.75651223308477
+        },
+        "native_mapping_max_error_mag": 2.2885572548148048e-07
+      }
     },
     {
       "steps_per_ensemble": 15000,
@@ -4727,10 +5195,36 @@
         "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
         "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
         "recomputed_best_log_LF": -13.261040774593372,
-        "snapshot_date": "2026-09-18"
+        "snapshot_date": "2026-09-18",
+        "halo_mass_marker": {
+          "halo_mass_msun": 10000000000.0,
+          "definition": "halo mass, not stellar mass",
+          "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+          "muv_by_redshift": {
+            "6.0": -16.023066836155827,
+            "7.0": -16.23952214892521,
+            "8.0": -16.43078996577777,
+            "9.0": -16.602080321371666,
+            "10.0": -16.757151891526966
+          },
+          "native_mapping_max_error_mag": 1.2692740369857347e-07
+        }
       },
-      "figure_sha256": "89247260e35c930fbe792b1b469a5cf5c55ab0727b48a02995f1c6944ced1b23",
-      "figure_design": "white_corner_with_maximum_lf_predictions"
+      "figure_sha256": "e4462f6a72332465772f93b5eee6dc54636be414914712617796af5aa63890e0",
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "halo_mass_marker": {
+        "halo_mass_msun": 10000000000.0,
+        "definition": "halo mass, not stellar mass",
+        "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+        "muv_by_redshift": {
+          "6.0": -16.02208638985109,
+          "7.0": -16.238541702620488,
+          "8.0": -16.429809519473032,
+          "9.0": -16.601099875066943,
+          "10.0": -16.75617144522223
+        },
+        "native_mapping_max_error_mag": 2.352345163103564e-07
+      }
     },
     {
       "steps_per_ensemble": 15000,
@@ -4975,10 +5469,36 @@
         "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
         "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
         "recomputed_best_log_LF": -13.261040774593372,
-        "snapshot_date": "2026-09-18"
+        "snapshot_date": "2026-09-18",
+        "halo_mass_marker": {
+          "halo_mass_msun": 10000000000.0,
+          "definition": "halo mass, not stellar mass",
+          "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+          "muv_by_redshift": {
+            "6.0": -16.023066836155827,
+            "7.0": -16.23952214892521,
+            "8.0": -16.43078996577777,
+            "9.0": -16.602080321371666,
+            "10.0": -16.757151891526966
+          },
+          "native_mapping_max_error_mag": 1.2692740369857347e-07
+        }
       },
-      "figure_sha256": "fc4ce336ad063d87f01f846ad2ac2c5167465631195ccd991284fd7a8896f321",
-      "figure_design": "white_corner_with_maximum_lf_predictions"
+      "figure_sha256": "78010e5f432583ecd727b112204ec51352d1ced78e49ffd7a422212a830f83b3",
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "halo_mass_marker": {
+        "halo_mass_msun": 10000000000.0,
+        "definition": "halo mass, not stellar mass",
+        "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+        "muv_by_redshift": {
+          "6.0": -16.024327453270168,
+          "7.0": -16.240782766039565,
+          "8.0": -16.43205058289211,
+          "9.0": -16.60334093848602,
+          "10.0": -16.75841250864132
+        },
+        "native_mapping_max_error_mag": 1.1808668887169915e-07
+      }
     },
     {
       "steps_per_ensemble": 15000,
@@ -5223,10 +5743,36 @@
         "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
         "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
         "recomputed_best_log_LF": -13.261040774593372,
-        "snapshot_date": "2026-09-18"
+        "snapshot_date": "2026-09-18",
+        "halo_mass_marker": {
+          "halo_mass_msun": 10000000000.0,
+          "definition": "halo mass, not stellar mass",
+          "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+          "muv_by_redshift": {
+            "6.0": -16.023066836155827,
+            "7.0": -16.23952214892521,
+            "8.0": -16.43078996577777,
+            "9.0": -16.602080321371666,
+            "10.0": -16.757151891526966
+          },
+          "native_mapping_max_error_mag": 1.2692740369857347e-07
+        }
       },
-      "figure_sha256": "b9b0e42716ada71e5a0c0a8198a2a22550c646c54e0bdeb29ab5505962e3ae95",
-      "figure_design": "white_corner_with_maximum_lf_predictions"
+      "figure_sha256": "d084f8542addeaedd2a95f758a2cd24ab33dc1168a091330e5d1ec4fa2c88e45",
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "halo_mass_marker": {
+        "halo_mass_msun": 10000000000.0,
+        "definition": "halo mass, not stellar mass",
+        "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+        "muv_by_redshift": {
+          "6.0": -16.023834094346988,
+          "7.0": -16.240289407116386,
+          "8.0": -16.431557223968944,
+          "9.0": -16.60284757956284,
+          "10.0": -16.757919149718127
+        },
+        "native_mapping_max_error_mag": 1.4106950629866333e-07
+      }
     },
     {
       "steps_per_ensemble": 15000,
@@ -5471,10 +6017,36 @@
         "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
         "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
         "recomputed_best_log_LF": -13.261040774593372,
-        "snapshot_date": "2026-09-18"
+        "snapshot_date": "2026-09-18",
+        "halo_mass_marker": {
+          "halo_mass_msun": 10000000000.0,
+          "definition": "halo mass, not stellar mass",
+          "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+          "muv_by_redshift": {
+            "6.0": -16.023066836155827,
+            "7.0": -16.23952214892521,
+            "8.0": -16.43078996577777,
+            "9.0": -16.602080321371666,
+            "10.0": -16.757151891526966
+          },
+          "native_mapping_max_error_mag": 1.2692740369857347e-07
+        }
       },
-      "figure_sha256": "4cf541ef32be79015f0d999621dc968643a3d95a772349d7cdddad9731235f6c",
-      "figure_design": "white_corner_with_maximum_lf_predictions"
+      "figure_sha256": "649dee024142927ef1d4edc2fc1951393d57a00e32904d9d0a5543b22fc51d1a",
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "halo_mass_marker": {
+        "halo_mass_msun": 10000000000.0,
+        "definition": "halo mass, not stellar mass",
+        "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+        "muv_by_redshift": {
+          "6.0": -16.020815960605482,
+          "7.0": -16.23727127337488,
+          "8.0": -16.428539090227424,
+          "9.0": -16.599829445821335,
+          "10.0": -16.75490101597662
+        },
+        "native_mapping_max_error_mag": 1.2064278109846782e-07
+      }
     },
     {
       "steps_per_ensemble": 15000,
@@ -5719,10 +6291,36 @@
         "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
         "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
         "recomputed_best_log_LF": -13.261040774593372,
-        "snapshot_date": "2026-09-18"
+        "snapshot_date": "2026-09-18",
+        "halo_mass_marker": {
+          "halo_mass_msun": 10000000000.0,
+          "definition": "halo mass, not stellar mass",
+          "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+          "muv_by_redshift": {
+            "6.0": -16.023066836155827,
+            "7.0": -16.23952214892521,
+            "8.0": -16.43078996577777,
+            "9.0": -16.602080321371666,
+            "10.0": -16.757151891526966
+          },
+          "native_mapping_max_error_mag": 1.2692740369857347e-07
+        }
       },
-      "figure_sha256": "ba77321fe6b64e02ca6c4f80a3435d5690b2631276cfb80cf33cbe57ae92189f",
-      "figure_design": "white_corner_with_maximum_lf_predictions"
+      "figure_sha256": "6bc1aae5da6d4ebe3c88504906b035000f266a2576e47d7ba7ce0d482be9655f",
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "halo_mass_marker": {
+        "halo_mass_msun": 10000000000.0,
+        "definition": "halo mass, not stellar mass",
+        "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+        "muv_by_redshift": {
+          "6.0": -16.023575279428307,
+          "7.0": -16.24003059219769,
+          "8.0": -16.431298409050264,
+          "9.0": -16.60258876464416,
+          "10.0": -16.757660334799446
+        },
+        "native_mapping_max_error_mag": 1.7514781802674406e-07
+      }
     },
     {
       "steps_per_ensemble": 15000,
@@ -5967,10 +6565,36 @@
         "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
         "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
         "recomputed_best_log_LF": -13.261040774593372,
-        "snapshot_date": "2026-09-18"
+        "snapshot_date": "2026-09-18",
+        "halo_mass_marker": {
+          "halo_mass_msun": 10000000000.0,
+          "definition": "halo mass, not stellar mass",
+          "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+          "muv_by_redshift": {
+            "6.0": -16.023066836155827,
+            "7.0": -16.23952214892521,
+            "8.0": -16.43078996577777,
+            "9.0": -16.602080321371666,
+            "10.0": -16.757151891526966
+          },
+          "native_mapping_max_error_mag": 1.2692740369857347e-07
+        }
       },
-      "figure_sha256": "d6f405ce8b0885648da2d2aeab2007d267a1402e8bd6b6c97d46a3953a41f69e",
-      "figure_design": "white_corner_with_maximum_lf_predictions"
+      "figure_sha256": "9c86a6709f80f11e30d361d1bba89583ac26f5dfd62eda98c0e610a0dcdf17a8",
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "halo_mass_marker": {
+        "halo_mass_msun": 10000000000.0,
+        "definition": "halo mass, not stellar mass",
+        "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+        "muv_by_redshift": {
+          "6.0": -16.02521128813418,
+          "7.0": -16.241666600903578,
+          "8.0": -16.432934417756137,
+          "9.0": -16.604224773350033,
+          "10.0": -16.759296343505333
+        },
+        "native_mapping_max_error_mag": 1.394991926417788e-07
+      }
     },
     {
       "steps_per_ensemble": 15000,
@@ -6215,10 +6839,36 @@
         "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
         "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
         "recomputed_best_log_LF": -13.261040774593372,
-        "snapshot_date": "2026-09-18"
+        "snapshot_date": "2026-09-18",
+        "halo_mass_marker": {
+          "halo_mass_msun": 10000000000.0,
+          "definition": "halo mass, not stellar mass",
+          "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+          "muv_by_redshift": {
+            "6.0": -16.023066836155827,
+            "7.0": -16.23952214892521,
+            "8.0": -16.43078996577777,
+            "9.0": -16.602080321371666,
+            "10.0": -16.757151891526966
+          },
+          "native_mapping_max_error_mag": 1.2692740369857347e-07
+        }
       },
-      "figure_sha256": "db50116da64662268a385cfeba3ccf425b1eac973f009a16c290301ba2453aa5",
-      "figure_design": "white_corner_with_maximum_lf_predictions"
+      "figure_sha256": "dee4261c01e6ca4152c50d54cac8f2593011833f7f12620615be77263bf1ef25",
+      "figure_design": "white_corner_with_maximum_lf_predictions",
+      "halo_mass_marker": {
+        "halo_mass_msun": 10000000000.0,
+        "definition": "halo mass, not stellar mass",
+        "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+        "muv_by_redshift": {
+          "6.0": -16.02631271019694,
+          "7.0": -16.242768022966324,
+          "8.0": -16.434035839818883,
+          "9.0": -16.60532619541278,
+          "10.0": -16.76039776556808
+        },
+        "native_mapping_max_error_mag": 2.1893430357522448e-07
+      }
     }
   ],
   "chain_sources": [
@@ -6341,7 +6991,20 @@
     "source_report_sha256": "5e7ebdfed0f9fbdda057c495b76ebb0dc3ea8ab9e75a6fae7bd9e0115bc7b59d",
     "source_manifest_sha256": "89b34d694f8fb26a75603040b9e471e6461d05b50c7c1e28f19306b1421ac847",
     "recomputed_best_log_LF": -13.261040774593372,
-    "snapshot_date": "2026-09-18"
+    "snapshot_date": "2026-09-18",
+    "halo_mass_marker": {
+      "halo_mass_msun": 10000000000.0,
+      "definition": "halo mass, not stellar mass",
+      "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+      "muv_by_redshift": {
+        "6.0": -16.023066836155827,
+        "7.0": -16.23952214892521,
+        "8.0": -16.43078996577777,
+        "9.0": -16.602080321371666,
+        "10.0": -16.757151891526966
+      },
+      "native_mapping_max_error_mag": 1.2692740369857347e-07
+    }
   },
   "pl_only": {
     "steps_per_ensemble": 30000,
@@ -6460,6 +7123,19 @@
     "recomputed_best_log_LF": -13.261040774593372,
     "snapshot_date": "2026-09-18",
     "file": "lf_corner_pl.png",
-    "figure_sha256": "8bca03838c4039749d61ccebccb5cba96f9a1108b8d4514e4a257a66c1a45234"
+    "figure_sha256": "5e017083c5891fecaba5ca224e3d52e8cfed7df843591ec6b6b5300128e2959f",
+    "halo_mass_marker": {
+      "halo_mass_msun": 10000000000.0,
+      "definition": "halo mass, not stellar mass",
+      "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+      "muv_by_redshift": {
+        "6.0": -16.023066836155827,
+        "7.0": -16.23952214892521,
+        "8.0": -16.43078996577777,
+        "9.0": -16.602080321371666,
+        "10.0": -16.757151891526966
+      },
+      "native_mapping_max_error_mag": 1.2692740369857347e-07
+    }
   }
 }

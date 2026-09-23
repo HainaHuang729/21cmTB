@@ -33,6 +33,8 @@ jobs:
           node --check app.js
           node --check i18n.js
           node --check mcmc.js
+          node --check lf-mass.js
+          node tests/test_lf_mass.cjs
           node tests/test_i18n.cjs
           node --check ms-corner.js
           node tests/test_ms_corner.cjs

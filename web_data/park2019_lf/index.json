@@ -1138,5 +1138,18 @@
   "source_report_sha256": "782cdb39cc0a26a7607fc04366cfda0a0c80aa04e2433aaa4a719247c9e90654",
   "source_manifest_sha256": "dbcabf443d907b24d409ef2a66bbe3659586db94397b2a8f189e8231a426141e",
   "recomputed_best_log_LF": -7.263927331194178,
-  "snapshot_date": "2026-09-18"
+  "snapshot_date": "2026-09-18",
+  "halo_mass_marker": {
+    "halo_mass_msun": 10000000000.0,
+    "definition": "halo mass, not stellar mass",
+    "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+    "muv_by_redshift": {
+      "6.0": -15.93809753154688,
+      "7.0": -16.154552844316278,
+      "8.0": -16.345820661168837,
+      "9.0": -16.517111016762733,
+      "10.0": -16.67218258691802
+    },
+    "native_mapping_max_error_mag": 1.2493056544826686e-07
+  }
 }

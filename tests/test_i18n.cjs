@@ -81,6 +81,7 @@ function harness({stored, blockedStorage = false} = {}) {
   sandbox.window = sandbox;
   const context = vm.createContext(sandbox);
   vm.runInContext(dictionary, context);
+  vm.runInContext(fs.readFileSync(path.join(staticRoot, "lf-mass.js"), "utf8"), context);
   // Exercise production event setup and initial rendering without a network boot.
   vm.runInContext(source.replace(/initialize\(\);\s*$/, ""), context);
   return {

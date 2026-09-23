@@ -933,7 +933,13 @@ function drawLuminosityFunction() {
 function drawLFPanel({redshift, current, plCurve, observations}, [yMin, yMax]) {
   const {context: ctx, width, height} = canvasContext($(`#lf-chart-${redshift}`));
   const margin = {left: 66, right: 15, top: 20, bottom: 52};
-  const xMin = -20, xMax = -10;
+  const massUV = window.AtlasLFMass.magnitude(state.result.parameters, state.design.cosmology, redshift);
+  const plMassUV = state.plReference && window.AtlasLFMass.magnitude(state.plReference.astro_parameters, state.design.cosmology, redshift);
+  const allMarkers = LF_REDSHIFTS.flatMap(z => [state.result.parameters, state.plReference?.astro_parameters]
+    .filter(Boolean).map(astro => window.AtlasLFMass.magnitude(astro, state.design.cosmology, z))).filter(Number.isFinite);
+  // Keep all four panels on the same x scale, including references outside the usual LF view.
+  const xMin = Math.min(-20, Math.floor(Math.min(...allMarkers) - .5));
+  const xMax = Math.max(-10, Math.ceil(Math.max(...allMarkers) + .5));
   const displayRedshift = String(redshift);
   const {plotWidth, plotHeight} = preparePlot(ctx, width, height, margin);
   const px = (value) => margin.left + (value - xMin) / (xMax - xMin) * plotWidth;
@@ -951,8 +957,22 @@ function drawLFPanel({redshift, current, plCurve, observations}, [yMin, yMax]) {
   ctx.beginPath(); ctx.rect(margin.left, margin.top, plotWidth, plotHeight); ctx.clip();
   if (plCurve) drawLFCurve(ctx, plCurve, px, py, plotPalette.pl, 1.6, [7, 5]);
   const drawn = current && drawLFCurve(ctx, current, px, py, plotPalette.current, 2.2);
+  // Use the loaded result's parameters, never a pending slider selection.
+  const markers = [{value: massUV, color: plotPalette.current}];
+  if (plMassUV != null && (massUV == null || Math.abs(plMassUV - massUV) > 1e-5)) markers.push({value: plMassUV, color: plotPalette.pl});
+  for (const {value, color} of markers) {
+    if (value == null || value < xMin || value > xMax) continue;
+    ctx.strokeStyle = color; ctx.lineWidth = 1.2; ctx.setLineDash([2, 4]);
+    ctx.beginPath(); ctx.moveTo(px(value), margin.top); ctx.lineTo(px(value), height - margin.bottom); ctx.stroke();
+  }
+  ctx.setLineDash([]);
   observations.forEach((point) => drawObservationPoint(ctx, point, px, py, yMin, yMax));
   ctx.restore();
+  if (massUV != null) {
+    ctx.fillStyle = plotPalette.current; ctx.font = `11px ${PLOT_MONO}`;
+    ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+    ctx.fillText(width < 340 ? `10¹⁰ M☉: ${massUV.toFixed(2)}` : `Mₕ=10¹⁰ M☉: MUV=${massUV.toFixed(2)}`, margin.left + 4, margin.top - 3, plotWidth);
+  }
   if (!drawn) {
     ctx.fillStyle = plotPalette.text; ctx.textAlign = "center"; ctx.textBaseline = "middle";
     ctx.fillText(t("emptyLF"), (margin.left + width - margin.right) / 2, (margin.top + height - margin.bottom) / 2, Math.max(plotWidth - 12, 1));

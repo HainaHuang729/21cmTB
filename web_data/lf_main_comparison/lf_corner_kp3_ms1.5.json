@@ -2375,5 +2375,33 @@
   },
   "magnitude_cut": -20,
   "lf_points": 34,
-  "best_sample_rule": "maximum LF likelihood among the plotted stored samples"
+  "best_sample_rule": "maximum LF likelihood among the plotted stored samples",
+  "halo_mass_markers": {
+    "BPL": {
+      "halo_mass_msun": 10000000000.0,
+      "definition": "halo mass, not stellar mass",
+      "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+      "muv_by_redshift": {
+        "6.0": -15.391701200108422,
+        "7.0": -15.60815651287782,
+        "8.0": -15.799424329730364,
+        "9.0": -15.970714685324275,
+        "10.0": -16.12578625547956
+      },
+      "native_mapping_max_error_mag": 1.9656928174072164e-07
+    },
+    "PL": {
+      "halo_mass_msun": 10000000000.0,
+      "definition": "halo mass, not stellar mass",
+      "method": "21cmFAST ComputeLF component=1 SFR-to-UV relation (local source)",
+      "muv_by_redshift": {
+        "6.0": -16.023066836155827,
+        "7.0": -16.23952214892521,
+        "8.0": -16.43078996577777,
+        "9.0": -16.602080321371666,
+        "10.0": -16.757151891526966
+      },
+      "native_mapping_max_error_mag": 1.2692740369857347e-07
+    }
+  }
 }
