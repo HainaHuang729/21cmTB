@@ -36,6 +36,7 @@ function renderResponse(){
   byId('status').textContent=text('ready');
   byId('f-value').textContent=responseState.fstar.toFixed(2);
   byId('t-value').textContent=responseState.tstar.toFixed(2);
+  window.AtlasStellarFraction.render(responseState);
   byId('legend').innerHTML=redshifts.map((z,i)=>`<span><i style="border-color:${colors[i]}"></i>z = ${z}</span>`).join('');
   const extrema=redshifts.flatMap(z=>responsePanels.flatMap(p=>[uv(p,p.min,z),uv(p,p.max,z)]));
   const ymin=Math.floor(Math.min(...extrema)-.4),ymax=Math.ceil(Math.max(...extrema)+.4);

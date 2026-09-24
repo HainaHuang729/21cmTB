@@ -5,9 +5,20 @@ const path = require('node:path');
 const vm = require('node:vm');
 const root = path.resolve(__dirname, '..');
 const base = fs.existsSync(path.join(root,'static')) ? path.join(root,'static') : root;
-const {magnitude} = require(path.join(base,'lf-mass.js'));
+const {magnitude, stellarFraction} = require(path.join(base,'lf-mass.js'));
 const cosmo = {OMm:.308,OMb:.0484,hlittle:.678};
 const astro = {F_STAR10:-1.3,ALPHA_STAR:.5,t_STAR:.5};
+
+test('full stellar fraction has the correct pivot, slopes, cap and domain', () => {
+  assert.equal(stellarFraction(-1.3,.5,1e10),10**-1.3);
+  assert.ok(Math.abs(stellarFraction(-1.3,.5,1e12)-10**-.3)<1e-14);
+  assert.equal(stellarFraction(-1.3,.5,1e13),1);
+  assert.equal(stellarFraction(-1,.5,1e12),1);
+  assert.equal(stellarFraction(-1,-.5,1e7),1);
+  assert.equal(stellarFraction(-1,0,1e7),.1);
+  assert.equal(stellarFraction(-1,0,1e13),.1);
+  for (const mass of [0,-1,NaN,Infinity]) assert.equal(stellarFraction(-1,.5,mass),null);
+});
 
 test('mass-to-UV mapping respects SFR, halo mass, redshift and efficiency cap', () => {
   const u = magnitude(astro,cosmo,6);

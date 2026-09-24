@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Halo mass → UV · Parameter response</title>
-  <link rel="stylesheet" href="lf-mass-response.css?v=1">
+  <link rel="stylesheet" href="lf-mass-response.css?v=2">
 </head>
 <body>
 <main>
@@ -22,6 +22,20 @@
     <button type="button" id="download">Download CSV</button>
   </section>
   <p id="status" role="status">Loading the atlas cosmology…</p>
+  <section id="stellar-section" aria-labelledby="stellar-heading">
+    <h2 id="stellar-heading">Stellar fraction across halo mass</h2>
+    <p id="stellar-definition"></p>
+    <div class="controls">
+      <label><span id="alpha-label">Mass slope α★</span><output id="alpha-value">0.50</output><input id="alpha-star" type="range" min="-0.5" max="1" step="0.01" value="0.5"></label>
+      <label><span id="mass-label">Example log₁₀(Mhalo / M☉)</span><output id="mass-value">10.00</output><input id="example-mass" type="range" min="7" max="13" step="0.01" value="10"></label>
+      <button id="stellar-download" type="button">Download f★(M) CSV</button>
+    </div>
+    <div id="stellar-plot" class="plot"></div>
+    <p id="stellar-hover" aria-live="polite"></p>
+    <h3 id="calculation-heading">Calculation at the selected halo mass</h3>
+    <ol id="stellar-calculation"></ol>
+    <p id="stellar-scope" class="note"></p>
+  </section>
   <div class="legend" id="legend" aria-label="Redshifts"></div>
   <section class="plots" id="plots" aria-label="UV magnitude parameter responses"></section>
   <section class="readout">
@@ -35,7 +49,8 @@
     <p id="provenance"></p>
   </footer>
 </main>
-<script src="lf-mass.js?v=20260923"></script>
-<script src="lf-mass-response.js?v=1"></script>
+<script src="lf-mass.js?v=20260924"></script>
+<script src="lf-stellar-fraction.js?v=1"></script>
+<script src="lf-mass-response.js?v=2"></script>
 </body>
 </html>
