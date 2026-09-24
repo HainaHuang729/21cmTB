@@ -23,12 +23,12 @@
   </section>
   <p id="status" role="status">Loading the atlas cosmology…</p>
   <section id="stellar-section" aria-labelledby="stellar-heading">
-    <h2 id="stellar-heading">Stellar fraction across halo mass</h2>
+    <h2 id="stellar-heading">Stellar mass versus halo mass</h2>
     <p id="stellar-definition"></p>
     <div class="controls">
       <label><span id="alpha-label">Mass slope α★</span><output id="alpha-value">0.50</output><input id="alpha-star" type="range" min="-0.5" max="1" step="0.01" value="0.5"></label>
       <label><span id="mass-label">Example log₁₀(Mhalo / M☉)</span><output id="mass-value">10.00</output><input id="example-mass" type="range" min="7" max="13" step="0.01" value="10"></label>
-      <button id="stellar-download" type="button">Download f★(M) CSV</button>
+      <button id="stellar-download" type="button">Download M★(Mh) CSV</button>
     </div>
     <div id="stellar-plot" class="plot"></div>
     <p id="stellar-hover" aria-live="polite"></p>
@@ -50,7 +50,7 @@
   </footer>
 </main>
 <script src="lf-mass.js?v=20260924"></script>
-<script src="lf-stellar-fraction.js?v=1"></script>
+<script src="lf-stellar-fraction.js?v=2"></script>
 <script src="lf-mass-response.js?v=2"></script>
 </body>
 </html>
