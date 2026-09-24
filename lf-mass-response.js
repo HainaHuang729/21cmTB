@@ -14,7 +14,8 @@ const words={
   back:['← Back to LF','← 返回 LF'],heading:['One halo mass.<br>Four parameter responses.','一个暗物质晕质量。<br>四个参数响应。'],
   intro:['UV absolute magnitude of a 10¹⁰ M☉ halo, using the same 21cmFAST relation as the LF reference lines.','10¹⁰ M☉ 暗物质晕对应的 UV 绝对星等，使用与 LF 参考线一致的 21cmFAST 转换关系。'],
   note:['Controlled parameter sweeps, not MCMC correlations or new simulations. At this pivot mass, α★ cancels; kp and ms affect halo abundance but do not enter this mass–UV relation. Horizontal curves are expected.','这是固定其余参数的单参数响应，不是 MCMC 相关性或新模拟。在此定义质量处，α★ 的影响抵消；kp、ms 影响暗物质晕丰度，但不直接进入质量–UV 转换关系，因此水平线是预期结果。'],
-  'f-label':['Fixed log₁₀ f★,10','固定 log₁₀ f★,10'],'t-label':['Fixed t★','固定 t★'],reset:['Reset defaults','恢复默认'],download:['Download CSV','下载 CSV'],
+  'f-label':['Fixed log₁₀ f★,10','固定 log₁₀ f★,10'],reset:['Reset defaults','恢复默认'],download:['Download CSV','下载 CSV'],
+  formula:['UV conversion only: fixed t★ = 0.5. At Mhalo = 10¹⁰ M☉, SFR = Mhalo (Ωb/Ωm) min(f★,10, 1) H(z) / 0.5, with H(z) in yr⁻¹; MUV = 51.63 − 2.5 log₁₀[SFR / (1.15 × 10⁻²⁸)]. The stellar-mass relation does not use t★.','仅 UV 转换固定使用 t★ = 0.5。在 Mhalo = 10¹⁰ M☉ 处，SFR = Mhalo (Ωb/Ωm) min(f★,10, 1) H(z) / 0.5，其中 H(z) 使用 yr⁻¹；MUV = 51.63 − 2.5 log₁₀[SFR / (1.15 × 10⁻²⁸)]。恒星质量关系不使用 t★。'],
   'readout-heading':['Current reference values','当前参考数值'],
   hover:['Move over a plot to read its values.','移动到图上可查看数值。'],
   scope:['kp is in h Mpc⁻¹. f★,10 is shown on a logarithmic axis; MUV is not logarithmically transformed again. Smaller MUV means brighter. The f★ panel varies f★; the other three panels hold it fixed. All panels share one magnitude scale.','kp 的单位是 h Mpc⁻¹。f★,10 使用对数横轴，MUV 不再取对数；MUV 越小越亮。f★ 面板改变 f★，另三个面板固定 f★。所有面板共用同一星等纵轴。'],
@@ -35,7 +36,6 @@ function renderResponse(){
   byId('language').textContent=responseState.language==='zh'?'English':'中文';
   byId('status').textContent=text('ready');
   byId('f-value').textContent=responseState.fstar.toFixed(2);
-  byId('t-value').textContent=responseState.tstar.toFixed(2);
   window.AtlasStellarFraction.render(responseState);
   byId('legend').innerHTML=redshifts.map((z,i)=>`<span><i style="border-color:${colors[i]}"></i>z = ${z}</span>`).join('');
   const extrema=redshifts.flatMap(z=>responsePanels.flatMap(p=>[uv(p,p.min,z),uv(p,p.max,z)]));
@@ -73,8 +73,8 @@ function renderResponse(){
   byId('provenance').textContent=`21cmFAST ComputeLF / component 1 · Ωm=${c.OMm}, Ωb=${c.OMb}, h=${c.hlittle} · ${responseState.design.design_version}.`;
 }
 byId('language').addEventListener('click',()=>{responseState.language=responseState.language==='en'?'zh':'en';renderResponse();});
-for(const [id,key] of [['fstar','fstar'],['tstar','tstar']])byId(id).addEventListener('input',()=>{responseState[key]=Number(byId(id).value);renderResponse();});
-byId('reset').addEventListener('click',()=>{responseState.fstar=-1.3;responseState.tstar=.5;byId('fstar').value=-1.3;byId('tstar').value=.5;renderResponse();});
+byId('fstar').addEventListener('input',()=>{responseState.fstar=Number(byId('fstar').value);renderResponse();});
+byId('reset').addEventListener('click',()=>{responseState.fstar=-1.3;byId('fstar').value=-1.3;renderResponse();});
 byId('download').addEventListener('click',()=>{
   if(!responseState.cosmology)return;
   const rows=['parameter,parameter_value,redshift,halo_mass_msun,MUV_AB_mag,fixed_fstar10,fixed_tstar'];
@@ -92,7 +92,7 @@ byId('download').addEventListener('click',()=>{
     if(!c||!['OMm','OMb','hlittle'].every(k=>Number.isFinite(c[k])&&c[k]>0))throw new Error('Invalid atlas cosmology');
     responseState.design=design;responseState.cosmology=c;
     const query=new URLSearchParams(location.search);
-    for(const [key,min,max] of [['fstar',-3,0],['tstar',.01,1]])if(query.has(key)){
+    for(const [key,min,max] of [['fstar',-3,0]])if(query.has(key)){
       const value=Number(query.get(key));if(Number.isFinite(value)&&value>=min&&value<=max){responseState[key]=value;byId(key).value=value;}
     }
     try{if(localStorage.getItem('21cm-atlas-language')==='zh')responseState.language='zh';}catch{}
