@@ -276,6 +276,13 @@
       <div class="parameter-actions"><button id="reset-button" class="text-button" type="button" data-i18n="resetShort" data-i18n-title="reset" data-i18n-aria-label="reset">Reset</button><button id="parameter-toggle" class="text-button" type="button" aria-controls="parameter-content" aria-expanded="true">Collapse</button></div>
     </div>
     <div id="parameter-content">
+      <div id="posterior-controls" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+        <label><span id="posterior-mode-label">Data selection</span>
+          <select id="posterior-mode" disabled><option value="grid">Original parameter grid</option><option value="posterior">LF posterior joint samples</option></select></label>
+        <label><span id="posterior-sample-label">Stored joint sample</span>
+          <select id="posterior-sample" disabled aria-label="Stored joint sample"></select></label>
+      </div>
+      <p id="posterior-note" class="parameter-mode-note" role="status"></p>
       <p id="parameter-mode-note" class="parameter-mode-note"></p>
       <div id="parameter-list" class="parameter-list" aria-label="Model parameter controls" data-i18n-aria-label="parameterControls"></div>
       <div class="run-strip">
@@ -297,6 +304,7 @@
   <script src="i18n.js?v=muv20-20260918&amp;layout=right-pl-1&amp;jointstyle=1&amp;archive=park-pl-merged-1&amp;lfmass=20260923&amp;response=1"></script>
   <script src="mcmc.js?v=muv20-20260918&amp;layout=right-pl-1"></script>
   <script src="lf-mass.js?v=20260923"></script>
-  <script src="app.js?v=hii256-v23&amp;data=muv20-20260918&amp;lfmass=20260923&amp;response=1"></script>
+  <script src="posterior.js?v=20260925"></script>
+  <script src="app.js?v=hii256-v23&amp;data=muv20-20260918&amp;lfmass=20260923&amp;response=1&amp;posterior=1"></script>
 </body>
 </html>

@@ -53,6 +53,7 @@ function errorMessage(error) {
 }
 
 function modelMode(result) {
+  if (result.role.kind === "lf_posterior") return state.language === "zh" ? "LF 后验联合样本" : "LF posterior joint sample";
   if (result.role.kind === "pl") return t("plMode");
   if (result.role.kind === "astro_oat") return t("oatMode", {parameter: result.role.parameter});
   return t(result.role.kind === "kp_ms_grid" ? "gridMode" : "baselineMode");
@@ -108,6 +109,7 @@ function renderLocalizedUI() {
   renderParameterDock();
   renderStatus();
   window.AtlasMCMC?.render(state.mcmc);
+  window.AtlasPosterior?.render();
 }
 
 function renderModelLabels() {
@@ -128,6 +130,7 @@ function renderModelLabels() {
     ms.slider.setAttribute("aria-valuetext", `${displayNumber(state.parameters.MS, "MS")}${inactive ? ` · ${t("msIgnored")}` : ""}`);
   }
   $("#parameter-mode-note").textContent = t(state.parameters.KP_h_Mpc === 0 ? "plModeNote" : "parameterModeNote");
+  window.AtlasPosterior?.render();
 }
 
 function renderParameterDock() {
@@ -208,6 +211,7 @@ function resetOne(control) {
 }
 
 function resolveRunId(changedName = null) {
+  if (window.AtlasPosterior?.active()) return window.AtlasPosterior.resolve(changedName);
   const usePL = state.parameters.KP_h_Mpc === 0;
   if (changedName && astroNames.has(changedName)) {
     state.activeAstro = changedName;
@@ -352,6 +356,7 @@ function showUnavailableRun(runId) {
 }
 
 async function loadRun(runId) {
+  if (window.AtlasPosterior?.active()) return window.AtlasPosterior.load(runId);
   const usePL = state.parameters.KP_h_Mpc === 0;
   const reference = usePL
     ? state.design.pl_inventory.find((entry) => entry.source_run_ids.includes(runId))
@@ -1011,6 +1016,7 @@ function drawAll() {
   drawLuminosityFunction();
 }
 function resetControls() {
+  if (window.AtlasPosterior?.active()) return window.AtlasPosterior.reset();
   state.activeAstro = null;
   for (const control of state.controls.values()) resetOne(control);
   renderModelLabels();
@@ -1022,6 +1028,7 @@ async function initialize() {
   try {
     state.design = await fetchJSON(versioned("web_data/index.json"));
     state.design.parameter_specs.forEach(createParameter);
+    window.AtlasPosterior?.initialize();
     $("#data-state").classList.add("online");
     $("#hero-run-count").textContent = state.design.n_exact_runs;
     renderLocalizedUI();

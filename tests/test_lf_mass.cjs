@@ -52,7 +52,7 @@ test('OAT reset is explicit, but PL remains kp=0 during astrophysical scans', ()
     controls:new Map(['KP_h_Mpc','MS','F_STAR10','t_STAR'].map(name=>[name,{name}])),
     design:{mappings:{astro_oat:{F_STAR10:['astro-result']}}}};
   const resets=[];
-  const context={state,astroNames:new Set(['F_STAR10','t_STAR']),currentIndex:()=>0,
+  const context={window:{},state,astroNames:new Set(['F_STAR10','t_STAR']),currentIndex:()=>0,
     resetOne:c=>{resets.push(c.name);if(c.name==='KP_h_Mpc')state.parameters.KP_h_Mpc=1;if(c.name==='MS')state.parameters.MS=1.5;},selectedGridRunId:()=> 'grid-result'};
   vm.createContext(context);vm.runInContext(resolve,context);
   assert.equal(context.resolveRunId('F_STAR10'),'astro-result');
