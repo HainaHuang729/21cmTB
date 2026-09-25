@@ -6,7 +6,7 @@
     "SIGMA_8": 0.815,
     "hlittle": 0.678
   },
-  "design_sha256": "11e4e902dbc765f3619e8d61a030eab32757be7de5b298238877cd0353978b24",
+  "design_sha256": "1ee551e7c600620abbcb7fd18fcc0052f117ec7f14b2e191f8d6bf9330824e91",
   "diagnostic_limitation": "Passed chain gates do not prove global mixing or numerical-resolution convergence.",
   "fixed_not_inferred": {
     "ALPHA_ESC": -0.5,
@@ -52,7 +52,139 @@
           "rank": 0,
           "run_id": "run_a5bcb2d45f3b",
           "selection": "highest_likelihood",
-          "status": "planned"
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.7146337277996548,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.6113446268632632,
+            "KP_h_Mpc": 1,
+            "L_X": 40.5,
+            "MS": 1.5,
+            "M_TURN": 9.507112737712205,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.9723842695730507
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining4_20260921",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "ddafb026ce74e87a5162bbfbce3e8562d8313cd1c7998c88942c0c59268cf555",
+            "log_LF": -13.500113980131424,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              6295,
+              26
+            ],
+            "source_run": "job_2142457_0",
+            "summary_sha256": "887668ed996d39c96c8372a27e431cc461f9393c83ed3dca3fd147a490b443b0"
+          },
+          "rank": 1,
+          "run_id": "run_4da30b1bd01b",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.883863935092732,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.9076196217213104,
+            "KP_h_Mpc": 1,
+            "L_X": 40.5,
+            "MS": 1.5,
+            "M_TURN": 8.046679924637159,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.7020590438362145
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining4_20260921",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "ddafb026ce74e87a5162bbfbce3e8562d8313cd1c7998c88942c0c59268cf555",
+            "log_LF": -14.119147861300952,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              5967,
+              6
+            ],
+            "source_run": "job_2142457_0",
+            "summary_sha256": "887668ed996d39c96c8372a27e431cc461f9393c83ed3dca3fd147a490b443b0"
+          },
+          "rank": 2,
+          "run_id": "run_014fd7f0948c",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.8793734076161155,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.439216069272899,
+            "KP_h_Mpc": 1,
+            "L_X": 40.5,
+            "MS": 1.5,
+            "M_TURN": 9.43814637237723,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.1953141613478137
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining4_20260921",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "ddafb026ce74e87a5162bbfbce3e8562d8313cd1c7998c88942c0c59268cf555",
+            "log_LF": -16.09948788682072,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              8943,
+              7
+            ],
+            "source_run": "job_2142457_0",
+            "summary_sha256": "887668ed996d39c96c8372a27e431cc461f9393c83ed3dca3fd147a490b443b0"
+          },
+          "rank": 3,
+          "run_id": "run_9880d66f0619",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.6127395650656953,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.8512134523811032,
+            "KP_h_Mpc": 1,
+            "L_X": 40.5,
+            "MS": 1.5,
+            "M_TURN": 8.283487166824752,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.5025814958636017
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining4_20260921",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "ddafb026ce74e87a5162bbfbce3e8562d8313cd1c7998c88942c0c59268cf555",
+            "log_LF": -14.18024430865767,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              8524,
+              13
+            ],
+            "source_run": "job_2142457_0",
+            "summary_sha256": "887668ed996d39c96c8372a27e431cc461f9393c83ed3dca3fd147a490b443b0"
+          },
+          "rank": 4,
+          "run_id": "run_47638879fb65",
+          "selection": "joint_coverage",
+          "status": "submitted"
         }
       ]
     },
@@ -92,7 +224,139 @@
           "rank": 0,
           "run_id": "run_f25a7846896b",
           "selection": "highest_likelihood",
-          "status": "planned"
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.7875839101047044,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.2529448663540337,
+            "KP_h_Mpc": 1,
+            "L_X": 40.5,
+            "MS": 2,
+            "M_TURN": 9.594940573170406,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.8309208443512792
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "052d4105c2fb95f64ac63f38720bc2864fc07e6bc2db0ee8d0c3f5012e278c7d",
+            "log_LF": -25.012651816480613,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              1966,
+              16
+            ],
+            "source_run": "job_2147624_0",
+            "summary_sha256": "166d2fc4581549a8a405f2b0624e93ab733b62a4def8d66b2f17b64774e5528d"
+          },
+          "rank": 1,
+          "run_id": "run_1e09efc13f0c",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.8368464540187062,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.8861576548697907,
+            "KP_h_Mpc": 1,
+            "L_X": 40.5,
+            "MS": 2,
+            "M_TURN": 9.662527149495189,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.22054667304764874
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "052d4105c2fb95f64ac63f38720bc2864fc07e6bc2db0ee8d0c3f5012e278c7d",
+            "log_LF": -25.264430601378084,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              9968,
+              22
+            ],
+            "source_run": "job_2147624_0",
+            "summary_sha256": "166d2fc4581549a8a405f2b0624e93ab733b62a4def8d66b2f17b64774e5528d"
+          },
+          "rank": 2,
+          "run_id": "run_c5d629ab0e38",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.9941216689453635,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.3635714818312628,
+            "KP_h_Mpc": 1,
+            "L_X": 40.5,
+            "MS": 2,
+            "M_TURN": 8.71091538317802,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.9777277262040189
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "052d4105c2fb95f64ac63f38720bc2864fc07e6bc2db0ee8d0c3f5012e278c7d",
+            "log_LF": -22.220342615890072,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              3650,
+              15
+            ],
+            "source_run": "job_2147624_0",
+            "summary_sha256": "166d2fc4581549a8a405f2b0624e93ab733b62a4def8d66b2f17b64774e5528d"
+          },
+          "rank": 3,
+          "run_id": "run_2579dc75c3d7",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.8107314783831132,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.3418529019286867,
+            "KP_h_Mpc": 1,
+            "L_X": 40.5,
+            "MS": 2,
+            "M_TURN": 8.038749636573112,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.7339804165564691
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "052d4105c2fb95f64ac63f38720bc2864fc07e6bc2db0ee8d0c3f5012e278c7d",
+            "log_LF": -23.832908676115476,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              5563,
+              9
+            ],
+            "source_run": "job_2147624_0",
+            "summary_sha256": "166d2fc4581549a8a405f2b0624e93ab733b62a4def8d66b2f17b64774e5528d"
+          },
+          "rank": 4,
+          "run_id": "run_2f73a59115d3",
+          "selection": "joint_coverage",
+          "status": "submitted"
         }
       ]
     },
@@ -132,7 +396,139 @@
           "rank": 0,
           "run_id": "run_bf710368923c",
           "selection": "highest_likelihood",
-          "status": "planned"
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.8862329808960343,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.8214230000697533,
+            "KP_h_Mpc": 1,
+            "L_X": 40.5,
+            "MS": 2.5,
+            "M_TURN": 9.855992563834496,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.6924097270820576
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_pilot_20260920",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "60f2c34fb8d4ffbca60d4d26c0fb779e9823f9b9ed1c31c0823623ede984677a",
+            "log_LF": -42.28179250944769,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              9780,
+              6
+            ],
+            "source_run": "job_2142253_0",
+            "summary_sha256": "9069fb55987840e634590e06e6995f6e592cc5be888a2b0f396f4fbc56e73b05"
+          },
+          "rank": 1,
+          "run_id": "run_22c36f3ca5a8",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.9908332548662072,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.7970702492314024,
+            "KP_h_Mpc": 1,
+            "L_X": 40.5,
+            "MS": 2.5,
+            "M_TURN": 9.969249691118618,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.971473046006962
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_pilot_20260920",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "60f2c34fb8d4ffbca60d4d26c0fb779e9823f9b9ed1c31c0823623ede984677a",
+            "log_LF": -39.39590389811035,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              4646,
+              28
+            ],
+            "source_run": "job_2142253_0",
+            "summary_sha256": "9069fb55987840e634590e06e6995f6e592cc5be888a2b0f396f4fbc56e73b05"
+          },
+          "rank": 2,
+          "run_id": "run_f01ee7f80c09",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.9839508143687076,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.9889807698144444,
+            "KP_h_Mpc": 1,
+            "L_X": 40.5,
+            "MS": 2.5,
+            "M_TURN": 9.965225448849683,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.6182742207942007
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_pilot_20260920",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "60f2c34fb8d4ffbca60d4d26c0fb779e9823f9b9ed1c31c0823623ede984677a",
+            "log_LF": -39.25680142646321,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              7479,
+              12
+            ],
+            "source_run": "job_2142253_0",
+            "summary_sha256": "9069fb55987840e634590e06e6995f6e592cc5be888a2b0f396f4fbc56e73b05"
+          },
+          "rank": 3,
+          "run_id": "run_26bff411e1d5",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.9089590143969852,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.7516831211322375,
+            "KP_h_Mpc": 1,
+            "L_X": 40.5,
+            "MS": 2.5,
+            "M_TURN": 8.066159527055891,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.9231116400194238
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_pilot_20260920",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "60f2c34fb8d4ffbca60d4d26c0fb779e9823f9b9ed1c31c0823623ede984677a",
+            "log_LF": -39.58030625017709,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              3245,
+              7
+            ],
+            "source_run": "job_2142253_0",
+            "summary_sha256": "9069fb55987840e634590e06e6995f6e592cc5be888a2b0f396f4fbc56e73b05"
+          },
+          "rank": 4,
+          "run_id": "run_09c817f0e3fa",
+          "selection": "joint_coverage",
+          "status": "submitted"
         }
       ]
     },
@@ -172,7 +568,139 @@
           "rank": 0,
           "run_id": "run_26ba588607eb",
           "selection": "highest_likelihood",
-          "status": "planned"
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.6755111176802405,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.960456975341902,
+            "KP_h_Mpc": 1,
+            "L_X": 40.5,
+            "MS": 3.25,
+            "M_TURN": 8.698343272387548,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.9190431551515834
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_last1_20260922",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "00901e553c1cecc12fde8cdc5dd2becc18c5cfab49217f46ae144cb273a092b9",
+            "log_LF": -97.4603200481566,
+            "production_steps_per_ensemble": 40000,
+            "source_ensemble_step_walker": [
+              1,
+              29183,
+              2
+            ],
+            "source_run": "job_2145045_0",
+            "summary_sha256": "daf451e43dbe6ae2e8c2522a52666604c5327c3ad9383aabdb794e849820f1d8"
+          },
+          "rank": 1,
+          "run_id": "run_1d0b1a9f827c",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.7070834048246715,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.946124949818535,
+            "KP_h_Mpc": 1,
+            "L_X": 40.5,
+            "MS": 3.25,
+            "M_TURN": 10.858033896830651,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.9989683804334448
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_last1_20260922",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "00901e553c1cecc12fde8cdc5dd2becc18c5cfab49217f46ae144cb273a092b9",
+            "log_LF": -90.85544919915625,
+            "production_steps_per_ensemble": 40000,
+            "source_ensemble_step_walker": [
+              0,
+              24218,
+              13
+            ],
+            "source_run": "job_2145045_0",
+            "summary_sha256": "daf451e43dbe6ae2e8c2522a52666604c5327c3ad9383aabdb794e849820f1d8"
+          },
+          "rank": 2,
+          "run_id": "run_20c2ff9529bb",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.7109733811692441,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.9991121974888744,
+            "KP_h_Mpc": 1,
+            "L_X": 40.5,
+            "MS": 3.25,
+            "M_TURN": 10.947195775086628,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.8863743577486739
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_last1_20260922",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "00901e553c1cecc12fde8cdc5dd2becc18c5cfab49217f46ae144cb273a092b9",
+            "log_LF": -90.64721583496163,
+            "production_steps_per_ensemble": 40000,
+            "source_ensemble_step_walker": [
+              0,
+              9716,
+              2
+            ],
+            "source_run": "job_2145045_0",
+            "summary_sha256": "daf451e43dbe6ae2e8c2522a52666604c5327c3ad9383aabdb794e849820f1d8"
+          },
+          "rank": 3,
+          "run_id": "run_e34e03aecdf7",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.7234315493145296,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.99955072981668,
+            "KP_h_Mpc": 1,
+            "L_X": 40.5,
+            "MS": 3.25,
+            "M_TURN": 8.530739835714439,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.9928632473515744
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_last1_20260922",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "00901e553c1cecc12fde8cdc5dd2becc18c5cfab49217f46ae144cb273a092b9",
+            "log_LF": -91.19299787380054,
+            "production_steps_per_ensemble": 40000,
+            "source_ensemble_step_walker": [
+              1,
+              23580,
+              18
+            ],
+            "source_run": "job_2145045_0",
+            "summary_sha256": "daf451e43dbe6ae2e8c2522a52666604c5327c3ad9383aabdb794e849820f1d8"
+          },
+          "rank": 4,
+          "run_id": "run_a4105eb775ef",
+          "selection": "joint_coverage",
+          "status": "submitted"
         }
       ]
     },
@@ -212,7 +740,139 @@
           "rank": 0,
           "run_id": "run_223b8933846f",
           "selection": "highest_likelihood",
-          "status": "planned"
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.2701105529292639,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.912890779539258,
+            "KP_h_Mpc": 1,
+            "L_X": 40.5,
+            "MS": 4,
+            "M_TURN": 10.444892435615582,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.7791469213886837
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_pilot_20260920",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "8317fee70446b46c2da8534ebe2d1ef846b5d8a752900512d5a3732bae231313",
+            "log_LF": -151.3362595897686,
+            "production_steps_per_ensemble": 11000,
+            "source_ensemble_step_walker": [
+              0,
+              1148,
+              13
+            ],
+            "source_run": "job_2142253_1",
+            "summary_sha256": "32fd1ed60051b61a0eb29a7b25893b088d39d7555ef7a5107674ab2badebc3e7"
+          },
+          "rank": 1,
+          "run_id": "run_84c8fb6e1c7c",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.2858494223369303,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.8820002502095448,
+            "KP_h_Mpc": 1,
+            "L_X": 40.5,
+            "MS": 4,
+            "M_TURN": 8.08367928382064,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.9582133907989794
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_pilot_20260920",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "8317fee70446b46c2da8534ebe2d1ef846b5d8a752900512d5a3732bae231313",
+            "log_LF": -148.98833933243782,
+            "production_steps_per_ensemble": 11000,
+            "source_ensemble_step_walker": [
+              0,
+              8656,
+              29
+            ],
+            "source_run": "job_2142253_1",
+            "summary_sha256": "32fd1ed60051b61a0eb29a7b25893b088d39d7555ef7a5107674ab2badebc3e7"
+          },
+          "rank": 2,
+          "run_id": "run_61009600e29d",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.315522848360187,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.997262125642362,
+            "KP_h_Mpc": 1,
+            "L_X": 40.5,
+            "MS": 4,
+            "M_TURN": 8.140699201814995,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.7742911203308525
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_pilot_20260920",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "8317fee70446b46c2da8534ebe2d1ef846b5d8a752900512d5a3732bae231313",
+            "log_LF": -147.36430632871773,
+            "production_steps_per_ensemble": 11000,
+            "source_ensemble_step_walker": [
+              1,
+              5054,
+              14
+            ],
+            "source_run": "job_2142253_1",
+            "summary_sha256": "32fd1ed60051b61a0eb29a7b25893b088d39d7555ef7a5107674ab2badebc3e7"
+          },
+          "rank": 3,
+          "run_id": "run_47b4f72ee9a1",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.3246090289097957,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.9196005463366066,
+            "KP_h_Mpc": 1,
+            "L_X": 40.5,
+            "MS": 4,
+            "M_TURN": 10.446838706581222,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.9943161610008437
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_pilot_20260920",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "8317fee70446b46c2da8534ebe2d1ef846b5d8a752900512d5a3732bae231313",
+            "log_LF": -148.98164588006924,
+            "production_steps_per_ensemble": 11000,
+            "source_ensemble_step_walker": [
+              1,
+              7482,
+              21
+            ],
+            "source_run": "job_2142253_1",
+            "summary_sha256": "32fd1ed60051b61a0eb29a7b25893b088d39d7555ef7a5107674ab2badebc3e7"
+          },
+          "rank": 4,
+          "run_id": "run_707ed3e7328d",
+          "selection": "joint_coverage",
+          "status": "submitted"
         }
       ]
     },
@@ -252,7 +912,139 @@
           "rank": 0,
           "run_id": "run_c0fc19044369",
           "selection": "highest_likelihood",
-          "status": "planned"
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.642835479166054,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.5230693792232843,
+            "KP_h_Mpc": 3,
+            "L_X": 40.5,
+            "MS": 1.5,
+            "M_TURN": 9.502724603662955,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.03959470899949136
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "fc2f2c418b8924512b8a98a4055dee684c44ca492372be198de0fa8c582ff18d",
+            "log_LF": -13.850867507480473,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              7562,
+              1
+            ],
+            "source_run": "job_2147624_1",
+            "summary_sha256": "79e20695848e0a1b57f6e3f78855f945662a423d47306104a25ec2d2dabb7479"
+          },
+          "rank": 1,
+          "run_id": "run_6cd9c7afbb9c",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.8888582056638377,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.3314785379726546,
+            "KP_h_Mpc": 3,
+            "L_X": 40.5,
+            "MS": 1.5,
+            "M_TURN": 8.037703866742742,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.07764699850930037
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "fc2f2c418b8924512b8a98a4055dee684c44ca492372be198de0fa8c582ff18d",
+            "log_LF": -13.848497574507698,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              9193,
+              3
+            ],
+            "source_run": "job_2147624_1",
+            "summary_sha256": "79e20695848e0a1b57f6e3f78855f945662a423d47306104a25ec2d2dabb7479"
+          },
+          "rank": 2,
+          "run_id": "run_dfec85c9ddf8",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.8926537436332569,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.5888165728757273,
+            "KP_h_Mpc": 3,
+            "L_X": 40.5,
+            "MS": 1.5,
+            "M_TURN": 9.404942408299135,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.44938460627121174
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "fc2f2c418b8924512b8a98a4055dee684c44ca492372be198de0fa8c582ff18d",
+            "log_LF": -17.98282366457892,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              4184,
+              2
+            ],
+            "source_run": "job_2147624_1",
+            "summary_sha256": "79e20695848e0a1b57f6e3f78855f945662a423d47306104a25ec2d2dabb7479"
+          },
+          "rank": 3,
+          "run_id": "run_8ea2ced264c6",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.6031650495696392,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.1827004329972741,
+            "KP_h_Mpc": 3,
+            "L_X": 40.5,
+            "MS": 1.5,
+            "M_TURN": 9.493328594024089,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.7509739753958152
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "fc2f2c418b8924512b8a98a4055dee684c44ca492372be198de0fa8c582ff18d",
+            "log_LF": -14.10087726635453,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              3933,
+              23
+            ],
+            "source_run": "job_2147624_1",
+            "summary_sha256": "79e20695848e0a1b57f6e3f78855f945662a423d47306104a25ec2d2dabb7479"
+          },
+          "rank": 4,
+          "run_id": "run_3311420d8fb5",
+          "selection": "joint_coverage",
+          "status": "submitted"
         }
       ]
     },
@@ -292,7 +1084,139 @@
           "rank": 0,
           "run_id": "run_595c65ace67b",
           "selection": "highest_likelihood",
-          "status": "planned"
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.7846219394212612,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.618351576216461,
+            "KP_h_Mpc": 3,
+            "L_X": 40.5,
+            "MS": 2,
+            "M_TURN": 9.617869390256969,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.050482774198715746
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "a21232daa709fded5e3116de65f261319700028d6ea60352e1b4d6139d0d1031",
+            "log_LF": -12.734297666388384,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              7652,
+              31
+            ],
+            "source_run": "job_2147624_2",
+            "summary_sha256": "0b2814193386709370b11ec911ee52e7a696ce15291264daded97e7c10844ec0"
+          },
+          "rank": 1,
+          "run_id": "run_d04417faa003",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.9845048808506395,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.712438897091763,
+            "KP_h_Mpc": 3,
+            "L_X": 40.5,
+            "MS": 2,
+            "M_TURN": 8.04971523173088,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.05717777961630638
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "a21232daa709fded5e3116de65f261319700028d6ea60352e1b4d6139d0d1031",
+            "log_LF": -11.574659110618638,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              2257,
+              10
+            ],
+            "source_run": "job_2147624_2",
+            "summary_sha256": "0b2814193386709370b11ec911ee52e7a696ce15291264daded97e7c10844ec0"
+          },
+          "rank": 2,
+          "run_id": "run_fe7fb16a4f9d",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.777084802113865,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.418431080346262,
+            "KP_h_Mpc": 3,
+            "L_X": 40.5,
+            "MS": 2,
+            "M_TURN": 9.593565765896132,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.8026561289776751
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "a21232daa709fded5e3116de65f261319700028d6ea60352e1b4d6139d0d1031",
+            "log_LF": -12.851530763576129,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              5153,
+              10
+            ],
+            "source_run": "job_2147624_2",
+            "summary_sha256": "0b2814193386709370b11ec911ee52e7a696ce15291264daded97e7c10844ec0"
+          },
+          "rank": 3,
+          "run_id": "run_b8645e2236eb",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.9823492463397792,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.8990180433056891,
+            "KP_h_Mpc": 3,
+            "L_X": 40.5,
+            "MS": 2,
+            "M_TURN": 9.543242617148936,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.3329682041537033
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "a21232daa709fded5e3116de65f261319700028d6ea60352e1b4d6139d0d1031",
+            "log_LF": -13.331445588036742,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              2263,
+              11
+            ],
+            "source_run": "job_2147624_2",
+            "summary_sha256": "0b2814193386709370b11ec911ee52e7a696ce15291264daded97e7c10844ec0"
+          },
+          "rank": 4,
+          "run_id": "run_39c3241fb198",
+          "selection": "joint_coverage",
+          "status": "submitted"
         }
       ]
     },
@@ -332,7 +1256,139 @@
           "rank": 0,
           "run_id": "run_7a04c93a03fc",
           "selection": "highest_likelihood",
-          "status": "planned"
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.8741456090122068,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.7132470558442954,
+            "KP_h_Mpc": 3,
+            "L_X": 40.5,
+            "MS": 2.5,
+            "M_TURN": 9.5489187560251,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.07014152364052295
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining4_20260921",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "d5268b619a7430dc1007f97f594fbe9874eff4a113194d9fd88726448e739eb4",
+            "log_LF": -16.29834413297728,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              6641,
+              3
+            ],
+            "source_run": "job_2142457_2",
+            "summary_sha256": "7e88850161327ea3d3ee7ac1b5f7430feda47a159b0283cfa32534c5357c5697"
+          },
+          "rank": 1,
+          "run_id": "run_ef9367bfa844",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.9967844445102095,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.63871517725166,
+            "KP_h_Mpc": 3,
+            "L_X": 40.5,
+            "MS": 2.5,
+            "M_TURN": 8.190337882633811,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.09693396047122615
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining4_20260921",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "d5268b619a7430dc1007f97f594fbe9874eff4a113194d9fd88726448e739eb4",
+            "log_LF": -14.712657684395737,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              9878,
+              13
+            ],
+            "source_run": "job_2142457_2",
+            "summary_sha256": "7e88850161327ea3d3ee7ac1b5f7430feda47a159b0283cfa32534c5357c5697"
+          },
+          "rank": 2,
+          "run_id": "run_c451b0b1d4ef",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.8975908157276805,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.694841020935814,
+            "KP_h_Mpc": 3,
+            "L_X": 40.5,
+            "MS": 2.5,
+            "M_TURN": 8.236984284058146,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.7789112432667861
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining4_20260921",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "d5268b619a7430dc1007f97f594fbe9874eff4a113194d9fd88726448e739eb4",
+            "log_LF": -19.147763741546605,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              9618,
+              5
+            ],
+            "source_run": "job_2142457_2",
+            "summary_sha256": "7e88850161327ea3d3ee7ac1b5f7430feda47a159b0283cfa32534c5357c5697"
+          },
+          "rank": 3,
+          "run_id": "run_f782cd9e0189",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.874293203990808,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.679822839177346,
+            "KP_h_Mpc": 3,
+            "L_X": 40.5,
+            "MS": 2.5,
+            "M_TURN": 9.9436488230189,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.6664323848750395
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining4_20260921",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "d5268b619a7430dc1007f97f594fbe9874eff4a113194d9fd88726448e739eb4",
+            "log_LF": -15.123800417155296,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              7220,
+              7
+            ],
+            "source_run": "job_2142457_2",
+            "summary_sha256": "7e88850161327ea3d3ee7ac1b5f7430feda47a159b0283cfa32534c5357c5697"
+          },
+          "rank": 4,
+          "run_id": "run_06f5a07165e8",
+          "selection": "joint_coverage",
+          "status": "submitted"
         }
       ]
     },
@@ -372,7 +1428,139 @@
           "rank": 0,
           "run_id": "run_123e2c99b86f",
           "selection": "highest_likelihood",
-          "status": "planned"
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.9241061478671522,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.7788313379388097,
+            "KP_h_Mpc": 3,
+            "L_X": 40.5,
+            "MS": 3.25,
+            "M_TURN": 10.000231999375899,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.11210309027040571
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "5705a16c2d20d4d621629b679b7d21503aefb5e2559184a3fcc8567573010baa",
+            "log_LF": -26.920950937958164,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              3747,
+              31
+            ],
+            "source_run": "job_2147624_3",
+            "summary_sha256": "a0a843b997de4c13c2c1eb71b50b389ea706324861558eb84f5f290ca008d6bd"
+          },
+          "rank": 1,
+          "run_id": "run_7682336e95ee",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.9286936109227356,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.900016103541655,
+            "KP_h_Mpc": 3,
+            "L_X": 40.5,
+            "MS": 3.25,
+            "M_TURN": 9.881282126560354,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.9109050042373122
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "5705a16c2d20d4d621629b679b7d21503aefb5e2559184a3fcc8567573010baa",
+            "log_LF": -28.54773317902409,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              6016,
+              6
+            ],
+            "source_run": "job_2147624_3",
+            "summary_sha256": "a0a843b997de4c13c2c1eb71b50b389ea706324861558eb84f5f290ca008d6bd"
+          },
+          "rank": 2,
+          "run_id": "run_bac2bb88d5d0",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.9935982682811104,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.8587426276146193,
+            "KP_h_Mpc": 3,
+            "L_X": 40.5,
+            "MS": 3.25,
+            "M_TURN": 9.840937227046053,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.11147461489735633
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "5705a16c2d20d4d621629b679b7d21503aefb5e2559184a3fcc8567573010baa",
+            "log_LF": -24.616068439564536,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              3778,
+              17
+            ],
+            "source_run": "job_2147624_3",
+            "summary_sha256": "a0a843b997de4c13c2c1eb71b50b389ea706324861558eb84f5f290ca008d6bd"
+          },
+          "rank": 3,
+          "run_id": "run_d9515ed2dcc9",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.9346109362165496,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.040763061793019,
+            "KP_h_Mpc": 3,
+            "L_X": 40.5,
+            "MS": 3.25,
+            "M_TURN": 10.333657127272408,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.5331096273981346
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "5705a16c2d20d4d621629b679b7d21503aefb5e2559184a3fcc8567573010baa",
+            "log_LF": -25.648578906378397,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              563,
+              25
+            ],
+            "source_run": "job_2147624_3",
+            "summary_sha256": "a0a843b997de4c13c2c1eb71b50b389ea706324861558eb84f5f290ca008d6bd"
+          },
+          "rank": 4,
+          "run_id": "run_4e40dd210470",
+          "selection": "joint_coverage",
+          "status": "submitted"
         }
       ]
     },
@@ -412,7 +1600,139 @@
           "rank": 0,
           "run_id": "run_b896645370fc",
           "selection": "highest_likelihood",
-          "status": "planned"
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.9481460488293071,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.912455771851262,
+            "KP_h_Mpc": 3,
+            "L_X": 40.5,
+            "MS": 4,
+            "M_TURN": 10.293201439635073,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.19975074707457247
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "16e538693b0aab32b9096da6114416b4ba0133db78b54a0000fce467cdb95177",
+            "log_LF": -48.14581035657142,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              6125,
+              5
+            ],
+            "source_run": "job_2147624_4",
+            "summary_sha256": "379d21946ea93eb1508d6e6c31d2f9a7ad388a0b0c92540213c8e1ccc6d03fe0"
+          },
+          "rank": 1,
+          "run_id": "run_18a5f57a1ac8",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.9490520169742325,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.2056888363507485,
+            "KP_h_Mpc": 3,
+            "L_X": 40.5,
+            "MS": 4,
+            "M_TURN": 10.318782453400685,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.9331336785561788
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "16e538693b0aab32b9096da6114416b4ba0133db78b54a0000fce467cdb95177",
+            "log_LF": -47.1847362772795,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              2942,
+              20
+            ],
+            "source_run": "job_2147624_4",
+            "summary_sha256": "379d21946ea93eb1508d6e6c31d2f9a7ad388a0b0c92540213c8e1ccc6d03fe0"
+          },
+          "rank": 2,
+          "run_id": "run_4c5e70ed4e50",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.9985831792533209,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.91349319653803,
+            "KP_h_Mpc": 3,
+            "L_X": 40.5,
+            "MS": 4,
+            "M_TURN": 10.152814532154535,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.2284336441679944
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "16e538693b0aab32b9096da6114416b4ba0133db78b54a0000fce467cdb95177",
+            "log_LF": -45.5139353150944,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              3116,
+              20
+            ],
+            "source_run": "job_2147624_4",
+            "summary_sha256": "379d21946ea93eb1508d6e6c31d2f9a7ad388a0b0c92540213c8e1ccc6d03fe0"
+          },
+          "rank": 3,
+          "run_id": "run_943d186a140c",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.9875878019150377,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.916025683241885,
+            "KP_h_Mpc": 3,
+            "L_X": 40.5,
+            "MS": 4,
+            "M_TURN": 10.648664436656855,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.1776611285602433
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "16e538693b0aab32b9096da6114416b4ba0133db78b54a0000fce467cdb95177",
+            "log_LF": -46.48497301108559,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              2199,
+              22
+            ],
+            "source_run": "job_2147624_4",
+            "summary_sha256": "379d21946ea93eb1508d6e6c31d2f9a7ad388a0b0c92540213c8e1ccc6d03fe0"
+          },
+          "rank": 4,
+          "run_id": "run_0b44316401f5",
+          "selection": "joint_coverage",
+          "status": "submitted"
         }
       ]
     },
@@ -452,7 +1772,139 @@
           "rank": 0,
           "run_id": "run_229c6cc986b9",
           "selection": "highest_likelihood",
-          "status": "planned"
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.6728335583266088,
+            "F_ESC10": -1.0,
+            "F_STAR10": -0.9809326930031548,
+            "KP_h_Mpc": 10,
+            "L_X": 40.5,
+            "MS": 1.5,
+            "M_TURN": 8.100011913171056,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.971422560544766
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "f06466a2a6467d55eed59ab06ed777987ecc41d0db6eab7c5a6fee37ec674ee4",
+            "log_LF": -14.660247963703235,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              7413,
+              24
+            ],
+            "source_run": "job_2147624_5",
+            "summary_sha256": "afa5fbb71539d1d55c82459c9da7826733d2065db537bc5bc022f1559298b587"
+          },
+          "rank": 1,
+          "run_id": "run_d87b04a7cd45",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.6822008643809118,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.3168106342971653,
+            "KP_h_Mpc": 10,
+            "L_X": 40.5,
+            "MS": 1.5,
+            "M_TURN": 8.195729209319536,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.04517446998798075
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "f06466a2a6467d55eed59ab06ed777987ecc41d0db6eab7c5a6fee37ec674ee4",
+            "log_LF": -14.932734053733485,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              5366,
+              4
+            ],
+            "source_run": "job_2147624_5",
+            "summary_sha256": "afa5fbb71539d1d55c82459c9da7826733d2065db537bc5bc022f1559298b587"
+          },
+          "rank": 2,
+          "run_id": "run_c70a1f466cf0",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.42912336157420167,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.35417205749589,
+            "KP_h_Mpc": 10,
+            "L_X": 40.5,
+            "MS": 1.5,
+            "M_TURN": 8.1567948790813,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.03637054931663558
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "f06466a2a6467d55eed59ab06ed777987ecc41d0db6eab7c5a6fee37ec674ee4",
+            "log_LF": -17.98601815786511,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              414,
+              26
+            ],
+            "source_run": "job_2147624_5",
+            "summary_sha256": "afa5fbb71539d1d55c82459c9da7826733d2065db537bc5bc022f1559298b587"
+          },
+          "rank": 3,
+          "run_id": "run_0061907b8577",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.4234909721432997,
+            "F_ESC10": -1.0,
+            "F_STAR10": -0.9929514538549882,
+            "KP_h_Mpc": 10,
+            "L_X": 40.5,
+            "MS": 1.5,
+            "M_TURN": 8.105190027622669,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.8379886929639462
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "f06466a2a6467d55eed59ab06ed777987ecc41d0db6eab7c5a6fee37ec674ee4",
+            "log_LF": -18.52633801640329,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              2018,
+              30
+            ],
+            "source_run": "job_2147624_5",
+            "summary_sha256": "afa5fbb71539d1d55c82459c9da7826733d2065db537bc5bc022f1559298b587"
+          },
+          "rank": 4,
+          "run_id": "run_8f51a5ac75f7",
+          "selection": "joint_coverage",
+          "status": "submitted"
         }
       ]
     },
@@ -492,7 +1944,139 @@
           "rank": 0,
           "run_id": "run_a503ed6ba2ed",
           "selection": "highest_likelihood",
-          "status": "planned"
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.6911064259174251,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.321961608939959,
+            "KP_h_Mpc": 10,
+            "L_X": 40.5,
+            "MS": 2,
+            "M_TURN": 8.050451664805912,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.04761801082140635
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "2b736decc34f5f9cccd199f16ea1bea732410b2837eeca3109fbf1cb6ef08b9c",
+            "log_LF": -14.671898528296078,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              4243,
+              25
+            ],
+            "source_run": "job_2147624_6",
+            "summary_sha256": "0617b4525ad89acbc3bfb35f89ea431741fb1615720e16a4f1d43439be156c7b"
+          },
+          "rank": 1,
+          "run_id": "run_17d36c6193c7",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.4263521647083925,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.2951432597613524,
+            "KP_h_Mpc": 10,
+            "L_X": 40.5,
+            "MS": 2,
+            "M_TURN": 9.402565463976078,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.038298945458770994
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "2b736decc34f5f9cccd199f16ea1bea732410b2837eeca3109fbf1cb6ef08b9c",
+            "log_LF": -13.998495197929385,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              6501,
+              28
+            ],
+            "source_run": "job_2147624_6",
+            "summary_sha256": "0617b4525ad89acbc3bfb35f89ea431741fb1615720e16a4f1d43439be156c7b"
+          },
+          "rank": 2,
+          "run_id": "run_c3e3a5cda1bf",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.47807312929276,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.4846796863612246,
+            "KP_h_Mpc": 10,
+            "L_X": 40.5,
+            "MS": 2,
+            "M_TURN": 8.055560504905749,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.27832923008075017
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "2b736decc34f5f9cccd199f16ea1bea732410b2837eeca3109fbf1cb6ef08b9c",
+            "log_LF": -16.70718800932723,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              5879,
+              19
+            ],
+            "source_run": "job_2147624_6",
+            "summary_sha256": "0617b4525ad89acbc3bfb35f89ea431741fb1615720e16a4f1d43439be156c7b"
+          },
+          "rank": 3,
+          "run_id": "run_3c12c702f3a0",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.7039355325624698,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.0292692020338114,
+            "KP_h_Mpc": 10,
+            "L_X": 40.5,
+            "MS": 2,
+            "M_TURN": 8.072650481231214,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.9287685778780346
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "2b736decc34f5f9cccd199f16ea1bea732410b2837eeca3109fbf1cb6ef08b9c",
+            "log_LF": -14.857024507802521,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              7512,
+              7
+            ],
+            "source_run": "job_2147624_6",
+            "summary_sha256": "0617b4525ad89acbc3bfb35f89ea431741fb1615720e16a4f1d43439be156c7b"
+          },
+          "rank": 4,
+          "run_id": "run_2082626279db",
+          "selection": "joint_coverage",
+          "status": "submitted"
         }
       ]
     },
@@ -533,6 +2117,138 @@
           "run_id": "run_1a3cb417d1c1",
           "selection": "highest_likelihood",
           "status": "running"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.68136579253066,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.3666049306543924,
+            "KP_h_Mpc": 10,
+            "L_X": 40.5,
+            "MS": 2.5,
+            "M_TURN": 8.05293909275393,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.041964413647713084
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "00579b4b34596591bb3cc8da227fa0674775d8a5f25599af08dd86cab774b01d",
+            "log_LF": -13.934264929638932,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              2180,
+              14
+            ],
+            "source_run": "job_2147624_7",
+            "summary_sha256": "7d6988968289e23d898a8344891a3403331d6064b75103ba25ac9a4794906fd0"
+          },
+          "rank": 1,
+          "run_id": "run_47ae99b79e09",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.7261107134827106,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.0401409602695295,
+            "KP_h_Mpc": 10,
+            "L_X": 40.5,
+            "MS": 2.5,
+            "M_TURN": 8.053766669496865,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.9515430517382876
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "00579b4b34596591bb3cc8da227fa0674775d8a5f25599af08dd86cab774b01d",
+            "log_LF": -14.974217927872719,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              307,
+              4
+            ],
+            "source_run": "job_2147624_7",
+            "summary_sha256": "7d6988968289e23d898a8344891a3403331d6064b75103ba25ac9a4794906fd0"
+          },
+          "rank": 2,
+          "run_id": "run_5482179a4160",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.44547429984704834,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.326698923260044,
+            "KP_h_Mpc": 10,
+            "L_X": 40.5,
+            "MS": 2.5,
+            "M_TURN": 9.521057553779679,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.03747540685550968
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "00579b4b34596591bb3cc8da227fa0674775d8a5f25599af08dd86cab774b01d",
+            "log_LF": -15.128894740067995,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              8897,
+              28
+            ],
+            "source_run": "job_2147624_7",
+            "summary_sha256": "7d6988968289e23d898a8344891a3403331d6064b75103ba25ac9a4794906fd0"
+          },
+          "rank": 3,
+          "run_id": "run_b514475ca0dd",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.7264329803281332,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.200850059694804,
+            "KP_h_Mpc": 10,
+            "L_X": 40.5,
+            "MS": 2.5,
+            "M_TURN": 9.332421873329453,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.059811898746600506
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "00579b4b34596591bb3cc8da227fa0674775d8a5f25599af08dd86cab774b01d",
+            "log_LF": -18.387107919260014,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              4290,
+              31
+            ],
+            "source_run": "job_2147624_7",
+            "summary_sha256": "7d6988968289e23d898a8344891a3403331d6064b75103ba25ac9a4794906fd0"
+          },
+          "rank": 4,
+          "run_id": "run_8e6eebb8d9d4",
+          "selection": "joint_coverage",
+          "status": "submitted"
         }
       ]
     },
@@ -572,7 +2288,139 @@
           "rank": 0,
           "run_id": "run_7b9c495ca671",
           "selection": "highest_likelihood",
-          "status": "planned"
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.7810270059206303,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.406945290115788,
+            "KP_h_Mpc": 10,
+            "L_X": 40.5,
+            "MS": 3.25,
+            "M_TURN": 8.238192290804205,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.04112620430632197
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "11321b55598fa2b31007c1a9b7c25f3471dcbc1cfde3850507688b5b416332bc",
+            "log_LF": -15.584173871310327,
+            "production_steps_per_ensemble": 14000,
+            "source_ensemble_step_walker": [
+              1,
+              8442,
+              12
+            ],
+            "source_run": "job_2147624_8",
+            "summary_sha256": "1bda816c0c645b30ed4601fc6dab79e68e28724d427eceeb56e861b47374f9c4"
+          },
+          "rank": 1,
+          "run_id": "run_e26f0244020e",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.4286689247959988,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.3066855698390536,
+            "KP_h_Mpc": 10,
+            "L_X": 40.5,
+            "MS": 3.25,
+            "M_TURN": 9.6669873797718,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.03569758071851803
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "11321b55598fa2b31007c1a9b7c25f3471dcbc1cfde3850507688b5b416332bc",
+            "log_LF": -13.714726562016303,
+            "production_steps_per_ensemble": 14000,
+            "source_ensemble_step_walker": [
+              0,
+              1128,
+              16
+            ],
+            "source_run": "job_2147624_8",
+            "summary_sha256": "1bda816c0c645b30ed4601fc6dab79e68e28724d427eceeb56e861b47374f9c4"
+          },
+          "rank": 2,
+          "run_id": "run_e39cc8661c92",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.7792592294309237,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.099596249871847,
+            "KP_h_Mpc": 10,
+            "L_X": 40.5,
+            "MS": 3.25,
+            "M_TURN": 8.110148157127979,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.8860024315728492
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "11321b55598fa2b31007c1a9b7c25f3471dcbc1cfde3850507688b5b416332bc",
+            "log_LF": -15.01621232434572,
+            "production_steps_per_ensemble": 14000,
+            "source_ensemble_step_walker": [
+              0,
+              5549,
+              27
+            ],
+            "source_run": "job_2147624_8",
+            "summary_sha256": "1bda816c0c645b30ed4601fc6dab79e68e28724d427eceeb56e861b47374f9c4"
+          },
+          "rank": 3,
+          "run_id": "run_f792d814ff10",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.7328188953991128,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.7292935596576884,
+            "KP_h_Mpc": 10,
+            "L_X": 40.5,
+            "MS": 3.25,
+            "M_TURN": 9.33110302146867,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.18062458669629203
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "11321b55598fa2b31007c1a9b7c25f3471dcbc1cfde3850507688b5b416332bc",
+            "log_LF": -16.08584015701813,
+            "production_steps_per_ensemble": 14000,
+            "source_ensemble_step_walker": [
+              1,
+              2232,
+              7
+            ],
+            "source_run": "job_2147624_8",
+            "summary_sha256": "1bda816c0c645b30ed4601fc6dab79e68e28724d427eceeb56e861b47374f9c4"
+          },
+          "rank": 4,
+          "run_id": "run_c9708e9db49b",
+          "selection": "joint_coverage",
+          "status": "submitted"
         }
       ]
     },
@@ -612,7 +2460,139 @@
           "rank": 0,
           "run_id": "run_959e0319d37c",
           "selection": "highest_likelihood",
-          "status": "planned"
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.8217776682223693,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.4291934306772625,
+            "KP_h_Mpc": 10,
+            "L_X": 40.5,
+            "MS": 4,
+            "M_TURN": 8.177249640747135,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.046686024648851965
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "43352e19626d951f58d573fbe9ed3291a9cc336f37a5c8bf05f5c65d0c7370d1",
+            "log_LF": -14.911045887900329,
+            "production_steps_per_ensemble": 12000,
+            "source_ensemble_step_walker": [
+              1,
+              7915,
+              16
+            ],
+            "source_run": "job_2147624_9",
+            "summary_sha256": "30e19435276603f7be18e46cb2b4841c5e8b059a4299e9420dcc816c5fc0751e"
+          },
+          "rank": 1,
+          "run_id": "run_cc1310237dc3",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.8866352747840796,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.1383134815044682,
+            "KP_h_Mpc": 10,
+            "L_X": 40.5,
+            "MS": 4,
+            "M_TURN": 8.180340113620755,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.9556295033680203
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "43352e19626d951f58d573fbe9ed3291a9cc336f37a5c8bf05f5c65d0c7370d1",
+            "log_LF": -15.177391606459732,
+            "production_steps_per_ensemble": 12000,
+            "source_ensemble_step_walker": [
+              0,
+              6207,
+              5
+            ],
+            "source_run": "job_2147624_9",
+            "summary_sha256": "30e19435276603f7be18e46cb2b4841c5e8b059a4299e9420dcc816c5fc0751e"
+          },
+          "rank": 2,
+          "run_id": "run_bd8d3e1f654a",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.8967032473918032,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.9547936235529044,
+            "KP_h_Mpc": 10,
+            "L_X": 40.5,
+            "MS": 4,
+            "M_TURN": 9.410127215282545,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.13785478842104618
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "43352e19626d951f58d573fbe9ed3291a9cc336f37a5c8bf05f5c65d0c7370d1",
+            "log_LF": -17.614586151239166,
+            "production_steps_per_ensemble": 12000,
+            "source_ensemble_step_walker": [
+              0,
+              3123,
+              17
+            ],
+            "source_run": "job_2147624_9",
+            "summary_sha256": "30e19435276603f7be18e46cb2b4841c5e8b059a4299e9420dcc816c5fc0751e"
+          },
+          "rank": 3,
+          "run_id": "run_96815bfc5331",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.8157305182581517,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.057952660935202,
+            "KP_h_Mpc": 10,
+            "L_X": 40.5,
+            "MS": 4,
+            "M_TURN": 9.561830541533183,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.9541840082788481
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "43352e19626d951f58d573fbe9ed3291a9cc336f37a5c8bf05f5c65d0c7370d1",
+            "log_LF": -16.63924226715428,
+            "production_steps_per_ensemble": 12000,
+            "source_ensemble_step_walker": [
+              0,
+              5369,
+              2
+            ],
+            "source_run": "job_2147624_9",
+            "summary_sha256": "30e19435276603f7be18e46cb2b4841c5e8b059a4299e9420dcc816c5fc0751e"
+          },
+          "rank": 4,
+          "run_id": "run_59edbedf9499",
+          "selection": "joint_coverage",
+          "status": "submitted"
         }
       ]
     },
@@ -652,7 +2632,139 @@
           "rank": 0,
           "run_id": "run_14f96f5110c8",
           "selection": "highest_likelihood",
-          "status": "planned"
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.4118878959419635,
+            "F_ESC10": -1.0,
+            "F_STAR10": -0.9372120193883106,
+            "KP_h_Mpc": 20,
+            "L_X": 40.5,
+            "MS": 1.5,
+            "M_TURN": 9.370784042557855,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.8217412347050645
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "4589db2e0ac7e2f26bd950f0a0caa20acd9a9480be86293c6a7d10bd7bc33861",
+            "log_LF": -14.644385201372833,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              6127,
+              14
+            ],
+            "source_run": "job_2147624_10",
+            "summary_sha256": "ec3e06aba1d0095d7487300f3c5f85c8aaafdabba13d65b5e088a638d78e72e8"
+          },
+          "rank": 1,
+          "run_id": "run_ac085e98c1c0",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.42869178681910974,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.2144353930556098,
+            "KP_h_Mpc": 20,
+            "L_X": 40.5,
+            "MS": 1.5,
+            "M_TURN": 9.335011700853627,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.04363169708805198
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "4589db2e0ac7e2f26bd950f0a0caa20acd9a9480be86293c6a7d10bd7bc33861",
+            "log_LF": -14.472475190003998,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              6669,
+              20
+            ],
+            "source_run": "job_2147624_10",
+            "summary_sha256": "ec3e06aba1d0095d7487300f3c5f85c8aaafdabba13d65b5e088a638d78e72e8"
+          },
+          "rank": 2,
+          "run_id": "run_539750dc02a8",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.6569545657565707,
+            "F_ESC10": -1.0,
+            "F_STAR10": -0.9392573815749392,
+            "KP_h_Mpc": 20,
+            "L_X": 40.5,
+            "MS": 1.5,
+            "M_TURN": 9.069649900905498,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.9353655826178079
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "4589db2e0ac7e2f26bd950f0a0caa20acd9a9480be86293c6a7d10bd7bc33861",
+            "log_LF": -19.168397299811875,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              6396,
+              8
+            ],
+            "source_run": "job_2147624_10",
+            "summary_sha256": "ec3e06aba1d0095d7487300f3c5f85c8aaafdabba13d65b5e088a638d78e72e8"
+          },
+          "rank": 3,
+          "run_id": "run_a46b97cb6865",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.427236870108471,
+            "F_ESC10": -1.0,
+            "F_STAR10": -0.9229808226698821,
+            "KP_h_Mpc": 20,
+            "L_X": 40.5,
+            "MS": 1.5,
+            "M_TURN": 8.20645387088188,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.963275213158332
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "4589db2e0ac7e2f26bd950f0a0caa20acd9a9480be86293c6a7d10bd7bc33861",
+            "log_LF": -16.645940190897655,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              5534,
+              31
+            ],
+            "source_run": "job_2147624_10",
+            "summary_sha256": "ec3e06aba1d0095d7487300f3c5f85c8aaafdabba13d65b5e088a638d78e72e8"
+          },
+          "rank": 4,
+          "run_id": "run_80eb2d453321",
+          "selection": "joint_coverage",
+          "status": "submitted"
         }
       ]
     },
@@ -692,7 +2804,139 @@
           "rank": 0,
           "run_id": "run_1563fb448976",
           "selection": "highest_likelihood",
-          "status": "planned"
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.4082618558456781,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.2729481807993492,
+            "KP_h_Mpc": 20,
+            "L_X": 40.5,
+            "MS": 2,
+            "M_TURN": 9.322488724574551,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.04145977318928096
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "7c6ab06e6e29827dfab4e6fbec38e1fe9a9e9c38c617e0201366f6e904801c85",
+            "log_LF": -15.897809307375272,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              9406,
+              3
+            ],
+            "source_run": "job_2147624_11",
+            "summary_sha256": "c08f3bda646e79fa60ac8036c6adafe441870b99021718de3a47a2c6826f813c"
+          },
+          "rank": 1,
+          "run_id": "run_e57966d4139a",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.6584148159289327,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.355286673559871,
+            "KP_h_Mpc": 20,
+            "L_X": 40.5,
+            "MS": 2,
+            "M_TURN": 8.034507149455434,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.04246202542614347
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "7c6ab06e6e29827dfab4e6fbec38e1fe9a9e9c38c617e0201366f6e904801c85",
+            "log_LF": -14.874873225897998,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              2112,
+              9
+            ],
+            "source_run": "job_2147624_11",
+            "summary_sha256": "c08f3bda646e79fa60ac8036c6adafe441870b99021718de3a47a2c6826f813c"
+          },
+          "rank": 2,
+          "run_id": "run_9db5fa89d135",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.4147175128772007,
+            "F_ESC10": -1.0,
+            "F_STAR10": -0.9334536801631721,
+            "KP_h_Mpc": 20,
+            "L_X": 40.5,
+            "MS": 2,
+            "M_TURN": 9.32590290596261,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.8614166348926813
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "7c6ab06e6e29827dfab4e6fbec38e1fe9a9e9c38c617e0201366f6e904801c85",
+            "log_LF": -14.517917976227782,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              811,
+              4
+            ],
+            "source_run": "job_2147624_11",
+            "summary_sha256": "c08f3bda646e79fa60ac8036c6adafe441870b99021718de3a47a2c6826f813c"
+          },
+          "rank": 3,
+          "run_id": "run_4011ba5b5e69",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.6648699603878877,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.8636219160902519,
+            "KP_h_Mpc": 20,
+            "L_X": 40.5,
+            "MS": 2,
+            "M_TURN": 9.228140953358087,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.1131990072278437
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "7c6ab06e6e29827dfab4e6fbec38e1fe9a9e9c38c617e0201366f6e904801c85",
+            "log_LF": -19.498510654809667,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              2660,
+              27
+            ],
+            "source_run": "job_2147624_11",
+            "summary_sha256": "c08f3bda646e79fa60ac8036c6adafe441870b99021718de3a47a2c6826f813c"
+          },
+          "rank": 4,
+          "run_id": "run_449b123c2468",
+          "selection": "joint_coverage",
+          "status": "submitted"
         }
       ]
     },
@@ -732,7 +2976,139 @@
           "rank": 0,
           "run_id": "run_c96811438782",
           "selection": "highest_likelihood",
-          "status": "planned"
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.41656485194645065,
+            "F_ESC10": -1.0,
+            "F_STAR10": -0.9239546062222885,
+            "KP_h_Mpc": 20,
+            "L_X": 40.5,
+            "MS": 2.5,
+            "M_TURN": 9.34787604928853,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.9085081272526653
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "acc21ad078e3dd073d44e295f67f18e117c23214d6fd02a30d75b0faa74c72f5",
+            "log_LF": -15.134114443919877,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              2545,
+              21
+            ],
+            "source_run": "job_2147624_12",
+            "summary_sha256": "ceb9d7054f83e8e7f77f830adaeb5f49a592c43711ca33404892c7d6d4c31469"
+          },
+          "rank": 1,
+          "run_id": "run_b5cf20918c46",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.6629118850146949,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.0082660441293156,
+            "KP_h_Mpc": 20,
+            "L_X": 40.5,
+            "MS": 2.5,
+            "M_TURN": 8.067364102695965,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.9725481754789145
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "acc21ad078e3dd073d44e295f67f18e117c23214d6fd02a30d75b0faa74c72f5",
+            "log_LF": -15.43770518917568,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              3829,
+              8
+            ],
+            "source_run": "job_2147624_12",
+            "summary_sha256": "ceb9d7054f83e8e7f77f830adaeb5f49a592c43711ca33404892c7d6d4c31469"
+          },
+          "rank": 2,
+          "run_id": "run_bf79c69c7570",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.4216475779415812,
+            "F_ESC10": -1.0,
+            "F_STAR10": -0.9856841607454829,
+            "KP_h_Mpc": 20,
+            "L_X": 40.5,
+            "MS": 2.5,
+            "M_TURN": 8.032424814947383,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.8265714790913169
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "acc21ad078e3dd073d44e295f67f18e117c23214d6fd02a30d75b0faa74c72f5",
+            "log_LF": -17.42102871150366,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              5134,
+              24
+            ],
+            "source_run": "job_2147624_12",
+            "summary_sha256": "ceb9d7054f83e8e7f77f830adaeb5f49a592c43711ca33404892c7d6d4c31469"
+          },
+          "rank": 3,
+          "run_id": "run_15e2406c1342",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.6676738242579716,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.0863160961636378,
+            "KP_h_Mpc": 20,
+            "L_X": 40.5,
+            "MS": 2.5,
+            "M_TURN": 9.268757030690676,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.7341962480174582
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "acc21ad078e3dd073d44e295f67f18e117c23214d6fd02a30d75b0faa74c72f5",
+            "log_LF": -18.432886911337057,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              9682,
+              5
+            ],
+            "source_run": "job_2147624_12",
+            "summary_sha256": "ceb9d7054f83e8e7f77f830adaeb5f49a592c43711ca33404892c7d6d4c31469"
+          },
+          "rank": 4,
+          "run_id": "run_e8839a9dc008",
+          "selection": "joint_coverage",
+          "status": "submitted"
         }
       ]
     },
@@ -772,7 +3148,139 @@
           "rank": 0,
           "run_id": "run_ab5ea0f392b8",
           "selection": "highest_likelihood",
-          "status": "planned"
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.6699550237224873,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.382322083085617,
+            "KP_h_Mpc": 20,
+            "L_X": 40.5,
+            "MS": 3.25,
+            "M_TURN": 8.246122851837132,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.0385465582304281
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining4_20260921",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "6934c71626ea518654bf1c22851bfa187c9c2c1003f2137da4aa963b77ab3562",
+            "log_LF": -14.859363609966103,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              3179,
+              7
+            ],
+            "source_run": "job_2142457_3",
+            "summary_sha256": "a86114d4c530e400e699ff2af5f1438f420ac65c08d70149775587f7d214486f"
+          },
+          "rank": 1,
+          "run_id": "run_020d3177ee06",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.41226386420592276,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.182366244293576,
+            "KP_h_Mpc": 20,
+            "L_X": 40.5,
+            "MS": 3.25,
+            "M_TURN": 9.351235266982227,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.04935521638630186
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining4_20260921",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "6934c71626ea518654bf1c22851bfa187c9c2c1003f2137da4aa963b77ab3562",
+            "log_LF": -14.793199930786448,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              5025,
+              19
+            ],
+            "source_run": "job_2142457_3",
+            "summary_sha256": "a86114d4c530e400e699ff2af5f1438f420ac65c08d70149775587f7d214486f"
+          },
+          "rank": 2,
+          "run_id": "run_85c1227b3f4c",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.44440136123191154,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.6224431067429466,
+            "KP_h_Mpc": 20,
+            "L_X": 40.5,
+            "MS": 3.25,
+            "M_TURN": 8.053453507295774,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.2116542519719785
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining4_20260921",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "6934c71626ea518654bf1c22851bfa187c9c2c1003f2137da4aa963b77ab3562",
+            "log_LF": -18.39743137856945,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              7858,
+              10
+            ],
+            "source_run": "job_2142457_3",
+            "summary_sha256": "a86114d4c530e400e699ff2af5f1438f420ac65c08d70149775587f7d214486f"
+          },
+          "rank": 3,
+          "run_id": "run_5c00346afea5",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.6460831882360056,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.5085231412884952,
+            "KP_h_Mpc": 20,
+            "L_X": 40.5,
+            "MS": 3.25,
+            "M_TURN": 9.19065868900668,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.2642594861789024
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining4_20260921",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "6934c71626ea518654bf1c22851bfa187c9c2c1003f2137da4aa963b77ab3562",
+            "log_LF": -17.051904715018267,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              9920,
+              21
+            ],
+            "source_run": "job_2142457_3",
+            "summary_sha256": "a86114d4c530e400e699ff2af5f1438f420ac65c08d70149775587f7d214486f"
+          },
+          "rank": 4,
+          "run_id": "run_9b89150f6c3f",
+          "selection": "joint_coverage",
+          "status": "submitted"
         }
       ]
     },
@@ -812,7 +3320,139 @@
           "rank": 0,
           "run_id": "run_75ad53fe23de",
           "selection": "highest_likelihood",
-          "status": "planned"
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.6838294359438442,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.325281761943461,
+            "KP_h_Mpc": 20,
+            "L_X": 40.5,
+            "MS": 4,
+            "M_TURN": 8.050394879431472,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.045284482676478444
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "3f7d616f5024278dc48d3e5e58839e4eb5a698a6b985c150812acae3de878afe",
+            "log_LF": -14.678465653279243,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              7889,
+              22
+            ],
+            "source_run": "job_2147624_13",
+            "summary_sha256": "9ffc891b4031c38eb562d1f63d6fac599d0f94f89ebe331a7a2b21889a4ffed5"
+          },
+          "rank": 1,
+          "run_id": "run_abf334934914",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.6738162605886538,
+            "F_ESC10": -1.0,
+            "F_STAR10": -0.9933776713600591,
+            "KP_h_Mpc": 20,
+            "L_X": 40.5,
+            "MS": 4,
+            "M_TURN": 8.095365824669024,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.9663063161104999
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "3f7d616f5024278dc48d3e5e58839e4eb5a698a6b985c150812acae3de878afe",
+            "log_LF": -14.442820590651307,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              5953,
+              26
+            ],
+            "source_run": "job_2147624_13",
+            "summary_sha256": "9ffc891b4031c38eb562d1f63d6fac599d0f94f89ebe331a7a2b21889a4ffed5"
+          },
+          "rank": 2,
+          "run_id": "run_212ab724ffee",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.43112523862623187,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.3165731450315565,
+            "KP_h_Mpc": 20,
+            "L_X": 40.5,
+            "MS": 4,
+            "M_TURN": 9.337396275975731,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.036279448758466004
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "3f7d616f5024278dc48d3e5e58839e4eb5a698a6b985c150812acae3de878afe",
+            "log_LF": -14.056042169904584,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              9229,
+              31
+            ],
+            "source_run": "job_2147624_13",
+            "summary_sha256": "9ffc891b4031c38eb562d1f63d6fac599d0f94f89ebe331a7a2b21889a4ffed5"
+          },
+          "rank": 3,
+          "run_id": "run_ad99874d1c9a",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.688912081435829,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.1222006211595255,
+            "KP_h_Mpc": 20,
+            "L_X": 40.5,
+            "MS": 4,
+            "M_TURN": 9.286229475589815,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.0690132534364084
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "3f7d616f5024278dc48d3e5e58839e4eb5a698a6b985c150812acae3de878afe",
+            "log_LF": -18.42734310311136,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              8008,
+              19
+            ],
+            "source_run": "job_2147624_13",
+            "summary_sha256": "9ffc891b4031c38eb562d1f63d6fac599d0f94f89ebe331a7a2b21889a4ffed5"
+          },
+          "rank": 4,
+          "run_id": "run_16b39340b9d8",
+          "selection": "joint_coverage",
+          "status": "submitted"
         }
       ]
     },
@@ -852,7 +3492,139 @@
           "rank": 0,
           "run_id": "run_69e4a91153b8",
           "selection": "highest_likelihood",
-          "status": "planned"
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.42380231797671214,
+            "F_ESC10": -1.0,
+            "F_STAR10": -0.9286408233373613,
+            "KP_h_Mpc": 30,
+            "L_X": 40.5,
+            "MS": 1.5,
+            "M_TURN": 9.316261641903962,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.9103463159852245
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "57b35c3b240126192da2339a1a6a93383fe5e56c1afc8e2d2aa7d4012bc52b15",
+            "log_LF": -15.134861103226921,
+            "production_steps_per_ensemble": 12000,
+            "source_ensemble_step_walker": [
+              1,
+              2660,
+              27
+            ],
+            "source_run": "job_2147624_14",
+            "summary_sha256": "4ed4a4453bce5edf33324e6cd500b418d2729aae30d3faf1e2195c52b617b832"
+          },
+          "rank": 1,
+          "run_id": "run_bc08fb4c0f39",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.6622152285667064,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.1493321098534226,
+            "KP_h_Mpc": 30,
+            "L_X": 40.5,
+            "MS": 1.5,
+            "M_TURN": 8.06341814632399,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.6438129451720702
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "57b35c3b240126192da2339a1a6a93383fe5e56c1afc8e2d2aa7d4012bc52b15",
+            "log_LF": -14.980825626915893,
+            "production_steps_per_ensemble": 12000,
+            "source_ensemble_step_walker": [
+              0,
+              9856,
+              9
+            ],
+            "source_run": "job_2147624_14",
+            "summary_sha256": "4ed4a4453bce5edf33324e6cd500b418d2729aae30d3faf1e2195c52b617b832"
+          },
+          "rank": 2,
+          "run_id": "run_88106c117eb8",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.6252557672122007,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.6201865167583265,
+            "KP_h_Mpc": 30,
+            "L_X": 40.5,
+            "MS": 1.5,
+            "M_TURN": 9.312943259842948,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.1811741074068168
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "57b35c3b240126192da2339a1a6a93383fe5e56c1afc8e2d2aa7d4012bc52b15",
+            "log_LF": -21.61024098966034,
+            "production_steps_per_ensemble": 12000,
+            "source_ensemble_step_walker": [
+              1,
+              8667,
+              13
+            ],
+            "source_run": "job_2147624_14",
+            "summary_sha256": "4ed4a4453bce5edf33324e6cd500b418d2729aae30d3faf1e2195c52b617b832"
+          },
+          "rank": 3,
+          "run_id": "run_bc8153bc719b",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.40742145894806786,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.5814609903655046,
+            "KP_h_Mpc": 30,
+            "L_X": 40.5,
+            "MS": 1.5,
+            "M_TURN": 8.11866607267481,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.20699763197950538
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "57b35c3b240126192da2339a1a6a93383fe5e56c1afc8e2d2aa7d4012bc52b15",
+            "log_LF": -17.960745015255217,
+            "production_steps_per_ensemble": 12000,
+            "source_ensemble_step_walker": [
+              0,
+              4483,
+              16
+            ],
+            "source_run": "job_2147624_14",
+            "summary_sha256": "4ed4a4453bce5edf33324e6cd500b418d2729aae30d3faf1e2195c52b617b832"
+          },
+          "rank": 4,
+          "run_id": "run_82304a3e1b84",
+          "selection": "joint_coverage",
+          "status": "submitted"
         }
       ]
     },
@@ -892,7 +3664,139 @@
           "rank": 0,
           "run_id": "run_e085bdbb7871",
           "selection": "highest_likelihood",
-          "status": "planned"
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.41354659401494387,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.2232773446332432,
+            "KP_h_Mpc": 30,
+            "L_X": 40.5,
+            "MS": 2,
+            "M_TURN": 9.34321540159155,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.04419838228111306
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "c8f5cd12a27b92ced6bd69e0dc57c1567c894b25be0070267821e36d16310532",
+            "log_LF": -14.647165727001438,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              9257,
+              28
+            ],
+            "source_run": "job_2147624_15",
+            "summary_sha256": "5b642e9d7a09016761a8ad3bda055db03ad9666b05177940a528d9cfe9f51696"
+          },
+          "rank": 1,
+          "run_id": "run_b477420d18d3",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.664412824924513,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.326857157681626,
+            "KP_h_Mpc": 30,
+            "L_X": 40.5,
+            "MS": 2,
+            "M_TURN": 8.147320609078875,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.039613434898752686
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "c8f5cd12a27b92ced6bd69e0dc57c1567c894b25be0070267821e36d16310532",
+            "log_LF": -17.737493509552344,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              5487,
+              22
+            ],
+            "source_run": "job_2147624_15",
+            "summary_sha256": "5b642e9d7a09016761a8ad3bda055db03ad9666b05177940a528d9cfe9f51696"
+          },
+          "rank": 2,
+          "run_id": "run_45ab77aaf172",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.42887917503073575,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.8117034982195923,
+            "KP_h_Mpc": 30,
+            "L_X": 40.5,
+            "MS": 2,
+            "M_TURN": 8.121039881183968,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.12252634148866495
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "c8f5cd12a27b92ced6bd69e0dc57c1567c894b25be0070267821e36d16310532",
+            "log_LF": -16.587945000046872,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              4826,
+              29
+            ],
+            "source_run": "job_2147624_15",
+            "summary_sha256": "5b642e9d7a09016761a8ad3bda055db03ad9666b05177940a528d9cfe9f51696"
+          },
+          "rank": 3,
+          "run_id": "run_6d75cd1f3236",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.6400113053076848,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.6970261914875344,
+            "KP_h_Mpc": 30,
+            "L_X": 40.5,
+            "MS": 2,
+            "M_TURN": 9.255717745812293,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.16737941176694238
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "c8f5cd12a27b92ced6bd69e0dc57c1567c894b25be0070267821e36d16310532",
+            "log_LF": -17.990625050998148,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              4862,
+              29
+            ],
+            "source_run": "job_2147624_15",
+            "summary_sha256": "5b642e9d7a09016761a8ad3bda055db03ad9666b05177940a528d9cfe9f51696"
+          },
+          "rank": 4,
+          "run_id": "run_8f65ae118fd1",
+          "selection": "joint_coverage",
+          "status": "submitted"
         }
       ]
     },
@@ -932,7 +3836,139 @@
           "rank": 0,
           "run_id": "run_55a59f4abb44",
           "selection": "highest_likelihood",
-          "status": "planned"
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.428632537078385,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.261937803571516,
+            "KP_h_Mpc": 30,
+            "L_X": 40.5,
+            "MS": 2.5,
+            "M_TURN": 9.332361930710453,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.03775232365030273
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "446da658ae23672c9730fee51654087cc85a727107374530e68401f31fa271e6",
+            "log_LF": -15.313074276695255,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              7736,
+              10
+            ],
+            "source_run": "job_2147624_16",
+            "summary_sha256": "374183c3ed8167b0b4f46fee98842de19a6b57b01b9b3cccd3021157deb1ebc1"
+          },
+          "rank": 1,
+          "run_id": "run_79ca6413a813",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.41763075472412603,
+            "F_ESC10": -1.0,
+            "F_STAR10": -0.938424438349217,
+            "KP_h_Mpc": 30,
+            "L_X": 40.5,
+            "MS": 2.5,
+            "M_TURN": 9.318358388422459,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.939356849073157
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "446da658ae23672c9730fee51654087cc85a727107374530e68401f31fa271e6",
+            "log_LF": -17.617424047831587,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              4518,
+              12
+            ],
+            "source_run": "job_2147624_16",
+            "summary_sha256": "374183c3ed8167b0b4f46fee98842de19a6b57b01b9b3cccd3021157deb1ebc1"
+          },
+          "rank": 2,
+          "run_id": "run_dc9341c3a036",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.6610723600695898,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.326621193788694,
+            "KP_h_Mpc": 30,
+            "L_X": 40.5,
+            "MS": 2.5,
+            "M_TURN": 8.086539900660654,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.041705502674017216
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "446da658ae23672c9730fee51654087cc85a727107374530e68401f31fa271e6",
+            "log_LF": -15.43840776147492,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              5357,
+              29
+            ],
+            "source_run": "job_2147624_16",
+            "summary_sha256": "374183c3ed8167b0b4f46fee98842de19a6b57b01b9b3cccd3021157deb1ebc1"
+          },
+          "rank": 3,
+          "run_id": "run_ccb4719ede76",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.6611221102802981,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.003281391697947,
+            "KP_h_Mpc": 30,
+            "L_X": 40.5,
+            "MS": 2.5,
+            "M_TURN": 9.139983499013441,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.9244770084476674
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "446da658ae23672c9730fee51654087cc85a727107374530e68401f31fa271e6",
+            "log_LF": -17.444688307637215,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              2579,
+              28
+            ],
+            "source_run": "job_2147624_16",
+            "summary_sha256": "374183c3ed8167b0b4f46fee98842de19a6b57b01b9b3cccd3021157deb1ebc1"
+          },
+          "rank": 4,
+          "run_id": "run_496748cadc4c",
+          "selection": "joint_coverage",
+          "status": "submitted"
         }
       ]
     },
@@ -972,7 +4008,139 @@
           "rank": 0,
           "run_id": "run_9b10dbb4cc4a",
           "selection": "highest_likelihood",
-          "status": "planned"
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.4278356826025074,
+            "F_ESC10": -1.0,
+            "F_STAR10": -0.9295687931311147,
+            "KP_h_Mpc": 30,
+            "L_X": 40.5,
+            "MS": 3.25,
+            "M_TURN": 9.339918443352195,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.8745491923698809
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "820d268475ea0378d885d942351371bb8ea281d12c993294881c65cb378a36b8",
+            "log_LF": -14.41145352754235,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              606,
+              18
+            ],
+            "source_run": "job_2147624_17",
+            "summary_sha256": "81b68e2627a37b5a52c5acc487ef3cf71a761703c384d9c0d7822d34393917f6"
+          },
+          "rank": 1,
+          "run_id": "run_32fc9f490dee",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.41062800011641454,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.2583643442572936,
+            "KP_h_Mpc": 30,
+            "L_X": 40.5,
+            "MS": 3.25,
+            "M_TURN": 9.244749614831363,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.03997258769248757
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "820d268475ea0378d885d942351371bb8ea281d12c993294881c65cb378a36b8",
+            "log_LF": -14.467879462046124,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              652,
+              5
+            ],
+            "source_run": "job_2147624_17",
+            "summary_sha256": "81b68e2627a37b5a52c5acc487ef3cf71a761703c384d9c0d7822d34393917f6"
+          },
+          "rank": 2,
+          "run_id": "run_8a926c09e3f9",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.6636726372522599,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.326832073670986,
+            "KP_h_Mpc": 30,
+            "L_X": 40.5,
+            "MS": 3.25,
+            "M_TURN": 9.205076137239955,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.044575672959605
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "820d268475ea0378d885d942351371bb8ea281d12c993294881c65cb378a36b8",
+            "log_LF": -18.35152577211536,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              6008,
+              3
+            ],
+            "source_run": "job_2147624_17",
+            "summary_sha256": "81b68e2627a37b5a52c5acc487ef3cf71a761703c384d9c0d7822d34393917f6"
+          },
+          "rank": 3,
+          "run_id": "run_f61dd1adfbb5",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.6457240218918486,
+            "F_ESC10": -1.0,
+            "F_STAR10": -0.985419473097425,
+            "KP_h_Mpc": 30,
+            "L_X": 40.5,
+            "MS": 3.25,
+            "M_TURN": 8.056312301050314,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.9688247150479805
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "820d268475ea0378d885d942351371bb8ea281d12c993294881c65cb378a36b8",
+            "log_LF": -14.408804381035345,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              441,
+              26
+            ],
+            "source_run": "job_2147624_17",
+            "summary_sha256": "81b68e2627a37b5a52c5acc487ef3cf71a761703c384d9c0d7822d34393917f6"
+          },
+          "rank": 4,
+          "run_id": "run_e757044acd6b",
+          "selection": "joint_coverage",
+          "status": "submitted"
         }
       ]
     },
@@ -1012,7 +4180,139 @@
           "rank": 0,
           "run_id": "run_f53e1cde38ec",
           "selection": "highest_likelihood",
-          "status": "planned"
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.42243230538932014,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.2856443871766925,
+            "KP_h_Mpc": 30,
+            "L_X": 40.5,
+            "MS": 4,
+            "M_TURN": 9.343488218995573,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.037583471303266225
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "0c1992ecadf4cafe2741be3725dbf48e7ebae796fcc31322623f14678ad22f9c",
+            "log_LF": -14.325878153181486,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              237,
+              10
+            ],
+            "source_run": "job_2147624_18",
+            "summary_sha256": "b68af64693d97b23dee33ad2b04ea5cf887d8f046c6d198d68463822a42644ba"
+          },
+          "rank": 1,
+          "run_id": "run_a2c7b9354006",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.6607762980583003,
+            "F_ESC10": -1.0,
+            "F_STAR10": -2.190829750852511,
+            "KP_h_Mpc": 30,
+            "L_X": 40.5,
+            "MS": 4,
+            "M_TURN": 8.101449911955541,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.06612920897000774
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "0c1992ecadf4cafe2741be3725dbf48e7ebae796fcc31322623f14678ad22f9c",
+            "log_LF": -16.51095925256922,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              1166,
+              18
+            ],
+            "source_run": "job_2147624_18",
+            "summary_sha256": "b68af64693d97b23dee33ad2b04ea5cf887d8f046c6d198d68463822a42644ba"
+          },
+          "rank": 2,
+          "run_id": "run_272d690704a3",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.6635461831499685,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.6527531470814476,
+            "KP_h_Mpc": 30,
+            "L_X": 40.5,
+            "MS": 4,
+            "M_TURN": 9.283843055015737,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.18981462527078258
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "0c1992ecadf4cafe2741be3725dbf48e7ebae796fcc31322623f14678ad22f9c",
+            "log_LF": -18.801038165099392,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              1,
+              20,
+              16
+            ],
+            "source_run": "job_2147624_18",
+            "summary_sha256": "b68af64693d97b23dee33ad2b04ea5cf887d8f046c6d198d68463822a42644ba"
+          },
+          "rank": 3,
+          "run_id": "run_315a624bba98",
+          "selection": "joint_coverage",
+          "status": "submitted"
+        },
+        {
+          "file": null,
+          "parameters": {
+            "ALPHA_ESC": -0.5,
+            "ALPHA_STAR": 0.4378406374267144,
+            "F_ESC10": -1.0,
+            "F_STAR10": -1.5517324005740147,
+            "KP_h_Mpc": 30,
+            "L_X": 40.5,
+            "MS": 4,
+            "M_TURN": 8.186526627468037,
+            "NU_X_THRESH": 500.0,
+            "t_STAR": 0.2297077176358385
+          },
+          "provenance": {
+            "collection": "lf_muv20_initialization_remaining19_20260923",
+            "diagnostic_gate_passed": true,
+            "diagnostics_sha256": "0c1992ecadf4cafe2741be3725dbf48e7ebae796fcc31322623f14678ad22f9c",
+            "log_LF": -16.39247225286204,
+            "production_steps_per_ensemble": 10000,
+            "source_ensemble_step_walker": [
+              0,
+              7549,
+              10
+            ],
+            "source_run": "job_2147624_18",
+            "summary_sha256": "b68af64693d97b23dee33ad2b04ea5cf887d8f046c6d198d68463822a42644ba"
+          },
+          "rank": 4,
+          "run_id": "run_f9a21a6f9288",
+          "selection": "joint_coverage",
+          "status": "submitted"
         }
       ]
     }
@@ -1024,6 +4324,6 @@
     256,
     256
   ],
-  "status_as_of_utc": "2026-09-25T04:02:35.213282+00:00",
+  "status_as_of_utc": "2026-09-25T04:06:53.119586+00:00",
   "storage_scope": "Main atlas lightcone plane, 32 transverse lightcone slices, global histories and LF. Not a saved coeval-volume sequence."
 }
