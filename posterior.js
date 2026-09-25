@@ -20,7 +20,7 @@
       if(chosen)note+=' '+text('Selected: ','已选：')+chosen.run_id+' · '+chosen.status+' · log LF = '+chosen.provenance.log_LF.toFixed(3);
       else note+=' '+text('No posterior models available for this kp/ms (including PL).','此 kp/ms 尚无后验模型（包括 PL）。');
       note+=' '+text('Static status as of ','静态状态更新时间：')+(catalog.status_as_of_utc||'—');
-      document.getElementById('parameter-mode-note').textContent=note;
+      document.getElementById('parameter-mode-note').textContent=text('Astrophysical values are locked to the selected joint row.','天体物理参数锁定为所选联合样本的真实值。');
       if(!state.result){
         document.getElementById('status-message').textContent=chosen
           ? text('No completed simulation loaded for this exact sample. No baseline substitution.','此确切样本尚无已加载的完整模拟，不以基准模型替代。')
