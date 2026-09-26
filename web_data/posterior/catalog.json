@@ -22,7 +22,7 @@
       "key": "kp1_ms1.5",
       "samples": [
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_a5bcb2d45f3b.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.7420078797379678,
@@ -52,10 +52,10 @@
           "rank": 0,
           "run_id": "run_a5bcb2d45f3b",
           "selection": "highest_likelihood",
-          "status": "submitted"
+          "status": "completed"
         },
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_4da30b1bd01b.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.7146337277996548,
@@ -85,7 +85,7 @@
           "rank": 1,
           "run_id": "run_4da30b1bd01b",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "completed"
         },
         {
           "file": null,
@@ -194,7 +194,7 @@
       "key": "kp1_ms2",
       "samples": [
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_f25a7846896b.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.93913325891493,
@@ -224,10 +224,10 @@
           "rank": 0,
           "run_id": "run_f25a7846896b",
           "selection": "highest_likelihood",
-          "status": "submitted"
+          "status": "completed"
         },
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_1e09efc13f0c.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.7875839101047044,
@@ -257,7 +257,7 @@
           "rank": 1,
           "run_id": "run_1e09efc13f0c",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "completed"
         },
         {
           "file": null,
@@ -366,7 +366,7 @@
       "key": "kp1_ms2.5",
       "samples": [
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_bf710368923c.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.999865860816476,
@@ -396,10 +396,10 @@
           "rank": 0,
           "run_id": "run_bf710368923c",
           "selection": "highest_likelihood",
-          "status": "submitted"
+          "status": "completed"
         },
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_22c36f3ca5a8.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.8862329808960343,
@@ -429,7 +429,7 @@
           "rank": 1,
           "run_id": "run_22c36f3ca5a8",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "completed"
         },
         {
           "file": null,
@@ -565,10 +565,11 @@
             "source_run": "job_2145045_0",
             "summary_sha256": "daf451e43dbe6ae2e8c2522a52666604c5327c3ad9383aabdb794e849820f1d8"
           },
+          "quality_note": "Extreme finite kinetic temperature; result withheld pending numerical investigation.",
           "rank": 0,
           "run_id": "run_26ba588607eb",
           "selection": "highest_likelihood",
-          "status": "submitted"
+          "status": "under_review"
         },
         {
           "file": null,
@@ -598,10 +599,11 @@
             "source_run": "job_2145045_0",
             "summary_sha256": "daf451e43dbe6ae2e8c2522a52666604c5327c3ad9383aabdb794e849820f1d8"
           },
+          "quality_note": "Extreme finite kinetic temperature; result withheld pending numerical investigation.",
           "rank": 1,
           "run_id": "run_1d0b1a9f827c",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "under_review"
         },
         {
           "file": null,
@@ -737,10 +739,11 @@
             "source_run": "job_2142253_1",
             "summary_sha256": "32fd1ed60051b61a0eb29a7b25893b088d39d7555ef7a5107674ab2badebc3e7"
           },
+          "quality_note": "Extreme finite kinetic temperature; result withheld pending numerical investigation.",
           "rank": 0,
           "run_id": "run_223b8933846f",
           "selection": "highest_likelihood",
-          "status": "submitted"
+          "status": "under_review"
         },
         {
           "file": null,
@@ -770,10 +773,11 @@
             "source_run": "job_2142253_1",
             "summary_sha256": "32fd1ed60051b61a0eb29a7b25893b088d39d7555ef7a5107674ab2badebc3e7"
           },
+          "quality_note": "Extreme finite kinetic temperature; result withheld pending numerical investigation.",
           "rank": 1,
           "run_id": "run_84c8fb6e1c7c",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "under_review"
         },
         {
           "file": null,
@@ -882,7 +886,7 @@
       "key": "kp3_ms1.5",
       "samples": [
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_c0fc19044369.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.7671443246155681,
@@ -912,10 +916,10 @@
           "rank": 0,
           "run_id": "run_c0fc19044369",
           "selection": "highest_likelihood",
-          "status": "submitted"
+          "status": "completed"
         },
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_6cd9c7afbb9c.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.642835479166054,
@@ -945,7 +949,7 @@
           "rank": 1,
           "run_id": "run_6cd9c7afbb9c",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "completed"
         },
         {
           "file": null,
@@ -1054,7 +1058,7 @@
       "key": "kp3_ms2",
       "samples": [
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_595c65ace67b.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.9725986801359886,
@@ -1084,10 +1088,10 @@
           "rank": 0,
           "run_id": "run_595c65ace67b",
           "selection": "highest_likelihood",
-          "status": "submitted"
+          "status": "completed"
         },
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_d04417faa003.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.7846219394212612,
@@ -1117,7 +1121,7 @@
           "rank": 1,
           "run_id": "run_d04417faa003",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "completed"
         },
         {
           "file": null,
@@ -1226,7 +1230,7 @@
       "key": "kp3_ms2.5",
       "samples": [
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_7a04c93a03fc.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.9997271910505647,
@@ -1256,7 +1260,7 @@
           "rank": 0,
           "run_id": "run_7a04c93a03fc",
           "selection": "highest_likelihood",
-          "status": "submitted"
+          "status": "completed"
         },
         {
           "file": null,
@@ -1289,7 +1293,7 @@
           "rank": 1,
           "run_id": "run_ef9367bfa844",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "awaiting_validation"
         },
         {
           "file": null,
@@ -1398,7 +1402,7 @@
       "key": "kp3_ms3.25",
       "samples": [
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_123e2c99b86f.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.9999418988095857,
@@ -1428,7 +1432,7 @@
           "rank": 0,
           "run_id": "run_123e2c99b86f",
           "selection": "highest_likelihood",
-          "status": "submitted"
+          "status": "completed"
         },
         {
           "file": null,
@@ -1461,7 +1465,7 @@
           "rank": 1,
           "run_id": "run_7682336e95ee",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "running"
         },
         {
           "file": null,
@@ -1570,7 +1574,7 @@
       "key": "kp3_ms4",
       "samples": [
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_b896645370fc.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.9999931381876319,
@@ -1600,7 +1604,7 @@
           "rank": 0,
           "run_id": "run_b896645370fc",
           "selection": "highest_likelihood",
-          "status": "submitted"
+          "status": "completed"
         },
         {
           "file": null,
@@ -1633,7 +1637,7 @@
           "rank": 1,
           "run_id": "run_18a5f57a1ac8",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "running"
         },
         {
           "file": null,
@@ -1742,7 +1746,7 @@
       "key": "kp10_ms1.5",
       "samples": [
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_229c6cc986b9.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.538376484076326,
@@ -1772,10 +1776,10 @@
           "rank": 0,
           "run_id": "run_229c6cc986b9",
           "selection": "highest_likelihood",
-          "status": "submitted"
+          "status": "completed"
         },
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_d87b04a7cd45.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.6728335583266088,
@@ -1805,7 +1809,7 @@
           "rank": 1,
           "run_id": "run_d87b04a7cd45",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "completed"
         },
         {
           "file": null,
@@ -1838,7 +1842,7 @@
           "rank": 2,
           "run_id": "run_c70a1f466cf0",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "running"
         },
         {
           "file": null,
@@ -1914,7 +1918,7 @@
       "key": "kp10_ms2",
       "samples": [
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_a503ed6ba2ed.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.5327158012430828,
@@ -1944,10 +1948,10 @@
           "rank": 0,
           "run_id": "run_a503ed6ba2ed",
           "selection": "highest_likelihood",
-          "status": "submitted"
+          "status": "completed"
         },
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_17d36c6193c7.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.6911064259174251,
@@ -1977,7 +1981,7 @@
           "rank": 1,
           "run_id": "run_17d36c6193c7",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "completed"
         },
         {
           "file": null,
@@ -2010,7 +2014,7 @@
           "rank": 2,
           "run_id": "run_c3e3a5cda1bf",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "running"
         },
         {
           "file": null,
@@ -2086,7 +2090,7 @@
       "key": "kp10_ms2.5",
       "samples": [
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_1a3cb417d1c1.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.5327998350105762,
@@ -2116,10 +2120,10 @@
           "rank": 0,
           "run_id": "run_1a3cb417d1c1",
           "selection": "highest_likelihood",
-          "status": "running"
+          "status": "completed"
         },
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_47ae99b79e09.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.68136579253066,
@@ -2149,10 +2153,10 @@
           "rank": 1,
           "run_id": "run_47ae99b79e09",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "completed"
         },
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_5482179a4160.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.7261107134827106,
@@ -2182,10 +2186,10 @@
           "rank": 2,
           "run_id": "run_5482179a4160",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "completed"
         },
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_b514475ca0dd.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.44547429984704834,
@@ -2215,10 +2219,10 @@
           "rank": 3,
           "run_id": "run_b514475ca0dd",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "completed"
         },
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_8e6eebb8d9d4.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.7264329803281332,
@@ -2248,7 +2252,7 @@
           "rank": 4,
           "run_id": "run_8e6eebb8d9d4",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "completed"
         }
       ]
     },
@@ -2258,7 +2262,7 @@
       "key": "kp10_ms3.25",
       "samples": [
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_7b9c495ca671.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.5360894993867632,
@@ -2288,10 +2292,10 @@
           "rank": 0,
           "run_id": "run_7b9c495ca671",
           "selection": "highest_likelihood",
-          "status": "submitted"
+          "status": "completed"
         },
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_e26f0244020e.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.7810270059206303,
@@ -2321,7 +2325,7 @@
           "rank": 1,
           "run_id": "run_e26f0244020e",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "completed"
         },
         {
           "file": null,
@@ -2430,7 +2434,7 @@
       "key": "kp10_ms4",
       "samples": [
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_959e0319d37c.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.5920870500565426,
@@ -2460,10 +2464,10 @@
           "rank": 0,
           "run_id": "run_959e0319d37c",
           "selection": "highest_likelihood",
-          "status": "submitted"
+          "status": "completed"
         },
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_cc1310237dc3.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.8217776682223693,
@@ -2493,7 +2497,7 @@
           "rank": 1,
           "run_id": "run_cc1310237dc3",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "completed"
         },
         {
           "file": null,
@@ -2602,7 +2606,7 @@
       "key": "kp20_ms1.5",
       "samples": [
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_14f96f5110c8.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.5443308535958793,
@@ -2632,10 +2636,10 @@
           "rank": 0,
           "run_id": "run_14f96f5110c8",
           "selection": "highest_likelihood",
-          "status": "submitted"
+          "status": "completed"
         },
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_ac085e98c1c0.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.4118878959419635,
@@ -2665,7 +2669,7 @@
           "rank": 1,
           "run_id": "run_ac085e98c1c0",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "completed"
         },
         {
           "file": null,
@@ -2774,7 +2778,7 @@
       "key": "kp20_ms2",
       "samples": [
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_1563fb448976.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.546281086991271,
@@ -2804,10 +2808,10 @@
           "rank": 0,
           "run_id": "run_1563fb448976",
           "selection": "highest_likelihood",
-          "status": "submitted"
+          "status": "completed"
         },
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_e57966d4139a.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.4082618558456781,
@@ -2837,7 +2841,7 @@
           "rank": 1,
           "run_id": "run_e57966d4139a",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "completed"
         },
         {
           "file": null,
@@ -2946,7 +2950,7 @@
       "key": "kp20_ms2.5",
       "samples": [
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_c96811438782.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.5441133877858696,
@@ -2976,10 +2980,10 @@
           "rank": 0,
           "run_id": "run_c96811438782",
           "selection": "highest_likelihood",
-          "status": "submitted"
+          "status": "completed"
         },
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_b5cf20918c46.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.41656485194645065,
@@ -3009,7 +3013,7 @@
           "rank": 1,
           "run_id": "run_b5cf20918c46",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "completed"
         },
         {
           "file": null,
@@ -3118,7 +3122,7 @@
       "key": "kp20_ms3.25",
       "samples": [
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_ab5ea0f392b8.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.5476535752596279,
@@ -3148,10 +3152,10 @@
           "rank": 0,
           "run_id": "run_ab5ea0f392b8",
           "selection": "highest_likelihood",
-          "status": "submitted"
+          "status": "completed"
         },
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_020d3177ee06.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.6699550237224873,
@@ -3181,7 +3185,7 @@
           "rank": 1,
           "run_id": "run_020d3177ee06",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "completed"
         },
         {
           "file": null,
@@ -3290,7 +3294,7 @@
       "key": "kp20_ms4",
       "samples": [
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_75ad53fe23de.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.5436397798601422,
@@ -3320,10 +3324,10 @@
           "rank": 0,
           "run_id": "run_75ad53fe23de",
           "selection": "highest_likelihood",
-          "status": "submitted"
+          "status": "completed"
         },
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_abf334934914.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.6838294359438442,
@@ -3353,7 +3357,7 @@
           "rank": 1,
           "run_id": "run_abf334934914",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "completed"
         },
         {
           "file": null,
@@ -3462,7 +3466,7 @@
       "key": "kp30_ms1.5",
       "samples": [
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_69e4a91153b8.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.5445020723879733,
@@ -3492,10 +3496,10 @@
           "rank": 0,
           "run_id": "run_69e4a91153b8",
           "selection": "highest_likelihood",
-          "status": "submitted"
+          "status": "completed"
         },
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_bc08fb4c0f39.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.42380231797671214,
@@ -3525,7 +3529,7 @@
           "rank": 1,
           "run_id": "run_bc08fb4c0f39",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "completed"
         },
         {
           "file": null,
@@ -3634,7 +3638,7 @@
       "key": "kp30_ms2",
       "samples": [
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_e085bdbb7871.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.5439204114071469,
@@ -3664,10 +3668,10 @@
           "rank": 0,
           "run_id": "run_e085bdbb7871",
           "selection": "highest_likelihood",
-          "status": "submitted"
+          "status": "completed"
         },
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_b477420d18d3.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.41354659401494387,
@@ -3697,7 +3701,7 @@
           "rank": 1,
           "run_id": "run_b477420d18d3",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "completed"
         },
         {
           "file": null,
@@ -3806,7 +3810,7 @@
       "key": "kp30_ms2.5",
       "samples": [
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_55a59f4abb44.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.5445298617549055,
@@ -3836,10 +3840,10 @@
           "rank": 0,
           "run_id": "run_55a59f4abb44",
           "selection": "highest_likelihood",
-          "status": "submitted"
+          "status": "completed"
         },
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_79ca6413a813.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.428632537078385,
@@ -3869,7 +3873,7 @@
           "rank": 1,
           "run_id": "run_79ca6413a813",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "completed"
         },
         {
           "file": null,
@@ -3978,7 +3982,7 @@
       "key": "kp30_ms3.25",
       "samples": [
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_9b10dbb4cc4a.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.5438459211987428,
@@ -4008,10 +4012,10 @@
           "rank": 0,
           "run_id": "run_9b10dbb4cc4a",
           "selection": "highest_likelihood",
-          "status": "submitted"
+          "status": "completed"
         },
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_32fc9f490dee.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.4278356826025074,
@@ -4041,7 +4045,7 @@
           "rank": 1,
           "run_id": "run_32fc9f490dee",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "completed"
         },
         {
           "file": null,
@@ -4150,7 +4154,7 @@
       "key": "kp30_ms4",
       "samples": [
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_f53e1cde38ec.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.5432430151204324,
@@ -4180,10 +4184,10 @@
           "rank": 0,
           "run_id": "run_f53e1cde38ec",
           "selection": "highest_likelihood",
-          "status": "submitted"
+          "status": "completed"
         },
         {
-          "file": null,
+          "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/run_a2c7b9354006.json",
           "parameters": {
             "ALPHA_ESC": -0.5,
             "ALPHA_STAR": 0.42243230538932014,
@@ -4213,7 +4217,7 @@
           "rank": 1,
           "run_id": "run_a2c7b9354006",
           "selection": "joint_coverage",
-          "status": "submitted"
+          "status": "completed"
         },
         {
           "file": null,
@@ -4324,6 +4328,7 @@
     256,
     256
   ],
-  "status_as_of_utc": "2026-09-25T04:06:53.119586+00:00",
-  "storage_scope": "Main atlas lightcone plane, 32 transverse lightcone slices, global histories and LF. Not a saved coeval-volume sequence."
+  "status_as_of_utc": "2026-09-26T06:01:02.108058+00:00",
+  "storage_scope": "Main atlas lightcone plane, 32 transverse lightcone slices, global histories and LF. Not a saved coeval-volume sequence.",
+  "validation_policy": "Integrity checked; saved Tk > 1e6 K withheld for numerical review. Not a physical convergence certification."
 }

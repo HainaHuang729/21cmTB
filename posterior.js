@@ -19,6 +19,8 @@
       note+=' '+text('Only actual joint rows are selectable; no independent interpolation. No matching PL simulation has been computed for these new samples.','只选择实际联合样本，不独立插值参数；这些新样本尚无同参数 PL 模拟。');
       if(chosen)note+=' '+text('Selected: ','已选：')+chosen.run_id+' · '+chosen.status+' · log LF = '+chosen.provenance.log_LF.toFixed(3);
       else note+=' '+text('No posterior models available for this kp/ms (including PL).','此 kp/ms 尚无后验模型（包括 PL）。');
+      if(chosen?.status==='under_review')note+=' '+text('Extreme kinetic temperature: withheld for numerical review.','动温存在极端值：暂不展示，等待数值核查。');
+      if(chosen?.status==='awaiting_validation')note+=' '+text('Computed; awaiting data validation.','计算完成，等待数据校验。');
       note+=' '+text('Static status as of ','静态状态更新时间：')+(catalog.status_as_of_utc||'—');
       document.getElementById('parameter-mode-note').textContent=text('Astrophysical values are locked to the selected joint row.','天体物理参数锁定为所选联合样本的真实值。');
       if(!state.result){
