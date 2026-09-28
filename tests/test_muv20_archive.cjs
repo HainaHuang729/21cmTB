@@ -78,12 +78,37 @@ test('joint data are explicitly a new fixed-cosmology eight-parameter functional
   for (const file of ['corner_eta.png', 'corner_native.png']) {
     assert.equal(audit[file].passed, true);
     assert.deepEqual(audit[file].panels,['LF z6','LF z7','LF z8','LF z10','tau','xi']);
+    assert.equal(audit[file].layout,'park-inspired-lf-2x2-wide-history');
+    const pos=audit[file].positions;
+    assert.equal(pos[0][0],pos[2][0]);assert.equal(pos[1][0],pos[3][0]);
+    assert.equal(pos[0][1],pos[1][1]);assert.equal(pos[2][1],pos[3][1]);
+    assert.ok(pos[5][2]>pos[4][2]);
     assert.deepEqual(audit[file].text_overlaps, []);
     assert.deepEqual(audit[file].clipped_text, []);
     const relative = `${catalog.categories.joint.directory}/${file}`;
     const hash = crypto.createHash('sha256').update(fs.readFileSync(path.join(root, relative))).digest('hex');
     assert.equal(hash, joint.figure_sha256[file]);
     assert.equal(hash, catalog.files_sha256[relative]);
+  }
+});
+
+test('LF band uses reproducible balanced retained-row selection and explicit finite support',()=>{
+  const dir=catalog.categories.joint.directory,b=json(`${dir}/pooled_lf_bands.json`);
+  assert.equal(b.status,'EXPLORATORY_NOT_CONVERGED');
+  assert.equal(b.source_row_count,12800);assert.equal(b.sample_count,256);
+  assert.equal(b.selection_seed,20260928);assert.deepEqual(b.quantile_levels,[.16,.5,.84]);
+  assert.equal(new Set(b.selected_row_indices).size,256);
+  assert.equal(b.selected_row_indices.filter(i=>i<6400).length,128);
+  assert.ok(b.selected_row_indices.every(i=>Number.isInteger(i)&&i>=0&&i<12800));
+  const hash=crypto.createHash('sha256').update(fs.readFileSync(path.join(root,dir,b.source))).digest('hex');
+  assert.equal(hash,b.source_sha256);
+  for(const z of ['6.0','7.0','8.0','10.0']){
+    const c=b.curves[z];assert.ok(c.finite_row_count.some(n=>n===256));
+    c.muv.forEach((m,i)=>{
+      const q=c.log10_phi_quantiles.map(row=>row[i]);
+      if(c.finite_row_count[i]!==256)assert.deepEqual(q,[null,null,null]);
+      else{assert.ok(q.every(Number.isFinite));assert.ok(q[0]<=q[1]&&q[1]<=q[2]);}
+    });
   }
 });
 

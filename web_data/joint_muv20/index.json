@@ -46,10 +46,10 @@
     }
   ],
   "figure_sha256": {
-    "corner_eta.png": "292b30a1675cf355deba868d9cbf75283cc08a2846e332a828e1ab4bebd5bff2",
-    "corner_native.png": "b896f5b72bdf3489332242dc82e0f090061b7140f645b071b4baf1a8f2aad39d",
+    "corner_eta.png": "11d960e80f0662fadc9566c6f4e9b75488323acc27044585666a8cd3adbf96bd",
+    "corner_native.png": "77cda7f5eda50545a8a0590bdf370761da89931fd9bbc3b34761d4bb1879d3e1",
     "ensemble_traces.png": "1f364a9a2ea1d6741cedfe4ce36ea95307795a5aac51e8f4fb3f9cf1a340ad60",
-    "pooled_lf.png": "3f6aba87507753765632bfbbb4117ed0d2883a4a1de217d39896ad9e1068a11a",
+    "pooled_lf.png": "34fd2747f026383f35350e9088191ea0649146a436ec5d2aea69fcdf1fdc34bb",
     "pooled_tau_xi.png": "59da9f92099d121e363fb6eb7fdc5729ae1ca840fdf68f54fe292f7506830ad3"
   },
   "continuation_included": true,
