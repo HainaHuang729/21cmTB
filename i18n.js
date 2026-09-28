@@ -38,7 +38,7 @@ window.AtlasI18n = (() => {
     mcmcJointData: ["The same 34 LF points with MUV > −20, plus Planck τₑ and McGreer xHI(z = 5.9). ξ = 1 − xHI; this is not a measured full ξ(z) history. No 21-cm likelihood.","相同的 MUV > −20 的 34 个 LF 点，加上 Planck τₑ 与 McGreer xHI(z = 5.9)。ξ = 1 − xHI，不代表观测到完整 ξ(z) 历史。不使用 21 厘米似然。"],
     mcmcCompute: ["COEVAL GRID / BOX","共时模拟网格 / 盒长"],
     mcmcJointCaution: ["200 stored steps × 32 walkers × 2 ensembles after 10 initial burn-in steps each. All 12,800 correlated rows are shown, including the inherited 100-step prefix once. Not converged; no credible-interval claim.","每条链初始 burn-in 10 步后保存 200 步 × 32 walkers，两条链共 12,800 条相关记录。各自包含原有 100 步前缀一次，不重复拼接。尚未收敛，不作可信区间声明。"],
-    mcmcDiagnostics: ["Coordinates & convergence diagnostics ↗","坐标变换与收敛诊断 ↗"],
+    mcmcDiagnostics: ["LF, τ, xi · data & diagnostics ↗","LF、τ、xi · 数据与诊断 ↗"],
     mcmcJointAlt: ["Eight-parameter joint functional-test samples with MUV > −20; not posterior constraints","MUV > −20 的八参数联合功能测试样本；非后验约束"],
     mcmcJointCaption: ["E0 + E1 pooled with equal weight per stored row; repeated states retained. Raw scatter and marginal counts, not validated posterior constraints. η★ = log₁₀(f★,10/t★).", "E0 + E1 按每条已存记录等权合并，保留重复状态。显示原始散点与边缘计数，不是已验证后验约束。η★ = log₁₀(f★,10/t★)。"],
     jointObservables: ["Pooled LF, optical depth & ionization", "合并样本的 LF、光学深度与电离比例"],

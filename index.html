@@ -244,22 +244,14 @@
             <div><dt data-i18n="mcmcCompute">COEVAL GRID / BOX</dt><dd>128³ / 250 cMpc</dd></div>
           </dl>
           <p class="inference-detail" data-i18n="mcmcJointCaution">200 stored steps × 32 walkers × 2 ensembles after 10 initial burn-in steps each. All 12,800 correlated rows are shown, including the inherited 100-step prefix once. Not converged; no credible-interval claim.</p>
-          <a class="system-action" href="ms-corner.html" data-i18n="mcmcDiagnostics">Coordinates &amp; convergence diagnostics ↗</a>
+          <a class="system-action" href="ms-corner.html#pooled-observables" data-i18n="mcmcDiagnostics">LF, τ, xi · data &amp; diagnostics ↗</a>
         </div>
         <figure class="inference-figure">
-          <a id="mcmc-joint-open" href="web_data/joint_muv20/corner_eta.png?v=bc91e30e50ac" target="_blank" rel="noopener" data-i18n-title="mcmcOpen" title="Open full-resolution figure">
-            <img id="mcmc-joint-image" src="web_data/joint_muv20/corner_eta.png?v=bc91e30e50ac" width="3080" height="3080" loading="lazy" decoding="async" data-i18n-alt="mcmcJointAlt" alt="Eight-parameter joint functional-test samples; not posterior constraints">
+          <a id="mcmc-joint-open" href="web_data/joint_muv20/corner_eta.png?v=671035eece05" target="_blank" rel="noopener" data-i18n-title="mcmcOpen" title="Open full-resolution figure">
+            <img id="mcmc-joint-image" src="web_data/joint_muv20/corner_eta.png?v=671035eece05" width="3080" height="3080" loading="lazy" decoding="async" data-i18n-alt="mcmcJointAlt" alt="Eight-parameter joint functional-test samples; not posterior constraints">
           </a>
           <figcaption><span>FIG / 06B</span><span data-i18n="mcmcJointCaption">E0 + E1 pooled with equal weight per stored row; repeated states retained. Raw scatter and marginal counts, not validated posterior constraints. η★ = log₁₀(f★,10/t★).</span></figcaption>
         </figure>
-      </article>
-      <article class="inference-card" id="pooled-observables">
-        <h3 data-i18n="jointObservables">Pooled LF, optical depth &amp; ionization</h3>
-        <p data-i18n="jointObservableNote">LF uses the highest stored joint-likelihood sample. Tau and xi use saved outputs; empirical ranges are not validated credible intervals.</p>
-        <p data-i18n="jointSummary">Empirical q16 / median / q84</p><p id="joint-pooled-summary">τ: 0.05378 / 0.05994 / 0.06793 · xi(z=5.9): 0.95788 / 1.00000 / 1.00000</p>
-        <figure class="inference-figure"><a href="web_data/joint_muv20/pooled_lf.png?v=9b0d96ebc207"><img loading="lazy" src="web_data/joint_muv20/pooled_lf.png?v=9b0d96ebc207" alt="LF at the highest joint-likelihood sample, z=6,7,8,10"></a></figure>
-        <figure class="inference-figure"><a href="web_data/joint_muv20/pooled_tau_xi.png?v=f6d6b4ec33ed"><img loading="lazy" src="web_data/joint_muv20/pooled_tau_xi.png?v=f6d6b4ec33ed" alt="Pooled tau and xi(z), exploratory"></a></figure>
-        <a class="system-action" href="ms-corner.html#pooled-observables" data-i18n="jointDownloads">Download numerical data</a>
       </article>
       <p class="inference-separation" data-i18n="mcmcSeparation">Separate chains and parameter spaces, all with MUV &gt; −20. LF-only samples four parameters; the joint functional test samples eight at fixed kₚ = 10 and mₛ = 2.5. It cannot establish the effect of adding τ and ξ. Plot annotations remain in English.</p>
     </section>
@@ -309,7 +301,7 @@
       </div>
     </div>
   </section>
-  <script src="i18n.js?v=joint-20260928-pooled&amp;layout=right-pl-1&amp;jointstyle=1&amp;archive=park-pl-merged-1&amp;lfmass=20260923&amp;response=1"></script>
+  <script src="i18n.js?v=joint-20260928-pooled&amp;layout=right-pl-1&amp;jointstyle=1&amp;archive=park-pl-merged-1&amp;lfmass=20260923&amp;response=1&amp;theme=atlas1"></script>
   <script src="mcmc.js?v=joint-20260928-pooled&amp;layout=right-pl-1"></script>
   <script src="lf-mass.js?v=20260923"></script>
   <script src="posterior.js?v=20260926-data1"></script>
