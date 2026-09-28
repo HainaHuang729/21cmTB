@@ -11,7 +11,7 @@
       "tau",
       "xi"
     ],
-    "layout": "park-inspired-lf-2x2-wide-history",
+    "layout": "park-inspired-lf-2x2-stacked-history-tau",
     "lf_band_sample_count": 256,
     "positions": [
       [
@@ -39,9 +39,9 @@
         0.10499999999999998
       ],
       [
-        0.9,
-        0.47,
-        0.07499999999999996,
+        0.785,
+        0.3,
+        0.19000000000000006,
         0.10499999999999998
       ],
       [
@@ -64,7 +64,7 @@
       "tau",
       "xi"
     ],
-    "layout": "park-inspired-lf-2x2-wide-history",
+    "layout": "park-inspired-lf-2x2-stacked-history-tau",
     "lf_band_sample_count": 256,
     "positions": [
       [
@@ -92,9 +92,9 @@
         0.10499999999999998
       ],
       [
-        0.9,
-        0.47,
-        0.07499999999999996,
+        0.785,
+        0.3,
+        0.19000000000000006,
         0.10499999999999998
       ],
       [
