@@ -46,14 +46,23 @@
   </section>
   <section id="corner" class="ms-card" aria-labelledby="corner-title">
     <div class="section-heading"><div><span class="section-index">03</span><h2 id="corner-title" data-i18n="msSampling">Raw sampling coordinates</h2></div></div>
-    <p data-i18n="msCaption">Two ensembles: red / blue raw scatter and marginal counts. No credible contours or interval estimates. η★ = log₁₀(f★,10/t★).</p>
-    <a href="web_data/joint_muv20/corner_eta.png?v=1d3df215ca68"><img src="web_data/joint_muv20/corner_eta.png?v=1d3df215ca68" data-ms-alt="msEtaAlt" alt="Eight-parameter joint functional-test samples with MUV > −20; not posterior constraints"></a>
+    <p data-i18n="msCaption">E0 + E1 pooled with equal weight per stored row; repeated states retained. Raw scatter and marginal counts, not validated posterior constraints. η★ = log₁₀(f★,10/t★).</p>
+    <a href="web_data/joint_muv20/corner_eta.png?v=bc91e30e50ac"><img src="web_data/joint_muv20/corner_eta.png?v=bc91e30e50ac" data-ms-alt="msEtaAlt" alt="Eight-parameter joint functional-test samples with MUV > −20; not posterior constraints"></a>
     <p class="ms-note" data-i18n="msFigureLanguage">Plot annotations remain in English; captions switch with the interface.</p>
   </section>
   <section class="ms-card"><details><summary data-i18n="msNative">Native stellar-efficiency coordinates</summary>
     <p data-i18n="msTransform">Coordinate transformation only: log₁₀ f★,10 = η★ + log₁₀ t★. No resampling or change of weights.</p>
-    <a href="web_data/joint_muv20/corner_native.png?v=083d888d41da"><img loading="lazy" src="web_data/joint_muv20/corner_native.png?v=083d888d41da" data-ms-alt="msNativeAlt" alt="Eight-parameter raw samples in native stellar coordinates"></a>
+    <a href="web_data/joint_muv20/corner_native.png?v=9b190adb5ce7"><img loading="lazy" src="web_data/joint_muv20/corner_native.png?v=9b190adb5ce7" data-ms-alt="msNativeAlt" alt="Eight-parameter raw samples in native stellar coordinates"></a>
   </details></section>
+  <section id="pooled-observables" class="ms-card">
+    <h2 data-i18n="jointObservables">Pooled LF, optical depth &amp; ionization</h2>
+    <p data-i18n="jointObservableNote">LF uses the highest stored joint-likelihood sample. Tau and xi use saved outputs; empirical ranges are not validated credible intervals.</p>
+    <p data-i18n="jointSummary">Empirical q16 / median / q84</p>
+    <p id="joint-pooled-summary">τ: 0.05378 / 0.05994 / 0.06793 · xi(z=5.9): 0.95788 / 1.00000 / 1.00000</p>
+    <a href="web_data/joint_muv20/pooled_lf.png?v=9b0d96ebc207"><img loading="lazy" src="web_data/joint_muv20/pooled_lf.png?v=9b0d96ebc207" alt="Joint-sample LF at redshifts 6, 7, 8 and 10 with observed LF points and halo-mass markers"></a>
+    <a href="web_data/joint_muv20/pooled_tau_xi.png?v=f6d6b4ec33ed"><img loading="lazy" src="web_data/joint_muv20/pooled_tau_xi.png?v=f6d6b4ec33ed" alt="Pooled optical depth and ionization histories; exploratory only"></a>
+    <div class="ms-links"><b data-i18n="jointDownloads">Download numerical data</b><a href="web_data/joint_muv20/pooled_observables.json">LF / τ / xi · JSON</a><a href="web_data/joint_muv20/pooled_samples.csv">Samples · CSV</a><a href="web_data/joint_muv20/pooled_xi_history.csv">xi(z) · CSV</a></div>
+  </section>
   <section id="diagnostics" class="ms-card" aria-labelledby="diagnostics-title">
     <div class="section-heading"><div><span class="section-index">04</span><h2 id="diagnostics-title" data-i18n="msWhy">Execution is not convergence</h2></div></div>
     <p data-i18n="msDrift">Two exploratory ensembles, including their inherited prefixes once. Completion is not convergence; no credible-interval claim. Numerical-domain proposals occurred. Each line is a walker, not an independent chain.</p>
@@ -62,7 +71,7 @@
   </section>
   <footer class="ms-footer"><span class="technical-label" data-i18n="msFooter">JOINT / MUV &gt; −20 / EXPLORATORY · NOT CONVERGED</span><a href="index.html" data-i18n="msBack">Return to Signal Atlas ↗</a></footer>
 </main>
-<script src="i18n.js?v=joint-20260928"></script>
-<script src="ms-corner.js?v=joint-20260928"></script>
+<script src="i18n.js?v=joint-20260928-pooled"></script>
+<script src="ms-corner.js?v=joint-20260928-pooled"></script>
 </body>
 </html>

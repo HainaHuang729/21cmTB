@@ -9,6 +9,29 @@ const catalog = json('web_data/mcmc/index.json');
 const lf = json(`${catalog.categories.lf_only.directory}/index.json`);
 const joint = json(`${catalog.categories.joint.directory}/index.json`);
 
+test('pooled observables retain actual joint samples and numerical provenance', () => {
+  const p=json(`${catalog.categories.joint.directory}/pooled_observables.json`);
+  assert.equal(p.sample_count,12800);assert.equal(p.status,'EXPLORATORY_NOT_CONVERGED');
+  assert.match(p.aggregation,/Repeated|repeated/);
+  const best=p.best_sample,offset=best.ensemble*6400+best.step_zero_based*32+best.walker;
+  assert.deepEqual(best.theta,joint.samples[offset]);
+  assert.ok(Math.abs(p.lf.recomputed_log_lf-best.log_likelihood_components.LF)<.01);
+  assert.deepEqual(p.lf.redshifts,[6,7,8,10]);
+  assert.equal(Object.values(p.lf.observations).flat().length,34);
+  assert.ok(Object.values(p.lf.observations).flat().every(r=>r.muv>-20));
+  assert.equal(p.xi_history.redshifts.length,32);
+  p.xi_history.redshifts.forEach((z,i)=>{
+    const q=p.xi_history.quantiles.map(row=>row[i]);
+    assert.ok(q.every(v=>Number.isFinite(v)&&v>=0&&v<=1));assert.ok(q[0]<=q[1]&&q[1]<=q[2]);
+  });
+  assert.equal(p.lf.mass_marker.halo_mass_msun,1e10);
+  assert.doesNotMatch(JSON.stringify(p),/\/oss06\/|\/project\/|\/storage01\//);
+  for(const file of ['pooled_lf.png','pooled_tau_xi.png']){
+    const hash=crypto.createHash('sha256').update(fs.readFileSync(path.join(root,catalog.categories.joint.directory,file))).digest('hex');
+    assert.equal(hash,joint.figure_sha256[file]);
+  }
+});
+
 test('all active inference branches use -20 chains, not relabelled -23 chains', () => {
   for (const item of [lf, joint, ...Object.values(catalog.categories)]) {
     assert.equal(item.magnitude_cut, -20);

@@ -132,7 +132,7 @@ test("all static and literal runtime translation keys exist in both languages", 
   assert.ok(html.indexOf('src="i18n.js') < html.indexOf('src="app.js'));
   assert.ok(html.includes("app.js?v=hii256-v23"));
   assert.ok(html.includes("styles.css?v=lf-bestfit-1"));
-  for (const asset of ["i18n.js", "mcmc.js"]) assert.ok(html.includes(`${asset}?v=joint-20260928`));
+  for (const asset of ["i18n.js", "mcmc.js"]) assert.ok(html.includes(`${asset}?v=joint-20260928-pooled`));
 });
 
 test("default English, saved Chinese, invalid preference and unavailable storage", () => {

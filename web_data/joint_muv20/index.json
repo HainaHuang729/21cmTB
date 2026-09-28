@@ -46,9 +46,11 @@
     }
   ],
   "figure_sha256": {
-    "corner_eta.png": "1d3df215ca689f73741b857ffeff02091e3cc3d3152c2c38fec1d5b4a7d0de7f",
-    "corner_native.png": "083d888d41dab8e098ae4d0d3ca7db03f044599bc7b10ed7478dfebe4b0e654a",
-    "ensemble_traces.png": "92179dda4c1f4c3a4e6dd263fccf6e96b9080be75d2fb8ab3e22a9d5df2eba25"
+    "corner_eta.png": "bc91e30e50acdc4c4b73fc6a384c3805102f35c8b34389049eafe5624ea9b6c0",
+    "corner_native.png": "9b190adb5ce74e9f6ebf4242e248e79f2fbf1653183687dd25e43d19d537d4d1",
+    "ensemble_traces.png": "92179dda4c1f4c3a4e6dd263fccf6e96b9080be75d2fb8ab3e22a9d5df2eba25",
+    "pooled_lf.png": "9b0d96ebc207ff885b7f9c77ec1d7de2f09edeb7882504d54d976d0f2d06b83c",
+    "pooled_tau_xi.png": "f6d6b4ec33edd630eda9da0be28669f7b3435c129e48bd4489933ab5340e40c4"
   },
   "continuation_included": true,
   "diagnostic_gate_passed": false,
@@ -256058,5 +256060,7 @@
       362.52145997520654
     ]
   ],
-  "note": "Two 128-grid ensembles; exploratory, not converged. No 256-grid or LF-only samples combined."
+  "note": "Two 128-grid ensembles; exploratory, not converged. No 256-grid or LF-only samples combined.",
+  "aggregation": "Equal weight per retained row; both chains pooled; repeated states retained; inherited prefix included once",
+  "pooled_observables": "pooled_observables.json"
 }
