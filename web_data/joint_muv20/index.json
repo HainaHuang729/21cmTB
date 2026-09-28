@@ -46,8 +46,8 @@
     }
   ],
   "figure_sha256": {
-    "corner_eta.png": "2ad1d59c6e7af52ead43d507b3f64accc75d13b3b7b52ac84a9876cc161d5fb2",
-    "corner_native.png": "6f83fe056478b07893872205895e97e301f34f52042efc3c89ab0c32bb1bba6f",
+    "corner_eta.png": "08e93af74ab777eb18fa5c1d2e946ad065956a3adb8ebc30bbb35785bf96f36f",
+    "corner_native.png": "0dd6066a6b3da2ef8a455de233dbd8018350ef16c2d4b67ec78c855c13209eb4",
     "ensemble_traces.png": "1f364a9a2ea1d6741cedfe4ce36ea95307795a5aac51e8f4fb3f9cf1a340ad60",
     "pooled_lf.png": "34fd2747f026383f35350e9088191ea0649146a436ec5d2aea69fcdf1fdc34bb",
     "pooled_tau_xi.png": "59da9f92099d121e363fb6eb7fdc5729ae1ca840fdf68f54fe292f7506830ad3"

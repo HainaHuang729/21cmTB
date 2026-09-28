@@ -83,6 +83,8 @@ test('joint data are explicitly a new fixed-cosmology eight-parameter functional
     assert.equal(pos[0][0],pos[2][0]);assert.equal(pos[1][0],pos[3][0]);
     assert.equal(pos[0][1],pos[1][1]);assert.equal(pos[2][1],pos[3][1]);
     assert.ok(pos[4][1]+pos[4][3]<pos[5][1]);
+    assert.ok(Math.abs(pos[5][0]+pos[5][2]-pos[4][0]-pos[4][2])<1e-10);
+    assert.ok(Math.abs(pos[5][0]+pos[5][2]-pos[1][0]-pos[1][2])<1e-10);
     assert.ok(Math.abs(pos[4][2]/pos[4][3]-pos[5][2]/pos[5][3])<1e-10);
     assert.ok(pos[4][2]/pos[4][3]>1.5);
     assert.deepEqual(audit[file].text_overlaps, []);
