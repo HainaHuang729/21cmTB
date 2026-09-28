@@ -77,6 +77,7 @@ test('joint data are explicitly a new fixed-cosmology eight-parameter functional
   const audit = json(`${catalog.categories.joint.directory}/layout_audit.json`);
   for (const file of ['corner_eta.png', 'corner_native.png']) {
     assert.equal(audit[file].passed, true);
+    assert.deepEqual(audit[file].panels,['LF z6','LF z7','LF z8','LF z10','tau','xi']);
     assert.deepEqual(audit[file].text_overlaps, []);
     assert.deepEqual(audit[file].clipped_text, []);
     const relative = `${catalog.categories.joint.directory}/${file}`;
