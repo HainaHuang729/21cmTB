@@ -46,11 +46,11 @@
     }
   ],
   "figure_sha256": {
-    "corner_eta.png": "08e93af74ab777eb18fa5c1d2e946ad065956a3adb8ebc30bbb35785bf96f36f",
-    "corner_native.png": "0dd6066a6b3da2ef8a455de233dbd8018350ef16c2d4b67ec78c855c13209eb4",
+    "corner_eta.png": "4cca210d76a8d1dc941f99d4650dcb7d4a0a696962e3996ad5148bb4b575d15a",
+    "corner_native.png": "cd4a57c473328f91483eef632fd3e633ec54593baca55aa132611e29acd76555",
     "ensemble_traces.png": "1f364a9a2ea1d6741cedfe4ce36ea95307795a5aac51e8f4fb3f9cf1a340ad60",
     "pooled_lf.png": "34fd2747f026383f35350e9088191ea0649146a436ec5d2aea69fcdf1fdc34bb",
-    "pooled_tau_xi.png": "59da9f92099d121e363fb6eb7fdc5729ae1ca840fdf68f54fe292f7506830ad3"
+    "pooled_tau_xi.png": "1e370690fa0d7fbdd358a99490735697b6cdd7cf1ae92c4476787a70971c3d69"
   },
   "continuation_included": true,
   "diagnostic_gate_passed": false,

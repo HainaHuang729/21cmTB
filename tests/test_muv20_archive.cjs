@@ -77,7 +77,14 @@ test('joint data are explicitly a new fixed-cosmology eight-parameter functional
   const audit = json(`${catalog.categories.joint.directory}/layout_audit.json`);
   for (const file of ['corner_eta.png', 'corner_native.png']) {
     assert.equal(audit[file].passed, true);
-    assert.deepEqual(audit[file].panels,['LF z6','LF z7','LF z8','LF z10','tau','xi']);
+    assert.deepEqual(audit[file].panels,['LF z6','LF z7','LF z8','LF z10','tau','xHI']);
+    const h=json(`${catalog.categories.joint.directory}/pooled_observables.json`);
+    const display=audit[file].history_display;
+    assert.equal(display.quantity,'volume_mean_neutral_hydrogen_fraction');
+    assert.equal(display.observation_direction,'upper');
+    assert.equal(display.observation_threshold,h.observational_inputs.neutral_fraction.threshold);
+    display.quantiles.forEach((row,j)=>row.forEach((v,i)=>assert.ok(Math.abs(v-(1-h.xi_history.quantiles[2-j][i]))<1e-12)));
+    display.best.forEach((v,i)=>assert.ok(Math.abs(v-(1-h.xi_history.best[i]))<1e-12));
     assert.equal(audit[file].layout,'park-inspired-lf-2x2-stacked-history-tau');
     const pos=audit[file].positions;
     assert.equal(pos[0][0],pos[2][0]);assert.equal(pos[1][0],pos[3][0]);

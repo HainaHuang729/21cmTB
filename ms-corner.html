@@ -47,21 +47,21 @@
   <section id="corner" class="ms-card" aria-labelledby="corner-title">
     <div class="section-heading"><div><span class="section-index">03</span><h2 id="corner-title" data-i18n="msSampling">Raw sampling coordinates</h2></div></div>
     <p data-i18n="msCaption">E0 + E1 pooled with equal weight per stored row; repeated states retained. Raw scatter and marginal counts, not validated posterior constraints. η★ = log₁₀(f★,10/t★).</p>
-    <a href="web_data/joint_muv20/corner_eta.png?v=08e93af74ab7"><img src="web_data/joint_muv20/corner_eta.png?v=08e93af74ab7" data-ms-alt="msEtaAlt" alt="Eight-parameter joint functional-test samples with MUV > −20; not posterior constraints"></a>
+    <a href="web_data/joint_muv20/corner_eta.png?v=4cca210d76a8"><img src="web_data/joint_muv20/corner_eta.png?v=4cca210d76a8" data-ms-alt="msEtaAlt" alt="Eight-parameter joint functional-test samples with MUV > −20; not posterior constraints"></a>
     <p class="ms-note" data-i18n="msFigureLanguage">Plot annotations remain in English; captions switch with the interface.</p>
   </section>
   <section class="ms-card"><details><summary data-i18n="msNative">Native stellar-efficiency coordinates</summary>
     <p data-i18n="msTransform">Coordinate transformation only: log₁₀ f★,10 = η★ + log₁₀ t★. No resampling or change of weights.</p>
-    <a href="web_data/joint_muv20/corner_native.png?v=0dd6066a6b3d"><img loading="lazy" src="web_data/joint_muv20/corner_native.png?v=0dd6066a6b3d" data-ms-alt="msNativeAlt" alt="Eight-parameter raw samples in native stellar coordinates"></a>
+    <a href="web_data/joint_muv20/corner_native.png?v=cd4a57c47332"><img loading="lazy" src="web_data/joint_muv20/corner_native.png?v=cd4a57c47332" data-ms-alt="msNativeAlt" alt="Eight-parameter raw samples in native stellar coordinates"></a>
   </details></section>
   <section id="pooled-observables" class="ms-card">
-    <h2 data-i18n="jointObservables">Pooled LF, optical depth &amp; ionization</h2>
-    <p data-i18n="jointObservableNote">LF: median and empirical 16–84% range from 256 stratified retained rows; dashed line: highest stored joint likelihood. Tau and xi use all 12,800 rows. Not converged; no credible-interval claim.</p>
+    <h2 data-i18n="jointObservables">Pooled LF, optical depth &amp; neutral hydrogen</h2>
+    <p data-i18n="jointObservableNote">LF: median and empirical 16–84% range from 256 stratified retained rows; dashed line: highest stored joint likelihood. Tau and neutral hydrogen fraction xHI use all 12,800 rows. Not converged; no credible-interval claim.</p>
     <p data-i18n="jointSummary">Empirical q16 / median / q84</p>
-    <p id="joint-pooled-summary">τ: 0.05378 / 0.05994 / 0.06793 · xi(z=5.9): 0.95788 / 1.00000 / 1.00000</p>
+    <p id="joint-pooled-summary">τ: 0.05378 / 0.05994 / 0.06793 · xHI(z=5.9): 0.00000 / 0.00000 / 0.04212</p>
     <a href="web_data/joint_muv20/pooled_lf.png?v=34fd2747f026"><img loading="lazy" src="web_data/joint_muv20/pooled_lf.png?v=34fd2747f026" alt="Joint-sample LF at redshifts 6, 7, 8 and 10 with observed LF points and halo-mass markers"></a>
-    <a href="web_data/joint_muv20/pooled_tau_xi.png?v=59da9f92099d"><img loading="lazy" src="web_data/joint_muv20/pooled_tau_xi.png?v=59da9f92099d" alt="Pooled optical depth and ionization histories; exploratory only"></a>
-    <div class="ms-links"><b data-i18n="jointDownloads">Download numerical data</b><a href="web_data/joint_muv20/pooled_observables.json">LF / τ / xi · JSON</a><a href="web_data/joint_muv20/pooled_lf_bands.json">LF bands / 256 rows · JSON</a><a href="web_data/joint_muv20/pooled_samples.csv">Samples · CSV</a><a href="web_data/joint_muv20/pooled_xi_history.csv">xi(z) · CSV</a></div>
+    <a href="web_data/joint_muv20/pooled_tau_xi.png?v=1e370690fa0d"><img loading="lazy" src="web_data/joint_muv20/pooled_tau_xi.png?v=1e370690fa0d" alt="Pooled optical depth and volume-mean neutral hydrogen fraction; exploratory only"></a>
+    <div class="ms-links"><b data-i18n="jointDownloads">Download numerical data</b><a href="web_data/joint_muv20/pooled_observables.json">LF / τ / xi · JSON</a><a href="web_data/joint_muv20/pooled_lf_bands.json">LF bands / 256 rows · JSON</a><a href="web_data/joint_muv20/pooled_samples.csv">Samples · CSV</a><a href="web_data/joint_muv20/pooled_xhi_history.csv">xHI(z) · CSV</a><a href="web_data/joint_muv20/pooled_xi_history.csv">xi(z) · CSV</a></div>
   </section>
   <section id="diagnostics" class="ms-card" aria-labelledby="diagnostics-title">
     <div class="section-heading"><div><span class="section-index">04</span><h2 id="diagnostics-title" data-i18n="msWhy">Execution is not convergence</h2></div></div>
