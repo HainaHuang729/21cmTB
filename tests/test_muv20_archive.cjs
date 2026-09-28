@@ -36,15 +36,15 @@ test('all active inference branches use -20 chains, not relabelled -23 chains', 
 });
 
 test('joint data are explicitly a new fixed-cosmology eight-parameter functional test', () => {
-  assert.equal(joint.status, 'SMOKE_ONLY_NOT_CONVERGED_NOT_A_POSTERIOR');
-  assert.deepEqual(joint.sources[0].shape, [3, 16, 8]);
-  assert.equal(joint.sources.length, 1);
+  assert.equal(joint.status, 'EXPLORATORY_NOT_CONVERGED');
+  assert.deepEqual(joint.sources[0].shape, [200, 32, 8]);
+  assert.equal(joint.sources.length, 2);
   assert.deepEqual(joint.fixed, {KP_h_Mpc: 10, MS: 2.5});
-  assert.equal(joint.simulation.HII_DIM, 256);
-  assert.equal(joint.sample_count, 48);
-  assert.equal(joint.continuation_included, false);
+  assert.equal(joint.simulation.HII_DIM, 128);
+  assert.equal(joint.sample_count, 12800);
+  assert.equal(joint.continuation_included, true);
   assert.equal(joint.diagnostic_gate_passed, false);
-  assert.equal(joint.samples.length, 48);
+  assert.equal(joint.samples.length, 12800);
   assert.equal(new Set(joint.parameters).size, 8);
   joint.samples.forEach((row, i) => {
     assert.equal(row.length, 8);
@@ -69,8 +69,8 @@ test('active pages and defaults do not expose the old cutoff or joint branch', (
     assert.doesNotMatch(text, /49 LF|same 49|160 saved|Seven sampled|06B \/ 7D|Fixed kₚ\. Free mₛ\.|web_data\/ms_corner_(?:chunk1|lfstyle)\//);
   }
   const page = fs.readFileSync(path.join(root, 'ms-corner.html'), 'utf8');
-  assert.match(page, /SOURCE JOB \/ 2135863/);
-  assert.match(page, /256/);
+  assert.match(page, /SOURCE JOB \/ 2153993/);
+  assert.match(page, /128/);
   // Historical evidence remains available, but is never passed off as new data.
   assert.ok(fs.existsSync(path.join(root, 'web_data/ms_corner_chunk1/index.json')));
 });

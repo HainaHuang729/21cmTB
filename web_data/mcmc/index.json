@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "snapshot_date": "2026-09-18",
+  "snapshot_date": "2026-09-28",
   "independent_of_atlas_parameter_grid": true,
   "files_sha256": {
     "web_data/lf_corner/index_seed.json": "1462df68090c9be461e370b7ec925abc7ce69c32d163fad6480b157ce847460b",
@@ -94,11 +94,11 @@
     "web_data/ms_corner_lfstyle/ensemble_traces.png": "9f83a2fda6c7ae9b406ca08e0e9c78314929a76076f1c9225dd5ad91355a3800",
     "web_data/ms_corner_lfstyle/index.json": "89e612d7bdd648da9d7bc37bd8560dbcaff10b3d09bc63ff547296838858a861",
     "web_data/ms_corner_lfstyle/layout_audit.json": "dcfccbb0c8041cf2af54872e58df35a15a3ff9469dfdf4e58847413feb92d646",
-    "web_data/joint_muv20/corner_eta.png": "19eac6c967804f61e64142e7314943557add50a891496b5545124660b0d62381",
-    "web_data/joint_muv20/corner_native.png": "a2effe943a6e34ed029a9cd101cd889804fe4908ad87e60174c82880dfedf746",
-    "web_data/joint_muv20/diagnostics.json": "4b0b9edb914afd514cc5062db2dabd9b7f26e6d5ddae5c40869fda95f0da7351",
-    "web_data/joint_muv20/ensemble_traces.png": "c8d7fba5c5922dc6465ad836bd0c1bef69b41dc50b30282276eb91d263143f84",
-    "web_data/joint_muv20/index.json": "ba1166b5fae547e293434afa8d8b68e7012e501ebeb9c12c056ffb513b573546",
+    "web_data/joint_muv20/corner_eta.png": "1d3df215ca689f73741b857ffeff02091e3cc3d3152c2c38fec1d5b4a7d0de7f",
+    "web_data/joint_muv20/corner_native.png": "083d888d41dab8e098ae4d0d3ca7db03f044599bc7b10ed7478dfebe4b0e654a",
+    "web_data/joint_muv20/diagnostics.json": "34834b5a8e81351edf4854e82ecf3e449c3782b1d6069d9390aeb53ba1a76399",
+    "web_data/joint_muv20/ensemble_traces.png": "92179dda4c1f4c3a4e6dd263fccf6e96b9080be75d2fb8ab3e22a9d5df2eba25",
+    "web_data/joint_muv20/index.json": "711f5d37b67a24c829a7692aab12dac59865990f200c36dd35be917976cdf88b",
     "web_data/joint_muv20/layout_audit.json": "c8141a866decfd44778a90543c87064d56c5fcbf1e8837d16e493afad61e8d14",
     "web_data/park_pl_comparison/index.json": "287eb42f81d3eeda5e24202bccb039885866acf913e455a7994443275f0988c2",
     "web_data/park_pl_comparison/park_vs_pl_muv20.png": "a431def24d620e2c85948688214efbdf2e874601ff775b6406adbdf23f1a4025",
@@ -143,9 +143,9 @@
     "joint": {
       "label": "LF + tau + xi",
       "directory": "web_data/joint_muv20",
-      "status": "SMOKE_ONLY_NOT_CONVERGED_NOT_A_POSTERIOR",
+      "status": "EXPLORATORY_NOT_CONVERGED",
       "dimensions": 8,
-      "ensembles": 1,
+      "ensembles": 2,
       "fixed": [
         "KP_h_Mpc",
         "MS"
@@ -157,15 +157,15 @@
       ],
       "xi_definition": "xi = 1 - xHI; not a likelihood on the entire xi(z) history",
       "sample_count_semantics": "Correlated stored rows, not effective independent samples",
-      "continuing_runs_included": false,
-      "snapshot_date": "2026-09-18",
+      "continuing_runs_included": true,
+      "snapshot_date": "2026-09-28",
       "magnitude_cut": -20,
       "lf_points": 34,
-      "provenance": "Completed fixed-kp10/ms2.5 eight-parameter functional test; not a posterior. Old free-ms snapshot retained only as historical files."
+      "provenance": "Closed 200-step chains, fixed kp10/ms2.5, HII_DIM128 DIM512; exploratory, not converged."
     }
   },
   "figure_styles": {
     "lf_only": "white_corner_with_maximum_lf_predictions",
-    "joint": "raw-functional-test-scatter"
+    "joint": "raw-two-ensemble-exploratory-scatter"
   }
 }

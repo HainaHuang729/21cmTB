@@ -234,23 +234,23 @@
         <div class="inference-copy">
           <p class="technical-label">06B / 8D</p>
           <h3 id="mcmc-joint-title">LF + τ + ξ</h3>
-          <p class="inference-status" data-i18n="mcmcJointStatus">FUNCTIONAL TEST ONLY · NOT A POSTERIOR</p>
-          <p data-i18n="mcmcJointDescription">Fixed kₚ = 10 h Mpc⁻¹ and mₛ = 2.5. Eight sampled parameters: four stellar, two escape-fraction and two X-ray parameters. One short ensemble; not the earlier free-mₛ analysis.</p>
+          <p class="inference-status" data-i18n="mcmcJointStatus">EXPLORATORY · NOT CONVERGED</p>
+          <p data-i18n="mcmcJointDescription">Fixed kₚ = 10 h Mpc⁻¹ and mₛ = 2.5. Eight sampled parameters; two ensembles at HII_DIM = 128, DIM = 512. Not the earlier free-mₛ or 256-grid analysis.</p>
           <p class="inference-detail" data-i18n="mcmcJointData">The same 34 LF points with MUV &gt; −20, plus Planck τₑ and McGreer xHI(z = 5.9). ξ = 1 − xHI; this is not a measured full ξ(z) history. No 21-cm likelihood.</p>
           <dl class="inference-metadata">
-            <div><dt data-i18n="mcmcSnapshot">ARCHIVED SNAPSHOT</dt><dd id="mcmc-joint-date">2026-09-18</dd></div>
+            <div><dt data-i18n="mcmcSnapshot">ARCHIVED SNAPSHOT</dt><dd id="mcmc-joint-date">2026-09-28</dd></div>
             <div><dt data-i18n="mcmcSampling">STORED STEPS × WALKERS × ENSEMBLES</dt><dd id="mcmc-joint-sampling">—</dd></div>
             <div><dt data-i18n="mcmcRows">CORRELATED ROWS · NOT ESS</dt><dd id="mcmc-joint-rows">—</dd></div>
-            <div><dt data-i18n="mcmcCompute">COEVAL GRID / BOX</dt><dd>256³ / 250 cMpc</dd></div>
+            <div><dt data-i18n="mcmcCompute">COEVAL GRID / BOX</dt><dd>128³ / 250 cMpc</dd></div>
           </dl>
-          <p class="inference-detail" data-i18n="mcmcJointCaution">3 stored steps × 16 walkers after 1 initial burn-in step. These 48 correlated rows test runtime and interface stability only. The running continuation is not included; no convergence or credible-interval claim.</p>
+          <p class="inference-detail" data-i18n="mcmcJointCaution">200 stored steps × 32 walkers × 2 ensembles after 10 initial burn-in steps each. All 12,800 correlated rows are shown, including the inherited 100-step prefix once. Not converged; no credible-interval claim.</p>
           <a class="system-action" href="ms-corner.html" data-i18n="mcmcDiagnostics">Coordinates &amp; convergence diagnostics ↗</a>
         </div>
         <figure class="inference-figure">
-          <a id="mcmc-joint-open" href="web_data/joint_muv20/corner_eta.png?v=muv20-20260918" target="_blank" rel="noopener" data-i18n-title="mcmcOpen" title="Open full-resolution figure">
-            <img id="mcmc-joint-image" src="web_data/joint_muv20/corner_eta.png?v=muv20-20260918" width="3080" height="3080" loading="lazy" decoding="async" data-i18n-alt="mcmcJointAlt" alt="Eight-parameter joint functional-test samples; not posterior constraints">
+          <a id="mcmc-joint-open" href="web_data/joint_muv20/corner_eta.png?v=1d3df215ca68" target="_blank" rel="noopener" data-i18n-title="mcmcOpen" title="Open full-resolution figure">
+            <img id="mcmc-joint-image" src="web_data/joint_muv20/corner_eta.png?v=1d3df215ca68" width="3080" height="3080" loading="lazy" decoding="async" data-i18n-alt="mcmcJointAlt" alt="Eight-parameter joint functional-test samples; not posterior constraints">
           </a>
-          <figcaption><span>FIG / 06B</span><span data-i18n="mcmcJointCaption">Raw scatter and marginal counts for one short ensemble. No smoothed credible contours or interval estimates. η★ = log₁₀(f★,10/t★).</span></figcaption>
+          <figcaption><span>FIG / 06B</span><span data-i18n="mcmcJointCaption">Two ensembles: red / blue raw scatter and marginal counts. No credible contours or interval estimates. η★ = log₁₀(f★,10/t★).</span></figcaption>
         </figure>
       </article>
       <p class="inference-separation" data-i18n="mcmcSeparation">Separate chains and parameter spaces, all with MUV &gt; −20. LF-only samples four parameters; the joint functional test samples eight at fixed kₚ = 10 and mₛ = 2.5. It cannot establish the effect of adding τ and ξ. Plot annotations remain in English.</p>
@@ -301,8 +301,8 @@
       </div>
     </div>
   </section>
-  <script src="i18n.js?v=muv20-20260918&amp;layout=right-pl-1&amp;jointstyle=1&amp;archive=park-pl-merged-1&amp;lfmass=20260923&amp;response=1"></script>
-  <script src="mcmc.js?v=muv20-20260918&amp;layout=right-pl-1"></script>
+  <script src="i18n.js?v=joint-20260928&amp;layout=right-pl-1&amp;jointstyle=1&amp;archive=park-pl-merged-1&amp;lfmass=20260923&amp;response=1"></script>
+  <script src="mcmc.js?v=joint-20260928&amp;layout=right-pl-1"></script>
   <script src="lf-mass.js?v=20260923"></script>
   <script src="posterior.js?v=20260926-data1"></script>
   <script src="app.js?v=hii256-v23&amp;data=muv20-20260918&amp;lfmass=20260923&amp;response=1&amp;posterior=1"></script>

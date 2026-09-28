@@ -132,7 +132,7 @@ test("all static and literal runtime translation keys exist in both languages", 
   assert.ok(html.indexOf('src="i18n.js') < html.indexOf('src="app.js'));
   assert.ok(html.includes("app.js?v=hii256-v23"));
   assert.ok(html.includes("styles.css?v=lf-bestfit-1"));
-  for (const asset of ["i18n.js", "mcmc.js"]) assert.ok(html.includes(`${asset}?v=muv20-20260918`));
+  for (const asset of ["i18n.js", "mcmc.js"]) assert.ok(html.includes(`${asset}?v=joint-20260928`));
 });
 
 test("default English, saved Chinese, invalid preference and unavailable storage", () => {
@@ -437,9 +437,9 @@ test("all 25 corners follow dock KP/MS with provenance, no substitute for PL, an
   assert.deepEqual(Array.from(archive.categories.lf_only.likelihood), ["LF"]);
   assert.equal(archive.categories.lf_only.dimensions, 4);
   assert.equal(archive.categories.joint.dimensions, 8);
-  assert.equal(archive.joint.status, "SMOKE_ONLY_NOT_CONVERGED_NOT_A_POSTERIOR");
+  assert.equal(archive.joint.status, "EXPLORATORY_NOT_CONVERGED");
   assert.equal(archive.joint.lf_points, archive.categories.lf_only.lf_points);
-  assert.equal(h.get("#mcmc-joint-rows").textContent, "48");
+  assert.equal(h.get("#mcmc-joint-rows").textContent, "12,800");
   assert.equal(h.get("#mcmc-joint-date").textContent, archive.joint.snapshot_date);
   const jointPath = h.get("#mcmc-joint-image").getAttribute("src");
   assert.ok(jointPath.endsWith(`?v=${archive.joint.figure_sha256["corner_eta.png"].slice(0, 12)}`));

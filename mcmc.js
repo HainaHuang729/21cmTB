@@ -95,7 +95,7 @@ window.AtlasMCMC = (() => {
         readJSON(`${categories.lf_only.directory}/index.json`),
         readJSON(`${categories.joint.directory}/index.json`),
       ]);
-      if (lf.analysis !== "LF-only" || !lf.models.length || joint.status !== "SMOKE_ONLY_NOT_CONVERGED_NOT_A_POSTERIOR") throw new Error("Unexpected archive identity");
+      if (lf.analysis !== "LF-only" || !lf.models.length || joint.status !== "EXPLORATORY_NOT_CONVERGED") throw new Error("Unexpected archive identity");
       if ([lf, joint, categories.lf_only, categories.joint].some(item => item.magnitude_cut !== -20 || item.lf_points !== 34)) throw new Error("Mixed LF magnitude selections");
       for (const model of lf.models) {
         if (!/^lf_corner_[\w.]+\.png$/.test(model.file) || model.parameters.length !== 4 ||
@@ -110,7 +110,7 @@ window.AtlasMCMC = (() => {
       const pairs = new Set(lf.models.map(model => `${model.KP_h_Mpc}/${model.MS}`));
       if (pairs.size !== lf.models.length || lf.grid.kp_h_Mpc.length * lf.grid.ms.length !== pairs.size ||
           lf.grid.kp_h_Mpc.some(kp => lf.grid.ms.some(ms => !pairs.has(`${kp}/${ms}`)))) throw new Error("Incomplete LF model grid");
-      if (joint.sources.length !== 1 || joint.dimensions !== 8 || joint.sources.some(source => source.shape[2] !== 8) ||
+      if (joint.sources.length !== 2 || joint.simulation.HII_DIM !== 128 || joint.dimensions !== 8 || joint.sources.some(source => source.shape[0] !== 200 || source.shape[1] !== 32 || source.shape[2] !== 8) ||
           joint.fixed.KP_h_Mpc !== 10 || joint.fixed.MS !== 2.5 || joint.diagnostic_gate_passed !== false) throw new Error("Invalid joint snapshot");
       for (const file of ["corner_eta.png", "corner_native.png"]) {
         const digest = joint.figure_sha256?.[file];

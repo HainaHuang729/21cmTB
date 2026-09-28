@@ -1,33 +1,33 @@
 {
-  "status": "pass",
-  "scientific_role": "SMOKE_ONLY_NOT_CONVERGED_NOT_A_POSTERIOR",
-  "chain_shape": [
-    3,
-    16,
-    8
+  "status": "EXPLORATORY_NOT_CONVERGED",
+  "diagnostic_gate_passed": false,
+  "run_reports": [
+    {
+      "status": "complete",
+      "scientific_role": "EXPLORATORY_NOT_CONVERGED",
+      "stored_steps": 200,
+      "additional_steps": 100,
+      "mean_acceptance_this_segment": 0.275625,
+      "proposal_status_counts": {
+        "outside_prior": 1205,
+        "ok": 1990,
+        "numerical_domain": 5
+      },
+      "median_successful_evaluation_seconds": 661.4477079468779
+    },
+    {
+      "status": "complete",
+      "scientific_role": "EXPLORATORY_NOT_CONVERGED",
+      "stored_steps": 200,
+      "additional_steps": 100,
+      "mean_acceptance_this_segment": 0.3025,
+      "proposal_status_counts": {
+        "outside_prior": 1173,
+        "ok": 2019,
+        "numerical_domain": 8
+      },
+      "median_successful_evaluation_seconds": 666.3011769419536
+    }
   ],
-  "finite_log_prob": true,
-  "mean_acceptance": 0.5625,
-  "acceptance_by_walker": [
-    0.5,
-    0.75,
-    0.25,
-    0.5,
-    0.5,
-    0.75,
-    0.75,
-    0.75,
-    0.75,
-    0.5,
-    0.25,
-    0.5,
-    0.75,
-    0.25,
-    0.75,
-    0.5
-  ],
-  "proposal_status_counts": {
-    "ok": 80
-  },
-  "median_successful_evaluation_seconds": 7207.923087345203
+  "note": "Completion reports only; no new convergence certification."
 }

@@ -22,47 +22,47 @@
 </header>
 <main class="ms-content">
   <section class="ms-intro">
-    <p class="technical-label" data-i18n="msKicker">JOINT TEST / MUV &gt; −20 · SNAPSHOT / 2026-09-18</p>
+    <p class="technical-label" data-i18n="msKicker">JOINT / MUV &gt; −20 · SNAPSHOT / 2026-09-28</p>
     <h1 data-i18n="msTitle">Fixed cosmology. Joint test.</h1>
     <p class="ms-equation">LF + τₑ + x<sub>HI</sub></p>
-    <p data-i18n="msSubtitle">Fixed kₚ = 10 h Mpc⁻¹ and mₛ = 2.5. Eight sampled parameters: four stellar, two escape-fraction and two X-ray parameters. One short ensemble; not the earlier free-mₛ analysis.</p>
+    <p data-i18n="msSubtitle">Fixed kₚ = 10 h Mpc⁻¹ and mₛ = 2.5. Eight sampled parameters; two ensembles at HII_DIM = 128, DIM = 512. Not the earlier free-mₛ or 256-grid analysis.</p>
   </section>
-  <aside class="ms-warning" role="note"><strong data-i18n="msWarning">FUNCTIONAL TEST ONLY · NOT A POSTERIOR</strong><p data-i18n="msWarningBody">3 stored steps × 16 walkers after 1 initial burn-in step. These 48 correlated rows test runtime and interface stability only. The running continuation is not included; no convergence or credible-interval claim.</p></aside>
+  <aside class="ms-warning" role="note"><strong data-i18n="msWarning">EXPLORATORY · NOT CONVERGED</strong><p data-i18n="msWarningBody">200 stored steps × 32 walkers × 2 ensembles after 10 initial burn-in steps each. All 12,800 correlated rows are shown, including the inherited 100-step prefix once. Not converged; no credible-interval claim.</p></aside>
   <section class="ms-card" aria-labelledby="branch-title">
     <div class="section-heading"><div><span class="section-index">01</span><h2 id="branch-title" data-i18n="msIdentity">Separate inference branches</h2></div></div>
     <div class="ms-branches">
-      <article><p class="technical-label" data-i18n="msThis">THIS PAGE / EIGHT-PARAMETER JOINT TEST</p><p data-i18n="msJoint">Fixed kₚ = 10 h Mpc⁻¹ and mₛ = 2.5. Eight sampled parameters: four stellar, two escape-fraction and two X-ray parameters. One short ensemble; not the earlier free-mₛ analysis.</p></article>
+      <article><p class="technical-label" data-i18n="msThis">THIS PAGE / EIGHT-PARAMETER JOINT TEST</p><p data-i18n="msJoint">Fixed kₚ = 10 h Mpc⁻¹ and mₛ = 2.5. Eight sampled parameters; two ensembles at HII_DIM = 128, DIM = 512. Not the earlier free-mₛ or 256-grid analysis.</p></article>
       <article><p class="technical-label" data-i18n="msOther">OTHER BRANCH / FOUR-PARAMETER LF ONLY</p><p data-i18n="msLFOnly">A grid of fixed kₚ / mₛ models. Four stellar parameters are sampled using LF alone, without τₑ or neutral-fraction constraints.</p></article>
     </div>
     <p class="ms-note" data-i18n="msSeparation">Separate chains and parameter spaces, all with MUV &gt; −20. LF-only samples four parameters; the joint functional test samples eight at fixed kₚ = 10 and mₛ = 2.5. It cannot establish the effect of adding τ and ξ. Plot annotations remain in English.</p>
   </section>
   <section class="ms-card" aria-labelledby="setup-title">
     <div class="section-heading"><div><span class="section-index">02</span><h2 id="setup-title" data-i18n="msSetup">Snapshot &amp; configuration</h2></div></div>
-    <p data-i18n="msSample">3 stored steps × 16 walkers after 1 initial burn-in step. These 48 correlated rows test runtime and interface stability only. The running continuation is not included; no convergence or credible-interval claim.</p>
-    <p data-i18n="msCaution">48 correlated rows are not 48 independent effective samples. The source is the completed three-step run; the live continuation is not included.</p>
+    <p data-i18n="msSample">200 stored steps × 32 walkers × 2 ensembles after 10 initial burn-in steps each. All 12,800 correlated rows are shown, including the inherited 100-step prefix once. Not converged; no credible-interval claim.</p>
+    <p data-i18n="msCaution">12,800 correlated rows are not independent effective samples. Two closed 200-step chains; not converged.</p>
     <p data-i18n="msData">The same 34 LF points with MUV &gt; −20, plus Planck τₑ and McGreer xHI(z = 5.9). ξ = 1 − xHI; this is not a measured full ξ(z) history. No 21-cm likelihood.</p>
-    <p data-i18n="msCompute">Direct 21cmFAST coeval simulations and τ integration. HII_DIM = 256, DIM = 768, BOX_LEN = 250 cMpc. These are not the Atlas lightcone-grid runs.</p>
-    <p class="technical-label">SOURCE JOB / 2135863 · SNAPSHOT / 3 × 16 × 8 · ONE ENSEMBLE</p>
+    <p data-i18n="msCompute">Direct 21cmFAST coeval simulations and τ integration. HII_DIM = 128, DIM = 512, BOX_LEN = 250 cMpc. These are not the Atlas lightcone-grid runs.</p>
+    <p class="technical-label">SOURCE JOB / 2153993 · SNAPSHOT / 200 × 32 × 8 · TWO ENSEMBLES</p>
   </section>
   <section id="corner" class="ms-card" aria-labelledby="corner-title">
     <div class="section-heading"><div><span class="section-index">03</span><h2 id="corner-title" data-i18n="msSampling">Raw sampling coordinates</h2></div></div>
-    <p data-i18n="msCaption">Raw scatter and marginal counts for one short ensemble. No smoothed credible contours or interval estimates. η★ = log₁₀(f★,10/t★).</p>
-    <a href="web_data/joint_muv20/corner_eta.png?v=19eac6c96780"><img src="web_data/joint_muv20/corner_eta.png?v=19eac6c96780" data-ms-alt="msEtaAlt" alt="Eight-parameter joint functional-test samples with MUV > −20; not posterior constraints"></a>
+    <p data-i18n="msCaption">Two ensembles: red / blue raw scatter and marginal counts. No credible contours or interval estimates. η★ = log₁₀(f★,10/t★).</p>
+    <a href="web_data/joint_muv20/corner_eta.png?v=1d3df215ca68"><img src="web_data/joint_muv20/corner_eta.png?v=1d3df215ca68" data-ms-alt="msEtaAlt" alt="Eight-parameter joint functional-test samples with MUV > −20; not posterior constraints"></a>
     <p class="ms-note" data-i18n="msFigureLanguage">Plot annotations remain in English; captions switch with the interface.</p>
   </section>
   <section class="ms-card"><details><summary data-i18n="msNative">Native stellar-efficiency coordinates</summary>
     <p data-i18n="msTransform">Coordinate transformation only: log₁₀ f★,10 = η★ + log₁₀ t★. No resampling or change of weights.</p>
-    <a href="web_data/joint_muv20/corner_native.png?v=a2effe943a6e"><img loading="lazy" src="web_data/joint_muv20/corner_native.png?v=a2effe943a6e" data-ms-alt="msNativeAlt" alt="Eight-parameter raw samples in native stellar coordinates"></a>
+    <a href="web_data/joint_muv20/corner_native.png?v=083d888d41da"><img loading="lazy" src="web_data/joint_muv20/corner_native.png?v=083d888d41da" data-ms-alt="msNativeAlt" alt="Eight-parameter raw samples in native stellar coordinates"></a>
   </details></section>
   <section id="diagnostics" class="ms-card" aria-labelledby="diagnostics-title">
     <div class="section-heading"><div><span class="section-index">04</span><h2 id="diagnostics-title" data-i18n="msWhy">Execution is not convergence</h2></div></div>
-    <p data-i18n="msDrift">This short run starts near the webpage baseline. It tests runtime and interface stability, not posterior exploration. Three steps cannot support R̂, effective-sample-size or credible-interval claims. Lines show individual walkers, not independent chains.</p>
-    <a href="web_data/joint_muv20/ensemble_traces.png?v=c8d7fba5c592"><img loading="lazy" src="web_data/joint_muv20/ensemble_traces.png?v=c8d7fba5c592" data-ms-alt="msTraceAlt" alt="Three-step functional-test traces of sixteen walkers"></a>
+    <p data-i18n="msDrift">Two exploratory ensembles, including their inherited prefixes once. Completion is not convergence; no credible-interval claim. Numerical-domain proposals occurred. Each line is a walker, not an independent chain.</p>
+    <a href="web_data/joint_muv20/ensemble_traces.png?v=92179dda4c1f"><img loading="lazy" src="web_data/joint_muv20/ensemble_traces.png?v=92179dda4c1f" data-ms-alt="msTraceAlt" alt="Three-step functional-test traces of sixteen walkers"></a>
     <div class="ms-links"><a href="web_data/joint_muv20/index.json" data-i18n="msProvenance">Provenance &amp; stored samples ↗</a><a href="web_data/joint_muv20/diagnostics.json" data-i18n="msReport">Functional-test report ↗</a></div>
   </section>
-  <footer class="ms-footer"><span class="technical-label" data-i18n="msFooter">JOINT / MUV &gt; −20 / FUNCTIONAL TEST ONLY</span><a href="index.html" data-i18n="msBack">Return to Signal Atlas ↗</a></footer>
+  <footer class="ms-footer"><span class="technical-label" data-i18n="msFooter">JOINT / MUV &gt; −20 / EXPLORATORY · NOT CONVERGED</span><a href="index.html" data-i18n="msBack">Return to Signal Atlas ↗</a></footer>
 </main>
-<script src="i18n.js?v=muv20-20260918"></script>
-<script src="ms-corner.js?v=muv20-20260918"></script>
+<script src="i18n.js?v=joint-20260928"></script>
+<script src="ms-corner.js?v=joint-20260928"></script>
 </body>
 </html>
