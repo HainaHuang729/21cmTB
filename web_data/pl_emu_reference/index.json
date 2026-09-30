@@ -1,0 +1,276 @@
+{
+  "role": "PL_EMULATOR_APPROXIMATE_REFERENCE",
+  "snapshot_date": "2026-09-30",
+  "sources": [
+    {
+      "file": "ensemble_0.h5",
+      "sha256": "0102af1b6664250e9585c88b0e16d601bbf3742ba46f288309701eb3d408f6ff",
+      "shape": [
+        35000,
+        32,
+        8
+      ]
+    },
+    {
+      "file": "ensemble_1.h5",
+      "sha256": "693a9983669db89291595c1b48958f9ca41da5be558b187aee546f840f423d56",
+      "shape": [
+        35000,
+        32,
+        8
+      ]
+    }
+  ],
+  "manifest": {
+    "role": "PL_EMULATOR_APPROXIMATE_REFERENCE",
+    "priors": {
+      "F_STAR10": [
+        -3.0,
+        0.0
+      ],
+      "ALPHA_STAR": [
+        -0.5,
+        1.0
+      ],
+      "F_ESC10": [
+        -3.0,
+        0.0
+      ],
+      "ALPHA_ESC": [
+        -1.0,
+        0.5
+      ],
+      "M_TURN": [
+        8.0,
+        10.0
+      ],
+      "t_STAR": [
+        0.01,
+        1.0
+      ],
+      "L_X": [
+        38.0,
+        42.0
+      ],
+      "NU_X_THRESH": [
+        100.0,
+        1500.0
+      ]
+    },
+    "parameters": [
+      "ETA_STAR",
+      "t_STAR",
+      "ALPHA_STAR",
+      "M_TURN",
+      "F_ESC10",
+      "ALPHA_ESC",
+      "L_X",
+      "NU_X_THRESH"
+    ],
+    "cosmology": {
+      "SIGMA_8": 0.82,
+      "hlittle": 0.6774,
+      "OMm": 0.3075,
+      "OMb": 0.0486,
+      "POWER_INDEX": 0.97
+    },
+    "emulator_flags": {
+      "USE_HALO_FIELD": false,
+      "USE_MINI_HALOS": false,
+      "USE_MASS_DEPENDENT_ZETA": true,
+      "SUBCELL_RSD": true,
+      "INHOMO_RECO": true,
+      "USE_TS_FLUCT": true,
+      "M_MIN_in_Mass": false,
+      "PHOTON_CONS": true,
+      "FIX_VCB_AVG": false
+    },
+    "LF": "native_floor_retained_v2 same as LF-only; exact PL LF, 34 points Muv>-20 including z9; emulator cosmology",
+    "tau_xHI": "public emulator; native redshift grid, repository linear extrapolation to z5.9",
+    "emulator_error": "not marginalized; conditional emulator-mean posterior, exploratory reference",
+    "X_RAY_SPEC_INDEX": 1.0,
+    "walkers": 32,
+    "ensembles": 2,
+    "burnin": 500,
+    "min_steps": 2000,
+    "max_steps": 50000,
+    "diagnose_every": 1000,
+    "limits": {
+      "max_rhat": 1.05,
+      "min_timescale_lengths": 50,
+      "max_iat_relative_change": 0.25,
+      "max_quantile_shift": 0.15,
+      "min_mean_ess": 500
+    },
+    "job_id": "2161893",
+    "inherited_steps": 26000
+  },
+  "report": {
+    "status": "gate_pass",
+    "first_passing_checked_step": 35000,
+    "steps": 35000,
+    "inherited_steps": 26000,
+    "new_steps": 9000,
+    "seconds_this_segment": 19717.65738207521
+  },
+  "diagnostics": {
+    "passed": true,
+    "checks": {
+      "independent_rank_folded_rhat": true,
+      "length_vs_autocorrelation": true,
+      "autocorrelation_stability": true,
+      "independent_quantile_agreement": true,
+      "ensemble_mean_ess": true
+    },
+    "steps_per_ensemble": 35000,
+    "independent_ensembles": 2,
+    "walkers_per_ensemble": 32,
+    "parameters": {
+      "ETA_STAR": {
+        "max_rank_folded_rhat_across_matching_walkers": 1.0254730797658567,
+        "max_integrated_time": 311.80738710049366,
+        "steps_per_integrated_time": 112.24878385809285,
+        "iat_relative_change_vs_last_half": 0.11069803602287023,
+        "estimated_ensemble_mean_ess": 8605.299741655906,
+        "independent_quantile_shift_in_68pct_widths": 0.010418821667465198
+      },
+      "t_STAR": {
+        "max_rank_folded_rhat_across_matching_walkers": 1.0436038186727608,
+        "max_integrated_time": 406.34445537618274,
+        "steps_per_integrated_time": 86.13381956349802,
+        "iat_relative_change_vs_last_half": 0.10165214478859184,
+        "estimated_ensemble_mean_ess": 6128.861782134776,
+        "independent_quantile_shift_in_68pct_widths": 0.01184316039572204
+      },
+      "ALPHA_STAR": {
+        "max_rank_folded_rhat_across_matching_walkers": 1.0155811588021453,
+        "max_integrated_time": 361.14691398023683,
+        "steps_per_integrated_time": 96.91346830092343,
+        "iat_relative_change_vs_last_half": 0.07719346267825804,
+        "estimated_ensemble_mean_ess": 7964.486681636674,
+        "independent_quantile_shift_in_68pct_widths": 0.009463008592239282
+      },
+      "M_TURN": {
+        "max_rank_folded_rhat_across_matching_walkers": 1.0361262408841343,
+        "max_integrated_time": 361.4550604386718,
+        "steps_per_integrated_time": 96.83084795527012,
+        "iat_relative_change_vs_last_half": 0.1508550547515615,
+        "estimated_ensemble_mean_ess": 9045.046199227978,
+        "independent_quantile_shift_in_68pct_widths": 0.0032880737665724915
+      },
+      "F_ESC10": {
+        "max_rank_folded_rhat_across_matching_walkers": 1.0371729120771083,
+        "max_integrated_time": 539.7785839831631,
+        "steps_per_integrated_time": 64.84140171276549,
+        "iat_relative_change_vs_last_half": 0.16276491371869228,
+        "estimated_ensemble_mean_ess": 4465.290848307428,
+        "independent_quantile_shift_in_68pct_widths": 0.01088801321078321
+      },
+      "ALPHA_ESC": {
+        "max_rank_folded_rhat_across_matching_walkers": 1.0386449590804454,
+        "max_integrated_time": 378.9540099014125,
+        "steps_per_integrated_time": 92.35949240675798,
+        "iat_relative_change_vs_last_half": 0.16939818922866123,
+        "estimated_ensemble_mean_ess": 12489.321593220575,
+        "independent_quantile_shift_in_68pct_widths": 0.06331263693747324
+      },
+      "L_X": {
+        "max_rank_folded_rhat_across_matching_walkers": 1.0482718222588319,
+        "max_integrated_time": 611.8625602555867,
+        "steps_per_integrated_time": 57.202388695559065,
+        "iat_relative_change_vs_last_half": 0.19619105309516427,
+        "estimated_ensemble_mean_ess": 5466.8192674905595,
+        "independent_quantile_shift_in_68pct_widths": 0.009445123272495663
+      },
+      "NU_X_THRESH": {
+        "max_rank_folded_rhat_across_matching_walkers": 1.0329487782559847,
+        "max_integrated_time": 342.6629986567876,
+        "steps_per_integrated_time": 102.14117117166805,
+        "iat_relative_change_vs_last_half": 0.11682104274739433,
+        "estimated_ensemble_mean_ess": 7465.218281207941,
+        "independent_quantile_shift_in_68pct_widths": 0.004267161870096283
+      },
+      "F_STAR10": {
+        "max_rank_folded_rhat_across_matching_walkers": 1.0390935338973564,
+        "max_integrated_time": 613.3181725937668,
+        "steps_per_integrated_time": 57.0666279982908,
+        "iat_relative_change_vs_last_half": 0.10350578511559841,
+        "estimated_ensemble_mean_ess": 4948.023229723394,
+        "independent_quantile_shift_in_68pct_widths": 0.025307297642852684
+      },
+      "log_posterior": {
+        "max_rank_folded_rhat_across_matching_walkers": 1.0120534749591743,
+        "max_integrated_time": 97.73221594021776,
+        "steps_per_integrated_time": 358.12142048850404,
+        "iat_relative_change_vs_last_half": 0.04493761877900879,
+        "estimated_ensemble_mean_ess": 24669.12773512942,
+        "independent_quantile_shift_in_68pct_widths": 0.00579420776323117
+      }
+    },
+    "interpretation": "Diagnostic pilot gate; not a proof of global mixing or of numerical-resolution convergence."
+  },
+  "source_job": "2161893",
+  "sample_count": 2240000,
+  "parameters": [
+    "ETA_STAR",
+    "t_STAR",
+    "ALPHA_STAR",
+    "M_TURN",
+    "F_ESC10",
+    "ALPHA_ESC",
+    "L_X",
+    "NU_X_THRESH"
+  ],
+  "quantile_levels": [
+    0.16,
+    0.5,
+    0.84
+  ],
+  "parameter_quantiles": [
+    [
+      -0.9734147046821992,
+      0.188176856085932,
+      0.46862927725564285,
+      8.227863078532131,
+      -1.5517890975273851,
+      -0.3194815846386188,
+      38.66723971604658,
+      308.1988084283644
+    ],
+    [
+      -0.9424495669001983,
+      0.5185058459735018,
+      0.5329108130603145,
+      8.675379730452288,
+      -1.207747055419901,
+      0.1272358064001926,
+      40.08159707655038,
+      781.8126156008312
+    ],
+    [
+      -0.9097837861642006,
+      0.8446350412635675,
+      0.5968297272194408,
+      9.10643811593256,
+      -0.7222138604421587,
+      0.3963130622699351,
+      41.436390791120054,
+      1276.3418380050455
+    ]
+  ],
+  "tau_quantiles": [
+    0.051370732486248016,
+    0.05699727311730385,
+    0.06287184357643127
+  ],
+  "max_rhat": 1.0482718222588319,
+  "min_ensemble_mean_ess": 4465.290848307428,
+  "figure_sha256": "c698e836c4f50c45d8964d9e41f0e5f028d448e62c7df198c67c61e3914c622e",
+  "separation": "Independent approximate PL reference; never pooled with exact BT chains. Emulator uncertainty is not marginalized.",
+  "verification": "Closed HDF5 shapes, finite values and stable hashes checked. Existing diagnostic output verified against configured thresholds, not independently recomputed.",
+  "display": {
+    "scatter_rows": 10000,
+    "seed": 20260930,
+    "histogram_rows": 2240000
+  }
+}

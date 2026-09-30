@@ -9,6 +9,23 @@ const catalog = json('web_data/mcmc/index.json');
 const lf = json(`${catalog.categories.lf_only.directory}/index.json`);
 const joint = json(`${catalog.categories.joint.directory}/index.json`);
 
+test('new PL emulator reference stays separate from exact joint chains',()=>{
+  const p=json('web_data/pl_emu_reference/index.json');
+  assert.equal(p.role,'PL_EMULATOR_APPROXIMATE_REFERENCE');
+  assert.equal(p.report.status,'gate_pass');assert.equal(p.report.steps,35000);
+  assert.equal(p.sample_count,2240000);assert.equal(p.sources.length,2);
+  p.sources.forEach(s=>assert.deepEqual(s.shape,[35000,32,8]));
+  assert.equal(p.diagnostics.passed,true);assert.ok(Object.values(p.diagnostics.checks).every(Boolean));
+  assert.ok(p.max_rhat<=p.manifest.limits.max_rhat);
+  assert.ok(p.min_ensemble_mean_ess>=p.manifest.limits.min_mean_ess);
+  assert.match(p.manifest.emulator_error,/not marginalized/);
+  assert.equal(joint.sample_count,12800);assert.equal(joint.diagnostic_gate_passed,false);
+  assert.doesNotMatch(JSON.stringify(p),/\/oss06\/|\/project\/|\/storage01\//);
+  assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'web_data/pl_emu_reference/corner.png'))).digest('hex'),p.figure_sha256);
+  p.parameters.forEach((_,i)=>{const q=p.parameter_quantiles.map(r=>r[i]);assert.ok(q.every(Number.isFinite));assert.ok(q[0]<=q[1]&&q[1]<=q[2]);});
+  assert.match(fs.readFileSync(path.join(root,'index.html'),'utf8'),/href="pl-emu-reference.html"/);
+});
+
 test('pooled observables retain actual joint samples and numerical provenance', () => {
   const p=json(`${catalog.categories.joint.directory}/pooled_observables.json`);
   assert.equal(p.sample_count,12800);assert.equal(p.status,'EXPLORATORY_NOT_CONVERGED');
