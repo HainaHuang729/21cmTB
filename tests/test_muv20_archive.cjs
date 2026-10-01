@@ -9,6 +9,24 @@ const catalog = json('web_data/mcmc/index.json');
 const lf = json(`${catalog.categories.lf_only.directory}/index.json`);
 const joint = json(`${catalog.categories.joint.directory}/index.json`);
 
+test('repaired exact results exclude old and running chains',()=>{
+  const dir='web_data/joint_repaired',p=json(`${dir}/index.json`),o=json(`${dir}/pooled_observables.json`);
+  assert.equal(p.status,'EXPLORATORY_NOT_CONVERGED');
+  assert.equal(p.fixed.sample_count,12800);assert.equal(p.free_ms.sample_count,6400);
+  assert.equal(p.fixed.sources.length,2);assert.equal(p.free_ms.sources.length,1);
+  assert.equal(p.fixed.burnin,20);assert.equal(p.free_ms.burnin,20);
+  assert.equal(p.fixed.sources[0].native_sha256,p.fixed.sources[1].native_sha256);
+  p.fixed.sources.forEach(s=>{assert.match(s.file,/job_2159014_[01]_fixed/);assert.deepEqual(s.shape,[200,32,8]);});
+  assert.match(p.free_ms.sources[0].file,/job_2159014_2_ms/);
+  assert.deepEqual(p.free_ms.sources[0].shape,[200,32,9]);
+  assert.equal(p.fixed.layout_audit.passed,true);assert.equal(p.free_ms.layout_audit.passed,true);
+  assert.equal(p.fixed.layout_audit.history_display.quantity,'volume_mean_neutral_hydrogen_fraction');
+  assert.equal(o.sample_count,12800);
+  assert.doesNotMatch(JSON.stringify(p),/\/oss06\/|\/project\/|\/storage01\//);
+  for(const [name,hash] of Object.entries(p.files_sha256))assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root,dir,name))).digest('hex'),hash);
+  assert.equal(joint.sources[0].shape[0],200); // historical archive is still separate
+});
+
 test('new PL emulator reference stays separate from exact joint chains',()=>{
   const p=json('web_data/pl_emu_reference/index.json');
   assert.equal(p.role,'PL_EMULATOR_APPROXIMATE_REFERENCE');
