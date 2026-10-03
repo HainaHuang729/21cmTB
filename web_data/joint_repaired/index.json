@@ -1,6 +1,6 @@
 {
   "status": "EXPLORATORY_NOT_CONVERGED",
-  "snapshot_date": "2026-10-01",
+  "snapshot_date": "2026-10-03",
   "fixed": {
     "sample_count": 12800,
     "sources": [
@@ -264,11 +264,21 @@
     }
   },
   "free_ms": {
-    "sample_count": 6400,
+    "sample_count": 12800,
     "sources": [
       {
         "file": "job_2159014_2_ms/chain.h5",
         "sha256": "270ef30f6ca13a936c7b4701a6042a3673d23bcebafeec5a84b8dead42438414",
+        "shape": [
+          200,
+          32,
+          9
+        ],
+        "native_sha256": "3211a6629109da7379694a9fefeb685b93b71d225f7fdf54120818a94e5702b2"
+      },
+      {
+        "file": "job_2159014_3_ms/chain.h5",
+        "sha256": "fd68dfc1ef23aee62121c70033b647695d2db45fd21b8ffbd9aa977fff16edcd",
         "shape": [
           200,
           32,
@@ -290,43 +300,45 @@
     ],
     "quantiles": [
       [
-        -1.425312313798342,
-        0.31334223500543246,
-        0.521120533582087,
-        8.229608005447584,
-        -1.3117303577347137,
-        -0.5489643833497344,
-        38.81741798324145,
-        277.5354229247489,
-        1.0558664815349812
+        -1.4011498918167533,
+        0.31429839893065475,
+        0.5036116578802422,
+        8.314700955344133,
+        -1.3694428727187316,
+        -0.6908695749877001,
+        38.95334008551793,
+        250.4964214106542,
+        1.0301285108363583
       ],
       [
-        -1.2385197732691837,
-        0.5415014167815333,
-        0.6039521951032414,
-        8.706836114832415,
-        -1.0516038391598563,
-        -0.06692852869574736,
-        40.045342488142744,
-        600.8225583793761,
-        1.202866539135398
+        -1.179784564295311,
+        0.5324968030051598,
+        0.5862426350918938,
+        8.934115587285614,
+        -1.0627385458509835,
+        -0.197835891632084,
+        40.336744084140626,
+        570.575324971411,
+        1.1708273723861293
       ],
       [
-        -1.0237690021027404,
-        0.8005797830391312,
-        0.7067041698036582,
-        9.277883167920807,
-        -0.7946118453485685,
-        0.34788996210944545,
-        41.30576671605183,
-        995.9137671905174,
-        1.3372410336535798
+        -0.9884635238661025,
+        0.8345727036952837,
+        0.6944588137315765,
+        9.314004289972516,
+        -0.7780125338285331,
+        0.28332431438723354,
+        41.58926548853936,
+        1031.7336026248709,
+        1.3225965280893393
       ]
     ],
     "burnin": 20,
     "layout_audit": {
       "passed": true
-    }
+    },
+    "aggregation": "Equal weight per stored row; repeated states retained; each completed chain included once.",
+    "sample_file": "free_ms_samples.csv"
   },
   "simulation": {
     "BOX_LEN_Mpc": 250.0,
@@ -337,13 +349,14 @@
     "version": "0.1.dev1835+gaefc273.d20250321",
     "native_sha256": "3211a6629109da7379694a9fefeb685b93b71d225f7fdf54120818a94e5702b2"
   },
-  "note": "New repaired-native chains; no inherited old samples. Free-ms second ensemble excluded while running. Functional completion, not posterior constraints.",
+  "note": "New repaired-native chains; no inherited old samples. Both fixed and free-ms branches contain two completed ensembles each. Functional completion, not posterior constraints.",
   "files_sha256": {
     "pooled_observables.json": "0b03cd44130f9e0d6dbf174ef0e09c684c48e7b94c29c9742246ad11660c78bd",
     "pooled_samples.csv": "fb8331e74ab45ed32461dde9b600e99bf6570dc97e7e5fc5fcf0fd9fe37b23ac",
     "neutral_history.csv": "95b3d9d8382cd81575bd03fc717e45256551249a8abf2054ac8e3ba1ec9312b0",
     "pooled_lf_bands.json": "5fd4acc6e136ff022e8a617631397906e1763ee0a30030b0e17a0348eec48338",
     "corner_fixed.png": "0bcce36507c7a465a3c971cc77dae50b619d1b5c0f350c3ae40c28f4b8018471",
-    "corner_free_ms.png": "4859688a5ef45a3ea2ca1c9b508c1e7317e74b766e16a5c5761f9e35729b5388"
+    "corner_free_ms.png": "ce66d42b8534581d7340601a17862cf1aaba30a454efff62b0f8cad4870d2954",
+    "free_ms_samples.csv": "9c008ba4b271093dbc99e8aeb2ac873c3d25bf2a78e0abecb79851fa469b0c51"
   }
 }
