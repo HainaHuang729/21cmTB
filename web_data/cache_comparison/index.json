@@ -1,9 +1,13 @@
 {
-  "snapshot_hkt": "2026-10-04 12:52 HKT",
+  "snapshot_hkt": "2026-10-04 23:20 HKT",
   "job_id": "2167024",
-  "completed_cases": 10,
+  "completed_cases": 15,
   "maximum_cases": 18,
-  "final_comparison": false,
+  "final_comparison": true,
+  "job_status": "COMPLETED",
+  "setup_failed_modes": [
+    "CUSTOM_FIELD_ONLY"
+  ],
   "modes": [
     {
       "id": "BASELINE",
@@ -15,7 +19,17 @@
           "seconds": 463.69279314018786,
           "rss_gib": 7.628562927246094,
           "disk_gib": 0.0,
-          "science_status": "PENDING",
+          "science_status": "BITWISE_EQUAL",
+          "mismatch_count": 0,
+          "io_delta": {
+            "rchar": 3497381284,
+            "wchar": 33583,
+            "syscr": 433414,
+            "syscw": 45,
+            "read_bytes": 65536,
+            "write_bytes": 40960,
+            "cancelled_write_bytes": 0
+          },
           "source_sha256": "94d4b972b8b9b934de9cf0e9b15e36e8e59395eafbe553cd30264e3701edc934"
         },
         {
@@ -25,7 +39,17 @@
           "seconds": 458.01857390254736,
           "rss_gib": 8.664306640625,
           "disk_gib": 0.0,
-          "science_status": "PENDING",
+          "science_status": "BITWISE_EQUAL",
+          "mismatch_count": 0,
+          "io_delta": {
+            "rchar": 3497381246,
+            "wchar": 33639,
+            "syscr": 433407,
+            "syscw": 45,
+            "read_bytes": 0,
+            "write_bytes": 40960,
+            "cancelled_write_bytes": 0
+          },
           "source_sha256": "b0f8d76dd5e23ef2ff53e228755e11770fe8ac67e59f5647d7b400b12df7179d"
         },
         {
@@ -35,7 +59,17 @@
           "seconds": 460.2626140108332,
           "rss_gib": 9.15890121459961,
           "disk_gib": 0.0,
-          "science_status": "PENDING",
+          "science_status": "BITWISE_EQUAL",
+          "mismatch_count": 0,
+          "io_delta": {
+            "rchar": 3497381247,
+            "wchar": 33586,
+            "syscr": 433407,
+            "syscw": 45,
+            "read_bytes": 0,
+            "write_bytes": 40960,
+            "cancelled_write_bytes": 0
+          },
           "source_sha256": "0913c5161bb23ec76ba66b5aaae4decc76b38174beea51877ee4c1c3f1cafcfb"
         }
       ]
@@ -50,7 +84,17 @@
           "seconds": 506.3662145053968,
           "rss_gib": 7.741771697998047,
           "disk_gib": 16.20237873494625,
-          "science_status": "PENDING",
+          "science_status": "SCIENTIFIC_DIFFERENCE",
+          "mismatch_count": 152,
+          "io_delta": {
+            "rchar": 7577000646,
+            "wchar": 17397030542,
+            "syscr": 432430,
+            "syscw": 4840,
+            "read_bytes": 4121649152,
+            "write_bytes": 17398296576,
+            "cancelled_write_bytes": 0
+          },
           "source_sha256": "9be7a3b4fca39bed259761460bcd15a249691f35c246e757ecf0f86e6be3b447"
         },
         {
@@ -60,7 +104,17 @@
           "seconds": 369.50500061456114,
           "rss_gib": 7.741771697998047,
           "disk_gib": 26.942193552851677,
-          "science_status": "PENDING",
+          "science_status": "SCIENTIFIC_DIFFERENCE",
+          "mismatch_count": 161,
+          "io_delta": {
+            "rchar": 10222128396,
+            "wchar": 11531681857,
+            "syscr": 439681,
+            "syscw": 3839,
+            "read_bytes": 1802342400,
+            "write_bytes": 11532640256,
+            "cancelled_write_bytes": 0
+          },
           "source_sha256": "968f6bf6b0553e4ccf01ffafec8937536ba19ff9e5fc0c5c7386b00ba56b2d33"
         },
         {
@@ -70,7 +124,17 @@
           "seconds": 10.235787517391145,
           "rss_gib": 7.741771697998047,
           "disk_gib": 26.942193552851677,
-          "science_status": "PENDING",
+          "science_status": "SCIENTIFIC_DIFFERENCE",
+          "mismatch_count": 152,
+          "io_delta": {
+            "rchar": 11957787905,
+            "wchar": 33583,
+            "syscr": 30054,
+            "syscw": 45,
+            "read_bytes": 5581082624,
+            "write_bytes": 40960,
+            "cancelled_write_bytes": 0
+          },
           "source_sha256": "be3e45ea0ab0f560c671fc77b50a36d2760700ed5d06f52a9cdad350bcc7dbfc"
         }
       ]
@@ -85,7 +149,17 @@
           "seconds": 477.5952036632225,
           "rss_gib": 7.751750946044922,
           "disk_gib": 5.462563917040825,
-          "science_status": "PENDING",
+          "science_status": "SCIENTIFIC_DIFFERENCE",
+          "mismatch_count": 152,
+          "io_delta": {
+            "rchar": 7574478055,
+            "wchar": 5865382334,
+            "syscr": 434153,
+            "syscw": 1046,
+            "read_bytes": 4102402048,
+            "write_bytes": 5865697280,
+            "cancelled_write_bytes": 0
+          },
           "source_sha256": "3430ea7e7d406a28cd117c6bf19942a32daaa1b0b79a1d5cf661f6794ee3f442"
         },
         {
@@ -95,7 +169,17 @@
           "seconds": 343.81079570390284,
           "rss_gib": 7.751750946044922,
           "disk_gib": 5.462563917040825,
-          "science_status": "PENDING",
+          "science_status": "SCIENTIFIC_DIFFERENCE",
+          "mismatch_count": 161,
+          "io_delta": {
+            "rchar": 10219605803,
+            "wchar": 33650,
+            "syscr": 441404,
+            "syscw": 45,
+            "read_bytes": 1764261888,
+            "write_bytes": 40960,
+            "cancelled_write_bytes": 0
+          },
           "source_sha256": "e3da83126996293a22d6c1d3f3ada6d94bdd7f9e91591aa618c27725e2e96acf"
         },
         {
@@ -105,7 +189,17 @@
           "seconds": 345.0961961578578,
           "rss_gib": 7.757946014404297,
           "disk_gib": 5.462563917040825,
-          "science_status": "PENDING",
+          "science_status": "SCIENTIFIC_DIFFERENCE",
+          "mismatch_count": 152,
+          "io_delta": {
+            "rchar": 10219605804,
+            "wchar": 33582,
+            "syscr": 441404,
+            "syscw": 45,
+            "read_bytes": 0,
+            "write_bytes": 40960,
+            "cancelled_write_bytes": 0
+          },
           "source_sha256": "d19d6397a5b1e7ba987cb468a6c17238dca11ad54b21fd61a7f0a25403819dd3"
         }
       ]
@@ -120,51 +214,162 @@
           "seconds": 461.20579669997096,
           "rss_gib": 7.6309814453125,
           "disk_gib": 0.0,
-          "science_status": "PENDING",
+          "science_status": "BITWISE_EQUAL",
+          "mismatch_count": 0,
+          "io_delta": {
+            "rchar": 3497381251,
+            "wchar": 33579,
+            "syscr": 433410,
+            "syscw": 45,
+            "read_bytes": 0,
+            "write_bytes": 40960,
+            "cancelled_write_bytes": 0
+          },
           "source_sha256": "d83db812d1a09cd926f8de425967484ba2645e6959145431b0fe904667a93adf"
+        },
+        {
+          "index": 1,
+          "point": "B",
+          "status": "ok",
+          "seconds": 386.5224012238905,
+          "rss_gib": 7.6558685302734375,
+          "disk_gib": 0.0,
+          "science_status": "SCIENTIFIC_DIFFERENCE",
+          "mismatch_count": 163,
+          "io_delta": {
+            "rchar": 3497381238,
+            "wchar": 33645,
+            "syscr": 433407,
+            "syscw": 45,
+            "read_bytes": 0,
+            "write_bytes": 40960,
+            "cancelled_write_bytes": 0
+          },
+          "source_sha256": "5b5ec748e8fe0b8fddd903f25035dc04cd77145f64283e74bc4a76fb730ed321"
+        },
+        {
+          "index": 2,
+          "point": "A",
+          "status": "ok",
+          "seconds": 391.13778753206134,
+          "rss_gib": 7.7079620361328125,
+          "disk_gib": 0.0,
+          "science_status": "SCIENTIFIC_DIFFERENCE",
+          "mismatch_count": 152,
+          "io_delta": {
+            "rchar": 3497381240,
+            "wchar": 33580,
+            "syscr": 433407,
+            "syscw": 45,
+            "read_bytes": 0,
+            "write_bytes": 40960,
+            "cancelled_write_bytes": 0
+          },
+          "source_sha256": "cf8af18a1a25542d844952aec9765afe832e7eb08591928eb8839bdd05eced28"
         }
       ]
     },
     {
       "id": "CUSTOM_FIELD_ONLY",
-      "cases": []
+      "cases": [
+        {
+          "index": 0,
+          "point": "A",
+          "status": "failed",
+          "seconds": null,
+          "rss_gib": null,
+          "disk_gib": null,
+          "science_status": "SETUP_FAILED"
+        },
+        {
+          "index": 1,
+          "point": "B",
+          "status": "failed",
+          "seconds": null,
+          "rss_gib": null,
+          "disk_gib": null,
+          "science_status": "SETUP_FAILED"
+        },
+        {
+          "index": 2,
+          "point": "A",
+          "status": "failed",
+          "seconds": null,
+          "rss_gib": null,
+          "disk_gib": null,
+          "science_status": "SETUP_FAILED"
+        }
+      ]
     },
     {
       "id": "CUSTOM_COMBINED",
-      "cases": []
+      "cases": [
+        {
+          "index": 0,
+          "point": "A",
+          "status": "ok",
+          "seconds": 458.1809117421508,
+          "rss_gib": 13.46915054321289,
+          "disk_gib": 0.0,
+          "science_status": "BITWISE_EQUAL",
+          "mismatch_count": 0,
+          "io_delta": {
+            "rchar": 92320497,
+            "wchar": 33586,
+            "syscr": 17633,
+            "syscw": 45,
+            "read_bytes": 0,
+            "write_bytes": 40960,
+            "cancelled_write_bytes": 0
+          },
+          "source_sha256": "1c73470a43cecbcbe444b406de23f4385d7bbf43b922099d3cda09fde340e778"
+        },
+        {
+          "index": 1,
+          "point": "B",
+          "status": "ok",
+          "seconds": 330.0438115000725,
+          "rss_gib": 13.487895965576172,
+          "disk_gib": 0.0,
+          "science_status": "BITWISE_EQUAL",
+          "mismatch_count": 0,
+          "io_delta": {
+            "rchar": 78365323,
+            "wchar": 33646,
+            "syscr": 15927,
+            "syscw": 45,
+            "read_bytes": 0,
+            "write_bytes": 40960,
+            "cancelled_write_bytes": 0
+          },
+          "source_sha256": "42ba6980af2724df5e52037634f1d8be1a8ca974f75ae9fd6aec7e303e63c7d5"
+        },
+        {
+          "index": 2,
+          "point": "A",
+          "status": "ok",
+          "seconds": 333.53646910656244,
+          "rss_gib": 13.544975280761719,
+          "disk_gib": 0.0,
+          "science_status": "BITWISE_EQUAL",
+          "mismatch_count": 0,
+          "io_delta": {
+            "rchar": 78365324,
+            "wchar": 33585,
+            "syscr": 15927,
+            "syscw": 45,
+            "read_bytes": 0,
+            "write_bytes": 40960,
+            "cancelled_write_bytes": 0
+          },
+          "source_sha256": "d3c35a0f8d1c93c19a5c01c5a52be35972e94345e981adc92a507e72de51f05f"
+        }
+      ]
     }
   ],
   "provenance": {
     "source_directory": "/oss06/data/project/tkcastrosim/HNHuang/project_mcmc/workflows/MCMC/fixed_btps_posterior/handoffs/official_cache_compare_20261004",
-    "plan_sha256": "94c981821d7d62f40a347a86adbe7f6577e1b47681445d8352c73027f93dacde",
-    "configuration": {
-      "models": [
-        {
-          "KP_h_Mpc": 10.0,
-          "MS": 2.5
-        }
-      ],
-      "simulation": {
-        "BOX_LEN_Mpc": 250.0,
-        "HII_DIM": 128,
-        "DIM": 512
-      },
-      "physics": {
-        "INHOMO_RECO": true,
-        "USE_MASS_DEPENDENT_ZETA": true,
-        "USE_TS_FLUCT": true,
-        "Z_HEAT_MAX": 35.0,
-        "EVOLVE_DENSITY_LINEARLY": false
-      },
-      "history": "Full coeval volume means at 31 uniform nodes from z=5 to 35, plus exact z=5.9. tau uses the 31 nodes; completely ionized below z=5 and neutral above z=35, with native helium convention. Redshift and resolution convergence are not established.",
-      "likelihood": "34 HST+Donnan LF points, Muv>-20; unchanged Planck tau and McGreer xHI.",
-      "initial_condition_seed": 725213656658
-    },
-    "limitations": [
-      "Single-worker 16-thread pilot of repaired BT fork, not latest unmodified upstream.",
-      "Timings exclude scientific output hashing but include cache I/O.",
-      "OS page cache was not flushed.",
-      "Incomplete modes and pending equivalence are not evidence of speedup."
-    ]
+    "comparison_sha256": "8c8e039238f6987090766e2f1628ac72d2757b4d759c9b83aff4ca122bf1dd74",
+    "plan_sha256": "94c981821d7d62f40a347a86adbe7f6577e1b47681445d8352c73027f93dacde"
   }
 }

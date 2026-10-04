@@ -1,5 +1,13 @@
 (() => {
   const messages = {
+    sizeTitle: ['RAM versus disk across grid sizes', '内存还是磁盘：不同尺寸的实测'],
+    sizeIntro: ['Both exact-state modes retain IC in RAM; only PF plus its velocity post-state moves between RAM and disk. Lyα caching is disabled in every arm to isolate storage effects.', '相同精确状态恢复逻辑，IC均放内存，仅比较PF及速度状态放内存或磁盘。所有模式关闭Lyα缓存，避免混淆存储与表解析的收益。'],
+    sizeMetricLabel: ['New B: less time with RAM than disk', '新参数 B：内存比磁盘减少耗时'], sizeMemoryLabel: ['New B: process peak RSS', '新参数 B：进程峰值 RSS'], sizeMemoryLegend: ['RAM mode / disk mode · GiB', '内存模式 / 磁盘模式 · GiB'], sizeDetails: ['Complete measurements', '完整测试结果'],
+    sizeLimit: ['OS page cache was not flushed, so this is not a controlled cold-disk test. Both new-B cases recorded process read_bytes=0; on a shared filesystem this does not establish that no backend disk reads occurred. File access, deserialization and checks remain in the timing. One new proposal per arm does not establish stable performance or general novelty.', '操作系统页缓存未清空，这不是受控的冷盘测试。两个尺寸的新参数 B 的进程 read_bytes 均记录为0；共享文件系统下，这不等于后端磁盘没有读取。文件访问、反序列化和检查开销仍包含在计时内。每组只有一次新参数测试，尚不能证明稳定性能优势或普遍创新。'],
+    sizeFoot: ['One worker, 16 threads, 250 cMpc, TS ON, fixed KP/MS. All 24 evaluations completed in 1h 43m. RAM and exact-state disk A→B→A outputs match bitwise. Official field-disk outputs differ scientifically and do not qualify as equivalent acceleration. Prototype costs include writes, fsync and integrity checks; production integration, restart and eviction are not qualified.', '单worker、16线程、250cMpc、TS ON、固定KP/MS；24/24次完成，耗时1小时43分钟。内存与精确状态磁盘模式的A→B→A均逐位一致。官方字段磁盘路径有科学结果差异，不能作为等价加速基准。磁盘原型包含写入、fsync及完整性检查，尚未接入生产，也未验收重启恢复或淘汰策略。'],
+    sizeDownload: ['Download size comparison & provenance ↗', '下载尺寸对照结果与来源记录 ↗'],
+    pilotOutcome: ['The first pilot is final: COMBINED matches bitwise in all three cases. Official disk and explicit-input paths differ scientifically. FIELD_ONLY was rejected before any forward call due to source/table identity mismatch; the next pilot unified package identity and completed FIELD_ONLY.', '上一轮对照已结束：COMBINED三次结果逐位一致；官方磁盘及显式输入路径出现科学差异；FIELD_ONLY因源码/表身份不匹配在计算前被拒绝。下一轮已统一包身份并完成FIELD_ONLY测试。'],
+
     compareTitle: ['Official versus current caching', '官方缓存和当前缓存，差在哪里？'],
     compareIntro: ['Both have cold and warm states: build on first use, reuse on a matching call. The differences are storage, reuse scope, lifetime and mutable-object state management.', '两者都有冷、热状态：第一次建立缓存，后续匹配时复用。区别在于缓存位置、复用范围、生命周期和对象状态管理。'],
     diskTag: ['OFFICIAL / DISK CACHE', '官方 / 磁盘缓存'], diskTitle: ['Read matching HDF5 results', '从 HDF5 读取匹配结果'], diskFlow: ['Proposal → parameter match → file read → downstream calculation', '提案 → 参数匹配 → 读取文件 → 后续计算'],
@@ -63,6 +71,7 @@
   };
   let language = 'zh', mode = 'hot', selected = 'pf';
   let benchmarkData = null, benchmarkCase = 1;
+  let sizeData = null, selectedSize = "grid128", sizeCase = 1;
   try { const stored=localStorage.getItem('21cm-atlas-language'); if (stored==='en'||stored==='zh') language=stored; } catch (_) {}
   const t = pair => pair[language==='zh'?1:0];
   function status(node) {
@@ -79,9 +88,10 @@
     document.querySelectorAll('[data-node]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.node===selected)));
   }
   const methodNames = {
+    EXACT_DISK_PF: ['Prototype · PF on disk', '原型 · PF精确状态磁盘'],
     BASELINE: ['Forced recomputation', '强制重算'], OFFICIAL_DISK_ALL: ['Official · full disk', '官方 · 全量磁盘'], OFFICIAL_DISK_FIELDS: ['Official · fields on disk', '官方 · 字段磁盘'], OFFICIAL_EXPLICIT_FIELDS: ['Official · explicit IC / PF', '官方 · 显式 IC / PF'], CUSTOM_FIELD_ONLY: ['Current · FIELD_ONLY', '当前 · FIELD_ONLY'], CUSTOM_COMBINED: ['Current · COMBINED', '当前 · COMBINED'],
   };
-  const scienceNames = {PENDING:['Pending comparison','待统一核验'],BITWISE_EQUAL:['Bitwise equal','逐位一致'],SCIENTIFIC_DIFFERENCE:['Scientific difference','科学结果不同'],FORWARD_FAILED:['Forward failed','计算失败'],NOT_RUN:['Not yet completed','尚未完成']};
+  const scienceNames = {SETUP_FAILED:['Setup rejected','启动核验拒绝'],PENDING:['Pending comparison','待统一核验'],BITWISE_EQUAL:['Bitwise equal','逐位一致'],SCIENTIFIC_DIFFERENCE:['Scientific difference','科学结果不同'],FORWARD_FAILED:['Forward failed','计算失败'],NOT_RUN:['Not yet completed','尚未完成']};
   function renderComparison() {
     document.querySelectorAll('[data-case]').forEach(el=>el.setAttribute('aria-pressed',String(Number(el.dataset.case)===benchmarkCase)));
     const explanations=[
@@ -95,12 +105,31 @@
     const base=data.modes.find(m=>m.id==='BASELINE')?.cases.find(c=>c.index===benchmarkCase);
     for(const method of data.modes){
       const row=document.createElement('tr'),c=method.cases.find(c=>c.index===benchmarkCase);
-      const values=[t(methodNames[method.id]),c?.status==='ok'?c.seconds.toFixed(1):'—',c?.status==='ok'&&base?.status==='ok'?(base.seconds/c.seconds).toFixed(2)+'×':'—',c?.rss_gib?.toFixed(2)??'—',c?.disk_gib?.toFixed(2)??'—',t(scienceNames[c?.science_status??'NOT_RUN']??scienceNames.PENDING)];
+      const values=[t(methodNames[method.id]),c?.status==='ok'?c.seconds.toFixed(1):'—',c?.science_status==='SCIENTIFIC_DIFFERENCE'?t(['Not eligible','不适用']):c?.status==='ok'&&base?.status==='ok'?(base.seconds/c.seconds).toFixed(2)+'×':'—',c?.rss_gib?.toFixed(2)??'—',c?.disk_gib?.toFixed(2)??'—',t(scienceNames[c?.science_status??'NOT_RUN']??scienceNames.PENDING)];
       if(method.id.startsWith('CUSTOM'))row.classList.add('custom-row');
       if(c?.science_status==='SCIENTIFIC_DIFFERENCE'||c?.science_status==='FORWARD_FAILED')row.classList.add('invalid-row');
       for(const value of values){const cell=document.createElement('td');cell.textContent=value;row.append(cell);}body.append(row);
     }
-    document.getElementById('benchmark-meta').textContent=language==='zh'?`静态快照：${data.snapshot_hkt} · ${data.completed_cases}/${data.maximum_cases} 次计算已完成 · ${data.final_comparison?'已执行统一科学比对':'最终科学比对尚未完成'} · job ${data.job_id}`:`Static snapshot: ${data.snapshot_hkt} · ${data.completed_cases}/${data.maximum_cases} evaluations completed · ${data.final_comparison?'Scientific comparison available':'Final scientific comparison pending'} · job ${data.job_id}`;
+    document.getElementById('benchmark-meta').textContent=language==='zh'?`静态快照：${data.snapshot_hkt} · ${data.completed_cases}/${data.maximum_cases} 次计算已完成 · ${data.final_comparison?'已执行统一科学比对':'最终科学比对尚未完成'} · ${data.setup_failed_modes?.length?t(['1 setup rejected before evaluation','1条路径在计算前被拒绝']):''} · job ${data.job_id}`:`Static snapshot: ${data.snapshot_hkt} · ${data.completed_cases}/${data.maximum_cases} evaluations completed · ${data.final_comparison?'Scientific comparison available':'Final scientific comparison pending'} · ${data.setup_failed_modes?.length?t(['1 setup rejected before evaluation','1条路径在计算前被拒绝']):''} · job ${data.job_id}`;
+  }
+  function renderSizes() {
+    document.querySelectorAll('[data-size]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.size===selectedSize)));
+    document.querySelectorAll('[data-tiercase]').forEach(el=>el.setAttribute('aria-pressed',String(Number(el.dataset.tiercase)===sizeCase)));
+    if(!sizeData)return;
+    const variant=sizeData.variants.find(v=>v.id===selectedSize),body=document.getElementById('size-body');body.replaceChildren();
+    const find=(id,index)=>variant.modes.find(m=>m.id===id).cases.find(c=>c.index===index);
+    const ram=find('CUSTOM_FIELD_ONLY',1),disk=find('EXACT_DISK_PF',1),base=find('BASELINE',sizeCase);
+    document.getElementById('size-advantage').textContent=(100*(1-ram.seconds/disk.seconds)).toFixed(1)+'%';
+    document.getElementById('size-pair').textContent=language==='zh'?`${variant.grid} · 磁盘 ${disk.seconds.toFixed(1)} → 内存 ${ram.seconds.toFixed(1)} 秒`:`${variant.grid} · disk ${disk.seconds.toFixed(1)} → RAM ${ram.seconds.toFixed(1)} sec`;
+    document.getElementById('size-memory').textContent=ram.rss_gib.toFixed(2)+' / '+disk.rss_gib.toFixed(2);
+    for(const method of variant.modes){
+      const c=method.cases.find(c=>c.index===sizeCase),row=document.createElement('tr');
+      const values=[t(methodNames[method.id]),c.seconds.toFixed(1),c.science_status==='BITWISE_EQUAL'?(base.seconds/c.seconds).toFixed(2)+'×':t(['Not eligible','不适用']),c.rss_gib.toFixed(2),c.disk_gib.toFixed(2),t(scienceNames[c.science_status])];
+      if(method.id==='CUSTOM_FIELD_ONLY'||method.id==='EXACT_DISK_PF')row.classList.add('custom-row');
+      if(c.science_status==='SCIENTIFIC_DIFFERENCE')row.classList.add('invalid-row');
+      for(const value of values){const cell=document.createElement('td');cell.textContent=value;row.append(cell);}body.append(row);
+    }
+    document.getElementById('size-meta').textContent=language==='zh'?`已完成 · ${sizeData.completed_cases}/${sizeData.maximum_cases}次计算 · ${variant.grid} · job ${sizeData.job_id} · 快照 ${sizeData.snapshot_hkt}`:`Completed · ${sizeData.completed_cases}/${sizeData.maximum_cases} evaluations · ${variant.grid} · job ${sizeData.job_id} · snapshot ${sizeData.snapshot_hkt}`;
   }
   function render() {
     document.documentElement.lang=language==='zh'?'zh-CN':'en';
@@ -119,6 +148,7 @@
     });
     detail();
     renderComparison();
+    renderSizes();
   }
   document.querySelectorAll('[data-language]').forEach(el=>el.addEventListener('click',()=>{
     language=el.dataset.language;
@@ -128,6 +158,9 @@
   document.querySelectorAll('[data-mode]').forEach(el=>el.addEventListener('click',()=>{mode=el.dataset.mode;render();}));
   document.querySelectorAll('[data-node]').forEach(el=>el.addEventListener('click',()=>{selected=el.dataset.node;detail();}));
   document.querySelectorAll('[data-case]').forEach(el=>el.addEventListener('click',()=>{benchmarkCase=Number(el.dataset.case);renderComparison();}));
+  document.querySelectorAll('[data-size]').forEach(el=>el.addEventListener('click',()=>{selectedSize=el.dataset.size;renderSizes();}));
+  document.querySelectorAll('[data-tiercase]').forEach(el=>el.addEventListener('click',()=>{sizeCase=Number(el.dataset.tiercase);renderSizes();}));
   render();
-  fetch('web_data/cache_comparison/index.json?v=20261004-2',{cache:'no-store'}).then(response=>{if(!response.ok)throw Error('Snapshot load failed');return response.json();}).then(data=>{benchmarkData=data;renderComparison();}).catch(()=>{document.getElementById('benchmark-meta').textContent=t(messages.benchError);});
+  fetch('web_data/cache_comparison/index.json?v=20261004-3',{cache:'no-store'}).then(response=>{if(!response.ok)throw Error('Snapshot load failed');return response.json();}).then(data=>{benchmarkData=data;renderComparison();}).catch(()=>{document.getElementById('benchmark-meta').textContent=t(messages.benchError);});
+  fetch('web_data/cache_comparison/sizes.json?v=20261004-3',{cache:'no-store'}).then(response=>{if(!response.ok)throw Error('Snapshot load failed');return response.json();}).then(data=>{sizeData=data;renderSizes();}).catch(()=>{document.getElementById('size-meta').textContent=t(messages.benchError);});
 })();

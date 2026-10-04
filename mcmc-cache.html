@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Signal Atlas · MCMC 缓存计算链条</title>
-<link rel="stylesheet" href="mcmc-cache.css?v=20261004-2">
+<link rel="stylesheet" href="mcmc-cache.css?v=20261004-3">
 </head>
 <body>
 <header class="page-header"><a href="index.html#mcmc-section" class="brand"><span class="brand-mark">21</span><span>SIGNAL ATLAS<small data-text="back">返回 MCMC 图谱 ↗</small></span></a><div class="language" aria-label="Language"><button type="button" data-language="en" aria-pressed="false">EN</button><button type="button" data-language="zh" aria-pressed="true">中文</button></div></header>
@@ -17,6 +17,18 @@
 <article class="current-method"><span class="method-tag" data-text="currentTag">当前 / COMBINED</span><h3 data-text="currentTitle">每个持久 worker 内保存精确中间状态</h3><div class="mini-chain" data-text="currentFlow">精确依赖键 → 验证内存数组 → 恢复状态 → 后续计算</div><p data-text="currentCopy">复用匹配的 IC、各调用红移的 PF 及已解析 Lyα 原始表；保存并恢复 PF 对 IC 速度数组的原位修改。FIELD_ONLY 用于单独比较字段缓存。</p><p class="mechanism-foot" data-text="currentFoot">无需每次读取字段文件；占用更多 worker 内存。worker 退出后缓存消失，新 worker 从冷缓存开始。</p></article>
 </div>
 <div class="comparison-note" data-text="compareNote">缓存复用本身是官方已有能力。当前方案是针对这个 BT 修复版的持久 worker 接入；尚不能据此宣称比官方最佳用法更快。</div>
+<section class="size-study" aria-labelledby="size-study-title">
+<div class="benchmark-heading"><div><p class="eyebrow">RAM / DISK · TWO GRID SIZES</p><h3 id="size-study-title" data-text="sizeTitle">内存还是磁盘：不同尺寸的实测</h3></div><div class="benchmark-cases" role="group" aria-label="Grid size"><button data-size="grid64" aria-pressed="false">64 / 256</button><button data-size="grid128" aria-pressed="true">128 / 512</button></div></div>
+<p data-text="sizeIntro" class="benchmark-description">相同精确状态恢复逻辑，IC均放内存，仅比较PF及速度状态放内存或磁盘。所有模式关闭Lyα缓存，避免混淆存储与表解析的收益。</p>
+<div class="size-summary"><div><span data-text="sizeMetricLabel">新参数 B：内存比磁盘减少耗时</span><strong id="size-advantage">—</strong><p id="size-pair"></p></div><div><span data-text="sizeMemoryLabel">新参数 B：进程峰值 RSS</span><strong id="size-memory">—</strong><p data-text="sizeMemoryLegend">内存模式 / 磁盘模式 · GiB</p></div></div>
+<div class="benchmark-heading size-scenarios"><div><h3 data-text="sizeDetails">完整测试结果</h3></div><div class="benchmark-cases" role="group" aria-label="Size benchmark scenario"><button data-tiercase="0" aria-pressed="false" data-text="benchCold">冷启动 A</button><button data-tiercase="1" aria-pressed="true" data-text="benchNew">新参数 B</button><button data-tiercase="2" aria-pressed="false" data-text="benchRepeat">再次访问 A</button></div></div>
+<p class="benchmark-meta" id="size-meta" aria-live="polite" data-text="benchLoading">正在读取测试快照…</p>
+<div class="benchmark-table-scroll"><table class="benchmark-table"><thead><tr><th data-text="thMethod">缓存路径</th><th data-text="thTime">耗时 / 秒</th><th data-text="thRatio">重算耗时 / 本模式</th><th data-text="thRSS">峰值 RSS / GiB</th><th data-text="thDisk">累计磁盘 / GiB</th><th data-text="thScience">科学结果比对</th></tr></thead><tbody id="size-body"></tbody></table></div>
+<div class="comparison-note size-limit" data-text="sizeLimit">操作系统页缓存未清空，这不是受控的冷盘测试。两个尺寸的新参数 B 的进程 read_bytes 均记录为0；共享文件系统下，这不等于后端磁盘没有读取。文件访问、反序列化和检查开销仍包含在计时内。每组只有一次新参数测试，尚不能证明稳定性能优势或普遍创新。</div>
+<p class="benchmark-foot" data-text="sizeFoot">单worker、16线程、250cMpc、TS ON、固定KP/MS；24/24次完成，耗时1小时43分钟。内存与精确状态磁盘模式的A→B→A均逐位一致。官方字段磁盘路径有科学结果差异，不能作为等价加速基准。磁盘原型包含写入、fsync及完整性检查，尚未接入生产，也未验收重启恢复或淘汰策略。</p>
+<a class="snapshot-link" href="web_data/cache_comparison/sizes.json" data-text="sizeDownload">下载尺寸对照结果与来源记录 ↗</a>
+</section>
+<div class="pilot-final-note comparison-note" data-text="pilotOutcome">上一轮对照已结束：COMBINED三次结果逐位一致；官方磁盘及显式输入路径出现科学差异；FIELD_ONLY因源码/表身份不匹配在计算前被拒绝。下一轮已统一包身份并完成FIELD_ONLY测试。</div>
 <div class="benchmark-heading"><div><p class="eyebrow">PAIRED PILOT / A → B → A</p><h3 data-text="benchTitle">同一配置的实测对照</h3></div><div class="benchmark-cases" role="group" aria-label="Benchmark scenario"><button data-case="0" aria-pressed="false" data-text="benchCold">冷启动 A</button><button data-case="1" aria-pressed="true" data-text="benchNew">新参数 B</button><button data-case="2" aria-pressed="false" data-text="benchRepeat">再次访问 A</button></div></div>
 <p class="benchmark-description" id="benchmark-description"></p>
 <p class="benchmark-meta" id="benchmark-meta" aria-live="polite" data-text="benchLoading">正在读取测试快照…</p>
@@ -49,5 +61,5 @@
 </section>
 <section class="facts"><article><p class="eyebrow">SCOPE / FIXED TARGET</p><h3 data-text="scopeTitle">本图对应的配置</h3><p>KP = 10 h Mpc⁻¹ · MS = 2.5<br>250 cMpc · HII_DIM 128 / DIM 512<br>16 workers × 16 threads · TS ON</p><p class="fine" data-text="scopeNote">每个 worker 独立保存缓存；不同 worker 不共享场数组。正式续跑仍保持原 sampler、先验和科学 target。</p></article><article><p class="eyebrow">MEMORY / PER WORKER</p><h3>≈ 11.3 GiB</h3><p data-text="memoryText">字段缓存数组 / worker<br>16-worker 补充验收峰值 RSS：约 214 / 384 GiB</p><p class="fine" data-text="memoryNote">数组容量不等于完整进程内存；新 worker 从冷缓存重新建立。</p></article><article><p class="eyebrow">VALIDATION / 2026-10-03</p><h3 data-text="validationTitle">冷 / 热结果逐位一致</h3><p data-text="validationText">16 个 worker 全部验证复用。两步采样对照的科学 blobs、walker 状态与 RNG 状态一致。</p><p class="fine" data-text="validationNote">热缓存补充测试：444 → 319 秒 / evaluation，约 1.39×。该缓存优化验证的是计算等价性，不是 MCMC 收敛。</p></article></section>
 <footer><a href="joint-repaired.html" data-text="resultsLink">查看修复版联合结果 ↗</a><span data-text="footerNote">计算结构示意 · 数值为标注日期的实测快照</span></footer>
-</main><script src="mcmc-cache.js?v=20261004-2"></script>
+</main><script src="mcmc-cache.js?v=20261004-3"></script>
 </body></html>

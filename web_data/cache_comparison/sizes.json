@@ -1,0 +1,570 @@
+{
+  "snapshot_hkt": "2026-10-04 23:20 HKT",
+  "job_id": "2167805",
+  "job_status": "COMPLETED",
+  "elapsed": "01:43:29",
+  "completed_cases": 24,
+  "maximum_cases": 24,
+  "variants": [
+    {
+      "id": "grid64",
+      "grid": "64/256",
+      "modes": [
+        {
+          "id": "BASELINE",
+          "cases": [
+            {
+              "index": 0,
+              "point": "A",
+              "status": "ok",
+              "seconds": 114.4806563789025,
+              "rss_gib": 1.1378173828125,
+              "disk_gib": 0.0,
+              "science_status": "BITWISE_EQUAL",
+              "mismatch_count": 0,
+              "io_delta": {
+                "rchar": 3497381282,
+                "wchar": 33578,
+                "syscr": 433414,
+                "syscw": 45,
+                "read_bytes": 0,
+                "write_bytes": 40960,
+                "cancelled_write_bytes": 0
+              },
+              "source_sha256": "777629b45d637cc1947bcfedc3671ba2f88785662caa9015a7b74895f3caf13d"
+            },
+            {
+              "index": 1,
+              "point": "B",
+              "status": "ok",
+              "seconds": 111.6562118679285,
+              "rss_gib": 1.38897705078125,
+              "disk_gib": 0.0,
+              "science_status": "BITWISE_EQUAL",
+              "mismatch_count": 0,
+              "io_delta": {
+                "rchar": 3497381245,
+                "wchar": 33647,
+                "syscr": 433407,
+                "syscw": 45,
+                "read_bytes": 0,
+                "write_bytes": 40960,
+                "cancelled_write_bytes": 0
+              },
+              "source_sha256": "db1825d906c79b4af629a9682d289c9a5d1181720a9c6edaffccc56ab1921264"
+            },
+            {
+              "index": 2,
+              "point": "A",
+              "status": "ok",
+              "seconds": 112.05598316621035,
+              "rss_gib": 1.7087211608886719,
+              "disk_gib": 0.0,
+              "science_status": "BITWISE_EQUAL",
+              "mismatch_count": 0,
+              "io_delta": {
+                "rchar": 3497381247,
+                "wchar": 33584,
+                "syscr": 433407,
+                "syscw": 45,
+                "read_bytes": 0,
+                "write_bytes": 40960,
+                "cancelled_write_bytes": 0
+              },
+              "source_sha256": "1b7deb507dcb38d8f4c746defe87c292abf2270ce206d0ab7b8dcb6180fe680d"
+            }
+          ]
+        },
+        {
+          "id": "OFFICIAL_DISK_FIELDS",
+          "cases": [
+            {
+              "index": 0,
+              "point": "A",
+              "status": "ok",
+              "seconds": 118.14658864215016,
+              "rss_gib": 1.1670188903808594,
+              "disk_gib": 0.6842436045408249,
+              "science_status": "SCIENTIFIC_DIFFERENCE",
+              "mismatch_count": 146,
+              "io_delta": {
+                "rchar": 4007222521,
+                "wchar": 734699972,
+                "syscr": 434156,
+                "syscw": 1046,
+                "read_bytes": 530313216,
+                "write_bytes": 735014912,
+                "cancelled_write_bytes": 0
+              },
+              "source_sha256": "8a086d1ecdbb90e4dba0f857fa8b0335a064e6745d8000bf3f6ba9696d2506fd"
+            },
+            {
+              "index": 1,
+              "point": "B",
+              "status": "ok",
+              "seconds": 99.37985475175083,
+              "rss_gib": 1.1722297668457031,
+              "disk_gib": 0.6842436045408249,
+              "science_status": "SCIENTIFIC_DIFFERENCE",
+              "mismatch_count": 153,
+              "io_delta": {
+                "rchar": 4340240168,
+                "wchar": 33650,
+                "syscr": 441404,
+                "syscw": 45,
+                "read_bytes": 205848576,
+                "write_bytes": 40960,
+                "cancelled_write_bytes": 0
+              },
+              "source_sha256": "135aea8712bd4f8739370407e0637b45c545096c427ad085f64941521ea7859e"
+            },
+            {
+              "index": 2,
+              "point": "A",
+              "status": "ok",
+              "seconds": 99.48770877160132,
+              "rss_gib": 1.1722297668457031,
+              "disk_gib": 0.6842436045408249,
+              "science_status": "SCIENTIFIC_DIFFERENCE",
+              "mismatch_count": 146,
+              "io_delta": {
+                "rchar": 4340240168,
+                "wchar": 33586,
+                "syscr": 441404,
+                "syscw": 45,
+                "read_bytes": 0,
+                "write_bytes": 40960,
+                "cancelled_write_bytes": 0
+              },
+              "source_sha256": "7871031de554a8e397440abcff9fcaa119b4bd606ae305049756405ef090f6a1"
+            }
+          ]
+        },
+        {
+          "id": "CUSTOM_FIELD_ONLY",
+          "cases": [
+            {
+              "index": 0,
+              "point": "A",
+              "status": "ok",
+              "seconds": 118.33464632090181,
+              "rss_gib": 1.8704719543457031,
+              "disk_gib": 0.0,
+              "science_status": "BITWISE_EQUAL",
+              "mismatch_count": 0,
+              "io_delta": {
+                "rchar": 3497381275,
+                "wchar": 33584,
+                "syscr": 433414,
+                "syscw": 45,
+                "read_bytes": 0,
+                "write_bytes": 40960,
+                "cancelled_write_bytes": 0
+              },
+              "source_sha256": "0c4f39d24c6d5e4c2fad667f8a655f9f6864658a4210cdfb5842b46b0407b056"
+            },
+            {
+              "index": 1,
+              "point": "B",
+              "status": "ok",
+              "seconds": 101.13320881035179,
+              "rss_gib": 1.8763313293457031,
+              "disk_gib": 0.0,
+              "science_status": "BITWISE_EQUAL",
+              "mismatch_count": 0,
+              "io_delta": {
+                "rchar": 3497381240,
+                "wchar": 33650,
+                "syscr": 433407,
+                "syscw": 45,
+                "read_bytes": 0,
+                "write_bytes": 40960,
+                "cancelled_write_bytes": 0
+              },
+              "source_sha256": "b75a4d56ec7c7bb4c5ff4da55fd0e50770b36c0b69d92ed11de96aa02b137838"
+            },
+            {
+              "index": 2,
+              "point": "A",
+              "status": "ok",
+              "seconds": 101.31962504051626,
+              "rss_gib": 1.8839340209960938,
+              "disk_gib": 0.0,
+              "science_status": "BITWISE_EQUAL",
+              "mismatch_count": 0,
+              "io_delta": {
+                "rchar": 3497381241,
+                "wchar": 33582,
+                "syscr": 433407,
+                "syscw": 45,
+                "read_bytes": 0,
+                "write_bytes": 40960,
+                "cancelled_write_bytes": 0
+              },
+              "source_sha256": "eb77f0961f91f6ff101ba4c6f8140a5a8ee57659a87708103f50816f4b9dab89"
+            }
+          ]
+        },
+        {
+          "id": "EXACT_DISK_PF",
+          "cases": [
+            {
+              "index": 0,
+              "point": "A",
+              "status": "ok",
+              "seconds": 125.77415870968252,
+              "rss_gib": 1.1469917297363281,
+              "disk_gib": 0.961709470488131,
+              "science_status": "BITWISE_EQUAL",
+              "mismatch_count": 0,
+              "io_delta": {
+                "rchar": 4530008956,
+                "wchar": 1032661266,
+                "syscr": 433660,
+                "syscw": 168,
+                "read_bytes": 1032806400,
+                "write_bytes": 1032847360,
+                "cancelled_write_bytes": 0
+              },
+              "source_sha256": "612d219061c9bcfbc1925ad38f36679d6f10473525823cdd37d1c28a8db30029"
+            },
+            {
+              "index": 1,
+              "point": "B",
+              "status": "ok",
+              "seconds": 103.53294501733035,
+              "rss_gib": 1.1606636047363281,
+              "disk_gib": 0.961709470488131,
+              "science_status": "BITWISE_EQUAL",
+              "mismatch_count": 0,
+              "io_delta": {
+                "rchar": 5562636620,
+                "wchar": 33652,
+                "syscr": 433899,
+                "syscw": 45,
+                "read_bytes": 0,
+                "write_bytes": 40960,
+                "cancelled_write_bytes": 0
+              },
+              "source_sha256": "15320cb62b1d1b489c8599f9a3c82779baf434a1b6f151af09e6519642b6e79d"
+            },
+            {
+              "index": 2,
+              "point": "A",
+              "status": "ok",
+              "seconds": 103.98360782582313,
+              "rss_gib": 1.1665229797363281,
+              "disk_gib": 0.961709470488131,
+              "science_status": "BITWISE_EQUAL",
+              "mismatch_count": 0,
+              "io_delta": {
+                "rchar": 5562636621,
+                "wchar": 33585,
+                "syscr": 433899,
+                "syscw": 45,
+                "read_bytes": 0,
+                "write_bytes": 40960,
+                "cancelled_write_bytes": 0
+              },
+              "source_sha256": "b90ba39cbc54d1ab4839eefc7fd9f8f2b659be3885ea6602f2f57b80057bf891"
+            }
+          ]
+        }
+      ],
+      "provenance": {
+        "source_directory": "/oss06/data/project/tkcastrosim/HNHuang/project_mcmc/workflows/MCMC/fixed_btps_posterior/handoffs/tiered_cache_pilot_20261004/grid64",
+        "comparison_sha256": "088262511efc92c79e34f3424a6ce079069c9a18dce244646b4d9a6f39d51e0d",
+        "plan_sha256": "e1efc252c780c3b748df2cb215816a70ba00a327c5ae2421daef0b7fcaeb7fed"
+      }
+    },
+    {
+      "id": "grid128",
+      "grid": "128/512",
+      "modes": [
+        {
+          "id": "BASELINE",
+          "cases": [
+            {
+              "index": 0,
+              "point": "A",
+              "status": "ok",
+              "seconds": 445.8543223347515,
+              "rss_gib": 7.66851806640625,
+              "disk_gib": 0.0,
+              "science_status": "BITWISE_EQUAL",
+              "mismatch_count": 0,
+              "io_delta": {
+                "rchar": 3497381275,
+                "wchar": 33580,
+                "syscr": 433414,
+                "syscw": 45,
+                "read_bytes": 0,
+                "write_bytes": 40960,
+                "cancelled_write_bytes": 0
+              },
+              "source_sha256": "f03c2d823cfab72a5ac4e54033d2eb6f007d20310d797a52cd075eb03edf62af"
+            },
+            {
+              "index": 1,
+              "point": "B",
+              "status": "ok",
+              "seconds": 438.8103534411639,
+              "rss_gib": 9.146690368652344,
+              "disk_gib": 0.0,
+              "science_status": "BITWISE_EQUAL",
+              "mismatch_count": 0,
+              "io_delta": {
+                "rchar": 3497381238,
+                "wchar": 33646,
+                "syscr": 433407,
+                "syscw": 45,
+                "read_bytes": 0,
+                "write_bytes": 40960,
+                "cancelled_write_bytes": 0
+              },
+              "source_sha256": "4914f048b4898fde9ea86c5550157da5d8bb41cd19190183f7e8094d57287eae"
+            },
+            {
+              "index": 2,
+              "point": "A",
+              "status": "ok",
+              "seconds": 441.8541666902602,
+              "rss_gib": 9.169143676757812,
+              "disk_gib": 0.0,
+              "science_status": "BITWISE_EQUAL",
+              "mismatch_count": 0,
+              "io_delta": {
+                "rchar": 3497381240,
+                "wchar": 33582,
+                "syscr": 433407,
+                "syscw": 45,
+                "read_bytes": 0,
+                "write_bytes": 40960,
+                "cancelled_write_bytes": 0
+              },
+              "source_sha256": "fd6edefe0a8ed87476f5a47eb338e4cf9a4fa6dd1926d4db2eeb1c00c32bd68e"
+            }
+          ]
+        },
+        {
+          "id": "OFFICIAL_DISK_FIELDS",
+          "cases": [
+            {
+              "index": 0,
+              "point": "A",
+              "status": "ok",
+              "seconds": 461.43899714108557,
+              "rss_gib": 7.771392822265625,
+              "disk_gib": 5.462563917040825,
+              "science_status": "SCIENTIFIC_DIFFERENCE",
+              "mismatch_count": 152,
+              "io_delta": {
+                "rchar": 7574478091,
+                "wchar": 5865382329,
+                "syscr": 434159,
+                "syscw": 1046,
+                "read_bytes": 4102402048,
+                "write_bytes": 5865697280,
+                "cancelled_write_bytes": 0
+              },
+              "source_sha256": "19fd754483fa6fdcc2c6cfa65b9487aa837a09e1585d9b48eba55dbe984fbe74"
+            },
+            {
+              "index": 1,
+              "point": "B",
+              "status": "ok",
+              "seconds": 323.6251571364701,
+              "rss_gib": 7.771392822265625,
+              "disk_gib": 5.462563917040825,
+              "science_status": "SCIENTIFIC_DIFFERENCE",
+              "mismatch_count": 161,
+              "io_delta": {
+                "rchar": 10219605803,
+                "wchar": 33646,
+                "syscr": 441404,
+                "syscw": 45,
+                "read_bytes": 1764261888,
+                "write_bytes": 40960,
+                "cancelled_write_bytes": 0
+              },
+              "source_sha256": "a7f58d12fe9dead1ad35a836e4a778ccc335de339ef9289d3e8c9a51afe021da"
+            },
+            {
+              "index": 2,
+              "point": "A",
+              "status": "ok",
+              "seconds": 325.3004171894863,
+              "rss_gib": 7.771392822265625,
+              "disk_gib": 5.462563917040825,
+              "science_status": "SCIENTIFIC_DIFFERENCE",
+              "mismatch_count": 152,
+              "io_delta": {
+                "rchar": 10219605804,
+                "wchar": 33579,
+                "syscr": 441404,
+                "syscw": 45,
+                "read_bytes": 0,
+                "write_bytes": 40960,
+                "cancelled_write_bytes": 0
+              },
+              "source_sha256": "528cb19601741e65aedb27a06e27a6de1b40f8539c427a6b8f15e2e77dddc8cd"
+            }
+          ]
+        },
+        {
+          "id": "CUSTOM_FIELD_ONLY",
+          "cases": [
+            {
+              "index": 0,
+              "point": "A",
+              "status": "ok",
+              "seconds": 474.6406618691981,
+              "rss_gib": 13.472068786621094,
+              "disk_gib": 0.0,
+              "science_status": "BITWISE_EQUAL",
+              "mismatch_count": 0,
+              "io_delta": {
+                "rchar": 3497381275,
+                "wchar": 33584,
+                "syscr": 433414,
+                "syscw": 45,
+                "read_bytes": 0,
+                "write_bytes": 40960,
+                "cancelled_write_bytes": 0
+              },
+              "source_sha256": "ffc53e3ccd5ed62869e47c0ed7c558d84afa5cb09158320f4b85b2581b0e5be9"
+            },
+            {
+              "index": 1,
+              "point": "B",
+              "status": "ok",
+              "seconds": 343.2795250080526,
+              "rss_gib": 13.494117736816406,
+              "disk_gib": 0.0,
+              "science_status": "BITWISE_EQUAL",
+              "mismatch_count": 0,
+              "io_delta": {
+                "rchar": 3497381240,
+                "wchar": 33646,
+                "syscr": 433407,
+                "syscw": 45,
+                "read_bytes": 0,
+                "write_bytes": 40960,
+                "cancelled_write_bytes": 0
+              },
+              "source_sha256": "9388d1e4f2b890708bf74c83032106fc4922a6202d9abe05e49b203eb3cd2655"
+            },
+            {
+              "index": 2,
+              "point": "A",
+              "status": "ok",
+              "seconds": 347.3516537230462,
+              "rss_gib": 13.549915313720703,
+              "disk_gib": 0.0,
+              "science_status": "BITWISE_EQUAL",
+              "mismatch_count": 0,
+              "io_delta": {
+                "rchar": 3497381241,
+                "wchar": 33586,
+                "syscr": 433407,
+                "syscw": 45,
+                "read_bytes": 0,
+                "write_bytes": 40960,
+                "cancelled_write_bytes": 0
+              },
+              "source_sha256": "cb502d1ae085817b58c3b7915e12ceef9cbe6242a5a8178cab484c4d785622f9"
+            }
+          ]
+        },
+        {
+          "id": "EXACT_DISK_PF",
+          "cases": [
+            {
+              "index": 0,
+              "point": "A",
+              "status": "ok",
+              "seconds": 521.4585393453017,
+              "rss_gib": 7.688137054443359,
+              "disk_gib": 7.688271970488131,
+              "science_status": "BITWISE_EQUAL",
+              "mismatch_count": 0,
+              "io_delta": {
+                "rchar": 11752600444,
+                "wchar": 8255252752,
+                "syscr": 433660,
+                "syscw": 168,
+                "read_bytes": 8255397888,
+                "write_bytes": 8255438848,
+                "cancelled_write_bytes": 0
+              },
+              "source_sha256": "ab196c65278863eff5fcae50bf5a327dc95a5ef9b6738c2218f911c64e126382"
+            },
+            {
+              "index": 1,
+              "point": "B",
+              "status": "ok",
+              "seconds": 364.0498376721516,
+              "rss_gib": 7.715442657470703,
+              "disk_gib": 7.688271970488131,
+              "science_status": "BITWISE_EQUAL",
+              "mismatch_count": 0,
+              "io_delta": {
+                "rchar": 20007819597,
+                "wchar": 33646,
+                "syscr": 433899,
+                "syscw": 45,
+                "read_bytes": 0,
+                "write_bytes": 40960,
+                "cancelled_write_bytes": 0
+              },
+              "source_sha256": "e4f767bb15d20948dc948a6f94815ac94a720515e2d9309e293ab5ca55aa0b79"
+            },
+            {
+              "index": 2,
+              "point": "A",
+              "status": "ok",
+              "seconds": 367.19802871067077,
+              "rss_gib": 7.7803802490234375,
+              "disk_gib": 7.688271970488131,
+              "science_status": "BITWISE_EQUAL",
+              "mismatch_count": 0,
+              "io_delta": {
+                "rchar": 20007819597,
+                "wchar": 33582,
+                "syscr": 433899,
+                "syscw": 45,
+                "read_bytes": 0,
+                "write_bytes": 40960,
+                "cancelled_write_bytes": 0
+              },
+              "source_sha256": "92529d659194d7c9c39aa01754824aef448a06e45f1dcda904de90fe2cac0f91"
+            }
+          ]
+        }
+      ],
+      "provenance": {
+        "source_directory": "/oss06/data/project/tkcastrosim/HNHuang/project_mcmc/workflows/MCMC/fixed_btps_posterior/handoffs/tiered_cache_pilot_20261004/grid128",
+        "comparison_sha256": "3429992cc9e46ded0d8b6e50ad404162eeb2397ce0942a8ecbc2c2a5a4a9754a",
+        "plan_sha256": "3c7b35c25be4b7a59e57b43114a495819b2067d87639ed586c096b73e2030388"
+      }
+    }
+  ],
+  "configuration": {
+    "BOX_LEN_Mpc": 250,
+    "KP_h_Mpc": 10,
+    "MS": 2.5,
+    "seed": 725213656658,
+    "threads": 16,
+    "workers": 1,
+    "lya_cache": false
+  },
+  "limitations": [
+    "IC stays in RAM in both exact-state modes; only PF and associated post-call velocity state storage differs.",
+    "A-B-A sequence with one new B per mode; no replicated benchmark or MCMC throughput claim.",
+    "OS page cache not flushed; both B disk cases recorded process read_bytes=0. Shared filesystem backend physical I/O is not established by this process counter.",
+    "Disk prototype uses local pickle bundles, includes serialization/fsync/content checks and rereading for end verification; not a production-ready hybrid cache or official HDF5 implementation.",
+    "Official HDF5 arm has scientific differences against this BT target; timing is not equivalent acceleration.",
+    "Peak RSS is process high-water, not cache-array size.",
+    "No latest upstream performance or generic novelty claim."
+  ]
+}
