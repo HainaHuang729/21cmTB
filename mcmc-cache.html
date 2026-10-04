@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Signal Atlas · MCMC 缓存计算链条</title>
+<link rel="stylesheet" href="mcmc-cache.css?v=20261004-1">
+</head>
+<body>
+<header class="page-header"><a href="index.html#mcmc-section" class="brand"><span class="brand-mark">21</span><span>SIGNAL ATLAS<small data-text="back">返回 MCMC 图谱 ↗</small></span></a><div class="language" aria-label="Language"><button type="button" data-language="en" aria-pressed="false">EN</button><button type="button" data-language="zh" aria-pressed="true">中文</button></div></header>
+<main>
+<section class="hero"><div><p class="eyebrow">EXACT FORWARD / WORKER-LOCAL CACHE</p><h1 data-text="title">每一次提案，<br>哪些数据可以复用？</h1><p class="intro" data-text="intro">固定 KP / MS 时，天体物理参数改变，初始密度场与对应的密度演化仍可复用。沿着真实计算链条，查看缓存在哪里生效。</p></div><aside class="metric"><span data-text="metricLabel">目前持续续跑的整体加速</span><strong>≈ 1.4<span>×</span></strong><p data-text="metricNote">约 16.4 → 11.6 分钟 / MCMC 步<br>2026-10-04 快照 · 非所有配置的保证</p></aside></section>
+<section class="workspace" aria-labelledby="chain-title">
+<div class="workspace-heading"><div><p class="eyebrow" data-text="chainLabel">一次有效提案 / 一个持久 worker 内</p><h2 id="chain-title" data-text="chainTitle">计算链条</h2></div><div class="modes" role="group" aria-label="Cache scenario"><button data-mode="cold" aria-pressed="false" data-text="cold">① 冷启动</button><button data-mode="hot" aria-pressed="true" data-text="hot">② 热缓存</button><button data-mode="changed" aria-pressed="false" data-text="changed">③ 依赖改变</button></div></div>
+<p id="mode-description" class="mode-description" aria-live="polite"></p>
+<div class="legend"><span><i class="reuse"></i><b data-text="legendReuse">复用已计算数据</b></span><span><i class="compute"></i><b data-text="legendCompute">本次重新计算</b></span><span><i class="input"></i><b data-text="legendInput">输入 / 检查</b></span><span class="legend-hint" data-text="clickHint">点击节点查看数据内容 ↓</span></div>
+<div class="diagram" id="diagram">
+<svg class="connections" viewBox="0 0 1200 720" aria-hidden="true"><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z"/></marker></defs>
+<path d="M250 70H300"/><path d="M540 70H920"/><path d="M420 120V145H1040V190" class="astro-path"/><path d="M250 250H300"/><path d="M540 250H590"/><path d="M830 250H920"/><path d="M1040 310V345"/><path d="M830 265H860V400H920"/><path d="M920 405H875V575H830"/><path d="M830 575H920"/><path d="M1165 95H1180V575H1165"/><path d="M830 410H890V280H920" class="table-path"/>
+</svg>
+<button class="node n-proposal" data-node="proposal"><span class="node-number">01 / PROPOSAL</span><strong data-text="nodeProposal">天体物理参数提案</strong><span class="node-desc">η★ · t★ · α★ · Mturn<br>fesc · αesc · LX · νX</span><span class="badge" data-badge></span></button>
+<button class="node n-prior" data-node="prior"><span class="node-number">02 / PRIOR</span><strong data-text="nodePrior">参数变换与先验</strong><span class="node-desc" data-text="priorShort">超出先验 → 直接返回 −∞</span><span class="badge" data-badge></span></button>
+<button class="node n-lf" data-node="lf"><span class="node-number">03A / GALAXIES</span><strong data-text="nodeLF">UV luminosity function</strong><span class="node-desc" data-text="lfShort">按新参数重新预测 LF</span><span class="badge" data-badge></span></button>
+<button class="node n-fixed" data-node="fixed"><span class="node-number">DEPENDENCIES</span><strong data-text="nodeFixed">固定的场依赖</strong><span class="node-desc">KP / MS · cosmology · seed<br>grid · box · native / flags</span><span class="badge" data-badge></span></button>
+<button class="node n-ic" data-node="ic"><span class="node-number">03B / INITIAL CONDITIONS</span><strong data-text="nodeIC">初始条件 IC</strong><span class="node-desc" data-text="icShort">初始密度与速度数组</span><span class="badge" data-badge></span></button>
+<button class="node n-pf" data-node="pf"><span class="node-number">04 / PERTURB FIELD</span><strong data-text="nodePF">各红移的密度演化</strong><span class="node-desc" data-text="pfShort">密度 / 速度场与 IC 后状态</span><span class="badge" data-badge></span></button>
+<button class="node n-ts" data-node="ts"><span class="node-number">05 / THERMAL EVOLUTION</span><strong data-text="nodeTS">加热与自旋温度</strong><span class="node-desc">Tk · TS · xe · Lyα</span><span class="badge" data-badge></span></button>
+<button class="node n-lya" data-node="lya"><span class="node-number">STATIC INPUT / Lyα</span><strong data-text="nodeLYA">Lyα 原始表</strong><span class="node-desc" data-text="lyaShort">保留不变的解析结果</span><span class="badge" data-badge></span></button>
+<button class="node n-ion" data-node="ion"><span class="node-number">06 / IONIZATION</span><strong data-text="nodeIon">电离与重组</strong><span class="node-desc" data-text="ionShort">新参数下的 xHI 三维场</span><span class="badge" data-badge></span></button>
+<button class="node n-history" data-node="history"><span class="node-number">07 / GLOBAL HISTORY</span><strong data-text="nodeHistory">体积平均与 τ 积分</strong><span class="node-desc">xHI(z) · τe · xHI(5.9)</span><span class="badge" data-badge></span></button>
+<button class="node n-like" data-node="likelihood"><span class="node-number">08 / JOINT LIKELIHOOD</span><strong data-text="nodeLike">LF + τ + xHI</strong><span class="node-desc" data-text="likeShort">与观测比较，再交回 sampler</span><span class="badge" data-badge></span></button>
+<div class="state-note"><span class="state-note-icon">↺</span><p data-text="stateNote">缓存命中时：先恢复 IC 的初始速度状态，再逐红移重放 PerturbField 的速度修改。</p></div>
+</div>
+<aside class="detail" aria-live="polite"><div class="detail-index" id="detail-index"></div><div><h3 id="detail-title"></h3><p id="detail-copy"></p><p class="detail-foot" id="detail-foot"></p></div></aside>
+</section>
+<section class="facts"><article><p class="eyebrow">SCOPE / FIXED TARGET</p><h3 data-text="scopeTitle">本图对应的配置</h3><p>KP = 10 h Mpc⁻¹ · MS = 2.5<br>250 cMpc · HII_DIM 128 / DIM 512<br>16 workers × 16 threads · TS ON</p><p class="fine" data-text="scopeNote">每个 worker 独立保存缓存；不同 worker 不共享场数组。正式续跑仍保持原 sampler、先验和科学 target。</p></article><article><p class="eyebrow">MEMORY / PER WORKER</p><h3>≈ 11.3 GiB</h3><p data-text="memoryText">字段缓存数组 / worker<br>16-worker 补充验收峰值 RSS：约 214 / 384 GiB</p><p class="fine" data-text="memoryNote">数组容量不等于完整进程内存；新 worker 从冷缓存重新建立。</p></article><article><p class="eyebrow">VALIDATION / 2026-10-03</p><h3 data-text="validationTitle">冷 / 热结果逐位一致</h3><p data-text="validationText">16 个 worker 全部验证复用。两步采样对照的科学 blobs、walker 状态与 RNG 状态一致。</p><p class="fine" data-text="validationNote">热缓存补充测试：444 → 319 秒 / evaluation，约 1.39×。该缓存优化验证的是计算等价性，不是 MCMC 收敛。</p></article></section>
+<footer><a href="joint-repaired.html" data-text="resultsLink">查看修复版联合结果 ↗</a><span data-text="footerNote">计算结构示意 · 数值为标注日期的实测快照</span></footer>
+</main><script src="mcmc-cache.js?v=20261004-1"></script>
+</body></html>

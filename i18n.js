@@ -42,6 +42,7 @@ window.AtlasI18n = (() => {
     mcmcJointAlt: ["Eight-parameter joint functional-test samples with MUV > −20; not posterior constraints","MUV > −20 的八参数联合功能测试样本；非后验约束"],
     mcmcJointCaption: ["E0 + E1 pooled with equal weight per stored row; repeated states retained. Raw scatter and marginal counts, not validated posterior constraints. η★ = log₁₀(f★,10/t★).", "E0 + E1 按每条已存记录等权合并，保留重复状态。显示原始散点与边缘计数，不是已验证后验约束。η★ = log₁₀(f★,10/t★)。"],
     plEmuLink: ["NEW / PL emulator reference · sampling gate passed ↗", "新增 / PL emulator 近似参考 · 采样诊断通过 ↗"],
+    cachePipelineLink: ["MCMC compute pipeline · what the cache reuses ↗", "MCMC 计算链条 · 缓存复用了哪些数据 ↗"],
     repairedLink: ["NEW / repaired exact-joint results · fixed & free ms ↗", "新增 / 修复版精确联合结果 · 固定与自由 ms ↗"],
     repairedTitle: ["New joint results", "新完成的联合结果"],
     repairedScope: ["Completed repaired-native chains only. Old chains and the PL emulator reference remain separate.", "仅展示修复版计算程序已完成的链。旧链与 PL emulator 近似参考仍独立保留。"],
