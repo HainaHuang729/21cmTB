@@ -1,10 +1,27 @@
 (() => {
   const messages = {
+    compareTitle: ['Official versus current caching', '官方缓存和当前缓存，差在哪里？'],
+    compareIntro: ['Both have cold and warm states: build on first use, reuse on a matching call. The differences are storage, reuse scope, lifetime and mutable-object state management.', '两者都有冷、热状态：第一次建立缓存，后续匹配时复用。区别在于缓存位置、复用范围、生命周期和对象状态管理。'],
+    diskTag: ['OFFICIAL / DISK CACHE', '官方 / 磁盘缓存'], diskTitle: ['Read matching HDF5 results', '从 HDF5 读取匹配结果'], diskFlow: ['Proposal → parameter match → file read → downstream calculation', '提案 → 参数匹配 → 读取文件 → 后续计算'],
+    diskCopy: ['regenerate=False permits cache reads; write=True saves new outputs. Full caching can retain IC, PF, TS, ionization and brightness fields. The field-only mode writes IC / PF alone.', 'regenerate=False 允许读取匹配缓存，write=True 保存新结果。全量模式可缓存 IC、PF、TS、电离和亮温；字段模式只保存 IC / PF。'],
+    diskFoot: ['Files can survive process restarts, with storage and I/O costs. Parameter-dependent outputs cannot be reused directly after changing astrophysics.', '文件可跨进程或重启保留；有读写与存储开销。变更天体物理参数后，参数相关结果不能直接复用。'],
+    explicitTag: ['OFFICIAL / EXPLICIT INPUTS', '官方 / 显式内存输入'], explicitTitle: ['Pass existing objects into the next call', '把已有对象传给下一次调用'], explicitFlow: ['Retain IC / PF → init_box / perturb → downstream calculation', '持有 IC / PF → init_box / perturb → 后续计算'],
+    explicitCopy: ['Official interfaces already accept existing IC / PerturbField objects. The caller manages dependencies, lifetime and the complete redshift evolution.', '官方接口已经允许调用方保存并传入 IC / PerturbField 对象。需要调用方管理依赖、对象生命周期和完整的红移流程。'],
+    explicitFoot: ['This pilot retains the 32 requested PF outputs. In this version, supplying every internal field changes the output-redshift list, so other internal fields still run through the official calculation.', '本次测试保留原请求的 32 个 PF 输出。当前版本传入全部内部红移会改变输出列表，因此其余内部 PF 仍由官方流程计算。'],
+    currentTag: ['CURRENT / COMBINED', '当前 / COMBINED'], currentTitle: ['Keep exact intermediate state per worker', '每个持久 worker 内保存精确中间状态'], currentFlow: ['Exact dependency key → verify arrays → restore state → downstream calculation', '精确依赖键 → 验证内存数组 → 恢复状态 → 后续计算'],
+    currentCopy: ['Reuse matching IC, PF at each call redshift and parsed raw Lyα tables. Preserve / restore the velocity side effects of PF calls on IC. FIELD_ONLY isolates field reuse for comparison.', '复用匹配的 IC、各调用红移的 PF 及已解析 Lyα 原始表；保存并恢复 PF 对 IC 速度数组的原位修改。FIELD_ONLY 用于单独比较字段缓存。'],
+    currentFoot: ['No field-file read on each hit; more worker memory is retained. Caches disappear when a worker exits, and a replacement starts cold.', '无需每次读取字段文件；占用更多 worker 内存。worker 退出后缓存消失，新 worker 从冷缓存开始。'],
+    compareNote: ['Reuse is an existing official capability. Our implementation integrates a persistent worker cache for this repaired BT target; it has not yet established a speed advantage over the best official setup.', '缓存复用本身是官方已有能力。当前方案是针对这个 BT 修复版的持久 worker 接入；尚不能据此宣称比官方最佳用法更快。'],
+    benchTitle: ['Measured comparison on the same target', '同一配置的实测对照'], benchCold: ['Cold A', '冷启动 A'], benchNew: ['New proposal B', '新参数 B'], benchRepeat: ['Revisit A', '再次访问 A'],
+    benchLoading: ['Loading the test snapshot…', '正在读取测试快照…'], benchError: ['Snapshot unavailable. Mechanism explanations remain available.', '测试快照暂不可用，机制说明仍可查看。'],
+    thMethod: ['Cache path', '缓存路径'], thTime: ['Seconds', '耗时 / 秒'], thRatio: ['Recompute time / mode time', '重算耗时 / 本模式'], thRSS: ['Peak RSS / GiB', '峰值 RSS / GiB'], thDisk: ['Cumulative disk / GiB', '累计磁盘 / GiB'], thScience: ['Scientific comparison', '科学结果比对'],
+    benchFoot: ['One worker, 16 threads, 250 cMpc, 128/512, TS ON, fixed KP=10 / MS=2.5. Official interfaces are tested in our repaired BT fork, not unmodified latest upstream. Output hashing is excluded from time; cache I/O is included and OS page cache is not flushed. A scientifically unequal path is not eligible for production acceleration.', '单 worker、16 线程，250 cMpc、128/512、TS ON、固定 KP=10 / MS=2.5。测试的是当前 BT 修复版中的官方接口，不是未修改的最新上游版本。计时扣除输出哈希检查，包含实际缓存 I/O；操作系统页缓存未清空。未通过科学一致性检查的路径不能用于生产加速。'],
+    benchDownload: ['Download snapshot & provenance ↗', '下载测试快照与来源记录 ↗'],
     back: ['Back to the MCMC atlas ↗', '返回 MCMC 图谱 ↗'],
     title: ['At each proposal,<br>which data can be reused?', '每一次提案，<br>哪些数据可以复用？'],
     intro: ['With KP / MS fixed, astrophysical proposals can share the same initial conditions and matching density evolution. Follow the actual evaluation path to see where reuse occurs.', '固定 KP / MS 时，天体物理参数改变，初始密度场与对应的密度演化仍可复用。沿着真实计算链条，查看缓存在哪里生效。'],
     metricLabel: ['Approximate ongoing MCMC speedup', '目前持续续跑的整体加速'],
-    metricNote: ['About 16.4 → 11.6 min / MCMC step<br>Snapshot: 2026-10-04 · configuration-specific', '约 16.4 → 11.6 分钟 / MCMC 步<br>2026-10-04 快照 · 非所有配置的保证'],
+    metricNote: ['About 16.4 → 11.6 min / MCMC step<br>Against forced recomputation · 2026-10-04 snapshot', '约 16.4 → 11.6 分钟 / MCMC 步<br>相对强制重算 · 2026-10-04 快照'],
     chainLabel: ['ONE VALID PROPOSAL / ONE PERSISTENT WORKER', '一次有效提案 / 一个持久 worker 内'],
     chainTitle: ['Evaluation pipeline', '计算链条'],
     cold: ['① Cold start', '① 冷启动'], hot: ['② Warm cache', '② 热缓存'], changed: ['③ Changed dependency', '③ 依赖改变'],
@@ -45,6 +62,7 @@
     likelihood: {title:'nodeLike',number:'08 / RECALCULATE',kind:'compute',copy:['Combine the new LF, Planck tau and McGreer xHI(z=5.9) likelihood terms with the original prior. Return the same callback structure and scientific blobs. The sampler applies its original acceptance rule and updates its state.', '将新的 LF、Planck tau 和 McGreer xHI(z=5.9) 似然项与原先验组合，返回相同结构的 callback 和科学 blobs。sampler 按原接受规则更新状态。'],foot:['The cache supplies exact intermediate inputs. It does not store an approximate likelihood or replace the sampler.', '缓存提供精确的中间输入；最终 likelihood 和 sampler 状态按本次计算更新。']},
   };
   let language = 'zh', mode = 'hot', selected = 'pf';
+  let benchmarkData = null, benchmarkCase = 1;
   try { const stored=localStorage.getItem('21cm-atlas-language'); if (stored==='en'||stored==='zh') language=stored; } catch (_) {}
   const t = pair => pair[language==='zh'?1:0];
   function status(node) {
@@ -59,6 +77,30 @@
     document.getElementById('detail-copy').textContent=t(n.copy);
     document.getElementById('detail-foot').textContent=t(n.foot);
     document.querySelectorAll('[data-node]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.node===selected)));
+  }
+  const methodNames = {
+    BASELINE: ['Forced recomputation', '强制重算'], OFFICIAL_DISK_ALL: ['Official · full disk', '官方 · 全量磁盘'], OFFICIAL_DISK_FIELDS: ['Official · fields on disk', '官方 · 字段磁盘'], OFFICIAL_EXPLICIT_FIELDS: ['Official · explicit IC / PF', '官方 · 显式 IC / PF'], CUSTOM_FIELD_ONLY: ['Current · FIELD_ONLY', '当前 · FIELD_ONLY'], CUSTOM_COMBINED: ['Current · COMBINED', '当前 · COMBINED'],
+  };
+  const scienceNames = {PENDING:['Pending comparison','待统一核验'],BITWISE_EQUAL:['Bitwise equal','逐位一致'],SCIENTIFIC_DIFFERENCE:['Scientific difference','科学结果不同'],FORWARD_FAILED:['Forward failed','计算失败'],NOT_RUN:['Not yet completed','尚未完成']};
+  function renderComparison() {
+    document.querySelectorAll('[data-case]').forEach(el=>el.setAttribute('aria-pressed',String(Number(el.dataset.case)===benchmarkCase)));
+    const explanations=[
+      ['First A: the cache is empty. Generation, cache writes and initialization costs are included.', '首次 A：缓存为空，计入生成、缓存写入及初始化开销。'],
+      ['B changes F_ESC10. This is the relevant comparison for a new astrophysical proposal; matching field inputs can be reused, while parameter-dependent outputs must be checked or recomputed.', 'B 改变 F_ESC10。这是新天体物理提案的对照：匹配的场输入可复用，依赖参数的输出需要重新核对或计算。'],
+      ['Exactly the same A returns after B. Official full-disk caching may retrieve complete TS / ionization outputs. That speed is not representative of a new continuous MCMC proposal.', 'B 之后再次访问完全相同的 A。官方全量磁盘缓存可能直接读取完整 TS / 电离输出，这个速度不能代表新的连续 MCMC 提案。'],
+    ];
+    document.getElementById('benchmark-description').textContent=t(explanations[benchmarkCase]);
+    if(!benchmarkData)return;
+    const data=benchmarkData,body=document.getElementById('benchmark-body');body.replaceChildren();
+    const base=data.modes.find(m=>m.id==='BASELINE')?.cases.find(c=>c.index===benchmarkCase);
+    for(const method of data.modes){
+      const row=document.createElement('tr'),c=method.cases.find(c=>c.index===benchmarkCase);
+      const values=[t(methodNames[method.id]),c?.status==='ok'?c.seconds.toFixed(1):'—',c?.status==='ok'&&base?.status==='ok'?(base.seconds/c.seconds).toFixed(2)+'×':'—',c?.rss_gib?.toFixed(2)??'—',c?.disk_gib?.toFixed(2)??'—',t(scienceNames[c?.science_status??'NOT_RUN']??scienceNames.PENDING)];
+      if(method.id.startsWith('CUSTOM'))row.classList.add('custom-row');
+      if(c?.science_status==='SCIENTIFIC_DIFFERENCE'||c?.science_status==='FORWARD_FAILED')row.classList.add('invalid-row');
+      for(const value of values){const cell=document.createElement('td');cell.textContent=value;row.append(cell);}body.append(row);
+    }
+    document.getElementById('benchmark-meta').textContent=language==='zh'?`静态快照：${data.snapshot_hkt} · ${data.completed_cases}/${data.maximum_cases} 次计算已完成 · ${data.final_comparison?'已执行统一科学比对':'最终科学比对尚未完成'} · job ${data.job_id}`:`Static snapshot: ${data.snapshot_hkt} · ${data.completed_cases}/${data.maximum_cases} evaluations completed · ${data.final_comparison?'Scientific comparison available':'Final scientific comparison pending'} · job ${data.job_id}`;
   }
   function render() {
     document.documentElement.lang=language==='zh'?'zh-CN':'en';
@@ -76,6 +118,7 @@
       el.querySelector('[data-badge]').textContent=label;
     });
     detail();
+    renderComparison();
   }
   document.querySelectorAll('[data-language]').forEach(el=>el.addEventListener('click',()=>{
     language=el.dataset.language;
@@ -84,5 +127,7 @@
   }));
   document.querySelectorAll('[data-mode]').forEach(el=>el.addEventListener('click',()=>{mode=el.dataset.mode;render();}));
   document.querySelectorAll('[data-node]').forEach(el=>el.addEventListener('click',()=>{selected=el.dataset.node;detail();}));
+  document.querySelectorAll('[data-case]').forEach(el=>el.addEventListener('click',()=>{benchmarkCase=Number(el.dataset.case);renderComparison();}));
   render();
+  fetch('web_data/cache_comparison/index.json?v=20261004-2',{cache:'no-store'}).then(response=>{if(!response.ok)throw Error('Snapshot load failed');return response.json();}).then(data=>{benchmarkData=data;renderComparison();}).catch(()=>{document.getElementById('benchmark-meta').textContent=t(messages.benchError);});
 })();

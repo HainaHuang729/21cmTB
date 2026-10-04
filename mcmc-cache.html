@@ -3,12 +3,27 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Signal Atlas · MCMC 缓存计算链条</title>
-<link rel="stylesheet" href="mcmc-cache.css?v=20261004-1">
+<link rel="stylesheet" href="mcmc-cache.css?v=20261004-2">
 </head>
 <body>
 <header class="page-header"><a href="index.html#mcmc-section" class="brand"><span class="brand-mark">21</span><span>SIGNAL ATLAS<small data-text="back">返回 MCMC 图谱 ↗</small></span></a><div class="language" aria-label="Language"><button type="button" data-language="en" aria-pressed="false">EN</button><button type="button" data-language="zh" aria-pressed="true">中文</button></div></header>
 <main>
 <section class="hero"><div><p class="eyebrow">EXACT FORWARD / WORKER-LOCAL CACHE</p><h1 data-text="title">每一次提案，<br>哪些数据可以复用？</h1><p class="intro" data-text="intro">固定 KP / MS 时，天体物理参数改变，初始密度场与对应的密度演化仍可复用。沿着真实计算链条，查看缓存在哪里生效。</p></div><aside class="metric"><span data-text="metricLabel">目前持续续跑的整体加速</span><strong>≈ 1.4<span>×</span></strong><p data-text="metricNote">约 16.4 → 11.6 分钟 / MCMC 步<br>2026-10-04 快照 · 非所有配置的保证</p></aside></section>
+<section class="cache-comparison" aria-labelledby="comparison-title">
+<div class="compare-intro"><p class="eyebrow">OFFICIAL CACHE / CURRENT WORKER CACHE</p><h2 id="comparison-title" data-text="compareTitle">官方缓存和当前缓存，差在哪里？</h2><p data-text="compareIntro">两者都有冷、热状态：第一次建立缓存，后续匹配时复用。区别在于缓存位置、复用范围、生命周期和对象状态管理。</p></div>
+<div class="mechanisms">
+<article><span class="method-tag" data-text="diskTag">官方 / 磁盘缓存</span><h3 data-text="diskTitle">从 HDF5 读取匹配结果</h3><div class="mini-chain" data-text="diskFlow">提案 → 参数匹配 → 读取文件 → 后续计算</div><p data-text="diskCopy">regenerate=False 允许读取匹配缓存，write=True 保存新结果。全量模式可缓存 IC、PF、TS、电离和亮温；字段模式只保存 IC / PF。</p><p class="mechanism-foot" data-text="diskFoot">文件可跨进程或重启保留；有读写与存储开销。变更天体物理参数后，参数相关结果不能直接复用。</p></article>
+<article><span class="method-tag" data-text="explicitTag">官方 / 显式内存输入</span><h3 data-text="explicitTitle">把已有对象传给下一次调用</h3><div class="mini-chain" data-text="explicitFlow">持有 IC / PF → init_box / perturb → 后续计算</div><p data-text="explicitCopy">官方接口已经允许调用方保存并传入 IC / PerturbField 对象。需要调用方管理依赖、对象生命周期和完整的红移流程。</p><p class="mechanism-foot" data-text="explicitFoot">本次测试保留原请求的 32 个 PF 输出。当前版本传入全部内部红移会改变输出列表，因此其余内部 PF 仍由官方流程计算。</p></article>
+<article class="current-method"><span class="method-tag" data-text="currentTag">当前 / COMBINED</span><h3 data-text="currentTitle">每个持久 worker 内保存精确中间状态</h3><div class="mini-chain" data-text="currentFlow">精确依赖键 → 验证内存数组 → 恢复状态 → 后续计算</div><p data-text="currentCopy">复用匹配的 IC、各调用红移的 PF 及已解析 Lyα 原始表；保存并恢复 PF 对 IC 速度数组的原位修改。FIELD_ONLY 用于单独比较字段缓存。</p><p class="mechanism-foot" data-text="currentFoot">无需每次读取字段文件；占用更多 worker 内存。worker 退出后缓存消失，新 worker 从冷缓存开始。</p></article>
+</div>
+<div class="comparison-note" data-text="compareNote">缓存复用本身是官方已有能力。当前方案是针对这个 BT 修复版的持久 worker 接入；尚不能据此宣称比官方最佳用法更快。</div>
+<div class="benchmark-heading"><div><p class="eyebrow">PAIRED PILOT / A → B → A</p><h3 data-text="benchTitle">同一配置的实测对照</h3></div><div class="benchmark-cases" role="group" aria-label="Benchmark scenario"><button data-case="0" aria-pressed="false" data-text="benchCold">冷启动 A</button><button data-case="1" aria-pressed="true" data-text="benchNew">新参数 B</button><button data-case="2" aria-pressed="false" data-text="benchRepeat">再次访问 A</button></div></div>
+<p class="benchmark-description" id="benchmark-description"></p>
+<p class="benchmark-meta" id="benchmark-meta" aria-live="polite" data-text="benchLoading">正在读取测试快照…</p>
+<div class="benchmark-table-scroll"><table class="benchmark-table"><thead><tr><th data-text="thMethod">缓存路径</th><th data-text="thTime">耗时 / 秒</th><th data-text="thRatio">重算耗时 / 本模式</th><th data-text="thRSS">峰值 RSS / GiB</th><th data-text="thDisk">累计磁盘 / GiB</th><th data-text="thScience">科学结果比对</th></tr></thead><tbody id="benchmark-body"></tbody></table></div>
+<p class="benchmark-foot" data-text="benchFoot">单 worker、16 线程，250 cMpc、128/512、TS ON、固定 KP=10 / MS=2.5。测试的是当前 BT 修复版中的官方接口，不是未修改的最新上游版本。计时扣除输出哈希检查，包含实际缓存 I/O；操作系统页缓存未清空。未通过科学一致性检查的路径不能用于生产加速。</p>
+<a class="snapshot-link" href="web_data/cache_comparison/index.json" data-text="benchDownload">下载测试快照与来源记录 ↗</a>
+</section>
 <section class="workspace" aria-labelledby="chain-title">
 <div class="workspace-heading"><div><p class="eyebrow" data-text="chainLabel">一次有效提案 / 一个持久 worker 内</p><h2 id="chain-title" data-text="chainTitle">计算链条</h2></div><div class="modes" role="group" aria-label="Cache scenario"><button data-mode="cold" aria-pressed="false" data-text="cold">① 冷启动</button><button data-mode="hot" aria-pressed="true" data-text="hot">② 热缓存</button><button data-mode="changed" aria-pressed="false" data-text="changed">③ 依赖改变</button></div></div>
 <p id="mode-description" class="mode-description" aria-live="polite"></p>
@@ -34,5 +49,5 @@
 </section>
 <section class="facts"><article><p class="eyebrow">SCOPE / FIXED TARGET</p><h3 data-text="scopeTitle">本图对应的配置</h3><p>KP = 10 h Mpc⁻¹ · MS = 2.5<br>250 cMpc · HII_DIM 128 / DIM 512<br>16 workers × 16 threads · TS ON</p><p class="fine" data-text="scopeNote">每个 worker 独立保存缓存；不同 worker 不共享场数组。正式续跑仍保持原 sampler、先验和科学 target。</p></article><article><p class="eyebrow">MEMORY / PER WORKER</p><h3>≈ 11.3 GiB</h3><p data-text="memoryText">字段缓存数组 / worker<br>16-worker 补充验收峰值 RSS：约 214 / 384 GiB</p><p class="fine" data-text="memoryNote">数组容量不等于完整进程内存；新 worker 从冷缓存重新建立。</p></article><article><p class="eyebrow">VALIDATION / 2026-10-03</p><h3 data-text="validationTitle">冷 / 热结果逐位一致</h3><p data-text="validationText">16 个 worker 全部验证复用。两步采样对照的科学 blobs、walker 状态与 RNG 状态一致。</p><p class="fine" data-text="validationNote">热缓存补充测试：444 → 319 秒 / evaluation，约 1.39×。该缓存优化验证的是计算等价性，不是 MCMC 收敛。</p></article></section>
 <footer><a href="joint-repaired.html" data-text="resultsLink">查看修复版联合结果 ↗</a><span data-text="footerNote">计算结构示意 · 数值为标注日期的实测快照</span></footer>
-</main><script src="mcmc-cache.js?v=20261004-1"></script>
+</main><script src="mcmc-cache.js?v=20261004-2"></script>
 </body></html>
