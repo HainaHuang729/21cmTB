@@ -6,6 +6,7 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <title>21cmFAST Precomputed Parameter Atlas</title>
   <link rel="stylesheet" href="styles.css?v=lf-bestfit-1&amp;layout=right-pl-1&amp;dock=compact-1">
+<link rel="stylesheet" href="mcmc-progress.css?v=20261005-1">
 </head>
 <body id="top">
   <header class="system-header load-in">
@@ -198,6 +199,7 @@
         <div><span class="section-index">06</span><div><h2 id="mcmc-title" data-i18n="mcmcTitle">MCMC Inference Archive</h2><p data-i18n="mcmcSubtitle">TWO LIKELIHOOD BRANCHES · STORED CHAIN SNAPSHOTS</p></div></div>
         <a class="text-button" href="web_data/mcmc/index.json" data-i18n="mcmcManifest">Archive manifest ↗</a>
       </div>
+<section class="chain-progress" data-mcmc-progress aria-live="polite"></section>
       <p class="mcmc-intro" data-i18n="mcmcIndependent">All active LF selections use MUV &gt; −20. LF-only corners follow kₚ and mₛ in the bottom dock; other sliders do not condition or reweight these distributions. The joint functional test is a separate snapshot at fixed kₚ = 10, mₛ = 2.5.</p>
       <p><a id="park-pl-comparison-link" class="system-action" href="park-pl-comparison.html" data-i18n="parkPLComparison">Park / PL · Combined corner &amp; best-fit LF ↗</a></p>
       <p id="mcmc-load-status" class="mcmc-load-status" role="status" aria-live="polite"></p>
@@ -246,7 +248,7 @@
           <p class="inference-detail" data-i18n="mcmcJointCaution">200 stored steps × 32 walkers × 2 ensembles after 10 initial burn-in steps each. All 12,800 correlated rows are shown, including the inherited 100-step prefix once. Not converged; no credible-interval claim.</p>
           <a class="system-action" href="ms-corner.html#pooled-observables" data-i18n="mcmcDiagnostics">LF, τ, xHI · data &amp; diagnostics ↗</a>
           <a class="system-action" href="pl-emu-reference.html" data-i18n="plEmuLink">NEW / PL emulator reference · sampling gate passed ↗</a>
-          <a class="system-action" href="mcmc-cache.html?v=20261004-3" data-i18n="cachePipelineLink">MCMC compute pipeline · what the cache reuses ↗</a>
+          <a class="system-action" href="mcmc-cache.html?v=20261005-1" data-i18n="cachePipelineLink">MCMC compute pipeline · what the cache reuses ↗</a>
           <a class="system-action" href="joint-repaired.html" data-i18n="repairedLink">NEW / repaired exact-joint results · fixed &amp; free ms ↗</a>
         </div>
         <figure class="inference-figure">
@@ -309,5 +311,6 @@
   <script src="lf-mass.js?v=20260923"></script>
   <script src="posterior.js?v=20260926-data1"></script>
   <script src="app.js?v=hii256-v23&amp;data=muv20-20260918&amp;lfmass=20260923&amp;response=1&amp;posterior=1"></script>
+<script src="mcmc-progress.js?v=20261005-1"></script>
 </body>
 </html>
