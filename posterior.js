@@ -115,7 +115,7 @@
       if(catalog.schema_version!==1 || !Array.isArray(catalog.models))throw new Error('Invalid posterior catalog');
       try{
         plData=await fetchJSON('web_data/pl_lf_predictions/index.json?v=20261007-1');
-        if(plData.schemaVersion!==1 || plData.models.length!==25)throw new Error('Invalid PL prediction catalog');
+        if(plData.schemaVersion!==1 || !Array.isArray(plData.models) || (plData.status!=='awaiting_matched256' && plData.models.length!==25))throw new Error('Invalid PL prediction catalog');
       }catch(error){plError=error.message;}
       mode.disabled=false;
     }catch(error){loadError=error.message;mode.disabled=true;}
