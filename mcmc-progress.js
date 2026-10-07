@@ -28,5 +28,5 @@
     }
   }
   new MutationObserver(render).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
-  fetch('web_data/cache_comparison/progress.json?v=20261007-1',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('progress snapshot unavailable');return r.json();}).then(result=>{data=result;render();}).catch(()=>containers.forEach(c=>{c.textContent=label('Progress snapshot unavailable.','进度快照暂不可用。');}));
+  fetch('web_data/cache_comparison/progress.json?v=20261007-2',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('progress snapshot unavailable');return r.json();}).then(result=>{data=result;render();}).catch(()=>containers.forEach(c=>{c.textContent=label('Progress snapshot unavailable.','进度快照暂不可用。');}));
 })();

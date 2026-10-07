@@ -1,34 +1,40 @@
 {
-  "snapshot_hkt": "2026-10-07 10:15 HKT",
+  "snapshot_hkt": "2026-10-07 10:21 HKT",
   "status": "EXPLORATORY_NOT_CONVERGED",
   "chains": [
     {
       "ensemble": 0,
-      "job_id": "2176971_0",
-      "scheduler_state": "COMPLETED",
+      "job_id": "2190110_0",
+      "scheduler_state": "RUNNING",
       "node": "chpc-cn062",
       "stored_steps": 600,
-      "target_steps": 600,
-      "segment_steps": 200,
-      "previous_segment_acceptance": 0.27484375,
+      "target_steps": 1000,
+      "segment_steps": 0,
+      "previous_segment_acceptance": 0.254375,
       "previous_seconds_per_step": 677.0986221444514,
-      "latest_segment_acceptance": 0.254375,
+      "latest_segment_acceptance": null,
       "monitor_sha256": null,
-      "segment_target_steps": 200
+      "segment_target_steps": 400,
+      "previous_job_id": "2176971_0",
+      "job_id_raw": "2190111",
+      "worker_identity_count": 16
     },
     {
       "ensemble": 1,
-      "job_id": "2176971_1",
-      "scheduler_state": "COMPLETED",
+      "job_id": "2190110_1",
+      "scheduler_state": "RUNNING",
       "node": "chpc-cn063",
       "stored_steps": 600,
-      "target_steps": 600,
-      "segment_steps": 200,
-      "previous_segment_acceptance": 0.24906250000000002,
+      "target_steps": 1000,
+      "segment_steps": 0,
+      "previous_segment_acceptance": 0.24546875,
       "previous_seconds_per_step": 671.1524604895478,
-      "latest_segment_acceptance": 0.24546875,
+      "latest_segment_acceptance": null,
       "monitor_sha256": null,
-      "segment_target_steps": 200
+      "segment_target_steps": 400,
+      "previous_job_id": "2176971_1",
+      "job_id_raw": "2190110",
+      "worker_identity_count": 16
     }
   ],
   "configuration": {
@@ -42,7 +48,7 @@
     "cache_mode": "COMBINED",
     "native_sha256": "e253dbe272e045508e2ba72f8ea8949eed66b1d1c8fb05458c917ff607d8cbb9"
   },
-  "checkpoint_validation": "Closed 400-step HDF5 matches positions/log_prob/blobs and full RNG state; immutable snapshots and new output backends; source files retained.",
+  "checkpoint_validation": "Closed 600-step HDF5 matches positions/log_prob/scientific blobs and full RNG state; source and inherited 200/400 prefixes validated. Independent output backend; original files retained.",
   "startup_incident": {
     "previous_job": "2176955",
     "phase": "before checkpoint copy or sampling",
@@ -53,14 +59,17 @@
   "plot_snapshot_stored_steps_per_ensemble": 600,
   "automatic_live_polling": false,
   "provenance": {
-    "plan_sha256": "c78082d2a724f0869984c81d49021926247afa2ce451143c877eae6b311d18aa",
-    "submitted_jobs_sha256": "114484dd48e99e9543281f477b852a543afc2eadcf830183af792101bcec25a2",
-    "scheduler_source": "squeue + completed prior sacct and atomic progress/run_report; no active HDF5 reads"
+    "plan_sha256": "fb08d1c42ab9d49a910918fd1f0c07031733e4a41f55ddaef5eac55ae41d560e",
+    "submitted_jobs_sha256": "9d736bc8093739282bb6f2fc6c2dc41ede4f7fd464d859bbd0d65c34f3510641",
+    "scheduler_source": "squeue 2190110_0/1 RUNNING on chpc-cn062/063; committed600 source closed and verified; no active HDF5 reads"
   },
   "next_segment": {
     "planned_target_steps": 1000,
     "additional_steps": 400,
-    "submitted": false
+    "submitted": true,
+    "array_job": "2190110",
+    "wall_hours": 120,
+    "estimated_compute_hours": 75
   },
   "convergence": {
     "status": "EXPLORATORY_NOT_CONVERGED",
