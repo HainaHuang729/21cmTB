@@ -47,7 +47,7 @@
     const key=model()?.key;
     link.href='pl-lf-predictions.html'+(key?'?model='+encodeURIComponent(key):'');
     let warning=document.getElementById('posterior-pl-comparison-note');
-    if(!warning){warning=document.createElement('p');warning.id='posterior-pl-comparison-note';warning.className='ms-warning';document.getElementById('analysis-section').prepend(warning);}
+    if(!warning){warning=document.createElement('p');warning.id='posterior-pl-comparison-note';warning.style.gridColumn='1 / -1';warning.style.borderLeft='2px solid #df5a2e';warning.style.padding='8px 14px';document.getElementById('analysis-section').prepend(warning);}
     warning.hidden=!enabled;
     warning.textContent=plError?text('PL comparison data unavailable: ','PL 对照数据不可用：')+plError
       :state.plReference?.conditional_lf_reference
