@@ -46,6 +46,7 @@
     link.textContent=text('Saved PL predictions at BPL LF-best parameters →','BPL LF 最佳参数下的已存 PL 预测 →');
     const key=model()?.key;
     link.href='pl-lf-predictions.html'+(key?'?model='+encodeURIComponent(key):'');
+    link.hidden=enabled;
     let warning=document.getElementById('posterior-pl-comparison-note');
     if(!warning){warning=document.createElement('p');warning.id='posterior-pl-comparison-note';warning.style.gridColumn='1 / -1';warning.style.borderLeft='2px solid #df5a2e';warning.style.padding='8px 14px';document.getElementById('analysis-section').prepend(warning);}
     warning.hidden=!enabled;

@@ -590,7 +590,7 @@ function drawGlobal() {
     if (index < 4) drawXMinorTick(ctx, px(value - (zMax - zMin) / 8), margin.top, height - margin.bottom);
   }
   ctx.save(); ctx.beginPath(); ctx.rect(margin.left, margin.top, plotWidth, plotHeight); ctx.clip();
-  if (pl) drawCurve(ctx, pl.redshift, pl.brightness_mk, px, py, plotPalette.pl, 1.6, [7, 5]);
+  if (pl) drawCurve(ctx, pl.redshift, pl.brightness_mk, px, py, plotPalette.pl, 2.2, state.plReference?.conditional_lf_reference ? [] : [7, 5]);
   drawCurve(ctx, z, values, px, py, plotPalette.current, 2.2);
   ctx.restore();
   const trough = values.indexOf(Math.min(...values));
@@ -638,7 +638,7 @@ function drawIonizationHistory() {
   }
   ctx.save();
   ctx.beginPath(); ctx.rect(margin.left, margin.top, plotWidth, plotHeight); ctx.clip();
-  if (pl) drawCurve(ctx, pl.redshift, pl.ionized_fraction, px, py, plotPalette.pl, 1.6, [7, 5]);
+  if (pl) drawCurve(ctx, pl.redshift, pl.ionized_fraction, px, py, plotPalette.pl, 2.2, state.plReference?.conditional_lf_reference ? [] : [7, 5]);
   if (current) drawCurve(ctx, current.redshift, current.ionized_fraction, px, py, plotPalette.current, 2.2);
   ctx.restore();
   if (!pl) {
@@ -650,6 +650,8 @@ function drawIonizationHistory() {
   const tauPL = pl && Number.isFinite(pl.tau_e) ? pl.tau_e : null;
   $("#tau-current").textContent = tauCurrent === null ? t("pending") : tauCurrent.toFixed(4);
   $("#tau-pl").textContent = tauPL === null ? t("pending") : tauPL.toFixed(4);
+  $("#tau-pl").style.color = plotPalette.pl;
+  $("#tau-current").style.color = plotPalette.current;
   $("#tau-difference").textContent = state.plReference?.conditional_lf_reference || tauCurrent === null || tauPL === null
     ? "—"
     : `${tauCurrent - tauPL >= 0 ? "+" : ""}${(tauCurrent - tauPL).toFixed(4)}`;
@@ -963,7 +965,7 @@ function drawLFPanel({redshift, current, plCurve, observations}, [yMin, yMax]) {
   }
   ctx.save();
   ctx.beginPath(); ctx.rect(margin.left, margin.top, plotWidth, plotHeight); ctx.clip();
-  if (plCurve) drawLFCurve(ctx, plCurve, px, py, plotPalette.pl, 1.6, [7, 5]);
+  if (plCurve) drawLFCurve(ctx, plCurve, px, py, plotPalette.pl, 2.2, state.plReference?.conditional_lf_reference ? [] : [7, 5]);
   const drawn = current && drawLFCurve(ctx, current, px, py, plotPalette.current, 2.2);
   // Use the loaded result's parameters, never a pending slider selection.
   const markers = [{value: massUV, color: plotPalette.current}];
