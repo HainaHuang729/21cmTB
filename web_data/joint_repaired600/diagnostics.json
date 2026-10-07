@@ -1,0 +1,350 @@
+{
+  "material_passport": {
+    "origin_skill": "academic-research-suite/experiment-agent",
+    "origin_mode": "validate",
+    "origin_date": "2026-10-07",
+    "verification_status": "ANALYZED",
+    "version_label": "fixed_joint600_v1"
+  },
+  "status": "EXPLORATORY_NOT_CONVERGED",
+  "checkpoint_validation": "PASS",
+  "sources": [
+    {
+      "ensemble": 0,
+      "file": "workflows/MCMC/fixed_btps_posterior/handoffs/fixed_cache16_continue_20261005/continuation_0_COMBINED/chain.h5",
+      "sha256": "6fb4efbe0f55a11d8cdf0837ecec22b7e50794d8c64f39073e542311440c2743",
+      "shape": [
+        600,
+        32,
+        8
+      ],
+      "checkpoint": {
+        "stored_steps": 600,
+        "burnin": 20,
+        "completed_total_iterations": 620,
+        "nwalkers": 32,
+        "ndim": 8,
+        "blob_dtype": "float64",
+        "format": "project custom HDF5+pickle; emcee2.2.1",
+        "RNG": "full RandomState tuple verified; no seed reinitialization"
+      },
+      "checkpoint_sha256": "e1b81d60a5f6514c4b6c828c09366c83eda9b354ecf2eff3db9face70a9ec9cc",
+      "native_sha256": "e253dbe272e045508e2ba72f8ea8949eed66b1d1c8fb05458c917ff607d8cbb9"
+    },
+    {
+      "ensemble": 1,
+      "file": "workflows/MCMC/fixed_btps_posterior/handoffs/fixed_cache16_continue_20261005/continuation_1_COMBINED/chain.h5",
+      "sha256": "48076258e1fdb0274958cf0182206d751c310de06fc8ce8ae9e68bd7fb751257",
+      "shape": [
+        600,
+        32,
+        8
+      ],
+      "checkpoint": {
+        "stored_steps": 600,
+        "burnin": 20,
+        "completed_total_iterations": 620,
+        "nwalkers": 32,
+        "ndim": 8,
+        "blob_dtype": "float64",
+        "format": "project custom HDF5+pickle; emcee2.2.1",
+        "RNG": "full RandomState tuple verified; no seed reinitialization"
+      },
+      "checkpoint_sha256": "aa622711652af63328a134bc756fe973f5d397eefda1984681ea0e55b4522993",
+      "native_sha256": "e253dbe272e045508e2ba72f8ea8949eed66b1d1c8fb05458c917ff607d8cbb9"
+    }
+  ],
+  "full": {
+    "steps": 600,
+    "parameters": {
+      "ETA_STAR": {
+        "max_rank_folded_rhat_across_matching_walkers": 1.954104774714298,
+        "max_IAT_steps": 78.39083116036407,
+        "length_over_IAT": 7.653956350744393,
+        "estimated_ensemble_mean_ESS": 775.5255697797288,
+        "half_median_shift_over_68_width": 0.1414119934553006,
+        "independent_quantile_shift_over_68_width": 0.0899151169998346,
+        "iat_change_vs_last_half": 0.5242098436113635
+      },
+      "t_STAR": {
+        "max_rank_folded_rhat_across_matching_walkers": 2.298430151887754,
+        "max_IAT_steps": 74.47323393190338,
+        "length_over_IAT": 8.056585813751909,
+        "estimated_ensemble_mean_ESS": 491.34968587605863,
+        "half_median_shift_over_68_width": 0.3217777272866238,
+        "independent_quantile_shift_over_68_width": 0.07750416800611361,
+        "iat_change_vs_last_half": 0.5410123341057654
+      },
+      "ALPHA_STAR": {
+        "max_rank_folded_rhat_across_matching_walkers": 1.9798820950582157,
+        "max_IAT_steps": 75.86305424299536,
+        "length_over_IAT": 7.908988189140824,
+        "estimated_ensemble_mean_ESS": 1284.1252599181134,
+        "half_median_shift_over_68_width": 0.08645369347405492,
+        "independent_quantile_shift_over_68_width": 0.07231733241750435,
+        "iat_change_vs_last_half": 0.5526059064107571
+      },
+      "M_TURN": {
+        "max_rank_folded_rhat_across_matching_walkers": 1.9421967348097824,
+        "max_IAT_steps": 63.114060750733756,
+        "length_over_IAT": 9.506597941299862,
+        "estimated_ensemble_mean_ESS": 1182.7263147390788,
+        "half_median_shift_over_68_width": 0.17522627166483581,
+        "independent_quantile_shift_over_68_width": 0.05292876691558321,
+        "iat_change_vs_last_half": 0.5352058616004215
+      },
+      "F_ESC10": {
+        "max_rank_folded_rhat_across_matching_walkers": 2.2024882061741975,
+        "max_IAT_steps": 76.63434514906922,
+        "length_over_IAT": 7.829387709034106,
+        "estimated_ensemble_mean_ESS": 393.75747121388326,
+        "half_median_shift_over_68_width": 0.19888931244125985,
+        "independent_quantile_shift_over_68_width": 0.2003094865699327,
+        "iat_change_vs_last_half": 0.4984273056838007
+      },
+      "ALPHA_ESC": {
+        "max_rank_folded_rhat_across_matching_walkers": 1.8602343396862961,
+        "max_IAT_steps": 52.99315303481184,
+        "length_over_IAT": 11.322217411857958,
+        "estimated_ensemble_mean_ESS": 2597.0496047311312,
+        "half_median_shift_over_68_width": 0.04452308329901762,
+        "independent_quantile_shift_over_68_width": 0.14974694165493327,
+        "iat_change_vs_last_half": 0.5417122272290906
+      },
+      "L_X": {
+        "max_rank_folded_rhat_across_matching_walkers": 2.1975355884475,
+        "max_IAT_steps": 84.00027443021679,
+        "length_over_IAT": 7.142833807030593,
+        "estimated_ensemble_mean_ESS": 862.7117104024318,
+        "half_median_shift_over_68_width": 0.18490523494928957,
+        "independent_quantile_shift_over_68_width": 0.11316045169775271,
+        "iat_change_vs_last_half": 0.5443673875412394
+      },
+      "NU_X_THRESH": {
+        "max_rank_folded_rhat_across_matching_walkers": 1.9997479018444986,
+        "max_IAT_steps": 71.47476234287922,
+        "length_over_IAT": 8.394571458967235,
+        "estimated_ensemble_mean_ESS": 950.787516195418,
+        "half_median_shift_over_68_width": 0.1648606402007789,
+        "independent_quantile_shift_over_68_width": 0.06607213660300557,
+        "iat_change_vs_last_half": 0.46279507524601926
+      },
+      "log_posterior": {
+        "max_rank_folded_rhat_across_matching_walkers": 1.5481409054187236,
+        "max_IAT_steps": 55.64703742180202,
+        "length_over_IAT": 10.782245161625177,
+        "estimated_ensemble_mean_ESS": 960.259214995385,
+        "half_median_shift_over_68_width": 0.09662684822054855,
+        "independent_quantile_shift_over_68_width": 0.13883932153087955,
+        "iat_change_vs_last_half": 0.464195551395902
+      },
+      "tau": {
+        "max_rank_folded_rhat_across_matching_walkers": 1.922292066916526,
+        "max_IAT_steps": 46.034034874917225,
+        "length_over_IAT": 13.033834675372432,
+        "estimated_ensemble_mean_ESS": 3230.0128256845624,
+        "half_median_shift_over_68_width": 0.049345672515141964,
+        "independent_quantile_shift_over_68_width": 0.054096781504850616,
+        "iat_change_vs_last_half": 0.39558382604260245
+      },
+      "xHI_z5p9": {
+        "max_rank_folded_rhat_across_matching_walkers": 1.5653519172683765,
+        "max_IAT_steps": null,
+        "length_over_IAT": null,
+        "estimated_ensemble_mean_ESS": null,
+        "half_median_shift_over_68_width": null,
+        "independent_quantile_shift_over_68_width": null,
+        "iat_change_vs_last_half": null,
+        "constant_walker_sequences": [
+          1,
+          0
+        ],
+        "last_half_constant_walker_sequences": [
+          6,
+          4
+        ],
+        "note": "At least one constant observable sequence: autocorrelation diagnostics unavailable; no walker or sample excluded from publication."
+      },
+      "F_STAR10": {
+        "max_rank_folded_rhat_across_matching_walkers": 2.0540699528795527,
+        "max_IAT_steps": 73.1360027321874,
+        "length_over_IAT": 8.203893808595284,
+        "estimated_ensemble_mean_ESS": 662.0400767705297,
+        "half_median_shift_over_68_width": 0.24202493963155106,
+        "independent_quantile_shift_over_68_width": 0.0682683257745361,
+        "iat_change_vs_last_half": 0.5359060777146144
+      }
+    },
+    "gates": {
+      "rank_folded_rhat_le_1p05": false,
+      "length_ge_50_IAT": false,
+      "half_drift_le_0p2": false,
+      "ensemble_quantile_shift_le_0p2": false,
+      "mean_ESS_ge_2000": false,
+      "iat_stability_le_0p3": false,
+      "all_walkers_vary": false
+    },
+    "passed": false
+  },
+  "last300": {
+    "steps": 300,
+    "parameters": {
+      "ETA_STAR": {
+        "max_rank_folded_rhat_across_matching_walkers": 2.320740936034294,
+        "max_IAT_steps": 41.33777216436975,
+        "length_over_IAT": 7.257285148486519,
+        "estimated_ensemble_mean_ESS": 1466.8409622354075,
+        "half_median_shift_over_68_width": 0.025682256729126156,
+        "independent_quantile_shift_over_68_width": 0.18415013119303736,
+        "iat_change_vs_last_half": 0.5360602052934927
+      },
+      "t_STAR": {
+        "max_rank_folded_rhat_across_matching_walkers": 2.248444170469798,
+        "max_IAT_steps": 30.477926388363507,
+        "length_over_IAT": 9.84318933569379,
+        "estimated_ensemble_mean_ESS": 2234.964823012666,
+        "half_median_shift_over_68_width": 0.06400996265823863,
+        "independent_quantile_shift_over_68_width": 0.28148742370372465,
+        "iat_change_vs_last_half": 0.487382653220969
+      },
+      "ALPHA_STAR": {
+        "max_rank_folded_rhat_across_matching_walkers": 2.2386321100256015,
+        "max_IAT_steps": 38.5469005089657,
+        "length_over_IAT": 7.782726912899843,
+        "estimated_ensemble_mean_ESS": 2066.913103382729,
+        "half_median_shift_over_68_width": 0.04877798989738419,
+        "independent_quantile_shift_over_68_width": 0.16397245825998422,
+        "iat_change_vs_last_half": 0.48221961114314693
+      },
+      "M_TURN": {
+        "max_rank_folded_rhat_across_matching_walkers": 2.295527638249234,
+        "max_IAT_steps": 27.811163673560095,
+        "length_over_IAT": 10.787035146077264,
+        "estimated_ensemble_mean_ESS": 4882.147701106134,
+        "half_median_shift_over_68_width": 0.12976669930524015,
+        "independent_quantile_shift_over_68_width": 0.10141468988780104,
+        "iat_change_vs_last_half": 0.4939604279357282
+      },
+      "F_ESC10": {
+        "max_rank_folded_rhat_across_matching_walkers": 2.6656683223236652,
+        "max_IAT_steps": 37.99455284063049,
+        "length_over_IAT": 7.895868685660303,
+        "estimated_ensemble_mean_ESS": 991.1279875919646,
+        "half_median_shift_over_68_width": 0.10272325601648512,
+        "independent_quantile_shift_over_68_width": 0.25691233142592823,
+        "iat_change_vs_last_half": 0.496049760997126
+      },
+      "ALPHA_ESC": {
+        "max_rank_folded_rhat_across_matching_walkers": 2.3313805686169204,
+        "max_IAT_steps": 27.472715701244685,
+        "length_over_IAT": 10.919925181856271,
+        "estimated_ensemble_mean_ESS": 6024.23448277929,
+        "half_median_shift_over_68_width": 0.0630687546994376,
+        "independent_quantile_shift_over_68_width": 0.20273909887034508,
+        "iat_change_vs_last_half": 0.4851654822770785
+      },
+      "L_X": {
+        "max_rank_folded_rhat_across_matching_walkers": 2.442397143594338,
+        "max_IAT_steps": 32.126476451786175,
+        "length_over_IAT": 9.338092225900501,
+        "estimated_ensemble_mean_ESS": 2571.644692775941,
+        "half_median_shift_over_68_width": 0.09766593210288373,
+        "independent_quantile_shift_over_68_width": 0.05399143039477098,
+        "iat_change_vs_last_half": 0.5211847260034864
+      },
+      "NU_X_THRESH": {
+        "max_rank_folded_rhat_across_matching_walkers": 2.420287024349441,
+        "max_IAT_steps": 31.33697194220055,
+        "length_over_IAT": 9.573356371296331,
+        "estimated_ensemble_mean_ESS": 1527.5237616783795,
+        "half_median_shift_over_68_width": 0.12617597578799242,
+        "independent_quantile_shift_over_68_width": 0.1515953285091269,
+        "iat_change_vs_last_half": 0.5042386877235108
+      },
+      "log_posterior": {
+        "max_rank_folded_rhat_across_matching_walkers": 1.6253107670060962,
+        "max_IAT_steps": 21.046966652832126,
+        "length_over_IAT": 14.253835478930231,
+        "estimated_ensemble_mean_ESS": 2149.9684708149703,
+        "half_median_shift_over_68_width": 0.05229366666675632,
+        "independent_quantile_shift_over_68_width": 0.1284706979347769,
+        "iat_change_vs_last_half": 0.4650043838404135
+      },
+      "tau": {
+        "max_rank_folded_rhat_across_matching_walkers": 1.8704864736393936,
+        "max_IAT_steps": 27.823715230918875,
+        "length_over_IAT": 10.782169006194668,
+        "estimated_ensemble_mean_ESS": 1602.7132217512838,
+        "half_median_shift_over_68_width": 0.09813200562011383,
+        "independent_quantile_shift_over_68_width": 0.05710179454979063,
+        "iat_change_vs_last_half": 0.47303234299930635
+      },
+      "xHI_z5p9": {
+        "max_rank_folded_rhat_across_matching_walkers": 2.6841677763205536,
+        "max_IAT_steps": null,
+        "length_over_IAT": null,
+        "estimated_ensemble_mean_ESS": null,
+        "half_median_shift_over_68_width": null,
+        "independent_quantile_shift_over_68_width": null,
+        "iat_change_vs_last_half": null,
+        "constant_walker_sequences": [
+          6,
+          4
+        ],
+        "last_half_constant_walker_sequences": [
+          9,
+          7
+        ],
+        "note": "At least one constant observable sequence: autocorrelation diagnostics unavailable; no walker or sample excluded from publication."
+      },
+      "F_STAR10": {
+        "max_rank_folded_rhat_across_matching_walkers": 2.475950297089918,
+        "max_IAT_steps": 29.431828481536414,
+        "length_over_IAT": 10.193046625975011,
+        "estimated_ensemble_mean_ESS": 2656.1324239934183,
+        "half_median_shift_over_68_width": 0.03741730650858365,
+        "independent_quantile_shift_over_68_width": 0.22920301258777118,
+        "iat_change_vs_last_half": 0.49031701552835394
+      }
+    },
+    "gates": {
+      "rank_folded_rhat_le_1p05": false,
+      "length_ge_50_IAT": false,
+      "half_drift_le_0p2": false,
+      "ensemble_quantile_shift_le_0p2": false,
+      "mean_ESS_ge_2000": false,
+      "iat_stability_le_0p3": false,
+      "all_walkers_vary": false
+    },
+    "passed": false
+  },
+  "walkers": {
+    "zero_movement_walkers_by_ensemble": [
+      0,
+      0
+    ],
+    "min_move_fraction_by_ensemble": [
+      0.13689482470784642,
+      0.10517529215358931
+    ]
+  },
+  "interpretation": "Two independent ensembles; predetermined matching walker indices compared separately, maximum reported. No pooling of walkers as independent chains. Mean ESS accounts for contemporaneous walker covariance via ensemble means; provisional under nonstationarity. All 600 stored steps and tail300 are diagnostic windows, not a tuned posterior discard.",
+  "fallacy_scan": {
+    "coverage": "11/11 reviewed",
+    "not_applicable": [
+      "p-value/significance misuse",
+      "multiple null-hypothesis testing",
+      "causal claims",
+      "population effect-size claims"
+    ],
+    "addressed": [
+      "walker dependence",
+      "correlated rows versus ESS",
+      "short-chain autocorrelation reliability",
+      "nonstationarity and drift",
+      "tail-window selection",
+      "numerical-target identity",
+      "no posterior claim from finite completion"
+    ]
+  }
+}

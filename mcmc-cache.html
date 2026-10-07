@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Signal Atlas · MCMC 缓存计算链条</title>
 <link rel="stylesheet" href="mcmc-cache.css?v=20261004-3">
-<link rel="stylesheet" href="mcmc-progress.css?v=20261005-1">
+<link rel="stylesheet" href="mcmc-progress.css?v=20261007-1">
 </head>
 <body>
 <header class="page-header"><a href="index.html#mcmc-section" class="brand"><span class="brand-mark">21</span><span>SIGNAL ATLAS<small data-text="back">返回 MCMC 图谱 ↗</small></span></a><div class="language" aria-label="Language"><button type="button" data-language="en" aria-pressed="false">EN</button><button type="button" data-language="zh" aria-pressed="true">中文</button></div></header>
@@ -64,5 +64,5 @@
 <section class="facts"><article><p class="eyebrow">SCOPE / FIXED TARGET</p><h3 data-text="scopeTitle">本图对应的配置</h3><p>KP = 10 h Mpc⁻¹ · MS = 2.5<br>250 cMpc · HII_DIM 128 / DIM 512<br>16 workers × 16 threads · TS ON</p><p class="fine" data-text="scopeNote">每个 worker 独立保存缓存；不同 worker 不共享场数组。正式续跑仍保持原 sampler、先验和科学 target。</p></article><article><p class="eyebrow">MEMORY / PER WORKER</p><h3>≈ 11.3 GiB</h3><p data-text="memoryText">字段缓存数组 / worker<br>16-worker 补充验收峰值 RSS：约 214 / 384 GiB</p><p class="fine" data-text="memoryNote">数组容量不等于完整进程内存；新 worker 从冷缓存重新建立。</p></article><article><p class="eyebrow">VALIDATION / 2026-10-03</p><h3 data-text="validationTitle">冷 / 热结果逐位一致</h3><p data-text="validationText">16 个 worker 全部验证复用。两步采样对照的科学 blobs、walker 状态与 RNG 状态一致。</p><p class="fine" data-text="validationNote">热缓存补充测试：444 → 319 秒 / evaluation，约 1.39×。该缓存优化验证的是计算等价性，不是 MCMC 收敛。</p></article></section>
 <footer><a href="joint-repaired.html" data-text="resultsLink">查看修复版联合结果 ↗</a><span data-text="footerNote">计算结构示意 · 数值为标注日期的实测快照</span></footer>
 </main><script src="mcmc-cache.js?v=20261004-3"></script>
-<script src="mcmc-progress.js?v=20261005-1"></script>
+<script src="mcmc-progress.js?v=20261007-1"></script>
 </body></html>

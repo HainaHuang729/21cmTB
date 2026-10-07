@@ -1,32 +1,34 @@
 {
-  "snapshot_hkt": "2026-10-05 15:08 HKT",
+  "snapshot_hkt": "2026-10-07 10:15 HKT",
   "status": "EXPLORATORY_NOT_CONVERGED",
   "chains": [
     {
       "ensemble": 0,
       "job_id": "2176971_0",
-      "scheduler_state": "RUNNING",
+      "scheduler_state": "COMPLETED",
       "node": "chpc-cn062",
-      "stored_steps": 400,
+      "stored_steps": 600,
       "target_steps": 600,
-      "segment_steps": 0,
+      "segment_steps": 200,
       "previous_segment_acceptance": 0.27484375,
-      "previous_seconds_per_step": 690.6299233623035,
-      "latest_segment_acceptance": null,
-      "monitor_sha256": null
+      "previous_seconds_per_step": 677.0986221444514,
+      "latest_segment_acceptance": 0.254375,
+      "monitor_sha256": null,
+      "segment_target_steps": 200
     },
     {
       "ensemble": 1,
       "job_id": "2176971_1",
-      "scheduler_state": "RUNNING",
+      "scheduler_state": "COMPLETED",
       "node": "chpc-cn063",
-      "stored_steps": 400,
+      "stored_steps": 600,
       "target_steps": 600,
-      "segment_steps": 0,
+      "segment_steps": 200,
       "previous_segment_acceptance": 0.24906250000000002,
-      "previous_seconds_per_step": 685.6476632619602,
-      "latest_segment_acceptance": null,
-      "monitor_sha256": null
+      "previous_seconds_per_step": 671.1524604895478,
+      "latest_segment_acceptance": 0.24546875,
+      "monitor_sha256": null,
+      "segment_target_steps": 200
     }
   ],
   "configuration": {
@@ -48,11 +50,26 @@
     "fixed": true,
     "replacement_job": "2176971"
   },
-  "plot_snapshot_stored_steps_per_ensemble": 200,
+  "plot_snapshot_stored_steps_per_ensemble": 600,
   "automatic_live_polling": false,
   "provenance": {
     "plan_sha256": "c78082d2a724f0869984c81d49021926247afa2ce451143c877eae6b311d18aa",
     "submitted_jobs_sha256": "114484dd48e99e9543281f477b852a543afc2eadcf830183af792101bcec25a2",
     "scheduler_source": "squeue + completed prior sacct and atomic progress/run_report; no active HDF5 reads"
+  },
+  "next_segment": {
+    "planned_target_steps": 1000,
+    "additional_steps": 400,
+    "submitted": false
+  },
+  "convergence": {
+    "status": "EXPLORATORY_NOT_CONVERGED",
+    "max_rank_folded_rhat": 2.298430151887754,
+    "min_length_over_IAT": 7.142833807030593,
+    "zero_stuck_walkers": [
+      0,
+      0
+    ],
+    "diagnostics": "web_data/joint_repaired600/diagnostics.json"
   }
 }
