@@ -16,7 +16,7 @@
     let note=text('LF constrains F★,10, α★, Mturn and t★. Escape and X-ray parameters are fixed assumptions.','LF 约束 F★,10、α★、Mturn、t★；逃逸率及 X-ray 参数为固定假设。');
     if(loadError)note=text('Posterior catalog unavailable: ','后验目录不可用：')+loadError;
     else if(enabled){
-      note+=' '+text('Only actual joint rows are selectable; no independent interpolation. No matching PL simulation has been computed for these new samples.','只选择实际联合样本，不独立插值参数；这些新样本尚无同参数 PL 模拟。');
+      note+=' '+text('Only actual joint rows are selectable; no independent interpolation. PL predictions are available for the best retained sample of each BPL group only; PL lightcone and slice arrays were not saved.','只选择实际联合样本，不独立插值参数；各 BPL 组最高似然样本已有 PL 预测，但没有保存 PL 光锥和切片数组。');
       if(chosen)note+=' '+text('Selected: ','已选：')+chosen.run_id+' · '+chosen.status+' · log LF = '+chosen.provenance.log_LF.toFixed(3);
       else note+=' '+text('No posterior models available for this kp/ms (including PL).','此 kp/ms 尚无后验模型（包括 PL）。');
       if(chosen?.status==='under_review')note+=' '+text('Extreme kinetic temperature: withheld for numerical review.','动温存在极端值：暂不展示，等待数值核查。');
@@ -30,6 +30,11 @@
       }
     }
     document.getElementById('posterior-note').textContent=note;
+    let link=document.getElementById('posterior-pl-link');
+    if(!link){link=document.createElement('a');link.id='posterior-pl-link';document.getElementById('posterior-note').after(link);}
+    link.textContent=text('Saved PL predictions at BPL LF-best parameters →','BPL LF 最佳参数下的已存 PL 预测 →');
+    const key=model()?.key;
+    link.href='pl-lf-predictions.html'+(key?'?model='+encodeURIComponent(key):'');
   }
   function applySample(sample){
     chosen=sample;
