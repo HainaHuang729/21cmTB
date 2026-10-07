@@ -54,6 +54,7 @@
         ?text('PL LF/Tb/τ: saved forward at the same four LF-constrained parameters only. PL: 128³, Fesc10=−1.5, αesc=−0.25, LX=40, EX=800 eV. BPL assumptions/grid differ; Δτ is not a controlled model difference. PL spatial data pending.','PL LF/Tb/τ：仅共享四个 LF 约束参数的已存预测。PL：128³，Fesc10=−1.5、αesc=−0.25、LX=40、EX=800 eV。BPL 假设及网格不同，Δτ 不构成受控模型差异；PL 空间数据待完成。')
         :text('No saved PL prediction for this exact sample; no best-sample substitution.','此确切样本没有已存 PL 预测，不以最佳样本结果替代。');
     document.querySelectorAll('[data-i18n="matchedPL"]').forEach(node=>{node.textContent=enabled?text('LF-CONDITIONAL PL','LF 条件 PL'):window.AtlasI18n.t('matchedPL');});
+    document.querySelectorAll('[data-i18n="lfSubtitle"]').forEach(node=>{node.textContent=enabled?text('MODEL–OBSERVATION COMPARISON · BPL / LF-CONDITIONAL PL','模型与观测对比 · BPL / LF 条件 PL'):window.AtlasI18n.t('lfSubtitle');});
   }
   function applySample(sample){
     chosen=sample;
