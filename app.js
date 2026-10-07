@@ -578,7 +578,8 @@ function drawGlobal() {
   const z = state.result.global.redshift, values = state.result.global.brightness_mk;
   const pl = state.plReference ? state.plReference.global : null;
   const combined = pl ? values.concat(pl.brightness_mk) : values;
-  const zMin = Math.min(...z), zMax = Math.max(...z), [yMin, yMax] = niceBounds(combined, true);
+  const allZ = pl ? z.concat(pl.redshift) : z;
+  const zMin = Math.min(...allZ), zMax = Math.max(...allZ), [yMin, yMax] = niceBounds(combined, true);
   const {plotWidth, plotHeight} = preparePlot(ctx, width, height, margin);
   const px = (value) => margin.left + (zMax - value) / (zMax - zMin) * plotWidth;
   const py = (value) => margin.top + (yMax - value) / (yMax - yMin) * plotHeight;
@@ -649,7 +650,7 @@ function drawIonizationHistory() {
   const tauPL = pl && Number.isFinite(pl.tau_e) ? pl.tau_e : null;
   $("#tau-current").textContent = tauCurrent === null ? t("pending") : tauCurrent.toFixed(4);
   $("#tau-pl").textContent = tauPL === null ? t("pending") : tauPL.toFixed(4);
-  $("#tau-difference").textContent = tauCurrent === null || tauPL === null
+  $("#tau-difference").textContent = state.plReference?.conditional_lf_reference || tauCurrent === null || tauPL === null
     ? "—"
     : `${tauCurrent - tauPL >= 0 ? "+" : ""}${(tauCurrent - tauPL).toFixed(4)}`;
 }

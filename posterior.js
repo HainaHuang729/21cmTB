@@ -1,7 +1,18 @@
 /* Real LF joint samples: isolated from the legacy one-at-a-time atlas. */
 (() => {
   'use strict';
-  let catalog=null, enabled=false, chosen=null, loadError=null;
+  let catalog=null, enabled=false, chosen=null, loadError=null, plData=null, plError=null;
+  const lfNames=['F_STAR10','ALPHA_STAR','M_TURN','t_STAR'];
+  function plForSample(sample){
+    if(!sample || sample.rank!==0)return null;
+    const prediction=plData?.models.find(m=>m.key===model()?.key);
+    if(!prediction || !lfNames.every(k=>prediction.astrophysics[k]===sample.parameters[k]))return null;
+    return {pl_id:prediction.source_id,astro_parameters:prediction.astrophysics,
+      conditional_lf_reference:true,source_grid_shape:[prediction.simulation.HII_DIM, prediction.simulation.HII_DIM, prediction.simulation.HII_DIM],
+      global:{redshift:prediction.redshifts,brightness_mk:prediction.global_brightness_mK,xhi:prediction.global_xHI},
+      ionization_history:{redshift:prediction.redshifts,ionized_fraction:prediction.global_xHI.map(v=>1-v),tau_e:prediction.tau},
+      luminosity_function:{redshift:[6,7,8,10],curves:[6,7,8,10].map(z=>({muv:prediction.LF[z].Muv,log10_phi:prediction.LF[z].log10_phi}))}};
+  }
   const active=()=>enabled;
   const text=(en,zh)=>state.language==='zh'?zh:en;
   function model(){return catalog?.models.find(m=>m.KP_h_Mpc===state.parameters.KP_h_Mpc && m.MS===state.parameters.MS);}
@@ -35,6 +46,14 @@
     link.textContent=text('Saved PL predictions at BPL LF-best parameters →','BPL LF 最佳参数下的已存 PL 预测 →');
     const key=model()?.key;
     link.href='pl-lf-predictions.html'+(key?'?model='+encodeURIComponent(key):'');
+    let warning=document.getElementById('posterior-pl-comparison-note');
+    if(!warning){warning=document.createElement('p');warning.id='posterior-pl-comparison-note';warning.className='ms-warning';document.getElementById('analysis-section').prepend(warning);}
+    warning.hidden=!enabled;
+    warning.textContent=plError?text('PL comparison data unavailable: ','PL 对照数据不可用：')+plError
+      :state.plReference?.conditional_lf_reference
+        ?text('PL LF/Tb/τ: saved forward at the same four LF-constrained parameters only. PL: 128³, Fesc10=−1.5, αesc=−0.25, LX=40, EX=800 eV. BPL assumptions/grid differ; Δτ is not a controlled model difference. PL spatial data pending.','PL LF/Tb/τ：仅共享四个 LF 约束参数的已存预测。PL：128³，Fesc10=−1.5、αesc=−0.25、LX=40、EX=800 eV。BPL 假设及网格不同，Δτ 不构成受控模型差异；PL 空间数据待完成。')
+        :text('No saved PL prediction for this exact sample; no best-sample substitution.','此确切样本没有已存 PL 预测，不以最佳样本结果替代。');
+    document.querySelectorAll('[data-i18n="matchedPL"]').forEach(node=>{node.textContent=enabled?text('LF-CONDITIONAL PL','LF 条件 PL'):window.AtlasI18n.t('matchedPL');});
   }
   function applySample(sample){
     chosen=sample;
@@ -81,7 +100,7 @@
       result.decodedPlane=decodePlane(result.lightcone);
       result.decodedSlices=await decodeSlices(result.slices,sample.file.slice(0,sample.file.lastIndexOf('/')));
       if(serial!==state.requestSerial)return;
-      state.plReference=null;state.result=result;showResult();render();
+      state.plReference=plForSample(sample);state.result=result;showResult();render();
     }catch(error){
       if(serial!==state.requestSerial)return;
       state.status={kind:'error',runId,error};renderStatus();render();
@@ -92,6 +111,10 @@
     try{
       catalog=await fetchJSON('web_data/posterior/catalog.json');
       if(catalog.schema_version!==1 || !Array.isArray(catalog.models))throw new Error('Invalid posterior catalog');
+      try{
+        plData=await fetchJSON('web_data/pl_lf_predictions/index.json?v=20261007-1');
+        if(plData.schemaVersion!==1 || plData.models.length!==25)throw new Error('Invalid PL prediction catalog');
+      }catch(error){plError=error.message;}
       mode.disabled=false;
     }catch(error){loadError=error.message;mode.disabled=true;}
     mode.addEventListener('change',()=>{
