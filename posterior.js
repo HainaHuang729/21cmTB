@@ -2,16 +2,12 @@
 (() => {
   'use strict';
   let catalog=null, enabled=false, chosen=null, loadError=null, plData=null, plError=null;
-  const lfNames=['F_STAR10','ALPHA_STAR','M_TURN','t_STAR'];
+  let activeRequest=null;
   function plForSample(sample){
     if(!sample || sample.rank!==0)return null;
     const prediction=plData?.models.find(m=>m.key===model()?.key);
-    if(!prediction?.matched_bt_config || !astroNames.every(k=>prediction.astrophysics[k]===sample.parameters[k]))return null;
-    return {pl_id:prediction.source_id,astro_parameters:prediction.astrophysics,
-      conditional_lf_reference:false,matched_bt_config:true,source_grid_shape:[prediction.simulation.HII_DIM, prediction.simulation.HII_DIM, prediction.simulation.HII_DIM],
-      global:{redshift:prediction.redshifts,brightness_mk:prediction.global_brightness_mK,xhi:prediction.global_xHI},
-      ionization_history:{redshift:prediction.redshifts,ionized_fraction:prediction.global_xHI.map(v=>1-v),tau_e:prediction.tau},
-      luminosity_function:{redshift:[6,7,8,10],curves:[6,7,8,10].map(z=>({muv:prediction.LF[z].Muv,log10_phi:prediction.LF[z].log10_phi}))}};
+    if(!prediction?.matched_bt_config || prediction.bt_run_id!==sample.run_id || ![...astroNames].every(k=>prediction.astrophysics[k]===sample.parameters[k]))return null;
+    return prediction;
   }
   const active=()=>enabled;
   const text=(en,zh)=>state.language==='zh'?zh:en;
@@ -27,7 +23,7 @@
     let note=text('LF constrains F★,10, α★, Mturn and t★. Escape and X-ray parameters are fixed assumptions.','LF 约束 F★,10、α★、Mturn、t★；逃逸率及 X-ray 参数为固定假设。');
     if(loadError)note=text('Posterior catalog unavailable: ','后验目录不可用：')+loadError;
     else if(enabled){
-      note+=' '+text('Only actual joint rows are selectable; no independent interpolation. Matching 256³ PL counterparts are being calculated. Previous 128³ PL predictions with different assumptions are excluded.','只选择实际联合样本，不独立插值参数；正在计算配置匹配的 256³ PL 对照，已排除网格和假设不同的旧 128³ PL 预测。');
+      note+=' '+text('Matched 256³ PL curves and five fields are available for each group’s best retained LF sample.','每组最高 LF 似然样本已配有同配置 256³ PL 曲线和五种场切片。');
       if(chosen)note+=' '+text('Selected: ','已选：')+chosen.run_id+' · '+chosen.status+' · log LF = '+chosen.provenance.log_LF.toFixed(3);
       else note+=' '+text('No posterior models available for this kp/ms (including PL).','此 kp/ms 尚无后验模型（包括 PL）。');
       if(chosen?.status==='under_review')note+=' '+text('Extreme kinetic temperature: withheld for numerical review.','动温存在极端值：暂不展示，等待数值核查。');
@@ -53,8 +49,9 @@
     warning.textContent=plError?text('PL comparison data unavailable: ','PL 对照数据不可用：')+plError
       :state.plReference?.matched_bt_config
         ?text('Matched PL / BT: identical astrophysical parameters, grid and evolution nodes; only the power-spectrum model differs.','匹配 PL / BT：天体物理参数、网格和演化节点一致，仅功率谱模型不同。')
-        :text('Matched PL pending: same BT configuration, with only the power-spectrum model changed. No mismatched 128³ substitution.','匹配 PL 待完成：与 BT 配置一致，仅改变功率谱模型。不使用不匹配的旧 128³ 数据替代。');
+        :text('A matched PL counterpart is available only for the best retained LF sample; select it to compare.','匹配 PL 对照仅对应最高 LF 似然样本，选择该样本即可比较。');
     document.querySelectorAll('[data-i18n="matchedPL"]').forEach(node=>{node.textContent=enabled?text('MATCHED PL · 256³','匹配 PL · 256³'):window.AtlasI18n.t('matchedPL');});
+    document.querySelectorAll('.pl-curve').forEach(node=>{node.style.borderTopStyle=enabled?'solid':'';});
     document.querySelectorAll('[data-i18n="lfSubtitle"]').forEach(node=>{node.textContent=enabled?text('MODEL–OBSERVATION COMPARISON · BPL / MATCHED PL','模型与观测对比 · BPL / 匹配 PL'):window.AtlasI18n.t('lfSubtitle');});
   }
   function applySample(sample){
@@ -88,21 +85,38 @@
     render();return chosen?.run_id||'posterior-unavailable';
   }
   async function load(runId){
+    activeRequest?.abort();
+    activeRequest=new AbortController();
+    const signal=activeRequest.signal;
     const sample=chosen;
+    const reference=plForSample(sample);
+    plError=null;
     showUnavailableRun(runId); // Cancel old requests and clear all old-model canvases.
     render();
     if(!sample || sample.status!=='completed' || !sample.file)return;
     const serial=++state.requestSerial;
     state.status={kind:'loading',runId};renderStatus();
     try{
-      const result=await fetchJSON(versioned(sample.file));
+      const result=await fetchJSON(versioned(sample.file),{signal});
       if(serial!==state.requestSerial)return;
       if(result.run_id!==sample.run_id || Object.keys(sample.parameters).some(k=>result.parameters[k]!==sample.parameters[k]))
         throw new Error('Posterior result identity mismatch');
       result.decodedPlane=decodePlane(result.lightcone);
-      result.decodedSlices=await decodeSlices(result.slices,sample.file.slice(0,sample.file.lastIndexOf('/')));
+      result.decodedSlices=await decodeSlices(result.slices,sample.file.slice(0,sample.file.lastIndexOf('/')),signal);
       if(serial!==state.requestSerial)return;
-      state.plReference=plForSample(sample);state.result=result;showResult();render();
+      let pl=null;
+      if(reference){
+        try{
+          pl=await fetchJSON(versioned(reference.file),{signal});
+          if(serial!==state.requestSerial)return;
+          if(pl.run_id!==reference.source_id || !pl.matched_bt_config || pl.comparison_provenance?.source_bt_run_id!==sample.run_id || ![...astroNames].every(k=>pl.parameters[k]===sample.parameters[k]))throw new Error('Matched PL identity mismatch');
+          if(pl.slices.shape.join(',')!==result.slices.shape.join(',') || pl.slices.redshift.some((z,i)=>Math.abs(z-result.slices.redshift[i])>1e-4))throw new Error('Matched PL slice grid mismatch');
+          pl.decodedSlices=await decodeSlices(pl.slices,reference.file.slice(0,reference.file.lastIndexOf('/')),signal);
+          pl.pl_id=pl.run_id;pl.astro_parameters=reference.astrophysics;
+        }catch(error){if(serial!==state.requestSerial)return;pl=null;plError=error.message;}
+      }
+      if(serial!==state.requestSerial)return;
+      state.plReference=pl;state.result=result;showResult();render();
     }catch(error){
       if(serial!==state.requestSerial)return;
       state.status={kind:'error',runId,error};renderStatus();render();
@@ -114,7 +128,7 @@
       catalog=await fetchJSON('web_data/posterior/catalog.json');
       if(catalog.schema_version!==1 || !Array.isArray(catalog.models))throw new Error('Invalid posterior catalog');
       try{
-        plData=await fetchJSON('web_data/pl_lf_predictions/index.json?v=20261007-1');
+        plData=await fetchJSON('web_data/pl_lf_predictions/index.json?v=matched256-20261008');
         if(plData.schemaVersion!==1 || !Array.isArray(plData.models) || (plData.status!=='awaiting_matched256' && plData.models.length!==25))throw new Error('Invalid PL prediction catalog');
       }catch(error){plError=error.message;}
       mode.disabled=false;
@@ -123,6 +137,7 @@
       enabled=mode.value==='posterior';
       if(enabled){load(resolve('mode'));window.AtlasMCMC?.render(state.mcmc);}
       else{
+        activeRequest?.abort();
         chosen=null;
         for(const name of astroNames){const c=state.controls.get(name);c.slider.disabled=false;c.slider.style.visibility='';}
         resetControls();

@@ -1,1 +1,1110 @@
-{"schemaVersion":1,"status":"awaiting_matched256","updated":"2026-10-07","models":[],"reason":"Mismatched 128-cubed PL results removed. New PL counterparts inherit each corresponding BT configuration; only POWER_SPECTRUM changes."}
+{
+  "schemaVersion": 1,
+  "status": "completed",
+  "updated": "2026-10-08",
+  "models": [
+    {
+      "key": "kp1_ms1.5",
+      "matched_bt_config": true,
+      "bt_run_id": "run_a5bcb2d45f3b",
+      "source_id": "pl_matched_b9ebdea0a348",
+      "astrophysics": {
+        "F_STAR10": -2.8947728166814053,
+        "ALPHA_STAR": 0.7420078797379678,
+        "M_TURN": 8.008083813442722,
+        "t_STAR": 0.05537744065030703,
+        "F_ESC10": -1.0,
+        "ALPHA_ESC": -0.5,
+        "L_X": 40.5,
+        "NU_X_THRESH": 500.0
+      },
+      "simulation": {
+        "BOX_LEN_Mpc": 250.0,
+        "DIM": 768,
+        "HII_DIM": 256,
+        "N_THREADS": 16,
+        "POWER_SPECTRUM": 0,
+        "USE_INTERPOLATION_TABLES": true,
+        "Z_HEAT_MAX": 35.0,
+        "flag_options": {
+          "INHOMO_RECO": true,
+          "USE_MASS_DEPENDENT_ZETA": true,
+          "USE_TS_FLUCT": true
+        },
+        "random_seed": 725213656658,
+        "redshift_max": 35.0,
+        "redshift_min": 6.0
+      },
+      "source_input_sha256": "782dce9201740bf4fe1abfd614f2fa795949db85be896e3c0cd983815c342f66",
+      "historical_native_hash_verified": false,
+      "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/pl_matched_b9ebdea0a348.json",
+      "json_sha256": "a8b380c20e1855323ea59e5a539ca6a81d84e5a7473bd03a2930abe2f5c89f46",
+      "binary_sha256": "f36c8a134b2fd2c32891ebbf4eea2eeec177a77cb1171cc8337138d443bbdfdf",
+      "history_points": 84,
+      "slice_shape": [
+        32,
+        256,
+        256
+      ]
+    },
+    {
+      "key": "kp1_ms2",
+      "matched_bt_config": true,
+      "bt_run_id": "run_f25a7846896b",
+      "source_id": "pl_matched_53acbeb9ff6a",
+      "astrophysics": {
+        "F_STAR10": -2.779997448389727,
+        "ALPHA_STAR": 0.93913325891493,
+        "M_TURN": 8.005662088923144,
+        "t_STAR": 0.34006205331438977,
+        "F_ESC10": -1.0,
+        "ALPHA_ESC": -0.5,
+        "L_X": 40.5,
+        "NU_X_THRESH": 500.0
+      },
+      "simulation": {
+        "BOX_LEN_Mpc": 250.0,
+        "DIM": 768,
+        "HII_DIM": 256,
+        "N_THREADS": 16,
+        "POWER_SPECTRUM": 0,
+        "USE_INTERPOLATION_TABLES": true,
+        "Z_HEAT_MAX": 35.0,
+        "flag_options": {
+          "INHOMO_RECO": true,
+          "USE_MASS_DEPENDENT_ZETA": true,
+          "USE_TS_FLUCT": true
+        },
+        "random_seed": 725213656658,
+        "redshift_max": 35.0,
+        "redshift_min": 6.0
+      },
+      "source_input_sha256": "ec6c933abebe5122b1b2396f7fac7e08bfd2a014c5f2c9086946a27d61642058",
+      "historical_native_hash_verified": false,
+      "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/pl_matched_53acbeb9ff6a.json",
+      "json_sha256": "3b5efbb867edf08570724165989884431a8a8881e194948fb308416633f351af",
+      "binary_sha256": "9af3b73b2480b3d75650161b75ab4692ec118361a6ce679db45845e5e16b48d7",
+      "history_points": 84,
+      "slice_shape": [
+        32,
+        256,
+        256
+      ]
+    },
+    {
+      "key": "kp1_ms2.5",
+      "matched_bt_config": true,
+      "bt_run_id": "run_bf710368923c",
+      "source_id": "pl_matched_5acf392d1b34",
+      "astrophysics": {
+        "F_STAR10": -2.9173355637524363,
+        "ALPHA_STAR": 0.999865860816476,
+        "M_TURN": 8.087687859375201,
+        "t_STAR": 0.8112577539827013,
+        "F_ESC10": -1.0,
+        "ALPHA_ESC": -0.5,
+        "L_X": 40.5,
+        "NU_X_THRESH": 500.0
+      },
+      "simulation": {
+        "BOX_LEN_Mpc": 250.0,
+        "DIM": 768,
+        "HII_DIM": 256,
+        "N_THREADS": 16,
+        "POWER_SPECTRUM": 0,
+        "USE_INTERPOLATION_TABLES": true,
+        "Z_HEAT_MAX": 35.0,
+        "flag_options": {
+          "INHOMO_RECO": true,
+          "USE_MASS_DEPENDENT_ZETA": true,
+          "USE_TS_FLUCT": true
+        },
+        "random_seed": 725213656658,
+        "redshift_max": 35.0,
+        "redshift_min": 6.0
+      },
+      "source_input_sha256": "97fcbbd0ac47ab8886baf7c390c25c9c376920d3763335b49270be9ba5b55153",
+      "historical_native_hash_verified": false,
+      "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/pl_matched_5acf392d1b34.json",
+      "json_sha256": "d9f846ea3238b8fb31bf0c8d25755955dd94da99fc36fd47818deb50bedcfc28",
+      "binary_sha256": "8f867655743ddb184fc45fd4af3e718d8fe5f2938ffe959ef4182c06d93b4fa1",
+      "history_points": 84,
+      "slice_shape": [
+        32,
+        256,
+        256
+      ]
+    },
+    {
+      "key": "kp1_ms3.25",
+      "matched_bt_config": true,
+      "bt_run_id": "run_26ba588607eb",
+      "source_id": "pl_matched_6911b9f2daa1",
+      "astrophysics": {
+        "F_STAR10": -2.999916937983916,
+        "ALPHA_STAR": 0.7739436111445641,
+        "M_TURN": 10.998900665712153,
+        "t_STAR": 0.9996430427879166,
+        "F_ESC10": -1.0,
+        "ALPHA_ESC": -0.5,
+        "L_X": 40.5,
+        "NU_X_THRESH": 500.0
+      },
+      "simulation": {
+        "BOX_LEN_Mpc": 250.0,
+        "DIM": 768,
+        "HII_DIM": 256,
+        "N_THREADS": 16,
+        "POWER_SPECTRUM": 0,
+        "USE_INTERPOLATION_TABLES": true,
+        "Z_HEAT_MAX": 35.0,
+        "flag_options": {
+          "INHOMO_RECO": true,
+          "USE_MASS_DEPENDENT_ZETA": true,
+          "USE_TS_FLUCT": true
+        },
+        "random_seed": 725213656658,
+        "redshift_max": 35.0,
+        "redshift_min": 6.0
+      },
+      "source_input_sha256": "8e3febae6083a15a0bd565f7ecd0736d1fbd203e04cded01407bae82609c4571",
+      "historical_native_hash_verified": false,
+      "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/pl_matched_6911b9f2daa1.json",
+      "json_sha256": "a8b0a2d13a5736b8294ad1ccfa968de1ff0c5623c772d35a87f699454e5b10e4",
+      "binary_sha256": "4d30e5a8b2270021d5f1e770c5ddf5339153ba64bd1d8c5501f04808432dc545",
+      "history_points": 84,
+      "slice_shape": [
+        32,
+        256,
+        256
+      ]
+    },
+    {
+      "key": "kp1_ms4",
+      "matched_bt_config": true,
+      "bt_run_id": "run_223b8933846f",
+      "source_id": "pl_matched_8cb270043516",
+      "astrophysics": {
+        "F_STAR10": -2.99999557576946,
+        "ALPHA_STAR": 0.3901464298941402,
+        "M_TURN": 8.662518564796171,
+        "t_STAR": 0.9989412880682587,
+        "F_ESC10": -1.0,
+        "ALPHA_ESC": -0.5,
+        "L_X": 40.5,
+        "NU_X_THRESH": 500.0
+      },
+      "simulation": {
+        "BOX_LEN_Mpc": 250.0,
+        "DIM": 768,
+        "HII_DIM": 256,
+        "N_THREADS": 16,
+        "POWER_SPECTRUM": 0,
+        "USE_INTERPOLATION_TABLES": true,
+        "Z_HEAT_MAX": 35.0,
+        "flag_options": {
+          "INHOMO_RECO": true,
+          "USE_MASS_DEPENDENT_ZETA": true,
+          "USE_TS_FLUCT": true
+        },
+        "random_seed": 725213656658,
+        "redshift_max": 35.0,
+        "redshift_min": 6.0
+      },
+      "source_input_sha256": "4724de47c29a9a54562b3760f54e9a7b19359415fa509805ddd44ec76b679fb6",
+      "historical_native_hash_verified": false,
+      "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/pl_matched_8cb270043516.json",
+      "json_sha256": "061b46df4655c852eff84a8abdf36a24e621ab8d37cbe35393612374ae5274e7",
+      "binary_sha256": "b2f77443892ed5e2e0919be2af69bb9dbe3353be1bdb6efb144a590c995f8064",
+      "history_points": 84,
+      "slice_shape": [
+        32,
+        256,
+        256
+      ]
+    },
+    {
+      "key": "kp3_ms1.5",
+      "matched_bt_config": true,
+      "bt_run_id": "run_c0fc19044369",
+      "source_id": "pl_matched_d781de674233",
+      "astrophysics": {
+        "F_STAR10": -1.2137879545160566,
+        "ALPHA_STAR": 0.7671443246155681,
+        "M_TURN": 8.140819240557075,
+        "t_STAR": 0.9342444536453618,
+        "F_ESC10": -1.0,
+        "ALPHA_ESC": -0.5,
+        "L_X": 40.5,
+        "NU_X_THRESH": 500.0
+      },
+      "simulation": {
+        "BOX_LEN_Mpc": 250.0,
+        "DIM": 768,
+        "HII_DIM": 256,
+        "N_THREADS": 16,
+        "POWER_SPECTRUM": 0,
+        "USE_INTERPOLATION_TABLES": true,
+        "Z_HEAT_MAX": 35.0,
+        "flag_options": {
+          "INHOMO_RECO": true,
+          "USE_MASS_DEPENDENT_ZETA": true,
+          "USE_TS_FLUCT": true
+        },
+        "random_seed": 725213656658,
+        "redshift_max": 35.0,
+        "redshift_min": 6.0
+      },
+      "source_input_sha256": "6e7864eeafc557532830ec0b52b9a9fe1c70cceeda55cbcac360083f5890eb75",
+      "historical_native_hash_verified": false,
+      "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/pl_matched_d781de674233.json",
+      "json_sha256": "9fce6c5ae365cd6dfbf4ba8cd31ba9ced32c4ce0193ccdf36647b900514e6c55",
+      "binary_sha256": "49e9c6af586a288f1673e8042e18074f44168a8b370acbf453327e3245f941e1",
+      "history_points": 84,
+      "slice_shape": [
+        32,
+        256,
+        256
+      ]
+    },
+    {
+      "key": "kp3_ms2",
+      "matched_bt_config": true,
+      "bt_run_id": "run_595c65ace67b",
+      "source_id": "pl_matched_b4c46f92c14e",
+      "astrophysics": {
+        "F_STAR10": -1.524542013345263,
+        "ALPHA_STAR": 0.9725986801359886,
+        "M_TURN": 8.078977069921985,
+        "t_STAR": 0.8437397857268142,
+        "F_ESC10": -1.0,
+        "ALPHA_ESC": -0.5,
+        "L_X": 40.5,
+        "NU_X_THRESH": 500.0
+      },
+      "simulation": {
+        "BOX_LEN_Mpc": 250.0,
+        "DIM": 768,
+        "HII_DIM": 256,
+        "N_THREADS": 16,
+        "POWER_SPECTRUM": 0,
+        "USE_INTERPOLATION_TABLES": true,
+        "Z_HEAT_MAX": 35.0,
+        "flag_options": {
+          "INHOMO_RECO": true,
+          "USE_MASS_DEPENDENT_ZETA": true,
+          "USE_TS_FLUCT": true
+        },
+        "random_seed": 725213656658,
+        "redshift_max": 35.0,
+        "redshift_min": 6.0
+      },
+      "source_input_sha256": "c9d7007bd30e63059549ea59c94ee7e876f05118325c46d6b49dbe7991f71415",
+      "historical_native_hash_verified": false,
+      "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/pl_matched_b4c46f92c14e.json",
+      "json_sha256": "8681437158eceb3ffa2e0e994c0f4fccb8bfefbb8bc23e5dd7cdd87f526c206b",
+      "binary_sha256": "0b8540ca8f1578c1be41be6f5120474b28081b316874965224fffd3004402617",
+      "history_points": 84,
+      "slice_shape": [
+        32,
+        256,
+        256
+      ]
+    },
+    {
+      "key": "kp3_ms2.5",
+      "matched_bt_config": true,
+      "bt_run_id": "run_7a04c93a03fc",
+      "source_id": "pl_matched_78d4a94728ef",
+      "astrophysics": {
+        "F_STAR10": -1.7903463562965691,
+        "ALPHA_STAR": 0.9997271910505647,
+        "M_TURN": 9.582479271356878,
+        "t_STAR": 0.6695663860507048,
+        "F_ESC10": -1.0,
+        "ALPHA_ESC": -0.5,
+        "L_X": 40.5,
+        "NU_X_THRESH": 500.0
+      },
+      "simulation": {
+        "BOX_LEN_Mpc": 250.0,
+        "DIM": 768,
+        "HII_DIM": 256,
+        "N_THREADS": 16,
+        "POWER_SPECTRUM": 0,
+        "USE_INTERPOLATION_TABLES": true,
+        "Z_HEAT_MAX": 35.0,
+        "flag_options": {
+          "INHOMO_RECO": true,
+          "USE_MASS_DEPENDENT_ZETA": true,
+          "USE_TS_FLUCT": true
+        },
+        "random_seed": 725213656658,
+        "redshift_max": 35.0,
+        "redshift_min": 6.0
+      },
+      "source_input_sha256": "af450251c3e7dc1a19a563d223d77603e21a6487f5a70b8c6c5642411d66e951",
+      "historical_native_hash_verified": false,
+      "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/pl_matched_78d4a94728ef.json",
+      "json_sha256": "98c72f2633901777e2d1740258830fe327706c1242896fcf6ae0bb2c17675792",
+      "binary_sha256": "bf1993d5ea35611659d215d0599d42e81fc65de37469cafaca461f1fca44f36d",
+      "history_points": 84,
+      "slice_shape": [
+        32,
+        256,
+        256
+      ]
+    },
+    {
+      "key": "kp3_ms3.25",
+      "matched_bt_config": true,
+      "bt_run_id": "run_123e2c99b86f",
+      "source_id": "pl_matched_824fb98632f9",
+      "astrophysics": {
+        "F_STAR10": -2.1732456854093165,
+        "ALPHA_STAR": 0.9999418988095857,
+        "M_TURN": 10.13692324366951,
+        "t_STAR": 0.48274325740399004,
+        "F_ESC10": -1.0,
+        "ALPHA_ESC": -0.5,
+        "L_X": 40.5,
+        "NU_X_THRESH": 500.0
+      },
+      "simulation": {
+        "BOX_LEN_Mpc": 250.0,
+        "DIM": 768,
+        "HII_DIM": 256,
+        "N_THREADS": 16,
+        "POWER_SPECTRUM": 0,
+        "USE_INTERPOLATION_TABLES": true,
+        "Z_HEAT_MAX": 35.0,
+        "flag_options": {
+          "INHOMO_RECO": true,
+          "USE_MASS_DEPENDENT_ZETA": true,
+          "USE_TS_FLUCT": true
+        },
+        "random_seed": 725213656658,
+        "redshift_max": 35.0,
+        "redshift_min": 6.0
+      },
+      "source_input_sha256": "4a025c74e8de734909b2fdbdbdede469903652f1af6895d24a01f786587e645c",
+      "historical_native_hash_verified": false,
+      "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/pl_matched_824fb98632f9.json",
+      "json_sha256": "fe32a09486c6c6570c62569bbf3dfdaf1b6ed2113ba4bf51ade49665de570dfa",
+      "binary_sha256": "01b5cdfc1281b77773f9bc45ea0545bdce514d8e792b761be7c756e2c12b1421",
+      "history_points": 84,
+      "slice_shape": [
+        32,
+        256,
+        256
+      ]
+    },
+    {
+      "key": "kp3_ms4",
+      "matched_bt_config": true,
+      "bt_run_id": "run_b896645370fc",
+      "source_id": "pl_matched_7294ba3b4cd5",
+      "astrophysics": {
+        "F_STAR10": -2.407366879803939,
+        "ALPHA_STAR": 0.9999931381876319,
+        "M_TURN": 10.446171272086008,
+        "t_STAR": 0.6226136866834832,
+        "F_ESC10": -1.0,
+        "ALPHA_ESC": -0.5,
+        "L_X": 40.5,
+        "NU_X_THRESH": 500.0
+      },
+      "simulation": {
+        "BOX_LEN_Mpc": 250.0,
+        "DIM": 768,
+        "HII_DIM": 256,
+        "N_THREADS": 16,
+        "POWER_SPECTRUM": 0,
+        "USE_INTERPOLATION_TABLES": true,
+        "Z_HEAT_MAX": 35.0,
+        "flag_options": {
+          "INHOMO_RECO": true,
+          "USE_MASS_DEPENDENT_ZETA": true,
+          "USE_TS_FLUCT": true
+        },
+        "random_seed": 725213656658,
+        "redshift_max": 35.0,
+        "redshift_min": 6.0
+      },
+      "source_input_sha256": "6ade04e4ded668fe8650fdc0aa308fbce9efbfa611007e4ad8d6fcfce45fa438",
+      "historical_native_hash_verified": false,
+      "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/pl_matched_7294ba3b4cd5.json",
+      "json_sha256": "eef77ccad37a50ebf32f2bed61ea9373cd0c92287640a9bdd1d54731c592ba8d",
+      "binary_sha256": "d1c8634a0d726d20b4347cbea6747eabfdfc3e71b535b357d558120e79c7cd22",
+      "history_points": 84,
+      "slice_shape": [
+        32,
+        256,
+        256
+      ]
+    },
+    {
+      "key": "kp10_ms1.5",
+      "matched_bt_config": true,
+      "bt_run_id": "run_229c6cc986b9",
+      "source_id": "pl_matched_93e7b06297e8",
+      "astrophysics": {
+        "F_STAR10": -1.3821306943132603,
+        "ALPHA_STAR": 0.538376484076326,
+        "M_TURN": 8.874159524220545,
+        "t_STAR": 0.34828609973326524,
+        "F_ESC10": -1.0,
+        "ALPHA_ESC": -0.5,
+        "L_X": 40.5,
+        "NU_X_THRESH": 500.0
+      },
+      "simulation": {
+        "BOX_LEN_Mpc": 250.0,
+        "DIM": 768,
+        "HII_DIM": 256,
+        "N_THREADS": 16,
+        "POWER_SPECTRUM": 0,
+        "USE_INTERPOLATION_TABLES": true,
+        "Z_HEAT_MAX": 35.0,
+        "flag_options": {
+          "INHOMO_RECO": true,
+          "USE_MASS_DEPENDENT_ZETA": true,
+          "USE_TS_FLUCT": true
+        },
+        "random_seed": 725213656658,
+        "redshift_max": 35.0,
+        "redshift_min": 6.0
+      },
+      "source_input_sha256": "a74c7e6711f76ced7acc7ebc179b546170a708eab219c565e93d928ca0907969",
+      "historical_native_hash_verified": false,
+      "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/pl_matched_93e7b06297e8.json",
+      "json_sha256": "054f7f341010ba9c7234c66e0544a7d9a02fe16eee10aa31b4a4c1c15aa509a1",
+      "binary_sha256": "f61b1680da4dba38091ba5bfdcb2ba8e61c65b776014bab3748d0c55707bb6eb",
+      "history_points": 84,
+      "slice_shape": [
+        32,
+        256,
+        256
+      ]
+    },
+    {
+      "key": "kp10_ms2",
+      "matched_bt_config": true,
+      "bt_run_id": "run_a503ed6ba2ed",
+      "source_id": "pl_matched_0acab05b133b",
+      "astrophysics": {
+        "F_STAR10": -1.020786026137523,
+        "ALPHA_STAR": 0.5327158012430828,
+        "M_TURN": 9.09059446275382,
+        "t_STAR": 0.7926320039305209,
+        "F_ESC10": -1.0,
+        "ALPHA_ESC": -0.5,
+        "L_X": 40.5,
+        "NU_X_THRESH": 500.0
+      },
+      "simulation": {
+        "BOX_LEN_Mpc": 250.0,
+        "DIM": 768,
+        "HII_DIM": 256,
+        "N_THREADS": 16,
+        "POWER_SPECTRUM": 0,
+        "USE_INTERPOLATION_TABLES": true,
+        "Z_HEAT_MAX": 35.0,
+        "flag_options": {
+          "INHOMO_RECO": true,
+          "USE_MASS_DEPENDENT_ZETA": true,
+          "USE_TS_FLUCT": true
+        },
+        "random_seed": 725213656658,
+        "redshift_max": 35.0,
+        "redshift_min": 6.0
+      },
+      "source_input_sha256": "5bce47897fcbdfef608212edb6de7e4edf68c4d7a22b733d1158bda1b8de8161",
+      "historical_native_hash_verified": false,
+      "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/pl_matched_0acab05b133b.json",
+      "json_sha256": "2774aec060bcef475056c4855a37e9848901af47aa1c3a5403d568aac789188c",
+      "binary_sha256": "29b7a8e51ea06989fbafc8e78951f39060694c8e64dd9fd4febc11b68f04c88b",
+      "history_points": 84,
+      "slice_shape": [
+        32,
+        256,
+        256
+      ]
+    },
+    {
+      "key": "kp10_ms2.5",
+      "matched_bt_config": true,
+      "bt_run_id": "run_1a3cb417d1c1",
+      "source_id": "pl_matched_58bc92b33794",
+      "astrophysics": {
+        "F_STAR10": -1.2287623750579102,
+        "ALPHA_STAR": 0.5327998350105762,
+        "M_TURN": 9.242743732983435,
+        "t_STAR": 0.48949799449762627,
+        "F_ESC10": -1.0,
+        "ALPHA_ESC": -0.5,
+        "L_X": 40.5,
+        "NU_X_THRESH": 500.0
+      },
+      "simulation": {
+        "BOX_LEN_Mpc": 250.0,
+        "DIM": 768,
+        "HII_DIM": 256,
+        "N_THREADS": 16,
+        "POWER_SPECTRUM": 0,
+        "USE_INTERPOLATION_TABLES": true,
+        "Z_HEAT_MAX": 35.0,
+        "flag_options": {
+          "INHOMO_RECO": true,
+          "USE_MASS_DEPENDENT_ZETA": true,
+          "USE_TS_FLUCT": true
+        },
+        "random_seed": 725213656658,
+        "redshift_max": 35.0,
+        "redshift_min": 6.0
+      },
+      "source_input_sha256": "9dfd9476731a12122468994cc2b4a4cae420f23c99d93a4956bd6a800b9fd167",
+      "historical_native_hash_verified": false,
+      "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/pl_matched_58bc92b33794.json",
+      "json_sha256": "89e0cf65bd2bd1e6be17ee93b803d0f318ef87c7fd5bde75a4c4072309ecccd3",
+      "binary_sha256": "4b7ff5b35dcf0566d2441eb40a25f95b93a84ffa90de02091516ff5825aeb593",
+      "history_points": 84,
+      "slice_shape": [
+        32,
+        256,
+        256
+      ]
+    },
+    {
+      "key": "kp10_ms3.25",
+      "matched_bt_config": true,
+      "bt_run_id": "run_7b9c495ca671",
+      "source_id": "pl_matched_74f2fdf4b4a0",
+      "astrophysics": {
+        "F_STAR10": -1.0752029943572161,
+        "ALPHA_STAR": 0.5360894993867632,
+        "M_TURN": 9.446106007605048,
+        "t_STAR": 0.7026962767487799,
+        "F_ESC10": -1.0,
+        "ALPHA_ESC": -0.5,
+        "L_X": 40.5,
+        "NU_X_THRESH": 500.0
+      },
+      "simulation": {
+        "BOX_LEN_Mpc": 250.0,
+        "DIM": 768,
+        "HII_DIM": 256,
+        "N_THREADS": 16,
+        "POWER_SPECTRUM": 0,
+        "USE_INTERPOLATION_TABLES": true,
+        "Z_HEAT_MAX": 35.0,
+        "flag_options": {
+          "INHOMO_RECO": true,
+          "USE_MASS_DEPENDENT_ZETA": true,
+          "USE_TS_FLUCT": true
+        },
+        "random_seed": 725213656658,
+        "redshift_max": 35.0,
+        "redshift_min": 6.0
+      },
+      "source_input_sha256": "115176a372be4636da51c5257c981f2bdb0d37622e285a345414b875f3719947",
+      "historical_native_hash_verified": false,
+      "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/pl_matched_74f2fdf4b4a0.json",
+      "json_sha256": "0f7899b25207d6492a63461fe457f82fee3315e68cb7e4d3f7cf4dfd9552fd1c",
+      "binary_sha256": "dcba2ef18accff2b2012527d80ab65102978f92e7563a4f5c8f22bd672c8ca7d",
+      "history_points": 84,
+      "slice_shape": [
+        32,
+        256,
+        256
+      ]
+    },
+    {
+      "key": "kp10_ms4",
+      "matched_bt_config": true,
+      "bt_run_id": "run_959e0319d37c",
+      "source_id": "pl_matched_c8ca2dc849c2",
+      "astrophysics": {
+        "F_STAR10": -1.3969198367341977,
+        "ALPHA_STAR": 0.5920870500565426,
+        "M_TURN": 9.626770670037958,
+        "t_STAR": 0.3695721513146707,
+        "F_ESC10": -1.0,
+        "ALPHA_ESC": -0.5,
+        "L_X": 40.5,
+        "NU_X_THRESH": 500.0
+      },
+      "simulation": {
+        "BOX_LEN_Mpc": 250.0,
+        "DIM": 768,
+        "HII_DIM": 256,
+        "N_THREADS": 16,
+        "POWER_SPECTRUM": 0,
+        "USE_INTERPOLATION_TABLES": true,
+        "Z_HEAT_MAX": 35.0,
+        "flag_options": {
+          "INHOMO_RECO": true,
+          "USE_MASS_DEPENDENT_ZETA": true,
+          "USE_TS_FLUCT": true
+        },
+        "random_seed": 725213656658,
+        "redshift_max": 35.0,
+        "redshift_min": 6.0
+      },
+      "source_input_sha256": "165794e03f4d2cc0305b59f3e3580f671ac6f337440f412369ba4aab022e3e6e",
+      "historical_native_hash_verified": false,
+      "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/pl_matched_c8ca2dc849c2.json",
+      "json_sha256": "3bef6b42230b8acd324a340b153efbb0cea13d483408f00c4c30b0b212624454",
+      "binary_sha256": "c2ee2c26b0b54131090f0e764b2bb2ee66fe98c64da83ebff7481a4af5d3050a",
+      "history_points": 84,
+      "slice_shape": [
+        32,
+        256,
+        256
+      ]
+    },
+    {
+      "key": "kp20_ms1.5",
+      "matched_bt_config": true,
+      "bt_run_id": "run_14f96f5110c8",
+      "source_id": "pl_matched_963de47985d2",
+      "astrophysics": {
+        "F_STAR10": -1.3997098802982588,
+        "ALPHA_STAR": 0.5443308535958793,
+        "M_TURN": 8.500837622424378,
+        "t_STAR": 0.33796651887819584,
+        "F_ESC10": -1.0,
+        "ALPHA_ESC": -0.5,
+        "L_X": 40.5,
+        "NU_X_THRESH": 500.0
+      },
+      "simulation": {
+        "BOX_LEN_Mpc": 250.0,
+        "DIM": 768,
+        "HII_DIM": 256,
+        "N_THREADS": 16,
+        "POWER_SPECTRUM": 0,
+        "USE_INTERPOLATION_TABLES": true,
+        "Z_HEAT_MAX": 35.0,
+        "flag_options": {
+          "INHOMO_RECO": true,
+          "USE_MASS_DEPENDENT_ZETA": true,
+          "USE_TS_FLUCT": true
+        },
+        "random_seed": 725213656658,
+        "redshift_max": 35.0,
+        "redshift_min": 6.0
+      },
+      "source_input_sha256": "48ff0cf1722de7e81a36e4dd7ca436fbf4335d8bc46b5ce12c8be85861bebdec",
+      "historical_native_hash_verified": false,
+      "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/pl_matched_963de47985d2.json",
+      "json_sha256": "f668cea96e31120584f31c6b894f84dd9cc5454bfb7e547f70aeffb39237f7f6",
+      "binary_sha256": "71c2271fa5409d1fff696da5c32250d0ddc81601dbda9d383e69ecd37f1a49f1",
+      "history_points": 84,
+      "slice_shape": [
+        32,
+        256,
+        256
+      ]
+    },
+    {
+      "key": "kp20_ms2",
+      "matched_bt_config": true,
+      "bt_run_id": "run_1563fb448976",
+      "source_id": "pl_matched_6c0ab021d7bd",
+      "astrophysics": {
+        "F_STAR10": -1.2431845745891388,
+        "ALPHA_STAR": 0.546281086991271,
+        "M_TURN": 8.499151828535766,
+        "t_STAR": 0.48561547644367564,
+        "F_ESC10": -1.0,
+        "ALPHA_ESC": -0.5,
+        "L_X": 40.5,
+        "NU_X_THRESH": 500.0
+      },
+      "simulation": {
+        "BOX_LEN_Mpc": 250.0,
+        "DIM": 768,
+        "HII_DIM": 256,
+        "N_THREADS": 16,
+        "POWER_SPECTRUM": 0,
+        "USE_INTERPOLATION_TABLES": true,
+        "Z_HEAT_MAX": 35.0,
+        "flag_options": {
+          "INHOMO_RECO": true,
+          "USE_MASS_DEPENDENT_ZETA": true,
+          "USE_TS_FLUCT": true
+        },
+        "random_seed": 725213656658,
+        "redshift_max": 35.0,
+        "redshift_min": 6.0
+      },
+      "source_input_sha256": "8b41bb2e5e19c04c0ff75eac11919decee8d9d8a4c23e99262c3274d112f9f6f",
+      "historical_native_hash_verified": false,
+      "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/pl_matched_6c0ab021d7bd.json",
+      "json_sha256": "2d961a373b9c94c6aa20055c47b4107cb628f93992fb6166a58262e2c4bfdb8e",
+      "binary_sha256": "0dc5c46ebd629c03a5312dbba66632bee12ed5d4d8e6f6f4d8c77289625a40f9",
+      "history_points": 84,
+      "slice_shape": [
+        32,
+        256,
+        256
+      ]
+    },
+    {
+      "key": "kp20_ms2.5",
+      "matched_bt_config": true,
+      "bt_run_id": "run_c96811438782",
+      "source_id": "pl_matched_936db6259c5d",
+      "astrophysics": {
+        "F_STAR10": -1.5375264073059545,
+        "ALPHA_STAR": 0.5441133877858696,
+        "M_TURN": 8.596709843146371,
+        "t_STAR": 0.24592236960848352,
+        "F_ESC10": -1.0,
+        "ALPHA_ESC": -0.5,
+        "L_X": 40.5,
+        "NU_X_THRESH": 500.0
+      },
+      "simulation": {
+        "BOX_LEN_Mpc": 250.0,
+        "DIM": 768,
+        "HII_DIM": 256,
+        "N_THREADS": 16,
+        "POWER_SPECTRUM": 0,
+        "USE_INTERPOLATION_TABLES": true,
+        "Z_HEAT_MAX": 35.0,
+        "flag_options": {
+          "INHOMO_RECO": true,
+          "USE_MASS_DEPENDENT_ZETA": true,
+          "USE_TS_FLUCT": true
+        },
+        "random_seed": 725213656658,
+        "redshift_max": 35.0,
+        "redshift_min": 6.0
+      },
+      "source_input_sha256": "aeb94163a04a015c2e3d32d5711e6df027359f53b8e1f9bb45ee80faff4206a2",
+      "historical_native_hash_verified": false,
+      "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/pl_matched_936db6259c5d.json",
+      "json_sha256": "52c0198f544cacdd5a13c5a4194c21f1171aa967bc088eb49ffde376cd4a01e1",
+      "binary_sha256": "9afa8a36b734c28649ad8b6ef32f75afe7fd57f9f4b6dcaacba7b2c55f273575",
+      "history_points": 84,
+      "slice_shape": [
+        32,
+        256,
+        256
+      ]
+    },
+    {
+      "key": "kp20_ms3.25",
+      "matched_bt_config": true,
+      "bt_run_id": "run_ab5ea0f392b8",
+      "source_id": "pl_matched_f61bd84675e1",
+      "astrophysics": {
+        "F_STAR10": -0.9672476797659425,
+        "ALPHA_STAR": 0.5476535752596279,
+        "M_TURN": 8.644764862262212,
+        "t_STAR": 0.9178606837597189,
+        "F_ESC10": -1.0,
+        "ALPHA_ESC": -0.5,
+        "L_X": 40.5,
+        "NU_X_THRESH": 500.0
+      },
+      "simulation": {
+        "BOX_LEN_Mpc": 250.0,
+        "DIM": 768,
+        "HII_DIM": 256,
+        "N_THREADS": 16,
+        "POWER_SPECTRUM": 0,
+        "USE_INTERPOLATION_TABLES": true,
+        "Z_HEAT_MAX": 35.0,
+        "flag_options": {
+          "INHOMO_RECO": true,
+          "USE_MASS_DEPENDENT_ZETA": true,
+          "USE_TS_FLUCT": true
+        },
+        "random_seed": 725213656658,
+        "redshift_max": 35.0,
+        "redshift_min": 6.0
+      },
+      "source_input_sha256": "c16df28c35d16452fc7093359a64ed04afaee59f4ee0bccc03d6050aadf981a4",
+      "historical_native_hash_verified": false,
+      "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/pl_matched_f61bd84675e1.json",
+      "json_sha256": "88dd0aa5edb7864b480081e22f62eb4db571f6a1d14e52f6dc3a8aea11b81365",
+      "binary_sha256": "07b77beb022f2e540b60fe8ae517e125aded2715b52dfac8cdd8fb7cb73636a1",
+      "history_points": 84,
+      "slice_shape": [
+        32,
+        256,
+        256
+      ]
+    },
+    {
+      "key": "kp20_ms4",
+      "matched_bt_config": true,
+      "bt_run_id": "run_75ad53fe23de",
+      "source_id": "pl_matched_13518ddd52b5",
+      "astrophysics": {
+        "F_STAR10": -1.3245765477385296,
+        "ALPHA_STAR": 0.5436397798601422,
+        "M_TURN": 8.879560493846599,
+        "t_STAR": 0.40161895015228083,
+        "F_ESC10": -1.0,
+        "ALPHA_ESC": -0.5,
+        "L_X": 40.5,
+        "NU_X_THRESH": 500.0
+      },
+      "simulation": {
+        "BOX_LEN_Mpc": 250.0,
+        "DIM": 768,
+        "HII_DIM": 256,
+        "N_THREADS": 16,
+        "POWER_SPECTRUM": 0,
+        "USE_INTERPOLATION_TABLES": true,
+        "Z_HEAT_MAX": 35.0,
+        "flag_options": {
+          "INHOMO_RECO": true,
+          "USE_MASS_DEPENDENT_ZETA": true,
+          "USE_TS_FLUCT": true
+        },
+        "random_seed": 725213656658,
+        "redshift_max": 35.0,
+        "redshift_min": 6.0
+      },
+      "source_input_sha256": "140bbdd346eca3f48352f4a197031dbfdff51705c11bdc07b0e53d97ec32b659",
+      "historical_native_hash_verified": false,
+      "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/pl_matched_13518ddd52b5.json",
+      "json_sha256": "58c74a09b1437e696ee0a969c04164d1126450c68ebebfef3d4d375f718cb8ce",
+      "binary_sha256": "7cb08fa751baeb4ba9b4da2f75bd547bcb41473bebbf3f975f63a9c6be6bfc82",
+      "history_points": 84,
+      "slice_shape": [
+        32,
+        256,
+        256
+      ]
+    },
+    {
+      "key": "kp30_ms1.5",
+      "matched_bt_config": true,
+      "bt_run_id": "run_69e4a91153b8",
+      "source_id": "pl_matched_fa7cb54b42cc",
+      "astrophysics": {
+        "F_STAR10": -2.7485498453504205,
+        "ALPHA_STAR": 0.5445020723879733,
+        "M_TURN": 8.488359242067208,
+        "t_STAR": 0.015141055872324505,
+        "F_ESC10": -1.0,
+        "ALPHA_ESC": -0.5,
+        "L_X": 40.5,
+        "NU_X_THRESH": 500.0
+      },
+      "simulation": {
+        "BOX_LEN_Mpc": 250.0,
+        "DIM": 768,
+        "HII_DIM": 256,
+        "N_THREADS": 16,
+        "POWER_SPECTRUM": 0,
+        "USE_INTERPOLATION_TABLES": true,
+        "Z_HEAT_MAX": 35.0,
+        "flag_options": {
+          "INHOMO_RECO": true,
+          "USE_MASS_DEPENDENT_ZETA": true,
+          "USE_TS_FLUCT": true
+        },
+        "random_seed": 725213656658,
+        "redshift_max": 35.0,
+        "redshift_min": 6.0
+      },
+      "source_input_sha256": "4eca55ffa182041670c41a32677afb6d63d8292cb6179bd744bf30244311ba1b",
+      "historical_native_hash_verified": false,
+      "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/pl_matched_fa7cb54b42cc.json",
+      "json_sha256": "093f8889d669374e9d9a2b29dbd9bdb0f8f3cfcf0c1efbf3f8c522577a6b14ab",
+      "binary_sha256": "38548f25b8e871a4eab3c83b7159104fdb4f376f996e58ce60770e148220deda",
+      "history_points": 84,
+      "slice_shape": [
+        32,
+        256,
+        256
+      ]
+    },
+    {
+      "key": "kp30_ms2",
+      "matched_bt_config": true,
+      "bt_run_id": "run_e085bdbb7871",
+      "source_id": "pl_matched_b540e0ed280a",
+      "astrophysics": {
+        "F_STAR10": -1.0831745064889529,
+        "ALPHA_STAR": 0.5439204114071469,
+        "M_TURN": 8.503683461382895,
+        "t_STAR": 0.700333244792003,
+        "F_ESC10": -1.0,
+        "ALPHA_ESC": -0.5,
+        "L_X": 40.5,
+        "NU_X_THRESH": 500.0
+      },
+      "simulation": {
+        "BOX_LEN_Mpc": 250.0,
+        "DIM": 768,
+        "HII_DIM": 256,
+        "N_THREADS": 16,
+        "POWER_SPECTRUM": 0,
+        "USE_INTERPOLATION_TABLES": true,
+        "Z_HEAT_MAX": 35.0,
+        "flag_options": {
+          "INHOMO_RECO": true,
+          "USE_MASS_DEPENDENT_ZETA": true,
+          "USE_TS_FLUCT": true
+        },
+        "random_seed": 725213656658,
+        "redshift_max": 35.0,
+        "redshift_min": 6.0
+      },
+      "source_input_sha256": "d6aa67647f42776a6defd6298e4e832b0939a3770580e410e6d94c8e4e6185ea",
+      "historical_native_hash_verified": false,
+      "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/pl_matched_b540e0ed280a.json",
+      "json_sha256": "d19c5a9785a5aac634a862bd019b13503c200c14eece1bf0b73345cc77982a73",
+      "binary_sha256": "26d467256779a29f35a476cbea556ab67601c521262478a11141027d659e30cd",
+      "history_points": 84,
+      "slice_shape": [
+        32,
+        256,
+        256
+      ]
+    },
+    {
+      "key": "kp30_ms2.5",
+      "matched_bt_config": true,
+      "bt_run_id": "run_55a59f4abb44",
+      "source_id": "pl_matched_c45274720f6e",
+      "astrophysics": {
+        "F_STAR10": -1.343613166259972,
+        "ALPHA_STAR": 0.5445298617549055,
+        "M_TURN": 8.499041263277316,
+        "t_STAR": 0.38443739502612406,
+        "F_ESC10": -1.0,
+        "ALPHA_ESC": -0.5,
+        "L_X": 40.5,
+        "NU_X_THRESH": 500.0
+      },
+      "simulation": {
+        "BOX_LEN_Mpc": 250.0,
+        "DIM": 768,
+        "HII_DIM": 256,
+        "N_THREADS": 16,
+        "POWER_SPECTRUM": 0,
+        "USE_INTERPOLATION_TABLES": true,
+        "Z_HEAT_MAX": 35.0,
+        "flag_options": {
+          "INHOMO_RECO": true,
+          "USE_MASS_DEPENDENT_ZETA": true,
+          "USE_TS_FLUCT": true
+        },
+        "random_seed": 725213656658,
+        "redshift_max": 35.0,
+        "redshift_min": 6.0
+      },
+      "source_input_sha256": "241fec7cee243a26a8fb7fe67af609e8e26d4a524b853677a0d369273c2c6b03",
+      "historical_native_hash_verified": false,
+      "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/pl_matched_c45274720f6e.json",
+      "json_sha256": "ef8298fc839e1723ac4318d5f626f4751ff4985b9493bf48044e26cba6fef5b9",
+      "binary_sha256": "44ef4a7b444a83fffac6068ff5b0fee44377ea99f5394539279ab4e2e590d132",
+      "history_points": 84,
+      "slice_shape": [
+        32,
+        256,
+        256
+      ]
+    },
+    {
+      "key": "kp30_ms3.25",
+      "matched_bt_config": true,
+      "bt_run_id": "run_9b10dbb4cc4a",
+      "source_id": "pl_matched_1f045cd5ef40",
+      "astrophysics": {
+        "F_STAR10": -1.4423824404204806,
+        "ALPHA_STAR": 0.5438459211987428,
+        "M_TURN": 8.547999831763894,
+        "t_STAR": 0.30598608130283755,
+        "F_ESC10": -1.0,
+        "ALPHA_ESC": -0.5,
+        "L_X": 40.5,
+        "NU_X_THRESH": 500.0
+      },
+      "simulation": {
+        "BOX_LEN_Mpc": 250.0,
+        "DIM": 768,
+        "HII_DIM": 256,
+        "N_THREADS": 16,
+        "POWER_SPECTRUM": 0,
+        "USE_INTERPOLATION_TABLES": true,
+        "Z_HEAT_MAX": 35.0,
+        "flag_options": {
+          "INHOMO_RECO": true,
+          "USE_MASS_DEPENDENT_ZETA": true,
+          "USE_TS_FLUCT": true
+        },
+        "random_seed": 725213656658,
+        "redshift_max": 35.0,
+        "redshift_min": 6.0
+      },
+      "source_input_sha256": "6ed1c9317fa3a8678ba24c2e679f0f5f32e174d3b5dafd296551ceaf3b3dc0b8",
+      "historical_native_hash_verified": false,
+      "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/pl_matched_1f045cd5ef40.json",
+      "json_sha256": "d0dbb23669f6d79575829c966fcecaa7aa9deb0ecbd856c4b732137d088b85f7",
+      "binary_sha256": "16b33680bda4ac43a7883a6435a09fe145ec80dc815d4c25978686cf3950eb9c",
+      "history_points": 84,
+      "slice_shape": [
+        32,
+        256,
+        256
+      ]
+    },
+    {
+      "key": "kp30_ms4",
+      "matched_bt_config": true,
+      "bt_run_id": "run_f53e1cde38ec",
+      "source_id": "pl_matched_ea6bd9ea7e69",
+      "astrophysics": {
+        "F_STAR10": -0.9827548356007854,
+        "ALPHA_STAR": 0.5432430151204324,
+        "M_TURN": 8.617816167520028,
+        "t_STAR": 0.8818896750414167,
+        "F_ESC10": -1.0,
+        "ALPHA_ESC": -0.5,
+        "L_X": 40.5,
+        "NU_X_THRESH": 500.0
+      },
+      "simulation": {
+        "BOX_LEN_Mpc": 250.0,
+        "DIM": 768,
+        "HII_DIM": 256,
+        "N_THREADS": 16,
+        "POWER_SPECTRUM": 0,
+        "USE_INTERPOLATION_TABLES": true,
+        "Z_HEAT_MAX": 35.0,
+        "flag_options": {
+          "INHOMO_RECO": true,
+          "USE_MASS_DEPENDENT_ZETA": true,
+          "USE_TS_FLUCT": true
+        },
+        "random_seed": 725213656658,
+        "redshift_max": 35.0,
+        "redshift_min": 6.0
+      },
+      "source_input_sha256": "51adc2bc256820b446fa8c32d32ec6b1d044cb319b7b97f90fe57acda624ba57",
+      "historical_native_hash_verified": false,
+      "file": "https://raw.githubusercontent.com/HainaHuang729/21cmTB/main/web_data/posterior/runs/pl_matched_ea6bd9ea7e69.json",
+      "json_sha256": "516c2f0d0870660c7b9b5ea3c93d0f07961d43f44d2224a66a8a0fc747ee5252",
+      "binary_sha256": "25c9c5b5c9bfc80ae18cb75138f528cd781e26aa197753a63e6454d4e056dbd4",
+      "history_points": 84,
+      "slice_shape": [
+        32,
+        256,
+        256
+      ]
+    }
+  ],
+  "scope": "25 PL counterparts of the best retained LF sample per BPL group.",
+  "historical_native_hash_verified": false,
+  "validation": "Frozen inputs; source hash; BT/PL time grids; all saved transverse slices versus full lightcone; binary decode error <= half quantization step."
+}

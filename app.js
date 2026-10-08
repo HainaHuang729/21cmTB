@@ -176,14 +176,14 @@ function versioned(path) {
   return `${path}${path.includes("?") ? "&" : "?"}v=${DATA_VERSION}`;
 }
 
-async function fetchJSON(path) {
-  const response = await fetch(path);
+async function fetchJSON(path, options = {}) {
+  const response = await fetch(path, options);
   if (!response.ok) throw new AtlasError("fetchError", {path, status: response.status});
   return response.json();
 }
 
-async function fetchBuffer(path) {
-  const response = await fetch(path);
+async function fetchBuffer(path, options = {}) {
+  const response = await fetch(path, options);
   if (!response.ok) throw new AtlasError("fetchError", {path, status: response.status});
   return response.arrayBuffer();
 }
@@ -302,9 +302,9 @@ async function inflateSliceField(buffer, descriptor) {
   return raw;
 }
 
-async function decodeSlices(slices, basePath) {
+async function decodeSlices(slices, basePath, signal) {
   const [count, rows, columns] = slices.shape;
-  const buffer = await fetchBuffer(versioned(`${basePath}/${slices.binary_file}`));
+  const buffer = await fetchBuffer(versioned(`${basePath}/${slices.binary_file}`), {signal});
   const fields = slices.binary_fields;
   const [brightness, density, ionized, spinTemperatureLog10, kineticTemperatureLog10] = await Promise.all([
     inflateSliceField(buffer, fields.brightness_i16_le).then((bytes) => decodeI16Bytes(bytes, slices.brightness_quantization_mk)),
@@ -590,7 +590,7 @@ function drawGlobal() {
     if (index < 4) drawXMinorTick(ctx, px(value - (zMax - zMin) / 8), margin.top, height - margin.bottom);
   }
   ctx.save(); ctx.beginPath(); ctx.rect(margin.left, margin.top, plotWidth, plotHeight); ctx.clip();
-  if (pl) drawCurve(ctx, pl.redshift, pl.brightness_mk, px, py, plotPalette.pl, 2.2, state.plReference?.conditional_lf_reference ? [] : [7, 5]);
+  if (pl) drawCurve(ctx, pl.redshift, pl.brightness_mk, px, py, plotPalette.pl, 2.2, state.plReference?.matched_bt_config ? [] : [7, 5]);
   drawCurve(ctx, z, values, px, py, plotPalette.current, 2.2);
   ctx.restore();
   const trough = values.indexOf(Math.min(...values));
@@ -638,7 +638,7 @@ function drawIonizationHistory() {
   }
   ctx.save();
   ctx.beginPath(); ctx.rect(margin.left, margin.top, plotWidth, plotHeight); ctx.clip();
-  if (pl) drawCurve(ctx, pl.redshift, pl.ionized_fraction, px, py, plotPalette.pl, 2.2, state.plReference?.conditional_lf_reference ? [] : [7, 5]);
+  if (pl) drawCurve(ctx, pl.redshift, pl.ionized_fraction, px, py, plotPalette.pl, 2.2, state.plReference?.matched_bt_config ? [] : [7, 5]);
   if (current) drawCurve(ctx, current.redshift, current.ionized_fraction, px, py, plotPalette.current, 2.2);
   ctx.restore();
   if (!pl) {
@@ -965,7 +965,7 @@ function drawLFPanel({redshift, current, plCurve, observations}, [yMin, yMax]) {
   }
   ctx.save();
   ctx.beginPath(); ctx.rect(margin.left, margin.top, plotWidth, plotHeight); ctx.clip();
-  if (plCurve) drawLFCurve(ctx, plCurve, px, py, plotPalette.pl, 2.2, state.plReference?.conditional_lf_reference ? [] : [7, 5]);
+  if (plCurve) drawLFCurve(ctx, plCurve, px, py, plotPalette.pl, 2.2, state.plReference?.matched_bt_config ? [] : [7, 5]);
   const drawn = current && drawLFCurve(ctx, current, px, py, plotPalette.current, 2.2);
   // Use the loaded result's parameters, never a pending slider selection.
   const markers = [{value: massUV, color: plotPalette.current}];
