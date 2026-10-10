@@ -1,36 +1,36 @@
 {
-  "snapshot_hkt": "2026-10-07 10:21 HKT",
+  "snapshot_hkt": "2026-10-10 21:44 HKT",
   "status": "EXPLORATORY_NOT_CONVERGED",
   "chains": [
     {
       "ensemble": 0,
-      "job_id": "2190110_0",
-      "scheduler_state": "RUNNING",
-      "node": "chpc-cn062",
-      "stored_steps": 600,
-      "target_steps": 1000,
+      "job_id": "2194539_0",
+      "scheduler_state": "PENDING",
+      "node": "",
+      "stored_steps": 1000,
+      "target_steps": 2000,
       "segment_steps": 0,
-      "previous_segment_acceptance": 0.254375,
-      "previous_seconds_per_step": 677.0986221444514,
+      "previous_segment_acceptance": 0.25765625000000003,
+      "previous_seconds_per_step": 668.0192385118548,
       "latest_segment_acceptance": null,
-      "monitor_sha256": null,
-      "segment_target_steps": 400,
+      "monitor_sha256": "113f0b9b3b7d919d99d1a3a7566eaed605d54413248c13266516a8b89b62a226",
+      "segment_target_steps": 500,
       "previous_job_id": "2176971_0",
-      "job_id_raw": "2190111",
+      "job_id_raw": "2194539",
       "worker_identity_count": 16
     },
     {
       "ensemble": 1,
       "job_id": "2190110_1",
-      "scheduler_state": "RUNNING",
+      "scheduler_state": "COMPLETED",
       "node": "chpc-cn063",
-      "stored_steps": 600,
+      "stored_steps": 1000,
       "target_steps": 1000,
-      "segment_steps": 0,
-      "previous_segment_acceptance": 0.24546875,
-      "previous_seconds_per_step": 671.1524604895478,
-      "latest_segment_acceptance": null,
-      "monitor_sha256": null,
+      "segment_steps": 400,
+      "previous_segment_acceptance": 0.2534375,
+      "previous_seconds_per_step": 675.7023126815376,
+      "latest_segment_acceptance": 0.2534375,
+      "monitor_sha256": "521d60442d314f548be1abc177f1ee00557391e09418ed9db5dc22a39eb6aa9c",
       "segment_target_steps": 400,
       "previous_job_id": "2176971_1",
       "job_id_raw": "2190110",
@@ -46,9 +46,10 @@
     "workers": 16,
     "threads_per_worker": 16,
     "cache_mode": "COMBINED",
-    "native_sha256": "e253dbe272e045508e2ba72f8ea8949eed66b1d1c8fb05458c917ff607d8cbb9"
+    "native_sha256": "e253dbe272e045508e2ba72f8ea8949eed66b1d1c8fb05458c917ff607d8cbb9",
+    "mem_GiB_per_continuing_chain": 512
   },
-  "checkpoint_validation": "Closed 600-step HDF5 matches positions/log_prob/scientific blobs and full RNG state; source and inherited 200/400 prefixes validated. Independent output backend; original files retained.",
+  "checkpoint_validation": "Closed1000 state coordinates/log_prob/blobs/full RNG verified; original200/400/600 prefixes bitwise equal. Separate successor backends; original1000 files retained.",
   "startup_incident": {
     "previous_job": "2176955",
     "phase": "before checkpoint copy or sampling",
@@ -56,29 +57,33 @@
     "fixed": true,
     "replacement_job": "2176971"
   },
-  "plot_snapshot_stored_steps_per_ensemble": 600,
+  "plot_snapshot_stored_steps_per_ensemble": 1000,
   "automatic_live_polling": false,
   "provenance": {
-    "plan_sha256": "fb08d1c42ab9d49a910918fd1f0c07031733e4a41f55ddaef5eac55ae41d560e",
-    "submitted_jobs_sha256": "9d736bc8093739282bb6f2fc6c2dc41ede4f7fd464d859bbd0d65c34f3510641",
-    "scheduler_source": "squeue 2190110_0/1 RUNNING on chpc-cn062/063; committed600 source closed and verified; no active HDF5 reads"
+    "scheduler_source": "Closed2190110 COMPLETED/0:0;2194539 pending resources,2194556 pending afterok; no active HDF5 reads",
+    "review": "fixed_joint1000_review_20261010",
+    "analysis_sha256": "53fcc4595db13195f1e16d355a5c893286335b9fd9b927cd1f5943018a95aabc"
   },
   "next_segment": {
-    "planned_target_steps": 1000,
-    "additional_steps": 400,
+    "planned_target_steps": 2000,
+    "additional_steps": 1000,
     "submitted": true,
-    "array_job": "2190110",
-    "wall_hours": 120,
-    "estimated_compute_hours": 75
+    "first_job": "2194539_0",
+    "second_job": "2194556_0",
+    "dependency": "afterok:2194539",
+    "segment_steps_each": 500,
+    "time_hours_each": 120,
+    "estimated_compute_hours": 186
   },
   "convergence": {
     "status": "EXPLORATORY_NOT_CONVERGED",
-    "max_rank_folded_rhat": 2.298430151887754,
-    "min_length_over_IAT": 7.142833807030593,
+    "max_rank_folded_rhat": 2.244853936476457,
+    "min_length_over_IAT": 7.763627783743994,
     "zero_stuck_walkers": [
       0,
       0
     ],
-    "diagnostics": "web_data/joint_repaired600/diagnostics.json"
-  }
+    "diagnostics": "web_data/joint_repaired1000/diagnostics.json"
+  },
+  "sampling_policy": "CONTINUE_ENSEMBLE0_ONLY_KEEP_ENSEMBLE1_AT1000"
 }

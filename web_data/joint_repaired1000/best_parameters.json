@@ -1,0 +1,30 @@
+{
+  "tau": 0.05405481159687042,
+  "row": 33065,
+  "theta": [
+    -0.915736262115465,
+    0.5673056506652128,
+    0.5273395636048465,
+    9.267286480414233,
+    -1.239490628652144,
+    0.3424594668771713,
+    39.46523233778299,
+    531.6492510014941
+  ],
+  "parameters": [
+    "ETA_STAR",
+    "t_STAR",
+    "ALPHA_STAR",
+    "M_TURN",
+    "F_ESC10",
+    "ALPHA_ESC",
+    "L_X",
+    "NU_X_THRESH"
+  ],
+  "selection": "Maximum sum of saved LF+tau+xHI log likelihood over both closed1000 ensembles; one joint vector, not separate marginal modes",
+  "joint_log_likelihood": -12.917762185911394,
+  "ensemble": 1,
+  "stored_step": 34,
+  "walker": 9,
+  "derived_F_STAR10": -1.1619191527258041
+}

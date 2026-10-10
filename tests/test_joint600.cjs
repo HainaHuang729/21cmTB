@@ -11,5 +11,5 @@ test('600-step export includes each closed inherited prefix once, and keeps free
  assert.equal(m.status,'EXPLORATORY_NOT_CONVERGED');assert.equal(d.checkpoint_validation,'PASS');assert.equal(d.full.passed,false);assert.deepEqual(d.walkers.zero_movement_walkers_by_ensemble,[0,0]);
  assert.equal(d.sources.length,2);assert.ok(d.sources.every(s=>s.checkpoint.stored_steps===600));
  for(const [n,h] of Object.entries(m.files_sha256))assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(dir,n))).digest('hex'),h);
- const html=fs.readFileSync(path.join(__dirname,'../joint-repaired.html'),'utf8');assert.match(html,/600 × 32 × 2 · 38,400/);assert.match(html,/joint_repaired600\/corner_fixed.png/);assert.doesNotMatch(html,/web_data\/joint_repaired\/corner_fixed/);
+
 });
