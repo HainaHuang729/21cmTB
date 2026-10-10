@@ -52,7 +52,7 @@ window.AtlasI18n = (() => {
     repairedFixed: ["Fixed ms: two completed ensembles", "固定 ms：两条已完成链"],
     repairedFree: ["Free ms: two completed ensembles", "自由 ms：两条已完成链"],
     repaired1000DiagnosticsTitle: ['1000-step convergence assessment','1000步收敛评估'],
-    repaired1000Diagnostics: ['Worst matched-walker rank/folded R̂: 2.24; shortest length/IAT: 7.76. No completely stuck walkers. Mixing and drift gates fail: exploratory samples, not converged constraints. Constant xHI sequences make some autocorrelation diagnostics unavailable; no stored rows were removed.','对应walker的秩归一化/折叠R̂最大约2.24，最小链长/IAT约7.76。没有完全停滞的walker；混合与漂移检查未通过，仍是探索样本，不能视为已收敛约束。部分xHI序列为常数，相关自相关指标无法估计；未删除任何已保存样本。'],
+    repaired1000Diagnostics: ['Worst matched-walker rank/folded R̂: 2.24; shortest length/IAT: 7.76. No completely stuck walkers. Mixing checks fail: exploratory samples, not converged constraints. Constant xHI sequences make some autocorrelation diagnostics unavailable; no stored rows were removed.','对应walker的秩归一化/折叠R̂最大约2.24，最小链长/IAT约7.76。没有完全停滞的walker；混合检查未通过，仍是探索样本，不能视为已收敛约束。部分xHI序列为常数，相关自相关指标无法估计；未删除任何已保存样本。'],
     repaired1000DiagnosticsDownload: ['Download full convergence diagnostics ↗','下载完整收敛诊断 ↗'],
     repaired1000Latest: ['LATEST / 1000-step repaired fixed-model corner & diagnostics ↗','最新 / 修复版固定参数1000步corner与诊断 ↗'],
     repairedBands: ["LF: median and empirical 16–84% range from 256 selected rows. Tau and neutral hydrogen history: all 64,000 rows. Same-target inherited prefixes counted once; no emulator outputs pooled.", "LF：256 条抽取记录的中位数与经验 16–84% 范围。τ 和中性氢历史使用全部64,000条记录。同一target的继承前缀只计一次，不混入emulator输出。"],
