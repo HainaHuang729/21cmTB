@@ -47,6 +47,7 @@ window.AtlasI18n = (() => {
     repairedTitle: ["New joint results", "新完成的联合结果"],
     repairedScope: ["Completed repaired-native chains only. Old chains and the PL emulator reference remain separate.", "仅展示修复版计算程序已完成的链。旧链与 PL emulator 近似参考仍独立保留。"],
     repairedWarning: ["Functional completion only — not converged, not posterior constraints.", "仅通过功能完成检查——尚未收敛，不是正式后验约束。"],
+    walkerLink: ["Interactive walker trajectories ↗", "交互式walker轨迹 ↗"],
     repairedBestTitle: ["Best sampled joint fit", "联合拟合最佳样本"],
     repairedBestScope: ["Black stars and diagonal values mark one retained vector with the highest LF + tau + xHI likelihood. Numerical axes use the sampled coordinates. Quantiles remain exploratory.", "黑色星号与对角数值标出LF+tau+xHI联合likelihood最高的一组已保存参数；数字坐标采用采样参数的变换。分位数仍是探索性结果。"],
     repairedFixed: ["Fixed ms: two completed ensembles", "固定 ms：两条已完成链"],
