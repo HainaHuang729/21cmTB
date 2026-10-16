@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "simulationId": "coeval-pl256-thermal-fixed-v3-display64",
+  "simulationId": "coeval-pl256-thermal-fixed-v3-web-density128",
   "title": "PL / native 256³ / thermal evolution repaired",
   "geometry": "coeval",
   "grid": [
@@ -18,7 +18,7 @@
     64,
     64
   ],
-  "downsampling_method": "volume mean of 4³ linear-value cells; float64 accumulation, float32 output",
+  "downsampling_method": "Density: 2^3 native linear-value volume means to 128^3; xH/Tb: 4^3 means to 64^3. Float64 accumulation, float32 output.",
   "source_simulation_id": "coeval-pl256-thermal-fixed-v3",
   "sourceIdentity": "d1f692d76dc836c6602e4db92e2429c0194438e86178b712970084ed87689e6f",
   "boxLength": 250,
@@ -74,9 +74,15 @@
       "definition": "Matter density contrast δ = ρ / mean(ρ) − 1 from PerturbedField; no log transform.",
       "palette": "density",
       "displayRange": [
-        -0.6928053498268127,
-        4.2639665603637695
-      ]
+        -0.7429835200309753,
+        9.63590145111084
+      ],
+      "grid": [
+        128,
+        128,
+        128
+      ],
+      "downsampling_method": "2^3 linear-value volume mean; float64 accumulation and float32 output"
     }
   },
   "snapshots": [
@@ -121,17 +127,20 @@
         "density": {
           "url": "snapshots/z35.2169290409/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "d1f691e0db56977deac0628e13ad6eea4a921ffe847a9c507d1a03ae11f7c1d3",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "f9c4c1d78fda3eff44997e5af5aee651c5aebf92092b633619a82d28853e800c",
           "sourceId": "79b0c846526708b11740693f0d311da3d0d9434e86a474de6f4d68c31907e7de",
           "statistics": {
-            "min": -0.24416881799697876,
-            "max": 0.3532293736934662,
-            "mean": -1.9982467069912246e-11,
-            "nonfinite": 0,
-            "negative": 135407,
-            "zero": 0,
-            "count": 262144
+            "min": -0.30845338106155396,
+            "max": 0.5125488638877869,
+            "mean": -1.082562164911316e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -193,17 +202,20 @@
         "density": {
           "url": "snapshots/z34.5067938413/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "29185cfe0d14a1230819c8fc7ee208102e911b628138e80a1656900070d13533",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "f55212b2fa82beef0e6467f0ae6f5eb45a31c464221e06071bd97eab25d111d8",
           "sourceId": "3d3e82f50755aa7f3768cefbaed3a78fd0e147f93977ede7c164723ccd443095",
           "statistics": {
-            "min": -0.2482384890317917,
-            "max": 0.3621456027030945,
-            "mean": 4.904937567218326e-12,
-            "nonfinite": 0,
-            "negative": 135492,
-            "zero": 0,
-            "count": 262144
+            "min": -0.312266081571579,
+            "max": 0.5250182747840881,
+            "mean": 4.1184416987860573e-13,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -265,17 +277,20 @@
         "density": {
           "url": "snapshots/z33.8105828483/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "08180cd5105df0983300792c672f2727de9216e4d207f9b6dfab0c1e51cc1cb1",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "9503ed2fd96cf330a0e2a8da85b4dbfac0495a9e269cbd766256db0d8dd67dc2",
           "sourceId": "53852aed192fcb7f72f605b28deddcc3fc7e2e399ed9f740a9e584e87713a523",
           "statistics": {
-            "min": -0.2523695230484009,
-            "max": 0.3713825047016144,
-            "mean": -3.9006742280633944e-11,
-            "nonfinite": 0,
-            "negative": 135588,
-            "zero": 0,
-            "count": 262144
+            "min": -0.3154528737068176,
+            "max": 0.5382272005081177,
+            "mean": -4.196979569437431e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -337,17 +352,20 @@
         "density": {
           "url": "snapshots/z33.1280230385/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "ad46aac1426439b9e68c9e61e09fecb6921b7339e2809562d048997b08e8b9ed",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "a2f41b2d5973ba55f7008190d9bd075b55c65af91078531a3f74c4a45f682c95",
           "sourceId": "1916afb2ae526a5693432077bc0d2545ff9bf18cade59a72f13a8342c504cedf",
           "statistics": {
-            "min": -0.2565889358520508,
-            "max": 0.38088151812553406,
-            "mean": -7.535971846550638e-12,
-            "nonfinite": 0,
-            "negative": 135697,
-            "zero": 0,
-            "count": 262144
+            "min": -0.3179470896720886,
+            "max": 0.5519377589225769,
+            "mean": -1.222456164073904e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -409,17 +427,20 @@
         "density": {
           "url": "snapshots/z32.4588467418/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "0f7bac0aad17d5ca85b2196c37f833ca8edac36ae858bd93c39422cb5964199f",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "2db6a6d341991ada3a594b7a327b7cab2df60f3496c8582f976b56c8f79bdb64",
           "sourceId": "a56855a2b4ec409215d3c85e56f0b0e0415170736ed09150993b2aa7fd873c06",
           "statistics": {
-            "min": -0.2607805132865906,
-            "max": 0.3907267451286316,
-            "mean": -1.956643180811568e-11,
-            "nonfinite": 0,
-            "negative": 135792,
-            "zero": 0,
-            "count": 262144
+            "min": -0.3212222456932068,
+            "max": 0.5662227869033813,
+            "mean": -2.1132637306742197e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -481,17 +502,20 @@
         "density": {
           "url": "snapshots/z31.8027915368/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "5777411646092654b412e0a0ab356338e70cc02f27cc36d4fedb8cbe8accb7c5",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "1d28f37984c64ce133b2d77b7f9dec3caed185d03adf838cf7d27664e19ecc27",
           "sourceId": "d23055dd6b2004a107cb435c55617b171e3e6c21dfe448ceb088611939ba8349",
           "statistics": {
-            "min": -0.2648653984069824,
-            "max": 0.4008629024028778,
-            "mean": -5.173621253629079e-11,
-            "nonfinite": 0,
-            "negative": 135890,
-            "zero": 0,
-            "count": 262144
+            "min": -0.32738596200942993,
+            "max": 0.5810654163360596,
+            "mean": -5.469179970019056e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -553,17 +577,20 @@
         "density": {
           "url": "snapshots/z31.1596001472/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "c7e21221f2496954fcae6264f5515ae81dcbdd5b297f5156bd67b795f73a7788",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "4314dab244478d78a3f0ae553c8bf02d59a824f14d0c845042a110bcf54e0366",
           "sourceId": "b438d8c7e4c1b7eeca6e7f4f66a165e2ed24e630deb7d465a96242eb8d2c7038",
           "statistics": {
-            "min": -0.26894327998161316,
-            "max": 0.41111019253730774,
-            "mean": 1.703362451088708e-11,
-            "nonfinite": 0,
-            "negative": 135975,
-            "zero": 0,
-            "count": 262144
+            "min": -0.3332287669181824,
+            "max": 0.5969495177268982,
+            "mean": 2.283941785696797e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -625,17 +652,20 @@
         "density": {
           "url": "snapshots/z30.5290203417/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "6cf4d55732f28f44b5c3104d6132192878e99f863902d187ec78d17f9e5fba68",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "48613e1af5d357ad17f1e338f660204ee23f3cb6496191585ae94ec63815f1bd",
           "sourceId": "a88e32fca57809df7c4270420aca7f5b39802cba8320ab797d3bc5ec1257e794",
           "statistics": {
-            "min": -0.2729453444480896,
-            "max": 0.421656996011734,
-            "mean": 3.438116458198692e-11,
-            "nonfinite": 0,
-            "negative": 136065,
-            "zero": 0,
-            "count": 262144
+            "min": -0.339348167181015,
+            "max": 0.6141484379768372,
+            "mean": 3.485024768767886e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -697,17 +727,20 @@
         "density": {
           "url": "snapshots/z29.9108048346/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "d46dbc3ea4f22c0be79e38a198c5c4bc1c7646e970136ea2fd1f79ac859dffe4",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "14ca54ff6173450675eac97c81bcd675be9873aca1ff957cb6c4b90985cef4ab",
           "sourceId": "de1aa3b2028c1b37c4105c218848136dc31f55276c0c070037df1165c7b54335",
           "statistics": {
-            "min": -0.27726036310195923,
-            "max": 0.4323514699935913,
-            "mean": -3.769344558701704e-11,
-            "nonfinite": 0,
-            "negative": 136180,
-            "zero": 0,
-            "count": 262144
+            "min": -0.3453946113586426,
+            "max": 0.6322784423828125,
+            "mean": -3.5443037393889654e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -769,17 +802,20 @@
         "density": {
           "url": "snapshots/z29.3047111889/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "d5ee0a4d9653dcb47bc6b5a3c5155039a815532d8fa31f0aa4a41606f04c3813",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "272e24360ccfa1d17fddbf7ac226b73e43777c3a72adb8adbbe5aec9ef08a565",
           "sourceId": "483e79c7605bd95650d85b8eead155fae5138c19560a9e19fde7bb1b5c67eddc",
           "statistics": {
-            "min": -0.28178393840789795,
-            "max": 0.4432368576526642,
-            "mean": 1.3575363055906564e-11,
-            "nonfinite": 0,
-            "negative": 136279,
-            "zero": 0,
-            "count": 262144
+            "min": -0.3511078357696533,
+            "max": 0.6517959833145142,
+            "mean": 2.3696891671143305e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -841,17 +877,20 @@
         "density": {
           "url": "snapshots/z28.7105017211/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "15d02962d31432c30635212a0f0f2d290f14b3da7a85ab91309eec5cecc3d16e",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "d3556305b50c6c621041551ed08063e439940635f49b9662963263f4340e5b64",
           "sourceId": "637d0a4af174ec13733f72acaa4ed3ed2257512e1168d3d49a535ef0823c13c8",
           "statistics": {
-            "min": -0.28659579157829285,
-            "max": 0.45438042283058167,
-            "mean": 7.526729239870633e-12,
-            "nonfinite": 0,
-            "negative": 136392,
-            "zero": 0,
-            "count": 262144
+            "min": -0.3566577136516571,
+            "max": 0.671959400177002,
+            "mean": 1.0716878773298077e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -913,17 +952,20 @@
         "density": {
           "url": "snapshots/z28.1279434085/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "97bb2e54ae6a7ae08201ad1eb96439e418756318c561d07fda8ab0988914fea4",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "7da14cabe2eafcfaadd734485c4d873adbf3b42cfc27acbe61ca2cea8723af8f",
           "sourceId": "0779c1afb88f8e62655b90abc313dceb56e969543112c4d8bad6649646a7732c",
           "statistics": {
-            "min": -0.2915222644805908,
-            "max": 0.4658452272415161,
-            "mean": 1.3047535274424149e-11,
-            "nonfinite": 0,
-            "negative": 136528,
-            "zero": 0,
-            "count": 262144
+            "min": -0.3613929748535156,
+            "max": 0.6923584938049316,
+            "mean": 1.6362057542185227e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -985,17 +1027,20 @@
         "density": {
           "url": "snapshots/z27.5568077973/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "a1820cb30432a4897403c04199a1e05f3866e2bbd2d6e2f864a8b49d30542574",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "091502999cbef41b9caf6ce1194ac2009de74af20f14396d897cb42fe4db2ce5",
           "sourceId": "37f1eb35f725cd678759ac6ab0b769191487318c9d7e117af4173cb83c34c885",
           "statistics": {
-            "min": -0.2965947985649109,
-            "max": 0.4777620732784271,
-            "mean": 8.954836872021588e-12,
-            "nonfinite": 0,
-            "negative": 136655,
-            "zero": 0,
-            "count": 262144
+            "min": -0.3668299913406372,
+            "max": 0.7132145762443542,
+            "mean": 9.07444952513714e-12,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -1057,17 +1102,20 @@
         "density": {
           "url": "snapshots/z26.9968709130/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "694afc330175ba7b4e20b034411f8f51fd5fe66ea93874dc5b9ed8e53835a928",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "abe05832fc5f80183a2004767a75868e04dba4580aa4062bc6528d32ddc4349a",
           "sourceId": "3b872bb8e578ec5560dea1f27e1724c43b436799c1163ebb4c5fe7d391aecf24",
           "statistics": {
-            "min": -0.3018127381801605,
-            "max": 0.4900537133216858,
-            "mean": -3.0227487179956825e-11,
-            "nonfinite": 0,
-            "negative": 136763,
-            "zero": 0,
-            "count": 262144
+            "min": -0.37248462438583374,
+            "max": 0.7340580821037292,
+            "mean": -3.333086237566896e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -1129,17 +1177,20 @@
         "density": {
           "url": "snapshots/z26.4479131731/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "4f1a8783c138863402f1c0ef50a63f6aa99717ba12fb95013bf0317f29cc70a3",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "4ed8ec2e3fedb0d58cdb997d3b46330ee7060d3124213ae7490dacc7d892511b",
           "sourceId": "4dcf584cf6a4cbbeef83d1d61ffa0f3b2b0a1b4dda4f066832f97c13b073d5c4",
           "statistics": {
-            "min": -0.30709582567214966,
-            "max": 0.5027875304222107,
-            "mean": -2.386868480641624e-12,
-            "nonfinite": 0,
-            "negative": 136887,
-            "zero": 0,
-            "count": 262144
+            "min": -0.3779621720314026,
+            "max": 0.7559422254562378,
+            "mean": -4.065789371843209e-12,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -1201,17 +1252,20 @@
         "density": {
           "url": "snapshots/z25.9097193003/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "e89cc69ec83cc02a7d5fc5c5ccdb45e361d07c3613749ca79fea2a7ffbefa64b",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "be3a453f827d100117f2f1120dcd5deaddb70351e7197f1e54fc95c48dc26633",
           "sourceId": "16001c3a1f79f613521f3800698a3e7b91e638fd9af38fa5e28556e9c232f164",
           "statistics": {
-            "min": -0.312444806098938,
-            "max": 0.5159696936607361,
-            "mean": -2.100053464459961e-11,
-            "nonfinite": 0,
-            "negative": 137001,
-            "zero": 0,
-            "count": 262144
+            "min": -0.3832077085971832,
+            "max": 0.7780529260635376,
+            "mean": -2.196330617376674e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -1273,17 +1327,20 @@
         "density": {
           "url": "snapshots/z25.3820782387/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "dcffe72d65b4bc7918050876c7bea42a6ce68fce9cfc5bccf17d24f336740848",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "338f37432dfe373933a4232698f6cd4603c17a87bff6eafe75bc0ceb2289a5ec",
           "sourceId": "f744a59e1c30f1a0c75a7b10819ca934f649fc0225373bb3e251f20208c1977a",
           "statistics": {
-            "min": -0.31782689690589905,
-            "max": 0.5296074748039246,
-            "mean": -1.0434986208451846e-11,
-            "nonfinite": 0,
-            "negative": 137141,
-            "zero": 0,
-            "count": 262144
+            "min": -0.3881783187389374,
+            "max": 0.8001528978347778,
+            "mean": -1.2042894459440845e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -1345,17 +1402,20 @@
         "density": {
           "url": "snapshots/z24.8647830707/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "d26834501c5bdff5ec2a8f329674583452d55e5ef0ee6545332024bb236e5ef2",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "42648526dca41c7085e2311f0ef91c15d1d5a4f0afdcea837ca2009eba987fdd",
           "sourceId": "236e1b884722732bc5c2342a0aafa4e0e85f0ad50c0e2c046d4ada4596d4fd50",
           "statistics": {
-            "min": -0.3231963813304901,
-            "max": 0.5434693694114685,
-            "mean": -1.328520626842078e-12,
-            "nonfinite": 0,
-            "negative": 137265,
-            "zero": 0,
-            "count": 262144
+            "min": -0.39268720149993896,
+            "max": 0.8227984309196472,
+            "mean": 3.1159935742763878e-12,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -1417,17 +1477,20 @@
         "density": {
           "url": "snapshots/z24.3576309356/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "215b0069074482e8b5d592bb8dff9ad7ce7bf9e5f022e6c6536485450a63ddc1",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "f0e118be2147656443d3616446d6b50c741a2b5cbd12ca2056d31e1877e2dcf3",
           "sourceId": "2937111120f30690cb4b88a32ded6dfb27efb9b4ea321a3ebe03ea35a6412ddb",
           "statistics": {
-            "min": -0.3287810981273651,
-            "max": 0.557553768157959,
-            "mean": -1.5712334211492873e-11,
-            "nonfinite": 0,
-            "negative": 137379,
-            "zero": 0,
-            "count": 262144
+            "min": -0.39708802103996277,
+            "max": 0.8459146022796631,
+            "mean": -2.1002394268165858e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -1489,17 +1552,20 @@
         "density": {
           "url": "snapshots/z23.8604229508/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "af76e1f5bbe584136c6f7f573b13a4aa37abd56ffe1b5a1c6a0d9edfd0a250d8",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "d197ba4ee78624afdf83d4650010c6a71bd45ad87b290f1790269688b8ed55ed",
           "sourceId": "75a38ccc34f1340e816ccf4ae1021f4220c4a20ff0a919979b741648bd6d8230",
           "statistics": {
-            "min": -0.33445265889167786,
-            "max": 0.5719022750854492,
-            "mean": 9.071354778455998e-12,
-            "nonfinite": 0,
-            "negative": 137510,
-            "zero": 0,
-            "count": 262144
+            "min": -0.40177401900291443,
+            "max": 0.8699256181716919,
+            "mean": 1.8270857049529354e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -1561,17 +1627,20 @@
         "density": {
           "url": "snapshots/z23.3729641330/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "abcddf7f10d02d96919fe1377d74832f2e17da62264f2eff99d0a05aeb7a387f",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "cb67c1cd4867196a80223817c3f4205f3a71f14e0ea64b31501b02ce4f256ea3",
           "sourceId": "6b6d40c0404778bef195ff813def041c01062d62b5a27ff0db163c26a77fd97d",
           "statistics": {
-            "min": -0.34021005034446716,
-            "max": 0.5865482091903687,
-            "mean": -9.162004488416642e-12,
-            "nonfinite": 0,
-            "negative": 137655,
-            "zero": 0,
-            "count": 262144
+            "min": -0.40653589367866516,
+            "max": 0.8946384191513062,
+            "mean": -1.7900542159665633e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -1633,17 +1702,20 @@
         "density": {
           "url": "snapshots/z22.8950633223/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "4367dc7cf5fba2e1aa29de656db02ee541438eecf83bec7e701cb41eb62c8266",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "81e3804a8143591d93a2c0d9afac62117961a43c128544b90092cf9114427557",
           "sourceId": "18f76558c5b8ae12c0c42564507977463595bd0cf3098444f990eb642869d090",
           "statistics": {
-            "min": -0.3460865020751953,
-            "max": 0.6012194156646729,
-            "mean": 1.2337672550266632e-11,
-            "nonfinite": 0,
-            "negative": 137802,
-            "zero": 0,
-            "count": 262144
+            "min": -0.4118083417415619,
+            "max": 0.9201819896697998,
+            "mean": 1.1944306654854131e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -1705,17 +1777,20 @@
         "density": {
           "url": "snapshots/z22.4265331070/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "547cb4126121339af3a84a3a1d9943ffc19974d90edce94afbd9dc48a667a7da",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "6f0bee08ac041933118f406d9245f492dec8a21b0853cecfeeb9c64e940caf40",
           "sourceId": "75762be05a5ef9858598dfad66bf42ae898ad196e4aacec530939f8bd31f1259",
           "statistics": {
-            "min": -0.35200023651123047,
-            "max": 0.6161577701568604,
-            "mean": -1.3192780201620735e-12,
-            "nonfinite": 0,
-            "negative": 137948,
-            "zero": 0,
-            "count": 262144
+            "min": -0.4174240827560425,
+            "max": 0.9466623067855835,
+            "mean": -4.778524798076944e-12,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -1777,17 +1852,20 @@
         "density": {
           "url": "snapshots/z21.9671897501/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "dbf1b150e46b1daa81a69e87602fd73d93dc2ade4e7f9e4fbdcb81ed9f34cd18",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "2ab8a474817d4e0cb24ef7cc623186e9dba2af34edada4bf48db3c97fc274776",
           "sourceId": "4ba0a92b111c9f91d1c646b81471650ac71ab8f10ccaf35b7799a7ae7881e9a1",
           "statistics": {
-            "min": -0.3577336072921753,
-            "max": 0.6314558386802673,
-            "mean": 1.133193539004651e-11,
-            "nonfinite": 0,
-            "negative": 138077,
-            "zero": 0,
-            "count": 262144
+            "min": -0.42286327481269836,
+            "max": 0.9742023944854736,
+            "mean": 1.3905279705461737e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -1849,17 +1927,20 @@
         "density": {
           "url": "snapshots/z21.5168531172/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "4bc2ba8325d28232b51156426aa2891d968d74ee1027969a6987e3a503c47490",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "e4aaecfbeef0049c24b3ffc04704afb8cfd666008cb27782547d78d455dd45d8",
           "sourceId": "4691b37d7bf9ff73c288439fc1833aff5e2b9542846e86edbc78690cb8eb4b0e",
           "statistics": {
-            "min": -0.3632534146308899,
-            "max": 0.6471667885780334,
-            "mean": -7.403314072895739e-11,
-            "nonfinite": 0,
-            "negative": 138181,
-            "zero": 0,
-            "count": 262144
+            "min": -0.42839017510414124,
+            "max": 1.0032793283462524,
+            "mean": -7.022811499002302e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -1921,17 +2002,20 @@
         "density": {
           "url": "snapshots/z21.0753466061/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "eedcc0d8372983160ba9acaf33c588f52ef75c026333b73766570bcf4204248c",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "2a3c8fbf867312c7f17b8ca0dde19bb6f15c4e81bce5a1583fd96a7baca8f564",
           "sourceId": "567a914fbc14813f15fc08c30c9aedf444bea1c424cb7f8e6ed981ebdccf975b",
           "statistics": {
-            "min": -0.36834046244621277,
-            "max": 0.6631286144256592,
-            "mean": 2.9818675306714226e-11,
-            "nonfinite": 0,
-            "negative": 138316,
-            "zero": 0,
-            "count": 262144
+            "min": -0.4339750409126282,
+            "max": 1.0348387956619263,
+            "mean": 1.7838494570376895e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -1993,17 +2077,20 @@
         "density": {
           "url": "snapshots/z20.6424970774/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "d0455a76c3e4dde7bc3839fc09bdd964abbdea98fb464033a43471ee2d1b500f",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "0a1fb00b74779245db62b8bb33c8832a48ea214ecf18d9ebd7cc32c680b93856",
           "sourceId": "09ee497a1bf979b28c6930f7b676b437d42df57ad6b59bae96fdc2e0fa0198ff",
           "statistics": {
-            "min": -0.37313175201416016,
-            "max": 0.6794317960739136,
-            "mean": -2.711775248798176e-11,
-            "nonfinite": 0,
-            "negative": 138467,
-            "zero": 0,
-            "count": 262144
+            "min": -0.4400162100791931,
+            "max": 1.067715048789978,
+            "mean": -2.3441831809023483e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -2065,17 +2152,20 @@
         "density": {
           "url": "snapshots/z20.2181347863/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "258b2860fd5300d3755b6f92f82098e12917682f931fa4fb75e9b14046ce2868",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "d83c6d8f43970644912a1fafeefb477fed0f315a6e0741425313ee8dece407df",
           "sourceId": "148dac2197f312dea06256234b90f744debfa9bfa2f4d0131166da3c71423fed",
           "statistics": {
-            "min": -0.377846896648407,
-            "max": 0.6962207555770874,
-            "mean": -3.310438034809238e-11,
-            "nonfinite": 0,
-            "negative": 138626,
-            "zero": 0,
-            "count": 262144
+            "min": -0.44648513197898865,
+            "max": 1.1014846563339233,
+            "mean": -3.3449243375116566e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -2137,17 +2227,20 @@
         "density": {
           "url": "snapshots/z19.8020933168/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "d4f15f8fa191691f9161b4e587cbb764ad8b678e726978948562b008f72087f7",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "20a767530947362c0cb670a27dbb8e0de5b27a0c55754f4d5ddd850308868393",
           "sourceId": "86bddf81172dbffb93a988abed93c5af8631060978e8c415efd66df4290c7932",
           "statistics": {
-            "min": -0.38270944356918335,
-            "max": 0.7136036157608032,
-            "mean": -2.6746438397395877e-11,
-            "nonfinite": 0,
-            "negative": 138783,
-            "zero": 0,
-            "count": 262144
+            "min": -0.4531595706939697,
+            "max": 1.1362724304199219,
+            "mean": -2.6307428457883475e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -2209,17 +2302,20 @@
         "density": {
           "url": "snapshots/z19.3942095155/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "f546cbec594f2c84914dda8c871f6031e7c5e005a5923174b78904c4bac7f16e",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "b4d14886bc3af60f94ae907a658c0c50a11eb32ff267f02b74f064b3573f07f4",
           "sourceId": "766b877b6490e383b961331b5bebac624e8610a7caa7f6d6ce7ddecc244b8ea6",
           "statistics": {
-            "min": -0.38775724172592163,
-            "max": 0.7316163182258606,
-            "mean": -3.688624405917551e-11,
-            "nonfinite": 0,
-            "negative": 138897,
-            "zero": 0,
-            "count": 262144
+            "min": -0.45948463678359985,
+            "max": 1.1704550981521606,
+            "mean": -4.04886679739036e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -2281,17 +2377,20 @@
         "density": {
           "url": "snapshots/z18.9943234282/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "0c4155f62b78fa701e48e4f2bff8d6a33e2b4694dcd0812f1aeb42e666b86726",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "b24102d4fe4ecbb2d1e34c30e5c4b0b704f29f19f5edc99c21457388eae6ae29",
           "sourceId": "a8bdf9754caa5407e026c6ec09cc3dd9ae273237f128da0b36038d1b9f42d8a8",
           "statistics": {
-            "min": -0.3930792808532715,
-            "max": 0.7501894235610962,
-            "mean": -1.242289604519442e-11,
-            "nonfinite": 0,
-            "negative": 139050,
-            "zero": 0,
-            "count": 262144
+            "min": -0.46520504355430603,
+            "max": 1.2048115730285645,
+            "mean": -2.1681087480907024e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -2353,17 +2452,20 @@
         "density": {
           "url": "snapshots/z18.6022782374/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "e7f5eee3ce29985d3d2e9109612acc1c0d516896b23282010d37ae87caa7febb",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "4e0d6ec321268dde71c52d113484c437a66cc5477915a1ee1833dbd50d74524b",
           "sourceId": "aeecb6dba84d8a63d9a2860bf33d9eb48f3a9dc9584de0dadc66a8528f359356",
           "statistics": {
-            "min": -0.398590087890625,
-            "max": 0.7695857882499695,
-            "mean": -6.064251878434845e-11,
-            "nonfinite": 0,
-            "negative": 139199,
-            "zero": 0,
-            "count": 262144
+            "min": -0.47047197818756104,
+            "max": 1.2386451959609985,
+            "mean": -4.194693897785484e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -2425,17 +2527,20 @@
         "density": {
           "url": "snapshots/z18.2179201999/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "a1d7956c31f525fcd499832076378f6adaa873315fbf21d8ac68a4a6dae6a4ea",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "81161e3566f5d91e65269ef0af4d647107a8be1381dedc9264c4c0a715c850f9",
           "sourceId": "a816f6982c7493ee317288bdaeca5a8564a3c77c09a2f82f0d1717453189b5b2",
           "statistics": {
-            "min": -0.4043307602405548,
-            "max": 0.7899131178855896,
-            "mean": 3.9560882347799975e-11,
-            "nonfinite": 0,
-            "negative": 139362,
-            "zero": 0,
-            "count": 262144
+            "min": -0.47542107105255127,
+            "max": 1.2715812921524048,
+            "mean": 3.2941739613878696e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -2497,17 +2602,20 @@
         "density": {
           "url": "snapshots/z17.8410985876/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "04f97e25f3c57753c1355d0fb2ce1bf29525055595ff5a376cc47fc07438e80b",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "94481e2f91e557eae60395e0364bfdcf0a6d3fd54176acb5c235b6688f97b0a8",
           "sourceId": "dea46fa58bd09ded046623cd509af20edf2b8c4d3c65128dee1aef6a39086f47",
           "statistics": {
-            "min": -0.41021865606307983,
-            "max": 0.81112140417099,
-            "mean": -4.470673831136196e-12,
-            "nonfinite": 0,
-            "negative": 139527,
-            "zero": 0,
-            "count": 262144
+            "min": -0.4802273213863373,
+            "max": 1.3188719749450684,
+            "mean": -1.0317989518338067e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -2569,17 +2677,20 @@
         "density": {
           "url": "snapshots/z17.4716656273/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "2344c42354ec44b1b24c1b35144e88d8943ac88f332c65606510584722f90bb9",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "6a198295f11048fc9a2646ed7b6f306ddc572e3da6c0d57a5f6a009a5e3720b2",
           "sourceId": "f40625c0e12057377c844deb4e59ecd817ea80b4b99fbd28307aaa1fba986d65",
           "statistics": {
-            "min": -0.4162278175354004,
-            "max": 0.8331242799758911,
-            "mean": -3.910533008522066e-11,
-            "nonfinite": 0,
-            "negative": 139716,
-            "zero": 0,
-            "count": 262144
+            "min": -0.4850131869316101,
+            "max": 1.3678478002548218,
+            "mean": -3.467250098143637e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -2641,17 +2752,20 @@
         "density": {
           "url": "snapshots/z17.1094764439/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "edef141f889fa700fcdd0f4fe3591fad46a39171b87673743294b9dad66e8225",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "33ad55e25f9f8631d5c825bd0240f650628d8003ed01656857212528d2ecf708",
           "sourceId": "a025995adab36f97932340494c03f03c5bb5c7c6138ee67a1313a558c76d508e",
           "statistics": {
-            "min": -0.4222766160964966,
-            "max": 0.8557955622673035,
-            "mean": 6.616956982341549e-12,
-            "nonfinite": 0,
-            "negative": 139917,
-            "zero": 0,
-            "count": 262144
+            "min": -0.4922722578048706,
+            "max": 1.417493224143982,
+            "mean": -1.8719886751839e-12,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -2713,17 +2827,20 @@
         "density": {
           "url": "snapshots/z16.7543890024/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "35c3ecb67efc3006eff4f0b8da68dde8c0cf0f9d523de6ce99ebffdca7ec1d1b",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "cabe7110e44449dfc20df33fc9b80163eeb95bf674232d5772ed8630e8df7b60",
           "sourceId": "364fc2c0ea3f03fbc8108a4680a5558d6a3c5dad4290418d2db7398e5ae86411",
           "statistics": {
-            "min": -0.4284113645553589,
-            "max": 0.8793696761131287,
-            "mean": 4.2891357132646135e-11,
-            "nonfinite": 0,
-            "negative": 140088,
-            "zero": 0,
-            "count": 262144
+            "min": -0.49846938252449036,
+            "max": 1.467915654182434,
+            "mean": 4.831317290676651e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -2785,17 +2902,20 @@
         "density": {
           "url": "snapshots/z16.4062640534/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "bf810620cf9f6cfd2476f005863f380e053b84e5701a82deee761e11e2f32664",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "e2f82f4e9bf89df2111ec9b456e45c1057e497c29fe30bafc089d6ef73cdbb46",
           "sourceId": "be08dd61d9e6377d8f3dfa6422dea32ce0e7255ece38ef53750f829959a0652f",
           "statistics": {
-            "min": -0.43436285853385925,
-            "max": 0.9035798907279968,
-            "mean": -2.4601820580727463e-11,
-            "nonfinite": 0,
-            "negative": 140264,
-            "zero": 0,
-            "count": 262144
+            "min": -0.504578709602356,
+            "max": 1.5187437534332275,
+            "mean": -1.3375855978381423e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -2857,17 +2977,20 @@
         "density": {
           "url": "snapshots/z16.0649650773/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "afece58b2da140dc478d6f62f9c1f8b478a377f0cc2a4a44ff24708c5c25a9b0",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "6e5d4196016738c40bf8f9f740dab48d941aa09884074f249501fc2d8bd623a8",
           "sourceId": "d29cce58243f002ff9edf403b4477fb10c3b3d37e4edf32b3d2ebb868c546880",
           "statistics": {
-            "min": -0.4400264620780945,
-            "max": 0.9281930923461914,
-            "mean": -7.619951891690846e-11,
-            "nonfinite": 0,
-            "negative": 140426,
-            "zero": 0,
-            "count": 262144
+            "min": -0.5106815695762634,
+            "max": 1.571785569190979,
+            "mean": -6.80925593687931e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -2929,17 +3052,20 @@
         "density": {
           "url": "snapshots/z15.7303582318/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "2aacd6dc96df1bcde8b207883f8907638d60ca5ee86e5840dbaaaf7b5f740578",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "1ffe25ea149bd4a0ca285e2b334176693e4eb9e7644264b48991219d3ec17de2",
           "sourceId": "a3aefcd922e3687a3bdc5be0c4c11a9e5cafb9c29ff10d45eb5fddca97969a6f",
           "statistics": {
-            "min": -0.4450247883796692,
-            "max": 0.953241765499115,
-            "mean": -5.1373377774055484e-11,
-            "nonfinite": 0,
-            "negative": 140625,
-            "zero": 0,
-            "count": 262144
+            "min": -0.5165157914161682,
+            "max": 1.626558780670166,
+            "mean": -4.738107128865465e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -3001,17 +3127,20 @@
         "density": {
           "url": "snapshots/z15.4023122987/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "8e5b969d948ef4732e6b2a5b3ccb485f3472aa4e94a4e7b0813ee39423ac0ba3",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "ec83eae8ab374b2ecb8d3b1e21424590f61327c1d0060bf690d6ee9aca29baf1",
           "sourceId": "325ad7fe90e28d777e18c9b442d1b5259ff4d0f08a843f828a5a710675332162",
           "statistics": {
-            "min": -0.4496622383594513,
-            "max": 0.978933572769165,
-            "mean": -4.708691769828022e-11,
-            "nonfinite": 0,
-            "negative": 140826,
-            "zero": 0,
-            "count": 262144
+            "min": -0.5219520330429077,
+            "max": 1.687697172164917,
+            "mean": -4.046722679174053e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -3073,17 +3202,20 @@
         "density": {
           "url": "snapshots/z15.0806986327/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "eab758604bd2f64a3c9fa1b0335d6552d1e46ae6f2ab03e95ff7103e549d2b69",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "d559b854311391b0ae8db01e8d464d3894397c9a331f9567748c74d0dafcd4f5",
           "sourceId": "58f49e80d55c52720703ccf7df4507dea1a0a4711dc8ac7e4c4a6612471f2bd5",
           "statistics": {
-            "min": -0.45411211252212524,
-            "max": 1.0056653022766113,
-            "mean": -3.3154312628624893e-11,
-            "nonfinite": 0,
-            "negative": 141031,
-            "zero": 0,
-            "count": 262144
+            "min": -0.5275129675865173,
+            "max": 1.7529006004333496,
+            "mean": -2.5528412717079618e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -3145,17 +3277,20 @@
         "density": {
           "url": "snapshots/z14.7653911112/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "3c6241524d11579189a76b35baa9a3b4b14cf0ae674a258441e3f74f4ef44909",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "9412132e9dbb056d879d3fcdfc59a9e787ead560ee685fc3b14d21faae07fc6f",
           "sourceId": "6a50965cf19814f12fd162f4adc9716285bb074a6eb934828fde4057956610a5",
           "statistics": {
-            "min": -0.4588196277618408,
-            "max": 1.033684253692627,
-            "mean": -6.871492264082235e-11,
-            "nonfinite": 0,
-            "negative": 141221,
-            "zero": 0,
-            "count": 262144
+            "min": -0.5338652729988098,
+            "max": 1.8208707571029663,
+            "mean": -7.27901905417383e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -3217,17 +3352,20 @@
         "density": {
           "url": "snapshots/z14.4562660843/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "c44f15de21eb997da6d6a7f737a74c775d2e101d703b13219f9f8d7c5ececa20",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "78aec2295c8342d5c56298e2ae4af21ace3c353324c127e48ac2bd8c946d0059",
           "sourceId": "d5534be9c0e59ae3d87053571e1c1fe54f78f9c4f70850820df7625ec95a3315",
           "statistics": {
-            "min": -0.46378087997436523,
-            "max": 1.0625077486038208,
-            "mean": -2.991848435662803e-11,
-            "nonfinite": 0,
-            "negative": 141386,
-            "zero": 0,
-            "count": 262144
+            "min": -0.5388352870941162,
+            "max": 1.8926613330841064,
+            "mean": -3.603049802958225e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -3289,17 +3427,20 @@
         "density": {
           "url": "snapshots/z14.1532023268/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "ada0174ea89e68526d79615a2fa3b773653a39f0df9148e7488b9efdfd75a224",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "b5c0432bd9603629be68516f804fc1f8b8febf3c38302d42d0a43b7261cfb6ca",
           "sourceId": "4822b2fb9f2aa76acf2984aa7914daa2bcb64c9e890c4b80e0815e0f5d7dd942",
           "statistics": {
-            "min": -0.4691826105117798,
-            "max": 1.0923774242401123,
-            "mean": -1.0772743808118435e-11,
-            "nonfinite": 0,
-            "negative": 141633,
-            "zero": 0,
-            "count": 262144
+            "min": -0.5448681116104126,
+            "max": 1.9717066287994385,
+            "mean": -1.1223300067086939e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -3361,17 +3502,20 @@
         "density": {
           "url": "snapshots/z13.8560809904/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "cadf16d7f31d457817628f5c7ff0ae40ed666208c3d61a7ecdb2890451ef6a39",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "dfa5ee3041f9e7ebd4c613065c0a7d440d05c5a24af3a3245240e08ae28c871c",
           "sourceId": "d3b76ecf5b0ede74cc408cf8e29665ed897441dd017ca237b11b28d4841064cd",
           "statistics": {
-            "min": -0.4747650623321533,
-            "max": 1.1238752603530884,
-            "mean": 7.253725398115307e-12,
-            "nonfinite": 0,
-            "negative": 141887,
-            "zero": 0,
-            "count": 262144
+            "min": -0.5513753890991211,
+            "max": 2.055429697036743,
+            "mean": 1.8166898541061016e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -3433,17 +3577,20 @@
         "density": {
           "url": "snapshots/z13.5647855570/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "8f5237428d88d87447888eda5a40169dc7479b352b12b4ed5998883e027af6b4",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "ba753e574800ac19c7ea7b19bdaf77c8e80a21f90d989071822b0a982ec3e588",
           "sourceId": "9c2dc59b6e144583a8d057899a763192aaf63c4e164592c622f09dbeefb46562",
           "statistics": {
-            "min": -0.480319619178772,
-            "max": 1.158971905708313,
-            "mean": -1.2144313332740353e-11,
-            "nonfinite": 0,
-            "negative": 142091,
-            "zero": 0,
-            "count": 262144
+            "min": -0.5579303503036499,
+            "max": 2.142822265625,
+            "mean": -1.581865194388854e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -3505,17 +3652,20 @@
         "density": {
           "url": "snapshots/z13.2792017935/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "91056b27ceb9b84489f3041080ef4e16e46639c30a9b0732ea107a13106271f5",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "8525312420e936444424d9ba91f6b6d7295ac09fba513f49e540926c88cf1f8a",
           "sourceId": "ca626465a45b933a4ba4259eaf8a6f1e1bbaddbe8e25fe39bf7a1e99cb8704cf",
           "statistics": {
-            "min": -0.4858185648918152,
-            "max": 1.1954816579818726,
-            "mean": -9.288181335165291e-12,
-            "nonfinite": 0,
-            "negative": 142271,
-            "zero": 0,
-            "count": 262144
+            "min": -0.5642824172973633,
+            "max": 2.2347192764282227,
+            "mean": -9.599931960480035e-12,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -3577,17 +3727,20 @@
         "density": {
           "url": "snapshots/z12.9992177064/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "754c99f344b8268bfe3f812785d8437cc49e704830153a3826b7b25fb437275b",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "68d26e53a5866ba8fe2393c46a31f7d28d0eba98f5d57a60e2a0f2f3c5a5a676",
           "sourceId": "23c40def607015f6481a63ce0c13ccceecb04057a11e6ca4fd9122eb35a23c6e",
           "statistics": {
-            "min": -0.4913223087787628,
-            "max": 1.2348277568817139,
-            "mean": 1.7698564835910702e-11,
-            "nonfinite": 0,
-            "negative": 142514,
-            "zero": 0,
-            "count": 262144
+            "min": -0.5692306160926819,
+            "max": 2.3260886669158936,
+            "mean": 1.7229856430489576e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -3649,17 +3802,20 @@
         "density": {
           "url": "snapshots/z12.7247234982/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "f56c7b232ebecea41a5f419270f0597ee0d3dbf1e5c98e9c5dbb526f1284b908",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "bed32d66e31d29e9e137971e820d8ec8d5e5b00b003bd9bbdcfbe53dec0b908f",
           "sourceId": "f6176405d209862afa897ee3065ab8b9a7615d18cc094fdfd51ba14db925f416",
           "statistics": {
-            "min": -0.49692654609680176,
-            "max": 1.2770999670028687,
-            "mean": -5.325156982038948e-11,
-            "nonfinite": 0,
-            "negative": 142756,
-            "zero": 0,
-            "count": 262144
+            "min": -0.5737072229385376,
+            "max": 2.4197676181793213,
+            "mean": -5.372208233822562e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -3721,17 +3877,20 @@
         "density": {
           "url": "snapshots/z12.4556115244/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "8b03d73d1dc441cf7990748546bc8b3ae0f70b246fcc3f0593aa228e33fb25ac",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "9d81a493b250403dfe9ee4274e96b3625da337daa5cb02194cff68dc0d807aeb",
           "sourceId": "7880b0578daa0a28dcb8fff639743e9460798f12a5df378a6e0936e27b6f9868",
           "statistics": {
-            "min": -0.5024591684341431,
-            "max": 1.32140052318573,
-            "mean": -7.02140567909737e-11,
-            "nonfinite": 0,
-            "negative": 143001,
-            "zero": 0,
-            "count": 262144
+            "min": -0.5835798978805542,
+            "max": 2.5097107887268066,
+            "mean": -6.351023179584914e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -3793,17 +3952,20 @@
         "density": {
           "url": "snapshots/z12.1917762510/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "8df9141a7805f0d485b4ec73038a5b35b2101e221a833f73473fe464e7b317d4",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "e881bbd2f34dbaf3837a9ca66447472ee35fad399dad3b8522d09f5f179b1ab5",
           "sourceId": "c47497cdc3efac89b36ca2aa8c3e85e1df3d9d153c1bf9148e5a453092204106",
           "statistics": {
-            "min": -0.507999837398529,
-            "max": 1.3678314685821533,
-            "mean": -3.1629976415814554e-11,
-            "nonfinite": 0,
-            "negative": 143241,
-            "zero": 0,
-            "count": 262144
+            "min": -0.5933098793029785,
+            "max": 2.5997731685638428,
+            "mean": -2.3270080307113972e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -3865,17 +4027,20 @@
         "density": {
           "url": "snapshots/z11.9331142134/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "1ecca14a0a7662b9dc58fcfc9720d98fecf7c4a1f2ed86b6d54be4004f0f6935",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "97ab5fbaaeaf9a42b2b66d18700b61dde74c0f4c57fde0ce8b714255594facbf",
           "sourceId": "5cc2d12a2ccaf7783236e520dff02b506e0e0b150319b7f6c361cd0f0887fa06",
           "statistics": {
-            "min": -0.5136685967445374,
-            "max": 1.4173005819320679,
-            "mean": -4.0375869314601687e-11,
-            "nonfinite": 0,
-            "negative": 143485,
-            "zero": 0,
-            "count": 262144
+            "min": -0.6028092503547668,
+            "max": 2.6964144706726074,
+            "mean": -3.133182602255147e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -3937,17 +4102,20 @@
         "density": {
           "url": "snapshots/z11.6795239757/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "9d3c7205ecac106b8bb6c47ba50b9097a0684e8888b5329f46dd30054f6d0063",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "afc7f9b95786e69d9ebd20ce235ac926236f37a44bf4a4b2a57e472310fdddd1",
           "sourceId": "6b1e78218598c5550821f9814d5cc4755b40dabf7b0682e27f708492872fe045",
           "statistics": {
-            "min": -0.5189780592918396,
-            "max": 1.4691098928451538,
-            "mean": -4.037126188904949e-11,
-            "nonfinite": 0,
-            "negative": 143747,
-            "zero": 0,
-            "count": 262144
+            "min": -0.6107966303825378,
+            "max": 2.8012444972991943,
+            "mean": -3.814218385578272e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -4009,17 +4177,20 @@
         "density": {
           "url": "snapshots/z11.4309060910/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "9e8a1286254cc95e797429c4c22ed3d852041eb79421c0d23877d87c8808a509",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "b036146ff7ca5ba877e799d30564797e6893b8f47158f6016e8b671fad5866eb",
           "sourceId": "a154865c1a243ba91195e795ac41b20c6f631e97ebfcd53ea3e162af5f8b49c3",
           "statistics": {
-            "min": -0.5241210460662842,
-            "max": 1.5228254795074463,
-            "mean": 2.3601537391115812e-11,
-            "nonfinite": 0,
-            "negative": 144014,
-            "zero": 0,
-            "count": 262144
+            "min": -0.6171320080757141,
+            "max": 2.910504102706909,
+            "mean": 3.630658274023091e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -4081,17 +4252,20 @@
         "density": {
           "url": "snapshots/z11.1871630622/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "763409ce33cd070bf2e3fe2fd33752236c11ee39da33cc03bb7935828fd23030",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "c83c9cbb5e439211c69315788a197ab799acf3478be5db2fab03727e24ace83b",
           "sourceId": "553e4c6da2af07715543f634371b83c0f20b9bd573929581f41e4e6e920de02d",
           "statistics": {
-            "min": -0.5289636254310608,
-            "max": 1.577724814414978,
-            "mean": 1.3465756287800446e-11,
-            "nonfinite": 0,
-            "negative": 144261,
-            "zero": 0,
-            "count": 262144
+            "min": -0.6230897903442383,
+            "max": 3.021449565887451,
+            "mean": 9.416967206021809e-12,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -4153,17 +4327,20 @@
         "density": {
           "url": "snapshots/z10.9481993040/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "c2a99148806f5783c9aa08c33e4c514c64b60060e4d5d6aaf6e6f2cd3828b311",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "c21183fb870f4a57ce305e83608fe73b18dcfd732d5e055165f98179e034b31d",
           "sourceId": "b331b2b6c4b86ca3ac5f68b1af30b552f36b6f284ba4fdd3c3b28979f7d10f22",
           "statistics": {
-            "min": -0.5337499380111694,
-            "max": 1.6350921392440796,
-            "mean": 3.8080094633130557e-11,
-            "nonfinite": 0,
-            "negative": 144547,
-            "zero": 0,
-            "count": 262144
+            "min": -0.6286664605140686,
+            "max": 3.130497932434082,
+            "mean": 3.4300257079067364e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -4225,17 +4402,20 @@
         "density": {
           "url": "snapshots/z10.7139211053/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "fa5e2f03d8926e3df564d3fd9e65ef1835e3acd5f2d5b95c6348391e33aa7d6a",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "e72be39cb156f1bba073f1d99dad0e3432f1273a21db87fe9e7d9c3a330e99c4",
           "sourceId": "83f983d0a5e7a805a6c81c567fbee31adf381914b83f3e319ba525cbff1bad43",
           "statistics": {
-            "min": -0.5383492112159729,
-            "max": 1.6941865682601929,
-            "mean": 5.392375435064878e-11,
-            "nonfinite": 0,
-            "negative": 144840,
-            "zero": 0,
-            "count": 262144
+            "min": -0.634396493434906,
+            "max": 3.2393558025360107,
+            "mean": 7.267961232848563e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -4297,17 +4477,20 @@
         "density": {
           "url": "snapshots/z10.4842365925/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "3202b7326dedf32f97a38c7e24b74c4ae4e3d24e01f966d853f3e9dce07072a7",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "0a6a1fd35c56a9449e58e5a415118a66575ab1c17462e91c25bd79af17c7ebca",
           "sourceId": "866963ae0587223d27e8f62a39a01eced33c5113dc458fa083711c2f61c971cc",
           "statistics": {
-            "min": -0.5430080890655518,
-            "max": 1.7544912099838257,
-            "mean": -1.1275880229533186e-10,
-            "nonfinite": 0,
-            "negative": 145120,
-            "zero": 0,
-            "count": 262144
+            "min": -0.6402835845947266,
+            "max": 3.3501222133636475,
+            "mean": -1.266907412311724e-10,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -4369,17 +4552,20 @@
         "density": {
           "url": "snapshots/z10.2590556934/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "e34825927dc933732f50535438c9311c12a3b6af1e3e43914800766e61d9dc29",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "721d52ef206879c792e9f2ee67bdaff495897274022fe4a2da639b9ab09fb274",
           "sourceId": "cac1c15d12f01521f5d0c3ada661b26c6136e182d55acee8457db4e8d63bad02",
           "statistics": {
-            "min": -0.5476030707359314,
-            "max": 1.8178683519363403,
-            "mean": -1.0433548469634957e-10,
-            "nonfinite": 0,
-            "negative": 145347,
-            "zero": 0,
-            "count": 262144
+            "min": -0.6440022587776184,
+            "max": 3.464121103286743,
+            "mean": -9.544909307379612e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -4441,17 +4627,20 @@
         "density": {
           "url": "snapshots/z10.0382901019/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "bd6d46dc12c5d751d1077d36732fee42c5d657e797c0e0a3183b2a19b2507662",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "35c0c0032c8e1de35ca2286837939c2ef473ae258b7d82ea9dcfad2ad9ed998b",
           "sourceId": "bfa64305fcf40fafe7230615dab65607e2f65c79aa3bb674d37b0f87ca2e4458",
           "statistics": {
-            "min": -0.5519729852676392,
-            "max": 1.8840901851654053,
-            "mean": -3.770239676015308e-11,
-            "nonfinite": 0,
-            "negative": 145621,
-            "zero": 0,
-            "count": 262144
+            "min": -0.6488527059555054,
+            "max": 3.587379217147827,
+            "mean": -3.772378243116492e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -4513,17 +4702,20 @@
         "density": {
           "url": "snapshots/z9.8218532434/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "34d4f0493b71771f7f126de668a311aaa86cae47cf691dd651867fcd6f10f985",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "db3f3b34ceb4408b8ca020994a73ad6e38a66418a9d2ac1a5bcab0a099de586f",
           "sourceId": "9cc6d1a06f3c3e93d1fe84edf210332358b1dd37d4a96338dc33d3b1521017ce",
           "statistics": {
-            "min": -0.5562129616737366,
-            "max": 1.9526257514953613,
-            "mean": -1.6387116663629797e-10,
-            "nonfinite": 0,
-            "negative": 145911,
-            "zero": 0,
-            "count": 262144
+            "min": -0.6532105207443237,
+            "max": 3.715996026992798,
+            "mean": -1.694908935423456e-10,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -4585,17 +4777,20 @@
         "density": {
           "url": "snapshots/z9.6096602410/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "7adc421feb51bb6138f3c001522b6506f1767cdf5d81c6810051923371401a32",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "eaada1bcf4d37185ba2884303cf69a8b0c057b43d997c4016160aa97f8e33481",
           "sourceId": "2a4506a2b1ff0c454f5e10abf1b08bf80cb6766c159cef3fa2541c63454c2d02",
           "statistics": {
-            "min": -0.5604833364486694,
-            "max": 2.020890235900879,
-            "mean": -7.466693929814028e-12,
-            "nonfinite": 0,
-            "negative": 146135,
-            "zero": 0,
-            "count": 262144
+            "min": -0.6556975245475769,
+            "max": 3.848074436187744,
+            "mean": -3.067271436840713e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -4657,17 +4852,20 @@
         "density": {
           "url": "snapshots/z9.4016278817/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "51c0c8665a8b65e3c268924e535475e42c765a8e645988c946d8b957f9203b93",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "cdf9e748e295b37ab4d73eeade9710efd6cd8512db5a947900b4292060e548b6",
           "sourceId": "da6ab38c4b2308eed224ef4717cff4ae8952b677e715973f1cd1497c8e33b2a3",
           "statistics": {
-            "min": -0.564767599105835,
-            "max": 2.091521739959717,
-            "mean": -7.5972450552797e-11,
-            "nonfinite": 0,
-            "negative": 146401,
-            "zero": 0,
-            "count": 262144
+            "min": -0.6567307710647583,
+            "max": 3.9790632724761963,
+            "mean": -8.962280917401699e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -4729,17 +4927,20 @@
         "density": {
           "url": "snapshots/z9.1976745846/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "0cb00da5b3adbda2fdf2d13e2d118f3f37f59bfd263a83f18b2960939ed2ef6f",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "8058e3b5ddfea99dec5ddd4383b48179a3df83f042592771ed98cdaa21a95198",
           "sourceId": "6ae153b07e5ecc3cf9cfd7e151229efa4ffc8386ba83db24dcaedb34aa502984",
           "statistics": {
-            "min": -0.5693302154541016,
-            "max": 2.16436767578125,
-            "mean": -4.77885508942677e-11,
-            "nonfinite": 0,
-            "negative": 146666,
-            "zero": 0,
-            "count": 262144
+            "min": -0.6573600172996521,
+            "max": 4.104855537414551,
+            "mean": -2.773184459847755e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -4801,17 +5002,20 @@
         "density": {
           "url": "snapshots/z8.9977203679/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "7460bcf88ba2c5b096b8a08c046760645a867507fa1224a2ebc8f82f1eeedc7e",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "653397ffafa9bba78ee5d4e8c3a5ae2a1c7eaf88e122627f70042eeedbc9d627",
           "sourceId": "0d166bea9c06a4c28bd1ae93d0eb3a6d0055a8251b2d079bfb047bc44face580",
           "statistics": {
-            "min": -0.5737576484680176,
-            "max": 2.2406005859375,
-            "mean": -1.2519607572869518e-10,
-            "nonfinite": 0,
-            "negative": 146969,
-            "zero": 0,
-            "count": 262144
+            "min": -0.66170334815979,
+            "max": 4.2305097579956055,
+            "mean": -1.2396900173072822e-10,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -4873,17 +5077,20 @@
         "density": {
           "url": "snapshots/z8.8016868185/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "272f0db951a505e06086d62235e9d507271acfb0424331c6af8442ac74415a86",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "046c58c376766f9604790ba154d8aea7ed5c30be3f551be6692df6ac344184c0",
           "sourceId": "c2cd2ecef04a3b0f378956b85afad5afc73c51985219289109106d4624e2fe7e",
           "statistics": {
-            "min": -0.5783191919326782,
-            "max": 2.3179705142974854,
-            "mean": -1.8024470804789416e-12,
-            "nonfinite": 0,
-            "negative": 147318,
-            "zero": 0,
-            "count": 262144
+            "min": -0.6672288775444031,
+            "max": 4.3510942459106445,
+            "mean": 1.5761170146788572e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -4945,17 +5152,20 @@
         "density": {
           "url": "snapshots/z8.6094970605/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "23c60535ba5db6fde8f082a76f8f2d77f6fa5a908ce1c3e0e7126f8c71689004",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "978b1cc6343afbf4820cbaab8a44c06008a17555994b70f1eff538235dbc5060",
           "sourceId": "f90a3afd75c4dfd247dce83f33ae15ce336be1367fa9ea9abad9b008c2368d03",
           "statistics": {
-            "min": -0.583094596862793,
-            "max": 2.397428512573242,
-            "mean": -8.572975662701765e-12,
-            "nonfinite": 0,
-            "negative": 147598,
-            "zero": 0,
-            "count": 262144
+            "min": -0.672656238079071,
+            "max": 4.4663310050964355,
+            "mean": -2.7336799490740304e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -5017,17 +5227,20 @@
         "density": {
           "url": "snapshots/z8.4210757257/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "798425723b6cc867245f4af7ec7b0da19ef64e0d9c4d8cb151898a7b46e2f299",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "651a9e08714f81b8f565b63c96abd954ffb3234249d7990a0b98f5ba2258076b",
           "sourceId": "9c5bb9c85bfac61c2a5844dced0e20d138945f60329db62f686e708d21452b1c",
           "statistics": {
-            "min": -0.587899386882782,
-            "max": 2.478475332260132,
-            "mean": -1.3558648648270832e-10,
-            "nonfinite": 0,
-            "negative": 147949,
-            "zero": 0,
-            "count": 262144
+            "min": -0.6774224042892456,
+            "max": 4.576933860778809,
+            "mean": -1.4921902602438308e-10,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -5089,17 +5302,20 @@
         "density": {
           "url": "snapshots/z8.2363489234/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "e4751b8679fb0e77386c2fc09514962d792100e905f8b4d561ad30b792ecba5d",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "7d7aa30b32e00e37e01fb395a745e759f5cee63d13efa1a93ef94c6aaeaf3870",
           "sourceId": "3fbe3a349787e36293f97a3a39731380fcb8d3ceb0a437b7948cf03b779bcd6c",
           "statistics": {
-            "min": -0.5927849411964417,
-            "max": 2.563606023788452,
-            "mean": -3.984162999515206e-11,
-            "nonfinite": 0,
-            "negative": 148268,
-            "zero": 0,
-            "count": 262144
+            "min": -0.6821498274803162,
+            "max": 4.682979583740234,
+            "mean": -4.8999554413953206e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -5161,17 +5377,20 @@
         "density": {
           "url": "snapshots/z8.0552442119/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "57ceb0549178781c5380e38eb3062c41de034e0b3b324f1e9fd74bc5470a79ff",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "d244e4a97cadce3020898d40ae2e76de5eea8e9339a391e0ebf871e6d6d2b50d",
           "sourceId": "3161a6a4849bb946ff42dca5f4cc6affa6fd1d7828fe04fbdd0befa79330bbc6",
           "statistics": {
-            "min": -0.5977020263671875,
-            "max": 2.6535141468048096,
-            "mean": -8.596556799744803e-11,
-            "nonfinite": 0,
-            "negative": 148594,
-            "zero": 0,
-            "count": 262144
+            "min": -0.6868528127670288,
+            "max": 4.918084621429443,
+            "mean": -7.00853125534806e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -5233,17 +5452,20 @@
         "density": {
           "url": "snapshots/z7.9655884133/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "b6d4ee846748ba522ed8e71720053d17d525ac099e595eefb8ff77db948297ad",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "4be197897f355ad231ceadb656765e04dfe6e462e7eaa40f4c01040405d38c53",
           "sourceId": "a657197944c6648cf2d4929964b09a5e65e57f68cec6106f0ad0e57782025b19",
           "statistics": {
-            "min": -0.6000768542289734,
-            "max": 2.699887275695801,
-            "mean": 4.6735670888864433e-11,
-            "nonfinite": 0,
-            "negative": 148772,
-            "zero": 0,
-            "count": 262144
+            "min": -0.6892005205154419,
+            "max": 5.051388263702393,
+            "mean": 5.303091299424523e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -5305,17 +5527,20 @@
         "density": {
           "url": "snapshots/z7.8776905698/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "adb4bbd27c137c5dfaf34b71311b49be7ccbd483f55dbaed36159250063106bd",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "fec4ab7db22e260dc9112a51b7fa457beba9ca57b2582483708c443c38145e3e",
           "sourceId": "443a49eca3f5f667f9dae0be6ecd7304ca263a5687d2f64fb35e0f16988da87b",
           "statistics": {
-            "min": -0.602226972579956,
-            "max": 2.7472643852233887,
-            "mean": 3.457911734727759e-11,
-            "nonfinite": 0,
-            "negative": 148957,
-            "zero": 0,
-            "count": 262144
+            "min": -0.6915074586868286,
+            "max": 5.184098243713379,
+            "mean": 2.8166829979525687e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -5377,17 +5602,20 @@
         "density": {
           "url": "snapshots/z7.7036183685/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "5cefbd1d9864032b581507504eb0bb20953a38ceb952e8300729ec3fe781676e",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "e69fdaf4ee1c8b5caa264e4892e3956877bd9f4b5a092fc657ee21d206071963",
           "sourceId": "1c3ed5ef22d0b6a4c522133e90b1e62b414e410551648d0861ea2578b3887469",
           "statistics": {
-            "min": -0.606536865234375,
-            "max": 2.845254421234131,
-            "mean": 3.444228235949254e-11,
-            "nonfinite": 0,
-            "negative": 149298,
-            "zero": 0,
-            "count": 262144
+            "min": -0.6961560845375061,
+            "max": 5.457164764404297,
+            "mean": 6.019237885901418e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -5449,17 +5677,20 @@
         "density": {
           "url": "snapshots/z7.5329593443/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "fdd89add75656bb3a9a1ad16ac55113f74e8ba2243187a3de3b079be313a23f9",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "41450960188ff392126f4a7f12fcbac4af80b9ff95e90aeebd544b4264c69874",
           "sourceId": "03e42d1a6ef636db0df489bb188af74c0fd794a57e630931f832c0ef2b0e9a84",
           "statistics": {
-            "min": -0.6111348271369934,
-            "max": 2.9453372955322266,
-            "mean": -8.80971406935771e-11,
-            "nonfinite": 0,
-            "negative": 149638,
-            "zero": 0,
-            "count": 262144
+            "min": -0.7007756233215332,
+            "max": 5.737245559692383,
+            "mean": -1.0388923055160149e-10,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -5521,17 +5752,20 @@
         "density": {
           "url": "snapshots/z7.3656465725/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "3ab1f5705c715796384486b07671f610dc1caa19792c6f6d81cb567bd6d1e84f",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "280f339963dff9645cd6457c080a9d929a9ba53770f26f53e28bd4701fa0de2c",
           "sourceId": "024b6bc9a147c7afe066891eed264285f6f9ab0ec12928c706cf316c16f2f941",
           "statistics": {
-            "min": -0.6174477934837341,
-            "max": 3.0490126609802246,
-            "mean": 5.356828869373942e-11,
-            "nonfinite": 0,
-            "negative": 149988,
-            "zero": 0,
-            "count": 262144
+            "min": -0.7051867246627808,
+            "max": 6.017786026000977,
+            "mean": 6.468128810332985e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -5593,17 +5827,20 @@
         "density": {
           "url": "snapshots/z7.2016144401/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "8a2ce07af548b0c56b1260db2817fa646c4bc87d6c5d0ed5e6d21ed1159c1ce1",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "9481efd6199a18311d46a40c821cb17cb40c25717848c0872cc2db5355a572f9",
           "sourceId": "ff39f953241c7783503327a46be4341f99010d22fd71730ecf0f8d53f9ad65b2",
           "statistics": {
-            "min": -0.6237766742706299,
-            "max": 3.1572699546813965,
-            "mean": -3.7662539753569035e-11,
-            "nonfinite": 0,
-            "negative": 150291,
-            "zero": 0,
-            "count": 262144
+            "min": -0.709404706954956,
+            "max": 6.294486045837402,
+            "mean": -4.046418755621062e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -5665,17 +5902,20 @@
         "density": {
           "url": "snapshots/z7.0407986210/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "e019e24d22ee6063d4400e49cce78bc8a1010c712a4bd30af374f5ba412bca58",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "29468d1557c5d31453023d19ebae5a0d34b8b51480a3e015f6789afc8174c9c8",
           "sourceId": "9e5a5153c16dbbf6b161c37f7ff960d67b11a4a0c362b7ee6c63cb1765d802a5",
           "statistics": {
-            "min": -0.6315359473228455,
-            "max": 3.2717931270599365,
-            "mean": -1.5747636528118392e-10,
-            "nonfinite": 0,
-            "negative": 150703,
-            "zero": 0,
-            "count": 262144
+            "min": -0.713830828666687,
+            "max": 6.56751823425293,
+            "mean": -1.3814477339835207e-10,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -5737,17 +5977,20 @@
         "density": {
           "url": "snapshots/z6.8831360504/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "de1db09b596b5550d96c017248861fd842f555c9c28a461f9619c5291de73374",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "17ae6a3395643c7390f518bd767e7e182792c91b6269f9c2ab8e6fdd914da06f",
           "sourceId": "c89f30704b74cff281764b517634d0abc07837cc18ec4635ae28c1b3cf4b91cc",
           "statistics": {
-            "min": -0.6402124166488647,
-            "max": 3.3934593200683594,
-            "mean": 1.204755739614427e-10,
-            "nonfinite": 0,
-            "negative": 151047,
-            "zero": 0,
-            "count": 262144
+            "min": -0.7183511257171631,
+            "max": 6.82991886138916,
+            "mean": 1.3916798269342223e-10,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -5809,17 +6052,20 @@
         "density": {
           "url": "snapshots/z6.7285648998/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "ebd4dd1a04e29cc876df7bb65ef209fe101975a5f28a30094c3e96a6b422920f",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "1475873cfaf7b586762218f73ef7bc29740a6ed30dd7da6fc60b9a33130a8ced",
           "sourceId": "927538480237a8aae217162dbc580e388672442b9ff03edfc8aba06712fe358f",
           "statistics": {
-            "min": -0.6497991681098938,
-            "max": 3.5157625675201416,
-            "mean": -3.303707307722448e-11,
-            "nonfinite": 0,
-            "negative": 151432,
-            "zero": 0,
-            "count": 262144
+            "min": -0.7228227257728577,
+            "max": 7.090372562408447,
+            "mean": -5.1228465913766286e-12,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -5881,17 +6127,20 @@
         "density": {
           "url": "snapshots/z6.5770245533/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "b35cda0b36c1e1a7b3d9ebe43fbeab60d75cb2a2b89bb163ac2f1332cf9a4c20",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "6f611bb0caff0275e93f52281a08a32744d668e9d3d61758568701e5088da5a2",
           "sourceId": "b879b4fb1bca6cea84be8d64d0c7d86681f2706e269d5793db40d87f6d2e0dba",
           "statistics": {
-            "min": -0.6597896814346313,
-            "max": 3.640226364135742,
-            "mean": 1.7779333560952182e-11,
-            "nonfinite": 0,
-            "negative": 151815,
-            "zero": 0,
-            "count": 262144
+            "min": -0.7271836400032043,
+            "max": 7.4637556076049805,
+            "mean": 9.859751903817937e-12,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -5953,17 +6202,20 @@
         "density": {
           "url": "snapshots/z6.4284555833/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "7224e6f7d65e294814f44447cdf546cfa5eb609a1443b3aaeeab18b93acabd96",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "4b08581f30fba6923afbd1fe95452ae83239eb059f31361cf618e8d0912fe0a4",
           "sourceId": "7cf7d3882b6342df704a6ebb667600a9061aa7c6fc885540ecf6139b82195605",
           "statistics": {
-            "min": -0.6696965098381042,
-            "max": 3.77241587638855,
-            "mean": -2.0995538640988798e-11,
-            "nonfinite": 0,
-            "negative": 152254,
-            "zero": 0,
-            "count": 262144
+            "min": -0.7309900522232056,
+            "max": 7.9564056396484375,
+            "mean": 1.9875323609142015e-11,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -6025,17 +6277,20 @@
         "density": {
           "url": "snapshots/z6.2827997276/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "e2b53aae492ade49d135800fabf46c76a9edcdf804024fd2e96df2010baaebba",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "a8d13a3b6205f66075d8e07e39f6b8d3512667399264708070403d529dd56c9f",
           "sourceId": "e4c8a4010e8fd22a9c2954f2e348a915752aa8633d6d27ea37e9704cc343b769",
           "statistics": {
-            "min": -0.6782825589179993,
-            "max": 3.926090717315674,
-            "mean": 2.1840140806972386e-11,
-            "nonfinite": 0,
-            "negative": 152662,
-            "zero": 0,
-            "count": 262144
+            "min": -0.7353694438934326,
+            "max": 8.482583999633789,
+            "mean": -5.903999511502889e-12,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -6097,17 +6352,20 @@
         "density": {
           "url": "snapshots/z6.1399998665/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "9d9b1201cdf259dd92ae38b4b4e381c39bb7499e3e5ba4870ae439e07bab67ed",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "4b3272d1af16de2697919d8f6f665c515c02f465b437e6e4af36aa048e4c284c",
           "sourceId": "28e29125e81cd8f06b8f57cf272ada4dce4e773e14d4e76d07147aaa5ee0f654",
           "statistics": {
-            "min": -0.6859145760536194,
-            "max": 4.090336322784424,
-            "mean": 8.737288670346288e-12,
-            "nonfinite": 0,
-            "negative": 153112,
-            "zero": 0,
-            "count": 262144
+            "min": -0.739266037940979,
+            "max": 9.044857025146484,
+            "mean": 2.462641202072291e-12,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -6169,17 +6427,20 @@
         "density": {
           "url": "snapshots/z6.0000000000/density.f32.bin",
           "dtype": "float32-le",
-          "byteLength": 1048576,
-          "sha256": "5ffebe133d37f36845f64eb6734bd597c64fccb6101d210a103660a15af8b468",
+          "byteLength": 8388608,
+          "grid": [
+            128,
+            128,
+            128
+          ],
+          "sha256": "84735643d9db699672207cad4a911765c08ec16b084c628e86b44f6ee5c0bc73",
           "sourceId": "aaf9adb2964377ad05ce82e0dc935dde7a03650d352f6621bc585d08d4f7c33e",
           "statistics": {
-            "min": -0.6928053498268127,
-            "max": 4.2639665603637695,
-            "mean": -2.2017287992781576e-10,
-            "nonfinite": 0,
-            "negative": 153562,
-            "zero": 0,
-            "count": 262144
+            "min": -0.7429835200309753,
+            "max": 9.63590145111084,
+            "mean": -2.049864167297244e-10,
+            "count": 2097152,
+            "nonfinite": 0
           }
         }
       },
@@ -6251,5 +6512,39 @@
     },
     "recomputeJob": "2224253",
     "exportJob": "2224333"
+  },
+  "field_grid_shapes": {
+    "xH": [
+      64,
+      64,
+      64
+    ],
+    "brightness_temperature": [
+      64,
+      64,
+      64
+    ],
+    "density": [
+      128,
+      128,
+      128
+    ]
+  },
+  "gridOverridePolicy": "fields.<field>.grid overrides the default grid and display_grid_shape",
+  "densityResolution": {
+    "grid": [
+      128,
+      128,
+      128
+    ],
+    "sourceGrid": [
+      256,
+      256,
+      256
+    ],
+    "cellSizeCMpc": 1.953125,
+    "job": "2224967",
+    "sourceIdentity": "d1f692d76dc836c6602e4db92e2429c0194438e86178b712970084ed87689e6f",
+    "method": "2^3 linear-value volume mean; float64 accumulation and float32 output"
   }
 }
