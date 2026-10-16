@@ -19,9 +19,15 @@
   },
   "publishedFields": [
     "xH",
-    "density"
+    "density",
+    "brightness_temperature"
   ],
-  "omittedFields": {
-    "brightness_temperature": "BT source caches contain extreme finite values; physical validation pending. Original arrays retained on HPC."
-  }
+  "brightnessTemperature": {
+    "policy": "Per-snapshot source-temperature and range checks; not physical certification. Flagged frames are withheld, never clipped or substituted.",
+    "available": {
+      "PL": 44,
+      "BT": 68
+    }
+  },
+  "omittedFields": {}
 }
