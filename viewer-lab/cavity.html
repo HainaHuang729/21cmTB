@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light"><title>21cm · 物理场辉光样品</title>
+  <link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="./cavity.css">
+</head>
+<body class="cavity-page">
+  <header class="sample-header">
+    <a class="sample-brand" href="./">21<span>cm</span><i aria-hidden="true"></i></a>
+    <div class="sample-heading"><h1 id="sample-title">再电离的空腔</h1><p id="sample-subtitle">真实中性氢场 · 辉光与剖切</p></div>
+    <nav class="field-switch" aria-label="三维物理量"><button data-field="xH" aria-pressed="true" disabled>中性氢</button><button data-field="density" aria-pressed="false" disabled>密度</button><button data-field="brightness_temperature" aria-pressed="false" disabled>亮温</button></nav>
+    <a class="back-link" href="./">返回实验室</a>
+  </header>
+  <main class="sample-main">
+    <section class="sample-workspace" aria-label="空腔剖切与原体显示对照">
+      <div class="sample-stage">
+        <canvas id="sample-volume" tabindex="0" aria-label="真实中性氢等值界面；拖动或方向键旋转，加减键缩放，Home 重置"></canvas>
+        <div class="sample-toolbar"><span id="surface-label">xH = 0.50 界面</span><div class="sample-switch" role="group" aria-label="样品显示方式"><button data-view="energy" aria-pressed="true">电离辉光</button><button data-view="cavity" aria-pressed="false">界面剖切</button><button data-view="volume" aria-pressed="false">原体显示</button></div></div>
+        <div class="sample-loading" id="sample-loading" role="status">正在校验真实数据…</div>
+        <p class="sample-empty" id="sample-empty" hidden></p>
+        <div class="sample-bottom"><span>拖动旋转 · 滚轮缩放</span><span id="sample-source">PL · 250 cMpc · 64³</span></div>
+        <div class="material-key" id="material-key"><span><i></i><b id="material-interface">界面辉光</b></span><span><i></i><b id="material-cut">暖色剖切边缘</b></span></div>
+      </div>
+      <aside class="sample-inspector">
+        <div class="sample-time"><span>红移 z</span><strong id="sample-z">—</strong><p><span id="sample-mean-title">全盒平均 xH</span><b id="sample-mean">—</b></p></div>
+        <figure class="sample-slice"><figcaption><strong id="sample-slice-title">原值切片 · xH</strong><span id="sample-slice-label">Z = 32</span></figcaption><canvas id="sample-slice" width="256" height="256" aria-label="XY 中性氢比例原值切片"></canvas></figure>
+        <label class="slice-control">切片位置<input id="sample-slice-z" type="range" min="0" max="63" value="32" step="1" aria-label="原值切片 Z 坐标"></label>
+        <div class="sample-scale"><canvas id="sample-scale" width="256" height="5" aria-hidden="true"></canvas><span id="sample-scale-low">0 · 电离</span><span id="sample-scale-high">1 · 中性</span><span id="sample-scale-middle">0.5</span></div>
+        <p class="sample-explainer" id="sample-explainer">暖白界面勾出中性结构，剖开前侧观察内部空腔。赭红切缘标出剖切位置。</p>
+        <p class="sample-convention" id="sample-convention">界面来自 64³ 平均网格的阈值与空间插值。辉光与材质用于辨认结构，不表示真实发射光度或精确的电离边界；原值见切片色标。</p>
+      </aside>
+    </section>
+    <p class="sample-status" id="sample-status" role="status">读取本地真实快照…</p>
+  </main>
+  <footer class="sample-controls" aria-label="样品调参区">
+    <div class="sample-cache"><span id="sample-cache-status" role="status">准备缓存完整红移序列…</span><progress id="sample-cache-progress" max="189" value="0" aria-label="全量缓存进度"></progress><button id="sample-cache-retry" hidden>重试缓存</button></div>
+    <div class="sample-timeline" aria-label="红移播放控制">
+      <div class="timeline-transport"><button id="sample-previous" aria-label="上一帧" disabled>上一帧</button><button id="sample-play" aria-pressed="false" disabled>播放</button><button id="sample-next" aria-label="下一帧" disabled>下一帧</button></div>
+      <label class="redshift-control">红移 z <output id="sample-redshift-value">—</output><input id="sample-redshift" aria-label="红移快照" type="range" min="0" max="1" step="1" value="0" disabled><span class="redshift-limits"><span id="sample-redshift-start">—</span><span id="sample-redshift-end">—</span></span></label>
+      <label class="playback-speed">帧间隔<select id="sample-speed" aria-label="播放间隔"><option value="120" selected>0.12 秒</option><option value="250">0.25 秒</option><option value="600">0.6 秒</option><option value="1200">1.2 秒</option></select></label>
+    </div>
+    <div class="sample-parameters">
+    <div class="sample-stages" role="group" aria-label="真实阶段快照"><span>真实快照</span><div><button data-epoch="0" disabled>早期</button><button data-epoch="1" disabled>中期</button><button data-epoch="2" aria-pressed="true" disabled>晚期</button></div></div>
+    <label><span id="sample-threshold-title">界面阈值 xH</span> <output id="sample-threshold-value">0.50</output><input id="sample-threshold" aria-label="界面阈值 xH" type="range" min="0.1" max="0.9" step="0.01" value="0.5"></label>
+    <label>剖开深度 <output id="sample-section-value">42%</output><input id="sample-section" aria-label="剖开深度" type="range" min="0" max="0.85" step="0.01" value="0.42"></label>
+    <label>柔和阴影 <output id="sample-shadow-value">0.80</output><input id="sample-shadow" aria-label="柔和阴影" type="range" min="0" max="1" step="0.05" value="0.8"></label>
+    <label>光晕强度 <output id="sample-bloom-value">0.80</output><input id="sample-bloom" aria-label="光晕强度" type="range" min="0" max="1.5" step="0.05" value="0.8"></label>
+    <button class="sample-reset" id="sample-reset">重置视图</button>
+    </div>
+  </footer>
+  <script type="module" src="./cavity.js"></script>
+</body>
+</html>

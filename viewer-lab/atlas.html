@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>21cm · 切片库</title><link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="./atlas.css"></head>
+<body class="atlas-page">
+  <header class="masthead"><div class="identity"><span class="wordmark" aria-hidden="true">21<span>cm</span><i class="ribbon"><i></i><i></i><i></i></i></span><div class="identity-copy"><h1>宇宙的切面</h1><p>87 组模拟，展开同一段宇宙历史。</p></div></div><nav class="lab-nav" aria-label="数据浏览"><a href="./"><small>空间</small>三维体数据</a><span class="lab-tag" aria-current="page"><small>演化</small>切片库 <span>13,920</span></span></nav></header>
+  <main>
+    <div class="atlas-toolbar"><div id="field-tabs" role="group" aria-label="切片物理量"><button data-field="brightness" aria-pressed="true">21 cm 亮温</button><button data-field="density" aria-pressed="false">密度</button><button data-field="ionized" aria-pressed="false">电离氢</button><button data-field="spin" aria-pressed="false">自旋温度</button><button data-field="kinetic" aria-pressed="false">气体温度</button></div><label class="atlas-scale-label">色标<select id="atlas-scale" aria-label="色标范围"><option value="frame">本帧共同范围</option><option value="fixed">跨模型固定范围</option></select></label><span id="atlas-frame">32 个真实红移</span></div>
+    <section class="atlas-pair" aria-label="同红移切片对照">
+      <div class="atlas-readout" aria-hidden="true"><span>红移 z</span><strong id="atlas-redshift-display">—</strong><p id="atlas-frame-display">— / 32</p><i></i></div>
+      <figure><figcaption><strong id="primary-title">BPL</strong><span id="primary-meta">256 × 256 · 250 cMpc</span></figcaption><div class="atlas-image"><canvas id="primary" width="512" height="512" tabindex="0" role="img" aria-label="所选模型的数值切片，点击读数，方向键移动探针"></canvas><div id="atlas-overlay" class="atlas-overlay" role="status">正在读取切片库…</div></div><output id="primary-probe">读取后点击切片查看数值</output><p id="primary-range">—</p></figure>
+      <figure id="reference-figure"><figcaption><strong>匹配 PL 参考</strong><span id="reference-meta">相同天体物理参数</span></figcaption><div class="atlas-image"><canvas id="reference" width="512" height="512" tabindex="0" role="img" aria-label="匹配 PL 参考切片，点击读数，方向键移动探针"></canvas></div><output id="reference-probe">—</output><p id="reference-range">—</p></figure>
+    </section>
+    <div class="atlas-legend"><strong id="atlas-field-name">21 cm 亮温 / mK</strong><div><canvas id="atlas-legend" width="512" height="12" aria-hidden="true"></canvas><div class="atlas-ticks"><span id="scale-low">−150</span><span id="scale-mid">0</span><span id="scale-high">30 mK</span></div></div><span id="scale-note">两侧共用固定色标</span></div>
+    <p class="atlas-status" id="atlas-status" role="status">正在读取模型索引…</p>
+    <details class="atlas-details"><summary>数据与读数约定</summary><p>55 组 BPL 和 32 组 PL，每组 32 个红移、每帧 256²、五种场，共 13,920 张数值切片。每帧是不同红移的 lightcone 横截面，不能拼作同一时刻的三维盒子。匹配 PL 使用相同天体物理参数、分辨率与随机种子；这不等于已证实逐像素相位匹配。</p><p>数值从带 SHA-256 的已发布文件解码：亮温精度 0.1 mK，电离率精度 1/32767，密度使用各模型记录的线性步长；Ts/Tk 保存为 log10(K)，步长 0.00025。探针显示量化后的物理值；温度色标为对数，其余为线性。原始值超出色标时端点颜色饱和，并报告单帧范围和饱和比例。</p><p>沿用导出数组的行列顺序，列向右、行向下，从左上角 [0,0] 计数；不推断天球方向。点击时两侧探针联动，读数分别来自各自的真实数据，不作差分。文件按模型载入，每次仅解压所选物理场。</p></details>
+  </main>
+  <footer class="atlas-controls is-collapsed" aria-label="固定切片选择区">
+    <div class="console-heading"><span><i aria-hidden="true"></i>演化控制台</span><p>32 个真实红移，无时间插值。</p><button class="console-toggle" aria-expanded="false" aria-label="展开调参区">展开 <span aria-hidden="true">+</span></button></div>
+    <div class="atlas-selection"><label>数据集合<select id="atlas-collection" aria-label="数据集合"><option value="runs">BPL 参数扫描 · 55 组</option><option value="pl">PL 参考 · 32 组</option></select></label><label class="atlas-model-label">模型参数<select id="atlas-model" aria-label="模型参数" disabled></select></label><label class="atlas-compare"><input id="atlas-compare" type="checkbox" checked>并排显示匹配 PL</label><span>256² · 250 cMpc</span></div>
+    <div class="atlas-timeline"><button id="atlas-prev" class="quiet-button" aria-label="上一个红移">上一帧</button><button id="atlas-play" class="quiet-button" aria-label="播放红移演化" aria-pressed="false">播放</button><div><label for="atlas-redshift">真实红移 <output id="atlas-z">—</output></label><input id="atlas-redshift" type="range" min="0" max="31" step="1" value="20" disabled></div><button id="atlas-next" class="quiet-button" aria-label="下一个红移">下一帧</button></div>
+  </footer>
+  <script type="module" src="./atlas.js"></script>
+  <script type="module" src="./chrome.js"></script>
+</body></html>

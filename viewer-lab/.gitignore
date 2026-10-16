@@ -1,0 +1,5 @@
+/atlas-data
+__pycache__/
+*.pyc
+*.part
+*.tmp
