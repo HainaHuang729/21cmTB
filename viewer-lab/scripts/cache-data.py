@@ -8,10 +8,11 @@ import time
 import urllib.request
 
 ROOT = Path(__file__).resolve().parents[1]
-REVISION = '7daaaca68ac6df4f9ccd95fbb1bbb16ecc042fc0'
-REMOTE = f'https://raw.githubusercontent.com/HainaHuang729/21cmTB/{REVISION}/'
+REVISION = 'cf448836d866a772e3a4a7a05a874994cafd4021'
+UPSTREAM_REVISION = '7daaaca68ac6df4f9ccd95fbb1bbb16ecc042fc0'
+REVISIONS = {'pl': REVISION, 'bt': UPSTREAM_REVISION, 'legacy': UPSTREAM_REVISION}
 DIRECTORIES = {
-    'pl': 'viewer-data64/pl-bt-v1/coeval-pl256-full-v2-display64',
+    'pl': 'viewer-lab/data/pl-thermal-fixed-v3',
     'bt': 'viewer-data64/pl-bt-v1/coeval-bt256-full-v1-display64',
     'legacy': 'viewer/data/coeval-f-star10-m1p3-d2fb547ce0',
 }
@@ -36,10 +37,12 @@ def jobs_for(registry, all_sample):
                 if all_sample:
                     if field not in ('xH', 'density', 'brightness_temperature') or snapshot.get('fieldQuality', {}).get(field, {}).get('status', 'range-check-passed') != 'range-check-passed':
                         continue
-                elif (snapshot['id'] not in ids and prefix + field not in registry) or (field == 'xH' and f'{model}/{snapshot["id"]}' in registry):
+                elif snapshot['id'] not in ids and prefix + field not in registry:
                     continue
-                relative = f'data/{model}/{snapshot["id"]}/{field}.f32.bin'
-                jobs.append((prefix + field, relative, f'{REMOTE}{directory}/{descriptor["url"]}', descriptor['sha256'], descriptor['byteLength']))
+                registered = registry.get(prefix + field) or (registry.get(f'{model}/{snapshot["id"]}') if field == 'xH' else None)
+                relative = Path(registered).as_posix() if registered else f'data/{model}/{snapshot["id"]}/{field}.f32.bin'
+                url = f'https://raw.githubusercontent.com/HainaHuang729/21cmTB/{REVISIONS[model]}/{directory}/{descriptor["url"]}'
+                jobs.append((prefix + field, relative, url, descriptor['sha256'], descriptor['byteLength']))
     return jobs
 
 
@@ -75,7 +78,7 @@ def save_registry(registry):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--all-sample', action='store_true', help='Cache all published PL/BT fields; withheld snapshots are excluded (452 MiB)')
+    parser.add_argument('--all-sample', action='store_true', help='Cache all currently published PL/BT fields; withheld snapshots are excluded')
     args = parser.parse_args()
     registry = json.loads((ROOT / 'data/local-files.json').read_text())
     jobs = jobs_for(registry, args.all_sample)

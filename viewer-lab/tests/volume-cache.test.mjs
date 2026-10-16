@@ -6,7 +6,8 @@ import {BrowserVolumeCache,preloadVolumes,abortable} from '../volume-cache.js';
 
 const manifest=JSON.parse(await readFile(new URL('../data/pl-manifest.json',import.meta.url)));
 const snapshot=manifest.snapshots.find(s=>s.id==='z7.0407986210');
-const raw=await readFile(new URL(`../data/pl/${snapshot.id}/xH.f32.bin`,import.meta.url));
+const local=JSON.parse(await readFile(new URL('../data/local-files.json',import.meta.url)));
+const raw=await readFile(new URL(local[`pl/${snapshot.id}/xH`],new URL('../',import.meta.url)));
 const buffer=()=>raw.buffer.slice(raw.byteOffset,raw.byteOffset+raw.byteLength);
 function disk(){
   const caches=new Map();return {caches,storage:{open:async name=>{
@@ -75,9 +76,10 @@ test('cancelling a preloader prevents more queued work and a disk quota failure 
   assert.equal(await persistent.write(snapshot.fields.xH,buffer()),false);assert.equal(persistent.enabled,false);
 });
 test('withheld source data cannot be requested or reused from persistent storage',async()=>{
-  const withheld=manifest.snapshots.find(s=>s.fieldQuality?.brightness_temperature?.status==='withheld');
+  const bt=JSON.parse(await readFile(new URL('../data/bt-manifest.json',import.meta.url)));
+  const withheld=bt.snapshots.find(s=>s.fieldQuality?.brightness_temperature?.status==='withheld');
   let attempts=0;
-  const store=new VolumeStore({pl:manifest},{},{persistent:{read:()=>{attempts++;throw new Error('must not read');}}});
-  await assert.rejects(store.load('pl',withheld,null,'brightness_temperature'),/暂缓发布/);
+  const store=new VolumeStore({bt},{},{persistent:{read:()=>{attempts++;throw new Error('must not read');}}});
+  await assert.rejects(store.load('bt',withheld,null,'brightness_temperature'),/暂缓发布/);
   assert.equal(attempts,0);assert.equal(store.cache.size,0);
 });

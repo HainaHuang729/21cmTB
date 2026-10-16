@@ -19,6 +19,8 @@ const labels=['sample-threshold','sample-section','sample-shadow','sample-bloom'
 const keys=['threshold','section','shadowStrength','bloom'];
 const preset=()=>({...SAMPLE_FIELDS[fieldKey],model:modelKey,source:`${modelKey.toUpperCase()} · 250 cMpc · 64³`});
 const field=()=>FIELDS[fieldKey];
+const repairedPL=()=>!!manifests?.pl?.thermalEvolutionRepair;
+const currentThreshold=(epoch,snapshot=frames[fieldKey]?.[frameIndex])=>epochThreshold(fieldKey,epoch,modelKey,repairedPL()&&modelKey==='pl'?snapshot:null);
 const number=value=>Number(value.toFixed(Math.abs(value)<1?3:2)).toString();
 for(const [selector,variable]of [['.sample-controls','--sample-dock'],['.sample-header','--sample-header']])new ResizeObserver(entries=>document.body.style.setProperty(variable,`${entries[0].target.getBoundingClientRect().height}px`)).observe(document.querySelector(selector));
 
@@ -43,22 +45,24 @@ function configure(interactive=false){
   $('material-key').hidden=!isSurface;
   const names=energy?fieldKey==='density'?['金色高密结构','青色纤维背景']:fieldKey==='brightness_temperature'?['蓝色吸收','橙红发射']:['界面辉光','暖色剖切边缘']:['阈值界面','剖切边缘'];
   $('material-interface').textContent=names[0];$('material-cut').textContent=names[1];
-  $('sample-explainer').textContent=energy?p.explanation:isSurface?'按当前物理量的阈值展示界面；拖动旋转，剖开前侧查看内部。':`同一份 ${f.symbol} 数据与同一视角，使用原有梯度光照体渲染，色标与原值切片一致。`;
+  const explanation=fieldKey==='brightness_temperature'&&modelKey==='pl'&&repairedPL()?'蓝色表示负亮温吸收，橙红表示正亮温发射，零值透明。PL 已修复温度与电离递推，可播放完整的 85 个真实红移快照。':p.explanation;
+  $('sample-explainer').textContent=energy?explanation:isSurface?'按当前物理量的阈值展示界面；拖动旋转，剖开前侧查看内部。':`同一份 ${f.symbol} 数据与同一视角，使用原有梯度光照体渲染，色标与原值切片一致。`;
   updateEmptyNote();
 }
 function configureField(){
   const p=preset(),f=field(),threshold=$('sample-threshold');
-  threshold.min=p.min;threshold.max=p.max;threshold.step=p.step;
+  threshold.min=p.min;threshold.max=fieldKey==='brightness_temperature'&&modelKey==='pl'&&repairedPL()?Math.max(p.max,Math.ceil(Math.max(...publishedSnapshots(frames[fieldKey],fieldKey).map(s=>Math.max(Math.abs(s.fields[fieldKey].statistics.min),Math.abs(s.fields[fieldKey].statistics.max))))/10)*10):p.max;threshold.step=p.step;
   $('sample-threshold-title').textContent=fieldKey==='brightness_temperature'?'亮温幅度 |δTb|':fieldKey==='density'?'密度阈值 δ':`界面阈值 ${f.symbol}`;
   threshold.setAttribute('aria-label',$('sample-threshold-title').textContent);
-  $('sample-title').textContent=p.title;$('sample-subtitle').textContent=p.subtitle+(frames[fieldKey]&&fieldKey==='brightness_temperature'?` · 已发布 ${publishedSnapshots(frames[fieldKey],fieldKey).length} / ${frames[fieldKey].length} 帧`:'');
+  const sourceNote=repairedPL()?(modelKey==='pl'?' · 递推已修复':' · 原缓存，未重算'):'';
+  $('sample-title').textContent=p.title;$('sample-subtitle').textContent=p.subtitle+sourceNote+(frames[fieldKey]&&fieldKey==='brightness_temperature'?` · 已发布 ${publishedSnapshots(frames[fieldKey],fieldKey).length} / ${frames[fieldKey].length} 帧`:'');
   $('sample-model').value=modelKey;$('sample-source').textContent=p.source;$('sample-mean-title').textContent=`全盒平均 ${f.symbol}${f.unit?' / '+f.unit:''}`;
   $('sample-slice-title').textContent=`原值切片 · ${f.symbol}${f.unit?' / '+f.unit:''}`;
   $('sample-slice').setAttribute('aria-label',`XY ${f.label}原值切片`);
   $('sample-volume').setAttribute('aria-label',`真实${f.label}三维显示；拖动或方向键旋转，加减键缩放，Home 重置`);
   document.querySelector('[data-view="energy"]').textContent=p.effect;
   document.querySelectorAll('[data-epoch]').forEach(button=>button.textContent=p.epochs[Number(button.dataset.epoch)]);
-  $('sample-convention').textContent=fieldKey==='brightness_temperature'?'同一模型的三个场来自同组快照。已发布亮温通过源温度与范围筛查，这不等于物理认证。辉光表达结构与正负号；PL / BT 未核实逐体素相位匹配。':'界面来自 64³ 平均网格的阈值与空间插值。辉光用于辨认结构，不表示真实发射光度或精确物理边界；PL / BT 未核实逐体素相位匹配。';
+  $('sample-convention').textContent=fieldKey==='brightness_temperature'?(modelKey==='bt'&&repairedPL()?'BT 保留原缓存，尚未做这次递推修复。':'同一模型的三个场来自同组快照。')+'亮温通过源温度与范围筛查，这不等于物理认证。辉光表达结构与正负号；PL / BT 未核实逐体素相位匹配。':'界面来自 64³ 平均网格的阈值与空间插值。辉光用于辨认结构，不表示真实发射光度或精确物理边界；PL / BT 未核实逐体素相位匹配。';
   drawQualityBand();
   const scale=$('sample-scale').getContext('2d');
   for(let x=0;x<256;x++){const v=f.range[0]+x/255*(f.range[1]-f.range[0]);scale.fillStyle=`rgb(${fieldColor(v,fieldKey).join(',')})`;scale.fillRect(x,0,1,5);}
@@ -83,7 +87,7 @@ labels.forEach((id,i)=>{
   $(id).addEventListener('change',()=>configure());
 });
 document.querySelectorAll('[data-view]').forEach(button=>button.addEventListener('click',()=>{settings.sampleMode=button.dataset.view;configure();}));
-$('sample-reset').addEventListener('click',()=>{Object.assign(settings,sampleDefaults(fieldKey));settings.threshold=epochThreshold(fieldKey,presetIndices[fieldKey]?.indexOf(frameIndex),modelKey);renderer?.reset();configure();});
+$('sample-reset').addEventListener('click',()=>{Object.assign(settings,sampleDefaults(fieldKey));settings.threshold=currentThreshold(presetIndices[fieldKey]?.indexOf(frameIndex));renderer?.reset();configure();});
 
 function drawSlice(){
   const z=Number($('sample-slice-z').value),ctx=$('sample-slice').getContext('2d');
@@ -98,7 +102,7 @@ $('sample-slice-z').addEventListener('input',drawSlice);
 function updateCacheStatus(){
   if(!store||disposed||!frames[fieldKey])return;
   const sequence=publishedSnapshots(frames[fieldKey],fieldKey),ready=store.resident(modelKey,sequence,fieldKey),total=sequence.length;
-  $('sample-cache-status').textContent=`${cachedKeys.size===allTasks.length?`全部 ${allTasks.length} 帧已缓存`:`缓存 ${cachedKeys.size} / ${allTasks.length}`} · ${modelKey.toUpperCase()} ${preset().tab}预载 ${ready} / ${total}${cacheError||fieldCacheError?' · 部分失败':''}`;
+  $('sample-cache-status').textContent=`${cachedKeys.size===allTasks.length?`全部 ${allTasks.length} 个数据体已缓存`:`缓存 ${cachedKeys.size} / ${allTasks.length}`} · ${modelKey.toUpperCase()} ${preset().tab}预载 ${ready} / ${total}${cacheError||fieldCacheError?' · 部分失败':''}`;
   $('sample-cache-progress').max=allTasks.length;$('sample-cache-progress').value=cachedKeys.size;
   $('sample-cache-retry').hidden=!(cacheError||fieldCacheError);
   document.querySelector('.sample-cache').classList.toggle('has-error',!!(cacheError||fieldCacheError));
@@ -224,7 +228,7 @@ async function load(index,thresholdEpoch=null){
   clearTimeout(seekTimer);seekTimer=null;
   frameIndex=Math.max(0,Math.min(frames[fieldKey].length-1,index));
   const key=fieldKey,p=preset(),model=p.model,snapshot=frames[key][frameIndex],targetIndex=frameIndex;
-  if(thresholdEpoch!==null){settings.threshold=epochThreshold(key,thresholdEpoch,model);configure();}
+  if(thresholdEpoch!==null){settings.threshold=currentThreshold(thresholdEpoch,snapshot);configure();}
   const id=++loadID;controller?.abort();controller=new AbortController();loadError='';
   if(volume&&displayedModel===model&&displayedField===key&&displayedIndex===frameIndex){
     loading=false;$('sample-loading').hidden=!gpuError;verifiedStatus();syncTimeline();return true;

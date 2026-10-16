@@ -1,11 +1,12 @@
 import { evaluateTransfer } from './transfer.js';
 import { abortable, volumeKey } from './volume-cache.js';
 
-export const REVISION = '7daaaca68ac6df4f9ccd95fbb1bbb16ecc042fc0';
-export const REMOTE = `https://raw.githubusercontent.com/HainaHuang729/21cmTB/${REVISION}/viewer-data64/pl-bt-v1/`;
-export const GITHUB_ROOT = `https://raw.githubusercontent.com/HainaHuang729/21cmTB/${REVISION}/`;
+export const REVISION = 'cf448836d866a772e3a4a7a05a874994cafd4021';
+export const UPSTREAM_REVISION = '7daaaca68ac6df4f9ccd95fbb1bbb16ecc042fc0';
+export const REMOTE = `https://raw.githubusercontent.com/HainaHuang729/21cmTB/${UPSTREAM_REVISION}/viewer-data64/pl-bt-v1/`;
+export const GITHUB_ROOT = `https://raw.githubusercontent.com/HainaHuang729/21cmTB/${UPSTREAM_REVISION}/`;
 export const DATASETS = {
-  pl: {label:'PL · 250 cMpc', base:REMOTE+'coeval-pl256-full-v2-display64/'},
+  pl: {label:'PL · 250 cMpc', base:`https://raw.githubusercontent.com/HainaHuang729/21cmTB/${REVISION}/viewer-lab/data/pl-thermal-fixed-v3/`},
   bt: {label:'BT · 250 cMpc', base:REMOTE+'coeval-bt256-full-v1-display64/'},
   legacy: {label:'PL · 100 cMpc', base:GITHUB_ROOT+'viewer/data/coeval-f-star10-m1p3-d2fb547ce0/'},
 };

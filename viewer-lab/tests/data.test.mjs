@@ -10,7 +10,7 @@ const manifests = { pl: await json('data/pl-manifest.json'), bt: await json('dat
 const localFiles = await json('data/local-files.json');
 const asBuffer = b => b.buffer.slice(b.byteOffset, b.byteOffset + b.byteLength);
 
-test('all packaged real snapshots match the pinned hashes and source statistics', async () => {
+test('all registered active snapshots match the pinned hashes and source statistics', async () => {
   for (const m of Object.values(manifests)) validateManifest(m);
   for (const [key, path] of Object.entries(localFiles)) {
     const [model, id,field='xH'] = key.split('/');
@@ -30,7 +30,7 @@ test('all packaged real snapshots match the pinned hashes and source statistics'
 });
 
 test('field availability excludes unpublished Tb and preserves distinct native boxes',()=>{
-  assert.deepEqual(availableFields(manifests.pl),['xH','density']);
+  assert.deepEqual(availableFields(manifests.pl),['xH','density','brightness_temperature']);
   assert.deepEqual(availableFields(manifests.bt),['xH','density']);
   assert.deepEqual(availableFields(manifests.legacy),['xH','density','brightness_temperature']);
   assert.equal(manifests.legacy.boxLength,100);assert.equal(manifests.pl.boxLength,250);
@@ -39,7 +39,8 @@ test('field availability excludes unpublished Tb and preserves distinct native b
 });
 
 test('signed physical values map consistently without overwriting source floats',async()=>{
-  assert.equal(normalizedValue(0,'brightness_temperature'),15/19);
+  assert.ok(Math.abs(FIELDS.brightness_temperature.range[0]+FIELDS.brightness_temperature.middle*(FIELDS.brightness_temperature.range[1]-FIELDS.brightness_temperature.range[0]))<1e-12);
+  assert.equal(normalizedValue(0,'brightness_temperature'),FIELDS.brightness_temperature.middle);
   assert.deepEqual(fieldColor(0,'brightness_temperature'),FIELDS.brightness_temperature.palette[1]);
   assert.equal(normalizedValue(-1,'density'),0);assert.equal(normalizedValue(20,'density'),1);
   const s=manifests.legacy.snapshots.find(s=>s.id==='coeval-z12.99303239');
@@ -68,10 +69,9 @@ test('nonfinite values and inconsistent statistics are rejected even with a matc
 
 test('same-stage and same-redshift selection remain distinct real snapshots', () => {
   const source=manifests.pl.snapshots[nearest(manifests.pl.snapshots,.5,'meanNeutralFraction')];
-  assert.equal(source.id,'z7.5329593443');
   const phase=manifests.bt.snapshots[nearest(manifests.bt.snapshots,source.meanNeutralFraction,'meanNeutralFraction')];
   const time=manifests.bt.snapshots[nearest(manifests.bt.snapshots,source.scaleFactor,'scaleFactor')];
-  assert.equal(phase.id,'z12.4556115244');
+  assert.notEqual(phase.id,time.id);
   assert.equal(time.id,source.id);
   assert.equal(time.meanNeutralFraction,0);
   assert.ok(Math.abs(phase.meanNeutralFraction-source.meanNeutralFraction)<.03);

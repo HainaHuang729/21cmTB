@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {SAMPLE_FIELDS,sampleDefaults,structureValue,epochThreshold} from '../field-presets.js';
+import {FIELDS} from '../data.js';
 import {evaluateTransfer} from '../transfer.js';
 
 test('density display mapping is monotone while negative density contrast stays outside the bright web',()=>{
@@ -16,7 +17,7 @@ test('brightness threshold means absolute mK and the raw-volume transfer is tran
   assert.equal(structureValue(75,'brightness_temperature'),.75);
   assert.equal(structureValue(0,'brightness_temperature'),0);
   const defaults=sampleDefaults('brightness_temperature');
-  assert.equal(evaluateTransfer(15/19,defaults.points),0);
+  assert.equal(evaluateTransfer(FIELDS.brightness_temperature.middle,defaults.points),0);
   assert.equal(SAMPLE_FIELDS.brightness_temperature.model,'pl');
   assert.deepEqual([0,1,2].map(i=>epochThreshold('brightness_temperature',i)),[8,8,5]);
   assert.equal(epochThreshold('brightness_temperature',0,'bt'),50);

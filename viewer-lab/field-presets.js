@@ -16,4 +16,10 @@ export function structureValue(value,key){
   if(key==='brightness_temperature')return Math.abs(value)/100;
   return value;
 }
-export function epochThreshold(key,index,model='pl'){return key==='brightness_temperature'&&index===0&&model==='bt'?50:SAMPLE_FIELDS[key].epochThresholds?.[index]??SAMPLE_FIELDS[key].threshold;}
+export function epochThreshold(key,index,model='pl',snapshot=null){
+  if(key==='brightness_temperature'&&index===0){
+    if(model==='bt')return 50;
+    if(snapshot)return Math.max(.1,Math.round(Math.abs(snapshot.fields[key].statistics.mean)/5)*5);
+  }
+  return SAMPLE_FIELDS[key].epochThresholds?.[index]??SAMPLE_FIELDS[key].threshold;
+}
