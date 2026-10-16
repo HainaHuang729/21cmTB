@@ -13,7 +13,7 @@ const fieldStates=new Map();
 const config=()=>FIELDS[fieldKey];
 const colorAt=t=>paletteColor(t,config().palette,config().middle);
 const format=v=>Number(v.toFixed(Math.abs(v)<1?4:2)).toString();
-function fieldDefaults(key){return key==='brightness_temperature'?{...defaults,region:'custom',points:[{x:0,y:1},{x:5/6,y:0},{x:1,y:1}]}:{...defaults,opacity:key==='density'?8:4,points:samplePreset('neutral')};}
+function fieldDefaults(key){return key==='brightness_temperature'?{...defaults,region:'custom',points:[{x:0,y:1},{x:FIELDS.brightness_temperature.middle,y:0},{x:1,y:1}]}:{...defaults,opacity:key==='density'?8:4,points:samplePreset('neutral')};}
 function activateField(next){
   if(next!==fieldKey){fieldStates.set(fieldKey,{region:settings.region,opacity:settings.opacity,center:settings.center,width:settings.width,points:settings.points});fieldKey=next;
     const saved=fieldStates.get(next)||fieldDefaults(next);for(const k of ['region','opacity','center','width','points'])settings[k]=saved[k];editor.setPoints(settings.points);}

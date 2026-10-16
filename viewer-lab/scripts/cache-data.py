@@ -8,7 +8,7 @@ import time
 import urllib.request
 
 ROOT = Path(__file__).resolve().parents[1]
-REVISION = '72f803a60632f50efe73ba6a5e91e0036f3f301f'
+REVISION = '7daaaca68ac6df4f9ccd95fbb1bbb16ecc042fc0'
 REMOTE = f'https://raw.githubusercontent.com/HainaHuang729/21cmTB/{REVISION}/'
 DIRECTORIES = {
     'pl': 'viewer-data64/pl-bt-v1/coeval-pl256-full-v2-display64',
@@ -20,7 +20,7 @@ DIRECTORIES = {
 def jobs_for(registry, all_sample):
     jobs = []
     for model, directory in DIRECTORIES.items():
-        if all_sample and model == 'bt':
+        if all_sample and model == 'legacy':
             continue
         manifest = json.loads((ROOT / f'data/{model}-manifest.json').read_text())
         snapshots = manifest['snapshots']
@@ -34,7 +34,7 @@ def jobs_for(registry, all_sample):
                 continue
             for field, descriptor in snapshot['fields'].items():
                 if all_sample:
-                    if field not in (('xH', 'density') if model == 'pl' else ('brightness_temperature',)):
+                    if field not in ('xH', 'density', 'brightness_temperature') or snapshot.get('fieldQuality', {}).get(field, {}).get('status', 'range-check-passed') != 'range-check-passed':
                         continue
                 elif (snapshot['id'] not in ids and prefix + field not in registry) or (field == 'xH' and f'{model}/{snapshot["id"]}' in registry):
                     continue
@@ -75,7 +75,7 @@ def save_registry(registry):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--all-sample', action='store_true', help='Cache all 85 xH + 85 density + 19 Tb frames (189 MiB)')
+    parser.add_argument('--all-sample', action='store_true', help='Cache all published PL/BT fields; withheld snapshots are excluded (452 MiB)')
     args = parser.parse_args()
     registry = json.loads((ROOT / 'data/local-files.json').read_text())
     jobs = jobs_for(registry, args.all_sample)

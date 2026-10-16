@@ -220,6 +220,7 @@ export class Renderer {
     gl.linkProgram(p);if(!gl.getProgramParameter(p,gl.LINK_STATUS)){const log=gl.getProgramInfoLog(p);gl.deleteProgram(p);throw new Error(`渲染程序连接失败：${log}`);}return p;
   }
   uniform(name,line=false){const map=line?this.lineUniforms:this.uniforms;if(!map.has(name))map.set(name,this.gl.getUniformLocation(line?this.lineProgram:this.program,name));return map.get(name);}
+  clearData(){this.ready=false;this.request();}
   setData(data){
     const gl=this.gl,reuse=!!this.texture;if(!reuse)this.texture=gl.createTexture();
     gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_3D,this.texture);gl.pixelStorei(gl.UNPACK_ALIGNMENT,1);

@@ -9,6 +9,7 @@
   <header class="sample-header">
     <a class="sample-brand" href="./">21<span>cm</span><i aria-hidden="true"></i></a>
     <div class="sample-heading"><h1 id="sample-title">再电离的空腔</h1><p id="sample-subtitle">真实中性氢场 · 辉光与剖切</p></div>
+    <label class="sample-model">模型<select id="sample-model" aria-label="三维模型" disabled><option value="pl">PL · 250 cMpc</option><option value="bt">BT · 250 cMpc</option></select></label>
     <nav class="field-switch" aria-label="三维物理量"><button data-field="xH" aria-pressed="true" disabled>中性氢</button><button data-field="density" aria-pressed="false" disabled>密度</button><button data-field="brightness_temperature" aria-pressed="false" disabled>亮温</button></nav>
     <a class="back-link" href="./">返回实验室</a>
   </header>
@@ -19,6 +20,7 @@
         <div class="sample-toolbar"><span id="surface-label">xH = 0.50 界面</span><div class="sample-switch" role="group" aria-label="样品显示方式"><button data-view="energy" aria-pressed="true">电离辉光</button><button data-view="cavity" aria-pressed="false">界面剖切</button><button data-view="volume" aria-pressed="false">原体显示</button></div></div>
         <div class="sample-loading" id="sample-loading" role="status">正在校验真实数据…</div>
         <p class="sample-empty" id="sample-empty" hidden></p>
+        <div class="sample-gap" id="sample-gap" role="status" hidden><span>数据审核缺口</span><h2 id="sample-gap-title">本红移亮温暂缓发布</h2><p id="sample-gap-detail"></p><div><button id="sample-gap-back">上一有效帧</button><button id="sample-gap-forward">下一有效段</button></div></div>
         <div class="sample-bottom"><span>拖动旋转 · 滚轮缩放</span><span id="sample-source">PL · 250 cMpc · 64³</span></div>
         <div class="material-key" id="material-key"><span><i></i><b id="material-interface">界面辉光</b></span><span><i></i><b id="material-cut">暖色剖切边缘</b></span></div>
       </div>
@@ -34,10 +36,10 @@
     <p class="sample-status" id="sample-status" role="status">读取本地真实快照…</p>
   </main>
   <footer class="sample-controls" aria-label="样品调参区">
-    <div class="sample-cache"><span id="sample-cache-status" role="status">准备缓存完整红移序列…</span><progress id="sample-cache-progress" max="189" value="0" aria-label="全量缓存进度"></progress><button id="sample-cache-retry" hidden>重试缓存</button></div>
+    <div class="sample-cache"><span id="sample-cache-status" role="status">准备缓存已发布红移序列…</span><progress id="sample-cache-progress" max="452" value="0" aria-label="全量缓存进度"></progress><button id="sample-cache-retry" hidden>重试缓存</button></div>
     <div class="sample-timeline" aria-label="红移播放控制">
       <div class="timeline-transport"><button id="sample-previous" aria-label="上一帧" disabled>上一帧</button><button id="sample-play" aria-pressed="false" disabled>播放</button><button id="sample-next" aria-label="下一帧" disabled>下一帧</button></div>
-      <label class="redshift-control">红移 z <output id="sample-redshift-value">—</output><input id="sample-redshift" aria-label="红移快照" type="range" min="0" max="1" step="1" value="0" disabled><span class="redshift-limits"><span id="sample-redshift-start">—</span><span id="sample-redshift-end">—</span></span></label>
+      <label class="redshift-control">红移 z <output id="sample-redshift-value">—</output><span class="redshift-track"><span id="sample-quality-band" aria-hidden="true"></span><input id="sample-redshift" aria-label="红移快照" type="range" min="0" max="1" step="1" value="0" disabled></span><span class="redshift-limits"><span id="sample-redshift-start">—</span><span id="sample-gap-key" hidden>红色段待审核</span><span id="sample-redshift-end">—</span></span></label>
       <label class="playback-speed">帧间隔<select id="sample-speed" aria-label="播放间隔"><option value="120" selected>0.12 秒</option><option value="250">0.25 秒</option><option value="600">0.6 秒</option><option value="1200">1.2 秒</option></select></label>
     </div>
     <div class="sample-parameters">

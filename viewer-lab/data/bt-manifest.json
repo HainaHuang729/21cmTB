@@ -61,11 +61,11 @@
       "definition": "Differential 21-cm brightness temperature including saved spin-temperature and velocity-gradient/RSD effects; signed linear values.",
       "palette": "diverging",
       "displayRange": [
-        -34431853016383490,
-        34431853016383490
+        -98.68624877929688,
+        98.68624877929688
       ],
-      "qualityStatus": "under-review",
-      "qualityNote": "Extreme finite Tb in BT source caches; no corrections applied. Do not treat finite/readback validation as physical validation."
+      "qualityStatus": "partially-available",
+      "qualityNote": "Per-snapshot source-temperature and range checks; not physical certification. Flagged frames are withheld, never clipped or substituted."
     },
     "density": {
       "label": "Density contrast",
@@ -102,6 +102,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z35.2169290409/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "b378dd71b5abd4cfb53af448cea48116606d60e5c90f0144461a4f24eb5953d7",
+          "sourceId": "37ac00fb4cdaee9c41bfb46890416db8e06ffa0da2954832788884874d295da4",
+          "statistics": {
+            "min": -17.902294158935547,
+            "max": -4.559379577636719,
+            "mean": -8.673368804214988,
+            "nonfinite": 0,
+            "negative": 262144,
+            "zero": 0,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z35.2169290409/density.f32.bin",
           "dtype": "float32-le",
@@ -116,6 +132,22 @@
             "negative": 135404,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              77.04215240478516,
+              89.48240661621094
+            ],
+            "Tk": [
+              21.603431701660156,
+              34.52719497680664
+            ]
           }
         }
       }
@@ -142,6 +174,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z34.5067938413/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "1885d24e0e9e89c98564252429b34fe9fa668a5d38ddaf0585223da323a7ae37",
+          "sourceId": "5d0aa0cfb037f51d79a1462092bb4ef4a738227d70a4ad97cf25ac04af1fab80",
+          "statistics": {
+            "min": -25.311656951904297,
+            "max": -4.097646236419678,
+            "mean": -8.292576551148159,
+            "nonfinite": 0,
+            "negative": 262144,
+            "zero": 0,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z34.5067938413/density.f32.bin",
           "dtype": "float32-le",
@@ -156,6 +204,22 @@
             "negative": 135498,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              42.618099212646484,
+              88.7900619506836
+            ],
+            "Tk": [
+              20.63579750061035,
+              33.80972671508789
+            ]
           }
         }
       }
@@ -182,6 +246,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z33.8105828483/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "d38f6632d6b9299c79ab0f4ca7b7b9164c49cc0f23db6d6f9fab936f6655a158",
+          "sourceId": "d530efc96587534bacd1a08cfbc75f5a06b981ea3b9b5c397f812b8485202c39",
+          "statistics": {
+            "min": -27.035619735717773,
+            "max": -3.7141761779785156,
+            "mean": -7.7391985047624985,
+            "nonfinite": 0,
+            "negative": 262144,
+            "zero": 0,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z33.8105828483/density.f32.bin",
           "dtype": "float32-le",
@@ -196,6 +276,22 @@
             "negative": 135577,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              40.238121032714844,
+              87.60334014892578
+            ],
+            "Tk": [
+              19.616966247558594,
+              33.557350158691406
+            ]
           }
         }
       }
@@ -222,6 +318,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z33.1280230385/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "0271c89e1e0007437af1b3bd70082834bcaa13413c5e8304bc2ac985189e5c68",
+          "sourceId": "9b7f1ff7a3806528d6da7614df7fa53ab54f1b021c91c479e4b9b3216d7d3d38",
+          "statistics": {
+            "min": -29.274425506591797,
+            "max": -3.404606580734253,
+            "mean": -7.23267681076959,
+            "nonfinite": 0,
+            "negative": 262144,
+            "zero": 0,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z33.1280230385/density.f32.bin",
           "dtype": "float32-le",
@@ -236,6 +348,22 @@
             "negative": 135689,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              38.97300338745117,
+              86.29330444335938
+            ],
+            "Tk": [
+              18.561779022216797,
+              33.917808532714844
+            ]
           }
         }
       }
@@ -262,6 +390,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z32.4588467418/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "1abee6e4cecbf7891ba620568d056b4fab5d8496e0f87be8dae9865851248fc9",
+          "sourceId": "cb24671453f42f92b355de05b989a82d53199895df9be133467136073d874505",
+          "statistics": {
+            "min": -31.764631271362305,
+            "max": -3.176407814025879,
+            "mean": -6.806221583253318,
+            "nonfinite": 0,
+            "negative": 262144,
+            "zero": 0,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z32.4588467418/density.f32.bin",
           "dtype": "float32-le",
@@ -276,6 +420,22 @@
             "negative": 135796,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              38.5931282043457,
+              84.81192016601562
+            ],
+            "Tk": [
+              17.474660873413086,
+              35.209712982177734
+            ]
           }
         }
       }
@@ -302,6 +462,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z31.8027915368/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "ba6af642221285f60eadb1e0c5b0e4ba4ccd0375d747daa763d0ecc3f498284c",
+          "sourceId": "e1bfd82e6c6a3b78a86ad1723665ad4cec63d6f4e72f5d6c83d1759242bc757d",
+          "statistics": {
+            "min": -34.300315856933594,
+            "max": -3.033639669418335,
+            "mean": -6.508028957080569,
+            "nonfinite": 0,
+            "negative": 262144,
+            "zero": 0,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z31.8027915368/density.f32.bin",
           "dtype": "float32-le",
@@ -316,6 +492,22 @@
             "negative": 135898,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              38.0428352355957,
+              83.27810668945312
+            ],
+            "Tk": [
+              16.357219696044922,
+              37.87237548828125
+            ]
           }
         }
       }
@@ -342,6 +534,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z31.1596001472/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "2a941066b9b13c9305c6deae4058bc95cb7b70df274867c2535aa8d913cf6047",
+          "sourceId": "f03a9df79bc1d35ce15d5f0d28c8a892bd9c65cc6fbd21c6e518f631cffce125",
+          "statistics": {
+            "min": -36.430931091308594,
+            "max": -2.9535510540008545,
+            "mean": -6.385264101694702,
+            "nonfinite": 0,
+            "negative": 262144,
+            "zero": 0,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z31.1596001472/density.f32.bin",
           "dtype": "float32-le",
@@ -356,6 +564,22 @@
             "negative": 136006,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              36.97367858886719,
+              81.57715606689453
+            ],
+            "Tk": [
+              15.214659690856934,
+              42.504310607910156
+            ]
           }
         }
       }
@@ -382,6 +606,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z30.5290203417/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "e4c9f7a4eced5f6396a0ab12c14239dda3495047c74ef189f7fd442eb99fd66f",
+          "sourceId": "aee1b62528e7b876395c05f64bd9a05ae2e715b7a95df30985ed7c03fd6741ef",
+          "statistics": {
+            "min": -37.394447326660156,
+            "max": -2.979914426803589,
+            "mean": -6.486156386667972,
+            "nonfinite": 0,
+            "negative": 262144,
+            "zero": 0,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z30.5290203417/density.f32.bin",
           "dtype": "float32-le",
@@ -396,6 +636,22 @@
             "negative": 136092,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              36.33338928222656,
+              79.54502868652344
+            ],
+            "Tk": [
+              14.04461669921875,
+              49.92396926879883
+            ]
           }
         }
       }
@@ -422,6 +678,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z29.9108048346/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "c4ec65ac1777e0fa5896247a5b58f8ff596a368f218bb9be6c98461a2bdfa9eb",
+          "sourceId": "4a50f5b06830eb2a4b5c484c0791cef3a3bd758e01d2defd06683938a896872b",
+          "statistics": {
+            "min": -38.900848388671875,
+            "max": -3.1998887062072754,
+            "mean": -6.865013130818625,
+            "nonfinite": 0,
+            "negative": 262144,
+            "zero": 0,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z29.9108048346/density.f32.bin",
           "dtype": "float32-le",
@@ -436,6 +708,22 @@
             "negative": 136181,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              35.7230224609375,
+              77.1860580444336
+            ],
+            "Tk": [
+              12.851249694824219,
+              61.203311920166016
+            ]
           }
         }
       }
@@ -462,6 +750,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z29.3047111889/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "08fc1cb280af1d71531eaa65c9ae9dc142ce771e4270f83a6cdbfb089f6437be",
+          "sourceId": "66f88554137721e36cfd91ef8954bd6c02642cba776a64c9beb74b448ce209c0",
+          "statistics": {
+            "min": -43.554317474365234,
+            "max": -3.680756092071533,
+            "mean": -7.599353695886748,
+            "nonfinite": 0,
+            "negative": 262144,
+            "zero": 0,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z29.3047111889/density.f32.bin",
           "dtype": "float32-le",
@@ -476,6 +780,22 @@
             "negative": 136295,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              34.82856750488281,
+              77.93379211425781
+            ],
+            "Tk": [
+              11.584373474121094,
+              77.73670959472656
+            ]
           }
         }
       }
@@ -502,6 +822,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z28.7105017211/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "ba6a20b9da809c02ffac9ca73022221409a9c5ea0ed308872a915ce42c4b960f",
+          "sourceId": "34e1a4f9670550d80086fb98d321ca0dccd0db3bf42861bdad87e223eb0321a8",
+          "statistics": {
+            "min": -51.043617248535156,
+            "max": -4.509099960327148,
+            "mean": -8.843808845032981,
+            "nonfinite": 0,
+            "negative": 262144,
+            "zero": 0,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z28.7105017211/density.f32.bin",
           "dtype": "float32-le",
@@ -516,6 +852,22 @@
             "negative": 136415,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              33.93266677856445,
+              100.53311157226562
+            ],
+            "Tk": [
+              10.281744956970215,
+              101.35440063476562
+            ]
           }
         }
       }
@@ -542,6 +894,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z28.1279434085/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "f6321b1cc3cc2d6a88068f1baaafe7c92e02ae5d907eb64ffb9b5dd217a47bc0",
+          "sourceId": "9ee278591704c53c43471635e5fd89cd7373b61f179095bb575c0e79850763db",
+          "statistics": {
+            "min": -58.80195617675781,
+            "max": -5.819539546966553,
+            "mean": -10.799847413323732,
+            "nonfinite": 0,
+            "negative": 262144,
+            "zero": 0,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z28.1279434085/density.f32.bin",
           "dtype": "float32-le",
@@ -556,6 +924,22 @@
             "negative": 136524,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              32.93258285522461,
+              132.0761260986328
+            ],
+            "Tk": [
+              8.904096603393555,
+              134.38392639160156
+            ]
           }
         }
       }
@@ -582,6 +966,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z27.5568077973/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "dcf15f2266e35b8fd837d3a5c91b1c3a61db6b460af4e0699ac618f06ee12f9f",
+          "sourceId": "a89e906817b487c7724a178edd74b9575c0b0368abb7871dbbda36cd6c0492f2",
+          "statistics": {
+            "min": -66.59002685546875,
+            "max": -7.7772321701049805,
+            "mean": -13.710921634512488,
+            "nonfinite": 0,
+            "negative": 262144,
+            "zero": 0,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z27.5568077973/density.f32.bin",
           "dtype": "float32-le",
@@ -596,6 +996,22 @@
             "negative": 136636,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              31.945009231567383,
+              175.30738830566406
+            ],
+            "Tk": [
+              7.478828430175781,
+              179.82794189453125
+            ]
           }
         }
       }
@@ -622,6 +1038,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z26.9968709130/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "cdc811c5b2a0434a4410787a1ebc422b07fa5d0dbaafbd79aaa8a14acec2c6e4",
+          "sourceId": "a688f7bc88b8864140029229ac7196e5e6d87aae40a366d6284b4f765f26c146",
+          "statistics": {
+            "min": -74.8981704711914,
+            "max": -10.72545337677002,
+            "mean": -17.980429637729685,
+            "nonfinite": 0,
+            "negative": 262144,
+            "zero": 0,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z26.9968709130/density.f32.bin",
           "dtype": "float32-le",
@@ -636,6 +1068,22 @@
             "negative": 136739,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              30.68376350402832,
+              233.8049774169922
+            ],
+            "Tk": [
+              6.018522262573242,
+              241.45889282226562
+            ]
           }
         }
       }
@@ -662,6 +1110,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z26.4479131731/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "0803e45f1ee0733411cab4a8216694dd29aa1c176eef9c3ce30f5031f27e239c",
+          "sourceId": "1c1b449cc247620aba82948d5b8bfbef6503577817dd0675b852b353aec1d650",
+          "statistics": {
+            "min": -83.78253936767578,
+            "max": -15.119782447814941,
+            "mean": -23.93033089267192,
+            "nonfinite": 0,
+            "negative": 262144,
+            "zero": 0,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z26.4479131731/density.f32.bin",
           "dtype": "float32-le",
@@ -676,6 +1140,22 @@
             "negative": 136820,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              29.48834800720215,
+              311.8883972167969
+            ],
+            "Tk": [
+              4.521938800811768,
+              324.3727111816406
+            ]
           }
         }
       }
@@ -702,6 +1182,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z25.9097193003/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "290ab9c59c71380f024b9bf4d694f7fdaf525290912cbd706d49c91a6172ebec",
+          "sourceId": "f9c8d15b4a3173811ef1339a1287f78068f2528f0daaa5dbc5c81a528e639b11",
+          "statistics": {
+            "min": -91.43460845947266,
+            "max": -21.770748138427734,
+            "mean": -32.31622968071315,
+            "nonfinite": 0,
+            "negative": 262144,
+            "zero": 0,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z25.9097193003/density.f32.bin",
           "dtype": "float32-le",
@@ -716,6 +1212,22 @@
             "negative": 136965,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              28.103008270263672,
+              416.92578125
+            ],
+            "Tk": [
+              2.9916985034942627,
+              436.61541748046875
+            ]
           }
         }
       }
@@ -742,6 +1254,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z25.3820782387/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "001126d6f236fabedb9d1f3b04e575d34d4e007eabc2ff20b12ae15745e705d9",
+          "sourceId": "bfb2df91014e8a92775a0fcbf73c1379b11966272a5bbbbdedf035be07bef652",
+          "statistics": {
+            "min": -98.68624877929688,
+            "max": -31.19209861755371,
+            "mean": -43.94510767082829,
+            "nonfinite": 0,
+            "negative": 262144,
+            "zero": 0,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z25.3820782387/density.f32.bin",
           "dtype": "float32-le",
@@ -756,6 +1284,22 @@
             "negative": 137100,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              20.85708999633789,
+              554.9694213867188
+            ],
+            "Tk": [
+              1.4836901426315308,
+              585.1769409179688
+            ]
           }
         }
       }
@@ -798,6 +1342,25 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "withheld",
+          "reasons": [
+            "Source Ts or Tk below 0.1 K; temperature evolution requires review",
+            "Source |Tb| exceeds 10000 mK"
+          ],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              0.06315579265356064,
+              735.0439453125
+            ],
+            "Tk": [
+              0.03234904259443283,
+              780.440673828125
+            ]
+          }
+        }
       }
     },
     {
@@ -836,6 +1399,25 @@
             "negative": 137344,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "withheld",
+          "reasons": [
+            "Source Ts or Tk below 0.1 K; temperature evolution requires review",
+            "Source |Tb| exceeds 10000 mK"
+          ],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              6.708169166813605e-7,
+              33582.5703125
+            ],
+            "Tk": [
+              0.00012082683679182082,
+              1037.2105712890625
+            ]
           }
         }
       }
@@ -878,6 +1460,26 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "withheld",
+          "reasons": [
+            "Source Ts or Tk below 0.1 K; temperature evolution requires review",
+            "Source |Tb| exceeds 10000 mK",
+            "Source Ts or Tk exceeds 1000000 K"
+          ],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              4.408416742762711e-9,
+              4930192.5
+            ],
+            "Tk": [
+              0.000010769717846415006,
+              1378.517578125
+            ]
+          }
+        }
       }
     },
     {
@@ -916,6 +1518,26 @@
             "negative": 137621,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "withheld",
+          "reasons": [
+            "Source Ts or Tk below 0.1 K; temperature evolution requires review",
+            "Source |Tb| exceeds 10000 mK",
+            "Source Ts or Tk exceeds 1000000 K"
+          ],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              1.4526155452110334e-11,
+              9363987
+            ],
+            "Tk": [
+              6.689311362606531e-7,
+              1838.0653076171875
+            ]
           }
         }
       }
@@ -958,6 +1580,26 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "withheld",
+          "reasons": [
+            "Source Ts or Tk below 0.1 K; temperature evolution requires review",
+            "Source |Tb| exceeds 10000 mK",
+            "Source Ts or Tk exceeds 1000000 K"
+          ],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              8.764163982218076e-13,
+              181316288
+            ],
+            "Tk": [
+              1.748406788237844e-7,
+              2540.18310546875
+            ]
+          }
+        }
       }
     },
     {
@@ -996,6 +1638,26 @@
             "negative": 137889,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "withheld",
+          "reasons": [
+            "Source Ts or Tk below 0.1 K; temperature evolution requires review",
+            "Source |Tb| exceeds 10000 mK",
+            "Source Ts or Tk exceeds 1000000 K"
+          ],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              1.7496700702862578e-12,
+              124466832
+            ],
+            "Tk": [
+              2.7396399104873126e-7,
+              3403.537353515625
+            ]
           }
         }
       }
@@ -1038,6 +1700,26 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "withheld",
+          "reasons": [
+            "Source Ts or Tk below 0.1 K; temperature evolution requires review",
+            "Source |Tb| exceeds 10000 mK",
+            "Source Ts or Tk exceeds 1000000 K"
+          ],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              2.1357488531621033e-13,
+              69536792
+            ],
+            "Tk": [
+              1.159885201218458e-7,
+              4651.20068359375
+            ]
+          }
+        }
       }
     },
     {
@@ -1076,6 +1758,26 @@
             "negative": 138180,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "withheld",
+          "reasons": [
+            "Source Ts or Tk below 0.1 K; temperature evolution requires review",
+            "Source |Tb| exceeds 10000 mK",
+            "Source Ts or Tk exceeds 1000000 K"
+          ],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              6.58960055575572e-14,
+              9724711
+            ],
+            "Tk": [
+              6.576878774922079e-8,
+              6706.861328125
+            ]
           }
         }
       }
@@ -1118,6 +1820,26 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "withheld",
+          "reasons": [
+            "Source Ts or Tk below 0.1 K; temperature evolution requires review",
+            "Source |Tb| exceeds 10000 mK",
+            "Source Ts or Tk exceeds 1000000 K"
+          ],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              1.2221580084764705e-12,
+              3856572.25
+            ],
+            "Tk": [
+              3.032903350685956e-7,
+              9804.6181640625
+            ]
+          }
+        }
       }
     },
     {
@@ -1156,6 +1878,26 @@
             "negative": 138383,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "withheld",
+          "reasons": [
+            "Source Ts or Tk below 0.1 K; temperature evolution requires review",
+            "Source |Tb| exceeds 10000 mK",
+            "Source Ts or Tk exceeds 1000000 K"
+          ],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              8.87118677128651e-12,
+              35803584
+            ],
+            "Tk": [
+              8.55610494454595e-7,
+              14717.8056640625
+            ]
           }
         }
       }
@@ -1198,6 +1940,26 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "withheld",
+          "reasons": [
+            "Source Ts or Tk below 0.1 K; temperature evolution requires review",
+            "Source |Tb| exceeds 10000 mK",
+            "Source Ts or Tk exceeds 1000000 K"
+          ],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              1.1092043489214706e-13,
+              89048488
+            ],
+            "Tk": [
+              1.085045511217686e-7,
+              15540.0615234375
+            ]
+          }
+        }
       }
     },
     {
@@ -1236,6 +1998,26 @@
             "negative": 138677,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "withheld",
+          "reasons": [
+            "Source Ts or Tk below 0.1 K; temperature evolution requires review",
+            "Source |Tb| exceeds 10000 mK",
+            "Source Ts or Tk exceeds 1000000 K"
+          ],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              4.572656272724962e-13,
+              20836364
+            ],
+            "Tk": [
+              2.4417047939095937e-7,
+              13680.3857421875
+            ]
           }
         }
       }
@@ -1278,6 +2060,26 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "withheld",
+          "reasons": [
+            "Source Ts or Tk below 0.1 K; temperature evolution requires review",
+            "Source |Tb| exceeds 10000 mK",
+            "Source Ts or Tk exceeds 1000000 K"
+          ],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              8.52374431887376e-13,
+              3149742.25
+            ],
+            "Tk": [
+              3.635289544945408e-7,
+              14425.064453125
+            ]
+          }
+        }
       }
     },
     {
@@ -1316,6 +2118,26 @@
             "negative": 138972,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "withheld",
+          "reasons": [
+            "Source Ts or Tk below 0.1 K; temperature evolution requires review",
+            "Source |Tb| exceeds 10000 mK",
+            "Source Ts or Tk exceeds 1000000 K"
+          ],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              9.332029593522861e-10,
+              2185641
+            ],
+            "Tk": [
+              0.000012643721674976405,
+              15192.205078125
+            ]
           }
         }
       }
@@ -1358,6 +2180,25 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "withheld",
+          "reasons": [
+            "Source Ts or Tk below 0.1 K; temperature evolution requires review",
+            "Source |Tb| exceeds 10000 mK"
+          ],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              7.246835354024483e-10,
+              183409.84375
+            ],
+            "Tk": [
+              0.000011666023965517525,
+              15896.6806640625
+            ]
+          }
+        }
       }
     },
     {
@@ -1396,6 +2237,25 @@
             "negative": 139293,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "withheld",
+          "reasons": [
+            "Source Ts or Tk below 0.1 K; temperature evolution requires review",
+            "Source |Tb| exceeds 10000 mK"
+          ],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              3.102710532942865e-9,
+              24509.630859375
+            ],
+            "Tk": [
+              0.000027300711735733785,
+              16840.0703125
+            ]
           }
         }
       }
@@ -1438,6 +2298,25 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "withheld",
+          "reasons": [
+            "Source Ts or Tk below 0.1 K; temperature evolution requires review",
+            "Source |Tb| exceeds 10000 mK"
+          ],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              0.000052934479754185304,
+              14430.9482421875
+            ],
+            "Tk": [
+              0.0037084955256432295,
+              18235.123046875
+            ]
+          }
+        }
       }
     },
     {
@@ -1462,6 +2341,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z17.4716656273/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "afd083b50a7b5bfc0e70bb44e2e5fc413a1fbe3d6c432e0b618cca9923ab8a3c",
+          "sourceId": "fb8ff7c13895389bab77b42648610f6843d2140faf3ca9fc63d43f38b494856b",
+          "statistics": {
+            "min": -78.5124740600586,
+            "max": 22.22875213623047,
+            "mean": -10.779031109263709,
+            "nonfinite": 0,
+            "negative": 213133,
+            "zero": 7,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z17.4716656273/density.f32.bin",
           "dtype": "float32-le",
@@ -1476,6 +2371,22 @@
             "negative": 139677,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              2.0478107929229736,
+              13406.11328125
+            ],
+            "Tk": [
+              1.2657188177108765,
+              17192.125
+            ]
           }
         }
       }
@@ -1502,6 +2413,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z17.1094764439/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "77567c220d5c3c77b80aab6d19e45086f2e9c5e54df7f82439329d171df01243",
+          "sourceId": "29274bd87146e82c9f0a38cbf9bde82abdd336d28f5ddfec8819804bef1afd75",
+          "statistics": {
+            "min": -34.04315948486328,
+            "max": 23.90630340576172,
+            "mean": -0.1954268924444994,
+            "nonfinite": 0,
+            "negative": 128902,
+            "zero": 14,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z17.1094764439/density.f32.bin",
           "dtype": "float32-le",
@@ -1516,6 +2443,22 @@
             "negative": 139860,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              9.326366424560547,
+              14619.6015625
+            ],
+            "Tk": [
+              7.953546524047852,
+              19143.01953125
+            ]
           }
         }
       }
@@ -1542,6 +2485,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z16.7543890024/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "fd280c352c8b47f4642fb521e86768904b8e2a831bb0f0a6a0fd7d028e6df874",
+          "sourceId": "2a33bb782c0bffc14e8b1d43a11d4947a4a9441b1bb34df9f51e9eccce7a7b20",
+          "statistics": {
+            "min": -14.721752166748047,
+            "max": 24.897825241088867,
+            "mean": 6.9476802658371835,
+            "nonfinite": 0,
+            "negative": 30278,
+            "zero": 28,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z16.7543890024/density.f32.bin",
           "dtype": "float32-le",
@@ -1556,6 +2515,22 @@
             "negative": 140038,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              18.47307777404785,
+              13008.3720703125
+            ],
+            "Tk": [
+              16.80750274658203,
+              17334.017578125
+            ]
           }
         }
       }
@@ -1582,6 +2557,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z16.4062640534/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "fb030da24ff06ae35be18aa48aad90d57faac98db147b511dcf40d60afe1768e",
+          "sourceId": "d8b5029e6437a9a08fc8c571c7b52d6b0d7f60cfb99d66f1a704406c9ba8ffd1",
+          "statistics": {
+            "min": -3.4952797889709473,
+            "max": 26.26955223083496,
+            "mean": 11.929605149400215,
+            "nonfinite": 0,
+            "negative": 307,
+            "zero": 55,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z16.4062640534/density.f32.bin",
           "dtype": "float32-le",
@@ -1596,6 +2587,22 @@
             "negative": 140198,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              30.189706802368164,
+              13727.447265625
+            ],
+            "Tk": [
+              28.815080642700195,
+              18642.57421875
+            ]
           }
         }
       }
@@ -1622,6 +2629,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z16.0649650773/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "96215f5405576c390755fc0c65b1aa2d19938bcb1a4390ce241218557716d0c6",
+          "sourceId": "d2b364a65a86117b25be32e4780d622074e874a90c4419c4a70b55dbe925cbf7",
+          "statistics": {
+            "min": 0,
+            "max": 26.879283905029297,
+            "mean": 15.195679347004898,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 91,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z16.0649650773/density.f32.bin",
           "dtype": "float32-le",
@@ -1636,6 +2659,22 @@
             "negative": 140357,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              44.01156997680664,
+              14954.677734375
+            ],
+            "Tk": [
+              43.74692916870117,
+              20780.61328125
+            ]
           }
         }
       }
@@ -1662,6 +2701,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z15.7303582318/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "d831e8335cc8dcf4b31f64c570d9373da56a517068950471a160dc635e83ab07",
+          "sourceId": "f9e5e79f12ad753914b6097ba27bbbdd9b5aa80e10016f6266ff8e1cc0410feb",
+          "statistics": {
+            "min": 0,
+            "max": 27.563507080078125,
+            "mean": 17.349152794093676,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 159,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z15.7303582318/density.f32.bin",
           "dtype": "float32-le",
@@ -1676,6 +2731,22 @@
             "negative": 140559,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              60.856014251708984,
+              13832.09765625
+            ],
+            "Tk": [
+              62.84990692138672,
+              19640.951171875
+            ]
           }
         }
       }
@@ -1702,6 +2773,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z15.4023122987/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "aae17656574ac891c37efa0a23487dd6c8cc3fb36022cf5a228420da10f43e80",
+          "sourceId": "037c145de8641de367c21ed48fbd06e3f40e3a862b4afa20e7e9bcd72258b17f",
+          "statistics": {
+            "min": 0,
+            "max": 28.218135833740234,
+            "mean": 18.68395124780561,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 287,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z15.4023122987/density.f32.bin",
           "dtype": "float32-le",
@@ -1716,6 +2803,22 @@
             "negative": 140738,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              81.23228454589844,
+              14006.552734375
+            ],
+            "Tk": [
+              87.1054458618164,
+              20209.216796875
+            ]
           }
         }
       }
@@ -1742,6 +2845,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z15.0806986327/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "63c3803ac5803f46128cf9e01adf833549bdbe0e43f3159d920f98dea43733ef",
+          "sourceId": "4798c5e599d54c1b8713f181c4038f438be3825594ad414c4c6a53e81c51230d",
+          "statistics": {
+            "min": 0,
+            "max": 28.3776798248291,
+            "mean": 19.3815103924463,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 495,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z15.0806986327/density.f32.bin",
           "dtype": "float32-le",
@@ -1756,6 +2875,22 @@
             "negative": 140938,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              105.33319854736328,
+              14419.63671875
+            ],
+            "Tk": [
+              117.23385620117188,
+              21270.908203125
+            ]
           }
         }
       }
@@ -1782,6 +2917,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z14.7653911112/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "39294005fe415ae82252fa8394ed7e01f54f3dbe34de177dcf3365ac99c5279c",
+          "sourceId": "4d03807698aa57ba3a6cb798c40bd5372fbf131f923f6ead550efa554cf6f660",
+          "statistics": {
+            "min": 0,
+            "max": 28.1153564453125,
+            "mean": 19.611763846124262,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 850,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z14.7653911112/density.f32.bin",
           "dtype": "float32-le",
@@ -1796,6 +2947,22 @@
             "negative": 141158,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              134.32167053222656,
+              15950.63671875
+            ],
+            "Tk": [
+              155.3871307373047,
+              24376.4453125
+            ]
           }
         }
       }
@@ -1822,6 +2989,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z14.4562660843/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "44756e665e86e06ec70b60f917f777339aaaba865465725ec11d49c3ffb78b94",
+          "sourceId": "f75c4c1476a4a71ced3c00495a4dbc9ff6d316f33451e0fe9d8acd9053cdd9a2",
+          "statistics": {
+            "min": 0,
+            "max": 28.07759666442871,
+            "mean": 19.447010239184273,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 1380,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z14.4562660843/density.f32.bin",
           "dtype": "float32-le",
@@ -1836,6 +3019,22 @@
             "negative": 141353,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              167.70956420898438,
+              15119.6923828125
+            ],
+            "Tk": [
+              201.78541564941406,
+              23850.587890625
+            ]
           }
         }
       }
@@ -1862,6 +3061,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z14.1532023268/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "1230efc7060a80f831af6e5a74a95c913af1a5d4ea57e3aa1b3b0bf0b4f4a9c3",
+          "sourceId": "1224cbe54053517e58db26d6f32335cb8fcec3beaa98ccc2b740b781d011fc00",
+          "statistics": {
+            "min": 0,
+            "max": 27.809791564941406,
+            "mean": 18.988910682621274,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 2137,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z14.1532023268/density.f32.bin",
           "dtype": "float32-le",
@@ -1876,6 +3091,22 @@
             "negative": 141564,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              207.5860137939453,
+              13790.0234375
+            ],
+            "Tk": [
+              260.6571960449219,
+              22034.013671875
+            ]
           }
         }
       }
@@ -1902,6 +3133,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z13.8560809904/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "7e0a3058e18f7b7935d43365c2bc831c4cd2dca1a8e2ce9cf8452d0719c40ef2",
+          "sourceId": "aaa61e76bb1efe7353d9233562b2604f7938cd1fc83d747c4ef87f8e84939e00",
+          "statistics": {
+            "min": 0,
+            "max": 27.22243881225586,
+            "mean": 18.264855023513682,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 3435,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z13.8560809904/density.f32.bin",
           "dtype": "float32-le",
@@ -1916,6 +3163,22 @@
             "negative": 141797,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              252.88775634765625,
+              14235.3046875
+            ],
+            "Tk": [
+              331.80364990234375,
+              23329.576171875
+            ]
           }
         }
       }
@@ -1942,6 +3205,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z13.5647855570/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "97ceb6af22223906cbe8c883d8b38928080c720a576fb0634118e320600b21fb",
+          "sourceId": "5449cea3040ce21bcef08cb281f0a41acb6cc484e9eed2f9d9f0641838700412",
+          "statistics": {
+            "min": 0,
+            "max": 26.533273696899414,
+            "mean": 17.331469805126677,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 5368,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z13.5647855570/density.f32.bin",
           "dtype": "float32-le",
@@ -1956,6 +3235,22 @@
             "negative": 141998,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              306.1442565917969,
+              15697.248046875
+            ],
+            "Tk": [
+              421.6583557128906,
+              26379.13671875
+            ]
           }
         }
       }
@@ -1982,6 +3277,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z13.2792017935/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "3e01ab3bd0b1e295902278cc6344b4012cef626b3f6adfc270c5bd314ea23bbb",
+          "sourceId": "7599dbac54d7bba279bdecc502a13412f9164c4e62935cdb587b4c07e370fc66",
+          "statistics": {
+            "min": 0,
+            "max": 25.588619232177734,
+            "mean": 16.207422899085017,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 8382,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z13.2792017935/density.f32.bin",
           "dtype": "float32-le",
@@ -1996,6 +3307,22 @@
             "negative": 142206,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              365.7498779296875,
+              18055.5
+            ],
+            "Tk": [
+              531.827880859375,
+              31563.298828125
+            ]
           }
         }
       }
@@ -2022,6 +3349,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z12.9992177064/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "4b43419948cc9dbeb0554634e2c3170eafb95243309afc8a160ce2b36ac131cb",
+          "sourceId": "d7ab3d6fb441c585ffe7e6f3b84ba088bd8a02b314db3f62630d1a536dd4271b",
+          "statistics": {
+            "min": 0,
+            "max": 24.60213851928711,
+            "mean": 14.910587255946487,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 12966,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z12.9992177064/density.f32.bin",
           "dtype": "float32-le",
@@ -2036,6 +3379,22 @@
             "negative": 142416,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              433.6040344238281,
+              16944.103515625
+            ],
+            "Tk": [
+              668.3463134765625,
+              31027.201171875
+            ]
           }
         }
       }
@@ -2062,6 +3421,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z12.7247234982/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "d24c8b5fd64ed27311c610294253bbb5abd1774786e81353a6ca86d9c38c375c",
+          "sourceId": "3b06999df59b701f4d6bd0956642726c03f962ee4542cb1f1c364630b69585b6",
+          "statistics": {
+            "min": 0,
+            "max": 23.74248695373535,
+            "mean": 13.457303508822713,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 19734,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z12.7247234982/density.f32.bin",
           "dtype": "float32-le",
@@ -2076,6 +3451,22 @@
             "negative": 142644,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              510.4327697753906,
+              15340.3984375
+            ],
+            "Tk": [
+              836.0538330078125,
+              28249.88671875
+            ]
           }
         }
       }
@@ -2102,6 +3493,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z12.4556115244/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "bba8ab668238589c15d104ff6f7c40635a9b1579a0f44a750e8862bc72885fbb",
+          "sourceId": "2e654496b15f452055e6369ca00d61c361dcae64818b5a9ba4686dfe9dddb88e",
+          "statistics": {
+            "min": 0,
+            "max": 22.7225341796875,
+            "mean": 11.840610016349283,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 30016,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z12.4556115244/density.f32.bin",
           "dtype": "float32-le",
@@ -2116,6 +3523,22 @@
             "negative": 142886,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              596.3638916015625,
+              16425.994140625
+            ],
+            "Tk": [
+              1044.07080078125,
+              31945.0234375
+            ]
           }
         }
       }
@@ -2142,6 +3565,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z12.1917762510/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "3a1f4888e6f01ac15481fd4f0e5d0366e7a6a2d0f1c807e5053cc3e306f62675",
+          "sourceId": "d9fa28fad21084766bfec2d97f5437f7d785eb0b375bf873a3f9f7ce4602b953",
+          "statistics": {
+            "min": 0,
+            "max": 21.584550857543945,
+            "mean": 10.01925079281141,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 46122,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z12.1917762510/density.f32.bin",
           "dtype": "float32-le",
@@ -2156,6 +3595,22 @@
             "negative": 143100,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              693.3443603515625,
+              17213.421875
+            ],
+            "Tk": [
+              1308.2359619140625,
+              34448.83984375
+            ]
           }
         }
       }
@@ -2182,6 +3637,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z11.9331142134/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "5b47ad30003544de705fa974535c164213d37f01f4e14fe8c782ee7c5b57cc3d",
+          "sourceId": "288eff2b08fcf87bb51664c05b9c16e33e0c6f473d3485c86c51c3e5bc7c521c",
+          "statistics": {
+            "min": 0,
+            "max": 20.619651794433594,
+            "mean": 8.000910959218732,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 70495,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z11.9331142134/density.f32.bin",
           "dtype": "float32-le",
@@ -2196,6 +3667,22 @@
             "negative": 143345,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              802.3444213867188,
+              17083.888671875
+            ],
+            "Tk": [
+              1640.52099609375,
+              35650.5
+            ]
           }
         }
       }
@@ -2222,6 +3709,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z11.6795239757/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "d93aff11c51838205fc4790b04590fbd358f847d3adbe5bb6ad0933822e19b8f",
+          "sourceId": "a8c896c359c2c4313a2998bb438f4ba8eff49793199b832c5f222808b296cc71",
+          "statistics": {
+            "min": 0,
+            "max": 19.571788787841797,
+            "mean": 5.80439644001703,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 106241,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z11.6795239757/density.f32.bin",
           "dtype": "float32-le",
@@ -2236,6 +3739,22 @@
             "negative": 143639,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              919.6450805664062,
+              19136.8828125
+            ],
+            "Tk": [
+              2058.41455078125,
+              41833.85546875
+            ]
           }
         }
       }
@@ -2262,6 +3781,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z11.4309060910/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "073ee01879ca789702d4ba6165774e498535172ceef0f0b4b1c064746ebb14de",
+          "sourceId": "eec7e36956487266d5578f762ce84c1fbc9428117b73d0ebb34626b91dfa55d7",
+          "statistics": {
+            "min": 0,
+            "max": 18.05917739868164,
+            "mean": 3.3157461809645135,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 160992,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z11.4309060910/density.f32.bin",
           "dtype": "float32-le",
@@ -2276,6 +3811,22 @@
             "negative": 143912,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              1046.5982666015625,
+              21335.296875
+            ],
+            "Tk": [
+              2587.832763671875,
+              47683.5234375
+            ]
           }
         }
       }
@@ -2302,6 +3853,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z11.1871630622/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "69288d14334885d17051522224eb86f27a8f31aba7e1ae4f891b3eda5cdbc884",
+          "sourceId": "c35680adf471d2b857fdaafb573d8b0f62e90fb29f7d301fb389159170da17fc",
+          "statistics": {
+            "min": 0,
+            "max": 16.12206268310547,
+            "mean": 0.9727948010713443,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 227014,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z11.1871630622/density.f32.bin",
           "dtype": "float32-le",
@@ -2316,6 +3883,22 @@
             "negative": 144166,
             "zero": 0,
             "count": 262144
+          }
+        }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              1178.7745361328125,
+              23064.04296875
+            ],
+            "Tk": [
+              3234.2919921875,
+              54731.16796875
+            ]
           }
         }
       }
@@ -2342,6 +3925,22 @@
             "count": 262144
           }
         },
+        "brightness_temperature": {
+          "url": "snapshots/z10.9481993040/brightness_temperature.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "50ca5e69f5417f267bd0f5fc46a9efcf751aaf209e080b039cb37c6e32ae2628",
+          "sourceId": "7fb2dc86c7f01d5115bb6db3e69c4d948623a785d23cac0b189e6d9548e06875",
+          "statistics": {
+            "min": 0,
+            "max": 13.840476036071777,
+            "mean": 0.09161405070188877,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 258142,
+            "count": 262144
+          }
+        },
         "density": {
           "url": "snapshots/z10.9481993040/density.f32.bin",
           "dtype": "float32-le",
@@ -2358,6 +3957,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              1316.8648681640625,
+              20928.771484375
+            ],
+            "Tk": [
+              4035.322509765625,
+              52829.6484375
+            ]
+          }
+        }
       }
     },
     {
@@ -2368,6 +3983,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z10.7139211053/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "615a9633aef64ae36be33a120f2d53b5febbda2bddd4f6c1d33d7570eaa8ac95",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z10.7139211053/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -2398,6 +4029,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              1449.325927734375,
+              21246.02734375
+            ],
+            "Tk": [
+              4909.37158203125,
+              55534.03515625
+            ]
+          }
+        }
       }
     },
     {
@@ -2408,6 +4055,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z10.4842365925/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "ecdc7e1c9b18f38036b2f13bcb67f267b2f1fa8876620daf1452907e3c657b07",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z10.4842365925/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -2438,6 +4101,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              1575.2646484375,
+              22346.62109375
+            ],
+            "Tk": [
+              5822.14208984375,
+              59970.53515625
+            ]
+          }
+        }
       }
     },
     {
@@ -2448,6 +4127,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z10.2590556934/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "beb833efed5043144f594b8d3b7918cf98aef0ea4bcd9d060f08dbd441402ff3",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z10.2590556934/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -2478,6 +4173,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              1694.415771484375,
+              24880.994140625
+            ],
+            "Tk": [
+              6736.916015625,
+              70793.859375
+            ]
+          }
+        }
       }
     },
     {
@@ -2488,6 +4199,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z10.0382901019/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "e2d3b18677a0e2c197fc75f4d900baba2360e1da961e172c6f955541b5f20c00",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z10.0382901019/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -2518,6 +4245,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              1794.365966796875,
+              23437.9296875
+            ],
+            "Tk": [
+              7586.32177734375,
+              68000.5625
+            ]
+          }
+        }
       }
     },
     {
@@ -2528,6 +4271,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z9.8218532434/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "c7f23dc2755c9e80f1a02d258ce5a779c50268a9a15c987e7964b015fa8cd178",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z9.8218532434/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -2558,6 +4317,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              1885.5966796875,
+              27229.09375
+            ],
+            "Tk": [
+              8358.732421875,
+              83783.1015625
+            ]
+          }
+        }
       }
     },
     {
@@ -2568,6 +4343,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z9.6096602410/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "2a16992462523d555abf1554ab3f9f77b7c4ccdce2b16f5b79ee1792b976060a",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z9.6096602410/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -2598,6 +4389,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              1976.042724609375,
+              23276.69921875
+            ],
+            "Tk": [
+              9187.650390625,
+              75378.8828125
+            ]
+          }
+        }
       }
     },
     {
@@ -2608,6 +4415,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z9.4016278817/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "a3d6a69c51a7d7b2355d5aa71b1b660cd8f881d09ec0888aecefe1a893ec75cd",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z9.4016278817/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -2638,6 +4461,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              2065.446533203125,
+              24475.505859375
+            ],
+            "Tk": [
+              10075.8095703125,
+              82323.234375
+            ]
+          }
+        }
       }
     },
     {
@@ -2648,6 +4487,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z9.1976745846/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "58b053694113b2f6a2acd21136ef98ec32e098753423079c2706b86cb458e80a",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z9.1976745846/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -2678,6 +4533,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              2156.667724609375,
+              23475.6875
+            ],
+            "Tk": [
+              11024.2626953125,
+              82584.4609375
+            ]
+          }
+        }
       }
     },
     {
@@ -2688,6 +4559,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z8.9977203679/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "a5e230f475ee2e966fbde3d027fc8fb586789f8fa408420dac539b39440257ec",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z8.9977203679/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -2718,6 +4605,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              2242.9052734375,
+              25125.060546875
+            ],
+            "Tk": [
+              12036.501953125,
+              92139.3203125
+            ]
+          }
+        }
       }
     },
     {
@@ -2728,6 +4631,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z8.8016868185/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "972d5c381423960ca73164b3922e72be0e9ea67df80b81e35799fff714df4a04",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z8.8016868185/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -2758,6 +4677,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              2328.289306640625,
+              24935.955078125
+            ],
+            "Tk": [
+              13114.1337890625,
+              96595.8359375
+            ]
+          }
+        }
       }
     },
     {
@@ -2768,6 +4703,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z8.6094970605/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "e8d5c8522d07eecf54eea805064592569d3a6e842037bba9bd0dbf3e9c9850fe",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z8.6094970605/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -2798,6 +4749,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              2410.1953125,
+              24542.59765625
+            ],
+            "Tk": [
+              14259.8974609375,
+              99475.765625
+            ]
+          }
+        }
       }
     },
     {
@@ -2808,6 +4775,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z8.4210757257/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "474aeb818dc56e85422ca6ab739e98471b62a6c06db98915ecbeae2b2cad7e6c",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z8.4210757257/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -2838,6 +4821,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              2489.681884765625,
+              27710.126953125
+            ],
+            "Tk": [
+              15476.71484375,
+              118292.703125
+            ]
+          }
+        }
       }
     },
     {
@@ -2848,6 +4847,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z8.2363489234/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "1994a9643607f8097283bc340886c269faadd5440dbd911ba4b619538d0f2966",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z8.2363489234/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -2878,6 +4893,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              2575.982421875,
+              23420.66796875
+            ],
+            "Tk": [
+              16764.453125,
+              104660.71875
+            ]
+          }
+        }
       }
     },
     {
@@ -2888,6 +4919,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z8.0552442119/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "e12e5c5f03894281050675fe62f1409bc42f8c68bf7ffd3c1b7aca1ccf77f335",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z8.0552442119/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -2918,6 +4965,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              2650.036865234375,
+              24122.884765625
+            ],
+            "Tk": [
+              18129.916015625,
+              113806.296875
+            ]
+          }
+        }
       }
     },
     {
@@ -2928,6 +4991,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z7.9655884133/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "67cebb522fa2753756b423edc03e4bbd0a144f0681d5bfb14194d47fe85084f8",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z7.9655884133/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -2958,6 +5037,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              2685.97607421875,
+              23823.583984375
+            ],
+            "Tk": [
+              18844.4140625,
+              116504.8203125
+            ]
+          }
+        }
       }
     },
     {
@@ -2968,6 +5063,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z7.8776905698/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "ba16d068ced3c00e67cc67b0b8e6bcc1b6eb8e3aa2550a6d94fc13ef7d3628af",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z7.8776905698/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -2998,6 +5109,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              2720.854736328125,
+              24586.689453125
+            ],
+            "Tk": [
+              19571.771484375,
+              119743.515625
+            ]
+          }
+        }
       }
     },
     {
@@ -3008,6 +5135,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z7.7036183685/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "0acf25c93c6e4d7588bc37dd37cd4324226f795e50c83b9c21238f5ff15990aa",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z7.7036183685/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -3038,6 +5181,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              2788.416748046875,
+              23300.765625
+            ],
+            "Tk": [
+              21094.31640625,
+              121520.71875
+            ]
+          }
+        }
       }
     },
     {
@@ -3048,6 +5207,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z7.5329593443/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "ee85e0c62952c5d99630bfc89f700d70a7abe40095ddf15f58633445e89491ff",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z7.5329593443/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -3078,6 +5253,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              2852.695556640625,
+              23422.470703125
+            ],
+            "Tk": [
+              22699.96875,
+              126433.1875
+            ]
+          }
+        }
       }
     },
     {
@@ -3088,6 +5279,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z7.3656465725/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "add05fdf283ed1fcbfff8c303118423b370b8b5c6a8b82ccb9908ef3a986c390",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z7.3656465725/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -3118,6 +5325,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              2913.29833984375,
+              22537.8203125
+            ],
+            "Tk": [
+              24387.0859375,
+              128449.6796875
+            ]
+          }
+        }
       }
     },
     {
@@ -3128,6 +5351,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z7.2016144401/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "b86967382b8338d130078c8dc4d7d0d5316e1c8054bd7166ec4258703051dc04",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z7.2016144401/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -3158,6 +5397,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              2970.469482421875,
+              23406.134765625
+            ],
+            "Tk": [
+              26162.2265625,
+              140354.53125
+            ]
+          }
+        }
       }
     },
     {
@@ -3168,6 +5423,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z7.0407986210/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "46b53315fec9a1fc7c08745aeee9e21063fb362f9d30aa8d9fea4e57563fc2f2",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z7.0407986210/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -3198,6 +5469,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              3024.524169921875,
+              22463.4609375
+            ],
+            "Tk": [
+              28025.458984375,
+              142887.203125
+            ]
+          }
+        }
       }
     },
     {
@@ -3208,6 +5495,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z6.8831360504/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "0afce6331b9c4622fb5da205c98c205a459e44962591726bc7c32de4a1d51d76",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z6.8831360504/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -3238,6 +5541,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              3074.283203125,
+              21114.38671875
+            ],
+            "Tk": [
+              29984.365234375,
+              143260.234375
+            ]
+          }
+        }
       }
     },
     {
@@ -3248,6 +5567,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z6.7285648998/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "f2b6f6eb7c4b00b34df60b8f2af430e78a7da00f70ee6bd24d1e4d18d7207a1d",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z6.7285648998/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -3278,6 +5613,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              3120.6875,
+              22318.0078125
+            ],
+            "Tk": [
+              32040.0703125,
+              157614.234375
+            ]
+          }
+        }
       }
     },
     {
@@ -3288,6 +5639,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z6.5770245533/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "bdb1bbf3cc5b0060419eaa32a1d8f3d14c5d683968d4e6b3899ebb88c02d1a3e",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z6.5770245533/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -3318,6 +5685,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              3163.1640625,
+              21942.5546875
+            ],
+            "Tk": [
+              34191.4140625,
+              160325.4375
+            ]
+          }
+        }
       }
     },
     {
@@ -3328,6 +5711,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z6.4284555833/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "dec8adadc023c11d8cbf32be9793c38b4d5c04e95c54337c55ad04e8c9aa8596",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z6.4284555833/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -3358,6 +5757,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              3202.15087890625,
+              21364.728515625
+            ],
+            "Tk": [
+              36441.87890625,
+              164922.015625
+            ]
+          }
+        }
       }
     },
     {
@@ -3368,6 +5783,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z6.2827997276/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "b874c2defe7aacb91040360f4da539b53ee5de6bca2b66c152b2a08ffec9dbd7",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z6.2827997276/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -3398,6 +5829,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              3238.262939453125,
+              23277.052734375
+            ],
+            "Tk": [
+              38792.68359375,
+              191961.359375
+            ]
+          }
+        }
       }
     },
     {
@@ -3408,6 +5855,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z6.1399998665/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "da48894d0c667d1abbb31423d1820c556b609a73226aadd388d1ef37bc075902",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z6.1399998665/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -3438,6 +5901,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              3274.978515625,
+              20397.5234375
+            ],
+            "Tk": [
+              41244.8828125,
+              178882.5
+            ]
+          }
+        }
       }
     },
     {
@@ -3448,6 +5927,22 @@
       "fields": {
         "xH": {
           "url": "snapshots/z6.0000000000/xH.f32.bin",
+          "dtype": "float32-le",
+          "byteLength": 1048576,
+          "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+          "sourceId": "f367d5f4063f85b3b5407399c1596e5a9854cc3784dc979c7ef9adb6dd012480",
+          "statistics": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "negative": 0,
+            "zero": 262144,
+            "count": 262144
+          }
+        },
+        "brightness_temperature": {
+          "url": "snapshots/z6.0000000000/brightness_temperature.f32.bin",
           "dtype": "float32-le",
           "byteLength": 1048576,
           "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
@@ -3478,6 +5973,22 @@
             "count": 262144
           }
         }
+      },
+      "fieldQuality": {
+        "brightness_temperature": {
+          "status": "range-check-passed",
+          "reasons": [],
+          "sourceTemperatureRangeK": {
+            "Ts": [
+              3305.06005859375,
+              21439.978515625
+            ],
+            "Tk": [
+              43815.0703125,
+              198709.15625
+            ]
+          }
+        }
       }
     }
   ],
@@ -3488,8 +5999,11 @@
     "displayOnly": true,
     "publishedFields": [
       "xH",
-      "density"
+      "density",
+      "brightness_temperature"
     ],
-    "nativeDataUploaded": false
+    "nativeDataUploaded": false,
+    "brightnessTemperatureAvailable": 68,
+    "qualityPolicy": "Per-snapshot source-temperature and range checks; not physical certification. Flagged frames are withheld, never clipped or substituted."
   }
 }

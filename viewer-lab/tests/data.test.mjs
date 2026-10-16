@@ -39,7 +39,7 @@ test('field availability excludes unpublished Tb and preserves distinct native b
 });
 
 test('signed physical values map consistently without overwriting source floats',async()=>{
-  assert.equal(normalizedValue(0,'brightness_temperature'),5/6);
+  assert.equal(normalizedValue(0,'brightness_temperature'),15/19);
   assert.deepEqual(fieldColor(0,'brightness_temperature'),FIELDS.brightness_temperature.palette[1]);
   assert.equal(normalizedValue(-1,'density'),0);assert.equal(normalizedValue(20,'density'),1);
   const s=manifests.legacy.snapshots.find(s=>s.id==='coeval-z12.99303239');

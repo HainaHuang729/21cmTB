@@ -216,6 +216,7 @@ export class CavityRenderer extends Renderer {
     const w=Math.max(1,Math.round(box.width*scale)),h=Math.max(1,Math.round(box.height*scale));
     if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;}
     const energy=this.settings.sampleMode==='energy';
+    if(!this.ready){gl.viewport(0,0,w,h);gl.clearColor(.065,.125,.15,1);gl.clear(gl.COLOR_BUFFER_BIT);return;}
     if(energy)this.glowPass.begin(w,h);
     gl.viewport(0,0,w,h);gl.clearColor(.065,.125,.15,1);gl.clear(gl.COLOR_BUFFER_BIT);if(!this.ready){gl.bindFramebuffer(gl.FRAMEBUFFER,null);return;}
     gl.useProgram(this.cavityProgram);gl.bindVertexArray(this.vao);gl.disable(gl.BLEND);

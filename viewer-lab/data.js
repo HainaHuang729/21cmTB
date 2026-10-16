@@ -1,7 +1,7 @@
 import { evaluateTransfer } from './transfer.js';
 import { abortable, volumeKey } from './volume-cache.js';
 
-export const REVISION = '72f803a60632f50efe73ba6a5e91e0036f3f301f';
+export const REVISION = '7daaaca68ac6df4f9ccd95fbb1bbb16ecc042fc0';
 export const REMOTE = `https://raw.githubusercontent.com/HainaHuang729/21cmTB/${REVISION}/viewer-data64/pl-bt-v1/`;
 export const GITHUB_ROOT = `https://raw.githubusercontent.com/HainaHuang729/21cmTB/${REVISION}/`;
 export const DATASETS = {
@@ -12,10 +12,14 @@ export const DATASETS = {
 export const FIELDS = {
   xH:{label:'中性氢比例',symbol:'xH',unit:'',range:[0,1],middle:.5,palette:[[39,79,99],[77,143,156],[231,231,192]]},
   density:{label:'密度对比度',symbol:'δ',unit:'',range:[-1,20],middle:.5,palette:[[34,54,70],[65,130,137],[229,180,66]]},
-  brightness_temperature:{label:'21 cm 亮温',symbol:'δTb',unit:'mK',range:[-150,30],middle:5/6,palette:[[43,80,121],[239,237,220],[184,75,62]]},
+  brightness_temperature:{label:'21 cm 亮温',symbol:'δTb',unit:'mK',range:[-150,40],middle:15/19,palette:[[43,80,121],[239,237,220],[184,75,62]]},
 };
-export function availableFields(manifest){
-  return Object.keys(FIELDS).filter(key=>manifest.fields[key] && manifest.fields[key].qualityStatus!=='under-review' && manifest.snapshots.every(s=>s.fields[key]));
+export function snapshotFieldAvailable(snapshot,key){
+  const quality=snapshot.fieldQuality?.[key];
+  return !!snapshot.fields?.[key]&&(!quality||quality.status==='range-check-passed');
+}
+export function availableFields(manifest,{partial=false}={}){
+  return Object.keys(FIELDS).filter(key=>manifest.fields[key] && manifest.fields[key].qualityStatus!=='under-review' && manifest.snapshots[partial?'some':'every'](s=>snapshotFieldAvailable(s,key)));
 }
 export const normalizedValue=(value,field='xH')=>{
   const [lo,hi]=(typeof field==='string'?FIELDS[field]:field).range;return clamp((value-lo)/(hi-lo),0,1);
@@ -111,7 +115,8 @@ export class VolumeStore {
   }
   async read(model,snapshot,fieldKey){
     const manifest = this.manifests[model];
-    if(!availableFields(manifest).includes(fieldKey))throw new Error('本数据集未发布该物理场，请选择其他物理量');
+    if(!availableFields(manifest,{partial:true}).includes(fieldKey))throw new Error('本数据集未发布该物理场，请选择其他物理量');
+    if(!snapshotFieldAvailable(snapshot,fieldKey))throw new Error('本红移的物理场暂缓发布，等待源数据审核');
     const descriptor=snapshot.fields[fieldKey];
     const verify=async buffer=>{
       const value=await verifyVolume(buffer,descriptor,fieldKey);

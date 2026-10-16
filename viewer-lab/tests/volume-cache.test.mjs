@@ -74,11 +74,10 @@ test('cancelling a preloader prevents more queued work and a disk quota failure 
   const persistent=new BrowserVolumeCache(REVISION,{storage:{open:async()=>({put:async()=>{throw new Error('Quota exceeded');}})}});
   assert.equal(await persistent.write(snapshot.fields.xH,buffer()),false);assert.equal(persistent.enabled,false);
 });
-test('the complete glow viewer has all 189 physical files locally available',async()=>{
-  const registry=JSON.parse(await readFile(new URL('../data/local-files.json',import.meta.url)));
-  const legacy=JSON.parse(await readFile(new URL('../data/legacy-manifest.json',import.meta.url)));
-  for(const [model,m,fields]of [['pl',manifest,['xH','density']],['legacy',legacy,['brightness_temperature']]]){
-    for(const s of m.snapshots)for(const field of fields)assert.ok(registry[`${model}/${s.id}/${field}`]);
-  }
-  assert.equal(manifest.snapshots.length*2+legacy.snapshots.length,189);
+test('withheld source data cannot be requested or reused from persistent storage',async()=>{
+  const withheld=manifest.snapshots.find(s=>s.fieldQuality?.brightness_temperature?.status==='withheld');
+  let attempts=0;
+  const store=new VolumeStore({pl:manifest},{},{persistent:{read:()=>{attempts++;throw new Error('must not read');}}});
+  await assert.rejects(store.load('pl',withheld,null,'brightness_temperature'),/暂缓发布/);
+  assert.equal(attempts,0);assert.equal(store.cache.size,0);
 });
