@@ -1,5 +1,5 @@
 import { CavityRenderer } from './cavity-renderer.js';
-import { fetchJSON, validateManifest, VolumeStore, nearest, fieldColor, index3, FIELDS, availableFields, snapshotFieldAvailable, REVISION } from './data.js';
+import { fetchJSON, validateManifest, VolumeStore, nearest, fieldColor, index3, FIELDS, availableFields, snapshotFieldAvailable, REVISION, fieldSize } from './data.js';
 import { SAMPLE_FIELDS, sampleDefaults, structureValue, epochThreshold } from './field-presets.js';
 import { SnapshotPlayer } from './snapshot-player.js';
 import { BrowserVolumeCache, preloadVolumes, volumeKey } from './volume-cache.js';
@@ -17,10 +17,10 @@ const persistent=new BrowserVolumeCache(REVISION),prepared=new PreparedFrames(),
 let allTasks=[],activePreparation,allPreparation,allCacheController,cacheError='',fieldCacheError='',playPreparing=false,playIntent=0,disposed=false;
 const labels=['sample-threshold','sample-section','sample-shadow','sample-bloom'];
 const keys=['threshold','section','shadowStrength','bloom'];
-const preset=()=>({...SAMPLE_FIELDS[fieldKey],model:modelKey,source:`${modelKey.toUpperCase()} · 250 cMpc · 64³`});
+const preset=()=>({...SAMPLE_FIELDS[fieldKey],model:modelKey,source:`${modelKey.toUpperCase()} · 250 cMpc · ${fieldSize(manifests?.[modelKey],fieldKey)}³`});
 const field=()=>FIELDS[fieldKey];
-const repairedPL=()=>!!manifests?.pl?.thermalEvolutionRepair;
-const currentThreshold=(epoch,snapshot=frames[fieldKey]?.[frameIndex])=>epochThreshold(fieldKey,epoch,modelKey,repairedPL()&&modelKey==='pl'?snapshot:null);
+const modelRepaired=()=>!!manifests?.[modelKey]?.thermalEvolutionRepair;
+const currentThreshold=(epoch,snapshot=frames[fieldKey]?.[frameIndex])=>epochThreshold(fieldKey,epoch,modelKey,modelRepaired()?snapshot:null);
 const number=value=>Number(value.toFixed(Math.abs(value)<1?3:2)).toString();
 for(const [selector,variable]of [['.sample-controls','--sample-dock'],['.sample-header','--sample-header']])new ResizeObserver(entries=>document.body.style.setProperty(variable,`${entries[0].target.getBoundingClientRect().height}px`)).observe(document.querySelector(selector));
 
@@ -45,16 +45,16 @@ function configure(interactive=false){
   $('material-key').hidden=!isSurface;
   const names=energy?fieldKey==='density'?['金色高密结构','青色纤维背景']:fieldKey==='brightness_temperature'?['蓝色吸收','橙红发射']:['界面辉光','暖色剖切边缘']:['阈值界面','剖切边缘'];
   $('material-interface').textContent=names[0];$('material-cut').textContent=names[1];
-  const explanation=fieldKey==='brightness_temperature'&&modelKey==='pl'&&repairedPL()?'蓝色表示负亮温吸收，橙红表示正亮温发射，零值透明。PL 已修复温度与电离递推，可播放完整的 85 个真实红移快照。':p.explanation;
+  const explanation=fieldKey==='brightness_temperature'&&modelRepaired()?`蓝色表示负亮温吸收，橙红表示正亮温发射，零值透明。${modelKey.toUpperCase()} 已修复温度与电离递推，可播放完整的 85 个真实红移快照。`:p.explanation;
   $('sample-explainer').textContent=energy?explanation:isSurface?'按当前物理量的阈值展示界面；拖动旋转，剖开前侧查看内部。':`同一份 ${f.symbol} 数据与同一视角，使用原有梯度光照体渲染，色标与原值切片一致。`;
   updateEmptyNote();
 }
 function configureField(){
   const p=preset(),f=field(),threshold=$('sample-threshold');
-  threshold.min=p.min;threshold.max=fieldKey==='brightness_temperature'&&modelKey==='pl'&&repairedPL()?Math.max(p.max,Math.ceil(Math.max(...publishedSnapshots(frames[fieldKey],fieldKey).map(s=>Math.max(Math.abs(s.fields[fieldKey].statistics.min),Math.abs(s.fields[fieldKey].statistics.max))))/10)*10):p.max;threshold.step=p.step;
+  threshold.min=p.min;threshold.max=fieldKey==='brightness_temperature'&&modelRepaired()?Math.max(p.max,Math.ceil(Math.max(...publishedSnapshots(frames[fieldKey],fieldKey).map(s=>Math.max(Math.abs(s.fields[fieldKey].statistics.min),Math.abs(s.fields[fieldKey].statistics.max))))/10)*10):p.max;threshold.step=p.step;
   $('sample-threshold-title').textContent=fieldKey==='brightness_temperature'?'亮温幅度 |δTb|':fieldKey==='density'?'密度阈值 δ':`界面阈值 ${f.symbol}`;
   threshold.setAttribute('aria-label',$('sample-threshold-title').textContent);
-  const sourceNote=repairedPL()?(modelKey==='pl'?' · 递推已修复':' · 原缓存，未重算'):'';
+  const sourceNote=modelRepaired()?' · 递推已修复':' · 原缓存，未重算';
   $('sample-title').textContent=p.title;$('sample-subtitle').textContent=p.subtitle+sourceNote+(frames[fieldKey]&&fieldKey==='brightness_temperature'?` · 已发布 ${publishedSnapshots(frames[fieldKey],fieldKey).length} / ${frames[fieldKey].length} 帧`:'');
   $('sample-model').value=modelKey;$('sample-source').textContent=p.source;$('sample-mean-title').textContent=`全盒平均 ${f.symbol}${f.unit?' / '+f.unit:''}`;
   $('sample-slice-title').textContent=`原值切片 · ${f.symbol}${f.unit?' / '+f.unit:''}`;
@@ -62,7 +62,7 @@ function configureField(){
   $('sample-volume').setAttribute('aria-label',`真实${f.label}三维显示；拖动或方向键旋转，加减键缩放，Home 重置`);
   document.querySelector('[data-view="energy"]').textContent=p.effect;
   document.querySelectorAll('[data-epoch]').forEach(button=>button.textContent=p.epochs[Number(button.dataset.epoch)]);
-  $('sample-convention').textContent=fieldKey==='brightness_temperature'?(modelKey==='bt'&&repairedPL()?'BT 保留原缓存，尚未做这次递推修复。':'同一模型的三个场来自同组快照。')+'亮温通过源温度与范围筛查，这不等于物理认证。辉光表达结构与正负号；PL / BT 未核实逐体素相位匹配。':'界面来自 64³ 平均网格的阈值与空间插值。辉光用于辨认结构，不表示真实发射光度或精确物理边界；PL / BT 未核实逐体素相位匹配。';
+  $('sample-convention').textContent=fieldKey==='brightness_temperature'?(!modelRepaired()?'BT 保留原缓存，尚未做这次递推修复。':'同一模型的三个场来自同组快照。')+'已发布亮温通过源温度与范围筛查，这不等于物理认证。辉光表达结构与正负号；PL / BT 未核实逐体素相位匹配。':`界面来自 ${fieldSize(manifests?.[modelKey],fieldKey)}³ 平均网格的阈值与空间插值。辉光用于辨认结构，不表示真实发射光度或精确物理边界；PL / BT 未核实逐体素相位匹配。`;
   drawQualityBand();
   const scale=$('sample-scale').getContext('2d');
   for(let x=0;x<256;x++){const v=f.range[0]+x/255*(f.range[1]-f.range[0]);scale.fillStyle=`rgb(${fieldColor(v,fieldKey).join(',')})`;scale.fillRect(x,0,1,5);}
@@ -92,9 +92,9 @@ $('sample-reset').addEventListener('click',()=>{Object.assign(settings,sampleDef
 function drawSlice(){
   const z=Number($('sample-slice-z').value),ctx=$('sample-slice').getContext('2d');
   $('sample-slice-label').textContent=`Z = ${z}`;ctx.clearRect(0,0,256,256);if(!volume)return;
-  const image=new ImageData(64,64);
-  for(let y=0;y<64;y++)for(let x=0;x<64;x++)image.data.set([...fieldColor(volume.data[index3(x,63-y,z,64)],fieldKey),255],(x+64*y)*4);
-  const source=document.createElement('canvas');source.width=64;source.height=64;source.getContext('2d').putImageData(image,0,0);
+  const n=volume.gridSize,image=new ImageData(n,n);
+  for(let y=0;y<n;y++)for(let x=0;x<n;x++)image.data.set([...fieldColor(volume.data[index3(x,n-1-y,z,n)],fieldKey),255],(x+n*y)*4);
+  const source=document.createElement('canvas');source.width=n;source.height=n;source.getContext('2d').putImageData(image,0,0);
   ctx.imageSmoothingEnabled=false;ctx.drawImage(source,0,0,256,256);
 }
 $('sample-slice-z').addEventListener('input',drawSlice);
@@ -102,11 +102,13 @@ $('sample-slice-z').addEventListener('input',drawSlice);
 function updateCacheStatus(){
   if(!store||disposed||!frames[fieldKey])return;
   const sequence=publishedSnapshots(frames[fieldKey],fieldKey),ready=store.resident(modelKey,sequence,fieldKey),total=sequence.length;
-  $('sample-cache-status').textContent=`${cachedKeys.size===allTasks.length?`全部 ${allTasks.length} 个数据体已缓存`:`缓存 ${cachedKeys.size} / ${allTasks.length}`} · ${modelKey.toUpperCase()} ${preset().tab}预载 ${ready} / ${total}${cacheError||fieldCacheError?' · 部分失败':''}`;
+  const verified=sequence.filter(s=>cachedKeys.has(volumeKey(modelKey,s,fieldKey))).length;
+  const progress=fieldSize(manifests?.[modelKey],fieldKey)>64?`缓存 ${verified} / ${total} · 内存 ${ready} 帧`:`预载 ${ready} / ${total}`;
+  $('sample-cache-status').textContent=`${cachedKeys.size===allTasks.length?`全部 ${allTasks.length} 个数据体已${persistent.enabled?'缓存':'核验（浏览器缓存不可用）'}`:`缓存 ${cachedKeys.size} / ${allTasks.length}`} · ${modelKey.toUpperCase()} ${preset().tab}${progress}${cacheError||fieldCacheError?' · 部分失败':''}`;
   $('sample-cache-progress').max=allTasks.length;$('sample-cache-progress').value=cachedKeys.size;
   $('sample-cache-retry').hidden=!(cacheError||fieldCacheError);
   document.querySelector('.sample-cache').classList.toggle('has-error',!!(cacheError||fieldCacheError));
-  $('sample-cache-status').title=cacheError||fieldCacheError||(persistent.enabled?'全部文件保存在本地，浏览器按 SHA-256 持久缓存；当前模型已发布序列保留在内存。':`本地数据可用；浏览器持久缓存不可用：${persistent.error}`);
+  $('sample-cache-status').title=cacheError||fieldCacheError||(persistent.enabled?'全部文件保存在本地，浏览器按 SHA-256 持久缓存；原值内存预算 256 MiB，提前准备临近帧。':`本地数据可用；浏览器持久缓存不可用：${persistent.error}`);
 }
 function prepareActiveField(force=false){
   const key=fieldKey,model=modelKey,sequence=publishedSnapshots(frames[key],key),sessionKey=`${model}/${key}`;
@@ -204,7 +206,8 @@ function showGap(snapshot){
 function verifiedStatus(){
   if(!volume||displayedField!==fieldKey||displayedModel!==modelKey)return;
   const p=preset(),snapshot=frames[fieldKey][displayedIndex],m=manifests[p.model];
-  $('sample-status').textContent=`${p.source} · ${field().label} · z = ${snapshot.redshift.toFixed(3)} · SHA-256 与数值统计已校验 · ${m.source_grid_shape?.[0]===256?'原始 256³ 经 4³ 体积平均为 64³':'原生 64³ 网格'}${gpuError?' · '+gpuError:''}`;
+  const n=volume.gridSize;
+  $('sample-status').textContent=`${p.source} · ${field().label} · z = ${snapshot.redshift.toFixed(3)} · SHA-256 与数值统计已校验 · ${m.source_grid_shape?.[0]===256?`原始 256³ 经 ${256/n}³ 体积平均为 ${n}³`:`原生 ${n}³ 网格`}${gpuError?' · '+gpuError:''}`;
   $('sample-status').classList.toggle('error',!!gpuError);
 }
 function pendingNote(snapshot){
@@ -241,6 +244,8 @@ async function load(index,thresholdEpoch=null){
     const signal=controller.signal,result=await store.load(model,snapshot,signal,key);
     const gradients=await prepared.get(volumeKey(model,snapshot,key),result.data,signal);if(id!==loadID)return false;
     volume=result;displayedIndex=targetIndex;displayedField=key;displayedModel=model;loading=false;
+    const slice=$('sample-slice-z'),previousN=Number(slice.max)+1;
+    if(previousN!==result.gridSize){const next=Math.min(result.gridSize-1,Math.floor((Number(slice.value)+.5)*result.gridSize/previousN));slice.max=result.gridSize-1;slice.value=next;}
     try{renderer?.setData(result.data,gradients);}catch(e){failure(e.message);}
     $('sample-z').textContent=snapshot.redshift.toFixed(3);$('sample-mean').textContent=key==='brightness_temperature'?result.mean.toFixed(2):key==='density'&&Math.abs(result.mean)<.0005?'≈ 0':result.mean.toFixed(3);
     $('sample-loading').hidden=!gpuError;if(gpuError)$('sample-loading').textContent=gpuError;

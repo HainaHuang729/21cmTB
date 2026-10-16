@@ -11,6 +11,7 @@ precision highp sampler3D;
 out vec4 outColor;
 uniform sampler3D volume;
 uniform vec2 resolution;
+uniform float gridSize;
 uniform vec2 valueRange;
 uniform float colorMiddle;
 uniform vec3 eye, rightAxis, upAxis, forwardAxis;
@@ -23,9 +24,9 @@ uniform bool hardwareLinear;
 const vec3 lightDir=vec3(-.486664,.811107,.324443);
 float normalizeValue(float v){return clamp((v-valueRange.x)/(valueRange.y-valueRange.x),0.,1.);}
 float sampleRaw(vec3 p){
-  p=clamp(p,vec3(.5/64.),vec3(1.-.5/64.));
+  p=clamp(p,vec3(.5/gridSize),vec3(1.-.5/gridSize));
   if(hardwareLinear) return texture(volume,p).r;
-  vec3 q=p*64.-.5; ivec3 a=ivec3(floor(q)),b=min(a+1,ivec3(63));vec3 f=fract(q);
+  vec3 q=p*gridSize-.5; ivec3 a=ivec3(floor(q)),b=min(a+1,ivec3(int(gridSize)-1));vec3 f=fract(q);
   float z0=mix(mix(texelFetch(volume,a,0).r,texelFetch(volume,ivec3(b.x,a.yz),0).r,f.x),mix(texelFetch(volume,ivec3(a.x,b.y,a.z),0).r,texelFetch(volume,ivec3(b.xy,a.z),0).r,f.x),f.y);
   float z1=mix(mix(texelFetch(volume,ivec3(a.xy,b.z),0).r,texelFetch(volume,ivec3(b.x,a.y,b.z),0).r,f.x),mix(texelFetch(volume,ivec3(a.x,b.yz),0).r,texelFetch(volume,b,0).r,f.x),f.y);
   return mix(z0,z1,f.z);
@@ -72,7 +73,7 @@ void integrateSegment(inout vec4 acc,vec3 rd,float startT,float endT){
   if(w<.001)return;
   vec3 rgb=fieldColor(v);
   if(mode>0 && lightStrength>0.){
-    float h=1./64.;
+    float h=1./gridSize;
     vec3 g=vec3(sampleField(p+vec3(h,0,0))-sampleField(p-vec3(h,0,0)),sampleField(p+vec3(0,h,0))-sampleField(p-vec3(0,h,0)),sampleField(p+vec3(0,0,h))-sampleField(p-vec3(0,0,h)));
     // Orient lighting by the displayed weight, including decreasing/custom bands.
     // A flat transfer segment has no invented gradient normal.
@@ -96,7 +97,7 @@ void integrateSegment(inout vec4 acc,vec3 rd,float startT,float endT){
 }
 void compositeSlice(inout vec4 acc,vec3 rd,float t,int axis){
   vec3 p=eye+rd*t+.5;
-  ivec3 cell=clamp(ivec3(floor(p*64.)),ivec3(0),ivec3(63));
+  ivec3 cell=clamp(ivec3(floor(p*gridSize)),ivec3(0),ivec3(int(gridSize)-1));
   cell[axis]=sliceCell[axis];
   // Fixed colour mapping and an exact source voxel, just like the 2D slice.
   composite(acc,fieldColor(normalizeValue(texelFetch(volume,cell,0).r)),.68);
@@ -108,7 +109,7 @@ void main(){
   vec3 eventT=vec3(1e20);ivec3 eventAxis=ivec3(0);int eventCount=0;
   for(int axis=0;axis<3;axis++){
     if(planeEnabled[axis]==0||abs(rd[axis])<1e-8)continue;
-    float plane=(float(sliceCell[axis])+.5)/64.-.5;
+    float plane=(float(sliceCell[axis])+.5)/gridSize-.5;
     float t=(plane-eye[axis])/rd[axis];
     if(t<t0||t>t1)continue;
     eventT[eventCount]=t;eventAxis[eventCount]=axis;eventCount++;
@@ -121,7 +122,7 @@ void main(){
     }
   }
   float ds=(t1-t0)/float(steps);vec4 acc=vec4(0.);int nextEvent=0;
-  for(int i=0;i<256;i++){
+  for(int i=0;i<512;i++){
     if(i>=steps||acc.a>.995)break;
     float cursor=t0+float(i)*ds,endT=i==steps-1?t1:t0+float(i+1)*ds;
     for(int j=0;j<3;j++){
@@ -149,6 +150,7 @@ precision highp float;uniform vec4 lineColor;out vec4 color;void main(){color=li
 const PLANE_COLORS = [[184/255,75/255,62/255,.95],[214/255,166/255,46/255,.95],[77/255,143/255,156/255,.95]];
 
 export class Renderer {
+  gridSize = 64;
   settings = { mode: 0, region: 'neutral', opacity: 4, center: .5, width: .3, light: .65, crop: 1, points: normalizePoints() };
   locator = { point: [32,32,32], planes: [], showProbe: true };
   yaw = .68; pitch = .42; distance = 2.65; ready = false; raf = 0; settle = 0; destroyed = false;
@@ -192,7 +194,7 @@ export class Renderer {
       if(e.type==='pointerup'&&travel<4&&this.ready&&typeof this.onProbe==='function'&&this.locator.planes.length){
         const camera=cameraBasis(this.yaw,this.pitch,this.distance);
         const ray=screenRay(e.clientX,e.clientY,canvas.getBoundingClientRect(),camera);
-        const hit=pickSlice(ray,this.locator.point,this.locator.planes,this.settings.crop);
+        const hit=pickSlice(ray,this.locator.point,this.locator.planes,this.settings.crop,this.gridSize);
         if(hit)this.onProbe(hit.point.slice());
       }
       if(canvas.hasPointerCapture(e.pointerId))canvas.releasePointerCapture(e.pointerId);
@@ -222,12 +224,15 @@ export class Renderer {
   uniform(name,line=false){const map=line?this.lineUniforms:this.uniforms;if(!map.has(name))map.set(name,this.gl.getUniformLocation(line?this.lineProgram:this.program,name));return map.get(name);}
   clearData(){this.ready=false;this.request();}
   setData(data){
-    const gl=this.gl,reuse=!!this.texture;if(!reuse)this.texture=gl.createTexture();
+    const n=Math.round(Math.cbrt(data.length));
+    if(![64,128].includes(n)||data.length!==n**3)throw new Error('三维网格尺寸无效');
+    const gl=this.gl,reuse=!!this.texture&&this.gridSize===n;if(!this.texture)this.texture=gl.createTexture();
+    if(this.gridSize!==n){this.locator.point=this.locator.point.map(v=>Math.min(n-1,Math.floor((v+.5)*n/this.gridSize)));this.gridSize=n;this.updateLocatorGeometry();}
     gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_3D,this.texture);gl.pixelStorei(gl.UNPACK_ALIGNMENT,1);
     gl.texParameteri(gl.TEXTURE_3D,gl.TEXTURE_MIN_FILTER,this.linear?gl.LINEAR:gl.NEAREST);gl.texParameteri(gl.TEXTURE_3D,gl.TEXTURE_MAG_FILTER,this.linear?gl.LINEAR:gl.NEAREST);
     for(const p of [gl.TEXTURE_WRAP_S,gl.TEXTURE_WRAP_T,gl.TEXTURE_WRAP_R])gl.texParameteri(gl.TEXTURE_3D,p,gl.CLAMP_TO_EDGE);
-    if(reuse)gl.texSubImage3D(gl.TEXTURE_3D,0,0,0,0,64,64,64,gl.RED,gl.FLOAT,data);
-    else gl.texImage3D(gl.TEXTURE_3D,0,gl.R32F,64,64,64,0,gl.RED,gl.FLOAT,data);
+    if(reuse)gl.texSubImage3D(gl.TEXTURE_3D,0,0,0,0,n,n,n,gl.RED,gl.FLOAT,data);
+    else gl.texImage3D(gl.TEXTURE_3D,0,gl.R32F,n,n,n,0,gl.RED,gl.FLOAT,data);
     const error=gl.getError();if(error!==gl.NO_ERROR)throw new Error(`三维纹理上传失败 (${error})`);
     this.ready=true;this.request();
   }
@@ -242,11 +247,11 @@ export class Renderer {
   setLocator({point=this.locator.point,planes=this.locator.planes,showProbe=this.locator.showProbe}={},interactive=false){
     const selected=[...new Set(Array.from(planes,axis=>typeof axis==='string'?'xyz'.indexOf(axis.toLowerCase()):axis))].filter(axis=>Number.isInteger(axis)&&axis>=0&&axis<=2);
     // Geometry validation keeps grid indices aligned with the source volume.
-    const geometry=overlayGeometry(Array.from(point),selected,this.settings.crop);
+    const geometry=overlayGeometry(Array.from(point),selected,this.settings.crop,this.gridSize);
     this.locator={point:Array.from(point),planes:selected,showProbe:Boolean(showProbe)};
     this.updateLocatorGeometry(geometry);this.request(interactive);
   }
-  updateLocatorGeometry(geometry=overlayGeometry(this.locator.point,this.locator.planes,this.settings.crop)){
+  updateLocatorGeometry(geometry=overlayGeometry(this.locator.point,this.locator.planes,this.settings.crop,this.gridSize)){
     const vertices=[],groups=[];
     for(const plane of geometry.planes){groups.push({first:vertices.length/3,count:plane.vertices.length/3,color:PLANE_COLORS[plane.axis]});vertices.push(...plane.vertices);}
     if(this.locator.showProbe&&geometry.marker.length){groups.push({first:vertices.length/3,count:geometry.marker.length/3,color:[.98,.97,.91,1]});vertices.push(...geometry.marker);}
@@ -270,8 +275,10 @@ export class Renderer {
     const {eye,forward,right,up}=cameraBasis(this.yaw,this.pitch,this.distance);
     const camera=(line=false)=>{for(const [key,value]of Object.entries({eye,rightAxis:right,upAxis:up,forwardAxis:forward}))gl.uniform3fv(this.uniform(key,line),value);};
     gl.useProgram(this.program);gl.bindVertexArray(this.vao);camera();gl.uniform2f(this.uniform('resolution'),w,h);
+    gl.uniform1f(this.uniform('gridSize'),this.gridSize);
     gl.uniform1i(this.uniform('volume'),0);gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_3D,this.texture);
-    gl.uniform1i(this.uniform('hardwareLinear'),this.linear?1:0);gl.uniform1i(this.uniform('steps'),this.interactive?64:160);
+    const steps=this.gridSize===128?(this.interactive?128:320):(this.interactive?64:160);
+    gl.uniform1i(this.uniform('hardwareLinear'),this.linear?1:0);gl.uniform1i(this.uniform('steps'),steps);
     gl.uniform1i(this.uniform('mode'),this.settings.mode);gl.uniform1i(this.uniform('region'),['neutral','ionized','band','custom'].indexOf(this.settings.region));
     const transfer=new Float32Array(MAX_POINTS*2);
     this.settings.points.forEach((p,i)=>{transfer[i*2]=p.x;transfer[i*2+1]=p.y;});
@@ -290,7 +297,7 @@ export class Renderer {
     gl.bindVertexArray(this.locatorVao);
     for(const group of this.locatorGroups){gl.uniform4fv(this.uniform('lineColor',true),group.color);gl.drawArrays(gl.LINES,group.first,group.count);}
     gl.bindVertexArray(null);gl.disable(gl.BLEND);
-    this.onState(`${this.interactive?'交互预览':'静止精细'} · ${this.interactive?64:160} 步`);
+    this.onState(`${this.interactive?'交互预览':'静止精细'} · ${steps} 步`);
     this.lastDraw={width:w,height:h,cpuMs:performance.now()-start};
   }
   dispose(){this.destroyed=true;cancelAnimationFrame(this.raf);clearTimeout(this.settle);this.observer.disconnect();this.events.abort();const gl=this.gl;gl.deleteTexture(this.texture);gl.deleteProgram(this.program);gl.deleteProgram(this.lineProgram);gl.deleteBuffer(this.lineBuffer);gl.deleteBuffer(this.locatorBuffer);gl.deleteVertexArray(this.vao);gl.deleteVertexArray(this.lineVao);gl.deleteVertexArray(this.locatorVao);}

@@ -14,6 +14,7 @@ precision highp sampler3D;
 out vec4 outColor;
 uniform sampler3D volume,gradients;
 uniform vec2 resolution;
+uniform float gridSize;
 uniform vec3 eye,rightAxis,upAxis,forwardAxis;
 uniform float thresholdRaw,section,shadowStrength,contextOpacity,bandWidth,gradientGain;
 uniform bool hardwareLinear,hdrTarget;
@@ -23,9 +24,9 @@ const vec3 cutNormal=vec3(.6666667,.3333333,.6666667);
 const vec3 keyLight=vec3(-.436436,.872872,.218218);
 float cutDistance(){return mix(.84,-.45,section);}
 float rawField(vec3 p){
-  p=clamp(p,vec3(.5/64.),vec3(1.-.5/64.));
+  p=clamp(p,vec3(.5/gridSize),vec3(1.-.5/gridSize));
   if(hardwareLinear)return texture(volume,p).r;
-  vec3 q=p*64.-.5;ivec3 a=ivec3(floor(q)),b=min(a+1,ivec3(63));vec3 f=fract(q);
+  vec3 q=p*gridSize-.5;ivec3 a=ivec3(floor(q)),b=min(a+1,ivec3(int(gridSize)-1));vec3 f=fract(q);
   float z0=mix(mix(texelFetch(volume,a,0).r,texelFetch(volume,ivec3(b.x,a.yz),0).r,f.x),mix(texelFetch(volume,ivec3(a.x,b.y,a.z),0).r,texelFetch(volume,ivec3(b.xy,a.z),0).r,f.x),f.y);
   float z1=mix(mix(texelFetch(volume,ivec3(a.xy,b.z),0).r,texelFetch(volume,ivec3(b.x,a.y,b.z),0).r,f.x),mix(texelFetch(volume,ivec3(a.x,b.yz),0).r,texelFetch(volume,b,0).r,f.x),f.y);
   return mix(z0,z1,f.z);
@@ -38,9 +39,9 @@ float structureValue(float value){
 float field(vec3 p){return structureValue(rawField(p));}
 bool inDomain(vec3 p){return all(greaterThanEqual(p,vec3(0.)))&&all(lessThanEqual(p,vec3(1.)))&&dot(p-.5,cutNormal)<=cutDistance();}
 vec4 rawGradientAt(vec3 p){
-  p=clamp(p,vec3(.5/64.),vec3(1.-.5/64.));
+  p=clamp(p,vec3(.5/gridSize),vec3(1.-.5/gridSize));
   if(hardwareLinear)return texture(gradients,p);
-  vec3 q=p*64.-.5;ivec3 a=ivec3(floor(q)),b=min(a+1,ivec3(63));vec3 f=fract(q);
+  vec3 q=p*gridSize-.5;ivec3 a=ivec3(floor(q)),b=min(a+1,ivec3(int(gridSize)-1));vec3 f=fract(q);
   vec4 z0=mix(mix(texelFetch(gradients,a,0),texelFetch(gradients,ivec3(b.x,a.yz),0),f.x),mix(texelFetch(gradients,ivec3(a.x,b.y,a.z),0),texelFetch(gradients,ivec3(b.xy,a.z),0),f.x),f.y);
   vec4 z1=mix(mix(texelFetch(gradients,ivec3(a.xy,b.z),0),texelFetch(gradients,ivec3(b.x,a.y,b.z),0),f.x),mix(texelFetch(gradients,ivec3(a.x,b.yz),0),texelFetch(gradients,b,0),f.x),f.y);
   return mix(z0,z1,f.z);
@@ -59,7 +60,7 @@ vec3 emissionColor(float raw){
 float solid(vec3 p){return inDomain(p)?smoothstep(threshold-.035,threshold+.035,field(p)):0.;}
 float excess(vec3 p){return inDomain(p)?max(0.,field(p)-threshold):0.;}
 vec3 normalAt(vec3 p){
-  float h=1./64.;
+  float h=1./gridSize;
   vec3 g=vec3(field(p+vec3(h,0,0))-field(p-vec3(h,0,0)),field(p+vec3(0,h,0))-field(p-vec3(0,h,0)),field(p+vec3(0,0,h))-field(p-vec3(0,0,h)));
   float magnitude=length(g);return magnitude>1e-6?-g/magnitude:vec3(0,1,0);
 }
@@ -118,7 +119,7 @@ void main(){
   t0=max(t0,0.);if(t1<=t0){finish(background);return;}
   vec4 acc=vec4(0.);float start=field(eye+rd*t0+.5)-threshold;
   float ds=(t1-t0)/float(steps),previous=start,previousT=t0;int surfaces=0;
-  for(int i=1;i<=320;i++){
+  for(int i=1;i<=640;i++){
     if(i>steps||acc.a>.995)break;
     float t=t0+float(i)*ds;vec3 p=eye+rd*t+.5;float value=field(p),signedValue=value-threshold;
     if((appearance!=1||fieldKind!=1)&&((signedValue>=0.)!=(previous>=0.))){
@@ -154,16 +155,23 @@ void main(){
       vec3 bandColor=fieldKind==0?vec3(.025,.63,.91):emissionColor(rawField(p));
       composite(acc,bandColor*.95*depth,1.-exp(-band*ds*4.));
       if(fieldKind==1){
-        float web=pow(smoothstep(threshold*.8,threshold*3.6,value),1.5);
-        vec3 webColor=mix(vec3(.035,.23,.29),vec3(1.,.47,.065),smoothstep(threshold*1.6,threshold*3.3,value));
-        float filament=pow(smoothstep(threshold*.25,threshold*1.8,value),1.5)*(1.-smoothstep(threshold*2.,threshold*4.,value));
-        composite(acc,vec3(.025,.28,.38)*depth,1.-exp(-filament*ds*4.5));
+        float web=pow(smoothstep(threshold,threshold*3.2,value),1.8);
+        vec3 webColor=mix(vec3(.035,.23,.29),vec3(1.,.49,.095),smoothstep(threshold*1.6,threshold*3.2,value));
+        float filament=pow(smoothstep(threshold*.65,threshold*2.2,value),2.)*(1.-smoothstep(threshold*2.,threshold*4.,value));
+        composite(acc,vec3(.035,.42,.55)*depth,1.-exp(-filament*ds*2.2));
         float lighting=1.;
-        if(web>.01&&shadowStrength>0.){
-          float crowd=excess(p+keyLight*.04)+excess(p+keyLight*.09);
-          lighting=mix(1.,.38+.62*exp(-crowd*3.),shadowStrength);
+        if(web>.01){
+          vec3 gradient=gradientAt(p).xyz;
+          float magnitude=length(gradient);
+          vec3 normal=magnitude>1e-6?-gradient/magnitude:vec3(0,1,0);
+          if(dot(normal,rd)>0.)normal=-normal;
+          lighting=.7+.45*max(dot(normal,keyLight),0.);
+          if(shadowStrength>0.){
+            float crowd=excess(p+keyLight*.025)+excess(p+keyLight*.055);
+            lighting*=mix(1.,.48+.52*exp(-crowd*3.),shadowStrength);
+          }
         }
-        composite(acc,webColor*(.16+web*2.5)*depth*lighting,1.-exp(-web*ds*32.));
+        composite(acc,webColor*(.3+web*3.2)*depth*lighting,1.-exp(-web*ds*22.));
       }else if(fieldKind==2){
         float emissionWeight=smoothstep(threshold*.45,threshold*1.7,value);
         composite(acc,emissionColor(rawField(p))*.24*depth,1.-exp(-emissionWeight*ds*1.4));
@@ -188,14 +196,15 @@ export class CavityRenderer extends Renderer {
   }
   reset(){this.yaw=1.12;this.pitch=.48;this.distance=2.4;this.request();}
   setData(data,preparedGradient){
-    super.setData(data);const gl=this.gl;
-    const reuse=!!this.gradientTexture;if(!reuse)this.gradientTexture=gl.createTexture();
+    super.setData(data);const gl=this.gl,n=this.gridSize;
+    const reuse=!!this.gradientTexture&&this.gradientSize===n;if(!this.gradientTexture)this.gradientTexture=gl.createTexture();
     gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_3D,this.gradientTexture);
     gl.texParameteri(gl.TEXTURE_3D,gl.TEXTURE_MIN_FILTER,this.linear?gl.LINEAR:gl.NEAREST);gl.texParameteri(gl.TEXTURE_3D,gl.TEXTURE_MAG_FILTER,this.linear?gl.LINEAR:gl.NEAREST);
     for(const p of [gl.TEXTURE_WRAP_S,gl.TEXTURE_WRAP_T,gl.TEXTURE_WRAP_R])gl.texParameteri(gl.TEXTURE_3D,p,gl.CLAMP_TO_EDGE);
-    const gradients=preparedGradient??gradientVolume(data);
-    if(reuse)gl.texSubImage3D(gl.TEXTURE_3D,0,0,0,0,64,64,64,gl.RGBA,gl.FLOAT,gradients);
-    else gl.texImage3D(gl.TEXTURE_3D,0,gl.RGBA32F,64,64,64,0,gl.RGBA,gl.FLOAT,gradients);
+    const gradients=preparedGradient??gradientVolume(data,n);
+    if(reuse)gl.texSubImage3D(gl.TEXTURE_3D,0,0,0,0,n,n,n,gl.RGBA,gl.FLOAT,gradients);
+    else gl.texImage3D(gl.TEXTURE_3D,0,gl.RGBA32F,n,n,n,0,gl.RGBA,gl.FLOAT,gradients);
+    this.gradientSize=n;
     gl.activeTexture(gl.TEXTURE0);
     const error=gl.getError();if(error!==gl.NO_ERROR){this.ready=false;throw new Error(`梯度纹理上传失败 (${error})`);}
     this.request();
@@ -224,13 +233,14 @@ export class CavityRenderer extends Renderer {
     const {eye,forward,right,up}=cameraBasis(this.yaw,this.pitch,this.distance*fit);
     for(const [key,value]of Object.entries({eye,forwardAxis:forward,rightAxis:right,upAxis:up}))gl.uniform3fv(u(key),value);
     gl.uniform2f(u('resolution'),w,h);gl.uniform1i(u('volume'),0);gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_3D,this.texture);
+    gl.uniform1f(u('gridSize'),this.gridSize);
     gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_3D,this.gradientTexture);gl.uniform1i(u('gradients'),1);gl.activeTexture(gl.TEXTURE0);
     gl.uniform1i(u('appearance'),energy?1:0);gl.uniform1i(u('hdrTarget'),this.glowPass.hdr?1:0);
-    gl.uniform1i(u('hardwareLinear'),this.linear?1:0);gl.uniform1i(u('steps'),this.interactive?112:280);
+    gl.uniform1i(u('hardwareLinear'),this.linear?1:0);gl.uniform1i(u('steps'),this.gridSize===128?(this.interactive?192:512):(this.interactive?112:280));
     gl.uniform1f(u('thresholdRaw'),this.settings.threshold);gl.uniform1i(u('fieldKind'),this.settings.fieldKind);
     for(const name of ['section','shadowStrength','contextOpacity','bandWidth','gradientGain'])gl.uniform1f(u(name),this.settings[name]);
     gl.drawArrays(gl.TRIANGLES,0,3);gl.bindVertexArray(null);
-    if(energy)this.glowPass.finish(this.settings.bloom);
+    if(energy)this.glowPass.finish(this.settings.bloom,this.settings.fieldKind===1?.6:1.4);
     this.onState(this.interactive?'交互预览':'界面精细显示');
   }
   dispose(){this.gl.deleteTexture(this.gradientTexture);this.glowPass.dispose();this.gl.deleteProgram(this.cavityProgram);super.dispose();}

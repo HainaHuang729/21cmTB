@@ -39,7 +39,7 @@
         <div class="inspector-tabs" role="tablist" aria-label="检视工具">
           <button id="tab-locator" role="tab" aria-selected="true" aria-controls="panel-locator">原值定位</button>
           <button id="tab-transfer" role="tab" aria-selected="false" aria-controls="panel-transfer" tabindex="-1">可见度曲线</button>
-          <span>64³</span>
+          <span id="active-grid">64³</span>
         </div>
         <section id="panel-locator" role="tabpanel" aria-labelledby="tab-locator">
         <div class="slice-grid">
@@ -77,8 +77,8 @@
     <section class="data-note" aria-label="数据说明">
       <p id="status" role="status">正在载入数据…</p>
       <details><summary>数据来源与显示约定</summary><div>
-        <p id="dataset-note">PL / BT 为 250 cMpc、原始 256³ 经 4³ 线性值体积平均为 64³ 的对照数据；100 cMpc PL 为另一套原生 64³ 模拟，随机种子与物理参数不同，不能视作同一模拟的低分辨率版本。中间 xH 是单元平均比例，不能解释为已解析的电离边界厚度。</p>
-        <p>切片与探针读取公开 64³ 网格原值；三维体显示进行空间插值，无时间插值。每个物理量在不同数据集和模式间共用固定线性色标：xH 为 [0,1]，密度对比度 δ 为 [−1,20]，亮温为 [−150,30] mK（零值为暖白）。曲线的横轴对应当前色标。不透明度和灯光为显示参数。定位线可透视显示。</p>
+        <p id="dataset-note">PL / BT 为 250 cMpc、原始 256³ 的对照数据：xH/亮温经 4³ 平均为 64³，密度按清单经 2³ 平均为 128³；100 cMpc PL 为另一套原生 64³ 模拟，随机种子与物理参数不同，不能视作同一模拟的低分辨率版本。中间 xH 是单元平均比例，不能解释为已解析的电离边界厚度。</p>
+        <p>切片与探针读取当前物理场的公开网格原值（64³ / 128³）；三维体显示进行空间插值，无时间插值。每个物理量在不同数据集和模式间共用固定线性色标：xH 为 [0,1]，密度对比度 δ 为 [−1,20]，亮温为 [−150,40] mK（零值为暖白）。曲线的横轴对应当前色标。不透明度和灯光为显示参数。定位线可透视显示。</p>
         <p>相近 xH 比较选择平均中性氢比例最接近的真实快照，红移可能不同；相同红移比较选择相同时间的快照。同随机种子不代表已证实相位匹配，不作逐体素差分。</p>
         <p>网页坐标使用网格轴和单元中心约定。100 cMpc 数据集包含已校验亮温；250 cMpc 对照系列的亮温源数据待核验，仅开放已发布的 xH 与密度。数据固定于 <a href="https://github.com/HainaHuang729/21cmTB/tree/72f803a60632f50efe73ba6a5e91e0036f3f301f" target="_blank" rel="noreferrer">仓库版本 72f803a</a>。</p>
       </div></details>

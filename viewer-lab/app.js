@@ -8,7 +8,7 @@ const defaults = { mode: 0, region: 'neutral', opacity: 4, center: .5, width: .3
 const settings = { ...defaults, points: samplePreset('neutral') };
 const point = [32,32,32];
 let manifests, store, current, requested, volume, renderer, requestID=0, controller, loadTimer, rendererError='';
-let fieldKey='xH';
+let fieldKey='xH',gridSize=64;
 const fieldStates=new Map();
 const config=()=>FIELDS[fieldKey];
 const colorAt=t=>paletteColor(t,config().palette,config().middle);
@@ -71,7 +71,7 @@ function updateLocator(interactive=false){
   const selection=$('planes').value,planes=selection==='all'?[0,1,2]:selection==='none'?[]:[Number(selection)];
   for(let axis=0;axis<3;axis++){$(`point-${axis}`).value=point[axis];$(`point-value-${axis}`).textContent=point[axis];}
   renderer?.setLocator({point,planes,showProbe:$('show-probe').checked},interactive);
-  const clipped=(point[2]+.5)/64>settings.crop;
+  const clipped=(point[2]+.5)/gridSize>settings.crop;
   $('locator-note').textContent=clipped?'探针位于 Z 裁切范围外；二维切片仍显示完整原值。':'白色十字定位探针；轮廓线可透视。切片开启后可直接点击定位。';
   $('locator-note').classList.toggle('clipped',clipped);
   $('volume-help').textContent=planes.length?'点击切片定位 · 拖动旋转 · 滚轮缩放':'拖动旋转 · 滚轮缩放';
@@ -128,31 +128,31 @@ function drawSlices(interactive=false){
   for(let axis=0;axis<3;axis++){
     const c=$(`slice-${axis}`),ctx=c.getContext('2d');c.width=256;c.height=256;
     if(!volume){ctx.clearRect(0,0,256,256);continue;}
-    const [h,v]=axes(axis),image=new ImageData(64,64);
-    for(let y=0;y<64;y++)for(let x=0;x<64;x++){
-      const xyz=[...point];xyz[h]=x;xyz[v]=63-y;
-      image.data.set([...fieldColor(volume.data[index3(...xyz,64)],fieldKey),255],(x+64*y)*4);
+    const [h,v]=axes(axis),image=new ImageData(gridSize,gridSize);
+    for(let y=0;y<gridSize;y++)for(let x=0;x<gridSize;x++){
+      const xyz=[...point];xyz[h]=x;xyz[v]=gridSize-1-y;
+      image.data.set([...fieldColor(volume.data[index3(...xyz,gridSize)],fieldKey),255],(x+gridSize*y)*4);
     }
-    const scratch=document.createElement('canvas');scratch.width=64;scratch.height=64;scratch.getContext('2d').putImageData(image,0,0);
+    const scratch=document.createElement('canvas');scratch.width=gridSize;scratch.height=gridSize;scratch.getContext('2d').putImageData(image,0,0);
     ctx.imageSmoothingEnabled=false;ctx.drawImage(scratch,0,0,256,256);
-    const cx=(point[h]+.5)*4,cy=(63-point[v]+.5)*4;
+    const cx=(point[h]+.5)*256/gridSize,cy=(gridSize-1-point[v]+.5)*256/gridSize;
     ctx.strokeStyle='rgba(20,30,30,.8)';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(cx,0);ctx.lineTo(cx,256);ctx.moveTo(0,cy);ctx.lineTo(256,cy);ctx.stroke();
     ctx.strokeStyle='rgba(255,255,240,.9)';ctx.lineWidth=1;ctx.stroke();
     $(`slice-label-${axis}`).textContent=`${'XYZ'[axis]} = ${point[axis]}`;
   }
   if(volume){
-    const value=volume.data[index3(...point,64)],position=point.map(n=>((n+.5)*manifests[current.model].boxLength/64).toFixed(2));
+    const value=volume.data[index3(...point,gridSize)],position=point.map(n=>((n+.5)*manifests[current.model].boxLength/gridSize).toFixed(2));
     $('probe').replaceChildren();const strong=document.createElement('strong');strong.textContent=`${config().symbol} = ${value.toFixed(6)} ${config().unit}`;
     $('probe').append(strong,document.createElement('br'),`网格 [${point.join(', ')}] · 中心 [${position.join(', ')}] cMpc`);
   }else $('probe').textContent='等待快照校验完成…';
 }
 for(let axis=0;axis<3;axis++){
   const c=$(`slice-${axis}`),[h,v]=axes(axis);
-  c.addEventListener('click',e=>{if(!volume)return;const r=c.getBoundingClientRect();point[h]=clamp(Math.floor((e.clientX-r.left)/r.width*64),0,63);point[v]=63-clamp(Math.floor((e.clientY-r.top)/r.height*64),0,63);drawSlices();});
+  c.addEventListener('click',e=>{if(!volume)return;const r=c.getBoundingClientRect();point[h]=clamp(Math.floor((e.clientX-r.left)/r.width*gridSize),0,gridSize-1);point[v]=gridSize-1-clamp(Math.floor((e.clientY-r.top)/r.height*gridSize),0,gridSize-1);drawSlices();});
   c.addEventListener('keydown',e=>{
     if(!volume||!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','PageUp','PageDown'].includes(e.key))return;e.preventDefault();
     if(e.key==='ArrowLeft')point[h]--;if(e.key==='ArrowRight')point[h]++;if(e.key==='ArrowUp')point[v]++;if(e.key==='ArrowDown')point[v]--;
-    if(e.key==='PageUp')point[axis]++;if(e.key==='PageDown')point[axis]--;point.forEach((n,i)=>point[i]=clamp(n,0,63));drawSlices();
+    if(e.key==='PageUp')point[axis]++;if(e.key==='PageDown')point[axis]--;point.forEach((n,i)=>point[i]=clamp(n,0,gridSize-1));drawSlices();
   });
 }
 
@@ -172,6 +172,9 @@ async function load(model,index,reason=''){
   try{
     const result=await store.load(model,s,controller.signal,loadingField);if(id!==requestID)return;
     volume=result;current={model,index,snapshot:s,field:loadingField};
+    if(gridSize!==result.gridSize){point.forEach((v,i)=>point[i]=Math.min(result.gridSize-1,Math.floor((v+.5)*result.gridSize/gridSize)));gridSize=result.gridSize;}
+    for(let axis=0;axis<3;axis++)$(`point-${axis}`).max=gridSize-1;
+    $('active-grid').textContent=`${gridSize}³`;
     try{renderer?.setData(result.data);}catch(e){renderFailure(e.message);}
     $('frame-meta').textContent=`z = ${s.redshift.toFixed(3)} · ${config().symbol} · ⟨xH⟩ = ${s.meanNeutralFraction.toFixed(4)}`;
     $('mean-xh').textContent=format(result.mean);$('frame-counter').textContent=`${index+1} / ${m.snapshots.length}`;
@@ -179,7 +182,7 @@ async function load(model,index,reason=''){
     editor.setHistogram(result.bins);drawSlices();drawHistogram();updateUniformNote();
     const uniform=result.max-result.min<1e-6?' 当前快照为均匀场，光照不会生成不存在的结构。':'';
     const grid=m.source_grid_shape?.[0]||64;
-    status(`${DATASETS[model].label} · ${config().label} · ${s.id} · 64³ / 原始 ${grid}³ · SHA-256 与统计已校验。${fallback?' 该数据集未发布所选场，已切换至 xH。':''}${reason}${uniform}${rendererError?' '+rendererError:''}`,!!rendererError);
+    status(`${DATASETS[model].label} · ${config().label} · ${s.id} · ${gridSize}³ / 原始 ${grid}³ · SHA-256 与统计已校验。${fallback?' 该数据集未发布所选场，已切换至 xH。':''}${reason}${uniform}${rendererError?' '+rendererError:''}`,!!rendererError);
   }catch(e){if(id!==requestID||e.name==='AbortError')return;$('load-overlay').textContent=e.message;$('frame-counter').textContent='载入失败';status(e.message,true);}
   finally{if(id===requestID)document.body.classList.remove('loading');}
 }

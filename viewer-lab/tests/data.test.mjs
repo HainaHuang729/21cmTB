@@ -18,13 +18,14 @@ test('all registered active snapshots match the pinned hashes and source statist
     assert.ok(snapshot, key);
     const raw = await readFile(new URL(path, root));
     const result = await verifyVolume(asBuffer(raw), snapshot.fields[field],field);
-    assert.equal(result.data.length, 64 ** 3);
-    assert.equal(result.bins.reduce((a,b) => a+b,0), 64 ** 3);
+    const n=result.gridSize;
+    assert.ok([64,128].includes(n));assert.equal(result.data.length,n**3);
+    assert.equal(result.bins.reduce((a,b) => a+b,0),n**3);
     if(field==='xH')assert.ok(Math.abs(result.mean - snapshot.meanNeutralFraction) < 1e-6);
     // Independent little-endian reads at x/y/z strides catch accidental axis transposition.
-    for (const [x,y,z] of [[1,0,0],[0,1,0],[0,0,1],[31,17,9],[63,63,63]]) {
-      const offset = 4*x + 256*y + 16384*z;
-      assert.equal(result.data[index3(x,y,z,64)], raw.readFloatLE(offset));
+    for (const [x,y,z] of [[1,0,0],[0,1,0],[0,0,1],[31,17,9],[n-1,n-1,n-1]]) {
+      const offset = 4*x + 4*n*y + 4*n*n*z;
+      assert.equal(result.data[index3(x,y,z,n)], raw.readFloatLE(offset));
     }
   }
 });

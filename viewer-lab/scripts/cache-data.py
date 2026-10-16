@@ -40,8 +40,13 @@ def jobs_for(registry, all_sample):
                 elif snapshot['id'] not in ids and prefix + field not in registry:
                     continue
                 registered = registry.get(prefix + field) or (registry.get(f'{model}/{snapshot["id"]}') if field == 'xH' else None)
-                relative = Path(registered).as_posix() if registered else f'data/{model}/{snapshot["id"]}/{field}.f32.bin'
-                url = f'https://raw.githubusercontent.com/HainaHuang729/21cmTB/{REVISIONS[model]}/{directory}/{descriptor["url"]}'
+                fine=field=='density' and manifest['fields'][field].get('grid',manifest['grid'])==[128]*3
+                source_directory=f'viewer-lab/data/{model}-density128-v1' if fine else directory
+                local_folder=f'{model}-density128-v1' if fine else f'{model}-thermal-fixed-v{3 if model=="pl" else 2}' if manifest.get('thermalEvolutionRepair') else None
+                default=f'data/{local_folder}/{descriptor["url"]}' if local_folder else f'data/{model}/{snapshot["id"]}/{field}.f32.bin'
+                relative = Path(registered).as_posix() if registered else default
+                revision=REVISION if fine else REVISIONS[model]
+                url = f'https://raw.githubusercontent.com/HainaHuang729/21cmTB/{revision}/{source_directory}/{descriptor["url"]}'
                 jobs.append((prefix + field, relative, url, descriptor['sha256'], descriptor['byteLength']))
     return jobs
 
@@ -83,7 +88,8 @@ def main():
     registry = json.loads((ROOT / 'data/local-files.json').read_text())
     jobs = jobs_for(registry, args.all_sample)
     errors = []
-    print(f'Verifying/caching {len(jobs)} real fields ({len(jobs)} MiB)', flush=True)
+    total_mib=sum(job[4] for job in jobs)/1024**2
+    print(f'Verifying/caching {len(jobs)} real fields ({total_mib:g} MiB)', flush=True)
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as executor:
         pending = {executor.submit(download, job): job[0] for job in jobs}
         for count, future in enumerate(concurrent.futures.as_completed(pending), 1):

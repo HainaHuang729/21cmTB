@@ -17,9 +17,12 @@ test('worker preparation deduplicates requests, transfers a copy, and preserves 
   assert.equal(frames.cache.has('first'),false);frames.dispose();
 });
 test('missing workers fall back to the same gradient and aborted subscribers cannot start work',async()=>{
-  const frames=new PreparedFrames({workerFactory:()=>{throw new Error('unavailable');}}),data=new Float32Array(64**3);
-  assert.deepEqual(await frames.get('uniform',data),gradientVolume(data));
+  const frames=new PreparedFrames({workerFactory:()=>{throw new Error('unavailable');}});
+  for(const n of [64,128]){
+    const data=new Float32Array(n**3);
+    assert.deepEqual(await frames.get(`uniform-${n}`,data),gradientVolume(data,n));
+  }
   const controller=new AbortController();controller.abort();
-  await assert.rejects(frames.get('cancelled',data,controller.signal),{name:'AbortError'});
+  await assert.rejects(frames.get('cancelled',new Float32Array(64**3),controller.signal),{name:'AbortError'});
   assert.equal(frames.cache.has('cancelled'),false);frames.dispose();
 });

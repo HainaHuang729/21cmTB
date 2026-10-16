@@ -75,9 +75,9 @@ export class GlowPass{
     gl.uniform2f(this.uniform('texel'),1/source.width,1/source.height);gl.uniform2fv(this.uniform('direction'),direction);
     gl.uniform1f(this.uniform('strength'),strength);gl.drawArrays(gl.TRIANGLES,0,3);
   }
-  finish(strength){
+  finish(strength,radius=1.4){
     const [scene,a,b]=this.targets;
-    if(strength>0){this.pass(scene,a,0);this.pass(a,b,1,[1.4/a.width,0]);this.pass(b,a,1,[0,1.4/a.height]);}
+    if(strength>0){this.pass(scene,a,0);this.pass(a,b,1,[radius/a.width,0]);this.pass(b,a,1,[0,radius/a.height]);}
     this.pass(scene,null,2,[0,0],strength>0?a:scene,strength);
     this.gl.bindVertexArray(null);this.gl.activeTexture(this.gl.TEXTURE0);
   }

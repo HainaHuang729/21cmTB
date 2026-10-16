@@ -6,8 +6,8 @@ export const UPSTREAM_REVISION = '7daaaca68ac6df4f9ccd95fbb1bbb16ecc042fc0';
 export const REMOTE = `https://raw.githubusercontent.com/HainaHuang729/21cmTB/${UPSTREAM_REVISION}/viewer-data64/pl-bt-v1/`;
 export const GITHUB_ROOT = `https://raw.githubusercontent.com/HainaHuang729/21cmTB/${UPSTREAM_REVISION}/`;
 export const DATASETS = {
-  pl: {label:'PL · 250 cMpc', base:`https://raw.githubusercontent.com/HainaHuang729/21cmTB/${REVISION}/viewer-lab/data/pl-thermal-fixed-v3/`},
-  bt: {label:'BT · 250 cMpc', base:REMOTE+'coeval-bt256-full-v1-display64/'},
+  pl: {label:'PL · 250 cMpc', base:`https://raw.githubusercontent.com/HainaHuang729/21cmTB/${REVISION}/viewer-lab/data/pl-thermal-fixed-v3/`,densityBase:`https://raw.githubusercontent.com/HainaHuang729/21cmTB/${REVISION}/viewer-lab/data/pl-density128-v1/`},
+  bt: {label:'BT · 250 cMpc', base:REMOTE+'coeval-bt256-full-v1-display64/',densityBase:`https://raw.githubusercontent.com/HainaHuang729/21cmTB/${REVISION}/viewer-lab/data/bt-density128-v1/`},
   legacy: {label:'PL · 100 cMpc', base:GITHUB_ROOT+'viewer/data/coeval-f-star10-m1p3-d2fb547ce0/'},
 };
 export const FIELDS = {
@@ -33,6 +33,7 @@ export const fieldColor=(value,field='xH')=>paletteColor(normalizedValue(value,f
 export const clamp = (n, lo, hi) => Math.max(lo, Math.min(hi, n));
 export const index3 = (x, y, z, n) => x + n * (y + n * z);
 export const axes = axis => axis === 0 ? [1, 2] : axis === 1 ? [0, 2] : [0, 1];
+export const fieldSize=(manifest,key)=>manifest?.fields?.[key]?.grid?.[0]??manifest?.grid?.[0]??64;
 export function nearest(frames, value, key) {
   return frames.reduce((best, f, i) => Math.abs(f[key] - value) < Math.abs(frames[best][key] - value) ? i : best, 0);
 }
@@ -49,7 +50,8 @@ export function validateManifest(m) {
     previous = s.scaleFactor; ids.add(s.id);
     if(!s.fields?.xH)fail('缺少 xH');
     for(const [key,f] of Object.entries(s.fields)){
-      if(!FIELDS[key] || f.byteLength!==64**3*4 || f.dtype!=='float32-le' || !/^[a-f0-9]{64}$/.test(f.sha256))fail('场文件描述无效');
+      const n=fieldSize(m,key),grid=f.grid??m.fields[key]?.grid??m.grid;
+      if(!FIELDS[key] || ![64,128].includes(n) || (n===128&&(key!=='density'||!m.source_grid_shape?.every(v=>v===256))) || grid.length!==3 || !grid.every(v=>v===n) || f.byteLength!==n**3*4 || f.dtype!=='float32-le' || !/^[a-f0-9]{64}$/.test(f.sha256))fail('场文件描述无效');
       if(!new RegExp(`^snapshots/(?:coeval-)?z[\\d.]+/${key}\\.f32\\.bin$`).test(f.url))fail('场文件路径无效');
     }
     if (!Number.isFinite(s.meanNeutralFraction) || s.meanNeutralFraction < 0 || s.meanNeutralFraction > 1) fail('平均 xH 无效');
@@ -70,7 +72,7 @@ export async function verifyVolume(buffer, field, fieldKey='xH') {
   }
   const mean = sum / data.length, stats = field.statistics;
   if (!stats || stats.count !== data.length || stats.nonfinite !== 0 || Math.abs(stats.mean - mean) > 1e-6 || Math.abs(stats.min - min) > 1e-6 || Math.abs(stats.max - max) > 1e-6) throw new Error('快照统计与来源清单不符');
-  return { data, bins, mean, min, max, hash };
+  return { data, bins, mean, min, max, hash, gridSize:Math.round(Math.cbrt(data.length)) };
 }
 // Fixed xH colors shared by every rendering mode, exact-cell slice and legend.
 export const PALETTE = [[39, 79, 99], [77, 143, 156], [231, 231, 192]];
@@ -91,13 +93,16 @@ export async function fetchJSON(url, signal) {
 }
 export class VolumeStore {
   cache = new Map();
-  constructor(manifests, localFiles,{persistent=null,onCached=()=>{}}={}) {
-    Object.assign(this,{manifests,localFiles,persistent,onCached});this.pending=new Map();this.pinned=new Set();this.requests=new Set();
+  constructor(manifests, localFiles,{persistent=null,onCached=()=>{},maxBytes=256*1024**2}={}) {
+    Object.assign(this,{manifests,localFiles,persistent,onCached,maxBytes});this.pending=new Map();this.pinned=new Set();this.requests=new Set();
   }
   pinSequence(model,snapshots,fieldKey){this.pinned=new Set(snapshots.map(s=>volumeKey(model,s,fieldKey)));this.trim();}
   trim(){
     let unpinned=[...this.cache.keys()].filter(key=>!this.pinned.has(key));
     while(unpinned.length>8)this.cache.delete(unpinned.shift());
+    let bytes=[...this.cache.values()].reduce((sum,value)=>sum+value.data.byteLength,0);
+    const order=[...this.cache.keys()].sort((a,b)=>Number(this.pinned.has(a))-Number(this.pinned.has(b)));
+    for(const key of order){if(bytes<=this.maxBytes)break;bytes-=this.cache.get(key).data.byteLength;this.cache.delete(key);}
   }
   resident(model,snapshots,fieldKey){return snapshots.filter(s=>this.cache.has(volumeKey(model,s,fieldKey))).length;}
   load(model, snapshot, signal, fieldKey='xH') {
@@ -130,7 +135,8 @@ export class VolumeStore {
       catch{await this.persistent.remove(descriptor);}
     }
     const key=volumeKey(model,snapshot,fieldKey);
-    const url = this.localFiles[key] || (fieldKey==='xH'?this.localFiles[`${model}/${snapshot.id}`]:null) || `${DATASETS[model].base}${snapshot.fields[fieldKey].url}`;
+    const base=fieldSize(manifest,fieldKey)===128?DATASETS[model].densityBase:DATASETS[model].base;
+    const url = this.localFiles[key] || (fieldKey==='xH'?this.localFiles[`${model}/${snapshot.id}`]:null) || `${base}${snapshot.fields[fieldKey].url}`;
     const request=new AbortController();this.requests.add(request);
     try{
       const r=await fetch(url,{signal:request.signal});

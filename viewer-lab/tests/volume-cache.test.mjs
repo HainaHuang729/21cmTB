@@ -56,6 +56,17 @@ test('an entire active sequence stays resident while other sequences retain only
   for(const frame of other.slice(0,3))await store.load('pl',frame,null,'density');
   assert.equal(store.cache.size,11);assert.equal(store.resident('pl',other.slice(0,3),'density'),3);
 });
+test('high-resolution sequences respect the raw byte budget and retain recently used frames',async()=>{
+  const store=new VolumeStore({},{},{maxBytes:16*1024**2});
+  const sequence=Array.from({length:4},(_,i)=>({id:`density128-${i}`}));
+  store.read=async()=>({data:new Float32Array(128**3)});store.pinSequence('pl',sequence,'density');
+  for(const frame of sequence)await store.load('pl',frame,null,'density');
+  assert.equal(store.resident('pl',sequence,'density'),2);
+  assert.equal([...store.cache.values()].reduce((sum,v)=>sum+v.data.byteLength,0),16*1024**2);
+  await store.load('pl',sequence[0],null,'density');
+  assert.equal(store.cache.has('pl/density128-0/density'),true);
+  assert.equal(store.cache.has('pl/density128-2/density'),false);
+});
 test('preloading is bounded, counts verified successes, and reports failed frames without claiming ready',async()=>{
   let active=0,peak=0;const progress=[];
   const store={load:async(model,snapshot)=>{
