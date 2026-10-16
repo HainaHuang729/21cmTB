@@ -1,0 +1,10 @@
+{
+  "repair": "canonical-scroll-v1",
+  "originalWrapperSHA256": "cadf7791af97bfa297ae868e9edb22f4f3bf947a19618c1c5c886e2129ae62eb",
+  "fixedWrapperSHA256": "a5caf043d14effefc8789bb865f192f712a820ab001984c70e2aa0aeefc0fcf2",
+  "patchSHA256": "f023c5a2c9fdfc0abb9fa6737972cbf6db70020757497297a3c880a73a58cc2a",
+  "binarySHA256": "80b30c5c5c4bb32949db8664e852054c43a73e7ac6ac397f57925ea0f89bad9c",
+  "originalBinarySHA256": "80b30c5c5c4bb32949db8664e852054c43a73e7ac6ac397f57925ea0f89bad9c",
+  "physicalParametersChanged": false,
+  "policy": "Advance previous spin/ionization/perturbed fields on every pristine evolution node, including requested output nodes; off-grid output nodes do not alter the trajectory."
+}

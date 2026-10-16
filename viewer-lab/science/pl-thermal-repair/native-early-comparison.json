@@ -1,0 +1,55 @@
+{
+  "job": "2224337",
+  "z": 24.35763093560751,
+  "passed": true,
+  "fields": {
+    "Ts": {
+      "passed": true,
+      "min": 29.235309600830078,
+      "max": 68.528564453125,
+      "mean": 67.23582079499351,
+      "maxAbsoluteDifference": 9.1552734375e-05,
+      "rmsDifference": 9.882979310624017e-07
+    },
+    "Tk": {
+      "passed": true,
+      "min": 9.263148307800293,
+      "max": 19.586803436279297,
+      "mean": 12.748038463674561,
+      "maxAbsoluteDifference": 3.814697265625e-06,
+      "rmsDifference": 5.793972205628246e-07
+    },
+    "xe": {
+      "passed": true,
+      "min": 0.0001813835115171969,
+      "max": 0.00020502283587120473,
+      "mean": 0.0001886514954658287,
+      "maxAbsoluteDifference": 5.820766091346741e-11,
+      "rmsDifference": 3.0327005285696443e-12
+    },
+    "Tb": {
+      "passed": true,
+      "min": -157.17535400390625,
+      "max": -0.18212322890758514,
+      "mean": -1.2997429896059831,
+      "maxAbsoluteDifference": 0.0005340576171875,
+      "rmsDifference": 7.373916668465616e-07
+    },
+    "xH": {
+      "passed": true,
+      "min": 0.9997949600219727,
+      "max": 0.9998186230659485,
+      "mean": 0.9998113485104696,
+      "maxAbsoluteDifference": 5.960464477539063e-08,
+      "rmsDifference": 1.9899444787264429e-10
+    },
+    "density": {
+      "passed": true,
+      "min": -0.459212064743042,
+      "max": 1.1504242420196533,
+      "mean": -1.968731341145391e-11,
+      "maxAbsoluteDifference": 4.172325134277344e-07,
+      "rmsDifference": 3.940532437955912e-08
+    }
+  }
+}

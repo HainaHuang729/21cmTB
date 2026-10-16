@@ -1,0 +1,32 @@
+--- original/wrapper.py
++++ canonical-scroll/wrapper.py
+@@ -2254,6 +2254,7 @@
+ 
+         # Get the list of redshift we need to scroll through.
+         redshifts = _get_required_redshifts_coeval(flag_options, redshift)
++        evolution_redshifts = set(_get_required_redshifts_coeval(flag_options, [min(redshift)]))
+ 
+         # Get all the perturb boxes early. We need to get the perturb at every
+         # redshift, even if we are interpolating the perturb field, because the
+@@ -2338,7 +2339,7 @@
+                     **kw,
+                 )
+ 
+-                if z not in redshift:
++                if z in evolution_redshifts:
+                     st = st2
+ 
+             ib2 = ionize_box(
+@@ -2382,9 +2383,11 @@
+                 bt[redshift.index(z)] = _bt
+ 
+             else:
++                _bt = None
++
++            if z in evolution_redshifts:
+                 ib = ib2
+                 pf = pf2
+-                _bt = None
+ 
+             perturb_files.append((z, os.path.join(direc, pf2.filename)))
+             if flag_options.USE_TS_FLUCT:

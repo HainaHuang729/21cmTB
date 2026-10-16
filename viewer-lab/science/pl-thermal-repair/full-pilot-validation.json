@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "job": "2224330",
+  "comparisons": {
+    "single-original": {
+      "Ts": {
+        "maxAbsolute": 0.0,
+        "rms": 0.0
+      },
+      "Tk": {
+        "maxAbsolute": 0.0,
+        "rms": 0.0
+      },
+      "xe": {
+        "maxAbsolute": 0.0,
+        "rms": 0.0
+      },
+      "Tb": {
+        "maxAbsolute": 0.0,
+        "rms": 0.0
+      },
+      "xH": {
+        "maxAbsolute": 0.0,
+        "rms": 0.0
+      },
+      "density": {
+        "maxAbsolute": 0.0,
+        "rms": 0.0
+      }
+    },
+    "fixed-offgrid": {
+      "Ts": {
+        "maxAbsolute": 0.0,
+        "rms": 0.0
+      },
+      "Tk": {
+        "maxAbsolute": 0.0,
+        "rms": 0.0
+      },
+      "xe": {
+        "maxAbsolute": 0.0,
+        "rms": 0.0
+      },
+      "Tb": {
+        "maxAbsolute": 0.0,
+        "rms": 0.0
+      },
+      "xH": {
+        "maxAbsolute": 0.0,
+        "rms": 0.0
+      },
+      "density": {
+        "maxAbsolute": 0.0,
+        "rms": 0.0
+      }
+    }
+  },
+  "grid": 32,
+  "target": 8.055244211905698,
+  "snapshots": 85,
+  "scope": "Full 32^3 canonical evolution/output scheduling regression; native 256^3 checks remain separate"
+}
