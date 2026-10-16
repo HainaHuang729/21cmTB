@@ -8,7 +8,7 @@ import time
 import urllib.request
 
 ROOT = Path(__file__).resolve().parents[1]
-REVISION = 'cf448836d866a772e3a4a7a05a874994cafd4021'
+REVISION = 'cac1de01b17be0ea7d4e7552c0213f1e1c78b8ed'
 UPSTREAM_REVISION = '7daaaca68ac6df4f9ccd95fbb1bbb16ecc042fc0'
 REVISIONS = {'pl': REVISION, 'bt': UPSTREAM_REVISION, 'legacy': UPSTREAM_REVISION}
 DIRECTORIES = {

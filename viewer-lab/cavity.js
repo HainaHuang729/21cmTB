@@ -54,7 +54,7 @@ function configureField(){
   threshold.min=p.min;threshold.max=fieldKey==='brightness_temperature'&&modelRepaired()?Math.max(p.max,Math.ceil(Math.max(...publishedSnapshots(frames[fieldKey],fieldKey).map(s=>Math.max(Math.abs(s.fields[fieldKey].statistics.min),Math.abs(s.fields[fieldKey].statistics.max))))/10)*10):p.max;threshold.step=p.step;
   $('sample-threshold-title').textContent=fieldKey==='brightness_temperature'?'亮温幅度 |δTb|':fieldKey==='density'?'密度阈值 δ':`界面阈值 ${f.symbol}`;
   threshold.setAttribute('aria-label',$('sample-threshold-title').textContent);
-  const sourceNote=modelRepaired()?' · 递推已修复':' · 原缓存，未重算';
+  const sourceNote=modelRepaired()?' · 递推已修复':' · 原缓存，待更新';
   $('sample-title').textContent=p.title;$('sample-subtitle').textContent=p.subtitle+sourceNote+(frames[fieldKey]&&fieldKey==='brightness_temperature'?` · 已发布 ${publishedSnapshots(frames[fieldKey],fieldKey).length} / ${frames[fieldKey].length} 帧`:'');
   $('sample-model').value=modelKey;$('sample-source').textContent=p.source;$('sample-mean-title').textContent=`全盒平均 ${f.symbol}${f.unit?' / '+f.unit:''}`;
   $('sample-slice-title').textContent=`原值切片 · ${f.symbol}${f.unit?' / '+f.unit:''}`;

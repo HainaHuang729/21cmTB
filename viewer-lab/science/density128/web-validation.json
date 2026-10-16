@@ -1,0 +1,63 @@
+{
+  "scope": "PL 128^3 density activation and renderer validation; BT job progress not checked",
+  "dataRevision": "cac1de01b17be0ea7d4e7552c0213f1e1c78b8ed",
+  "tests": {
+    "command": "npm test",
+    "passed": 49,
+    "failed": 0
+  },
+  "cacheValidation": {
+    "command": "python3 scripts/cache-data.py --all-sample",
+    "verified": 493,
+    "failed": 0,
+    "totalMiB": 1088
+  },
+  "ui": {
+    "sourceGrid": 256,
+    "densityGrid": 128,
+    "snapshotCount": 85,
+    "densityPersistentCache": "85 / 85",
+    "rawCacheBudgetMiB": 256,
+    "observedResidentDensityFrames": 32,
+    "playback": {
+      "startFrame": 1,
+      "startRedshift": 35.216929040913264,
+      "endFrame": 85,
+      "endRedshift": 6,
+      "automaticallyStopped": true
+    },
+    "fieldSwitch": {
+      "densityLastSlice": 127,
+      "xHLastSlice": 63,
+      "densityReturnSlice": 127,
+      "redshiftPreserved": 6.577024553253801
+    },
+    "baseViewerProbe": {
+      "grid": [
+        127,
+        0,
+        127
+      ],
+      "centerCMpc": [
+        249.02,
+        0.98,
+        249.02
+      ],
+      "displayedValue": -0.306921,
+      "sourceFloat32": -0.3069206774234772
+    },
+    "densityDefaults": {
+      "threshold": 0.4,
+      "bloom": 0.25,
+      "shadowStrength": 0.55,
+      "contextOpacity": 0.02
+    },
+    "screenshot": "preview-density128.png"
+  },
+  "bt": {
+    "rerunSubmitted": true,
+    "progressMonitoring": false,
+    "repairedDataImported": false,
+    "currentWebDensityGrid": 64
+  }
+}
