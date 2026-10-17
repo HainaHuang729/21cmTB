@@ -1,6 +1,6 @@
-import { CavityRenderer } from './cavity-renderer.js?v=density-contours-4';
+import { CavityRenderer } from './cavity-renderer.js?v=density-surface-20261017';
 import { fetchJSON, validateManifest, VolumeStore, nearest, fieldColor, index3, FIELDS, availableFields, snapshotFieldAvailable, REVISION, fieldSize } from './data.js';
-import { SAMPLE_FIELDS, sampleDefaults, structureValue, epochThreshold, densityNodeThreshold } from './field-presets.js?v=density-contours-4';
+import { SAMPLE_FIELDS, sampleDefaults, structureValue, epochThreshold, densityNodeThreshold } from './field-presets.js?v=density-surface-20261017';
 import { SnapshotPlayer } from './snapshot-player.js';
 import { BrowserVolumeCache, preloadVolumes, volumeKey } from './volume-cache.js';
 import { PreparedFrames } from './prepared-frames.js';
@@ -49,7 +49,7 @@ function configure(interactive=false){
   $('surface-label').textContent=isSurface?`${fieldKey==='brightness_temperature'?'|δTb|':f.symbol} = ${number(settings.threshold)}${f.unit?' '+f.unit:''} 界面`:`${f.label} · 原体显示`;
   if(energy&&fieldKey==='density')$('surface-label').textContent=`纤维 δ = ${number(settings.threshold)} · 节点 δ ≥ ${number(densityNodeThreshold(settings.threshold))}`;
   $('material-key').hidden=!isSurface;
-  const names=energy?fieldKey==='density'?['金色高密核心','青色纤维轮廓']:fieldKey==='brightness_temperature'?['蓝色吸收','橙红发射']:['界面辉光','暖色剖切边缘']:['阈值界面','剖切边缘'];
+  const names=energy?fieldKey==='density'?['金色高密节点','青色纤维轮廓']:fieldKey==='brightness_temperature'?['蓝色吸收','橙红发射']:['界面辉光','暖色剖切边缘']:['阈值界面','剖切边缘'];
   $('material-interface').textContent=names[0];$('material-cut').textContent=names[1];
   const explanation=fieldKey==='brightness_temperature'&&modelRepaired()?`蓝色表示负亮温吸收，橙红表示正亮温发射，零值透明。${modelKey.toUpperCase()} 已修复温度与电离递推，可播放完整的 85 个真实红移快照。`:p.explanation;
   $('sample-explainer').textContent=energy?explanation:isSurface?'按当前物理量的阈值展示界面；拖动旋转，剖开前侧查看内部。':`同一份 ${f.symbol} 数据与同一视角，使用原有梯度光照体渲染，色标与原值切片一致。`;

@@ -2,7 +2,7 @@ import { Renderer } from './renderer.js';
 import { cameraBasis } from './locator.js';
 import { gradientVolume } from './gradient-volume.js';
 import { GlowPass } from './glow-pass.js';
-import { densityNodeThreshold } from './field-presets.js?v=density-contours-4';
+import { densityNodeThreshold } from './field-presets.js?v=density-surface-20261017';
 
 const vertex = `#version 300 es
 void main(){vec2 p=vec2(float((gl_VertexID<<1)&2),float(gl_VertexID&2));gl_Position=vec4(p*2.-1.,0.,1.);}`;
@@ -95,21 +95,23 @@ vec3 shade(vec3 p,vec3 n,vec3 rd){
   return pow(max(color,vec3(0.)),vec3(1./2.2));
 }
 void composite(inout vec4 acc,vec3 color,float alpha){acc.rgb+=(1.-acc.a)*alpha*color;acc.a+=(1.-acc.a)*alpha;}
-void densitySurface(inout vec4 acc,vec3 rd,float nearT,float farT,float before,float after,float level,bool node,float entryT){
-  if((before>=level)==(after>=level))return;
+int densitySurface(inout vec4 acc,vec3 rd,float nearT,float farT,float before,float after,float level,bool node,float entryT){
+  if((before>=level)==(after>=level))return 0;
   float a=nearT,b=farT;
   for(int j=0;j<5;j++){
     float middle=(a+b)*.5,value=field(eye+rd*middle+.5);
     if((value>=level)==(before>=level))a=middle;else b=middle;
   }
   vec3 p=eye+rd*((a+b)*.5)+.5;
-  vec3 gradient=rawGradientAt(p).xyz;
+  // A short derivative of the reconstructed scalar avoids widening a small
+  // density feature with the separately interpolated central-difference grid.
+  float h=.45/gridSize;
+  vec3 gradient=vec3(rawField(p+vec3(h,0,0))-rawField(p-vec3(h,0,0)),rawField(p+vec3(0,h,0))-rawField(p-vec3(0,h,0)),rawField(p+vec3(0,0,h))-rawField(p-vec3(0,0,h)));
   float magnitude=length(gradient);
-  if(magnitude<1e-6)return;
+  if(magnitude<1e-6)return 0;
   vec3 n=-gradient/magnitude;if(dot(n,rd)>0.)n=-n;
   float diffuse=max(dot(n,keyLight),0.);
-  float rim=pow(1.-clamp(dot(n,-rd),0.,1.),2.);
-  float specular=pow(max(dot(n,normalize(keyLight-rd)),0.),32.);
+  float rim=pow(1.-clamp(dot(n,-rd),0.,1.),3.);
   float visibility=1.;
   if(shadowStrength>0.){
     float crowd=0.;
@@ -119,14 +121,15 @@ void densitySurface(inout vec4 acc,vec3 rd,float nearT,float farT,float before,f
     }
     visibility=mix(1.,exp(-crowd*1.8),shadowStrength);
   }
-  float depth=exp(-max(0.,(a+b)*.5-entryT)*.85);
-  vec3 tint=node?vec3(1.,.62,.18):vec3(.07,.28,.32);
-  vec3 color=tint*(.12+.95*diffuse*visibility);
-  color+=node?vec3(1.,.91,.63)*specular*1.8:vec3(.12,.43,.49)*rim*.45;
+  float depth=exp(-max(0.,(a+b)*.5-entryT)*1.6);
+  vec3 tint=node?vec3(1.,.48,.085):vec3(.025,.49,.63);
+  float specular=node?pow(max(dot(n,normalize(keyLight-rd)),0.),96.):0.;
+  vec3 color=node?tint*(.10+.85*diffuse)*visibility+vec3(1.,.93,.72)*specular*.35:tint*rim*4.*visibility;
   color*=depth;
   bool entering=after>before;
-  float alpha=node?(entering?.72:.24):(.012+rim*.07)*(entering?1.:.3);
+  float alpha=node?(entering?.97:.7):rim*.06*(entering?1.:.1);
   composite(acc,color,alpha);
+  return 1;
 }
 void finish(vec3 color){if(appearance==1&&!hdrTarget)color=color/(1.+color);outColor=vec4(color,1.);}
 bool boxHit(vec3 ro,vec3 rd,out float t0,out float t1){
@@ -161,17 +164,15 @@ void main(){
       // contours carry connectivity; denser, shaded cores remain compact.
       float before=previous+threshold;
       if(value>=before){
-        densitySurface(acc,rd,previousT,t,before,value,threshold,false,t0);
-        densitySurface(acc,rd,previousT,t,before,value,nodeLevel,true,t0);
+        surfaces+=densitySurface(acc,rd,previousT,t,before,value,threshold,false,t0);
+        surfaces+=densitySurface(acc,rd,previousT,t,before,value,nodeLevel,true,t0);
       }else{
-        densitySurface(acc,rd,previousT,t,before,value,nodeLevel,true,t0);
-        densitySurface(acc,rd,previousT,t,before,value,threshold,false,t0);
+        surfaces+=densitySurface(acc,rd,previousT,t,before,value,nodeLevel,true,t0);
+        surfaces+=densitySurface(acc,rd,previousT,t,before,value,threshold,false,t0);
       }
-      float depth=exp(-(t-t0)*.85);
-      float core=smoothstep(nodeLevel,nodeLevel+.32,value);
-      composite(acc,vec3(1.2,.53,.08)*depth,1.-exp(-core*ds*9.));
-      float context=smoothstep(threshold*.65,threshold,value)*(1.-smoothstep(threshold,threshold*1.5,value));
-      composite(acc,vec3(.025,.18,.23)*depth,1.-exp(-context*ds*.5));
+      // Density uses boundary light only. Filling every above-threshold voxel
+      // with emission would reintroduce the cloudy layer this view avoids.
+      if(surfaces>=12)break;
       previous=signedValue;previousT=t;continue;
     }
     if((appearance!=1||fieldKind!=1)&&((signedValue>=0.)!=(previous>=0.))){
