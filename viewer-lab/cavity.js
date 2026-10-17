@@ -85,8 +85,9 @@ function updateEmptyNote(){
     const high=Math.max(structureValue(volume.min,fieldKey),structureValue(volume.max,fieldKey)),threshold=structureValue(settings.threshold,fieldKey);
     empty=threshold<low||threshold>high;
   }
-  $('sample-empty').hidden=!empty;
-  if(empty)$('sample-empty').textContent=volume.max===volume.min?`本帧是均匀场：${field().symbol} = ${number(volume.min)}${field().unit?' '+field().unit:''}，没有空间界面。`:'本帧没有当前阈值对应的界面，可调整阈值或切换真实快照。';
+  const uniform=empty&&volume.max===volume.min;
+  $('sample-empty').hidden=!uniform;
+  $('sample-empty').textContent=uniform?`本帧是均匀场：${field().symbol} = ${number(volume.min)}${field().unit?' '+field().unit:''}，没有空间界面。`:'';
 }
 labels.forEach((id,i)=>{
   $(id).addEventListener('input',()=>{settings[keys[i]]=Number($(id).value);configure(true);});
