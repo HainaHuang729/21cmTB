@@ -2,7 +2,7 @@ import { FIELDS } from './data.js';
 
 export const SAMPLE_FIELDS={
   xH:{kind:0,model:'pl',tab:'中性氢',title:'再电离的空腔',subtitle:'真实中性氢场 · 辉光与剖切',effect:'电离辉光',threshold:.5,min:.1,max:.9,step:.01,section:.42,bandWidth:.065,gradientGain:1,epochs:['早期','中期','晚期'],defaultEpoch:2,source:'PL · 250 cMpc · 64³',explanation:'青色薄层勾出中性结构的边界，透过近处界面观察内部空腔。暖色切缘标出剖开的位置。'},
-  density:{kind:1,model:'pl',tab:'密度',title:'物质的纤维',subtitle:'真实密度场 · 纤维与高密节点',effect:'密度辉光',threshold:.4,bloom:.25,contextOpacity:.02,shadowStrength:.55,min:.02,max:2,step:.01,section:0,bandWidth:.035,gradientGain:1.8,epochs:['早期','中期','晚期'],defaultEpoch:2,source:'PL · 250 cMpc · 64³',explanation:'金色强调高密区域，较淡的青色保留低密度结构。纤维与节点均来自真实密度场，阈值以密度对比度 δ 表示。'},
+  density:{kind:1,model:'pl',tab:'密度',title:'物质的纤维',subtitle:'真实密度场 · 纤维与高密节点',effect:'纤维与节点',threshold:.4,bloom:.1,contextOpacity:.02,shadowStrength:.7,min:.02,max:2,step:.01,section:0,bandWidth:.035,gradientGain:1.8,epochs:['早期','中期','晚期'],defaultEpoch:2,source:'PL · 250 cMpc · 64³',explanation:'青色薄轮廓区分较弱的密度结构，金色核心突出更高密的区域。两层均来自真实 δ 等值界面；核心阈值随纤维阈值联动，不添加人工连线或粒子。'},
   brightness_temperature:{kind:2,model:'pl',tab:'亮温',title:'21cm 的冷与暖',subtitle:'同组 250 cMpc 模拟 · 吸收与发射',effect:'冷暖辉光',threshold:8,min:.1,max:150,step:.1,section:.18,bandWidth:.02,gradientGain:3,epochs:['吸收片段','发射峰值','晚期结构'],epochThresholds:[8,8,5],defaultEpoch:1,source:'PL · 250 cMpc · 64³',explanation:'蓝色表示负亮温吸收，橙红表示正亮温发射，零值透明。红色时间段的源温度与亮温极值待审核，播放会在缺口暂停。'},
 };
 export function sampleDefaults(key){
@@ -23,3 +23,6 @@ export function epochThreshold(key,index,model='pl',snapshot=null){
   }
   return SAMPLE_FIELDS[key].epochThresholds?.[index]??SAMPLE_FIELDS[key].threshold;
 }
+
+// Fixed physical thresholds: the same input gives the same two layers at every redshift.
+export function densityNodeThreshold(threshold){return Math.max(threshold*3,threshold+.8);}

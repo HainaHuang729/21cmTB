@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="light"><title>21cm · 物理场辉光样品</title>
-  <link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="./cavity.css">
+  <link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="./cavity.css?v=density-contours-4">
 </head>
 <body class="cavity-page">
   <header class="sample-header">
@@ -23,6 +23,7 @@
         <div class="sample-gap" id="sample-gap" role="status" hidden><span>数据审核缺口</span><h2 id="sample-gap-title">本红移亮温暂缓发布</h2><p id="sample-gap-detail"></p><div><button id="sample-gap-back">上一有效帧</button><button id="sample-gap-forward">下一有效段</button></div></div>
         <div class="sample-bottom"><span>拖动旋转 · 滚轮缩放</span><span id="sample-source">PL · 250 cMpc · 64³</span></div>
         <div class="material-key" id="material-key"><span><i></i><b id="material-interface">界面辉光</b></span><span><i></i><b id="material-cut">暖色剖切边缘</b></span></div>
+        <div class="sample-camera" id="sample-camera" role="group" aria-label="密度取景" hidden><button data-framing="whole" aria-pressed="true">全盒</button><button data-framing="detail" aria-pressed="false">近看</button></div>
       </div>
       <aside class="sample-inspector">
         <div class="sample-time"><span>红移 z</span><strong id="sample-z">—</strong><p><span id="sample-mean-title">全盒平均 xH</span><b id="sample-mean">—</b></p></div>
@@ -51,6 +52,6 @@
     <button class="sample-reset" id="sample-reset">重置视图</button>
     </div>
   </footer>
-  <script type="module" src="./cavity.js"></script>
+  <script type="module" src="./cavity.js?v=density-contours-4"></script>
 </body>
 </html>

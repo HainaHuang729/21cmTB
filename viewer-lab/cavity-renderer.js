@@ -2,12 +2,13 @@ import { Renderer } from './renderer.js';
 import { cameraBasis } from './locator.js';
 import { gradientVolume } from './gradient-volume.js';
 import { GlowPass } from './glow-pass.js';
+import { densityNodeThreshold } from './field-presets.js?v=density-contours-4';
 
 const vertex = `#version 300 es
 void main(){vec2 p=vec2(float((gl_VertexID<<1)&2),float(gl_VertexID&2));gl_Position=vec4(p*2.-1.,0.,1.);}`;
 
-// A threshold surface of the published, trilinearly reconstructed xH grid.
-// It is a display boundary, not a model of the physical ionization front.
+// Threshold surfaces of the published, trilinearly reconstructed scalar grid.
+// These are display boundaries, not resolved physical fronts or a filament skeleton.
 const fragment = `#version 300 es
 precision highp float;
 precision highp sampler3D;
@@ -16,7 +17,7 @@ uniform sampler3D volume,gradients;
 uniform vec2 resolution;
 uniform float gridSize;
 uniform vec3 eye,rightAxis,upAxis,forwardAxis;
-uniform float thresholdRaw,section,shadowStrength,contextOpacity,bandWidth,gradientGain;
+uniform float thresholdRaw,nodeThresholdRaw,section,shadowStrength,contextOpacity,bandWidth,gradientGain;
 uniform bool hardwareLinear,hdrTarget;
 uniform int steps,appearance,fieldKind;
 float threshold;
@@ -58,7 +59,6 @@ vec3 emissionColor(float raw){
   return vec3(.025,.49,.67);
 }
 float solid(vec3 p){return inDomain(p)?smoothstep(threshold-.035,threshold+.035,field(p)):0.;}
-float excess(vec3 p){return inDomain(p)?max(0.,field(p)-threshold):0.;}
 vec3 normalAt(vec3 p){
   float h=1./gridSize;
   vec3 g=vec3(field(p+vec3(h,0,0))-field(p-vec3(h,0,0)),field(p+vec3(0,h,0))-field(p-vec3(0,h,0)),field(p+vec3(0,0,h))-field(p-vec3(0,0,h)));
@@ -95,6 +95,39 @@ vec3 shade(vec3 p,vec3 n,vec3 rd){
   return pow(max(color,vec3(0.)),vec3(1./2.2));
 }
 void composite(inout vec4 acc,vec3 color,float alpha){acc.rgb+=(1.-acc.a)*alpha*color;acc.a+=(1.-acc.a)*alpha;}
+void densitySurface(inout vec4 acc,vec3 rd,float nearT,float farT,float before,float after,float level,bool node,float entryT){
+  if((before>=level)==(after>=level))return;
+  float a=nearT,b=farT;
+  for(int j=0;j<5;j++){
+    float middle=(a+b)*.5,value=field(eye+rd*middle+.5);
+    if((value>=level)==(before>=level))a=middle;else b=middle;
+  }
+  vec3 p=eye+rd*((a+b)*.5)+.5;
+  vec3 gradient=rawGradientAt(p).xyz;
+  float magnitude=length(gradient);
+  if(magnitude<1e-6)return;
+  vec3 n=-gradient/magnitude;if(dot(n,rd)>0.)n=-n;
+  float diffuse=max(dot(n,keyLight),0.);
+  float rim=pow(1.-clamp(dot(n,-rd),0.,1.),2.);
+  float specular=pow(max(dot(n,normalize(keyLight-rd)),0.),32.);
+  float visibility=1.;
+  if(shadowStrength>0.){
+    float crowd=0.;
+    for(int j=1;j<=3;j++){
+      vec3 q=p+n*(.6/gridSize)+keyLight*float(j)*(1.5/gridSize);
+      if(inDomain(q))crowd+=smoothstep(level,level+.12,field(q))/3.;
+    }
+    visibility=mix(1.,exp(-crowd*1.8),shadowStrength);
+  }
+  float depth=exp(-max(0.,(a+b)*.5-entryT)*.85);
+  vec3 tint=node?vec3(1.,.62,.18):vec3(.07,.28,.32);
+  vec3 color=tint*(.12+.95*diffuse*visibility);
+  color+=node?vec3(1.,.91,.63)*specular*1.8:vec3(.12,.43,.49)*rim*.45;
+  color*=depth;
+  bool entering=after>before;
+  float alpha=node?(entering?.72:.24):(.012+rim*.07)*(entering?1.:.3);
+  composite(acc,color,alpha);
+}
 void finish(vec3 color){if(appearance==1&&!hdrTarget)color=color/(1.+color);outColor=vec4(color,1.);}
 bool boxHit(vec3 ro,vec3 rd,out float t0,out float t1){
   t0=-1e20;t1=1e20;
@@ -118,10 +151,29 @@ void main(){
   }
   t0=max(t0,0.);if(t1<=t0){finish(background);return;}
   vec4 acc=vec4(0.);float start=field(eye+rd*t0+.5)-threshold;
+  float nodeLevel=structureValue(nodeThresholdRaw);
   float ds=(t1-t0)/float(steps),previous=start,previousT=t0;int surfaces=0;
   for(int i=1;i<=640;i++){
     if(i>steps||acc.a>.995)break;
     float t=t0+float(i)*ds;vec3 p=eye+rd*t+.5;float value=field(p),signedValue=value-threshold;
+    if(appearance==1&&fieldKind==1){
+      // Composite two real scalar crossings in ray order. Thin lower-density
+      // contours carry connectivity; denser, shaded cores remain compact.
+      float before=previous+threshold;
+      if(value>=before){
+        densitySurface(acc,rd,previousT,t,before,value,threshold,false,t0);
+        densitySurface(acc,rd,previousT,t,before,value,nodeLevel,true,t0);
+      }else{
+        densitySurface(acc,rd,previousT,t,before,value,nodeLevel,true,t0);
+        densitySurface(acc,rd,previousT,t,before,value,threshold,false,t0);
+      }
+      float depth=exp(-(t-t0)*.85);
+      float core=smoothstep(nodeLevel,nodeLevel+.32,value);
+      composite(acc,vec3(1.2,.53,.08)*depth,1.-exp(-core*ds*9.));
+      float context=smoothstep(threshold*.65,threshold,value)*(1.-smoothstep(threshold,threshold*1.5,value));
+      composite(acc,vec3(.025,.18,.23)*depth,1.-exp(-context*ds*.5));
+      previous=signedValue;previousT=t;continue;
+    }
     if((appearance!=1||fieldKind!=1)&&((signedValue>=0.)!=(previous>=0.))){
       float a=previousT,b=t,side=previous;
       for(int j=0;j<5;j++){
@@ -154,25 +206,7 @@ void main(){
       float depth=exp(-(t-t0)*1.6);
       vec3 bandColor=fieldKind==0?vec3(.025,.63,.91):emissionColor(rawField(p));
       composite(acc,bandColor*.95*depth,1.-exp(-band*ds*4.));
-      if(fieldKind==1){
-        float web=pow(smoothstep(threshold,threshold*3.2,value),1.8);
-        vec3 webColor=mix(vec3(.035,.23,.29),vec3(1.,.49,.095),smoothstep(threshold*1.6,threshold*3.2,value));
-        float filament=pow(smoothstep(threshold*.65,threshold*2.2,value),2.)*(1.-smoothstep(threshold*2.,threshold*4.,value));
-        composite(acc,vec3(.035,.42,.55)*depth,1.-exp(-filament*ds*2.2));
-        float lighting=1.;
-        if(web>.01){
-          vec3 gradient=gradientAt(p).xyz;
-          float magnitude=length(gradient);
-          vec3 normal=magnitude>1e-6?-gradient/magnitude:vec3(0,1,0);
-          if(dot(normal,rd)>0.)normal=-normal;
-          lighting=.7+.45*max(dot(normal,keyLight),0.);
-          if(shadowStrength>0.){
-            float crowd=excess(p+keyLight*.025)+excess(p+keyLight*.055);
-            lighting*=mix(1.,.48+.52*exp(-crowd*3.),shadowStrength);
-          }
-        }
-        composite(acc,webColor*(.3+web*3.2)*depth*lighting,1.-exp(-web*ds*22.));
-      }else if(fieldKind==2){
+      if(fieldKind==2){
         float emissionWeight=smoothstep(threshold*.45,threshold*1.7,value);
         composite(acc,emissionColor(rawField(p))*.24*depth,1.-exp(-emissionWeight*ds*1.4));
       }
@@ -221,7 +255,8 @@ export class CavityRenderer extends Renderer {
       return;
     }
     const gl=this.gl,canvas=this.canvas,box=canvas.getBoundingClientRect();
-    const scale=this.interactive?.75:Math.min(devicePixelRatio,1.5);
+    const density=this.settings.fieldKind===1;
+    const scale=this.interactive?(density?.85:.75):Math.min(devicePixelRatio,density?2:1.5);
     const w=Math.max(1,Math.round(box.width*scale)),h=Math.max(1,Math.round(box.height*scale));
     if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;}
     const energy=this.settings.sampleMode==='energy';
@@ -236,11 +271,12 @@ export class CavityRenderer extends Renderer {
     gl.uniform1f(u('gridSize'),this.gridSize);
     gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_3D,this.gradientTexture);gl.uniform1i(u('gradients'),1);gl.activeTexture(gl.TEXTURE0);
     gl.uniform1i(u('appearance'),energy?1:0);gl.uniform1i(u('hdrTarget'),this.glowPass.hdr?1:0);
-    gl.uniform1i(u('hardwareLinear'),this.linear?1:0);gl.uniform1i(u('steps'),this.gridSize===128?(this.interactive?192:512):(this.interactive?112:280));
+    gl.uniform1i(u('hardwareLinear'),this.linear?1:0);gl.uniform1i(u('steps'),this.gridSize===128?(this.interactive?256:640):(this.interactive?112:280));
     gl.uniform1f(u('thresholdRaw'),this.settings.threshold);gl.uniform1i(u('fieldKind'),this.settings.fieldKind);
+    gl.uniform1f(u('nodeThresholdRaw'),densityNodeThreshold(this.settings.threshold));
     for(const name of ['section','shadowStrength','contextOpacity','bandWidth','gradientGain'])gl.uniform1f(u(name),this.settings[name]);
     gl.drawArrays(gl.TRIANGLES,0,3);gl.bindVertexArray(null);
-    if(energy)this.glowPass.finish(this.settings.bloom,this.settings.fieldKind===1?.6:1.4);
+    if(energy)this.glowPass.finish(this.settings.bloom,this.settings.fieldKind===1?.35:1.4);
     this.onState(this.interactive?'交互预览':'界面精细显示');
   }
   dispose(){this.gl.deleteTexture(this.gradientTexture);this.glowPass.dispose();this.gl.deleteProgram(this.cavityProgram);super.dispose();}

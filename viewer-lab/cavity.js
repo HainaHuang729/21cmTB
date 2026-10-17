@@ -1,6 +1,6 @@
-import { CavityRenderer } from './cavity-renderer.js';
+import { CavityRenderer } from './cavity-renderer.js?v=density-contours-4';
 import { fetchJSON, validateManifest, VolumeStore, nearest, fieldColor, index3, FIELDS, availableFields, snapshotFieldAvailable, REVISION, fieldSize } from './data.js';
-import { SAMPLE_FIELDS, sampleDefaults, structureValue, epochThreshold } from './field-presets.js';
+import { SAMPLE_FIELDS, sampleDefaults, structureValue, epochThreshold, densityNodeThreshold } from './field-presets.js?v=density-contours-4';
 import { SnapshotPlayer } from './snapshot-player.js';
 import { BrowserVolumeCache, preloadVolumes, volumeKey } from './volume-cache.js';
 import { PreparedFrames } from './prepared-frames.js';
@@ -26,7 +26,12 @@ for(const [selector,variable]of [['.sample-controls','--sample-dock'],['.sample-
 
 function failure(message){gpuError=message;$('sample-loading').classList.remove('is-progress');$('sample-loading').hidden=false;$('sample-loading').textContent=message;$('sample-status').textContent=message;$('sample-status').classList.add('error');}
 function renderSuccess(){
+  syncCamera();
   if(!gpuError||!volume)return;gpuError='';if(!loading)$('sample-loading').hidden=true;verifiedStatus();
+}
+function syncCamera(){
+  const close=renderer?.distance<2.;
+  document.querySelectorAll('[data-framing]').forEach(button=>button.setAttribute('aria-pressed',String((button.dataset.framing==='detail')===close)));
 }
 try{renderer=new CavityRenderer($('sample-volume'),renderSuccess,failure);}catch(e){failure(e.message);}
 
@@ -34,6 +39,7 @@ function configure(interactive=false){
   renderer?.configure(settings,interactive);
   const isSurface=settings.sampleMode!=='volume',energy=settings.sampleMode==='energy',p=preset(),f=field();
   document.body.classList.toggle('is-energy',energy);document.body.dataset.physicalField=fieldKey;
+  const camera=$('sample-camera');if(camera)camera.hidden=fieldKey!=='density';syncCamera();
   document.querySelectorAll('[data-view]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.view===settings.sampleMode)));
   document.querySelectorAll('[data-field]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.field===fieldKey)));
   labels.forEach((id,i)=>{
@@ -41,9 +47,9 @@ function configure(interactive=false){
     $(`${id}-value`).textContent=i===1?`${Math.round(settings.section*100)}%`:i===0?number(settings.threshold)+(f.unit?' '+f.unit:''):settings[keys[i]].toFixed(2);
   });
   $('surface-label').textContent=isSurface?`${fieldKey==='brightness_temperature'?'|δTb|':f.symbol} = ${number(settings.threshold)}${f.unit?' '+f.unit:''} 界面`:`${f.label} · 原体显示`;
-  if(energy&&fieldKey==='density')$('surface-label').textContent=`δ 阈值 ${number(settings.threshold)} · 密度网络`;
+  if(energy&&fieldKey==='density')$('surface-label').textContent=`纤维 δ = ${number(settings.threshold)} · 节点 δ ≥ ${number(densityNodeThreshold(settings.threshold))}`;
   $('material-key').hidden=!isSurface;
-  const names=energy?fieldKey==='density'?['金色高密结构','青色纤维背景']:fieldKey==='brightness_temperature'?['蓝色吸收','橙红发射']:['界面辉光','暖色剖切边缘']:['阈值界面','剖切边缘'];
+  const names=energy?fieldKey==='density'?['金色高密核心','青色纤维轮廓']:fieldKey==='brightness_temperature'?['蓝色吸收','橙红发射']:['界面辉光','暖色剖切边缘']:['阈值界面','剖切边缘'];
   $('material-interface').textContent=names[0];$('material-cut').textContent=names[1];
   const explanation=fieldKey==='brightness_temperature'&&modelRepaired()?`蓝色表示负亮温吸收，橙红表示正亮温发射，零值透明。${modelKey.toUpperCase()} 已修复温度与电离递推，可播放完整的 85 个真实红移快照。`:p.explanation;
   $('sample-explainer').textContent=energy?explanation:isSurface?'按当前物理量的阈值展示界面；拖动旋转，剖开前侧查看内部。':`同一份 ${f.symbol} 数据与同一视角，使用原有梯度光照体渲染，色标与原值切片一致。`;
@@ -88,6 +94,10 @@ labels.forEach((id,i)=>{
 });
 document.querySelectorAll('[data-view]').forEach(button=>button.addEventListener('click',()=>{settings.sampleMode=button.dataset.view;configure();}));
 $('sample-reset').addEventListener('click',()=>{Object.assign(settings,sampleDefaults(fieldKey));settings.threshold=currentThreshold(presetIndices[fieldKey]?.indexOf(frameIndex));renderer?.reset();configure();});
+document.querySelectorAll('[data-framing]').forEach(button=>button.addEventListener('click',()=>{
+  if(!renderer)return;
+  renderer.distance=button.dataset.framing==='detail'?1.65:2.4;renderer.request();syncCamera();
+}));
 
 function drawSlice(){
   const z=Number($('sample-slice-z').value),ctx=$('sample-slice').getContext('2d');
