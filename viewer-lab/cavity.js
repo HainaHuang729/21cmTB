@@ -1,6 +1,6 @@
-import { CavityRenderer } from './cavity-renderer.js?v=density-surface-20261017';
+import { CavityRenderer } from './cavity-renderer.js?v=density-translucent-20261017-2';
 import { fetchJSON, validateManifest, VolumeStore, nearest, fieldColor, index3, FIELDS, availableFields, snapshotFieldAvailable, REVISION, fieldSize } from './data.js';
-import { SAMPLE_FIELDS, sampleDefaults, structureValue, epochThreshold, densityNodeThreshold } from './field-presets.js?v=density-surface-20261017';
+import { SAMPLE_FIELDS, sampleDefaults, structureValue, epochThreshold, densityNodeThreshold } from './field-presets.js?v=density-translucent-20261017-2';
 import { SnapshotPlayer } from './snapshot-player.js';
 import { BrowserVolumeCache, preloadVolumes, volumeKey } from './volume-cache.js';
 import { PreparedFrames } from './prepared-frames.js';

@@ -2,7 +2,7 @@ import { Renderer } from './renderer.js';
 import { cameraBasis } from './locator.js';
 import { gradientVolume } from './gradient-volume.js';
 import { GlowPass } from './glow-pass.js';
-import { densityNodeThreshold } from './field-presets.js?v=density-surface-20261017';
+import { densityNodeThreshold } from './field-presets.js?v=density-translucent-20261017-2';
 
 const vertex = `#version 300 es
 void main(){vec2 p=vec2(float((gl_VertexID<<1)&2),float(gl_VertexID&2));gl_Position=vec4(p*2.-1.,0.,1.);}`;
@@ -121,13 +121,15 @@ int densitySurface(inout vec4 acc,vec3 rd,float nearT,float farT,float before,fl
     }
     visibility=mix(1.,exp(-crowd*1.8),shadowStrength);
   }
-  float depth=exp(-max(0.,(a+b)*.5-entryT)*1.6);
+  float depth=exp(-max(0.,(a+b)*.5-entryT)*1.25);
   vec3 tint=node?vec3(1.,.48,.085):vec3(.025,.49,.63);
   float specular=node?pow(max(dot(n,normalize(keyLight-rd)),0.),96.):0.;
-  vec3 color=node?tint*(.10+.85*diffuse)*visibility+vec3(1.,.93,.72)*specular*.35:tint*rim*4.*visibility;
+  // Light belongs to the actual boundary. Keep face-on areas transparent and
+  // concentrate the node material at grazing angles, without volume emission.
+  vec3 color=node?tint*(.07+.4*diffuse+rim*4.8)*visibility+vec3(1.,.93,.72)*specular*.08:tint*rim*4.*visibility;
   color*=depth;
   bool entering=after>before;
-  float alpha=node?(entering?.97:.7):rim*.06*(entering?1.:.1);
+  float alpha=node?(.045+rim*.4)*(entering?1.:.3):rim*.06*(entering?1.:.1);
   composite(acc,color,alpha);
   return 1;
 }
@@ -161,7 +163,7 @@ void main(){
     float t=t0+float(i)*ds;vec3 p=eye+rd*t+.5;float value=field(p),signedValue=value-threshold;
     if(appearance==1&&fieldKind==1){
       // Composite two real scalar crossings in ray order. Thin lower-density
-      // contours carry connectivity; denser, shaded cores remain compact.
+      // contours carry connectivity; denser nodes use translucent rim lighting.
       float before=previous+threshold;
       if(value>=before){
         surfaces+=densitySurface(acc,rd,previousT,t,before,value,threshold,false,t0);
@@ -172,7 +174,7 @@ void main(){
       }
       // Density uses boundary light only. Filling every above-threshold voxel
       // with emission would reintroduce the cloudy layer this view avoids.
-      if(surfaces>=12)break;
+      if(surfaces>=16)break;
       previous=signedValue;previousT=t;continue;
     }
     if((appearance!=1||fieldKind!=1)&&((signedValue>=0.)!=(previous>=0.))){
