@@ -24,6 +24,21 @@ const currentThreshold=(epoch,snapshot=frames[fieldKey]?.[frameIndex])=>epochThr
 const number=value=>Number(value.toFixed(Math.abs(value)<1?3:2)).toString();
 for(const [selector,variable]of [['.sample-controls','--sample-dock'],['.sample-header','--sample-header']])new ResizeObserver(entries=>document.body.style.setProperty(variable,`${entries[0].target.getBoundingClientRect().height}px`)).observe(document.querySelector(selector));
 
+const controlsPreference='21cm:sample:controls-collapsed';
+function setControlsCollapsed(collapsed){
+  $('sample-controls').classList.toggle('is-collapsed',collapsed);
+  $('sample-parameters').hidden=collapsed;$('sample-cache').hidden=collapsed;
+  $('sample-toggle').setAttribute('aria-expanded',String(!collapsed));
+  $('sample-toggle').setAttribute('aria-label',collapsed?'展开参数区':'收起参数区');
+  $('sample-toggle-label').textContent=collapsed?'展开参数':'收起参数';
+  $('sample-toggle-mark').textContent=collapsed?'+':'−';
+  try{localStorage.setItem(controlsPreference,String(collapsed));}catch{}
+}
+let controlsCollapsed=true;
+try{controlsCollapsed=localStorage.getItem(controlsPreference)!=='false';}catch{}
+setControlsCollapsed(controlsCollapsed);
+$('sample-toggle').addEventListener('click',()=>setControlsCollapsed($('sample-toggle').getAttribute('aria-expanded')==='true'));
+
 function failure(message){gpuError=message;$('sample-loading').classList.remove('is-progress');$('sample-loading').hidden=false;$('sample-loading').textContent=message;$('sample-status').textContent=message;$('sample-status').classList.add('error');}
 function renderSuccess(){
   syncCamera();

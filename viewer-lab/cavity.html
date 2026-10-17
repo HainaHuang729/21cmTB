@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="light"><title>21cm · 物理场辉光样品</title>
-  <link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="./cavity.css?v=atlas-palette-20261017-3">
+  <link rel="preload" href="./assets/fonts/jost-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="./cavity.css?v=personal-console-20261017-2">
 </head>
 <body class="cavity-page">
   <header class="sample-header">
@@ -36,15 +37,15 @@
     </section>
     <p class="sample-status" id="sample-status" role="status">读取本地真实快照…</p>
   </main>
-  <footer class="sample-controls" aria-label="样品调参区">
-    <div class="sample-console-heading"><h2>观测控制台</h2><p>真实红移与显示参数</p></div>
-    <div class="sample-cache"><span id="sample-cache-status" role="status">准备缓存已发布红移序列…</span><progress id="sample-cache-progress" max="493" value="0" aria-label="全量缓存进度"></progress><button id="sample-cache-retry" hidden>重试缓存</button></div>
+  <footer class="sample-controls is-collapsed" id="sample-controls" aria-label="样品调参区">
+    <div class="sample-console-heading"><h2>观测控制台</h2><p>真实红移与显示参数</p><button class="sample-toggle" id="sample-toggle" aria-expanded="false" aria-controls="sample-parameters sample-cache" aria-label="展开参数区"><span id="sample-toggle-label">展开参数</span><span id="sample-toggle-mark" aria-hidden="true">+</span></button></div>
+    <div class="sample-cache" id="sample-cache" hidden><span id="sample-cache-status" role="status">准备缓存已发布红移序列…</span><progress id="sample-cache-progress" max="493" value="0" aria-label="全量缓存进度"></progress><button id="sample-cache-retry" hidden>重试缓存</button></div>
     <div class="sample-timeline" aria-label="红移播放控制">
       <div class="timeline-transport"><button id="sample-previous" aria-label="上一帧" disabled>上一帧</button><button id="sample-play" aria-pressed="false" disabled>播放</button><button id="sample-next" aria-label="下一帧" disabled>下一帧</button></div>
       <label class="redshift-control">红移 z <output id="sample-redshift-value">—</output><span class="redshift-track"><span id="sample-quality-band" aria-hidden="true"></span><input id="sample-redshift" aria-label="红移快照" type="range" min="0" max="1" step="1" value="0" disabled></span><span class="redshift-limits"><span id="sample-redshift-start">—</span><span id="sample-gap-key" hidden>红色段待审核</span><span id="sample-redshift-end">—</span></span></label>
       <label class="playback-speed">帧间隔<select id="sample-speed" aria-label="播放间隔"><option value="120" selected>0.12 秒</option><option value="250">0.25 秒</option><option value="600">0.6 秒</option><option value="1200">1.2 秒</option></select></label>
     </div>
-    <div class="sample-parameters">
+    <div class="sample-parameters" id="sample-parameters" hidden>
     <div class="sample-stages" role="group" aria-label="真实阶段快照"><span>真实快照</span><div><button data-epoch="0" disabled>早期</button><button data-epoch="1" disabled>中期</button><button data-epoch="2" aria-pressed="true" disabled>晚期</button></div></div>
     <label><span id="sample-threshold-title">界面阈值 xH</span> <output id="sample-threshold-value">0.50</output><input id="sample-threshold" aria-label="界面阈值 xH" type="range" min="0.1" max="0.9" step="0.01" value="0.5"></label>
     <label>剖开深度 <output id="sample-section-value">42%</output><input id="sample-section" aria-label="剖开深度" type="range" min="0" max="0.85" step="0.01" value="0.42"></label>
@@ -53,6 +54,6 @@
     <button class="sample-reset" id="sample-reset">重置视图</button>
     </div>
   </footer>
-  <script type="module" src="./cavity.js?v=density-translucent-20261017-2"></script>
+  <script type="module" src="./cavity.js?v=personal-console-20261017"></script>
 </body>
 </html>
