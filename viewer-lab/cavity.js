@@ -5,6 +5,7 @@ import { SnapshotPlayer } from './snapshot-player.js';
 import { BrowserVolumeCache, preloadVolumes, volumeKey } from './volume-cache.js';
 import { PreparedFrames } from './prepared-frames.js';
 import { publishedSnapshots, fieldGaps, nextPublishedIndex, stageIndices, sampleCacheTasks } from './field-series.js';
+import { setupViewerFullscreen } from './viewer-fullscreen.js?v=final-3';
 
 const $=id=>document.getElementById(id);
 const requested=new URLSearchParams(location.search),requestedField=requested.get('field');
@@ -38,6 +39,7 @@ let controlsCollapsed=true;
 try{controlsCollapsed=localStorage.getItem(controlsPreference)!=='false';}catch{}
 setControlsCollapsed(controlsCollapsed);
 $('sample-toggle').addEventListener('click',()=>setControlsCollapsed($('sample-toggle').getAttribute('aria-expanded')==='true'));
+setupViewerFullscreen($('sample-fullscreen'),$('sample-fullscreen-label'));
 
 function failure(message){gpuError=message;$('sample-loading').classList.remove('is-progress');$('sample-loading').hidden=false;$('sample-loading').textContent=message;$('sample-status').textContent=message;$('sample-status').classList.add('error');}
 function renderSuccess(){
@@ -55,7 +57,6 @@ function configure(interactive=false){
   const isSurface=settings.sampleMode!=='volume',energy=settings.sampleMode==='energy',p=preset(),f=field();
   document.body.classList.toggle('is-energy',energy);document.body.dataset.physicalField=fieldKey;
   const camera=$('sample-camera');if(camera)camera.hidden=fieldKey!=='density';syncCamera();
-  document.querySelectorAll('[data-view]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.view===settings.sampleMode)));
   document.querySelectorAll('[data-field]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.field===fieldKey)));
   labels.forEach((id,i)=>{
     $(id).value=settings[keys[i]];$(id).disabled=!isSurface||(i===3&&!energy);
@@ -81,7 +82,6 @@ function configureField(){
   $('sample-slice-title').textContent=`原值切片 · ${f.symbol}${f.unit?' / '+f.unit:''}`;
   $('sample-slice').setAttribute('aria-label',`XY ${f.label}原值切片`);
   $('sample-volume').setAttribute('aria-label',`真实${f.label}三维显示；拖动或方向键旋转，加减键缩放，Home 重置`);
-  document.querySelector('[data-view="energy"]').textContent=p.effect;
   document.querySelectorAll('[data-epoch]').forEach(button=>button.textContent=p.epochs[Number(button.dataset.epoch)]);
   $('sample-convention').textContent=fieldKey==='brightness_temperature'?(!modelRepaired()?'BT 保留原缓存，尚未做这次递推修复。':'同一模型的三个场来自同组快照。')+'已发布亮温通过源温度与范围筛查，这不等于物理认证。辉光表达结构与正负号；PL / BT 未核实逐体素相位匹配。':`界面来自 ${fieldSize(manifests?.[modelKey],fieldKey)}³ 平均网格的阈值与空间插值。辉光用于辨认结构，不表示真实发射光度或精确物理边界；PL / BT 未核实逐体素相位匹配。`;
   drawQualityBand();
@@ -108,7 +108,6 @@ labels.forEach((id,i)=>{
   $(id).addEventListener('input',()=>{settings[keys[i]]=Number($(id).value);configure(true);});
   $(id).addEventListener('change',()=>configure());
 });
-document.querySelectorAll('[data-view]').forEach(button=>button.addEventListener('click',()=>{settings.sampleMode=button.dataset.view;configure();}));
 $('sample-reset').addEventListener('click',()=>{Object.assign(settings,sampleDefaults(fieldKey));settings.threshold=currentThreshold(presetIndices[fieldKey]?.indexOf(frameIndex));renderer?.reset();configure();});
 document.querySelectorAll('[data-framing]').forEach(button=>button.addEventListener('click',()=>{
   if(!renderer)return;

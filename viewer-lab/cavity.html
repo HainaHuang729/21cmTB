@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="color-scheme" content="light"><title>21cm · 物理场辉光样品</title>
+  <meta name="color-scheme" content="light"><title>21cm · 三维 Viewer</title>
   <link rel="preload" href="./assets/fonts/jost-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="./cavity.css?v=personal-console-20261017-2">
+  <link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="./cavity.css?v=viewer-final-fullscreen-20261017">
 </head>
 <body class="cavity-page">
   <header class="sample-header">
@@ -12,13 +12,13 @@
     <div class="sample-heading"><h1 id="sample-title">再电离的空腔</h1><p id="sample-subtitle">真实中性氢场 · 辉光与剖切</p></div>
     <label class="sample-model">模型<select id="sample-model" aria-label="三维模型" disabled><option value="pl">PL · 250 cMpc</option><option value="bt">BT · 250 cMpc</option></select></label>
     <nav class="field-switch" aria-label="三维物理量"><button data-field="xH" aria-pressed="true" disabled>中性氢</button><button data-field="density" aria-pressed="false" disabled>密度</button><button data-field="brightness_temperature" aria-pressed="false" disabled>亮温</button></nav>
-    <a class="back-link" href="./">返回实验室</a>
+    <a class="back-link" href="./atlas.html">切片库</a>
   </header>
   <main class="sample-main">
-    <section class="sample-workspace" aria-label="空腔剖切与原体显示对照">
+    <section class="sample-workspace" aria-label="三维物理场">
       <div class="sample-stage">
         <canvas id="sample-volume" tabindex="0" aria-label="真实中性氢等值界面；拖动或方向键旋转，加减键缩放，Home 重置"></canvas>
-        <div class="sample-toolbar"><span id="surface-label">xH = 0.50 界面</span><div class="sample-switch" role="group" aria-label="样品显示方式"><button data-view="energy" aria-pressed="true">电离辉光</button><button data-view="cavity" aria-pressed="false">界面剖切</button><button data-view="volume" aria-pressed="false">原体显示</button></div></div>
+        <div class="sample-toolbar"><span id="surface-label">xH = 0.50 界面</span><button class="sample-fullscreen" id="sample-fullscreen" aria-label="全屏查看三维画面" aria-pressed="false"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path class="fullscreen-enter" d="M3 8V3h5m8 0h5v5M21 16v5h-5M8 21H3v-5"/><path class="fullscreen-exit" d="M8 3v5H3m13-5v5h5M21 16h-5v5M8 21v-5H3"/></svg><span id="sample-fullscreen-label">全屏</span></button></div>
         <div class="sample-loading" id="sample-loading" role="status">正在校验真实数据…</div>
         <p class="sample-empty" id="sample-empty" hidden></p>
         <div class="sample-gap" id="sample-gap" role="status" hidden><span>数据审核缺口</span><h2 id="sample-gap-title">本红移亮温暂缓发布</h2><p id="sample-gap-detail"></p><div><button id="sample-gap-back">上一有效帧</button><button id="sample-gap-forward">下一有效段</button></div></div>
@@ -37,7 +37,7 @@
     </section>
     <p class="sample-status" id="sample-status" role="status">读取本地真实快照…</p>
   </main>
-  <footer class="sample-controls is-collapsed" id="sample-controls" aria-label="样品调参区">
+  <footer class="sample-controls is-collapsed" id="sample-controls" aria-label="三维调参区">
     <div class="sample-console-heading"><h2>观测控制台</h2><p>真实红移与显示参数</p><button class="sample-toggle" id="sample-toggle" aria-expanded="false" aria-controls="sample-parameters sample-cache" aria-label="展开参数区"><span id="sample-toggle-label">展开参数</span><span id="sample-toggle-mark" aria-hidden="true">+</span></button></div>
     <div class="sample-cache" id="sample-cache" hidden><span id="sample-cache-status" role="status">准备缓存已发布红移序列…</span><progress id="sample-cache-progress" max="493" value="0" aria-label="全量缓存进度"></progress><button id="sample-cache-retry" hidden>重试缓存</button></div>
     <div class="sample-timeline" aria-label="红移播放控制">
@@ -54,6 +54,6 @@
     <button class="sample-reset" id="sample-reset">重置视图</button>
     </div>
   </footer>
-  <script type="module" src="./cavity.js?v=personal-console-20261017"></script>
+  <script type="module" src="./cavity.js?v=viewer-final-fullscreen-20261017-3"></script>
 </body>
 </html>
