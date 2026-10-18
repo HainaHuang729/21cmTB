@@ -4,7 +4,7 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="light"><title>21cm · 三维 Viewer</title>
   <link rel="preload" href="./assets/fonts/jost-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="./cavity.css?v=stage-layout-20261018">
+  <link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="./cavity.css?v=stage-layout-20261018-2">
 </head>
 <body class="cavity-page">
   <header class="sample-header">
@@ -44,7 +44,6 @@
     <div class="sample-console-heading"><h2>21cmFAST <span>三维观测</span></h2><p>真实快照 · 辉光呈现</p><button class="sample-toggle" id="sample-toggle" aria-expanded="false" aria-controls="sample-panel" aria-label="展开参数区"><span id="sample-toggle-label">展开参数</span><span id="sample-toggle-mark" aria-hidden="true">+</span></button></div>
     <div class="sample-panel" id="sample-panel" hidden>
     <div class="sample-parameters" id="sample-parameters" hidden>
-    <div class="sample-stages" role="group" aria-label="真实阶段快照"><span>真实快照</span><div><button data-epoch="0" disabled>早期</button><button data-epoch="1" disabled>中期</button><button data-epoch="2" aria-pressed="true" disabled>晚期</button></div></div>
     <label><span id="sample-threshold-title">界面阈值 xH</span> <output id="sample-threshold-value">0.50</output><input id="sample-threshold" aria-label="界面阈值 xH" type="range" min="0.1" max="0.9" step="0.01" value="0.5"></label>
     <label>剖开深度 <output id="sample-section-value">42%</output><input id="sample-section" aria-label="剖开深度" type="range" min="0" max="0.85" step="0.01" value="0.42"></label>
     <label>柔和阴影 <output id="sample-shadow-value">0.80</output><input id="sample-shadow" aria-label="柔和阴影" type="range" min="0" max="1" step="0.05" value="0.8"></label>
@@ -55,6 +54,6 @@
     <details class="sample-notes"><summary>画面与数据说明</summary><div><p class="sample-explainer" id="sample-explainer">暖白界面勾出中性结构，剖开前侧观察内部空腔。赭红切缘标出剖切位置。</p><p class="sample-convention" id="sample-convention">辉光用于辨认结构，不表示真实发射光度或精确物理边界。</p></div><p class="sample-status" id="sample-status" role="status">读取本地真实快照…</p></details>
     </div>
   </footer>
-  <script type="module" src="./cavity.js?v=stage-layout-20261018"></script>
+  <script type="module" src="./cavity.js?v=stage-layout-20261018-2"></script>
 </body>
 </html>

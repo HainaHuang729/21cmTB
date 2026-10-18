@@ -83,7 +83,6 @@ function configureField(){
   $('sample-title').textContent=p.title;$('sample-subtitle').textContent=p.subtitle+sourceNote+(frames[fieldKey]&&fieldKey==='brightness_temperature'?` · 已发布 ${publishedSnapshots(frames[fieldKey],fieldKey).length} / ${frames[fieldKey].length} 帧`:'');
   $('sample-model').value=modelKey;$('sample-source').textContent=p.source;$('sample-mean-title').textContent=`全盒平均 ${f.symbol}${f.unit?' / '+f.unit:''}`;
   $('sample-volume').setAttribute('aria-label',`真实${f.label}三维显示；拖动或方向键旋转，加减键缩放，Home 重置`);
-  document.querySelectorAll('[data-epoch]').forEach(button=>button.textContent=p.epochs[Number(button.dataset.epoch)]);
   $('sample-convention').textContent=fieldKey==='brightness_temperature'?(!modelRepaired()?'BT 保留原缓存，尚未做这次递推修复。':'同一模型的三个场来自同组快照。')+'已发布亮温通过源温度与范围筛查，这不等于物理认证。辉光表达结构与正负号；PL / BT 未核实逐体素相位匹配。':`界面来自 ${fieldSize(manifests?.[modelKey],fieldKey)}³ 平均网格的阈值与空间插值。辉光用于辨认结构，不表示真实发射光度或精确物理边界；PL / BT 未核实逐体素相位匹配。`;
   drawQualityBand();
   configure();
@@ -182,10 +181,6 @@ function syncTimeline(){
   $('sample-play').disabled=sequence.length<2||!available;
   $('sample-play').setAttribute('aria-pressed',String(player.playing||playPreparing));
   $('sample-play').textContent=!available?'待审核':playPreparing?'取消准备':player.playing?'暂停':frameIndex===sequence.length-1?'重播':'播放';
-  document.querySelectorAll('[data-epoch]').forEach(button=>{
-    const i=Number(button.dataset.epoch),s=sequence[presetIndices[fieldKey][i]];
-    button.setAttribute('aria-pressed',String(presetIndices[fieldKey][i]===frameIndex));button.title=`z = ${s.redshift.toFixed(3)}，平均 xH = ${s.meanNeutralFraction.toFixed(3)}`;
-  });
 }
 function recordSelection(snapshot){
   const url=new URL(location.href);url.searchParams.set('model',modelKey);url.searchParams.set('field',fieldKey);url.searchParams.set('z',snapshot.redshift);history.replaceState(null,'',url);
@@ -237,11 +232,10 @@ const player=new SnapshotPlayer({
   onChange:playing=>{renderer?.setPlayback(playing);$('sample-play').setAttribute('aria-pressed',String(playing));$('sample-play').textContent=playing?'暂停':'播放';syncTimeline();},
   onError:error=>{$('sample-status').textContent=error.message;$('sample-status').classList.add('error');},
 });
-async function load(index,thresholdEpoch=null){
+async function load(index){
   clearTimeout(seekTimer);seekTimer=null;
   frameIndex=Math.max(0,Math.min(frames[fieldKey].length-1,index));
   const key=fieldKey,p=preset(),model=p.model,snapshot=frames[key][frameIndex],targetIndex=frameIndex;
-  if(thresholdEpoch!==null){settings.threshold=currentThreshold(thresholdEpoch,snapshot);configure();}
   const id=++loadID;controller?.abort();controller=new AbortController();loadError='';
   if(volume&&displayedModel===model&&displayedField===key&&displayedIndex===frameIndex){
     loading=false;$('sample-loading').hidden=!gpuError;verifiedStatus();syncTimeline();return true;
@@ -282,7 +276,6 @@ $('sample-redshift').addEventListener('input',()=>{
   seekTimer=setTimeout(()=>load(frameIndex),180);
 });
 $('sample-redshift').addEventListener('change',()=>{clearTimeout(seekTimer);seekTimer=null;load(Number($('sample-redshift').value));});
-document.querySelectorAll('[data-epoch]').forEach(button=>button.addEventListener('click',()=>{stopPlayback();const i=Number(button.dataset.epoch);load(presetIndices[fieldKey][i],preset().epochThresholds?i:null);}));
 function selectSource(model,key){
   if((key===fieldKey&&model===modelKey)||!store)return;
   stopPlayback(true);
@@ -313,7 +306,7 @@ async function init(){
       }
     }
     frames=allFrames[modelKey];presetIndices=indicesByModel[modelKey];allTasks=sampleCacheTasks(manifests);
-    document.querySelectorAll('[data-epoch],[data-field],#sample-model').forEach(control=>control.disabled=false);
+    document.querySelectorAll('[data-field],#sample-model').forEach(control=>control.disabled=false);
     const requestedZ=requested.has('z')?Number(requested.get('z')):NaN;
     frameIndex=Number.isFinite(requestedZ)?nearest(frames[fieldKey],requestedZ,'redshift'):presetIndices[fieldKey][preset().defaultEpoch];
     configureField();await load(frameIndex);warmActiveField();
