@@ -30,9 +30,9 @@ test('all registered active snapshots match the pinned hashes and source statist
   }
 });
 
-test('field availability excludes unpublished Tb and preserves distinct native boxes',()=>{
+test('field availability includes repaired Tb and preserves distinct native boxes',()=>{
   assert.deepEqual(availableFields(manifests.pl),['xH','density','brightness_temperature']);
-  assert.deepEqual(availableFields(manifests.bt),['xH','density']);
+  assert.deepEqual(availableFields(manifests.bt),['xH','density','brightness_temperature']);
   assert.deepEqual(availableFields(manifests.legacy),['xH','density','brightness_temperature']);
   assert.equal(manifests.legacy.boxLength,100);assert.equal(manifests.pl.boxLength,250);
   assert.notEqual(manifests.legacy.identity.randomSeed,manifests.pl.identity.randomSeed);

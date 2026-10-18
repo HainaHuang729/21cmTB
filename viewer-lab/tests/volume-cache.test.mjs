@@ -99,7 +99,7 @@ test('cancelling a preloader prevents more queued work and a disk quota failure 
   assert.equal(await persistent.write(snapshot.fields.xH,buffer()),false);assert.equal(persistent.enabled,false);
 });
 test('withheld source data cannot be requested or reused from persistent storage',async()=>{
-  const bt=JSON.parse(await readFile(new URL('../data/bt-manifest.json',import.meta.url)));
+  const bt=JSON.parse(await readFile(new URL('../data/bt-manifest-source-v1.json',import.meta.url)));
   const withheld=bt.snapshots.find(s=>s.fieldQuality?.brightness_temperature?.status==='withheld');
   let attempts=0;
   const store=new VolumeStore({bt},{},{persistent:{read:()=>{attempts++;throw new Error('must not read');}}});

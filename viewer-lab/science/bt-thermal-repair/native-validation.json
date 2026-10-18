@@ -1,0 +1,618 @@
+{
+  "passed": true,
+  "snapshots": 85,
+  "volumes": 255,
+  "nativeControlDifferences": {
+    "Ts": {
+      "passed": true,
+      "mismatchedVoxels": 0,
+      "rtol": 2e-05,
+      "atol": 0.001,
+      "maxAbsolute": 0.0,
+      "rms": 0.0
+    },
+    "Tk": {
+      "passed": true,
+      "mismatchedVoxels": 0,
+      "rtol": 2e-05,
+      "atol": 0.001,
+      "maxAbsolute": 0.0,
+      "rms": 0.0
+    },
+    "xe": {
+      "passed": true,
+      "mismatchedVoxels": 0,
+      "rtol": 2e-05,
+      "atol": 1e-06,
+      "maxAbsolute": 0.0,
+      "rms": 0.0
+    },
+    "Tb": {
+      "passed": true,
+      "mismatchedVoxels": 0,
+      "rtol": 2e-05,
+      "atol": 0.001,
+      "maxAbsolute": 0.0,
+      "rms": 0.0
+    },
+    "xH": {
+      "passed": true,
+      "mismatchedVoxels": 0,
+      "rtol": 2e-05,
+      "atol": 1e-06,
+      "maxAbsolute": 0.0,
+      "rms": 0.0
+    },
+    "density": {
+      "passed": true,
+      "mismatchedVoxels": 0,
+      "rtol": 2e-05,
+      "atol": 2e-05,
+      "maxAbsolute": 0.0,
+      "rms": 0.0
+    }
+  },
+  "predecessorChain": [
+    {
+      "z": 35.216929040913264,
+      "previousZ": null,
+      "expectedPreviousZ": null
+    },
+    {
+      "z": 34.506793841325106,
+      "previousZ": 35.0,
+      "expectedPreviousZ": 35.0
+    },
+    {
+      "z": 33.81058284831792,
+      "previousZ": 34.506793841325106,
+      "expectedPreviousZ": 34.506793841325106
+    },
+    {
+      "z": 33.12802303848853,
+      "previousZ": 33.81058284831792,
+      "expectedPreviousZ": 33.81058284831792
+    },
+    {
+      "z": 32.45884674182881,
+      "previousZ": 33.12802303848853,
+      "expectedPreviousZ": 33.12802303848853
+    },
+    {
+      "z": 31.802791536757262,
+      "previousZ": 32.45884674182881,
+      "expectedPreviousZ": 32.45884674182881
+    },
+    {
+      "z": 31.159600147208778,
+      "previousZ": 31.802791536757262,
+      "expectedPreviousZ": 31.802791536757262
+    },
+    {
+      "z": 30.52902034174227,
+      "previousZ": 31.159600147208778,
+      "expectedPreviousZ": 31.159600147208778
+    },
+    {
+      "z": 29.910804834626553,
+      "previousZ": 30.52902034174227,
+      "expectedPreviousZ": 30.52902034174227
+    },
+    {
+      "z": 29.304711188865735,
+      "previousZ": 29.910804834626553,
+      "expectedPreviousZ": 29.910804834626553
+    },
+    {
+      "z": 28.71050172112606,
+      "previousZ": 29.304711188865735,
+      "expectedPreviousZ": 29.304711188865735
+    },
+    {
+      "z": 28.127943408526953,
+      "previousZ": 28.71050172112606,
+      "expectedPreviousZ": 28.71050172112606
+    },
+    {
+      "z": 27.556807797259644,
+      "previousZ": 28.127943408526953,
+      "expectedPreviousZ": 28.127943408526953
+    },
+    {
+      "z": 26.996870912997625,
+      "previousZ": 27.556807797259644,
+      "expectedPreviousZ": 27.556807797259644
+    },
+    {
+      "z": 26.447913173063746,
+      "previousZ": 26.996870912997625,
+      "expectedPreviousZ": 26.996870912997625
+    },
+    {
+      "z": 25.90971930031952,
+      "previousZ": 26.447913173063746,
+      "expectedPreviousZ": 26.447913173063746
+    },
+    {
+      "z": 25.38207823874287,
+      "previousZ": 25.90971930031952,
+      "expectedPreviousZ": 25.90971930031952
+    },
+    {
+      "z": 24.864783070661233,
+      "previousZ": 25.38207823874287,
+      "expectedPreviousZ": 25.38207823874287
+    },
+    {
+      "z": 24.35763093560751,
+      "previousZ": 24.864783070661233,
+      "expectedPreviousZ": 24.864783070661233
+    },
+    {
+      "z": 23.860422950767106,
+      "previousZ": 24.35763093560751,
+      "expectedPreviousZ": 24.35763093560751
+    },
+    {
+      "z": 23.37296413298481,
+      "previousZ": 23.860422950767106,
+      "expectedPreviousZ": 23.860422950767106
+    },
+    {
+      "z": 22.895063322300953,
+      "previousZ": 23.37296413298481,
+      "expectedPreviousZ": 23.37296413298481
+    },
+    {
+      "z": 22.426533106986874,
+      "previousZ": 22.895063322300953,
+      "expectedPreviousZ": 22.895063322300953
+    },
+    {
+      "z": 21.96718975005025,
+      "previousZ": 22.426533106986874,
+      "expectedPreviousZ": 22.426533106986874
+    },
+    {
+      "z": 21.51685311718151,
+      "previousZ": 21.96718975005025,
+      "expectedPreviousZ": 21.96718975005025
+    },
+    {
+      "z": 21.07534660611307,
+      "previousZ": 21.51685311718151,
+      "expectedPreviousZ": 21.51685311718151
+    },
+    {
+      "z": 20.642497077363668,
+      "previousZ": 21.07534660611307,
+      "expectedPreviousZ": 21.07534660611307
+    },
+    {
+      "z": 20.21813478634066,
+      "previousZ": 20.642497077363668,
+      "expectedPreviousZ": 20.642497077363668
+    },
+    {
+      "z": 19.80209331677363,
+      "previousZ": 20.21813478634066,
+      "expectedPreviousZ": 20.21813478634066
+    },
+    {
+      "z": 19.39420951545324,
+      "previousZ": 19.80209331677363,
+      "expectedPreviousZ": 19.80209331677363
+    },
+    {
+      "z": 18.9943234282497,
+      "previousZ": 19.39420951545324,
+      "expectedPreviousZ": 19.39420951545324
+    },
+    {
+      "z": 18.60227823738577,
+      "previousZ": 18.9943234282497,
+      "expectedPreviousZ": 18.9943234282497
+    },
+    {
+      "z": 18.217920199939716,
+      "previousZ": 18.60227823738577,
+      "expectedPreviousZ": 18.60227823738577
+    },
+    {
+      "z": 17.84109858755407,
+      "previousZ": 18.217920199939716,
+      "expectedPreviousZ": 18.217920199939716
+    },
+    {
+      "z": 17.4716656273266,
+      "previousZ": 17.84109858755407,
+      "expectedPreviousZ": 17.84109858755407
+    },
+    {
+      "z": 17.10947644386025,
+      "previousZ": 17.4716656273266,
+      "expectedPreviousZ": 17.4716656273266
+    },
+    {
+      "z": 16.754389002449358,
+      "previousZ": 17.10947644386025,
+      "expectedPreviousZ": 17.10947644386025
+    },
+    {
+      "z": 16.4062640533799,
+      "previousZ": 16.754389002449358,
+      "expectedPreviousZ": 16.754389002449358
+    },
+    {
+      "z": 16.06496507732184,
+      "previousZ": 16.4062640533799,
+      "expectedPreviousZ": 16.4062640533799
+    },
+    {
+      "z": 15.730358231792255,
+      "previousZ": 16.06496507732184,
+      "expectedPreviousZ": 16.06496507732184
+    },
+    {
+      "z": 15.402312298668171,
+      "previousZ": 15.730358231792255,
+      "expectedPreviousZ": 15.730358231792255
+    },
+    {
+      "z": 15.080698632728584,
+      "previousZ": 15.402312298668171,
+      "expectedPreviousZ": 15.402312298668171
+    },
+    {
+      "z": 14.765391111205448,
+      "previousZ": 15.080698632728584,
+      "expectedPreviousZ": 15.080698632728584
+    },
+    {
+      "z": 14.45626608432385,
+      "previousZ": 14.765391111205448,
+      "expectedPreviousZ": 14.765391111205448
+    },
+    {
+      "z": 14.153202326812007,
+      "previousZ": 14.45626608432385,
+      "expectedPreviousZ": 14.45626608432385
+    },
+    {
+      "z": 13.856080990362024,
+      "previousZ": 14.153202326812007,
+      "expectedPreviousZ": 14.153202326812007
+    },
+    {
+      "z": 13.564785557022805,
+      "previousZ": 13.856080990362024,
+      "expectedPreviousZ": 13.856080990362024
+    },
+    {
+      "z": 13.279201793506829,
+      "previousZ": 13.564785557022805,
+      "expectedPreviousZ": 13.564785557022805
+    },
+    {
+      "z": 12.999217706392859,
+      "previousZ": 13.279201793506829,
+      "expectedPreviousZ": 13.279201793506829
+    },
+    {
+      "z": 12.724723498207045,
+      "previousZ": 12.999217706392859,
+      "expectedPreviousZ": 12.999217706392859
+    },
+    {
+      "z": 12.455611524365164,
+      "previousZ": 12.724723498207045,
+      "expectedPreviousZ": 12.724723498207045
+    },
+    {
+      "z": 12.191776250959146,
+      "previousZ": 12.455611524365164,
+      "expectedPreviousZ": 12.455611524365164
+    },
+    {
+      "z": 11.933114213371297,
+      "previousZ": 12.191776250959146,
+      "expectedPreviousZ": 12.191776250959146
+    },
+    {
+      "z": 11.679523975700024,
+      "previousZ": 11.933114213371297,
+      "expectedPreviousZ": 11.933114213371297
+    },
+    {
+      "z": 11.430906090981118,
+      "previousZ": 11.679523975700024,
+      "expectedPreviousZ": 11.679523975700024
+    },
+    {
+      "z": 11.187163062189025,
+      "previousZ": 11.430906090981118,
+      "expectedPreviousZ": 11.430906090981118
+    },
+    {
+      "z": 10.948199304002786,
+      "previousZ": 11.187163062189025,
+      "expectedPreviousZ": 11.187163062189025
+    },
+    {
+      "z": 10.713921105321667,
+      "previousZ": 10.948199304002786,
+      "expectedPreviousZ": 10.948199304002786
+    },
+    {
+      "z": 10.484236592515781,
+      "previousZ": 10.713921105321667,
+      "expectedPreviousZ": 10.713921105321667
+    },
+    {
+      "z": 10.259055693397281,
+      "previousZ": 10.484236592515781,
+      "expectedPreviousZ": 10.484236592515781
+    },
+    {
+      "z": 10.038290101897996,
+      "previousZ": 10.259055693397281,
+      "expectedPreviousZ": 10.259055693397281
+    },
+    {
+      "z": 9.821853243439673,
+      "previousZ": 10.038290101897996,
+      "expectedPreviousZ": 10.038290101897996
+    },
+    {
+      "z": 9.609660240983217,
+      "previousZ": 9.821853243439673,
+      "expectedPreviousZ": 9.821853243439673
+    },
+    {
+      "z": 9.401627881743652,
+      "previousZ": 9.609660240983217,
+      "expectedPreviousZ": 9.609660240983217
+    },
+    {
+      "z": 9.197674584557705,
+      "previousZ": 9.401627881743652,
+      "expectedPreviousZ": 9.401627881743652
+    },
+    {
+      "z": 8.997720367891262,
+      "previousZ": 9.197674584557705,
+      "expectedPreviousZ": 9.197674584557705
+    },
+    {
+      "z": 8.801686818474119,
+      "previousZ": 8.997720367891262,
+      "expectedPreviousZ": 8.997720367891262
+    },
+    {
+      "z": 8.609497060549735,
+      "previousZ": 8.801686818474119,
+      "expectedPreviousZ": 8.801686818474119
+    },
+    {
+      "z": 8.421075725727935,
+      "previousZ": 8.609497060549735,
+      "expectedPreviousZ": 8.609497060549735
+    },
+    {
+      "z": 8.236348923428736,
+      "previousZ": 8.421075725727935,
+      "expectedPreviousZ": 8.421075725727935
+    },
+    {
+      "z": 8.055244211905698,
+      "previousZ": 8.236348923428736,
+      "expectedPreviousZ": 8.236348923428736
+    },
+    {
+      "z": 7.965588413275457,
+      "previousZ": 8.055244211905698,
+      "expectedPreviousZ": 8.055244211905698
+    },
+    {
+      "z": 7.877690569837458,
+      "previousZ": 8.055244211905698,
+      "expectedPreviousZ": 8.055244211905698
+    },
+    {
+      "z": 7.703618368476279,
+      "previousZ": 7.877690569837458,
+      "expectedPreviousZ": 7.877690569837458
+    },
+    {
+      "z": 7.532959344342709,
+      "previousZ": 7.703618368476279,
+      "expectedPreviousZ": 7.703618368476279
+    },
+    {
+      "z": 7.365646572455642,
+      "previousZ": 7.532959344342709,
+      "expectedPreviousZ": 7.532959344342709
+    },
+    {
+      "z": 7.201614440087278,
+      "previousZ": 7.365646572455642,
+      "expectedPreviousZ": 7.365646572455642
+    },
+    {
+      "z": 7.040798621032687,
+      "previousZ": 7.201614440087278,
+      "expectedPreviousZ": 7.201614440087278
+    },
+    {
+      "z": 6.883136050383897,
+      "previousZ": 7.040798621032687,
+      "expectedPreviousZ": 7.040798621032687
+    },
+    {
+      "z": 6.728564899798602,
+      "previousZ": 6.883136050383897,
+      "expectedPreviousZ": 6.883136050383897
+    },
+    {
+      "z": 6.577024553253801,
+      "previousZ": 6.728564899798602,
+      "expectedPreviousZ": 6.728564899798602
+    },
+    {
+      "z": 6.428455583274849,
+      "previousZ": 6.577024553253801,
+      "expectedPreviousZ": 6.577024553253801
+    },
+    {
+      "z": 6.282799727630618,
+      "previousZ": 6.428455583274849,
+      "expectedPreviousZ": 6.428455583274849
+    },
+    {
+      "z": 6.139999866485596,
+      "previousZ": 6.282799727630618,
+      "expectedPreviousZ": 6.282799727630618
+    },
+    {
+      "z": 6.0,
+      "previousZ": 6.139999866485596,
+      "expectedPreviousZ": 6.139999866485596
+    }
+  ],
+  "initialConditionsSHA256": "eceb1c4ad4fd694329d4129fcf03ac8c6559c4964ec181eb301bcf875fff7c5b",
+  "sourceIdentity": "348085978cb445d2b7fe75c8140df6ac9dafb074ba58b68fc7a30a8b9aaca9d8",
+  "recomputeJob": "2224917",
+  "job": "2234810",
+  "meanConservationAndXFastestReadback": true,
+  "comparisonDesign": {
+    "kind": "factorized-independent-perturbation-plus-matched-input-thermal-ionization",
+    "coldIndependentDensityPassed": true,
+    "coldControlRetained": true,
+    "coldControlJob": "2234653",
+    "matchedPerturbControlPassed": true,
+    "matchedPerturbControlJob": "2234763",
+    "sharedEvolvedFields": false,
+    "tolerancesChanged": false,
+    "inputProvenance": {
+      "job": "2234763",
+      "sameIC": "eceb1c4ad4fd694329d4129fcf03ac8c6559c4964ec181eb301bcf875fff7c5b",
+      "sourceIdentity": "348085978cb445d2b7fe75c8140df6ac9dafb074ba58b68fc7a30a8b9aaca9d8",
+      "pristineWrapperSHA256": "cadf7791af97bfa297ae868e9edb22f4f3bf947a19618c1c5c886e2129ae62eb",
+      "binarySHA256": "80b30c5c5c4bb32949db8664e852054c43a73e7ac6ac397f57925ea0f89bad9c",
+      "sharedInputs": [
+        "initial_conditions",
+        "PerturbedField density/velocity"
+      ],
+      "independentlyRecomputed": [
+        "Ts",
+        "Tk",
+        "xe",
+        "xH",
+        "Tb",
+        "recombination history"
+      ],
+      "sharedEvolvedFields": false,
+      "perturbedFields": [
+        {
+          "z": 28.71050172112606,
+          "file": "PerturbedField_09e552529db1ed01f021168ea3bcc7af_r725213656658.h5",
+          "sha256": "91e8db55e2313cc8daad1e1ea9f1438ea219fed9837a98b5b845f2b2f83e799d"
+        },
+        {
+          "z": 24.864783070661233,
+          "file": "PerturbedField_10dfb07e106a96ff711a9401a9741df4_r725213656658.h5",
+          "sha256": "dc205e7fa14c1d36094739325bcbf1c98d254fd32f316f9e841fa399a4f635f2"
+        },
+        {
+          "z": 29.304711188865735,
+          "file": "PerturbedField_1db2a3c2099d35bd076ebc260b46b51d_r725213656658.h5",
+          "sha256": "3fb9bf501bd0b464f581e64675b22f862047cb09cf2bdb4d3ac8cebacc1461f7"
+        },
+        {
+          "z": 31.159600147208778,
+          "file": "PerturbedField_23667904acb89c1e4b3f7403b52e1611_r725213656658.h5",
+          "sha256": "6606adfaf15d5fe1f7d75a6ad669010749c95fb384957d5e9b6ff204e204dc22"
+        },
+        {
+          "z": 28.127943408526953,
+          "file": "PerturbedField_2dfe9416a3bbe7e9a0a07908173e01fc_r725213656658.h5",
+          "sha256": "96e4b0c0e099a7f736de12711d2bc31909016e588020eb727bef4f0f483b2ad3"
+        },
+        {
+          "z": 25.38207823874287,
+          "file": "PerturbedField_3180a17131a219c96b17ffd37c7baea7_r725213656658.h5",
+          "sha256": "bdf94f47917883f86bc56aff3d4f702a8c001140454c3814cf06a4603f4ca427"
+        },
+        {
+          "z": 33.12802303848853,
+          "file": "PerturbedField_4d16d0de1148bb628f010e4f7236fb09_r725213656658.h5",
+          "sha256": "04da42bf3d0668b9ba1f6cf7dcba4e4606e287d2ea2908f63405441f580c48df"
+        },
+        {
+          "z": 33.81058284831792,
+          "file": "PerturbedField_52080c624cd469aa83a7979488b580fd_r725213656658.h5",
+          "sha256": "9826e172d7db59cf65ce252db70e3f26062b926bad07e3e3772ca383c940800d"
+        },
+        {
+          "z": 35.216929040913264,
+          "file": "PerturbedField_574f16f0ef93670178ba4d1da817b03b_r725213656658.h5",
+          "sha256": "1ddf983a1ecd10e9f63026f7224c1beedd17320f19b4ae11ab107ffa687ff27c"
+        },
+        {
+          "z": 27.556807797259644,
+          "file": "PerturbedField_63de423bf8cff73f1486461ed740aee9_r725213656658.h5",
+          "sha256": "9b0b8b2668d7c09ea60b71fe4e8338f244f5d9171a04468ecc383cf01ca04e6d"
+        },
+        {
+          "z": 34.506793841325106,
+          "file": "PerturbedField_72600bb6007e1e2fc9cdb6652b989cba_r725213656658.h5",
+          "sha256": "b3d431ff66db3b6c995bfcc7268c69c41f158c0d63a92cb4f322684591966b19"
+        },
+        {
+          "z": 29.910804834626553,
+          "file": "PerturbedField_7e494315b9a52620a01d0197e8f4f28d_r725213656658.h5",
+          "sha256": "8a0b9bfcffeb63ce36ab9dfca416b7648cdad957e422cefafc6f1d284c460ed5"
+        },
+        {
+          "z": 31.802791536757262,
+          "file": "PerturbedField_87dd36d237ebeb563f3e992a5b08cbf6_r725213656658.h5",
+          "sha256": "869f99e1796aa855fd5e644facd3711d741822fcaba0c633fabd29f9388e000b"
+        },
+        {
+          "z": 30.52902034174227,
+          "file": "PerturbedField_c49dc40fc239d96582f5c4a305d30196_r725213656658.h5",
+          "sha256": "906ad39a7f7d0539c25b7682aa33c00749f2b7bb5e052308a3be4ae91d574d3b"
+        },
+        {
+          "z": 35.0,
+          "file": "PerturbedField_e13e688b11cea18ed54d740104f8c073_r725213656658.h5",
+          "sha256": "b5870941e86902494b1a3e61dff29015e5e85717456292cb523de8e3e02727f5"
+        },
+        {
+          "z": 26.447913173063746,
+          "file": "PerturbedField_e32b61e8f2029029203bb2a091dc9215_r725213656658.h5",
+          "sha256": "46865396758e0bab302cebd9814d6d04e457fa5baa8b4b2434290f9d4b1e896c"
+        },
+        {
+          "z": 25.90971930031952,
+          "file": "PerturbedField_ef183ab2429a5c8179402affb58e0246_r725213656658.h5",
+          "sha256": "3c3c42c04cac764c69a102fff20f029e34a6cad033d6fb773f32325eafa8cf9b"
+        },
+        {
+          "z": 26.996870912997625,
+          "file": "PerturbedField_f848f2c3eb26674f939b5791b9b191b9_r725213656658.h5",
+          "sha256": "44b0d14ef989a58617b2b203c69a488841fcd540b217a5c190aa013dea35f6af"
+        },
+        {
+          "z": 32.45884674182881,
+          "file": "PerturbedField_fbc35a204a321a2835e81b2934570efb_r725213656658.h5",
+          "sha256": "30945074893159d416062b9f9afb058b1671b2e8db0900b883798e6cacbc2abb"
+        }
+      ],
+      "tolerancesChanged": false
+    },
+    "causalAblationJob": "2234724",
+    "stateMutationProbeJob": "2234793",
+    "cause": "PerturbField.c rescales float32 IC velocity buffers in place and divides them back; round-trip residuals make regenerated perturbations depend on the preceding redshift calls. Their accepted tiny input differences cross discrete partial-ionization branches. Freeze perturbation inputs when testing thermal/ionization evolution."
+  }
+}

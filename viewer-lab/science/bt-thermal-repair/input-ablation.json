@@ -1,0 +1,288 @@
+{
+  "job": "2234724",
+  "redshift": 24.864783070661233,
+  "module": "/project/tkcastrosim/HNHuang/project_mcmc/software/21cmFAST/src/py21cmfast/__init__.py",
+  "originalWrapperSHA256": "cadf7791af97bfa297ae868e9edb22f4f3bf947a19618c1c5c886e2129ae62eb",
+  "originalBinarySHA256": "80b30c5c5c4bb32949db8664e852054c43a73e7ac6ac397f57925ea0f89bad9c",
+  "cases": [
+    {
+      "name": "reference_repeat_1",
+      "perturbProfile": "reference",
+      "thermalProfile": "reference",
+      "predecessorProfile": "reference",
+      "previousZ": 25.38207823874287,
+      "threads": 16,
+      "resolvedBubbleRadius": 50.0,
+      "inputs": [
+        "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt_thermal_repair_20261017/native-reference/cache/PerturbedField_10dfb07e106a96ff711a9401a9741df4_r725213656658.h5",
+        "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt_thermal_repair_20261017/native-reference/cache/TsBox_0dcdceff6b23d260ecb6bc569b495d28_r725213656658.h5",
+        "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt_thermal_repair_20261017/native-reference/cache/IonizedBox_2b7aec71114c0b13f35bb055375a8543_r725213656658.h5",
+        "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt_thermal_repair_20261017/native-reference/cache/PerturbedField_3180a17131a219c96b17ffd37c7baea7_r725213656658.h5"
+      ],
+      "seconds": 55.95301695447415,
+      "againstStoredReference": {
+        "xH": {
+          "passed": true,
+          "mismatchedVoxels": 0,
+          "maxAbsolute": 0.0,
+          "rms": 0.0
+        },
+        "Tb": {
+          "passed": true,
+          "mismatchedVoxels": 0,
+          "maxAbsolute": 0.0,
+          "rms": 0.0
+        }
+      },
+      "againstStoredNative": {
+        "xH": {
+          "passed": false,
+          "mismatchedVoxels": 47,
+          "maxAbsolute": 0.004476010799407959,
+          "rms": 1.6694043282536915e-06
+        },
+        "Tb": {
+          "passed": false,
+          "mismatchedVoxels": 7,
+          "maxAbsolute": 0.1710357666015625,
+          "rms": 6.047975360988462e-05
+        }
+      }
+    },
+    {
+      "name": "reference_repeat_2",
+      "perturbProfile": "reference",
+      "thermalProfile": "reference",
+      "predecessorProfile": "reference",
+      "previousZ": 25.38207823874287,
+      "threads": 16,
+      "resolvedBubbleRadius": 50.0,
+      "inputs": [
+        "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt_thermal_repair_20261017/native-reference/cache/PerturbedField_10dfb07e106a96ff711a9401a9741df4_r725213656658.h5",
+        "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt_thermal_repair_20261017/native-reference/cache/TsBox_0dcdceff6b23d260ecb6bc569b495d28_r725213656658.h5",
+        "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt_thermal_repair_20261017/native-reference/cache/IonizedBox_2b7aec71114c0b13f35bb055375a8543_r725213656658.h5",
+        "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt_thermal_repair_20261017/native-reference/cache/PerturbedField_3180a17131a219c96b17ffd37c7baea7_r725213656658.h5"
+      ],
+      "seconds": 52.28847079630941,
+      "againstStoredReference": {
+        "xH": {
+          "passed": true,
+          "mismatchedVoxels": 0,
+          "maxAbsolute": 0.0,
+          "rms": 0.0
+        },
+        "Tb": {
+          "passed": true,
+          "mismatchedVoxels": 0,
+          "maxAbsolute": 0.0,
+          "rms": 0.0
+        }
+      },
+      "againstStoredNative": {
+        "xH": {
+          "passed": false,
+          "mismatchedVoxels": 47,
+          "maxAbsolute": 0.004476010799407959,
+          "rms": 1.6694043282536915e-06
+        },
+        "Tb": {
+          "passed": false,
+          "mismatchedVoxels": 7,
+          "maxAbsolute": 0.1710357666015625,
+          "rms": 6.047975360988462e-05
+        }
+      },
+      "againstFirstRepeat": {
+        "xH": {
+          "passed": true,
+          "mismatchedVoxels": 0,
+          "maxAbsolute": 0.0,
+          "rms": 0.0
+        },
+        "Tb": {
+          "passed": true,
+          "mismatchedVoxels": 0,
+          "maxAbsolute": 0.0,
+          "rms": 0.0
+        }
+      }
+    },
+    {
+      "name": "native_repeat",
+      "perturbProfile": "native",
+      "thermalProfile": "native",
+      "predecessorProfile": "native",
+      "previousZ": 25.38207823874287,
+      "threads": 16,
+      "resolvedBubbleRadius": 50.0,
+      "inputs": [
+        "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/cache/PerturbedField_10dfb07e106a96ff711a9401a9741df4_r725213656658.h5",
+        "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/cache/TsBox_4dd58efc5952eac99b03070956ddfae7_r725213656658.h5",
+        "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/cache/IonizedBox_34594fb7b7237785db3c559198a5e2e4_r725213656658.h5",
+        "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/cache/PerturbedField_3180a17131a219c96b17ffd37c7baea7_r725213656658.h5"
+      ],
+      "seconds": 53.744564011693,
+      "againstStoredReference": {
+        "xH": {
+          "passed": false,
+          "mismatchedVoxels": 47,
+          "maxAbsolute": 0.004476010799407959,
+          "rms": 1.6694043282536915e-06
+        },
+        "Tb": {
+          "passed": false,
+          "mismatchedVoxels": 7,
+          "maxAbsolute": 0.1710357666015625,
+          "rms": 6.047975360988462e-05
+        }
+      },
+      "againstStoredNative": {
+        "xH": {
+          "passed": true,
+          "mismatchedVoxels": 0,
+          "maxAbsolute": 0.0,
+          "rms": 0.0
+        },
+        "Tb": {
+          "passed": true,
+          "mismatchedVoxels": 0,
+          "maxAbsolute": 0.0,
+          "rms": 0.0
+        }
+      }
+    },
+    {
+      "name": "native_perturb_only",
+      "perturbProfile": "native",
+      "thermalProfile": "reference",
+      "predecessorProfile": "reference",
+      "previousZ": 25.38207823874287,
+      "threads": 16,
+      "resolvedBubbleRadius": 50.0,
+      "inputs": [
+        "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/cache/PerturbedField_10dfb07e106a96ff711a9401a9741df4_r725213656658.h5",
+        "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt_thermal_repair_20261017/native-reference/cache/TsBox_0dcdceff6b23d260ecb6bc569b495d28_r725213656658.h5",
+        "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt_thermal_repair_20261017/native-reference/cache/IonizedBox_2b7aec71114c0b13f35bb055375a8543_r725213656658.h5",
+        "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/cache/PerturbedField_3180a17131a219c96b17ffd37c7baea7_r725213656658.h5"
+      ],
+      "seconds": 52.64742772374302,
+      "againstStoredReference": {
+        "xH": {
+          "passed": false,
+          "mismatchedVoxels": 47,
+          "maxAbsolute": 0.004476010799407959,
+          "rms": 1.6694040739552909e-06
+        },
+        "Tb": {
+          "passed": false,
+          "mismatchedVoxels": 7,
+          "maxAbsolute": 0.17102432250976562,
+          "rms": 6.028110312641473e-05
+        }
+      },
+      "againstStoredNative": {
+        "xH": {
+          "passed": true,
+          "mismatchedVoxels": 0,
+          "maxAbsolute": 5.960464477539063e-08,
+          "rms": 9.270214450507406e-10
+        },
+        "Tb": {
+          "passed": true,
+          "mismatchedVoxels": 0,
+          "maxAbsolute": 0.00014495849609375,
+          "rms": 4.951810912516119e-06
+        }
+      }
+    },
+    {
+      "name": "native_temperature_only",
+      "perturbProfile": "reference",
+      "thermalProfile": "native",
+      "predecessorProfile": "reference",
+      "previousZ": 25.38207823874287,
+      "threads": 16,
+      "resolvedBubbleRadius": 50.0,
+      "inputs": [
+        "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt_thermal_repair_20261017/native-reference/cache/PerturbedField_10dfb07e106a96ff711a9401a9741df4_r725213656658.h5",
+        "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/cache/TsBox_4dd58efc5952eac99b03070956ddfae7_r725213656658.h5",
+        "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt_thermal_repair_20261017/native-reference/cache/IonizedBox_2b7aec71114c0b13f35bb055375a8543_r725213656658.h5",
+        "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt_thermal_repair_20261017/native-reference/cache/PerturbedField_3180a17131a219c96b17ffd37c7baea7_r725213656658.h5"
+      ],
+      "seconds": 53.07909547910094,
+      "againstStoredReference": {
+        "xH": {
+          "passed": true,
+          "mismatchedVoxels": 0,
+          "maxAbsolute": 5.960464477539063e-08,
+          "rms": 9.274888850769166e-10
+        },
+        "Tb": {
+          "passed": true,
+          "mismatchedVoxels": 0,
+          "maxAbsolute": 0.00014495849609375,
+          "rms": 4.951533196111972e-06
+        }
+      },
+      "againstStoredNative": {
+        "xH": {
+          "passed": false,
+          "mismatchedVoxels": 47,
+          "maxAbsolute": 0.004476010799407959,
+          "rms": 1.6694040773682534e-06
+        },
+        "Tb": {
+          "passed": false,
+          "mismatchedVoxels": 7,
+          "maxAbsolute": 0.17102432250976562,
+          "rms": 6.0281481834427074e-05
+        }
+      }
+    },
+    {
+      "name": "native_predecessor_only",
+      "perturbProfile": "reference",
+      "thermalProfile": "reference",
+      "predecessorProfile": "native",
+      "previousZ": 25.38207823874287,
+      "threads": 16,
+      "resolvedBubbleRadius": 50.0,
+      "inputs": [
+        "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt_thermal_repair_20261017/native-reference/cache/PerturbedField_10dfb07e106a96ff711a9401a9741df4_r725213656658.h5",
+        "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt_thermal_repair_20261017/native-reference/cache/TsBox_0dcdceff6b23d260ecb6bc569b495d28_r725213656658.h5",
+        "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/cache/IonizedBox_34594fb7b7237785db3c559198a5e2e4_r725213656658.h5",
+        "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt_thermal_repair_20261017/native-reference/cache/PerturbedField_3180a17131a219c96b17ffd37c7baea7_r725213656658.h5"
+      ],
+      "seconds": 53.78176296222955,
+      "againstStoredReference": {
+        "xH": {
+          "passed": true,
+          "mismatchedVoxels": 0,
+          "maxAbsolute": 0.0,
+          "rms": 0.0
+        },
+        "Tb": {
+          "passed": true,
+          "mismatchedVoxels": 0,
+          "maxAbsolute": 0.0,
+          "rms": 0.0
+        }
+      },
+      "againstStoredNative": {
+        "xH": {
+          "passed": false,
+          "mismatchedVoxels": 47,
+          "maxAbsolute": 0.004476010799407959,
+          "rms": 1.6694043282536915e-06
+        },
+        "Tb": {
+          "passed": false,
+          "mismatchedVoxels": 7,
+          "maxAbsolute": 0.1710357666015625,
+          "rms": 6.047975360988462e-05
+        }
+      }
+    }
+  ],
+  "globalParameterDifferences": {}
+}

@@ -1,0 +1,438 @@
+{
+  "passed": true,
+  "job": "2234814",
+  "model": "bt",
+  "snapshots": 85,
+  "grid": 128,
+  "sourceIdentity": "348085978cb445d2b7fe75c8140df6ac9dafb074ba58b68fc7a30a8b9aaca9d8",
+  "readbackAndAxisChecks": true,
+  "meanConservation": true,
+  "coarseConsistency": true,
+  "checks": [
+    {
+      "id": "z35.2169290409",
+      "meanDifference": 1.830837564886778e-12,
+      "coarseMaxDifference": 2.9802322387695312e-08
+    },
+    {
+      "id": "z34.5067938413",
+      "meanDifference": 2.8784787053925953e-13,
+      "coarseMaxDifference": 2.9802322387695312e-08
+    },
+    {
+      "id": "z33.8105828483",
+      "meanDifference": -1.6925263274236713e-12,
+      "coarseMaxDifference": 2.9802322387695312e-08
+    },
+    {
+      "id": "z33.1280230385",
+      "meanDifference": 1.4183740987272486e-12,
+      "coarseMaxDifference": 2.9802322387695312e-08
+    },
+    {
+      "id": "z32.4588467418",
+      "meanDifference": 1.004052743724948e-12,
+      "coarseMaxDifference": 2.9802322387695312e-08
+    },
+    {
+      "id": "z31.8027915368",
+      "meanDifference": -2.2981061498228428e-12,
+      "coarseMaxDifference": 2.9802322387695312e-08
+    },
+    {
+      "id": "z31.1596001472",
+      "meanDifference": 5.742593900404103e-13,
+      "coarseMaxDifference": 2.9802322387695312e-08
+    },
+    {
+      "id": "z30.5290203417",
+      "meanDifference": 2.7409047254067787e-12,
+      "coarseMaxDifference": 2.9802322387695312e-08
+    },
+    {
+      "id": "z29.9108048346",
+      "meanDifference": 4.699704167498986e-13,
+      "coarseMaxDifference": 2.9802322387695312e-08
+    },
+    {
+      "id": "z29.3047111889",
+      "meanDifference": -5.705262651201082e-13,
+      "coarseMaxDifference": 2.9802322387695312e-08
+    },
+    {
+      "id": "z28.7105017211",
+      "meanDifference": 8.928014577636034e-13,
+      "coarseMaxDifference": 2.9802322387695312e-08
+    },
+    {
+      "id": "z28.1279434085",
+      "meanDifference": -9.895782110413975e-13,
+      "coarseMaxDifference": 2.9802322387695312e-08
+    },
+    {
+      "id": "z27.5568077973",
+      "meanDifference": -3.3985982431095074e-12,
+      "coarseMaxDifference": 2.9802322387695312e-08
+    },
+    {
+      "id": "z26.9968709130",
+      "meanDifference": -4.618701254788249e-13,
+      "coarseMaxDifference": 2.9802322387695312e-08
+    },
+    {
+      "id": "z26.4479131731",
+      "meanDifference": -2.8206603719382883e-13,
+      "coarseMaxDifference": 2.9802322387695312e-08
+    },
+    {
+      "id": "z25.9097193003",
+      "meanDifference": -2.499975920722264e-12,
+      "coarseMaxDifference": 2.9802322387695312e-08
+    },
+    {
+      "id": "z25.3820782387",
+      "meanDifference": -4.214659871104587e-12,
+      "coarseMaxDifference": 2.9802322387695312e-08
+    },
+    {
+      "id": "z24.8647830707",
+      "meanDifference": -1.6807562286391686e-12,
+      "coarseMaxDifference": 2.9802322387695312e-08
+    },
+    {
+      "id": "z24.3576309356",
+      "meanDifference": 4.2342171435727494e-13,
+      "coarseMaxDifference": 2.9802322387695312e-08
+    },
+    {
+      "id": "z23.8604229508",
+      "meanDifference": -2.0929473432129697e-12,
+      "coarseMaxDifference": 2.9802322387695312e-08
+    },
+    {
+      "id": "z23.3729641330",
+      "meanDifference": 1.1884417061569508e-12,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z22.8950633223",
+      "meanDifference": -2.1641577419018176e-12,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z22.4265331070",
+      "meanDifference": -2.9297050896381904e-12,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z21.9671897501",
+      "meanDifference": 5.064733354931406e-13,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z21.5168531172",
+      "meanDifference": -2.9332265782944233e-12,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z21.0753466061",
+      "meanDifference": 1.2822000405865452e-12,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z20.6424970774",
+      "meanDifference": 1.937037336086078e-12,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z20.2181347863",
+      "meanDifference": -4.630315228459914e-12,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z19.8020933168",
+      "meanDifference": -8.318467442647304e-13,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z19.3942095155",
+      "meanDifference": 2.598182086144263e-13,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z18.9943234282",
+      "meanDifference": 9.637568521014828e-13,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z18.6022782374",
+      "meanDifference": 1.682676567527075e-12,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z18.2179201999",
+      "meanDifference": 3.69327485261195e-12,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z17.8410985876",
+      "meanDifference": -6.747397779394149e-13,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z17.4716656273",
+      "meanDifference": 1.7477321673231572e-12,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z17.1094764439",
+      "meanDifference": -4.134529524302266e-12,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z16.7543890024",
+      "meanDifference": 3.801639558709269e-12,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z16.4062640534",
+      "meanDifference": 5.2317560006454045e-12,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z16.0649650773",
+      "meanDifference": 1.5473247683139846e-12,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z15.7303582318",
+      "meanDifference": -1.105698865799809e-12,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z15.4023122987",
+      "meanDifference": -2.410120714113617e-13,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z15.0806986327",
+      "meanDifference": 1.0816625373166744e-12,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z14.7653911112",
+      "meanDifference": 1.9892108793495566e-12,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z14.4562660843",
+      "meanDifference": -5.131686742210206e-12,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z14.1532023268",
+      "meanDifference": -2.9377056343093955e-12,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z13.8560809904",
+      "meanDifference": 2.5628839328550868e-12,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z13.5647855570",
+      "meanDifference": -4.977764728186784e-12,
+      "coarseMaxDifference": 5.960464477539063e-08
+    },
+    {
+      "id": "z13.2792017935",
+      "meanDifference": 4.307347881149504e-12,
+      "coarseMaxDifference": 1.1920928955078125e-07
+    },
+    {
+      "id": "z12.9992177064",
+      "meanDifference": 3.6159616967346153e-12,
+      "coarseMaxDifference": 1.1920928955078125e-07
+    },
+    {
+      "id": "z12.7247234982",
+      "meanDifference": -5.834110972102735e-12,
+      "coarseMaxDifference": 1.1920928955078125e-07
+    },
+    {
+      "id": "z12.4556115244",
+      "meanDifference": -3.060864062209845e-12,
+      "coarseMaxDifference": 1.1920928955078125e-07
+    },
+    {
+      "id": "z12.1917762510",
+      "meanDifference": 6.921629935874307e-12,
+      "coarseMaxDifference": 1.1920928955078125e-07
+    },
+    {
+      "id": "z11.9331142134",
+      "meanDifference": 3.729589553858048e-12,
+      "coarseMaxDifference": 1.1920928955078125e-07
+    },
+    {
+      "id": "z11.6795239757",
+      "meanDifference": -8.7360674250192e-15,
+      "coarseMaxDifference": 1.1920928955078125e-07
+    },
+    {
+      "id": "z11.4309060910",
+      "meanDifference": -6.54566505164933e-12,
+      "coarseMaxDifference": 1.1920928955078125e-07
+    },
+    {
+      "id": "z11.1871630622",
+      "meanDifference": -3.374696355695761e-12,
+      "coarseMaxDifference": 1.1920928955078125e-07
+    },
+    {
+      "id": "z10.9481993040",
+      "meanDifference": -1.3512940766347015e-12,
+      "coarseMaxDifference": 1.1920928955078125e-07
+    },
+    {
+      "id": "z10.7139211053",
+      "meanDifference": -4.775416173607994e-13,
+      "coarseMaxDifference": 1.1920928955078125e-07
+    },
+    {
+      "id": "z10.4842365925",
+      "meanDifference": -8.918282778935804e-13,
+      "coarseMaxDifference": 1.1920928955078125e-07
+    },
+    {
+      "id": "z10.2590556934",
+      "meanDifference": -1.248105785389697e-12,
+      "coarseMaxDifference": 1.1920928955078125e-07
+    },
+    {
+      "id": "z10.0382901019",
+      "meanDifference": 1.774750485461496e-12,
+      "coarseMaxDifference": 1.1920928955078125e-07
+    },
+    {
+      "id": "z9.8218532434",
+      "meanDifference": -1.3443482438368903e-12,
+      "coarseMaxDifference": 1.1920928955078125e-07
+    },
+    {
+      "id": "z9.6096602410",
+      "meanDifference": 4.983638501876442e-12,
+      "coarseMaxDifference": 1.1920928955078125e-07
+    },
+    {
+      "id": "z9.4016278817",
+      "meanDifference": -3.894672778725905e-12,
+      "coarseMaxDifference": 1.1920928955078125e-07
+    },
+    {
+      "id": "z9.1976745846",
+      "meanDifference": 8.239103843621365e-13,
+      "coarseMaxDifference": 1.1920928955078125e-07
+    },
+    {
+      "id": "z8.9977203679",
+      "meanDifference": 6.563152799010652e-13,
+      "coarseMaxDifference": 1.1920928955078125e-07
+    },
+    {
+      "id": "z8.8016868185",
+      "meanDifference": -1.403968608038042e-11,
+      "coarseMaxDifference": 1.1920928955078125e-07
+    },
+    {
+      "id": "z8.6094970605",
+      "meanDifference": -1.3308104618303673e-12,
+      "coarseMaxDifference": 2.384185791015625e-07
+    },
+    {
+      "id": "z8.4210757257",
+      "meanDifference": -2.1960419593902714e-12,
+      "coarseMaxDifference": 1.1920928955078125e-07
+    },
+    {
+      "id": "z8.2363489234",
+      "meanDifference": -3.8410247205078463e-13,
+      "coarseMaxDifference": 1.1920928955078125e-07
+    },
+    {
+      "id": "z8.0552442119",
+      "meanDifference": 3.5893094052497077e-12,
+      "coarseMaxDifference": 2.384185791015625e-07
+    },
+    {
+      "id": "z7.9655884133",
+      "meanDifference": -5.547125259131036e-12,
+      "coarseMaxDifference": 1.1920928955078125e-07
+    },
+    {
+      "id": "z7.8776905698",
+      "meanDifference": -4.6373599404958554e-12,
+      "coarseMaxDifference": 1.1920928955078125e-07
+    },
+    {
+      "id": "z7.7036183685",
+      "meanDifference": -1.382519099202284e-12,
+      "coarseMaxDifference": 2.384185791015625e-07
+    },
+    {
+      "id": "z7.5329593443",
+      "meanDifference": -1.3008760735289115e-11,
+      "coarseMaxDifference": 2.384185791015625e-07
+    },
+    {
+      "id": "z7.3656465725",
+      "meanDifference": -1.2344035515976515e-11,
+      "coarseMaxDifference": 2.384185791015625e-07
+    },
+    {
+      "id": "z7.2016144401",
+      "meanDifference": -7.138803437278796e-13,
+      "coarseMaxDifference": 2.384185791015625e-07
+    },
+    {
+      "id": "z7.0407986210",
+      "meanDifference": -3.498798473167142e-13,
+      "coarseMaxDifference": 2.384185791015625e-07
+    },
+    {
+      "id": "z6.8831360504",
+      "meanDifference": -1.1628878415770316e-11,
+      "coarseMaxDifference": 2.384185791015625e-07
+    },
+    {
+      "id": "z6.7285648998",
+      "meanDifference": -7.159120518629436e-12,
+      "coarseMaxDifference": 2.384185791015625e-07
+    },
+    {
+      "id": "z6.5770245533",
+      "meanDifference": -3.712079255091538e-12,
+      "coarseMaxDifference": 2.384185791015625e-07
+    },
+    {
+      "id": "z6.4284555833",
+      "meanDifference": -5.251337559242231e-12,
+      "coarseMaxDifference": 2.384185791015625e-07
+    },
+    {
+      "id": "z6.2827997276",
+      "meanDifference": 1.1209935757428013e-11,
+      "coarseMaxDifference": 2.384185791015625e-07
+    },
+    {
+      "id": "z6.1399998665",
+      "meanDifference": -1.102997554403018e-11,
+      "coarseMaxDifference": 2.384185791015625e-07
+    },
+    {
+      "id": "z6.0000000000",
+      "meanDifference": -1.0151608720310179e-11,
+      "coarseMaxDifference": 2.384185791015625e-07
+    }
+  ]
+}

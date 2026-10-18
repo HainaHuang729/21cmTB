@@ -1,0 +1,197 @@
+{
+  "job": "2234763",
+  "z": 24.864783070661233,
+  "grid": 256,
+  "sameIC": "eceb1c4ad4fd694329d4129fcf03ac8c6559c4964ec181eb301bcf875fff7c5b",
+  "passedRangeChecks": true,
+  "passedStrictControl": true,
+  "elapsedSeconds": 1344.2436428871006,
+  "statistics": {
+    "Ts": {
+      "min": 24.080013275146484,
+      "max": 265.746826171875,
+      "mean": 40.712773272861
+    },
+    "Tk": {
+      "min": 9.443196296691895,
+      "max": 270.56707763671875,
+      "mean": 13.39753980290078
+    },
+    "xe": {
+      "min": 0.0001895075401989743,
+      "max": 0.004299356136471033,
+      "mean": 0.0001933755069458221
+    },
+    "Tb": {
+      "min": -126.97071838378906,
+      "max": -0.0,
+      "mean": -32.1397646846573
+    },
+    "xH": {
+      "min": 0.0,
+      "max": 0.999915599822998,
+      "mean": 0.9969084427108925
+    },
+    "density": {
+      "min": -0.4886748492717743,
+      "max": 1.2090308666229248,
+      "mean": -3.9141075797166636e-11
+    }
+  },
+  "fields": {
+    "Ts": {
+      "passed": true,
+      "mismatchedVoxels": 0,
+      "maxAbsolute": 0.0,
+      "rms": 0.0
+    },
+    "Tk": {
+      "passed": true,
+      "mismatchedVoxels": 0,
+      "maxAbsolute": 0.0,
+      "rms": 0.0
+    },
+    "xe": {
+      "passed": true,
+      "mismatchedVoxels": 0,
+      "maxAbsolute": 0.0,
+      "rms": 0.0
+    },
+    "Tb": {
+      "passed": true,
+      "mismatchedVoxels": 0,
+      "maxAbsolute": 0.0,
+      "rms": 0.0
+    },
+    "xH": {
+      "passed": true,
+      "mismatchedVoxels": 0,
+      "maxAbsolute": 0.0,
+      "rms": 0.0
+    },
+    "density": {
+      "passed": true,
+      "mismatchedVoxels": 0,
+      "maxAbsolute": 0.0,
+      "rms": 0.0
+    }
+  },
+  "inputProvenance": {
+    "job": "2234763",
+    "sameIC": "eceb1c4ad4fd694329d4129fcf03ac8c6559c4964ec181eb301bcf875fff7c5b",
+    "sourceIdentity": "348085978cb445d2b7fe75c8140df6ac9dafb074ba58b68fc7a30a8b9aaca9d8",
+    "pristineWrapperSHA256": "cadf7791af97bfa297ae868e9edb22f4f3bf947a19618c1c5c886e2129ae62eb",
+    "binarySHA256": "80b30c5c5c4bb32949db8664e852054c43a73e7ac6ac397f57925ea0f89bad9c",
+    "sharedInputs": [
+      "initial_conditions",
+      "PerturbedField density/velocity"
+    ],
+    "independentlyRecomputed": [
+      "Ts",
+      "Tk",
+      "xe",
+      "xH",
+      "Tb",
+      "recombination history"
+    ],
+    "sharedEvolvedFields": false,
+    "perturbedFields": [
+      {
+        "z": 28.71050172112606,
+        "file": "PerturbedField_09e552529db1ed01f021168ea3bcc7af_r725213656658.h5",
+        "sha256": "91e8db55e2313cc8daad1e1ea9f1438ea219fed9837a98b5b845f2b2f83e799d"
+      },
+      {
+        "z": 24.864783070661233,
+        "file": "PerturbedField_10dfb07e106a96ff711a9401a9741df4_r725213656658.h5",
+        "sha256": "dc205e7fa14c1d36094739325bcbf1c98d254fd32f316f9e841fa399a4f635f2"
+      },
+      {
+        "z": 29.304711188865735,
+        "file": "PerturbedField_1db2a3c2099d35bd076ebc260b46b51d_r725213656658.h5",
+        "sha256": "3fb9bf501bd0b464f581e64675b22f862047cb09cf2bdb4d3ac8cebacc1461f7"
+      },
+      {
+        "z": 31.159600147208778,
+        "file": "PerturbedField_23667904acb89c1e4b3f7403b52e1611_r725213656658.h5",
+        "sha256": "6606adfaf15d5fe1f7d75a6ad669010749c95fb384957d5e9b6ff204e204dc22"
+      },
+      {
+        "z": 28.127943408526953,
+        "file": "PerturbedField_2dfe9416a3bbe7e9a0a07908173e01fc_r725213656658.h5",
+        "sha256": "96e4b0c0e099a7f736de12711d2bc31909016e588020eb727bef4f0f483b2ad3"
+      },
+      {
+        "z": 25.38207823874287,
+        "file": "PerturbedField_3180a17131a219c96b17ffd37c7baea7_r725213656658.h5",
+        "sha256": "bdf94f47917883f86bc56aff3d4f702a8c001140454c3814cf06a4603f4ca427"
+      },
+      {
+        "z": 33.12802303848853,
+        "file": "PerturbedField_4d16d0de1148bb628f010e4f7236fb09_r725213656658.h5",
+        "sha256": "04da42bf3d0668b9ba1f6cf7dcba4e4606e287d2ea2908f63405441f580c48df"
+      },
+      {
+        "z": 33.81058284831792,
+        "file": "PerturbedField_52080c624cd469aa83a7979488b580fd_r725213656658.h5",
+        "sha256": "9826e172d7db59cf65ce252db70e3f26062b926bad07e3e3772ca383c940800d"
+      },
+      {
+        "z": 35.216929040913264,
+        "file": "PerturbedField_574f16f0ef93670178ba4d1da817b03b_r725213656658.h5",
+        "sha256": "1ddf983a1ecd10e9f63026f7224c1beedd17320f19b4ae11ab107ffa687ff27c"
+      },
+      {
+        "z": 27.556807797259644,
+        "file": "PerturbedField_63de423bf8cff73f1486461ed740aee9_r725213656658.h5",
+        "sha256": "9b0b8b2668d7c09ea60b71fe4e8338f244f5d9171a04468ecc383cf01ca04e6d"
+      },
+      {
+        "z": 34.506793841325106,
+        "file": "PerturbedField_72600bb6007e1e2fc9cdb6652b989cba_r725213656658.h5",
+        "sha256": "b3d431ff66db3b6c995bfcc7268c69c41f158c0d63a92cb4f322684591966b19"
+      },
+      {
+        "z": 29.910804834626553,
+        "file": "PerturbedField_7e494315b9a52620a01d0197e8f4f28d_r725213656658.h5",
+        "sha256": "8a0b9bfcffeb63ce36ab9dfca416b7648cdad957e422cefafc6f1d284c460ed5"
+      },
+      {
+        "z": 31.802791536757262,
+        "file": "PerturbedField_87dd36d237ebeb563f3e992a5b08cbf6_r725213656658.h5",
+        "sha256": "869f99e1796aa855fd5e644facd3711d741822fcaba0c633fabd29f9388e000b"
+      },
+      {
+        "z": 30.52902034174227,
+        "file": "PerturbedField_c49dc40fc239d96582f5c4a305d30196_r725213656658.h5",
+        "sha256": "906ad39a7f7d0539c25b7682aa33c00749f2b7bb5e052308a3be4ae91d574d3b"
+      },
+      {
+        "z": 35.0,
+        "file": "PerturbedField_e13e688b11cea18ed54d740104f8c073_r725213656658.h5",
+        "sha256": "b5870941e86902494b1a3e61dff29015e5e85717456292cb523de8e3e02727f5"
+      },
+      {
+        "z": 26.447913173063746,
+        "file": "PerturbedField_e32b61e8f2029029203bb2a091dc9215_r725213656658.h5",
+        "sha256": "46865396758e0bab302cebd9814d6d04e457fa5baa8b4b2434290f9d4b1e896c"
+      },
+      {
+        "z": 25.90971930031952,
+        "file": "PerturbedField_ef183ab2429a5c8179402affb58e0246_r725213656658.h5",
+        "sha256": "3c3c42c04cac764c69a102fff20f029e34a6cad033d6fb773f32325eafa8cf9b"
+      },
+      {
+        "z": 26.996870912997625,
+        "file": "PerturbedField_f848f2c3eb26674f939b5791b9b191b9_r725213656658.h5",
+        "sha256": "44b0d14ef989a58617b2b203c69a488841fcd540b217a5c190aa013dea35f6af"
+      },
+      {
+        "z": 32.45884674182881,
+        "file": "PerturbedField_fbc35a204a321a2835e81b2934570efb_r725213656658.h5",
+        "sha256": "30945074893159d416062b9f9afb058b1671b2e8db0900b883798e6cacbc2abb"
+      }
+    ],
+    "tolerancesChanged": false
+  }
+}

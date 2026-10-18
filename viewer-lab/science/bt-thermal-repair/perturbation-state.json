@@ -1,0 +1,50 @@
+{
+  "job": "2234793",
+  "grid": 256,
+  "sourceIC": "eceb1c4ad4fd694329d4129fcf03ac8c6559c4964ec181eb301bcf875fff7c5b",
+  "kernelSourceSHA256": "1dbdd5aeb11888261d1971bd44a8b47a29a989cdf23639464b83f85b7fe55f7e",
+  "velocityChangesAfterFirstCall": {
+    "lowres_vx": {
+      "changedValues": 196713,
+      "total": 16777216,
+      "maxAbsolute": 1.9073486328125e-06
+    },
+    "lowres_vy": {
+      "changedValues": 194865,
+      "total": 16777216,
+      "maxAbsolute": 9.5367431640625e-07
+    },
+    "lowres_vz": {
+      "changedValues": 195234,
+      "total": 16777216,
+      "maxAbsolute": 1.9073486328125e-06
+    },
+    "lowres_vx_2LPT": {
+      "changedValues": 1024871,
+      "total": 16777216,
+      "maxAbsolute": 1.9073486328125e-06
+    },
+    "lowres_vy_2LPT": {
+      "changedValues": 1024396,
+      "total": 16777216,
+      "maxAbsolute": 1.9073486328125e-06
+    },
+    "lowres_vz_2LPT": {
+      "changedValues": 1022703,
+      "total": 16777216,
+      "maxAbsolute": 1.9073486328125e-06
+    }
+  },
+  "historyVsPristine": {
+    "differentVoxels": 14882507,
+    "maxAbsolute": 3.5762786865234375e-07,
+    "rms": 3.0090734513761656e-08
+  },
+  "pristineRepeat": {
+    "differentVoxels": 0,
+    "maxAbsolute": 0.0,
+    "rms": 0.0
+  },
+  "restorationExact": true,
+  "sourceFileUntouched": true
+}

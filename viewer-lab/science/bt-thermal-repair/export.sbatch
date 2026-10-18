@@ -11,4 +11,4 @@ export LD_LIBRARY_PATH=/project/tkcastrosim/HNHuang/project_mcmc/software/21cmFA
 repair_root=/project/tkcastrosim/HNHuang/project_mcmc/web_21cm_viewer/thermal-repair-bt-20261017
 cp "$repair_root/export_repaired_bt.py" "$repair_root/export-${SLURM_JOB_ID}.py"
 chmod a-w "$repair_root/export-${SLURM_JOB_ID}.py"
-exec /project/tkcastrosim/HNHuang/envs/Miniconda3/envs/21cmfast/bin/python -u "$repair_root/export-${SLURM_JOB_ID}.py"
+exec /project/tkcastrosim/HNHuang/envs/Miniconda3/envs/21cmfast/bin/python -u "$repair_root/export-${SLURM_JOB_ID}.py" "$@"

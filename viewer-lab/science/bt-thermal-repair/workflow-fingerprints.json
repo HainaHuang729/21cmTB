@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-18",
+  "scriptsSHA256": {
+    "input_ablation.py": "216a98c467171bf14a8c7314e7c2c60707c88a285eb2010079324ebdfc03753c",
+    "input_ablation.sbatch": "9a11029bb1b05aef6859d34774757f97b77b846211b4c406ca5dcd936e714f63",
+    "rng_probe.py": "1c4c6792361e167268d35dad9f36757c38248fc78139d8b0cae74488653773d5",
+    "matched_perturb_reference.py": "4200a160cc4f36310fde9d20f18a0a8d9fb1c652a3403104531cc792f6005afc",
+    "matched_reference.sbatch": "7588e6ff06ef00716af2133f5a9ec8ccc9e153a34e8d3ce802207535a8cef17b",
+    "perturbation_state_probe.py": "3cad4c3f00859d0fa0902640f8075be5942f53cc6b0598cf951d0435fb2ad22b",
+    "export_repaired_bt.py": "a81044456a61f6cf6967a2a3abf39ec5b84cc961319c9f0fc8881f968eb0fd39",
+    "export.sbatch": "14a6b7de870a178c87dcd47361e23a477ada7cf717a86c0f5bed1dcf8cf851a5",
+    "import_display.py": "53d07e394b67d0fadcaa09b446357ee8ca4ff07e4e5b565324653c21fa9178c6"
+  },
+  "archivesSHA256": {
+    "display64.tar": "84b6c36d2c0452a9c7b3c379b3e7eca4934df5810732ff71f6b77f72849751d4",
+    "bt-density128.tar": "2662d3d13cc011502531484cf314526d9ce5c712a9326c90a67583354f21bd8e"
+  }
+}

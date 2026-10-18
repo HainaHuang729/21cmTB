@@ -1,0 +1,83 @@
+{
+  "job": "2234726",
+  "assumption": "16 threads, OpenMP contiguous static x partition, one Poisson draw per last-filter cell",
+  "points": [
+    {
+      "coordinate": [
+        0,
+        185,
+        240
+      ],
+      "thread": 0,
+      "drawIndex": 47600,
+      "poissonCount": 3,
+      "deltaXH": -0.0014920234680175781
+    },
+    {
+      "coordinate": [
+        49,
+        63,
+        213
+      ],
+      "thread": 3,
+      "drawIndex": 81877,
+      "poissonCount": 6,
+      "deltaXH": -0.0029840469360351562
+    },
+    {
+      "coordinate": [
+        49,
+        128,
+        148
+      ],
+      "thread": 3,
+      "drawIndex": 98452,
+      "poissonCount": 9,
+      "deltaXH": -0.004476010799407959
+    },
+    {
+      "coordinate": [
+        58,
+        243,
+        111
+      ],
+      "thread": 3,
+      "drawIndex": 717679,
+      "poissonCount": 5,
+      "deltaXH": -0.002486705780029297
+    },
+    {
+      "coordinate": [
+        124,
+        181,
+        70
+      ],
+      "thread": 7,
+      "drawIndex": 832838,
+      "poissonCount": 1,
+      "deltaXH": -0.0004973411560058594
+    },
+    {
+      "coordinate": [
+        175,
+        115,
+        76
+      ],
+      "thread": 10,
+      "drawIndex": 1012556,
+      "poissonCount": 1,
+      "deltaXH": -0.0004973411560058594
+    },
+    {
+      "coordinate": [
+        192,
+        164,
+        102
+      ],
+      "thread": 12,
+      "drawIndex": 42086,
+      "poissonCount": 6,
+      "deltaXH": -0.0029840469360351562
+    }
+  ]
+}

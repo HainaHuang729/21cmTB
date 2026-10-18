@@ -15,11 +15,13 @@ must also agree with the published 64³ source to float32 rounding tolerance.
 `import_density128.py` checks all 85 incoming files before changing any active
 manifest or registry reference. Previous payloads and manifests are preserved.
 
-PL export job `2224967` passed for all 85 redshifts. BT export `2224968` depends
-on the BT native repair and validated display export; it was cancelled after
-the BT strict native-control comparison failed. No BT 128³ data were activated.
-Per-model receipts are
-saved here after local import. Each 128³ raw volume occupies 8 MiB; a complete
+PL export job `2224967` passed for all 85 redshifts. The initial BT export
+`2224968` was cancelled after the first strict comparison failed. After the
+perturbation-input discrepancy was isolated and the matched-input native control
+passed bit-exactly, replacement BT export `2234814` passed all 85 redshifts. Its
+largest native-to-display mean difference is 1.403968608038042e-11; averaging
+back to 64³ differs by at most 2.384185791015625e-7. Per-model receipts are saved
+here after local import. Each 128³ raw volume occupies 8 MiB; a complete
 85-frame model occupies 680 MiB.
 
 The renderer reads the declared per-field grid, including slices, probes,
