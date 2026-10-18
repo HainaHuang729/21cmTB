@@ -1,5 +1,5 @@
 import { CavityRenderer } from './cavity-renderer.js?v=playback-20261018';
-import { fetchJSON, validateManifest, VolumeStore, nearest, fieldColor, index3, FIELDS, availableFields, snapshotFieldAvailable, REVISION, fieldSize } from './data.js?v=playback-20261018';
+import { fetchJSON, validateManifest, VolumeStore, nearest, FIELDS, availableFields, snapshotFieldAvailable, REVISION, fieldSize } from './data.js?v=playback-20261018';
 import { SAMPLE_FIELDS, sampleDefaults, structureValue, epochThreshold, densityNodeThreshold } from './field-presets.js?v=density-translucent-20261017-2';
 import { SnapshotPlayer } from './snapshot-player.js?v=playback-20261018';
 import { BrowserVolumeCache, preloadVolumes, volumeKey, abortable } from './volume-cache.js';
@@ -30,6 +30,7 @@ for(const [selector,variable]of [['.sample-controls','--sample-dock'],['.sample-
 const controlsPreference='21cm:sample:controls-collapsed';
 function setControlsCollapsed(collapsed){
   $('sample-controls').classList.toggle('is-collapsed',collapsed);
+  $('sample-panel').hidden=collapsed;
   $('sample-parameters').hidden=collapsed;$('sample-cache').hidden=collapsed;
   $('sample-toggle').setAttribute('aria-expanded',String(!collapsed));
   $('sample-toggle').setAttribute('aria-label',collapsed?'展开参数区':'收起参数区');
@@ -70,7 +71,7 @@ function configure(interactive=false){
   const names=energy?fieldKey==='density'?['金色高密节点','青色纤维轮廓']:fieldKey==='brightness_temperature'?['蓝色吸收','橙红发射']:['界面辉光','暖色剖切边缘']:['阈值界面','剖切边缘'];
   $('material-interface').textContent=names[0];$('material-cut').textContent=names[1];
   const explanation=fieldKey==='brightness_temperature'&&modelRepaired()?`蓝色表示负亮温吸收，橙红表示正亮温发射，零值透明。${modelKey.toUpperCase()} 已修复温度与电离递推，可播放完整的 85 个真实红移快照。`:p.explanation;
-  $('sample-explainer').textContent=energy?explanation:isSurface?'按当前物理量的阈值展示界面；拖动旋转，剖开前侧查看内部。':`同一份 ${f.symbol} 数据与同一视角，使用原有梯度光照体渲染，色标与原值切片一致。`;
+  $('sample-explainer').textContent=energy?explanation:isSurface?'按当前物理量的阈值展示界面；拖动旋转，剖开前侧查看内部。':`同一份 ${f.symbol} 数据与同一视角，使用原有梯度光照体渲染。`;
   updateEmptyNote();
 }
 function configureField(){
@@ -81,18 +82,10 @@ function configureField(){
   const sourceNote=modelRepaired()?' · 递推已修复':' · 原缓存，待更新';
   $('sample-title').textContent=p.title;$('sample-subtitle').textContent=p.subtitle+sourceNote+(frames[fieldKey]&&fieldKey==='brightness_temperature'?` · 已发布 ${publishedSnapshots(frames[fieldKey],fieldKey).length} / ${frames[fieldKey].length} 帧`:'');
   $('sample-model').value=modelKey;$('sample-source').textContent=p.source;$('sample-mean-title').textContent=`全盒平均 ${f.symbol}${f.unit?' / '+f.unit:''}`;
-  $('sample-slice-title').textContent=`原值切片 · ${f.symbol}${f.unit?' / '+f.unit:''}`;
-  $('sample-slice').setAttribute('aria-label',`XY ${f.label}原值切片`);
   $('sample-volume').setAttribute('aria-label',`真实${f.label}三维显示；拖动或方向键旋转，加减键缩放，Home 重置`);
   document.querySelectorAll('[data-epoch]').forEach(button=>button.textContent=p.epochs[Number(button.dataset.epoch)]);
   $('sample-convention').textContent=fieldKey==='brightness_temperature'?(!modelRepaired()?'BT 保留原缓存，尚未做这次递推修复。':'同一模型的三个场来自同组快照。')+'已发布亮温通过源温度与范围筛查，这不等于物理认证。辉光表达结构与正负号；PL / BT 未核实逐体素相位匹配。':`界面来自 ${fieldSize(manifests?.[modelKey],fieldKey)}³ 平均网格的阈值与空间插值。辉光用于辨认结构，不表示真实发射光度或精确物理边界；PL / BT 未核实逐体素相位匹配。`;
   drawQualityBand();
-  const scale=$('sample-scale').getContext('2d');
-  for(let x=0;x<256;x++){const v=f.range[0]+x/255*(f.range[1]-f.range[0]);scale.fillStyle=`rgb(${fieldColor(v,fieldKey).join(',')})`;scale.fillRect(x,0,1,5);}
-  $('sample-scale-low').textContent=fieldKey==='xH'?'0 · 电离':f.range[0];
-  $('sample-scale-high').textContent=fieldKey==='xH'?'1 · 中性':f.range[1];
-  $('sample-scale-middle').textContent=number(f.range[0]+f.middle*(f.range[1]-f.range[0]));
-  $('sample-scale-middle').style.left=`${f.middle*100}%`;
   configure();
 }
 function updateEmptyNote(){
@@ -115,16 +108,6 @@ document.querySelectorAll('[data-framing]').forEach(button=>button.addEventListe
   if(!renderer)return;
   renderer.distance=button.dataset.framing==='detail'?1.65:2.4;renderer.request();syncCamera();
 }));
-
-function drawSlice(){
-  const z=Number($('sample-slice-z').value),ctx=$('sample-slice').getContext('2d');
-  $('sample-slice-label').textContent=`Z = ${z}`;ctx.clearRect(0,0,256,256);if(!volume)return;
-  const n=volume.gridSize,image=new ImageData(n,n);
-  for(let y=0;y<n;y++)for(let x=0;x<n;x++)image.data.set([...fieldColor(volume.data[index3(x,n-1-y,z,n)],fieldKey),255],(x+n*y)*4);
-  const source=document.createElement('canvas');source.width=n;source.height=n;source.getContext('2d').putImageData(image,0,0);
-  ctx.imageSmoothingEnabled=false;ctx.drawImage(source,0,0,256,256);
-}
-$('sample-slice-z').addEventListener('input',drawSlice);
 
 function updateCacheStatus(){
   if(!store||disposed||!frames[fieldKey])return;
@@ -209,7 +192,7 @@ function recordSelection(snapshot){
 }
 function clearDisplay(){
   volume=null;displayedIndex=-1;displayedField='';displayedModel='';renderer?.clearData();
-  $('sample-mean').textContent='—';$('sample-z').textContent='—';drawSlice();updateEmptyNote();
+  $('sample-mean').textContent='—';$('sample-z').textContent='—';updateEmptyNote();
 }
 function drawQualityBand(){
   const sequence=frames[fieldKey],band=$('sample-quality-band');band.replaceChildren();if(!sequence)return;
@@ -271,12 +254,10 @@ async function load(index,thresholdEpoch=null){
     const signal=controller.signal,result=await store.load(model,snapshot,signal,key);
     const gradients=needsPreparedGradient(SAMPLE_FIELDS[key].kind)?await prepared.get(volumeKey(model,snapshot,key),result.data,signal):null;if(id!==loadID)return false;
     volume=result;displayedIndex=targetIndex;displayedField=key;displayedModel=model;loading=false;
-    const slice=$('sample-slice-z'),previousN=Number(slice.max)+1;
-    if(previousN!==result.gridSize){const next=Math.min(result.gridSize-1,Math.floor((Number(slice.value)+.5)*result.gridSize/previousN));slice.max=result.gridSize-1;slice.value=next;}
     try{renderer?.setData(result.data,gradients);}catch(e){failure(e.message);}
     $('sample-z').textContent=snapshot.redshift.toFixed(3);$('sample-mean').textContent=key==='brightness_temperature'?result.mean.toFixed(2):key==='density'&&Math.abs(result.mean)<.0005?'≈ 0':result.mean.toFixed(3);
     $('sample-loading').hidden=!gpuError;if(gpuError)$('sample-loading').textContent=gpuError;
-    verifiedStatus();syncTimeline();drawSlice();updateEmptyNote();
+    verifiedStatus();syncTimeline();updateEmptyNote();
     recordSelection(snapshot);
     prepareAhead(model,key,targetIndex+1).catch(()=>{});
     // setData queued the renderer first. Wait for its animation-frame callback
