@@ -4,7 +4,7 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="light"><title>21cm · 三维 Viewer</title>
   <link rel="preload" href="./assets/fonts/jost-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="./cavity.css?v=compact-controls-20261018">
+  <link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="./cavity.css?v=minimal-dock-20261018">
 </head>
 <body class="cavity-page">
   <header class="sample-header">
@@ -39,9 +39,9 @@
         </div>
       </div>
     </section>
+    <div hidden><p id="sample-explainer"></p><p id="sample-convention"></p><p id="sample-status" role="status">读取本地真实快照…</p></div>
   </main>
   <footer class="sample-controls is-collapsed" id="sample-controls" aria-label="三维调参区">
-    <div class="sample-console-heading"><h2>21cmFAST <span>三维观测</span></h2><p>真实快照 · 辉光呈现</p><button class="sample-toggle" id="sample-toggle" aria-expanded="false" aria-controls="sample-panel" aria-label="展开参数区"><span id="sample-toggle-label">展开参数</span><span id="sample-toggle-mark" aria-hidden="true">+</span></button></div>
     <div class="sample-panel" id="sample-panel" hidden>
     <div class="sample-parameters" id="sample-parameters" hidden>
     <label><span id="sample-threshold-title">界面阈值 xH</span> <output id="sample-threshold-value">0.50</output><input id="sample-threshold" aria-label="界面阈值 xH" type="range" min="0.1" max="0.9" step="0.01" value="0.5"></label>
@@ -49,9 +49,10 @@
     <label>柔和阴影 <output id="sample-shadow-value">0.80</output><input id="sample-shadow" aria-label="柔和阴影" type="range" min="0" max="1" step="0.05" value="0.8"></label>
     <label>光晕强度 <output id="sample-bloom-value">0.80</output><input id="sample-bloom" aria-label="光晕强度" type="range" min="0" max="1.5" step="0.05" value="0.8"></label>
     <button class="sample-reset" id="sample-reset">重置视图</button>
+    <button class="sample-cache-retry" id="sample-cache-retry" hidden>重试数据预载</button>
     </div>
-    <details class="sample-notes"><summary>画面与数据说明</summary><div><p class="sample-explainer" id="sample-explainer">暖白界面勾出中性结构，剖开前侧观察内部空腔。赭红切缘标出剖切位置。</p><p class="sample-convention" id="sample-convention">辉光用于辨认结构，不表示真实发射光度或精确物理边界。</p></div><p class="sample-status" id="sample-status" role="status">读取本地真实快照…</p><button class="sample-cache-retry" id="sample-cache-retry" hidden>重试数据预载</button></details>
     </div>
+    <button class="sample-toggle" id="sample-toggle" aria-expanded="false" aria-controls="sample-panel" aria-label="展开参数区"><span id="sample-toggle-label">展开参数</span><span id="sample-toggle-mark" aria-hidden="true">+</span></button>
   </footer>
   <script type="module" src="./cavity.js?v=compact-controls-20261018"></script>
 </body>
