@@ -256,16 +256,19 @@
   display: block; min-height: 0; max-height: none; padding: 0; border: 0; background: transparent; overflow: visible;
 }
 .sample-controls.is-collapsed .sample-toggle {
-  min-width: 82px; min-height: 36px; gap: 8px; padding: 5px 10px;
-  border: 1px solid var(--line-strong); background: var(--background); box-shadow: 0 3px 12px #111e2b1a;
+  min-width: 68px; min-height: 28px; gap: 5px; padding: 3px 7px; font-size: 9px;
+  color: #c0cdd5; border: 1px solid #acc1cf38; background: #2637456b; box-shadow: none;
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
 }
-.sample-controls.is-collapsed .sample-toggle:hover { background: var(--surface); border-color: var(--accent); }
+.sample-controls.is-collapsed #sample-toggle-mark { font-size: 16px; color: inherit; }
+.sample-controls.is-collapsed .sample-toggle:hover { color: #edf2f5; background: #263745ad; border-color: #acc1cf70; }
+.sample-controls.is-collapsed .sample-toggle:focus-visible { outline-color: #9ab5c7; }
 @media (min-width:601px) {
-  .controls-collapsed .sample-stage-bottom { padding-right: calc(var(--stage-pad) + 94px); }
+  .controls-collapsed .sample-stage-bottom { padding-right: calc(var(--stage-pad) + 76px); }
 }
 @media (max-width:600px) {
   .sample-controls.is-collapsed { right: max(12px, env(safe-area-inset-right)); }
-  .controls-collapsed .sample-timeline { grid-template-columns: minmax(104px, 1fr) 56px 84px; }
+  .controls-collapsed .sample-timeline { grid-template-columns: minmax(104px, 1fr) 56px 70px; }
   .controls-collapsed .redshift-control { grid-column: 1/-1; }
   .controls-collapsed .timeline-transport { gap: 2px; }
   .controls-collapsed .timeline-transport button { min-width: 24px; padding: 5px; }
