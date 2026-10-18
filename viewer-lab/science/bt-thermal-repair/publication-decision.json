@@ -1,0 +1,220 @@
+{
+  "checkedDate": "2026-10-18",
+  "timezone": "Asia/Shanghai",
+  "nativeRecomputeComplete": true,
+  "nativeRangeChecksPassed": true,
+  "nativeSnapshots": 85,
+  "nativeRanges": {
+    "Ts": [
+      8.795068740844727,
+      13396.4375
+    ],
+    "Tk": [
+      6.430202007293701,
+      42442.2421875
+    ],
+    "xH": [
+      0.0,
+      1.0
+    ],
+    "brightness_temperature": [
+      -163.8634033203125,
+      23.57463836669922
+    ],
+    "density": [
+      -0.8895535469055176,
+      19.4545841217041
+    ]
+  },
+  "sourceIdentitySHA256": "348085978cb445d2b7fe75c8140df6ac9dafb074ba58b68fc7a30a8b9aaca9d8",
+  "sameSavedInitialConditions": true,
+  "physicalParametersChanged": false,
+  "independentControlPassed": false,
+  "controlRedshift": 24.864783070661233,
+  "comparisonTolerancePolicy": "unchanged rtol=2e-5; atol: Ts/Tk/Tb=.001, density=2e-5, xH/xe=1e-6",
+  "tolerancesChanged": false,
+  "failedControlFields": {
+    "Tb": {
+      "passed": false,
+      "mismatchedVoxels": 7,
+      "total": 16777216,
+      "maxAbsolute": 0.1710357666015625,
+      "rms": 6.047975360988462e-05,
+      "meanDifference": 3.8886486919409435e-08,
+      "maxMismatchCoordinates": [
+        [
+          0,
+          185,
+          240
+        ],
+        [
+          49,
+          63,
+          213
+        ],
+        [
+          49,
+          128,
+          148
+        ],
+        [
+          58,
+          243,
+          111
+        ],
+        [
+          124,
+          181,
+          70
+        ],
+        [
+          175,
+          115,
+          76
+        ],
+        [
+          192,
+          164,
+          102
+        ]
+      ],
+      "absolutePercentiles": {
+        "50": 3.814697265625e-06,
+        "95": 1.33514404296875e-05,
+        "99": 2.288818359375e-05,
+        "99.9": 4.57763671875e-05,
+        "99.99": 0.0001373291015625,
+        "100": 0.1710357666015625
+      }
+    },
+    "xH": {
+      "passed": false,
+      "mismatchedVoxels": 47,
+      "total": 16777216,
+      "maxAbsolute": 0.004476010799407959,
+      "rms": 1.6694043282536915e-06,
+      "meanDifference": -8.34809638083911e-10,
+      "maxMismatchCoordinates": [
+        [
+          0,
+          185,
+          240
+        ],
+        [
+          4,
+          154,
+          209
+        ],
+        [
+          20,
+          98,
+          151
+        ],
+        [
+          21,
+          97,
+          151
+        ],
+        [
+          31,
+          242,
+          226
+        ],
+        [
+          35,
+          9,
+          8
+        ],
+        [
+          46,
+          6,
+          178
+        ],
+        [
+          49,
+          63,
+          213
+        ],
+        [
+          49,
+          128,
+          148
+        ],
+        [
+          50,
+          183,
+          21
+        ],
+        [
+          58,
+          243,
+          111
+        ],
+        [
+          61,
+          36,
+          111
+        ],
+        [
+          68,
+          183,
+          5
+        ],
+        [
+          78,
+          128,
+          86
+        ],
+        [
+          82,
+          30,
+          120
+        ],
+        [
+          99,
+          90,
+          14
+        ],
+        [
+          122,
+          18,
+          55
+        ],
+        [
+          124,
+          181,
+          70
+        ],
+        [
+          130,
+          94,
+          209
+        ],
+        [
+          136,
+          72,
+          216
+        ]
+      ],
+      "absolutePercentiles": {
+        "50": 0.0,
+        "95": 0.0,
+        "99": 5.960464477539063e-08,
+        "99.9": 2.384185791015625e-07,
+        "99.99": 8.940696716308594e-07,
+        "100": 0.004476010799407959
+      }
+    }
+  },
+  "publicationAllowed": false,
+  "activeWebDataReplaced": false,
+  "reason": "The native source completed, but the independent native-256 control exceeds the unchanged per-voxel tolerances in xH and Tb. Display export failed, packaging and 128^3 density export were cancelled. Numerical sensitivity is a hypothesis, not an established cause.",
+  "jobs": {
+    "recompute": "2224917",
+    "reference": "2224918",
+    "failedExport": "2224919",
+    "cancelledPackaging": "2224920",
+    "cancelledDensity128": "2224968",
+    "readOnlyDiagnostic": "2234653"
+  }
+}

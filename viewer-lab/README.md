@@ -53,7 +53,7 @@ PL 已使用相同初始条件和物理参数完整重算，修复 Python 驱动
 
 - [PL 热演化修复与凭据](science/pl-thermal-repair/README.md)
 - [128³ 密度导出、读回、均值与轴顺序校验](science/density128/README.md)
-- [BT 已提交的重算记录](science/bt-thermal-repair/README.md)：按用户要求不检查任务进度，尚未将结果导入网页。
+- [BT 重算与严格对照记录](science/bt-thermal-repair/README.md)：85 个原生快照已完成且范围检查通过，但独立对照中的 xH / 亮温局部差异超过原定容差，导出未通过发布校验，网页保留原数据。
 
 ## 渲染约定
 

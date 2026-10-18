@@ -16,7 +16,9 @@ must also agree with the published 64³ source to float32 rounding tolerance.
 manifest or registry reference. Previous payloads and manifests are preserved.
 
 PL export job `2224967` passed for all 85 redshifts. BT export `2224968` depends
-on the BT native repair and validated display export. Per-model receipts are
+on the BT native repair and validated display export; it was cancelled after
+the BT strict native-control comparison failed. No BT 128³ data were activated.
+Per-model receipts are
 saved here after local import. Each 128³ raw volume occupies 8 MiB; a complete
 85-frame model occupies 680 MiB.
 

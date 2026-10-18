@@ -1,0 +1,3494 @@
+{
+  "validated": true,
+  "snapshots": [
+    {
+      "redshift": 35.216929040913264,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z35.2169290409.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.9926285743713379,
+          "max": 0.9997944831848145,
+          "mean": 0.9997944820272302,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -31.791584014892578,
+          "max": -2.9104583263397217,
+          "mean": -8.673368804992052,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.3892427086830139,
+          "max": 0.7733518481254578,
+          "mean": -1.8458411882305015e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 77.04215240478516,
+          "max": 89.48240661621094,
+          "mean": 84.71633592781518,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 21.603431701660156,
+          "max": 34.52719497680664,
+          "mean": 25.93037414519074,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 34.506793841325106,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z34.5067938413.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.982705295085907,
+          "max": 0.9997958540916443,
+          "mean": 0.9997953706708245,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -142.0265350341797,
+          "max": -2.487089157104492,
+          "mean": -8.292576552114127,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.3952715992927551,
+          "max": 0.7932384610176086,
+          "mean": -1.9937060682928553e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 42.618099212646484,
+          "max": 88.7900619506836,
+          "mean": 83.49382033959296,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 20.63579750061035,
+          "max": 33.80972671508789,
+          "mean": 24.952932745383123,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 33.81058284831792,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z33.8105828483.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.9602108597755432,
+          "max": 0.9997978210449219,
+          "mean": 0.9997963784556241,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -149.60577392578125,
+          "max": -2.2523863315582275,
+          "mean": -7.744034713734692,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.4013141691684723,
+          "max": 0.8137059211730957,
+          "mean": 4.869143283015021e-13,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 40.06635665893555,
+          "max": 87.5921859741211,
+          "mean": 82.52715637368397,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 19.67052459716797,
+          "max": 33.44169616699219,
+          "mean": 23.995145672864737,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 33.12802303848853,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z33.1280230385.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.936038613319397,
+          "max": 0.9998000264167786,
+          "mean": 0.9997972017823145,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -151.9501953125,
+          "max": -2.076725721359253,
+          "mean": -7.252380795248456,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.40731656551361084,
+          "max": 0.8347747325897217,
+          "mean": 1.2225267673193763e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 38.38898849487305,
+          "max": 86.26014709472656,
+          "mean": 81.51080979903281,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 18.74533462524414,
+          "max": 33.39106369018555,
+          "mean": 23.07306886287745,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 32.45884674182881,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z32.4588467418.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.8593780994415283,
+          "max": 0.9998025298118591,
+          "mean": 0.9997974088827775,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -143.91806030273438,
+          "max": -1.9691059589385986,
+          "mean": -6.848226157919953,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.41172945499420166,
+          "max": 0.8564660549163818,
+          "mean": -1.3146013791431876e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 37.521026611328125,
+          "max": 84.75689697265625,
+          "mean": 80.39509751853916,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 17.859928131103516,
+          "max": 33.74668502807617,
+          "mean": 22.185511421993056,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 31.802791536757262,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z31.8027915368.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.6984396576881409,
+          "max": 0.9998053908348083,
+          "mean": 0.9997955760842103,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -137.86566162109375,
+          "max": -1.9143344163894653,
+          "mean": -6.570040312274969,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.4151863157749176,
+          "max": 0.8788024187088013,
+          "mean": 3.6413094761655884e-12,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 36.398502349853516,
+          "max": 83.13111877441406,
+          "mean": 79.12560519876706,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 17.01347541809082,
+          "max": 34.63911056518555,
+          "mean": 21.331334855887917,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 31.159600147208778,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z31.1596001472.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.3692060708999634,
+          "max": 0.9998088479042053,
+          "mean": 0.9997875628535482,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -127.9954833984375,
+          "max": -1.8964506387710571,
+          "mean": -6.453814297812997,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.41719353199005127,
+          "max": 0.9018068313598633,
+          "mean": -1.464747420576451e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 35.08086395263672,
+          "max": 81.40714263916016,
+          "mean": 77.65534562444554,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 16.205459594726562,
+          "max": 36.24629211425781,
+          "mean": 20.50947593586625,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 30.52902034174227,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z30.5290203417.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9998130202293396,
+          "mean": 0.9997622800904633,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -115.73094177246094,
+          "max": -0.0,
+          "mean": -6.535784426873896,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.4227820634841919,
+          "max": 0.9255033731460571,
+          "mean": 1.1134038135907076e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 33.45860290527344,
+          "max": 79.44061279296875,
+          "mean": 75.94024841078817,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 15.434547424316406,
+          "max": 38.815242767333984,
+          "mean": 19.718943363907897,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 29.910804834626553,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z29.9108048346.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.999817967414856,
+          "mean": 0.9996929954212495,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -106.22969818115234,
+          "max": -0.0,
+          "mean": -6.8619710574240145,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.4310286045074463,
+          "max": 0.9499172568321228,
+          "mean": -5.971171387203489e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 32.26620864868164,
+          "max": 77.19412231445312,
+          "mean": 73.93037399330206,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 14.700180053710938,
+          "max": 42.67621612548828,
+          "mean": 18.958821550485084,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 29.304711188865735,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z29.3047111889.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9998129606246948,
+          "mean": 0.9995928956402982,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -109.34092712402344,
+          "max": -0.0,
+          "mean": -7.477150287450932,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.43924060463905334,
+          "max": 0.9750748872756958,
+          "mean": 3.902016557089105e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 31.700851440429688,
+          "max": 74.67200469970703,
+          "mean": 71.59251934071688,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 14.001945495605469,
+          "max": 48.19428253173828,
+          "mean": 18.228290724244744,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 28.71050172112606,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z28.7105017211.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9998174905776978,
+          "mean": 0.9994950906300372,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -107.5225830078125,
+          "max": -0.0,
+          "mean": -8.441412737118625,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.4467999339103699,
+          "max": 1.000988245010376,
+          "mean": 4.3044892303334414e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 30.605276107788086,
+          "max": 71.83617401123047,
+          "mean": 68.88940225451643,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 13.338369369506836,
+          "max": 55.93438720703125,
+          "mean": 17.526646756919888,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 28.127943408526953,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z28.1279434085.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.999823272228241,
+          "mean": 0.9993589099932044,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -109.84169006347656,
+          "max": -0.0,
+          "mean": -9.829426269758542,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.4536665081977844,
+          "max": 1.0276904106140137,
+          "mean": -1.1813652486813986e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 29.341327667236328,
+          "max": 68.6993179321289,
+          "mean": 65.78816360873964,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 12.708065032958984,
+          "max": 66.67401123046875,
+          "mean": 16.853313897485123,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 27.556807797259644,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z27.5568077973.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9998305439949036,
+          "mean": 0.9991728956683644,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -117.48918914794922,
+          "max": -0.0,
+          "mean": -11.732939662642133,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.4605744481086731,
+          "max": 1.0552194118499756,
+          "mean": -1.8007570261324712e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 28.444198608398438,
+          "max": 81.18243408203125,
+          "mean": 62.273556068778475,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 12.109752655029297,
+          "max": 81.25559997558594,
+          "mean": 16.20784210025505,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 26.996870912997625,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z26.9968709130.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9998370409011841,
+          "mean": 0.9989230556356964,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -123.08203887939453,
+          "max": -0.0,
+          "mean": -14.303687275128762,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.46724003553390503,
+          "max": 1.083606243133545,
+          "mean": -3.729652003903183e-12,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 27.525571823120117,
+          "max": 100.2270278930664,
+          "mean": 58.31625428783525,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 11.52131175994873,
+          "max": 100.7398910522461,
+          "mean": 15.589972983372775,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 26.447913173063746,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z26.4479131731.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9998494386672974,
+          "mean": 0.9985925089697858,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -123.62755584716797,
+          "max": -0.0,
+          "mean": -17.52586443179949,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.47399675846099854,
+          "max": 1.1129846572875977,
+          "mean": -3.859330910405134e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 26.41056251525879,
+          "max": 125.66703033447266,
+          "mean": 54.09256317341362,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 10.959978103637695,
+          "max": 126.77132415771484,
+          "mean": 14.999659349860906,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 25.90971930031952,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z25.9097193003.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9998661279678345,
+          "mean": 0.9981617652762429,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -121.37421417236328,
+          "max": -0.0,
+          "mean": -21.56324258074553,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.48086681962013245,
+          "max": 1.1439813375473022,
+          "mean": 7.411949526359152e-12,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 25.392871856689453,
+          "max": 159.84378051757812,
+          "mean": 49.637518772122235,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 10.426661491394043,
+          "max": 161.7744140625,
+          "mean": 14.437118018621106,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 25.38207823874287,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z25.3820782387.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9998884201049805,
+          "mean": 0.9976090547207231,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -124.71862030029297,
+          "max": -0.0,
+          "mean": -26.415999932215655,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.4852907955646515,
+          "max": 1.1759834289550781,
+          "mean": -1.5949699894157732e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 25.00713539123535,
+          "max": 205.29615783691406,
+          "mean": 45.13705286953552,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 9.921046257019043,
+          "max": 208.4056854248047,
+          "mean": 13.902800738443545,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 24.864783070661233,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z24.8647830707.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.999915599822998,
+          "mean": 0.9969084427108925,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -126.97071838378906,
+          "max": -0.0,
+          "mean": -32.1397646846573,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.4886748492717743,
+          "max": 1.2090308666229248,
+          "mean": -3.9141075797166636e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 24.080013275146484,
+          "max": 265.746826171875,
+          "mean": 40.712773272861,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 9.443196296691895,
+          "max": 270.56707763671875,
+          "mean": 13.39753980290078,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 24.35763093560751,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z24.3576309356.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9999473690986633,
+          "mean": 0.9960313757394315,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -127.52647399902344,
+          "max": -0.0,
+          "mean": -38.921848081416826,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.493308424949646,
+          "max": 1.244901180267334,
+          "mean": -1.1324854248817573e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 23.191362380981445,
+          "max": 346.57916259765625,
+          "mean": 36.405235924471185,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 8.993474960327148,
+          "max": 353.9111022949219,
+          "mean": 12.922532830206194,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 23.860422950767106,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z23.8604229508.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9999826550483704,
+          "mean": 0.9949462048629605,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -127.90744018554688,
+          "max": -0.0,
+          "mean": -46.31358513157093,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.5010305047035217,
+          "max": 1.284525752067566,
+          "mean": -3.1877559619752915e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 22.485305786132812,
+          "max": 453.37152099609375,
+          "mean": 32.50917363600888,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 8.57258415222168,
+          "max": 464.3149719238281,
+          "mean": 12.479529834436562,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 23.37296413298481,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z23.3729641330.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9999464750289917,
+          "mean": 0.9936187029004853,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -129.28994750976562,
+          "max": -0.0,
+          "mean": -54.36440773403174,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.508354902267456,
+          "max": 1.32552969455719,
+          "mean": -1.46692970270923e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 21.365964889526367,
+          "max": 594.3196411132812,
+          "mean": 28.99537053170957,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 8.181628227233887,
+          "max": 610.3750610351562,
+          "mean": 12.07081510645338,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 22.895063322300953,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z22.8950633223.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9999669194221497,
+          "mean": 0.9920120418075883,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -132.54275512695312,
+          "max": -0.0,
+          "mean": -62.85272305692769,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.5164557695388794,
+          "max": 1.3783245086669922,
+          "mean": 2.821975986222469e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 18.938350677490234,
+          "max": 782.381591796875,
+          "mean": 25.902643154192333,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 7.8222575187683105,
+          "max": 805.8251342773438,
+          "mean": 11.699312195599987,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 22.426533106986874,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z22.4265331070.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9999842643737793,
+          "mean": 0.990088562790064,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -139.22726440429688,
+          "max": -0.0,
+          "mean": -71.51892643307153,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.5246200561523438,
+          "max": 1.4216880798339844,
+          "mean": -1.4487931687678923e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 16.869600296020508,
+          "max": 1037.947021484375,
+          "mean": 23.232903889876752,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 7.496471405029297,
+          "max": 1072.16357421875,
+          "mean": 11.36858016685673,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 21.96718975005025,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z21.9671897501.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9999263882637024,
+          "mean": 0.9878032350361928,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -137.1505126953125,
+          "max": -0.0,
+          "mean": -80.04435237893134,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.5311271548271179,
+          "max": 1.4610216617584229,
+          "mean": 6.91486798376495e-12,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 15.196843147277832,
+          "max": 1376.07958984375,
+          "mean": 20.968676851427688,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 7.207109451293945,
+          "max": 1425.3831787109375,
+          "mean": 11.083394079245977,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 21.51685311718151,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z21.5168531172.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9999598860740662,
+          "mean": 0.9851117579327163,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -143.30657958984375,
+          "max": -0.0,
+          "mean": -88.05340442710335,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.5383354425430298,
+          "max": 1.5187842845916748,
+          "mean": -2.0450873633448552e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 13.81253719329834,
+          "max": 1829.9290771484375,
+          "mean": 19.082957096254518,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 6.9576568603515625,
+          "max": 1900.6671142578125,
+          "mean": 10.849583187007255,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 21.07534660611307,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z21.0753466061.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.9819708054223386,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -146.9123077392578,
+          "max": -0.0,
+          "mean": -95.2040662314264,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.5467885732650757,
+          "max": 1.5805463790893555,
+          "mean": -2.3851771252525467e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 12.436943054199219,
+          "max": 2467.36181640625,
+          "mean": 17.53633828383613,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 6.75249719619751,
+          "max": 2552.233154296875,
+          "mean": 10.674187266626149,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 20.642497077363668,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z20.6424970774.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.9783317151028303,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -152.93499755859375,
+          "max": -0.0,
+          "mean": -100.98537752741915,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.554497480392456,
+          "max": 1.6472926139831543,
+          "mean": -3.6598005875854156e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 11.364710807800293,
+          "max": 3650.868896484375,
+          "mean": 16.31206830141747,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 6.597018718719482,
+          "max": 3785.603759765625,
+          "mean": 10.56543789468131,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 20.21813478634066,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z20.2181347863.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.9741420199895204,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -157.16026306152344,
+          "max": -0.0,
+          "mean": -105.10938061842981,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.5621564984321594,
+          "max": 1.7169322967529297,
+          "mean": 4.411823337213683e-12,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 10.510215759277344,
+          "max": 4498.92919921875,
+          "mean": 15.370428460210917,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 6.498401165008545,
+          "max": 4707.34033203125,
+          "mean": 10.534210619619046,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 19.80209331677363,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z19.8020933168.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.9693496465392013,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -160.67779541015625,
+          "max": -0.0,
+          "mean": -107.28370405802762,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.5698687434196472,
+          "max": 1.789323329925537,
+          "mean": -6.17975132871651e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 9.824687957763672,
+          "max": 5181.51953125,
+          "mean": 14.687703903788929,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 6.450525283813477,
+          "max": 5575.28173828125,
+          "mean": 10.59218423402973,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 19.39420951545324,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z19.3942095155.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.9639038840551991,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -163.53286743164062,
+          "max": -0.0,
+          "mean": -107.30978049707399,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.5775948762893677,
+          "max": 1.8620206117630005,
+          "mean": -2.2193425916472442e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 9.348684310913086,
+          "max": 6067.68408203125,
+          "mean": 14.246689768249269,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 6.430202007293701,
+          "max": 6590.26611328125,
+          "mean": 10.753867478848548,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 18.9943234282497,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z18.9943234282.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.9577504448556773,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -163.8634033203125,
+          "max": -0.0,
+          "mean": -105.19360203798809,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.585322380065918,
+          "max": 1.9381191730499268,
+          "mean": -2.3452156883152497e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 9.057652473449707,
+          "max": 6861.853515625,
+          "mean": 14.028638087803131,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 6.486531734466553,
+          "max": 7576.89013671875,
+          "mean": 11.036273718283695,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 18.60227823738577,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z18.6022782374.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.9508313738920552,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -161.231689453125,
+          "max": -0.0,
+          "mean": -100.76677179031877,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.5921247005462646,
+          "max": 2.019373893737793,
+          "mean": -3.555387408094024e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 8.838909149169922,
+          "max": 7540.72509765625,
+          "mean": 14.052196692766643,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 6.629987716674805,
+          "max": 8466.2822265625,
+          "mean": 11.45799384864597,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 18.217920199939716,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z18.2179201999.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.9430882571995662,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -158.38803100585938,
+          "max": -0.0,
+          "mean": -94.35047160787215,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.5971173644065857,
+          "max": 2.105238199234009,
+          "mean": -3.7633486604793376e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 8.795068740844727,
+          "max": 8286.55859375,
+          "mean": 14.3095751894773,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 6.874786376953125,
+          "max": 9427.1845703125,
+          "mean": 12.04472140755911,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 17.84109858755407,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z17.8410985876.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.9344667238100406,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -152.33297729492188,
+          "max": -0.0,
+          "mean": -86.20597384716781,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.6009758710861206,
+          "max": 2.1908843517303467,
+          "mean": -1.2483581876554517e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 8.930421829223633,
+          "max": 8927.48046875,
+          "mean": 14.82000689888082,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 7.2382965087890625,
+          "max": 10283.5771484375,
+          "mean": 12.824678861440475,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 17.4716656273266,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z17.4716656273.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.9249204164242402,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -135.17559814453125,
+          "max": -0.0,
+          "mean": -76.7539227482005,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.6031048893928528,
+          "max": 2.279712677001953,
+          "mean": -6.958807662049704e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 9.254682540893555,
+          "max": 9244.5009765625,
+          "mean": 15.606173264981749,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 7.743979454040527,
+          "max": 11011.1904296875,
+          "mean": 13.837050213179566,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 17.10947644386025,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z17.1094764439.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.9143842770036322,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -123.2121353149414,
+          "max": -0.0,
+          "mean": -66.57080845291816,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.604947566986084,
+          "max": 2.3681788444519043,
+          "mean": 1.414982714331714e-12,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 9.752896308898926,
+          "max": 9911.533203125,
+          "mean": 16.684753269931377,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 8.382217407226562,
+          "max": 11853.9501953125,
+          "mean": 15.118828612981417,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 16.754389002449358,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z16.7543890024.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9999859929084778,
+          "mean": 0.9027911708524544,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -110.3348388671875,
+          "max": 1.4860074520111084,
+          "mean": -56.01201050004703,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.6067661046981812,
+          "max": 2.4606175422668457,
+          "mean": 6.542891228811243e-12,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 10.447060585021973,
+          "max": 9856.765625,
+          "mean": 18.11505409849201,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 9.197402954101562,
+          "max": 12374.4990234375,
+          "mean": 16.721354404679516,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 16.4062640533799,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z16.4062640534.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9997813105583191,
+          "mean": 0.8901013471682571,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -96.86526489257812,
+          "max": 3.4772613048553467,
+          "mean": -45.5675602514378,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.6119461059570312,
+          "max": 2.5580573081970215,
+          "mean": 4.150402591052149e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 11.398544311523438,
+          "max": 10265.4833984375,
+          "mean": 19.946751648949885,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 10.247294425964355,
+          "max": 12964.3994140625,
+          "mean": 18.71425221331799,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 16.06496507732184,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z16.0649650773.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9997474551200867,
+          "mean": 0.8762611194097267,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -78.66294860839844,
+          "max": 6.378275394439697,
+          "mean": -35.69097851189467,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.620006263256073,
+          "max": 2.6616499423980713,
+          "mean": -4.729577146589392e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 12.637874603271484,
+          "max": 10836.876953125,
+          "mean": 22.226282496402405,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 11.570493698120117,
+          "max": 13684.9462890625,
+          "mean": 21.153794708993757,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 15.730358231792255,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z15.7303582318.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9997033476829529,
+          "mean": 0.8611871195794882,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -63.43315124511719,
+          "max": 9.505683898925781,
+          "mean": -26.668489089538934,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.6268331408500671,
+          "max": 2.7707290649414062,
+          "mean": -4.276223819488223e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 14.21321964263916,
+          "max": 10322.9306640625,
+          "mean": 25.022459185898754,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 13.22282886505127,
+          "max": 14007.56640625,
+          "mean": 24.120131838558564,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 15.402312298668171,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z15.4023122987.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9996480345726013,
+          "mean": 0.8448264603046223,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -49.39593505859375,
+          "max": 13.590993881225586,
+          "mean": -18.657024832144252,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.6332646608352661,
+          "max": 2.884398937225342,
+          "mean": 5.123162311049256e-12,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 16.179447174072266,
+          "max": 10518.626953125,
+          "mean": 28.42948253050531,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 15.26314926147461,
+          "max": 14375.634765625,
+          "mean": 27.719727656673626,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 15.080698632728584,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z15.0806986327.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9994695782661438,
+          "mean": 0.82709943173669,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -36.874000549316406,
+          "max": 14.928679466247559,
+          "mean": -11.736000821730611,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.6393224000930786,
+          "max": 3.0031089782714844,
+          "mean": -1.5776963069313865e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 18.599369049072266,
+          "max": 10816.0244140625,
+          "mean": 32.55459288639497,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 17.763282775878906,
+          "max": 14822.2978515625,
+          "mean": 32.07497265702443,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 14.765391111205448,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z14.7653911112.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9993523955345154,
+          "mean": 0.8079531103944243,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -25.69936180114746,
+          "max": 17.161592483520508,
+          "mean": -5.894948012575447,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.6466877460479736,
+          "max": 3.1238231658935547,
+          "mean": -8.155478722904341e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 21.57611083984375,
+          "max": 11276.853515625,
+          "mean": 37.54471372280375,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 20.835590362548828,
+          "max": 15395.6611328125,
+          "mean": 37.35264555278627,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 14.45626608432385,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z14.4562660843.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9992308020591736,
+          "mean": 0.7873540759319828,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -15.945158958435059,
+          "max": 18.378984451293945,
+          "mean": -1.1086304070038717,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.6556529998779297,
+          "max": 3.2496933937072754,
+          "mean": -3.469168008418677e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 25.210248947143555,
+          "max": 11097.916015625,
+          "mean": 43.53957135204905,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 24.590227127075195,
+          "max": 15562.9755859375,
+          "mean": 43.715332267841404,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 14.153202326812007,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z14.1532023268.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9991136789321899,
+          "mean": 0.7652003024343952,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -7.547255992889404,
+          "max": 20.304729461669922,
+          "mean": 2.7099847836307784,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.6657816171646118,
+          "max": 3.3837532997131348,
+          "mean": -1.839928209790287e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 29.672832489013672,
+          "max": 10328.296875,
+          "mean": 50.735191432719375,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 29.216007232666016,
+          "max": 15762.1484375,
+          "mean": 51.394337711055755,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 13.856080990362024,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z13.8560809904.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9989750981330872,
+          "mean": 0.7414256969229941,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": -1.966309905052185,
+          "max": 21.96331024169922,
+          "mean": 5.629858575849863,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.6757040619850159,
+          "max": 3.5203962326049805,
+          "mean": -5.1411670060064196e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 35.124698638916016,
+          "max": 10423.1591796875,
+          "mean": 59.27813279757925,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 34.895851135253906,
+          "max": 16008.1630859375,
+          "mean": 60.573366690636476,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 13.564785557022805,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z13.5647855570.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9988104701042175,
+          "mean": 0.7159367544329254,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 22.672548294067383,
+          "mean": 7.785006412550956,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.6853600144386292,
+          "max": 3.658372402191162,
+          "mean": -2.7679459418950003e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 41.76765823364258,
+          "max": 10614.4755859375,
+          "mean": 69.46516655567461,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 41.86193084716797,
+          "max": 16322.7548828125,
+          "mean": 71.60862453582263,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 13.279201793506829,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z13.2792017935.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9986029267311096,
+          "mean": 0.6886222254114945,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 22.84505844116211,
+          "mean": 9.287020698335809,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.6945938467979431,
+          "max": 3.8265459537506104,
+          "mean": -8.50598359108945e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 49.78636169433594,
+          "max": 10914.3701171875,
+          "mean": 81.62284036445021,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 50.335731506347656,
+          "max": 16735.26171875,
+          "mean": 84.89798817024393,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 12.999217706392859,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z12.9992177064.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.998370349407196,
+          "mean": 0.659400692751811,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 23.246458053588867,
+          "mean": 10.242487870201987,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.7033535242080688,
+          "max": 4.002684593200684,
+          "mean": -1.002021174367762e-10,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 59.54331970214844,
+          "max": 11382.9921875,
+          "mean": 96.19427707581485,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 60.7429084777832,
+          "max": 17288.57421875,
+          "mean": 101.01673796012005,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 12.724723498207045,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z12.7247234982.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.998094379901886,
+          "mean": 0.6280740432181143,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 23.470396041870117,
+          "mean": 10.73755947495809,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.7114027142524719,
+          "max": 4.193294048309326,
+          "mean": -4.583666779467421e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 71.47144317626953,
+          "max": 10735.923828125,
+          "mean": 113.7069795636321,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 73.6053237915039,
+          "max": 17386.515625,
+          "mean": 120.64024763408861,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 12.455611524365164,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z12.4556115244.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.997766375541687,
+          "mean": 0.594662585308884,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 23.57463836669922,
+          "mean": 10.8492916320413,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.7191846370697021,
+          "max": 4.3913893699646,
+          "mean": 3.266143605573646e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 86.11444854736328,
+          "max": 11197.666015625,
+          "mean": 134.7340399773625,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 89.60401153564453,
+          "max": 17573.984375,
+          "mean": 144.579008079676,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 12.191776250959146,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z12.1917762510.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9973453879356384,
+          "mean": 0.5589975656277985,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 23.54366111755371,
+          "mean": 10.645802937534274,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.7264671921730042,
+          "max": 4.602236270904541,
+          "mean": 4.051381452541136e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 104.28394317626953,
+          "max": 9904.6455078125,
+          "mean": 160.11665791636824,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 109.77088165283203,
+          "max": 17705.15625,
+          "mean": 174.0132002486398,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 11.933114213371297,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z11.9331142134.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9968774914741516,
+          "mean": 0.5210062739797913,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 23.2890567779541,
+          "mean": 10.185475299920817,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.7330865263938904,
+          "max": 4.819101810455322,
+          "mean": 6.672508032212754e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 126.56124877929688,
+          "max": 10011.7890625,
+          "mean": 190.76581733293642,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 134.9188995361328,
+          "max": 17948.75,
+          "mean": 210.23016783611183,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 11.679523975700024,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z11.6795239757.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9963166117668152,
+          "mean": 0.4807351707973794,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 22.821483612060547,
+          "mean": 9.52401575974265,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.7383615970611572,
+          "max": 5.054366111755371,
+          "mean": -5.5081640637499873e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 154.20382690429688,
+          "max": 10190.8310546875,
+          "mean": 227.97289579566404,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 166.86781311035156,
+          "max": 18270.12890625,
+          "mean": 255.43186138943747,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 11.430906090981118,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z11.4309060910.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9956387281417847,
+          "mean": 0.4380384743015736,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 22.15591049194336,
+          "mean": 8.703886810940345,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.743029773235321,
+          "max": 5.297952651977539,
+          "mean": 4.231724345937771e-12,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 188.53697204589844,
+          "max": 10623.8076171875,
+          "mean": 273.0326437734557,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 207.64207458496094,
+          "max": 18692.259765625,
+          "mean": 311.8557820591586,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 11.187163062189025,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z11.1871630622.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9948406219482422,
+          "mean": 0.39233531955942424,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 21.766576766967773,
+          "mean": 7.747587268384185,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.7470493912696838,
+          "max": 5.560215950012207,
+          "mean": -6.232361154934196e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 231.09950256347656,
+          "max": 11232.779296875,
+          "mean": 326.7633569245254,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 259.8841247558594,
+          "max": 19246.619140625,
+          "mean": 381.5794995925262,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 10.948199304002786,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z10.9481993040.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9938944578170776,
+          "mean": 0.34379713957436203,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 21.134138107299805,
+          "mean": 6.695214801988155,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.7506754994392395,
+          "max": 5.832657814025879,
+          "mean": 3.68079039470004e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 282.418212890625,
+          "max": 11493.0224609375,
+          "mean": 390.31849719859565,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 325.34161376953125,
+          "max": 19975.447265625,
+          "mean": 467.52333473834005,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 10.713921105321667,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z10.7139211053.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9927991032600403,
+          "mean": 0.29283565056295213,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 20.278091430664062,
+          "mean": 5.5882232115546095,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.7540131211280823,
+          "max": 6.127650737762451,
+          "mean": 4.815694371052004e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 342.14190673828125,
+          "max": 11181.7666015625,
+          "mean": 463.8439942138484,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 404.89801025390625,
+          "max": 20171.462890625,
+          "mean": 571.7023814214281,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 10.484236592515781,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z10.4842365925.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9915709495544434,
+          "mean": 0.2396508064488866,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 19.40489387512207,
+          "mean": 4.4560640741540745,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.7572893500328064,
+          "max": 6.441130638122559,
+          "mean": 8.585313016062912e-12,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 409.73114013671875,
+          "max": 11571.8505859375,
+          "mean": 546.7632570047954,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 499.2862243652344,
+          "max": 20425.009765625,
+          "mean": 695.3968728429663,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 10.259055693397281,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z10.2590556934.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.990227460861206,
+          "mean": 0.1856603666797209,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 18.461599349975586,
+          "mean": 3.3469339015757518,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.7612112760543823,
+          "max": 6.762269973754883,
+          "mean": -3.625817007746335e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 484.0657958984375,
+          "max": 10358.8759765625,
+          "mean": 637.670938312991,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 608.3926391601562,
+          "max": 20738.916015625,
+          "mean": 838.4746284276407,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 10.038290101897996,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z10.0382901019.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9888026714324951,
+          "mean": 0.1304683068502161,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 17.605083465576172,
+          "mean": 2.2691773708462355,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.7653516530990601,
+          "max": 7.095893859863281,
+          "mean": -2.357178688350281e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 562.0626831054688,
+          "max": 10867.9326171875,
+          "mean": 731.5361536750024,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 730.2909545898438,
+          "max": 21115.7890625,
+          "mean": 996.4499544799291,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 9.821853243439673,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z9.8218532434.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9873074889183044,
+          "mean": 0.07872728974218429,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 16.391225814819336,
+          "mean": 1.3175383354641035,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.7722475528717041,
+          "max": 7.45323371887207,
+          "mean": -9.336072887000668e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 640.2366333007812,
+          "max": 11745.982421875,
+          "mean": 826.9907669735512,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 859.0468139648438,
+          "max": 21838.712890625,
+          "mean": 1166.802875516696,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 9.609660240983217,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z9.6096602410.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.985702395439148,
+          "mean": 0.030048582393232326,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 15.564967155456543,
+          "mean": 0.48048093930244257,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.7791054248809814,
+          "max": 7.814884185791016,
+          "mean": -2.3443039176562763e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 718.9926147460938,
+          "max": 12809.3828125,
+          "mean": 924.1476827022125,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 995.5980224609375,
+          "max": 22831.44921875,
+          "mean": 1350.5031911902697,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 9.401627881743652,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z9.4016278817.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.9840554594993591,
+          "mean": 0.0032047858608689195,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 13.917699813842773,
+          "mean": 0.04888949464397274,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.785920262336731,
+          "max": 8.186729431152344,
+          "mean": -7.014071615185635e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 798.6678466796875,
+          "max": 12566.97265625,
+          "mean": 1022.9834668383191,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 1140.9989013671875,
+          "max": 23358.53515625,
+          "mean": 1548.5506196612841,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 9.197674584557705,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z9.1976745846.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.7926508784294128,
+          "max": 8.57861328125,
+          "mean": 2.943405241762065e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 879.9073486328125,
+          "max": 11295.091796875,
+          "mean": 1124.3521084605527,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 1296.16552734375,
+          "max": 24064.146484375,
+          "mean": 1761.9333953870155,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 8.997720367891262,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z8.9977203679.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.798155665397644,
+          "max": 9.00214958190918,
+          "mean": -2.651857899937937e-12,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 961.7959594726562,
+          "max": 11603.169921875,
+          "mean": 1225.9997521788791,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 1461.99560546875,
+          "max": 25077.255859375,
+          "mean": 1991.6845760429787,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 8.801686818474119,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z8.8016868185.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.8049904108047485,
+          "max": 9.439074516296387,
+          "mean": 2.698047341098686e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 1044.9954833984375,
+          "max": 12299.6787109375,
+          "mean": 1329.252465310652,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 1639.37646484375,
+          "max": 26282.724609375,
+          "mean": 2238.7390607120033,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 8.609497060549735,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z8.6094970605.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.811450719833374,
+          "max": 9.956477165222168,
+          "mean": 5.936619251745157e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 1128.9534912109375,
+          "max": 13078.4140625,
+          "mean": 1432.4540667002293,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 1829.2205810546875,
+          "max": 27700.552734375,
+          "mean": 2503.36425096896,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 8.421075725727935,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z8.4210757257.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.8172070980072021,
+          "max": 10.539859771728516,
+          "mean": -5.331131369690212e-12,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 1213.5084228515625,
+          "max": 12874.318359375,
+          "mean": 1535.2253695647596,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 2020.0196533203125,
+          "max": 28409.201171875,
+          "mean": 2784.3208968792023,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 8.236348923428736,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z8.2363489234.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.8228681087493896,
+          "max": 11.120394706726074,
+          "mean": -1.2377078528746921e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 1298.0185546875,
+          "max": 12498.4990234375,
+          "mean": 1640.8117530208401,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 2206.266357421875,
+          "max": 29226.599609375,
+          "mean": 3081.8710599563346,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 8.055244211905698,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z8.0552442119.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.8284544348716736,
+          "max": 11.685870170593262,
+          "mean": -1.0038388176258906e-10,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 1376.35302734375,
+          "max": 12565.26171875,
+          "mean": 1742.0935844637497,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 2395.816650390625,
+          "max": 30165.927734375,
+          "mean": 3396.8502415883268,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 7.965588413275457,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z7.9655884133.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.8312320709228516,
+          "max": 11.938440322875977,
+          "mean": -6.261484386538285e-12,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 1414.02392578125,
+          "max": 12189.3779296875,
+          "mean": 1791.3607966077325,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 2488.80078125,
+          "max": 30656.943359375,
+          "mean": 3557.5310346914193,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 7.877690569837458,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z7.8776905698.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.8339290618896484,
+          "max": 12.167922973632812,
+          "mean": 4.465879055448596e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 1453.5565185546875,
+          "max": 12681.69140625,
+          "mean": 1842.2693091893889,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 2590.0234375,
+          "max": 31234.947265625,
+          "mean": 3730.0130452481826,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 7.703618368476279,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z7.7036183685.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.8392746448516846,
+          "max": 12.611406326293945,
+          "mean": 6.914614714137457e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 1528.863525390625,
+          "max": 12447.716796875,
+          "mean": 1940.8193914052608,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 2788.833251953125,
+          "max": 32439.919921875,
+          "mean": 4082.13990431391,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 7.532959344342709,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z7.5329593443.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.8445186018943787,
+          "max": 13.180989265441895,
+          "mean": 2.432010148822883e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 1600.5909423828125,
+          "max": 12962.0927734375,
+          "mean": 2037.679370254693,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 2992.01953125,
+          "max": 33782.7890625,
+          "mean": 4453.990276404133,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 7.365646572455642,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z7.3656465725.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.84965580701828,
+          "max": 13.80046272277832,
+          "mean": 1.4377218165995131e-10,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 1668.9652099609375,
+          "max": 12704.982421875,
+          "mean": 2132.6284595460747,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 3199.250244140625,
+          "max": 34452.171875,
+          "mean": 4846.235339337858,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 7.201614440087278,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z7.2016144401.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.8543478846549988,
+          "max": 14.420844078063965,
+          "mean": 1.1671670574475712e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 1735.4530029296875,
+          "max": 11925.27734375,
+          "mean": 2225.246368580294,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 3410.767822265625,
+          "max": 35205.6484375,
+          "mean": 5259.536918567537,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 7.040798621032687,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z7.0407986210.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.8587183952331543,
+          "max": 15.074729919433594,
+          "mean": -3.2116705128704126e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 1800.1357421875,
+          "max": 12128.4140625,
+          "mean": 2316.1110304603862,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 3626.49658203125,
+          "max": 36046.28125,
+          "mean": 5694.326452974012,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 6.883136050383897,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z6.8831360504.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.8628787398338318,
+          "max": 15.732128143310547,
+          "mean": 1.1797798848967034e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 1862.5252685546875,
+          "max": 11777.5234375,
+          "mean": 2403.328685319473,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 3846.321044921875,
+          "max": 36976.921875,
+          "mean": 6150.314049735141,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 6.728564899798602,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z6.7285648998.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.86712646484375,
+          "max": 16.364486694335938,
+          "mean": 2.2156078360868747e-10,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 1921.8101806640625,
+          "max": 12394.947265625,
+          "mean": 2487.620298591057,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 4065.326904296875,
+          "max": 37999.6875,
+          "mean": 6623.779304616954,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 6.577024553253801,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z6.5770245533.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.8711422681808472,
+          "max": 16.973970413208008,
+          "mean": 5.258331964297369e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 1976.6416015625,
+          "max": 12027.29296875,
+          "mean": 2566.974981469808,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 4277.50146484375,
+          "max": 39115.921875,
+          "mean": 7110.648929803021,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 6.428455583274849,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z6.4284555833.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.8752156496047974,
+          "max": 17.627042770385742,
+          "mean": -3.73718452018057e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 2027.2821044921875,
+          "max": 13034.5361328125,
+          "mean": 2642.6686128267174,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 4482.33935546875,
+          "max": 40324.45703125,
+          "mean": 7610.84255851194,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 6.282799727630618,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z6.2827997276.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.8776306509971619,
+          "max": 18.269287109375,
+          "mean": -9.831972735963035e-11,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 2075.3583984375,
+          "max": 13052.529296875,
+          "mean": 2715.2104161395546,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 4686.0283203125,
+          "max": 40971.24609375,
+          "mean": 8124.553669175657,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 6.139999866485596,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z6.1399998665.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.8835318088531494,
+          "max": 18.867694854736328,
+          "mean": -5.409263315048207e-12,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 2123.6416015625,
+          "max": 13103.0751953125,
+          "mean": 2786.484071977611,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 4889.12255859375,
+          "max": 41677.71875,
+          "mean": 8651.947093431081,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    },
+    {
+      "redshift": 6.0,
+      "file": "/project/tkcastrosim/HNHuang/project_mcmc/data/web_bt256_thermal_fixed_v2/snapshots/z6.0000000000.h5",
+      "statistics": {
+        "xH": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "brightness_temperature": {
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "density": {
+          "min": -0.8895535469055176,
+          "max": 19.4545841217041,
+          "mean": 3.482839017188155e-13,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Ts": {
+          "min": 2167.592529296875,
+          "max": 13396.4375,
+          "mean": 2851.9748743638193,
+          "nonfinite": 0,
+          "count": 16777216
+        },
+        "Tk": {
+          "min": 5091.107421875,
+          "max": 42442.2421875,
+          "mean": 9193.315227088024,
+          "nonfinite": 0,
+          "count": 16777216
+        }
+      }
+    }
+  ],
+  "review": [],
+  "job": "2224917",
+  "elapsedSeconds": 7571.463321985677,
+  "note": "Range/source and readback checks; physical model not independently certified."
+}
