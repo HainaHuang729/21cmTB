@@ -93,8 +93,8 @@ export async function fetchJSON(url, signal) {
 }
 export class VolumeStore {
   cache = new Map();
-  constructor(manifests, localFiles,{persistent=null,onCached=()=>{},maxBytes=256*1024**2}={}) {
-    Object.assign(this,{manifests,localFiles,persistent,onCached,maxBytes});this.pending=new Map();this.pinned=new Set();this.requests=new Set();
+  constructor(manifests, localFiles,{persistent=null,onCached=()=>{},maxBytes=256*1024**2,verifier=verifyVolume}={}) {
+    Object.assign(this,{manifests,localFiles,persistent,onCached,maxBytes,verifier});this.pending=new Map();this.pinned=new Set();this.requests=new Set();
   }
   pinSequence(model,snapshots,fieldKey){this.pinned=new Set(snapshots.map(s=>volumeKey(model,s,fieldKey)));this.trim();}
   trim(){
@@ -125,7 +125,7 @@ export class VolumeStore {
     if(!snapshotFieldAvailable(snapshot,fieldKey))throw new Error('本红移的物理场暂缓发布，等待源数据审核');
     const descriptor=snapshot.fields[fieldKey];
     const verify=async buffer=>{
-      const value=await verifyVolume(buffer,descriptor,fieldKey);
+      const value=await this.verifier(buffer,descriptor,fieldKey);
       if(fieldKey==='xH'&&Math.abs(value.mean-snapshot.meanNeutralFraction)>1e-6)throw new Error('平均 xH 与快照描述不符');
       return value;
     };

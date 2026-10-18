@@ -43,7 +43,7 @@
     <div class="sample-timeline" aria-label="红移播放控制">
       <div class="timeline-transport"><button id="sample-previous" aria-label="上一帧" disabled>上一帧</button><button id="sample-play" aria-pressed="false" disabled>播放</button><button id="sample-next" aria-label="下一帧" disabled>下一帧</button></div>
       <label class="redshift-control">红移 z <output id="sample-redshift-value">—</output><span class="redshift-track"><span id="sample-quality-band" aria-hidden="true"></span><input id="sample-redshift" aria-label="红移快照" type="range" min="0" max="1" step="1" value="0" disabled></span><span class="redshift-limits"><span id="sample-redshift-start">—</span><span id="sample-gap-key" hidden>红色段待审核</span><span id="sample-redshift-end">—</span></span></label>
-      <label class="playback-speed">帧间隔<select id="sample-speed" aria-label="播放间隔"><option value="120" selected>0.12 秒</option><option value="250">0.25 秒</option><option value="600">0.6 秒</option><option value="1200">1.2 秒</option></select></label>
+      <label class="playback-speed">帧间隔<select id="sample-speed" aria-label="播放间隔"><option value="60">0.06 秒</option><option value="120" selected>0.12 秒</option><option value="250">0.25 秒</option><option value="600">0.6 秒</option><option value="1200">1.2 秒</option></select></label>
     </div>
     <div class="sample-parameters" id="sample-parameters" hidden>
     <div class="sample-stages" role="group" aria-label="真实阶段快照"><span>真实快照</span><div><button data-epoch="0" disabled>早期</button><button data-epoch="1" disabled>中期</button><button data-epoch="2" aria-pressed="true" disabled>晚期</button></div></div>
@@ -54,6 +54,6 @@
     <button class="sample-reset" id="sample-reset">重置视图</button>
     </div>
   </footer>
-  <script type="module" src="./cavity.js?v=viewer-final-fullscreen-20261017-3"></script>
+  <script type="module" src="./cavity.js?v=playback-20261018"></script>
 </body>
 </html>

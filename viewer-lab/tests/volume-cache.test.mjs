@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {VolumeStore,REVISION} from '../data.js';
+import {VolumeStore,REVISION,verifyVolume} from '../data.js';
 import {BrowserVolumeCache,preloadVolumes,abortable} from '../volume-cache.js';
 
 const manifest=JSON.parse(await readFile(new URL('../data/pl-manifest.json',import.meta.url)));
@@ -34,6 +34,18 @@ test('a reopened verified volume needs no source download; a corrupt disk entry 
     await next.load('pl',snapshot);assert.equal(requests,1);
     globalThis.fetch=()=>{throw new Error('Must read the repaired persistent cache');};
     await new VolumeStore({pl:manifest},{},{persistent}).load('pl',snapshot);
+  }finally{globalThis.fetch=original;}
+});
+test('an off-thread verifier retains cache repair and byte-identical persistent writes',async()=>{
+  const original=globalThis.fetch,fake=disk(),persistent=new BrowserVolumeCache(REVISION,{storage:fake.storage});
+  const corrupt=new Uint8Array(buffer());corrupt[100]^=1;await persistent.write(snapshot.fields.xH,corrupt.buffer);
+  let calls=0,downloads=0;
+  globalThis.fetch=async()=>{downloads++;return new Response(buffer());};
+  try{
+    const verifier=async(...args)=>{calls++;return verifyVolume(...args);};
+    await new VolumeStore({pl:manifest},{},{persistent,verifier}).load('pl',snapshot);
+    assert.equal(calls,2);assert.equal(downloads,1);
+    assert.deepEqual(new Uint8Array(await persistent.read(snapshot.fields.xH)),new Uint8Array(buffer()));
   }finally{globalThis.fetch=original;}
 });
 test('shared preload and foreground loads fetch once; cancelling one subscriber preserves the other',async()=>{

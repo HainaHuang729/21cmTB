@@ -3,6 +3,7 @@ import { cameraBasis } from './locator.js';
 import { gradientVolume } from './gradient-volume.js';
 import { GlowPass } from './glow-pass.js';
 import { densityNodeThreshold } from './field-presets.js?v=density-translucent-20261017-2';
+import { cavityProfile, needsPreparedGradient } from './playback-profile.js?v=playback-20261018';
 
 const vertex = `#version 300 es
 void main(){vec2 p=vec2(float((gl_VertexID<<1)&2),float(gl_VertexID&2));gl_Position=vec4(p*2.-1.,0.,1.);}`;
@@ -232,16 +233,24 @@ export class CavityRenderer extends Renderer {
     this.reset();
   }
   reset(){this.yaw=1.12;this.pitch=.48;this.distance=2.4;this.request();}
+  setPlayback(playing){if(this.playing!==playing){this.playing=playing;this.request();}}
   setData(data,preparedGradient){
     super.setData(data);const gl=this.gl,n=this.gridSize;
     const reuse=!!this.gradientTexture&&this.gradientSize===n;if(!this.gradientTexture)this.gradientTexture=gl.createTexture();
     gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_3D,this.gradientTexture);
     gl.texParameteri(gl.TEXTURE_3D,gl.TEXTURE_MIN_FILTER,this.linear?gl.LINEAR:gl.NEAREST);gl.texParameteri(gl.TEXTURE_3D,gl.TEXTURE_MAG_FILTER,this.linear?gl.LINEAR:gl.NEAREST);
     for(const p of [gl.TEXTURE_WRAP_S,gl.TEXTURE_WRAP_T,gl.TEXTURE_WRAP_R])gl.texParameteri(gl.TEXTURE_3D,p,gl.CLAMP_TO_EDGE);
-    const gradients=preparedGradient??gradientVolume(data,n);
-    if(reuse)gl.texSubImage3D(gl.TEXTURE_3D,0,0,0,0,n,n,n,gl.RGBA,gl.FLOAT,gradients);
-    else gl.texImage3D(gl.TEXTURE_3D,0,gl.RGBA32F,n,n,n,0,gl.RGBA,gl.FLOAT,gradients);
-    this.gradientSize=n;
+    if(needsPreparedGradient(this.settings.fieldKind,this.settings.sampleMode)){
+      const gradients=preparedGradient??gradientVolume(data,n);
+      if(reuse)gl.texSubImage3D(gl.TEXTURE_3D,0,0,0,0,n,n,n,gl.RGBA,gl.FLOAT,gradients);
+      else gl.texImage3D(gl.TEXTURE_3D,0,gl.RGBA32F,n,n,n,0,gl.RGBA,gl.FLOAT,gradients);
+      this.gradientSize=n;
+    }else if(!this.gradientSize){
+      // Density's energy branch differentiates the raw scalar at each hit.
+      // Bind a complete dummy sampler; it never reads a prepared gradient.
+      gl.texImage3D(gl.TEXTURE_3D,0,gl.RGBA32F,1,1,1,0,gl.RGBA,gl.FLOAT,new Float32Array(4));
+      this.gradientSize=1;
+    }
     gl.activeTexture(gl.TEXTURE0);
     const error=gl.getError();if(error!==gl.NO_ERROR){this.ready=false;throw new Error(`梯度纹理上传失败 (${error})`);}
     this.request();
@@ -258,8 +267,7 @@ export class CavityRenderer extends Renderer {
       return;
     }
     const gl=this.gl,canvas=this.canvas,box=canvas.getBoundingClientRect();
-    const density=this.settings.fieldKind===1;
-    const scale=this.interactive?(density?.85:.75):Math.min(devicePixelRatio,density?2:1.5);
+    const {scale,steps}=cavityProfile({gridSize:this.gridSize,fieldKind:this.settings.fieldKind,playing:this.playing,interactive:this.interactive,pixelRatio:devicePixelRatio,width:box.width,height:box.height});
     const w=Math.max(1,Math.round(box.width*scale)),h=Math.max(1,Math.round(box.height*scale));
     if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;}
     const energy=this.settings.sampleMode==='energy';
@@ -274,7 +282,7 @@ export class CavityRenderer extends Renderer {
     gl.uniform1f(u('gridSize'),this.gridSize);
     gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_3D,this.gradientTexture);gl.uniform1i(u('gradients'),1);gl.activeTexture(gl.TEXTURE0);
     gl.uniform1i(u('appearance'),energy?1:0);gl.uniform1i(u('hdrTarget'),this.glowPass.hdr?1:0);
-    gl.uniform1i(u('hardwareLinear'),this.linear?1:0);gl.uniform1i(u('steps'),this.gridSize===128?(this.interactive?256:640):(this.interactive?112:280));
+    gl.uniform1i(u('hardwareLinear'),this.linear?1:0);gl.uniform1i(u('steps'),steps);
     gl.uniform1f(u('thresholdRaw'),this.settings.threshold);gl.uniform1i(u('fieldKind'),this.settings.fieldKind);
     gl.uniform1f(u('nodeThresholdRaw'),densityNodeThreshold(this.settings.threshold));
     for(const name of ['section','shadowStrength','contextOpacity','bandWidth','gradientGain'])gl.uniform1f(u(name),this.settings[name]);

@@ -41,3 +41,22 @@ test('native timer wrappers preserve browser receiver requirements',async()=>{
     await player.start();assert.equal(typeof callback,'function');player.pause();assert.equal(cleared,42);
   }finally{globalThis.setTimeout=originalSet;globalThis.clearTimeout=originalClear;}
 });
+test('loading and drawing consume the frame interval rather than adding a second wait',async()=>{
+  let clock=0,index=0,loadingMs=35;const jobs=[];
+  const player=new SnapshotPlayer({getIndex:()=>index,getCount:()=>4,now:()=>clock,delay:()=>120,
+    load:async i=>{clock+=loadingMs;index=i;return true;},
+    schedule:(fn,ms)=>{jobs.push({fn,ms});return jobs.length;},unschedule:()=>{}});
+  await player.start();assert.equal(jobs[0].ms,85);
+  clock+=85;loadingMs=180;await jobs.shift().fn();
+  assert.equal(jobs[0].ms,0,'late frames must not wait another full interval');
+  loadingMs=20;await jobs.shift().fn();
+  assert.equal(jobs[0].ms,100,'a late frame must not cause a catch-up burst');
+  assert.equal(index,2);player.pause();
+});
+test('changing speed during a pending timer keeps the current frame as the time origin',async()=>{
+  let clock=0,delay=120,timer,cleared;const player=new SnapshotPlayer({
+    getIndex:()=>0,getCount:()=>2,now:()=>clock,delay:()=>delay,load:async()=>true,
+    schedule:(fn,ms)=>{timer={fn,ms};return 7;},unschedule:id=>{cleared=id;}});
+  await player.start();clock=40;delay=60;player.reschedule();
+  assert.equal(cleared,7);assert.equal(timer.ms,20);player.pause();
+});

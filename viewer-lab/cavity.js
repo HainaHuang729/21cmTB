@@ -1,8 +1,10 @@
-import { CavityRenderer } from './cavity-renderer.js?v=density-translucent-20261017-2';
-import { fetchJSON, validateManifest, VolumeStore, nearest, fieldColor, index3, FIELDS, availableFields, snapshotFieldAvailable, REVISION, fieldSize } from './data.js';
+import { CavityRenderer } from './cavity-renderer.js?v=playback-20261018';
+import { fetchJSON, validateManifest, VolumeStore, nearest, fieldColor, index3, FIELDS, availableFields, snapshotFieldAvailable, REVISION, fieldSize } from './data.js?v=playback-20261018';
 import { SAMPLE_FIELDS, sampleDefaults, structureValue, epochThreshold, densityNodeThreshold } from './field-presets.js?v=density-translucent-20261017-2';
-import { SnapshotPlayer } from './snapshot-player.js';
-import { BrowserVolumeCache, preloadVolumes, volumeKey } from './volume-cache.js';
+import { SnapshotPlayer } from './snapshot-player.js?v=playback-20261018';
+import { BrowserVolumeCache, preloadVolumes, volumeKey, abortable } from './volume-cache.js';
+import { VolumeVerifier } from './volume-verifier.js?v=playback-20261018';
+import { needsPreparedGradient } from './playback-profile.js?v=playback-20261018';
 import { PreparedFrames } from './prepared-frames.js';
 import { publishedSnapshots, fieldGaps, nextPublishedIndex, stageIndices, sampleCacheTasks } from './field-series.js';
 import { setupViewerFullscreen } from './viewer-fullscreen.js?v=final-3';
@@ -14,7 +16,7 @@ let fieldKey=Object.hasOwn(SAMPLE_FIELDS,requestedField)?requestedField:'xH',fra
 const settings=sampleDefaults(fieldKey),savedStates=new Map();
 settings.threshold=epochThreshold(fieldKey,SAMPLE_FIELDS[fieldKey].defaultEpoch,modelKey);
 let renderer,manifests,store,allFrames={},indicesByModel={},frames={},presetIndices={},volume,loadID=0,controller,gpuError='';
-const persistent=new BrowserVolumeCache(REVISION),prepared=new PreparedFrames(),cachedKeys=new Set();
+const persistent=new BrowserVolumeCache(REVISION),prepared=new PreparedFrames(),verifier=new VolumeVerifier(),cachedKeys=new Set();
 let allTasks=[],activePreparation,allPreparation,allCacheController,cacheError='',fieldCacheError='',playPreparing=false,playIntent=0,disposed=false;
 const labels=['sample-threshold','sample-section','sample-shadow','sample-bloom'];
 const keys=['threshold','section','shadowStrength','bloom'];
@@ -167,7 +169,7 @@ async function prepareAhead(model,key,index,count=2,signal){
   const sequence=allFrames[model][key];
   await Promise.all(publishedSnapshots(sequence.slice(index,index+count),key).map(async snapshot=>{
     const value=await store.load(model,snapshot,signal,key);
-    await prepared.get(volumeKey(model,snapshot,key),value.data,signal);
+    if(needsPreparedGradient(SAMPLE_FIELDS[key].kind))await prepared.get(volumeKey(model,snapshot,key),value.data,signal);
   }));
 }
 function stopPlayback(cancel=false){playIntent++;playPreparing=false;player.pause(cancel);}
@@ -249,7 +251,7 @@ function cancelPending(restore=true){
 const player=new SnapshotPlayer({
   getIndex:()=>frameIndex,getCount:()=>frames[fieldKey]?.length??0,load:index=>load(index),cancelPending,
   delay:()=>Number($('sample-speed').value),
-  onChange:playing=>{$('sample-play').setAttribute('aria-pressed',String(playing));$('sample-play').textContent=playing?'暂停':'播放';syncTimeline();},
+  onChange:playing=>{renderer?.setPlayback(playing);$('sample-play').setAttribute('aria-pressed',String(playing));$('sample-play').textContent=playing?'暂停':'播放';syncTimeline();},
   onError:error=>{$('sample-status').textContent=error.message;$('sample-status').classList.add('error');},
 });
 async function load(index,thresholdEpoch=null){
@@ -267,7 +269,7 @@ async function load(index,thresholdEpoch=null){
   loading=true;pendingNote(snapshot);syncTimeline();
   try{
     const signal=controller.signal,result=await store.load(model,snapshot,signal,key);
-    const gradients=await prepared.get(volumeKey(model,snapshot,key),result.data,signal);if(id!==loadID)return false;
+    const gradients=needsPreparedGradient(SAMPLE_FIELDS[key].kind)?await prepared.get(volumeKey(model,snapshot,key),result.data,signal):null;if(id!==loadID)return false;
     volume=result;displayedIndex=targetIndex;displayedField=key;displayedModel=model;loading=false;
     const slice=$('sample-slice-z'),previousN=Number(slice.max)+1;
     if(previousN!==result.gridSize){const next=Math.min(result.gridSize-1,Math.floor((Number(slice.value)+.5)*result.gridSize/previousN));slice.max=result.gridSize-1;slice.value=next;}
@@ -277,7 +279,10 @@ async function load(index,thresholdEpoch=null){
     verifiedStatus();syncTimeline();drawSlice();updateEmptyNote();
     recordSelection(snapshot);
     prepareAhead(model,key,targetIndex+1).catch(()=>{});
-    return true;
+    // setData queued the renderer first. Wait for its animation-frame callback
+    // before advancing, even when loading has consumed the entire interval.
+    await abortable(new Promise(resolve=>requestAnimationFrame(resolve)),signal);
+    return !gpuError;
   }catch(e){
     if(id!==loadID||e.name==='AbortError')return false;
     loading=false;loadError=e.message;syncTimeline();
@@ -317,7 +322,7 @@ for(const [id,direction]of [['sample-gap-back',-1],['sample-gap-forward',1]])$(i
 async function init(){
   try{
     const [pl,bt,local]=await Promise.all([fetchJSON('./data/pl-manifest.json'),fetchJSON('./data/bt-manifest.json'),fetchJSON('./data/local-files.json?sample-fields=4')]);
-    manifests={pl:validateManifest(pl),bt:validateManifest(bt)};store=new VolumeStore(manifests,local,{persistent,onCached:key=>{cachedKeys.add(key);updateCacheStatus();}});
+    manifests={pl:validateManifest(pl),bt:validateManifest(bt)};store=new VolumeStore(manifests,local,{persistent,verifier:(...args)=>verifier.verify(...args),onCached:key=>{cachedKeys.add(key);updateCacheStatus();}});
     for(const model of ['pl','bt']){
       allFrames[model]={};indicesByModel[model]={};
       for(const key of Object.keys(SAMPLE_FIELDS)){
@@ -337,5 +342,5 @@ configureField();init();
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&(player.playing||playPreparing))stopPlayback(true);});
 window.addEventListener('pagehide',e=>{
   stopPlayback(true);if(e.persisted)return;disposed=true;
-  activePreparation?.controller.abort();allCacheController?.abort();prepared.dispose();store?.dispose();renderer?.dispose();
+  activePreparation?.controller.abort();allCacheController?.abort();prepared.dispose();verifier.dispose();store?.dispose();renderer?.dispose();
 });
