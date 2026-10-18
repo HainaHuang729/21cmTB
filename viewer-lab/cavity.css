@@ -30,7 +30,7 @@
   --content-width: 1660px;
   font-family: var(--font-body); color: var(--ink); background: var(--background);
 }
-.cavity-page { --sample-dock: 39px; min-width: 320px; min-height: 100dvh; background: var(--background); -webkit-font-smoothing: antialiased; }
+.cavity-page { --sample-dock: 0px; min-width: 320px; min-height: 100dvh; background: var(--background); -webkit-font-smoothing: antialiased; }
 ::selection { color: var(--surface); background: var(--accent); }
 .cavity-page :is(button, a, input, select, canvas, summary):focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .cavity-page button { border-radius: 0; transition: color 150ms ease, background 150ms ease, border-color 150ms ease; }
@@ -248,6 +248,29 @@
   .sample-gap p { font-size: 10px; line-height: 1.6; }
   .sample-gap > div { margin-top: 0; gap: 8px; }
   .sample-gap button { padding: 6px 9px; }
+}
+
+/* A folded dock reserves no space; only its corner button remains. */
+.sample-controls.is-collapsed {
+  inset: auto max(16px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) auto;
+  display: block; min-height: 0; max-height: none; padding: 0; border: 0; background: transparent; overflow: visible;
+}
+.sample-controls.is-collapsed .sample-toggle {
+  min-width: 82px; min-height: 36px; gap: 8px; padding: 5px 10px;
+  border: 1px solid var(--line-strong); background: var(--background); box-shadow: 0 3px 12px #111e2b1a;
+}
+.sample-controls.is-collapsed .sample-toggle:hover { background: var(--surface); border-color: var(--accent); }
+@media (min-width:601px) {
+  .controls-collapsed .sample-stage-bottom { padding-right: calc(var(--stage-pad) + 94px); }
+}
+@media (max-width:600px) {
+  .sample-controls.is-collapsed { right: max(12px, env(safe-area-inset-right)); }
+  .controls-collapsed .sample-timeline { grid-template-columns: minmax(104px, 1fr) 56px 84px; }
+  .controls-collapsed .redshift-control { grid-column: 1/-1; }
+  .controls-collapsed .timeline-transport { gap: 2px; }
+  .controls-collapsed .timeline-transport button { min-width: 24px; padding: 5px; }
+  .controls-collapsed .timeline-transport #sample-play { min-width: 48px; }
+  .controls-collapsed .playback-speed { grid-column: 2; display: block; font-size: 0; }
 }
 
 html.is-viewer-fullscreen { overflow: hidden; }
