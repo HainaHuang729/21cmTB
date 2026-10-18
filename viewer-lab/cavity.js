@@ -31,7 +31,7 @@ const controlsPreference='21cm:sample:controls-collapsed';
 function setControlsCollapsed(collapsed){
   $('sample-controls').classList.toggle('is-collapsed',collapsed);
   $('sample-panel').hidden=collapsed;
-  $('sample-parameters').hidden=collapsed;$('sample-cache').hidden=collapsed;
+  $('sample-parameters').hidden=collapsed;
   $('sample-toggle').setAttribute('aria-expanded',String(!collapsed));
   $('sample-toggle').setAttribute('aria-label',collapsed?'展开参数区':'收起参数区');
   $('sample-toggle-label').textContent=collapsed?'展开参数':'收起参数';
@@ -109,15 +109,10 @@ document.querySelectorAll('[data-framing]').forEach(button=>button.addEventListe
 }));
 
 function updateCacheStatus(){
-  if(!store||disposed||!frames[fieldKey])return;
-  const sequence=publishedSnapshots(frames[fieldKey],fieldKey),ready=store.resident(modelKey,sequence,fieldKey),total=sequence.length;
-  const verified=sequence.filter(s=>cachedKeys.has(volumeKey(modelKey,s,fieldKey))).length;
-  const progress=fieldSize(manifests?.[modelKey],fieldKey)>64?`缓存 ${verified} / ${total} · 内存 ${ready} 帧`:`预载 ${ready} / ${total}`;
-  $('sample-cache-status').textContent=`${cachedKeys.size===allTasks.length?`全部 ${allTasks.length} 个数据体已${persistent.enabled?'缓存':'核验（浏览器缓存不可用）'}`:`缓存 ${cachedKeys.size} / ${allTasks.length}`} · ${modelKey.toUpperCase()} ${preset().tab}${progress}${cacheError||fieldCacheError?' · 部分失败':''}`;
-  $('sample-cache-progress').max=allTasks.length;$('sample-cache-progress').value=cachedKeys.size;
-  $('sample-cache-retry').hidden=!(cacheError||fieldCacheError);
-  document.querySelector('.sample-cache').classList.toggle('has-error',!!(cacheError||fieldCacheError));
-  $('sample-cache-status').title=cacheError||fieldCacheError||(persistent.enabled?'全部文件保存在本地，浏览器按 SHA-256 持久缓存；原值内存预算 256 MiB，提前准备临近帧。':`本地数据可用；浏览器持久缓存不可用：${persistent.error}`);
+  if(disposed)return;
+  const error=cacheError||fieldCacheError;
+  $('sample-cache-retry').hidden=!error;
+  $('sample-cache-retry').title=error;
 }
 function prepareActiveField(force=false){
   const key=fieldKey,model=modelKey,sequence=publishedSnapshots(frames[key],key),sessionKey=`${model}/${key}`;
