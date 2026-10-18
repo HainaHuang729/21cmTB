@@ -1,5 +1,5 @@
 import { CavityRenderer } from './cavity-renderer.js?v=playback-20261018';
-import { fetchJSON, validateManifest, VolumeStore, nearest, FIELDS, availableFields, snapshotFieldAvailable, REVISION, fieldSize } from './data.js?v=playback-20261018';
+import { fetchJSON, validateManifest, VolumeStore, nearest, FIELDS, availableFields, snapshotFieldAvailable, REVISION, fieldSize } from './data.js?v=bt-complete-20261018';
 import { SAMPLE_FIELDS, sampleDefaults, structureValue, epochThreshold, densityNodeThreshold } from './field-presets.js?v=density-translucent-20261017-2';
 import { SnapshotPlayer } from './snapshot-player.js?v=playback-20261018';
 import { BrowserVolumeCache, preloadVolumes, volumeKey, abortable } from './volume-cache.js';
