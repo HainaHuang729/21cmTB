@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Signal Atlas · Convergence diagnostics</title>
+<link rel="stylesheet" href="styles.css?v=hii256-v20"><link rel="stylesheet" href="ms-corner.css?v=joint-bilingual-1"><link rel="stylesheet" href="convergence.css?v=20261020-1">
+</head><body class="ms-page">
+<header class="system-header"><a class="system-identity" href="index.html#mcmc-section">← SIGNAL ATLAS</a><div class="language-switch"><button data-language="en" aria-pressed="true">EN</button><button data-language="zh" aria-pressed="false">中文</button></div></header>
+<main class="ms-content"><section class="ms-intro"><p class="technical-label">EXACT JOINT / FIXED kp &amp; ms / SAVED DIAGNOSTICS</p><h1 data-cv-en="Sampling is not convergence." data-cv-zh="采样完成，不等于收敛。">Sampling is not convergence.</h1><p data-cv-en="Eight sampled parameters, four monitored quantities, explicit diagnostic windows. No new sampling or forward calculations." data-cv-zh="8 个采样参数、4 个监测量；明确区分诊断窗口。本次没有新采样或前向计算。">Eight sampled parameters, four monitored quantities, explicit diagnostic windows. No new sampling or forward calculations.</p></section>
+<section id="convergence" data-convergence="full" aria-live="polite"></section>
+<noscript>This page needs JavaScript to read the saved diagnostic table. <a href="web_data/convergence/diagnostics-20261018.json">Download the numerical source JSON.</a></noscript>
+<footer class="ms-footer"><a href="joint-repaired.html" data-cv-en="Earlier joint plots / separate snapshots ↗" data-cv-zh="较早联合图 / 独立保存快照 ↗">Earlier joint plots / separate snapshots ↗</a><span>ASSESSMENT / ANALYZED · NOT A NEW DIAGNOSTIC RUN</span></footer></main>
+<script src="i18n.js?v=20261014-1"></script><script src="convergence.js?v=20261020-1"></script>
+<script>
+(()=>{const render=()=>{const zh=document.documentElement.lang.startsWith('zh');document.querySelectorAll('[data-cv-en]').forEach(n=>n.textContent=n.getAttribute(zh?'data-cv-zh':'data-cv-en'));document.title=zh?'Signal Atlas · 收敛诊断':'Signal Atlas · Convergence diagnostics';};document.querySelectorAll('[data-language]').forEach(b=>b.addEventListener('click',()=>window.AtlasI18n.setLanguage(b.dataset.language)));new MutationObserver(render).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});window.AtlasI18n.setLanguage(window.AtlasI18n.language);render();})();
+</script></body></html>

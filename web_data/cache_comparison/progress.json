@@ -1,22 +1,22 @@
 {
-  "snapshot_hkt": "2026-10-14 10:46 HKT",
+  "snapshot_hkt": "2026-10-18 19:37 HKT",
   "status": "EXPLORATORY_NOT_CONVERGED",
   "chains": [
     {
       "ensemble": 0,
-      "job_id": "2194539_0",
-      "scheduler_state": "RUNNING",
-      "node": "chpc-cn061",
-      "stored_steps": 1450,
+      "job_id": "2194556_0",
+      "scheduler_state": "COMPLETED",
+      "node": "chpc-cn057",
+      "stored_steps": 2000,
       "target_steps": 2000,
-      "segment_steps": 450,
-      "previous_segment_acceptance": 0.25765625000000003,
-      "previous_seconds_per_step": 668.0192385118548,
-      "latest_segment_acceptance": 0.2666666666666666,
+      "segment_steps": 500,
+      "previous_segment_acceptance": 0.26837500000000003,
+      "previous_seconds_per_step": 671.7557543640006,
+      "latest_segment_acceptance": 0.2621875,
       "monitor_sha256": "02be1962d43f5f442ef2a969a584ae35903468ed4134bde4e8e149692d0c4b6d",
       "segment_target_steps": 500,
       "previous_job_id": "2176971_0",
-      "job_id_raw": "2194539",
+      "job_id_raw": "2194556",
       "worker_identity_count": 16
     },
     {
@@ -60,9 +60,9 @@
   "plot_snapshot_stored_steps_per_ensemble": 1000,
   "automatic_live_polling": false,
   "provenance": {
-    "scheduler_source": "squeue2194539_0 RUNNING,chpc-cn061;2194556 pending Dependency; atomic progress JSON only, no active HDF5",
-    "review": "fixed_joint1000_review_20261010",
-    "analysis_sha256": "53fcc4595db13195f1e16d355a5c893286335b9fd9b927cd1f5943018a95aabc"
+    "scheduler_source": "sacct2194556_0 COMPLETED0:0; closed2000 HDF5/pickle/RNG/blob validation passed; no active reads",
+    "review": "fixed_joint2000_review_20261018",
+    "diagnostics_sha256": "301e19df71944384158a95f49d198fd7f53c4be7dfab8bf1aa300cc0503d8bf9"
   },
   "next_segment": {
     "planned_target_steps": 2000,
@@ -73,18 +73,24 @@
     "dependency": "afterok:2194539",
     "segment_steps_each": 500,
     "time_hours_each": 120,
-    "estimated_compute_hours": 186
+    "estimated_compute_hours": 186,
+    "completed": true
   },
   "convergence": {
     "status": "EXPLORATORY_NOT_CONVERGED",
-    "max_rank_folded_rhat": 2.244853936476457,
-    "min_length_over_IAT": 7.763627783743994,
-    "zero_stuck_walkers": [
-      0,
-      0
-    ],
-    "diagnostics": "web_data/joint_repaired1000/diagnostics.json"
+    "independent_2000_rhat_available": false,
+    "recent_equal1000_max_rhat": 2.203330458708539,
+    "single2000_min_length_over_IAT": 11.959082897105608,
+    "diagnostics": "web_data/convergence/diagnostics-20261018.json"
   },
   "sampling_policy": "CONTINUE_ENSEMBLE0_ONLY_KEEP_ENSEMBLE1_AT1000",
-  "walker_snapshot": "web_data/walkers1000/index.json"
+  "walker_snapshot": "web_data/walkers1000/index.json",
+  "plot_snapshot_ensembles": [
+    0,
+    1
+  ],
+  "walker_snapshot_steps_per_ensemble": [
+    1000,
+    1000
+  ]
 }

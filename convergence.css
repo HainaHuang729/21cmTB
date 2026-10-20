@@ -1,0 +1,25 @@
+.cv-panel { margin:28px 0; padding:clamp(18px,3vw,36px); border-top:2px solid var(--red); border-bottom:1px solid var(--line); background:var(--surface); }
+.cv-heading h2 { margin:14px 0; font:700 clamp(28px,3vw,44px)/1.15 var(--font-display); letter-spacing:-.035em; }
+.cv-panel p,.cv-panel li { font-size:16px; line-height:1.75; }
+.cv-panel .technical-label { font:12px/1.6 var(--font-mono); letter-spacing:.06em; }
+.cv-stats { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px; margin:28px 0; }
+.cv-stat { border-top:1px solid var(--line-strong); padding-top:14px; min-width:0; }
+.cv-stat strong { display:block; font:600 clamp(28px,3vw,40px)/1.3 var(--font-display); margin:12px 0; }
+.cv-panel .cv-note { color:var(--ink-secondary); font-size:14px; line-height:1.7; }
+.cv-table-scroll { overflow-x:auto; margin:28px 0; }
+.cv-table-scroll table { border-collapse:collapse; width:100%; min-width:840px; font-size:15px; font-variant-numeric:tabular-nums; }
+.cv-table-scroll caption { text-align:left; padding-bottom:18px; font-size:14px; color:var(--ink-secondary); line-height:1.65; }
+.cv-table-scroll th,.cv-table-scroll td { text-align:right; padding:14px 12px; border-bottom:1px solid var(--line); vertical-align:top; }
+.cv-table-scroll th:first-child { text-align:left; white-space:nowrap; }
+.cv-table-scroll thead { border-top:1px solid var(--line-strong); }
+.cv-table-scroll small { display:block; font:10px/1.6 var(--font-mono); margin-top:4px; letter-spacing:.06em; }
+.cv-pass { color:#326470; }
+.cv-fail { color:#943f35; }
+.cv-panel details { border-block:1px solid var(--line); padding:16px 0; }
+.cv-panel summary { cursor:pointer; font-size:17px; }
+.cv-gates { padding-top:26px; }
+.cv-panel h3 { font-size:23px; margin:12px 0; }
+.cv-gap { border-left:2px solid var(--red); padding-left:22px; margin:32px 0; }
+.cv-panel .system-action { max-width:100%; white-space:normal; overflow-wrap:anywhere; }
+@media(max-width:1000px){.cv-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.cv-panel{padding:20px 14px}.cv-stats{gap:20px 14px}.cv-panel .technical-label{font-size:10px}.cv-heading h2{font-size:30px}.cv-stat strong{font-size:29px}.cv-panel p,.cv-panel li{font-size:15px}.cv-table-scroll th,.cv-table-scroll td{padding:12px 10px}}
